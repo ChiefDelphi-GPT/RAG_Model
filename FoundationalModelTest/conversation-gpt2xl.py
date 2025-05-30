@@ -13,7 +13,7 @@ if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
 # Your input text
-input_text = "how are you doing today?"
+input_text = "Make this into a more coherent and gramatically correct sentence: hi my name is joe, how are you today, tell me abt urself and how you are"
 
 # Tokenize
 inputs = tokenizer(input_text, return_tensors="pt")
