@@ -11,7 +11,7 @@ import torch
 # "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"    - 70B parameters (~140GB RAM)
 # "deepseek-ai/DeepSeek-R1"                       - 671B parameters (~1.3TB RAM - requires cluster)
 
-model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"  # Good balance of quality and resource usage
+model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"  # Good balance of quality and resource usage
 
 # Determine device
 if torch.backends.mps.is_available():
@@ -65,7 +65,7 @@ with torch.no_grad():
     outputs = model.generate(
         input_ids,
         attention_mask=attention_mask,
-        max_new_tokens=200,  # Increased for reasoning responses
+        max_new_tokens=1500,  # Increased for reasoning responses
         temperature=0.7,
         do_sample=True,
         top_p=0.9,
