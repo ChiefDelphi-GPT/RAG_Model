@@ -3,7 +3,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 # Load Qwen2.5-72B-Instruct (largest version - excellent conversation quality)
-model_name = "Qwen/Qwen2.5-3B-Instruct" # you can use "Qwen/Qwen2.5-3B-Instruct", # "Qwen/Qwen2.5-7B-Instruct", "Qwen/Qwen2.5-14B-Instruct", "Qwen/Qwen2.5-32B-Instruct"
+model_name = "Qwen/Qwen2.5-7B-Instruct" # you can use "Qwen/Qwen2.5-3B-Instruct", # "Qwen/Qwen2.5-7B-Instruct", "Qwen/Qwen2.5-14B-Instruct", "Qwen/Qwen2.5-32B-Instruct"
 # Determine device
 if torch.backends.mps.is_available():
     device = "mps"
