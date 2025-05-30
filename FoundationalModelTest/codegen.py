@@ -14,7 +14,7 @@ try:
         tokenizer.pad_token = tokenizer.eos_token
     
     # Input for code generation
-    input_text = "how are you doing today?"
+    input_text = "write me a function that computes the nth Fibonacci number in Python"
     
     # Tokenize
     inputs = tokenizer(input_text, return_tensors="pt")
