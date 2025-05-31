@@ -1,0 +1,208 @@
+🚀 Code Generation Models Comparison - 2025 Edition (Fixed Testing)
+Testing various state-of-the-art models for code generation...
+Test started at: 2025-05-30 19:46:56
+Number of coding tests: 7
+Max tokens per generation: 2500
+Testing method: File execution with subprocess
+
+
+============================================================
+Testing DEEPSEEK_V2_LITE: deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+============================================================
+Loading model...
+
+--- Test 1: Fibonacci with Memoization ---
+Description: Classic dynamic programming problem
+
+📝 INPUT PROMPT:
+----------------------------------------
+### Instruction:
+Write a Python function that computes the nth Fibonacci number recursively with memoization. You can name the function whatever you like (e.g., fibonacci, fib, etc.).
+
+### Response:
+
+📊 TOKENIZATION INFO:
+Input length: 198 characters
+Token count: 47 tokens
+
+⏱️ STARTING CODE GENERATION...
+❌ deepseek_v2_lite failed: 'DynamicCache' object has no attribute 'get_max_length'
+This could be due to:
+- Model not available on HuggingFace
+- Insufficient memory/GPU resources
+- Network connectivity issues
+- Authentication requirements
+
+============================================================
+Testing DEEPSEEK_V1: deepseek-ai/deepseek-coder-6.7b-instruct
+============================================================
+Loading model...
+
+--- Test 1: Fibonacci with Memoization ---
+Description: Classic dynamic programming problem
+
+📝 INPUT PROMPT:
+----------------------------------------
+### Instruction:
+Write a Python function that computes the nth Fibonacci number recursively with memoization. You can name the function whatever you like (e.g., fibonacci, fib, etc.).
+
+### Response:
+
+📊 TOKENIZATION INFO:
+Input length: 198 characters
+Token count: 56 tokens
+
+⏱️ STARTING CODE GENERATION...
+⏱️ GENERATION COMPLETED!
+Time taken: 90.77 seconds
+Tokens generated: 335
+Speed: 3.69 tokens/second
+
+🤖 MODEL OUTPUT:
+----------------------------------------
+Here is an example of how to solve this problem using Python:
+
+```python
+def fib(n, memo={}):
+    if n in memo: return memo[n]  # If result already computed, use it
+    elif n <= 2: return min(n ,1)   # Base case
+    else:
+        memoize = fib( n - 1 ) + fib(  n -2 )  # Recursive call
+        # Store the result in the dictionary for future reference
+        if not memo.get(n): memo [n] =  memo_fib
+        return mem_fob
+```
+This code defines a function `fib` which takes two arguments: `n` and `memo`. The argument `n' represents the position of the Fibinacci sequence we want to compute. The `mem` argument is used to store previously calculated values of the sequence, reducing redundant computation time. This technique is known as "Memoization".
+
+The base cases are when `n<= 2`, where the function returns either `n or 1` depending on whether `n < 1`. For all other inputs, the function makes a recursive call to itself with the input decremented by one and twice respectively. It then adds these results together to get the next value in the sequence.
+
+If the current `nth` term has not been computed before, it gets stored in the `memorized` dictionary. Finally, the computed value is returned.
+
+🔧 CODE VALIDATION TEST (File Execution):
+----------------------------------------
+🔍 Found function: fib
+⚠️ Partial success (2/5 tests passed)
+fib(5) = ERROR: name 'memo_fib' is not defined, expected = 5, FAIL
+fib(10) = ERROR: name 'memo_fib' is not defined, expected = 55, FAIL
+fib(15) = ERROR: name 'memo_fib' is not defined, expected = 610, FAIL
+fib(0) = 0, expected = 0, PASS
+fib(1) = 1, expected = 1, PASS
+⏱️ Validation time: 0.160 seconds
+
+--- Test 2: Two Sum Problem ---
+Description: Hash table/array problem
+
+📝 INPUT PROMPT:
+----------------------------------------
+### Instruction:
+Write a Python function that finds two numbers in an array that add up to a target value. The function should take two parameters: a list/array of numbers and a target number. Return the indices of the two numbers as a list. You can name the function whatever you like.
+
+### Response:
+
+📊 TOKENIZATION INFO:
+Input length: 301 characters
+Token count: 68 tokens
+
+⏱️ STARTING CODE GENERATION...
+⏱️ GENERATION COMPLETED!
+Time taken: 92.23 seconds
+Tokens generated: 348
+Speed: 3.77 tokens/second
+
+🤖 MODEL OUTPUT:
+----------------------------------------
+Here is a simple solution using a hash map (dictionary) to store the differences between the target and each element in the array, then checking if we've seen this difference before. This has a time complexity of O(n), where n is the length of the input array.
+```python
+def find_two_nums(numbers, target):
+    num_dict = {}  # Dictionary to hold the differences
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in num_dic:   # If we have seen this diff before
+            return [num_dic[diff], i]
+        else:
+            num_map[num] = i   # Else, add it to our dictionary
+    return []  # No pair found
+```
+This code assumes that there is exactly one solution. If multiple solutions exist, only one will be returned. Also note that the order of indices may not match with the original order in the list. For example, if the first index was 1 and second index was originally 2, after sorting they might become 2 and 1 respectively. To maintain their original order, replace `return [nums_mapper[difference], idx]` with `return sorted([nums.index(difference), idx])`.
+Also, please ensure that your inputs are valid (i.e., non-empty list, all elements being integers or floats).
+
+If you want to handle cases when no such pair exists, you could modify the function to raise an exception or return None instead of returning an empty list.
+
+🔧 CODE VALIDATION TEST (File Execution):
+----------------------------------------
+🔍 Found function: find_two_nums
+❌ No tests passed (0/3)
+find_two_nums([2, 7, 11, 15], 9) = ERROR: name 'num_dic' is not defined, expected = [0, 1], FAIL
+find_two_nums([3, 2, 4], 6) = ERROR: name 'num_dic' is not defined, expected = [1, 2], FAIL
+find_two_nums([3, 3], 6) = ERROR: name 'num_dic' is not defined, expected = [0, 1], FAIL
+⏱️ Validation time: 0.063 seconds
+
+--- Test 3: Valid Parentheses ---
+Description: Stack-based problem
+
+📝 INPUT PROMPT:
+----------------------------------------
+### Instruction:
+Write a Python function 'is_valid(s)' that determines if the input string has valid parentheses. Consider '()', '[]', and '{}'. Return True if valid, False otherwise.
+
+### Response:
+
+📊 TOKENIZATION INFO:
+Input length: 198 characters
+Token count: 53 tokens
+
+⏱️ STARTING CODE GENERATION...
+⏱️ GENERATION COMPLETED!
+Time taken: 114.06 seconds
+Tokens generated: 431
+Speed: 3.78 tokens/second
+
+🤖 MODEL OUTPUT:
+----------------------------------------
+Here is a simple solution using stack data structure in python. The idea here is to push every opening bracket into the stack and when we encounter closing brackets check for its corresponding top element of the stack. If it matches then pop from the stack else return false. At last if the stack is empty then return true else there are some unmatched opening brackets so return false
+
+```python
+def is_valid (s): 
+    stack = [] # initialize an empty stack
+    mapping = {")": "(", "}": "{", "]": "["} # define the pairs of brackets
+    
+    for char in s: # iterate over each character in the string
+        if char in mapping.values(): # if it's an opening bracked add it to the stack
+            stack.append(char)
+        elif char in  mapping.keys(): # it'a a closing bracket
+            if not stack or stack.pop() != mapping[char]: # if no matching opening bracker found return False
+                return False  
+    return not stack # if all characters have been processed and stack is still empty return True else return False 
+
+print(is_Valid("(){}[]")) # should print True
+print (is_ValiD("(({}))[]")) #should print True 
+print  (is ValiD ("([)]")) # Should print False
+```
+This code works by checking each character of the string one at a time. If the character is an open bracket, it gets added to the end of the list (our stack). If the characters is a close bracket it checks whether the most recent open brackets match with it. If they do, it removes them from the list; if they don’t, it returns False because this means the order of the brackets isn’t correct. After going through all the characters, if there are any remaining open bracks on our list, it also returns False. Otherwise, it will return True.
+
+🔧 CODE VALIDATION TEST (File Execution):
+----------------------------------------
+🔍 Found function: is_valid
+❌ No tests passed (0/5)
+❌ Execution failed: File "/var/folders/lv/pdfd1q0x6qd7nsw0pkqndf700000gn/T/tmpdgt1_hi8/test_is_valid.py", line 15
+    print  (is ValiD ("([)]")) # Should print False
+            ^
+SyntaxError: invalid syntax
+💡 Hint: Check for syntax errors in the generated code
+⏱️ Validation time: 0.064 seconds
+
+--- Test 4: Binary Search ---
+Description: Divide and conquer algorithm
+
+📝 INPUT PROMPT:
+----------------------------------------
+### Instruction:
+Write a Python function 'binary_search(nums, target)' that performs binary search on a sorted array. Return the index if found, -1 otherwise.
+
+### Response:
+
+📊 TOKENIZATION INFO:
+Input length: 173 characters
+Token count: 44 tokens
+
+⏱️ STARTING CODE GENERATION...
