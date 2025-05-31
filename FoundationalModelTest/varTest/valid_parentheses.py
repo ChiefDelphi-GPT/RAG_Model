@@ -1,35 +1,33 @@
-# Generated code for binary_search
-def binary_search(sorted_list, target):
-    left, right = 0, len(sorted_list) - 1
+# Generated code for valid_parentheses
+def is_valid_parentheses(s):
+    stack = []
+    mapping = {')': '(', '}': '{', ']': '['}
     
-    while left <= right:
-        mid = left + (right - left) // 2
-        
-        if sorted_list[mid] == target:
-            return mid
-        elif sorted_list[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1
+    for char in s:
+        if char in mapping.values():
+            stack.append(char)
+        elif char in mapping:
+            if not stack or mapping[char] != stack.pop():
+                return False
     
-    return -1
+    return not stack
 
 # Test cases
 def run_tests():
     test_results = []
     
-    for arr, target, expected in test_cases:
+    for s, expected in test_cases:
         try:
-            result = binary_search(arr, target)
-            test_results.append((f"binary_search({arr}, {target})", result, expected, result == expected))
+            result = is_valid_parentheses(s)
+            test_results.append((f"is_valid_parentheses('{s}')", result, expected, result == expected))
         except Exception as e:
-            test_results.append((f"binary_search({arr}, {target})", f"ERROR: {e}", expected, False))
+            test_results.append((f"is_valid_parentheses('{s}')", f"ERROR: {e}", expected, False))
 
     return test_results
 
 if __name__ == "__main__":
     import traceback
-    test_cases = [([1, 2, 3, 4, 5], 3, 2), ([1, 2, 3, 4, 5], 6, -1), ([1], 1, 0), ([], 1, -1)]
+    test_cases = [('()', True), ('()[]{}', True), ('(]', False), ('([)]', False), ('{[]}', True), ('', True)]
     try:
         results = run_tests()
         

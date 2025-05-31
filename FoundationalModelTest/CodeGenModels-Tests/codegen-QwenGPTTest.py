@@ -20,7 +20,7 @@ import traceback
 class QwenCodeTester:
     def __init__(self, model_name):
         self.model_name = model_name
-        self.base_dir = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/FoundationalModelTest/varTest"
+        self.base_dir = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/FoundationalModelTest/varTest/"
         
         # Create base directory if it doesn't exist
         os.makedirs(self.base_dir, exist_ok=True)

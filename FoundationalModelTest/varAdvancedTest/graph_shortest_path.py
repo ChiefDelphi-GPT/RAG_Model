@@ -8,54 +8,48 @@ import heapq
 
 def dijkstra_shortest_path(graph, start):
     """
-    Compute the shortest path from a start node to all other nodes in a weighted graph.
+    Find the shortest path from a start node to all other nodes in a weighted graph.
     
-    Args:
-    graph: A dictionary representing the graph where each key is a node and its value is a list of tuples,
-           each tuple containing a neighboring node and the weight of the edge connecting them.
-    start: The starting node from which to compute the shortest paths.
-    
-    Returns:
-    A dictionary where keys are nodes and values are the shortest distance from the start node to the key node.
-    Unreachable nodes will have a distance of float('inf').
+    :param graph: A dictionary representing the graph where keys are nodes and values are lists of tuples (neighbor, weight).
+    :param start: The starting node.
+    :return: A dictionary where keys are nodes and values are the shortest distances from the start node.
     """
-    # Priority queue to store (distance, node) pairs
-    priority_queue = []
-    # Dictionary to store the shortest known distance to each node
+    # Priority queue to store the nodes to be explored
+    pq = []
+    heapq.heappush(pq, (0, start))
+    
+    # Dictionary to store the shortest distance from the start node to each node
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
     
-    # Push the start node into the priority queue
-    heapq.heappush(priority_queue, (0, start))
-    
-    while priority_queue:
-        current_distance, current_node = heapq.heappop(priority_queue)
+    while pq:
+        current_distance, current_node = heapq.heappop(pq)
         
-        # Nodes can get added to the priority queue multiple times. We only process a vertex the first time we remove it from the priority queue.
+        # Nodes can get added to the priority queue multiple times. We only
+        # process a vertex the first time we remove it from the priority queue.
         if current_distance > distances[current_node]:
             continue
         
-        # Explore each neighbor of the current node
-        for neighbor, weight in graph.get(current_node, []):
+        for neighbor, weight in graph[current_node]:
             distance = current_distance + weight
             
             # Only consider this new path if it's better
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
+                heapq.heappush(pq, (distance, neighbor))
     
     return distances
 
 # Example usage:
-graph = {
-    'A': [('B', 1), ('C', 4)],
-    'B': [('A', 1), ('C', 2), ('D', 5)],
-    'C': [('A', 4), ('B', 2), ('D', 1)],
-    'D': [('B', 5), ('C', 1)]
-}
-
-start_node = 'A'
-print(dijkstra_shortest_path(graph, start_node))
+if __name__ == "__main__":
+    graph = {
+        'A': [('B', 1), ('C', 4)],
+        'B': [('A', 1), ('C', 2), ('D', 5)],
+        'C': [('A', 4), ('B', 2), ('D', 1)],
+        'D': [('B', 5), ('C', 1)]
+    }
+    start_node = 'A'
+    print(dijkstra_shortest_path(graph, start_node))
 
 # Test cases
 def run_tests():

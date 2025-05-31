@@ -5,14 +5,9 @@ from collections import defaultdict
 import heapq
 
 def longest_common_subsequence(str1: str, str2: str) -> int:
-    """
-    Returns the length of the longest common subsequence between two strings.
+    m = len(str1)
+    n = len(str2)
     
-    :param str1: First input string
-    :param str2: Second input string
-    :return: Length of the longest common subsequence
-    """
-    m, n = len(str1), len(str2)
     # Create a 2D array to store lengths of longest common subsequence.
     dp = [[0] * (n + 1) for _ in range(m + 1)]
     
@@ -24,17 +19,13 @@ def longest_common_subsequence(str1: str, str2: str) -> int:
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
     
+    # The length of the longest common subsequence is in dp[m][n]
     return dp[m][n]
 
 def reconstruct_lcs(str1: str, str2: str) -> str:
-    """
-    Reconstructs the longest common subsequence between two strings.
+    m = len(str1)
+    n = len(str2)
     
-    :param str1: First input string
-    :param str2: Second input string
-    :return: The longest common subsequence as a string
-    """
-    m, n = len(str1), len(str2)
     # Create a 2D array to store lengths of longest common subsequence.
     dp = [[0] * (n + 1) for _ in range(m + 1)]
     
@@ -59,15 +50,14 @@ def reconstruct_lcs(str1: str, str2: str) -> str:
         else:
             j -= 1
     
-    # The reconstructed LCS is built backwards, so reverse it
-    lcs.reverse()
-    return ''.join(lcs)
+    # The LCS is built backwards, so reverse it before returning
+    return ''.join(reversed(lcs))
 
 # Example usage:
 str1 = "AGGTAB"
 str2 = "GXTXAYB"
 print("Length of LCS:", longest_common_subsequence(str1, str2))  # Output: 4
-print("LCS:", reconstruct_lcs(str1, str2))  # Output: "GTAB"
+print("Longest Common Subsequence:", reconstruct_lcs(str1, str2))  # Output: GTAB
 
 # Test cases
 def run_tests():

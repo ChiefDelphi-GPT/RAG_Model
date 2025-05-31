@@ -4,36 +4,34 @@ import time
 from collections import defaultdict
 import heapq
 
-import re
-
-def evaluate_expression(expression):
-    # Define a regular expression pattern for valid characters in the expression
-    valid_chars_pattern = r'^[0-9+\-*/().\s]+$'
-    
-    # Check if the expression contains only valid characters
-    if not re.match(valid_chars_pattern, expression):
-        return "Error: Invalid characters in expression."
-    
+def evaluate_expression(expression: str) -> float:
     try:
-        # Evaluate the expression safely
+        # Replace division symbols for eval compatibility
+        expression = expression.replace('÷', '/')
+        
+        # Evaluate the expression using eval
         result = eval(expression)
         
-        # If the result is a complex number (e.g., due to division by zero), return 'Error'
-        if isinstance(result, complex) or result == float('inf') or result == float('-inf'):
-            return "Error"
-        
-        return float(result)
+        return result
     
     except ZeroDivisionError:
-        return "Error: Division by zero."
+        return 'Error'
+    
     except Exception as e:
-        return f"Error: {str(e)}"
+        return f'Error: {e}'
 
 # Example usage:
-print(evaluate_expression("3 + 5 * (10 - 4)"))  # Output: 33.0
-print(evaluate_expression("10 / 0"))           # Output: Error: Division by zero.
-print(evaluate_expression("2 + 2 * 2"))        # Output: 6.0
-print(evaluate_expression("invalid input!"))   # Output: Error: Invalid characters in expression.
+expression = "3 + 5 * (2 - 8)"
+result = evaluate_expression(expression)
+print(result)  # Output should be -29.0
+
+expression = "10 ÷ 0"
+result = evaluate_expression(expression)
+print(result)  # Output should be 'Error'
+
+expression = "invalid expression"
+result = evaluate_expression(expression)
+print(result)  # Output should be 'Error: invalid syntax'
 
 # Test cases
 def run_tests():

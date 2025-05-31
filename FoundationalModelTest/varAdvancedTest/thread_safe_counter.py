@@ -22,7 +22,7 @@ class ThreadSafeCounter:
             self.value -= 1
 
     def get_value(self):
-        """Return the current value of the counter."""
+        """Get the current value of the counter."""
         with self.lock:
             return self.value
 
@@ -33,30 +33,40 @@ class ThreadSafeCounter:
 
     def batch_operation(self, operations):
         """
-        Perform a series of operations atomically.
-
-        :param operations: List of operations ('inc', 'dec', 'reset')
-        """
-        if not isinstance(operations, list):
-            raise ValueError("Operations must be provided as a list.")
-
-        valid_operations = {'inc': self.increment, 'dec': self.decrement, 'reset': self.reset}
+        Perform a batch of operations atomically.
         
-        for operation in operations:
-            if operation not in valid_operations:
-                raise ValueError(f"Invalid operation '{operation}'. Valid operations are 'inc', 'dec', 'reset'.")
-            
-            # Perform each operation within the lock to maintain atomicity
-            with self.lock:
-                valid_operations[operation]()
+        :param operations: List of operations ['inc', 'dec', 'reset']
+        """
+        with self.lock:
+            for operation in operations:
+                if operation == 'inc':
+                    self.increment()
+                elif operation == 'dec':
+                    self.decrement()
+                elif operation == 'reset':
+                    self.reset()
+                else:
+                    raise ValueError(f"Invalid operation: {operation}")
 
 # Example usage:
 if __name__ == "__main__":
     counter = ThreadSafeCounter()
     
-    # Increment twice, then decrement once, and finally reset
-    counter.batch_operation(['inc', 'inc', 'dec', 'reset'])
-    print(counter.get_value())  # Output should be 0
+    # Increment the counter
+    counter.increment()
+    print("After increment:", counter.get_value())  # Output: 1
+    
+    # Decrement the counter
+    counter.decrement()
+    print("After decrement:", counter.get_value())  # Output: 0
+    
+    # Reset the counter
+    counter.reset()
+    print("After reset:", counter.get_value())  # Output: 0
+    
+    # Batch operations
+    counter.batch_operation(['inc', 'inc', 'dec'])
+    print("After batch operations:", counter.get_value())  # Output: 0
 
 # Test cases
 def run_tests():

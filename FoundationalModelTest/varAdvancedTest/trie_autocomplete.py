@@ -13,7 +13,7 @@ class TrieAutocomplete:
     def __init__(self):
         self.root = TrieNode()
 
-    def insert(self, word):
+    def insert(self, word: str) -> None:
         """Inserts a word into the trie."""
         node = self.root
         for char in word:
@@ -22,52 +22,53 @@ class TrieAutocomplete:
             node = node.children[char]
         node.is_end_of_word = True
 
-    def search(self, word):
-        """Searches for a word in the trie."""
+    def search(self, word: str) -> bool:
+        """Returns if the word is in the trie."""
         node = self._search_node(word)
         return node is not None and node.is_end_of_word
 
-    def starts_with(self, prefix):
-        """Checks if there is any word in the trie that starts with the given prefix."""
+    def starts_with(self, prefix: str) -> bool:
+        """Returns if there is any word in the trie that starts with the given prefix."""
         return self._search_node(prefix) is not None
 
-    def get_all_words_with_prefix(self, prefix):
-        """Returns a list of all words that start with the given prefix."""
+    def get_all_words_with_prefix(self, prefix: str) -> list:
+        """Returns all words in the trie that start with the given prefix."""
         node = self._search_node(prefix)
         if node is None:
             return []
-        
-        result = []
-        self._collect_words(node, prefix, result)
-        return result
 
-    def _search_node(self, prefix):
-        """Helper method to find the node corresponding to the end of the prefix."""
+        words = []
+        self._collect_words(node, prefix, words)
+        return words
+
+    def _search_node(self, word: str) -> TrieNode:
+        """Helper method to find the node corresponding to the end of the word."""
         node = self.root
-        for char in prefix:
+        for char in word:
             if char not in node.children:
                 return None
             node = node.children[char]
         return node
 
-    def _collect_words(self, node, current_prefix, result):
-        """Recursively collects all words starting from the given node."""
+    def _collect_words(self, node: TrieNode, prefix: str, words: list) -> None:
+        """Helper method to collect all words starting from the given node."""
         if node.is_end_of_word:
-            result.append(current_prefix)
-        
+            words.append(prefix)
+
         for char, child_node in node.children.items():
-            self._collect_words(child_node, current_prefix + char, result)
+            self._collect_words(child_node, prefix + char, words)
 
 # Example usage:
 trie = TrieAutocomplete()
-words = ["apple", "app", "application", "banana", "band", "bandana"]
+trie.insert("hello")
+trie.insert("hell")
+trie.insert("heaven")
+trie.insert("helium")
 
-for word in words:
-    trie.insert(word)
-
-print(trie.search("apple"))  # Output: True
-print(trie.starts_with("app"))  # Output: True
-print(trie.get_all_words_with_prefix("ban"))  # Output: ['banana', 'band', 'bandana']
+print(trie.search("hello"))  # Output: True
+print(trie.search("world"))  # Output: False
+print(trie.starts_with("he"))  # Output: True
+print(trie.get_all_words_with_prefix("he"))  # Output: ['hello', 'hell', 'heaven']
 
 # Test cases
 def run_tests():

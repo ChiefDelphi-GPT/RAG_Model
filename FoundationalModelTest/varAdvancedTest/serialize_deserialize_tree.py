@@ -11,52 +11,35 @@ class TreeNode:
         self.right = right
 
 def serialize_binary_tree(root):
-    """Serialize a binary tree to a string."""
-    result = []
+    """Encodes a tree to a single string."""
+    def encode(node):
+        if node is None:
+            return "None,"
+        return str(node.val) + "," + encode(node.left) + encode(node.right)
     
-    def preorder(node):
-        if not node:
-            result.append('#')  # Use '#' to represent None nodes
-            return
-        result.append(str(node.val))
-        preorder(node.left)
-        preorder(node.right)
-    
-    preorder(root)
-    return ','.join(result)
+    return encode(root)
 
 def deserialize_binary_tree(data):
-    """Deserialize a string to a binary tree."""
-    from collections import deque
-    
-    def build_tree(values):
+    """Decodes your encoded data to tree."""
+    def decode(values):
         value = next(values)
-        if value == '#':
+        if value == "None":
             return None
         node = TreeNode(int(value))
-        node.left = build_tree(values)
-        node.right = build_tree(values)
+        node.left = decode(values)
+        node.right = decode(values)
         return node
     
-    values = iter(data.split(','))
-    return build_tree(values)
+    values = iter(data.split(","))
+    return decode(values)
 
 # Example usage:
-if __name__ == "__main__":
-    # Create a sample binary tree
-    root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.right.left = TreeNode(4)
-    root.right.right = TreeNode(5)
+root = TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))
+serialized = serialize_binary_tree(root)
+print("Serialized:", serialized)
 
-    # Serialize the binary tree
-    serialized = serialize_binary_tree(root)
-    print("Serialized:", serialized)
-
-    # Deserialize the binary tree
-    deserialized_root = deserialize_binary_tree(serialized)
-    print("Deserialized Root Value:", deserialized_root.val)  # Should print 1
+deserialized = deserialize_binary_tree(serialized)
+print("Deserialized root value:", deserialized.val)
 
 # Test cases
 def run_tests():

@@ -22,7 +22,8 @@ import random
 class USACOPlatinumTester:
     def __init__(self, model_name):
         self.model_name = model_name
-        self.base_dir = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/USACOPlatinumTest/"
+        self.base_dir = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/FoundationalModelTest/varPlatinumTest"
+
         
         # Create base directory if it doesn't exist
         os.makedirs(self.base_dir, exist_ok=True)

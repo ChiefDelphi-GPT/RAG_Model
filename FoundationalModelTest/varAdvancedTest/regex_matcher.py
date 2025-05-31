@@ -5,38 +5,30 @@ from collections import defaultdict
 import heapq
 
 def regex_match(text: str, pattern: str) -> bool:
-    def match_here(text_index: int, pattern_index: int) -> bool:
-        # If we've reached the end of the pattern, check if we've also reached the end of the text
-        if pattern_index == len(pattern):
-            return text_index == len(text)
+    def match_here(s: str, p: str) -> bool:
+        """Match text starting at s against pattern starting at p."""
+        if not p:
+            return not s
         
-        # Check for '*' in the pattern
-        if pattern_index + 1 < len(pattern) and pattern[pattern_index + 1] == '*':
-            # '*' means zero or more of the preceding element
-            # Try matching zero occurrences of the current character
-            if match_here(text_index, pattern_index + 2):
-                return True
-            # Try matching one or more occurrences of the current character
-            while text_index < len(text) and (pattern[pattern_index] == '.' or text[text_index] == pattern[pattern_index]):
-                if match_here(text_index + 1, pattern_index + 2):
-                    return True
-                text_index += 1
-            return False
+        first_match = bool(s) and (p[0] == s[0] or p[0] == '.')
         
-        # Check for '.' or exact character match
-        if pattern[pattern_index] == '.' or (text_index < len(text) and text[text_index] == pattern[pattern_index]):
-            return match_here(text_index + 1, pattern_index + 1)
-        
-        return False
-
-    return match_here(0, 0)
+        if len(p) >= 2 and p[1] == '*':
+            # Two cases:
+            # 1. Zero occurrences of the preceding element
+            # 2. One or more occurrences of the preceding element
+            return (match_here(s, p[2:]) or 
+                    (first_match and match_here(s[1:], p)))
+        else:
+            return first_match and match_here(s[1:], p[1:])
+    
+    return match_here(text, pattern)
 
 # Example usage:
-print(regex_match("aab", "c*a*b"))  # True
+print(regex_match("aa", "a"))       # False
+print(regex_match("aa", "a*"))      # True
+print(regex_match("ab", ".*"))     # True
+print(regex_match("aab", "c*a*b"))   # True
 print(regex_match("mississippi", "mis*is*p*."))  # False
-print(regex_match("ab", ".*"))  # True
-print(regex_match("abc", "a.c"))  # True
-print(regex_match("abc", "a*c"))  # True
 
 # Test cases
 def run_tests():

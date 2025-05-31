@@ -1,18 +1,9 @@
-# Generated code for valid_parentheses
-def is_valid_parentheses(s: str) -> bool:
-    stack = []
-    mapping = {')': '(', '}': '{', ']': '['}
-    
-    for char in s:
-        if char in mapping.values():
-            stack.append(char)
-        elif char in mapping.keys():
-            if stack == [] or mapping[char] != stack.pop():
-                return False
-        else:
-            return False
-    
-    return stack == []
+# Generated code for palindrome_check
+import re
+
+def is_palindrome(s):
+    cleaned = re.sub(r'[^A-Za-z0-9]', '', s).lower()
+    return cleaned == cleaned[::-1]
 
 # Test cases
 def run_tests():
@@ -20,16 +11,16 @@ def run_tests():
     
     for s, expected in test_cases:
         try:
-            result = is_valid_parentheses(s)
-            test_results.append((f"is_valid_parentheses('{s}')", result, expected, result == expected))
+            result = is_palindrome(s)
+            test_results.append((f"is_palindrome('{s}')", result, expected, result == expected))
         except Exception as e:
-            test_results.append((f"is_valid_parentheses('{s}')", f"ERROR: {e}", expected, False))
+            test_results.append((f"is_palindrome('{s}')", f"ERROR: {e}", expected, False))
 
     return test_results
 
 if __name__ == "__main__":
     import traceback
-    test_cases = [('()', True), ('()[]{}', True), ('(]', False), ('([)]', False), ('{[]}', True), ('', True)]
+    test_cases = [('A man a plan a canal Panama', True), ('race a car', False), ('', True), ('Madam', True), ("No 'x' in Nixon", True)]
     try:
         results = run_tests()
         

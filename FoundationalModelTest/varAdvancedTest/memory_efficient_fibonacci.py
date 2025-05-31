@@ -11,50 +11,26 @@ def fibonacci_matrix(n):
     Compute the nth Fibonacci number using matrix exponentiation.
     
     Args:
-    n (int): The position in the Fibonacci sequence (0-indexed).
-    
+        n (int): The position of the Fibonacci number to compute.
+
     Returns:
-    int: The nth Fibonacci number.
+        int: The nth Fibonacci number.
     """
-    if n < 0:
-        raise ValueError("n must be a non-negative integer")
-    if n == 0:
+    if n <= 0:
         return 0
-    if n == 1:
+    elif n == 1:
         return 1
     
-    # Transformation matrix for Fibonacci sequence
     F = np.array([[1, 1], [1, 0]], dtype=object)
-    
-    # Function to multiply two matrices
-    def matrix_multiply(A, B):
-        return np.dot(A, B) % 10**9 + 7  # Using modulo to prevent overflow
-    
-    # Function to perform matrix exponentiation
-    def matrix_power(matrix, power):
-        result = np.identity(len(matrix), dtype=object)
-        base = matrix
-        
-        while power > 0:
-            if power % 2 == 1:
-                result = matrix_multiply(result, base)
-            base = matrix_multiply(base, base)
-            power //= 2
-        
-        return result
-    
-    # Raise the transformation matrix to the (n-1)th power
-    result_matrix = matrix_power(F, n - 1)
-    
-    # The top left cell of the resulting matrix contains the nth Fibonacci number
-    return result_matrix[0][0]
+    result = np.linalg.matrix_power(F, n - 1)
+    return result[0][0]
 
 def fibonacci_generator():
     """
-    Generator function that yields Fibonacci numbers indefinitely.
+    Yield Fibonacci numbers indefinitely using O(1) space per number generated.
     
     Yields:
-    int: The next Fibonacci number.
+        int: The next Fibonacci number.
     """
     a, b = 0, 1
     while True:
@@ -62,14 +38,11 @@ def fibonacci_generator():
         a, b = b, a + b
 
 # Example usage:
-if __name__ == "__main__":
-    # Test fibonacci_matrix
-    print(fibonacci_matrix(10))  # Output: 55
-    
-    # Test fibonacci_generator
-    fib_gen = fibonacci_generator()
-    for _ in range(10):
-        print(next(fib_gen))  # Output: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+print(fibonacci_matrix(10))  # Output: 55
+
+gen = fibonacci_generator()
+for _ in range(10):
+    print(next(gen))  # Outputs: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
 
 # Test cases
 def run_tests():
