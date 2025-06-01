@@ -1,11 +1,9 @@
 # Generated code for palindrome_check
-import re
-
 def is_palindrome(s: str) -> bool:
-    # Remove non-alphanumeric characters and convert to lowercase
-    cleaned = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
-    # Check if the cleaned string is equal to its reverse
-    return cleaned == cleaned[::-1]
+    # Filter out non-alphanumeric characters and convert to lowercase
+    filtered_chars = [char.lower() for char in s if char.isalnum()]
+    # Check if the filtered list of characters is equal to its reverse
+    return filtered_chars == filtered_chars[::-1]
 
 # Test cases
 def run_tests():

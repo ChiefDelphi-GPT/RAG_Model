@@ -16,14 +16,14 @@ class TreeLCA:
         self._build_lifting_table()
 
     def _compute_max_log_n(self):
-        return int.bit_length(self.n) + 1
+        return max(1, (self.n - 1).bit_length())
 
     def _dfs(self, tree, node, par, d):
         self.depth[node] = d
         self.parent[node][0] = par
-        for child in tree[node]:
-            if child != par:
-                self._dfs(tree, child, node, d + 1)
+        for nei in tree[node]:
+            if nei != par:
+                self._dfs(tree, nei, node, d + 1)
 
     def _build_lifting_table(self):
         for i in range(1, self.max_log_n):

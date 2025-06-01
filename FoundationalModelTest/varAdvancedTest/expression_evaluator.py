@@ -4,50 +4,35 @@ import time
 from collections import defaultdict
 import heapq
 
-import ast
-import operator
+import re
 
-# Define supported operations
-operators = {
-    ast.Add: operator.add,
-    ast.Sub: operator.sub,
-    ast.Mult: operator.mul,
-    ast.Div: operator.truediv,
-}
-
-def evaluate_node(node):
-    if isinstance(node, ast.Num):  # <number>
-        return node.n
-    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>
-        left = evaluate_node(node.left)
-        right = evaluate_node(node.right)
-        op_type = type(node.op)
-        if op_type in operators:
-            try:
-                return operators[op_type](left, right)
-            except ZeroDivisionError:
-                return 'Error'
-        else:
-            raise TypeError(f"Unsupported operation: {op_type}")
-    elif isinstance(node, ast.Paren):  # Parentheses
-        return evaluate_node(node.value)
-    else:
-        raise TypeError(f"Unsupported type: {type(node)}")
-
-def evaluate_expression(expression):
+def evaluate_expression(expression: str) -> float:
+    # Define a regular expression pattern for valid characters in the expression
+    valid_chars_pattern = r'^[0-9+\-*/().\s]+$'
+    
+    # Check if the expression contains only valid characters
+    if not re.match(valid_chars_pattern, expression):
+        raise ValueError("Invalid characters in expression.")
+    
     try:
-        # Parse the expression into an AST
-        tree = ast.parse(expression, mode='eval')
+        # Evaluate the expression safely
+        result = eval(expression)
         
-        # Evaluate the AST
-        result = evaluate_node(tree.body)
-        return result
+        # If the result is complex (e.g., due to floating-point arithmetic), convert to float
+        if isinstance(result, complex):
+            return float(result.real)
+        
+        return float(result)
+    
+    except ZeroDivisionError:
+        return 'Error'
     except Exception as e:
-        return f"Error: {str(e)}"
+        raise RuntimeError(f"An error occurred while evaluating the expression: {e}")
 
 # Example usage:
-print(evaluate_expression("3 + 5 * (10 - 4)"))  # Output: 28.0
-print(evaluate_expression("10 / 0"))           # Output: Error
+expression = "3 + 5 * (10 - 4) / 2"
+result = evaluate_expression(expression)
+print(result)  # Output: 18.0
 
 # Test cases
 def run_tests():

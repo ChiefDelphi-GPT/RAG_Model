@@ -6,7 +6,7 @@ import heapq
 
 def regex_match(text: str, pattern: str) -> bool:
     def match_here(text_index: int, pattern_index: int) -> bool:
-        # If we've reached the end of the pattern, check if we've also reached the end of the text
+        # If the pattern is exhausted, check if the text is also exhausted
         if pattern_index == len(pattern):
             return text_index == len(text)
         

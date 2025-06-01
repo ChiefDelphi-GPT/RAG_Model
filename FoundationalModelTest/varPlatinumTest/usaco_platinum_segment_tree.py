@@ -37,14 +37,14 @@ class SegmentTree:
     def query(self, left, right):
         return self._query_util(0, 0, self.n - 1, left, right)
 
-    def _query_util(self, node, start, end, l, r):
-        if r < start or end < l:
+    def _query_util(self, node, start, end, L, R):
+        if R < start or end < L:
             return 0
-        if l <= start and end <= r:
+        if L <= start and end <= R:
             return self.tree[node]
         mid = (start + end) // 2
-        p1 = self._query_util(2 * node + 1, start, mid, l, r)
-        p2 = self._query_util(2 * node + 2, mid + 1, end, l, r)
+        p1 = self._query_util(2 * node + 1, start, mid, L, R)
+        p2 = self._query_util(2 * node + 2, mid + 1, end, L, R)
         return p1 + p2
 
 # Test cases

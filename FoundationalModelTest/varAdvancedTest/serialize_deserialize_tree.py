@@ -12,34 +12,27 @@ class TreeNode:
 
 def serialize_binary_tree(root):
     """Serialize a binary tree to a string."""
-    result = []
-    
-    def preorder(node):
+    def serialize_helper(node):
         if not node:
-            result.append('#')  # Use '#' to represent None nodes
-            return
-        result.append(str(node.val))
-        preorder(node.left)
-        preorder(node.right)
+            return '#'
+        return f"{node.val},{serialize_helper(node.left)},{serialize_helper(node.right)}"
     
-    preorder(root)
-    return ','.join(result)
+    return serialize_helper(root)
 
 def deserialize_binary_tree(data):
     """Deserialize a string to a binary tree."""
-    from collections import deque
-    
-    def build_tree(values):
-        value = next(values)
+    def deserialize_helper(nodes):
+        value = next(nodes)
         if value == '#':
             return None
         node = TreeNode(int(value))
-        node.left = build_tree(values)
-        node.right = build_tree(values)
+        node.left = deserialize_helper(nodes)
+        node.right = deserialize_helper(nodes)
         return node
     
-    values = iter(data.split(','))
-    return build_tree(values)
+    # Split the data string into an iterator of values
+    node_values = iter(data.split(','))
+    return deserialize_helper(node_values)
 
 # Example usage:
 if __name__ == "__main__":
@@ -51,12 +44,12 @@ if __name__ == "__main__":
     root.right.right = TreeNode(5)
 
     # Serialize the binary tree
-    serialized = serialize_binary_tree(root)
-    print("Serialized:", serialized)
+    serialized_data = serialize_binary_tree(root)
+    print("Serialized:", serialized_data)
 
     # Deserialize the binary tree
-    deserialized_root = deserialize_binary_tree(serialized)
-    print("Deserialized Root Value:", deserialized_root.val)  # Should print 1
+    deserialized_root = deserialize_binary_tree(serialized_data)
+    print("Deserialized Root Value:", deserialized_root.val if deserialized_root else "None")
 
 # Test cases
 def run_tests():

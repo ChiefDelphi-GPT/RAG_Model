@@ -6,11 +6,28 @@ import heapq
 
 import numpy as np
 
+def matrix_multiply(A, B):
+    """Multiplies two 2x2 matrices A and B."""
+    return np.dot(A, B)
+
+def matrix_power(matrix, n):
+    """Computes the power of a 2x2 matrix to the nth power using exponentiation by squaring."""
+    result = np.identity(len(matrix), dtype=int)
+    base = matrix
+    
+    while n > 0:
+        if n % 2 == 1:
+            result = matrix_multiply(result, base)
+        base = matrix_multiply(base, base)
+        n //= 2
+    
+    return result
+
 def fibonacci_matrix(n):
     """
-    Compute the nth Fibonacci number using matrix exponentiation.
+    Computes the nth Fibonacci number using matrix exponentiation.
     
-    :param n: Index of the Fibonacci number to compute (0-based).
+    :param n: Index of the Fibonacci number (0-based).
     :return: The nth Fibonacci number.
     """
     if n < 0:
@@ -21,25 +38,17 @@ def fibonacci_matrix(n):
         return 1
     
     # Transformation matrix
-    F = np.array([[1, 1], [1, 0]], dtype=object)
+    F = np.array([[1, 1], [1, 0]], dtype=int)
     
-    # Result matrix initialized to identity matrix
-    result = np.identity(2, dtype=object)
+    # Raise the transformation matrix to the (n-1)th power
+    result_matrix = matrix_power(F, n - 1)
     
-    # Perform matrix exponentiation by squaring
-    while n > 0:
-        if n % 2 == 1:
-            result = np.dot(result, F)
-        F = np.dot(F, F)
-        n //= 2
-    
-    return result[0][1]
+    # The top left cell of the resulting matrix is F(n)
+    return result_matrix[0, 0]
 
 def fibonacci_generator():
     """
-    Yield Fibonacci numbers indefinitely.
-    
-    :yield: Next Fibonacci number.
+    Yields Fibonacci numbers indefinitely.
     """
     a, b = 0, 1
     while True:
@@ -49,9 +58,9 @@ def fibonacci_generator():
 # Example usage:
 if __name__ == "__main__":
     # Compute the 10th Fibonacci number
-    print(fibonacci_matrix(10))  # Output: 55
-
-    # Generate first 10 Fibonacci numbers
+    print(f"Fibonacci(10) = {fibonacci_matrix(10)}")
+    
+    # Generate the first 10 Fibonacci numbers
     fib_gen = fibonacci_generator()
     for _ in range(10):
         print(next(fib_gen))

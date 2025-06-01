@@ -37,9 +37,9 @@ class TrieAutocomplete:
         if not node:
             return []
         
-        result = []
-        self._collect_words(node, prefix, result)
-        return result
+        words = []
+        self._collect_words(node, prefix, words)
+        return words
 
     def _search_node(self, prefix):
         """Helper method to find the node corresponding to the end of the prefix."""
@@ -50,23 +50,23 @@ class TrieAutocomplete:
             node = node.children[char]
         return node
 
-    def _collect_words(self, node, current_prefix, result):
+    def _collect_words(self, node, current_word, words_list):
         """Recursively collects all words starting from the given node."""
         if node.is_end_of_word:
-            result.append(current_prefix)
+            words_list.append(current_word)
         
         for char, child_node in node.children.items():
-            self._collect_words(child_node, current_prefix + char, result)
+            self._collect_words(child_node, current_word + char, words_list)
 
 # Example usage:
 trie = TrieAutocomplete()
-words = ["hello", "helium", "hero", "heron", "world"]
-for word in words:
-    trie.insert(word)
+trie.insert("hello")
+trie.insert("helium")
+trie.insert("hero")
 
-print(trie.search("hello"))  # True
-print(trie.starts_with("he"))   # True
-print(trie.get_all_words_with_prefix("he"))  # ['hello', 'helium', 'hero', 'heron']
+print(trie.search("hello"))  # Output: True
+print(trie.starts_with("he"))   # Output: True
+print(trie.get_all_words_with_prefix("he"))  # Output: ['hello', 'helium', 'hero']
 
 # Test cases
 def run_tests():

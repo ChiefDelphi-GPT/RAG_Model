@@ -15,29 +15,28 @@ def topo_sort(graph):
             indegree[v] += 1
     
     queue = deque([u for u in range(n) if indegree[u] == 0])
-    order = []
+    topo_order = []
     
     while queue:
         u = queue.popleft()
-        order.append(u)
+        topo_order.append(u)
         for v, _ in graph[u]:
             indegree[v] -= 1
             if indegree[v] == 0:
                 queue.append(v)
     
-    return order
+    return topo_order
 
 def shortest_path_with_discount(graph, source, destination):
     n = len(graph)
-    order = topo_sort(graph)
+    topo_order = topo_sort(graph)
     
     # Initialize distances
     dist = [[float('inf')] * 2 for _ in range(n)]
     dist[source][0] = 0
-    dist[source][1] = 0
     
     # Process nodes in topological order
-    for u in order:
+    for u in topo_order:
         for v, w in graph[u]:
             if dist[u][0] + w < dist[v][0]:
                 dist[v][0] = dist[u][0] + w

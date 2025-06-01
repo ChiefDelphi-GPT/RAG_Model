@@ -4,30 +4,25 @@ import time
 from collections import defaultdict
 import heapq
 
-from typing import List
-
-def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
+def merge_intervals(intervals):
     if not intervals:
         return []
 
     # Sort intervals based on the start time
     intervals.sort(key=lambda x: x[0])
 
-    merged = []
-    current_interval = intervals[0]
+    merged = [intervals[0]]
 
-    for next_interval in intervals[1:]:
+    for current in intervals[1:]:
+        last_merged = merged[-1]
+
         # Check if there is an overlap
-        if current_interval[1] >= next_interval[0]:
+        if current[0] <= last_merged[1]:
             # Merge the intervals
-            current_interval[1] = max(current_interval[1], next_interval[1])
+            merged[-1][1] = max(last_merged[1], current[1])
         else:
-            # No overlap, add the current interval to the result
-            merged.append(current_interval)
-            current_interval = next_interval
-
-    # Add the last interval
-    merged.append(current_interval)
+            # No overlap, add the current interval to the merged list
+            merged.append(current)
 
     return merged
 

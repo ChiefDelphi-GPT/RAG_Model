@@ -6,8 +6,8 @@ import heapq
 
 def longest_common_subsequence(str1: str, str2: str) -> int:
     """
-    Compute the length of the longest common subsequence between two strings.
-    
+    Compute the length of the longest common subsequence of two strings using dynamic programming.
+
     :param str1: First input string
     :param str2: Second input string
     :return: Length of the longest common subsequence
@@ -29,11 +29,11 @@ def longest_common_subsequence(str1: str, str2: str) -> int:
 
 def reconstruct_lcs(str1: str, str2: str) -> str:
     """
-    Reconstruct the longest common subsequence between two strings.
-    
+    Reconstruct the longest common subsequence of two strings using the dp table.
+
     :param str1: First input string
     :param str2: Second input string
-    :return: The longest common subsequence string
+    :return: The longest common subsequence as a string
     """
     m, n = len(str1), len(str2)
     
@@ -48,7 +48,7 @@ def reconstruct_lcs(str1: str, str2: str) -> str:
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
     
-    # Reconstruct the LCS from the dp array
+    # Reconstruct the LCS from the dp table
     lcs = []
     i, j = m, n
     while i > 0 and j > 0:
@@ -61,16 +61,15 @@ def reconstruct_lcs(str1: str, str2: str) -> str:
         else:
             j -= 1
     
-    # The reconstructed LCS is built backwards, so reverse it
+    # The lcs list contains the characters of the LCS in reverse order
     lcs.reverse()
-    
     return ''.join(lcs)
 
 # Example usage:
 str1 = "AGGTAB"
 str2 = "GXTXAYB"
-print("Length of LCS:", longest_common_subsequence(str1, str2))
-print("LCS:", reconstruct_lcs(str1, str2))
+print("Length of LCS:", longest_common_subsequence(str1, str2))  # Output: 4
+print("LCS:", reconstruct_lcs(str1, str2))  # Output: "GTAB"
 
 # Test cases
 def run_tests():
