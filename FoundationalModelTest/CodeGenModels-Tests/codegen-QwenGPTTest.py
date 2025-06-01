@@ -461,6 +461,7 @@ def main():
         "Qwen/Qwen2.5-Coder-7B-Instruct",
         #"Qwen/Qwen2.5-Coder-3B-Instruct"
         "Qwen/Qwen2.5-Coder-14B-Instruct",
+        #"Qwen/Qwen2.5-Coder-32B-Instruct"
     ]
     
     all_results = {}

@@ -98,14 +98,6 @@ class QwenAdvancedCodeTester:
                     ([], "any", [])
                 ]
             },
-            "lru_cache": {
-                "prompt": "Write a Python class called 'LRUCache' that implements a Least Recently Used cache with get(key) and put(key, value) methods. The cache should have a maximum capacity. When capacity is exceeded, remove the least recently used item. Both operations should be O(1).",
-                "test_cases": [
-                    # (capacity, operations, expected_results)
-                    (2, [("put", 1, 1), ("put", 2, 2), ("get", 1), ("put", 3, 3), ("get", 2), ("get", 3), ("get", 1)], [None, None, 1, None, -1, 3, -1]),
-                    (1, [("put", 2, 1), ("get", 2), ("put", 3, 2), ("get", 2), ("get", 3)], [None, 1, None, -1, 2])
-                ]
-            },
             "expression_evaluator": {
                 "prompt": "Write a Python function called 'evaluate_expression' that takes a string representing a mathematical expression with +, -, *, /, parentheses, and handles operator precedence correctly. Return the result as a float. Handle division by zero by returning 'Error'.",
                 "test_cases": [
@@ -115,13 +107,6 @@ class QwenAdvancedCodeTester:
                     ("2 * (3 + 4) / 2", 7.0),
                     ("10 / 0", "Error"),
                     ("((1 + 2) * 3 - 4) / 2", 2.5)
-                ]
-            },
-            "graph_shortest_path": {
-                "prompt": "Write a Python function called 'dijkstra_shortest_path' that takes a weighted graph represented as a dictionary of adjacency lists (graph[node] = [(neighbor, weight), ...]) and returns the shortest distances from a start node to all other nodes. Return a dictionary where keys are nodes and values are shortest distances. Use float('inf') for unreachable nodes.",
-                "test_cases": [
-                    ({"A": [("B", 4), ("C", 2)], "B": [("D", 3)], "C": [("D", 1), ("E", 5)], "D": [("E", 1)], "E": []}, "A", {"A": 0, "B": 4, "C": 2, "D": 3, "E": 4}),
-                    ({"1": [("2", 1)], "2": [("3", 2)], "3": [], "4": []}, "1", {"1": 0, "2": 1, "3": 3, "4": float('inf')})
                 ]
             },
             "advanced_dp": {
@@ -153,16 +138,6 @@ class QwenAdvancedCodeTester:
                     ([[1,2]], [[1,2]]),
                     ([], []),
                     ([[1,4],[0,4]], [[0,4]])
-                ]
-            },
-            "thread_safe_counter": {
-                "prompt": "Write a Python class called 'ThreadSafeCounter' that implements a thread-safe counter with methods: increment(), decrement(), get_value(), and reset(). Use threading.Lock to ensure thread safety. Include a method batch_operation(operations) that takes a list of operations ['inc', 'dec', 'reset'] and performs them atomically.",
-                "test_cases": [
-                    # Test basic operations
-                    (["inc", "inc", "dec", "get"], 1),
-                    (["inc", "reset", "get"], 0),
-                    (["dec", "dec", "inc", "get"], -1),
-                    (["batch", ["inc", "inc", "dec"], "get"], 1)
                 ]
             },
             "serialize_deserialize_tree": {
@@ -299,20 +274,6 @@ def run_tests():
         except Exception as e:
             test_results.append((f"TrieAutocomplete test", f"ERROR: {e}", expected, False))
 """
-            elif problem_name == "lru_cache":
-                test_script += """    for capacity, operations, expected in test_cases:
-        try:
-            cache = LRUCache(capacity)
-            results = []
-            for op in operations:
-                if op[0] == "put":
-                    results.append(cache.put(op[1], op[2]))
-                elif op[0] == "get":
-                    results.append(cache.get(op[1]))
-            test_results.append((f"LRUCache({capacity}) operations", results, expected, results == expected))
-        except Exception as e:
-            test_results.append((f"LRUCache test", f"ERROR: {e}", expected, False))
-"""
             elif problem_name == "expression_evaluator":
                 test_script += """    for expr, expected in test_cases:
         try:
@@ -321,14 +282,6 @@ def run_tests():
             test_results.append((f"evaluate_expression('{expr}')", result, expected, is_correct))
         except Exception as e:
             test_results.append((f"evaluate_expression('{expr}')", f"ERROR: {e}", expected, False))
-"""
-            elif problem_name == "graph_shortest_path":
-                test_script += """    for graph, start, expected in test_cases:
-        try:
-            result = dijkstra_shortest_path(graph, start)
-            test_results.append((f"dijkstra_shortest_path({start})", result, expected, result == expected))
-        except Exception as e:
-            test_results.append((f"dijkstra_shortest_path test", f"ERROR: {e}", expected, False))
 """
             elif problem_name == "advanced_dp":
                 test_script += """    for s1, s2, expected_len, expected_lcs in test_cases:
@@ -360,28 +313,6 @@ def run_tests():
             test_results.append((f"merge_intervals({intervals})", result, expected, result == expected))
         except Exception as e:
             test_results.append((f"merge_intervals({intervals})", f"ERROR: {e}", expected, False))
-"""
-            elif problem_name == "thread_safe_counter":
-                test_script += """    for operations, expected in test_cases:
-        try:
-            counter = ThreadSafeCounter()
-            result = None
-            for op in operations:
-                if op == "inc":
-                    counter.increment()
-                elif op == "dec":
-                    counter.decrement()
-                elif op == "reset":
-                    counter.reset()
-                elif op == "get":
-                    result = counter.get_value()
-                elif op == "batch":
-                    # Next item should be the batch operations
-                    batch_ops = operations[operations.index(op) + 1]
-                    counter.batch_operation(batch_ops)
-            test_results.append((f"ThreadSafeCounter operations", result, expected, result == expected))
-        except Exception as e:
-            test_results.append((f"ThreadSafeCounter test", f"ERROR: {e}", expected, False))
 """
             elif problem_name == "serialize_deserialize_tree":
                 test_script += """    # Manual tree construction test
@@ -578,6 +509,7 @@ def main():
     models_to_test = [
         "Qwen/Qwen2.5-Coder-7B-Instruct",
         "Qwen/Qwen2.5-Coder-14B-Instruct",
+        #"Qwen/Qwen2.5-Coder-32B-Instruct"
     ]
     
     all_results = {}

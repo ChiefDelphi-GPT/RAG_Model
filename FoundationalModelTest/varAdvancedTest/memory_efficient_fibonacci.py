@@ -1,0 +1,101 @@
+# Generated code for memory_efficient_fibonacci
+import threading
+import time
+from collections import defaultdict
+import heapq
+
+import numpy as np
+
+def fibonacci_matrix(n):
+    """
+    Compute the nth Fibonacci number using matrix exponentiation.
+    
+    :param n: Index of the Fibonacci number to compute (0-based).
+    :return: The nth Fibonacci number.
+    """
+    if n < 0:
+        raise ValueError("Index cannot be negative")
+    elif n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    # Transformation matrix
+    F = np.array([[1, 1], [1, 0]], dtype=object)
+    
+    # Result matrix initialized to identity matrix
+    result = np.identity(2, dtype=object)
+    
+    # Perform matrix exponentiation by squaring
+    while n > 0:
+        if n % 2 == 1:
+            result = np.dot(result, F)
+        F = np.dot(F, F)
+        n //= 2
+    
+    return result[0][1]
+
+def fibonacci_generator():
+    """
+    Yield Fibonacci numbers indefinitely.
+    
+    :yield: Next Fibonacci number.
+    """
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Example usage:
+if __name__ == "__main__":
+    # Compute the 10th Fibonacci number
+    print(fibonacci_matrix(10))  # Output: 55
+
+    # Generate first 10 Fibonacci numbers
+    fib_gen = fibonacci_generator()
+    for _ in range(10):
+        print(next(fib_gen))
+
+# Test cases
+def run_tests():
+    test_results = []
+    
+    # Test matrix fibonacci
+    for n, expected in test_cases[:-1]:  # All except generator test
+        try:
+            result = fibonacci_matrix(n)
+            test_results.append((f"fibonacci_matrix({n})", result, expected, result == expected))
+        except Exception as e:
+            test_results.append((f"fibonacci_matrix({n})", f"ERROR: {e}", expected, False))
+    
+    # Test generator
+    try:
+        gen = fibonacci_generator()
+        generated = [next(gen) for _ in range(10)]
+        expected = test_cases[-1][1]  # Last test case is generator test
+        test_results.append(("fibonacci_generator first 10", generated, expected, generated == expected))
+    except Exception as e:
+        test_results.append(("fibonacci_generator", f"ERROR: {e}", expected, False))
+
+    return test_results
+
+if __name__ == "__main__":
+    import traceback
+    test_cases = [(0, 0), (1, 1), (10, 55), (20, 6765), (50, 12586269025), ('generator_test', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])]
+    try:
+        results = run_tests()
+        
+        all_passed = True
+        for test_name, result, expected, passed in results:
+            status = "✓" if passed else "✗"
+            print(f"{status} {test_name} -> {result} (expected: {expected})")
+            if not passed:
+                all_passed = False
+        
+        overall_status = 'PASS' if all_passed else 'FAIL'
+        print(f"\nOverall: {overall_status}")
+        exit(0 if all_passed else 1)
+    except Exception as e:
+        print(f"Error running tests: {e}")
+        print(f"Traceback: {traceback.format_exc()}")
+        exit(1)

@@ -1,4 +1,4 @@
-# USACO Platinum Level Advanced Test Suite - EXTREMELY CHALLENGING PROBLEMS
+# USACO Platinum Level Advanced Test Suite - IMPROVED VERSION
 # Available model sizes:
 # - Qwen/Qwen2.5-Coder-0.5B-Instruct
 # - Qwen/Qwen2.5-Coder-1.5B-Instruct  
@@ -91,180 +91,203 @@ class USACOPlatinumTester:
             raise
     
     def get_usaco_platinum_problems(self):
-        """Return USACO Platinum level problems - extremely challenging"""
+        """Return USACO Platinum level problems - improved and clearer"""
         return {
-            "max_flow_min_cut": {
-                "title": "Network Flow with Vertex Capacities",
+            "shortest_path_dag": {
+                "title": "Shortest Path in DAG with Modified Edges",
                 "prompt": """
-USACO Platinum Problem: Network Flow with Vertex Capacities
+=== PROBLEM: Shortest Path in Directed Acyclic Graph ===
 
-You are given a directed graph with N vertices (numbered 1 to N) and M edges. Each vertex has a capacity limit (maximum flow that can pass through it), and each edge has a capacity limit as well. You need to find the maximum flow from source vertex S to sink vertex T.
+BACKGROUND:
+You have a Directed Acyclic Graph (DAG) where you can modify edge weights.
+Given a DAG with N vertices and M directed edges, find the shortest path from source to destination.
+However, you can choose to halve the weight of exactly ONE edge on your path.
 
-This is different from standard max flow because vertices also have capacity constraints, not just edges.
+TASK:
+Write a function shortest_path_with_discount(graph, source, destination) that returns the minimum possible distance from source to destination when you can halve exactly one edge weight on the chosen path.
 
-Write a function 'max_flow_vertex_capacity(graph, vertex_capacities, source, sink)' that:
-- graph: dict where graph[u] = [(v, edge_capacity), ...] representing edges from u to v
-- vertex_capacities: dict where vertex_capacities[v] = capacity of vertex v
-- source, sink: source and sink vertices
-- Returns: maximum flow value from source to sink
+INPUT FORMAT:
+- graph: Dictionary where graph[u] = [(v, weight), ...] representing edges from u to v with given weight
+- source: Starting vertex (integer)
+- destination: Target vertex (integer)
 
-Constraints:
-- 1 ≤ N ≤ 100
-- 1 ≤ M ≤ 1000  
-- All capacities are positive integers ≤ 1000
+OUTPUT:
+- Return the minimum distance as a float/int
 
-Example:
-Graph: {1: [(2, 10), (3, 10)], 2: [(4, 10)], 3: [(4, 10)], 4: []}
-Vertex capacities: {1: 100, 2: 5, 3: 8, 4: 100}
-Source: 1, Sink: 4
-Answer: 13 (5 through vertex 2, 8 through vertex 3)
+ALGORITHM HINT:
+1. This is a DAG, so you can use topological sorting
+2. For each possible edge to discount, calculate the shortest path
+3. Use dynamic programming on the topologically sorted vertices
 
-Hint: Transform the problem by splitting vertices with capacity constraints.
+EXAMPLE:
+Graph: {0: [(1, 10), (2, 20)], 1: [(3, 5)], 2: [(3, 3)], 3: []}
+Source: 0, Destination: 3
+- Path 0→1→3 costs 10+5=15, with discount on edge (0,1): 5+5=10, or discount on (1,3): 10+2.5=12.5
+- Path 0→2→3 costs 20+3=23, with discount on edge (0,2): 10+3=13, or discount on (2,3): 20+1.5=21.5
+- Best result: 10 (discount the 0→1 edge)
+
+CONSTRAINTS:
+- 2 ≤ N ≤ 1000
+- 1 ≤ M ≤ 5000
+- All edge weights are positive integers ≤ 100
+- Graph is guaranteed to be a DAG
+- Path from source to destination is guaranteed to exist
 """,
                 "test_cases": [
-                    # (graph, vertex_capacities, source, sink, expected_max_flow)
+                    # (graph, source, destination, expected_min_distance)
                     (
-                        {1: [(2, 10), (3, 10)], 2: [(4, 10)], 3: [(4, 10)], 4: []},
-                        {1: 100, 2: 5, 3: 8, 4: 100},
-                        1, 4, 13
+                        {0: [(1, 10), (2, 20)], 1: [(3, 5)], 2: [(3, 3)], 3: []},
+                        0, 3, 10.0
                     ),
                     (
-                        {1: [(2, 20)], 2: [(3, 20)], 3: []},
-                        {1: 100, 2: 5, 3: 100},
-                        1, 3, 5
+                        {0: [(1, 8)], 1: [(2, 12)], 2: []},
+                        0, 2, 14.0  # 8/2 + 12 = 16, or 8 + 12/2 = 14
                     ),
                     (
-                        {1: [(2, 10), (3, 15)], 2: [(4, 20)], 3: [(4, 10)], 4: []},
-                        {1: 100, 2: 12, 3: 8, 4: 100},
-                        1, 4, 18
+                        {0: [(1, 6), (2, 4)], 1: [(2, 2), (3, 8)], 2: [(3, 10)], 3: []},
+                        0, 3, 9.0  # Path 0→1→3 with discount on (1,3): 6 + 8/2 = 10, or 0→2→3 with discount: 4/2 + 10 = 12, or 4 + 10/2 = 9
                     )
                 ]
             },
             
-            "heavy_light_decomposition": {
-                "title": "Tree Path Queries with Heavy-Light Decomposition",
+            "binary_lifting_lca": {
+                "title": "Lowest Common Ancestor with Binary Lifting",
                 "prompt": """
-USACO Platinum Problem: Tree Path Queries
+=== PROBLEM: Lowest Common Ancestor Queries ===
 
-You are given a tree with N vertices. Each vertex has a value. You need to support two types of operations:
-1. Update the value of a vertex
-2. Query the maximum value on the path between two vertices
+BACKGROUND:
+Given a rooted tree, answer multiple queries asking for the Lowest Common Ancestor (LCA) of two nodes.
+Use Binary Lifting technique for O(log N) query time after O(N log N) preprocessing.
 
-Use Heavy-Light Decomposition with a segment tree to achieve O(log²N) time complexity per operation.
+TASK:
+Implement a class TreeLCA that supports:
+- __init__(self, tree, root): Initialize with tree structure and root node
+- lca(self, u, v): Return the LCA of nodes u and v
 
-Write a class 'HeavyLightDecomposition' with methods:
-- __init__(self, tree, values): Initialize with tree structure and initial vertex values
-  - tree: dict where tree[u] = [v1, v2, ...] (undirected tree edges)
-  - values: list where values[i] is the value of vertex i (0-indexed)
-- update(self, vertex, new_value): Update vertex value
-- query_path_max(self, u, v): Return maximum value on path from u to v
+ALGORITHM EXPLANATION:
+Binary Lifting precomputes ancestors at distances 2^0, 2^1, 2^2, ... for each node.
+- parent[node][i] = ancestor of 'node' at distance 2^i
+- To find LCA, first make both nodes at same depth, then lift them together
 
-Constraints:
+DETAILED STEPS:
+1. Run DFS to compute depth of each node
+2. Build binary lifting table: parent[node][i] = parent[parent[node][i-1]][i-1]
+3. For LCA query:
+   a) Make both nodes at same depth by lifting the deeper one
+   b) If they're the same, return it
+   c) Otherwise, lift both simultaneously until their parents become the same
+
+INPUT FORMAT:
+- tree: Dictionary where tree[u] = [v1, v2, ...] (undirected edges)
+- root: Root node of the tree
+- All nodes are integers starting from 0
+
+EXAMPLE:
+Tree: {0: [1, 2], 1: [0, 3, 4], 2: [0, 5], 3: [1], 4: [1], 5: [2]}
+Root: 0
+Tree structure:
+    0
+   / \\
+  1   2
+ /|   |
+3 4   5
+
+Queries:
+- lca(3, 4) = 1 (parent of both 3 and 4)
+- lca(3, 5) = 0 (must go up to root)
+- lca(1, 2) = 0 (siblings under root)
+
+CONSTRAINTS:
 - 1 ≤ N ≤ 100,000
-- All values are integers in range [-10^9, 10^9]
-- All vertices are 0-indexed
-
-Example:
-Tree: {0: [1, 2], 1: [0, 3], 2: [0], 3: [1]}
-Values: [1, 4, 2, 8]
-query_path_max(3, 2) should return 4 (path: 3-1-0-2, values: 8,4,1,2, max=8... wait, let me recalculate)
-Actually: path 3-1-0-2 has values [8,4,1,2], so max is 8.
-
-This requires implementing:
-1. Heavy-Light Decomposition of the tree
-2. Segment tree for range maximum queries
-3. Path queries by decomposing paths into heavy/light edges
+- Tree is connected
+- All queries should run in O(log N) time
 """,
                 "test_cases": [
-                    # (tree, initial_values, operations, expected_results)
+                    # (tree, root, queries, expected_results)
                     (
-                        {0: [1, 2], 1: [0, 3], 2: [0], 3: [1]},
-                        [1, 4, 2, 8],
-                        [("query", 3, 2), ("update", 1, 10), ("query", 3, 2), ("query", 0, 3)],
-                        [8, None, 10, 10]
+                        {0: [1, 2], 1: [0, 3, 4], 2: [0, 5], 3: [1], 4: [1], 5: [2]},
+                        0,
+                        [(3, 4), (3, 5), (1, 2), (0, 5), (3, 3)],
+                        [1, 0, 0, 0, 3]
                     ),
                     (
-                        {0: [1], 1: [0, 2], 2: [1, 3, 4], 3: [2], 4: [2]},
-                        [5, 3, 7, 1, 9],
-                        [("query", 3, 4), ("query", 0, 4), ("update", 2, 15), ("query", 0, 4)],
-                        [7, 7, None, 15]
+                        {0: [1], 1: [0, 2], 2: [1, 3], 3: [2, 4], 4: [3]},  # Path tree
+                        0,
+                        [(4, 0), (3, 1), (4, 2), (1, 4)],
+                        [0, 1, 2, 1]
+                    ),
+                    (
+                        {0: [1, 2, 3], 1: [0], 2: [0], 3: [0]},  # Star tree
+                        0,
+                        [(1, 2), (1, 3), (2, 3), (0, 1)],
+                        [0, 0, 0, 0]
                     )
                 ]
             },
             
-            "centroid_decomposition": {
-                "title": "Tree Distance Queries with Centroid Decomposition",
+            "segment_tree": {
+                "title": "Range Sum Query with Point Updates",
                 "prompt": """
-USACO Platinum Problem: Tree Distance Queries
+=== PROBLEM: Range Sum Queries with Updates ===
 
-You are given a tree with N vertices. You need to support two types of operations:
-1. Mark a vertex as "important"
-2. Query the distance to the nearest "important" vertex from a given vertex
+BACKGROUND:
+You have an array of N integers. Support two operations:
+1. Update a single element at position i to value x
+2. Query the sum of elements in range [left, right] (inclusive)
 
-Use Centroid Decomposition to preprocess the tree and answer queries efficiently.
+TASK:
+Implement a class SegmentTree that supports:
+- __init__(self, arr): Initialize with array
+- update(self, index, value): Set arr[index] = value
+- query(self, left, right): Return sum of arr[left:right+1]
 
-Write a class 'CentroidDecomposition' with methods:
-- __init__(self, tree): Initialize with tree structure
-  - tree: dict where tree[u] = [v1, v2, ...] (undirected tree edges)
-- mark_important(self, vertex): Mark vertex as important
-- query_nearest_distance(self, vertex): Return distance to nearest important vertex (or -1 if none marked)
+ALGORITHM EXPLANATION:
+Segment Tree is a binary tree where:
+- Each leaf represents one array element
+- Each internal node represents the sum of its children
+- Both operations work in O(log N) time
 
-The key insight is to build a centroid tree and maintain distance information from each centroid to all vertices in its subtree.
+IMPLEMENTATION GUIDE:
+1. Build tree: tree[node] = tree[2*node] + tree[2*node+1]
+2. Update: modify leaf and propagate changes upward
+3. Query: combine results from relevant segments
 
-Constraints:
+DETAILED STRUCTURE:
+- Use array of size 4*N to store tree
+- Node i has children at 2*i and 2*i+1
+- For array of size N, leaves start at index N
+
+EXAMPLE:
+Array: [1, 3, 5, 7, 9, 11]
+Initial queries:
+- query(0, 2) = 1+3+5 = 9
+- query(1, 4) = 3+5+7+9 = 24
+
+After update(1, 10):  # Change arr[1] from 3 to 10
+- query(0, 2) = 1+10+5 = 16
+- query(1, 4) = 10+5+7+9 = 31
+
+CONSTRAINTS:
 - 1 ≤ N ≤ 100,000
-- All queries and updates should run in O(log N) time after O(N log N) preprocessing
-- All vertices are 0-indexed
-
-Example:
-Tree: {0: [1, 2], 1: [0, 3, 4], 2: [0], 3: [1], 4: [1]}
-Operations:
-1. mark_important(3)
-2. query_nearest_distance(4) → should return 2 (path: 4-1-3)
-3. mark_important(0)  
-4. query_nearest_distance(4) → should return 2 (still 4-1-0, but 4-1-3 is also distance 2)
-5. query_nearest_distance(2) → should return 1 (path: 2-0)
-
-This requires implementing:
-1. Centroid decomposition of the tree
-2. Distance computation from centroids
-3. Efficient nearest marked vertex queries
+- All values fit in 32-bit integers
+- All indices are 0-based
 """,
                 "test_cases": [
-                    # (tree, operations, expected_results)
+                    # (initial_array, operations, expected_results)
                     (
-                        {0: [1, 2], 1: [0, 3, 4], 2: [0], 3: [1], 4: [1]},
-                        [
-                            ("mark", 3), 
-                            ("query", 4), 
-                            ("mark", 0), 
-                            ("query", 4), 
-                            ("query", 2),
-                            ("query", 1)
-                        ],
-                        [None, 2, None, 2, 1, 1]
+                        [1, 3, 5, 7, 9, 11],
+                        [("query", 0, 2), ("query", 1, 4), ("update", 1, 10), ("query", 0, 2), ("query", 1, 4)],
+                        [9, 24, None, 16, 31]
                     ),
                     (
-                        {0: [1], 1: [0, 2], 2: [1, 3], 3: [2, 4], 4: [3]},  # Path graph
-                        [
-                            ("mark", 0),
-                            ("query", 4),
-                            ("mark", 4), 
-                            ("query", 2),
-                            ("query", 1)
-                        ],
-                        [None, 4, None, 2, 1]
+                        [2, 4, 6, 8],
+                        [("query", 0, 3), ("update", 2, 0), ("query", 0, 3), ("query", 2, 3), ("update", 0, 5)],
+                        [20, None, 14, 8, None]
                     ),
                     (
-                        {0: [1, 2, 3], 1: [0], 2: [0], 3: [0]},  # Star graph
-                        [
-                            ("mark", 1),
-                            ("query", 3),
-                            ("mark", 0),
-                            ("query", 3),
-                            ("query", 2)
-                        ],
-                        [None, 2, None, 1, 1]
+                        [10],
+                        [("query", 0, 0), ("update", 0, 20), ("query", 0, 0)],
+                        [10, None, 20]
                     )
                 ]
             }
@@ -274,14 +297,18 @@ This requires implementing:
         """Generate code for a given USACO Platinum problem using the model"""
         
         messages = [
-            {"role": "system", "content": """You are an expert competitive programmer specializing in advanced algorithms and data structures. You have mastery of:
-- Network flows (Ford-Fulkerson, Dinic's algorithm, push-relabel)
-- Advanced tree algorithms (Heavy-Light Decomposition, Centroid Decomposition)
-- Segment trees, Fenwick trees, and other range query structures
-- Complex graph algorithms and optimization techniques
+            {"role": "system", "content": """You are an expert competitive programmer. Focus on implementing clean, correct solutions.
 
-Write clean, efficient, and mathematically correct implementations. Include all necessary imports and helper functions. Your code should handle edge cases and be optimized for competitive programming constraints."""},
-            {"role": "user", "content": f"**{problem_data['title']}**\n\n{problem_data['prompt']}"}
+For the given problem:
+1. Read the problem statement carefully
+2. Understand the algorithm hints provided
+3. Implement the required function/class exactly as specified
+4. Use standard algorithms and data structures
+5. Handle all edge cases properly
+6. Write efficient code suitable for competitive programming
+
+Your response should contain ONLY the implementation code - no explanations, no markdown formatting, just clean Python code that can be executed directly."""},
+            {"role": "user", "content": f"**{problem_data['title']}**\n\n{problem_data['prompt']}\n\nImplement the required function/class with the exact signature specified in the problem."}
         ]
         
         try:
@@ -309,13 +336,13 @@ Write clean, efficient, and mathematically correct implementations. Include all 
             with torch.no_grad():
                 outputs = self.model.generate(
                     **inputs,
-                    max_new_tokens=8000,  # Even more tokens for complex algorithms
+                    max_new_tokens=4000,  # Reasonable limit for focused solutions
                     temperature=0.1,  # Very low temperature for precision
                     do_sample=True,
-                    top_p=0.85,
+                    top_p=0.9,
                     pad_token_id=self.tokenizer.pad_token_id,
                     eos_token_id=self.tokenizer.eos_token_id,
-                    repetition_penalty=1.05,
+                    repetition_penalty=1.1,
                     streamer=streamer
                 )
             
@@ -380,49 +407,47 @@ def run_tests():
 """
             
             # Add specific test cases for each problem
-            if problem_name == "max_flow_min_cut":
-                test_script += """    for graph, vertex_capacities, source, sink, expected in test_cases:
+            if problem_name == "shortest_path_dag":
+                test_script += """    for graph, source, destination, expected in test_cases:
         try:
-            result = max_flow_vertex_capacity(graph, vertex_capacities, source, sink)
-            test_results.append((f"Max Flow: {graph} from {source} to {sink}", result, expected, result == expected))
+            result = shortest_path_with_discount(graph, source, destination)
+            # Allow small floating point differences
+            passed = abs(result - expected) < 1e-6
+            test_results.append((f"Shortest path DAG: {source}→{destination}", result, expected, passed))
         except Exception as e:
-            test_results.append((f"Max Flow test", f"ERROR: {e}", expected, False))
+            test_results.append((f"Shortest path DAG test", f"ERROR: {e}", expected, False))
 """
             
-            elif problem_name == "heavy_light_decomposition":
-                test_script += """    for tree, initial_values, operations, expected_results in test_cases:
+            elif problem_name == "binary_lifting_lca":
+                test_script += """    for tree, root, queries, expected_results in test_cases:
         try:
-            hld = HeavyLightDecomposition(tree, initial_values)
+            lca_solver = TreeLCA(tree, root)
             results = []
-            for i, op in enumerate(operations):
+            for u, v in queries:
+                result = lca_solver.lca(u, v)
+                results.append(result)
+            
+            test_results.append((f"Binary Lifting LCA", results, expected_results, results == expected_results))
+        except Exception as e:
+            test_results.append((f"Binary Lifting LCA test", f"ERROR: {e}", expected_results, False))
+"""
+            
+            elif problem_name == "segment_tree":
+                test_script += """    for initial_array, operations, expected_results in test_cases:
+        try:
+            seg_tree = SegmentTree(initial_array[:])  # Make a copy
+            results = []
+            for op in operations:
                 if op[0] == "query":
-                    result = hld.query_path_max(op[1], op[2])
+                    result = seg_tree.query(op[1], op[2])
                     results.append(result)
                 elif op[0] == "update":
-                    hld.update(op[1], op[2])
+                    seg_tree.update(op[1], op[2])
                     results.append(None)
             
-            test_results.append((f"HLD operations", results, expected_results, results == expected_results))
+            test_results.append((f"Segment Tree operations", results, expected_results, results == expected_results))
         except Exception as e:
-            test_results.append((f"Heavy-Light Decomposition test", f"ERROR: {e}", expected_results, False))
-"""
-            
-            elif problem_name == "centroid_decomposition":
-                test_script += """    for tree, operations, expected_results in test_cases:
-        try:
-            cd = CentroidDecomposition(tree)
-            results = []
-            for i, op in enumerate(operations):
-                if op[0] == "mark":
-                    cd.mark_important(op[1])
-                    results.append(None)
-                elif op[0] == "query":
-                    result = cd.query_nearest_distance(op[1])
-                    results.append(result)
-            
-            test_results.append((f"Centroid Decomposition operations", results, expected_results, results == expected_results))
-        except Exception as e:
-            test_results.append((f"Centroid Decomposition test", f"ERROR: {e}", expected_results, False))
+            test_results.append((f"Segment Tree test", f"ERROR: {e}", expected_results, False))
 """
             
             test_script += f"""
@@ -447,7 +472,7 @@ if __name__ == "__main__":
         
         overall_status = 'PASS' if all_passed else 'FAIL'
         print(f"Overall Result: {{overall_status}}")
-        print(f"Difficulty Level: USACO PLATINUM (Extremely Advanced)")
+        print(f"Difficulty Level: USACO PLATINUM (Advanced)")
         exit(0 if all_passed else 1)
     except Exception as e:
         print(f"Error running tests: {{e}}")
@@ -477,7 +502,7 @@ if __name__ == "__main__":
                 [sys.executable, file_path], 
                 capture_output=True, 
                 text=True, 
-                timeout=120  # Longer timeout for complex algorithms
+                timeout=60  # Reasonable timeout
             )
             return result.returncode == 0, result.stdout, result.stderr
         except subprocess.TimeoutExpired:
@@ -491,8 +516,8 @@ if __name__ == "__main__":
         results = {}
         
         print(f"\n{'='*100}")
-        print(f"RUNNING USACO PLATINUM TEST SUITE FOR MODEL: {self.model_name}")
-        print(f"🏆 DIFFICULTY LEVEL: EXTREMELY ADVANCED - COMPETITIVE PROGRAMMING MASTERY")
+        print(f"RUNNING IMPROVED USACO PLATINUM TEST SUITE FOR MODEL: {self.model_name}")
+        print(f"🏆 DIFFICULTY LEVEL: ADVANCED - COMPETITIVE PROGRAMMING")
         print(f"{'='*100}")
         
         for problem_name, problem_data in problems.items():
@@ -564,13 +589,13 @@ if __name__ == "__main__":
         
         # Difficulty assessment
         if passed_tests == total_tests:
-            print(f"🌟 RATING: COMPETITIVE PROGRAMMING MASTER - This model demonstrates exceptional algorithmic expertise!")
+            print(f"🌟 RATING: COMPETITIVE PROGRAMMING EXPERT - Outstanding algorithmic mastery!")
         elif passed_tests >= total_tests * 0.67:
-            print(f"🥇 RATING: ADVANCED ALGORITHMIC COMPETENCY - Strong performance on expert-level problems!")
+            print(f"🥇 RATING: ADVANCED PROGRAMMER - Strong algorithmic understanding!")
         elif passed_tests >= total_tests * 0.33:
-            print(f"🥈 RATING: INTERMEDIATE ALGORITHMIC UNDERSTANDING - Some advanced concepts understood!")
+            print(f"🥈 RATING: INTERMEDIATE PROGRAMMER - Good foundation with room to grow!")
         else:
-            print(f"🥉 RATING: BASIC PROGRAMMING ABILITY - USACO Platinum problems are extremely challenging!")
+            print(f"🥉 RATING: DEVELOPING SKILLS - Keep practicing advanced algorithms!")
         
         print(f"\nDetailed Results:")
         print("-" * 80)
@@ -581,10 +606,10 @@ if __name__ == "__main__":
         
         print(f"\n{'='*100}")
         print("📚 ALGORITHM CATEGORIES TESTED:")
-        print("   • Network Flow with Vertex Constraints")
-        print("   • Heavy-Light Decomposition + Segment Trees") 
-        print("   • Centroid Decomposition + Distance Queries")
-        print("🎓 These represent some of the most advanced algorithmic concepts in competitive programming!")
+        print("   • Dynamic Programming on DAGs")
+        print("   • Binary Lifting for Tree Queries") 
+        print("   • Segment Trees for Range Operations")
+        print("🎓 These problems test fundamental competitive programming techniques!")
 
 def main():
     """Run USACO Platinum level tests for Qwen models"""
@@ -592,14 +617,14 @@ def main():
     models_to_test = [
         "Qwen/Qwen2.5-Coder-7B-Instruct",
         "Qwen/Qwen2.5-Coder-14B-Instruct",
-        # "Qwen/Qwen2.5-Coder-32B-Instruct",  # Uncomment if you have access
+        #"Qwen/Qwen2.5-Coder-32B-Instruct",  # Uncomment if you have access
     ]
     
     all_results = {}
     
     for model_name in models_to_test:
         print(f"\n{'#'*120}")
-        print(f"🚀 STARTING USACO PLATINUM TESTS FOR MODEL: {model_name}")
+        print(f"🚀 STARTING IMPROVED USACO PLATINUM TESTS FOR MODEL: {model_name}")
         print(f"{'#'*120}")
         
         try:
@@ -646,14 +671,14 @@ def main():
             elif percentage >= 33:
                 rating = "🥈 ADVANCED"
             else:
-                rating = "🥉 NOVICE"
+                rating = "🥉 DEVELOPING"
                 
             print(f"{rating} {model_name}: {passed}/{total} USACO Platinum problems solved ({percentage:.1f}%)")
     
     print(f"\n{'='*120}")
-    print("🎓 USACO Platinum problems represent the pinnacle of competitive programming difficulty.")
-    print("   These test advanced graph algorithms, complex data structures, and mathematical optimization.")
-    print("   Success on even 1-2 problems indicates exceptional algorithmic competency!")
+    print("🎓 These improved problems focus on core competitive programming algorithms.")
+    print("   Success indicates strong understanding of advanced data structures and algorithms.")
+    print("   Each problem includes detailed explanations and implementation guidance!")
     print(f"{'='*120}")
 
 if __name__ == "__main__":

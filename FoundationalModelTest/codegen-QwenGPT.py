@@ -14,7 +14,7 @@ import traceback
 
 def ask_coding_question():
     # Load Qwen2.5-Coder model
-    model_name = "Qwen/Qwen2.5-Coder-7B-Instruct"
+    model_name = "Qwen/Qwen2.5-Coder-32B-Instruct"
     
     print(f"Loading model: {model_name}")
     print("This may take a few minutes...")
