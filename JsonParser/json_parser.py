@@ -3,11 +3,11 @@ import argparse
 import re
 import html
 
-DEBUG =- True
+DEBUG = True
 
 def getTextFromLine(line):
-    start = len("\"cooked\": \"")
-    end = line.find(",")-1
+    start = line.find("\"cooked\": \"<p>") + len("\"cooked\": \"<p>")
+    end = line.find("</p>\",")-1
     return line[start:end]
 
 def fixFromSpanClass(line):
@@ -19,13 +19,10 @@ def fixFromSpanClass(line):
             start_real = line.find("data-text=\"", start)+len("data-text=\"")
             end_real = line.find("\"", start_real)
             realText = line[start_real:end_real]
-            abbr_match = re.search(r'<span class="[^"]*">(.*?)<template', spanText, re.DOTALL)
-            if abbr_match:
-                abbrText = abbr_match.group(1).strip()
-                replacement = f"{abbrText} ({realText})"
-                line = line.replace(spanText, replacement)
-            else:
-                line = line.replace(spanText, realText)
+            start_abbrev = line.find("<span class=\"abbreviation\">", start)+len("<span class=\"abbreviation\">")
+            end_abbrev = line.find("<template class=", start_abbrev)-1
+            abbrevText = line[start_abbrev:end_abbrev]
+            line = line.replace(spanText, f"{abbrevText} ({realText})")
     return line
         #add other cases of span classes as we go
 
@@ -42,8 +39,11 @@ def cleanText(lines):
             string_new = re.sub(r'\n+', '\n', string_new).strip()
             lines[i].replace(string_org, string_new)
             if DEBUG:
-                print(f"Original: {string_org}")
-                print(f"Cleaned: {string_new}")
+                outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/debug_output.txt"
+                with open(outputFileName, 'a') as debug_file:
+                    debug_file.write(f"Original: {string_org}\n")
+                    debug_file.write(f"Cleaned: {string_new}\n\n")
+                print(f"Line {i}:", line)
     return lines
 
 def main(args):
@@ -55,10 +55,12 @@ def main(args):
     lines = inputText.splitlines()
     #DO THINGS WITH THE INPUT TEXT IN FUNCTIONS
     lines = cleanText(lines)
-    outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/" + name.split("/")[-1] + '_output.txt'
+    outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/"+ name.split("/")[-1] + '_output.txt'
 
     if (DEBUG == True):
         print(f"Output written to {outputFileName}")
+        # for i, line in enumerate(lines):
+        #     print(f"Line {i}:\t", line)
     else:
         outputFile = open(outputFileName, 'w')
         outputFile.write('\n'.join(lines)) # MAYBE CHANGE
