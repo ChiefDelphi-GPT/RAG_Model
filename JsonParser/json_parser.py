@@ -1,49 +1,107 @@
 #opening files
 import argparse
-import re
-import html
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+import time
 
 DEBUG = True
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"<p>") + len("\"cooked\": \"<p>")
-    end = line.find("</p>\",")-1
+    end = line.find("</p>',")-len("</p>',")
     return line[start:end]
 
-def fixFromSpanClass(line):
-    while ("<span class=\"" in line):
-        start = line.find("<span class=\"")
-        end = line.find("</span>", start)+len("</span>")
-        spanText = line[start:end]
-        if ("<span class=\"abbreviation\">" in spanText):
-            start_real = line.find("data-text=\"", start)+len("data-text=\"")
-            end_real = line.find("\"", start_real)
-            realText = line[start_real:end_real]
-            start_abbrev = line.find("<span class=\"abbreviation\">", start)+len("<span class=\"abbreviation\">")
-            end_abbrev = line.find("<template class=", start_abbrev)-1
-            abbrevText = line[start_abbrev:end_abbrev]
-            line = line.replace(spanText, f"{abbrevText} ({realText})")
-    return line
-        #add other cases of span classes as we go
+def queryDeepSeek(input_text):
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"  # Very large - needs lots of RAM
+    # model_name = "deepseek-ai/DeepSeek-R1"                     # Main flagship - enterprise only (671B)
+
+    if (torch.backends.mps.is_available()):
+        device = "mps"
+        torch_dtype = torch.float32  # MPS works better with float32
+    elif (torch.cuda.is_available()):
+        device = "cuda"
+        torch_dtype = torch.float16
+    else:
+        device = "cpu"
+        torch_dtype = torch.float32
+
+    print(f"Using device: {device}")
+    print(f"Loading model: {model_name}")
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        torch_dtype=torch_dtype,
+        device_map=None,  # Don't use auto device mapping
+        trust_remote_code=True  # DeepSeek models may require this
+    ).to(device)
+
+    messages = [
+        {"role": "user", "content": input_text}
+    ]
+    try: 
+        formatted_input = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+    except:
+        formatted_input = f"User: {input_text}\nAssistant:"
+
+    start_time = time.time()
+    input_ids = tokenizer.encode(formatted_input, return_tensors='pt').to(device)
+    attention_mask = torch.ones_like(input_ids).to(device)
+
+    with torch.no_grad():
+        outputs = model.generate(
+            input_ids,
+            attention_mask=attention_mask,
+            max_new_tokens=10000,
+            temperature=0.7,
+            do_sample=True,
+            top_p=0.9,
+            repetition_penalty=1.1,
+            pad_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id
+        )
+
+    response_ids = outputs[0][input_ids.shape[1]:]
+    response = tokenizer.decode(response_ids, skip_special_tokens=True)
+    if DEBUG:
+        print()
+        print("MODEL RESPONSE:")
+        print(response.strip())
+        print()
+    end_time = time.time()
+    return response.strip(), end_time - start_time
 
 def cleanText(lines):
     for i, line in enumerate(lines):
         if ("\"cooked\": \"" in line):
             string_org = getTextFromLine(line)
-            string_new = fixFromSpanClass(string_org)
-            string_new = re.sub(r'<p>', '\n', string_new)
-            string_new = re.sub(r'</p>', '\n', string_new)
-            string_new = re.sub(r'<br\s*/?>', '\n', string_new)
-            string_new = re.sub(r'<[^>]+>', '', string_new)
-            string_new = html.unescape(string_new)
-            string_new = re.sub(r'\n+', '\n', string_new).strip()
-            lines[i].replace(string_org, string_new)
+            prompt = (
+                "Please clean up the following text by removing all HTML tags and any other unnecessary elements. "
+                "The final output should preserve the original meaning, but be formatted using standard English grammar and punctuation. "
+                "It should be a single paragraph with no line breaks. "
+                "The text is: " + string_org
+            )
+            string_new, time_taken = queryDeepSeek(prompt)
+            line[i] = line.replace(string_org, string_new)
             if DEBUG:
-                outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/debug_output.txt"
-                with open(outputFileName, 'a') as debug_file:
-                    debug_file.write(f"Original: {string_org}\n")
-                    debug_file.write(f"Cleaned: {string_new}\n\n")
-                print(f"Line {i}:", line)
+                print()
+                print()
+                print()
+                print("Processing line:")
+                print("Original text:", string_org)
+                print()
+                print("Cleaned text:", string_new)
+                print()
+                print(f"Time taken for this line: {time_taken:.2f} seconds")
     return lines
 
 def main(args):
@@ -56,16 +114,17 @@ def main(args):
     #DO THINGS WITH THE INPUT TEXT IN FUNCTIONS
     lines = cleanText(lines)
     outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/"+ name.split("/")[-1] + '_output.txt'
+    outputFile = open(outputFileName, 'w')
 
-    if (DEBUG == True):
+
+    if DEBUG:
         print(f"Output written to {outputFileName}")
         # for i, line in enumerate(lines):
         #     print(f"Line {i}:\t", line)
     else:
-        outputFile = open(outputFileName, 'w')
         outputFile.write('\n'.join(lines)) # MAYBE CHANGE
-        inputFile.close()
-        outputFile.close()
+    inputFile.close()
+    outputFile.close()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='JSON Parser')

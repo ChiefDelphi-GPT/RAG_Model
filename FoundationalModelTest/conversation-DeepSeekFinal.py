@@ -44,7 +44,7 @@ model = AutoModelForCausalLM.from_pretrained(
 ).to(device)
 
 # Your input message
-input_text = "Hi how are you doing. What is ur name? What are your model specifications?"
+input_text = "Please convert the following text into understandable english: <p>Our team has been running <span class=\"abbreviation\">SDS<template class=\"tooltiptext\" data-text=\"Swerve Drive Specialties\"></template></span> swerve modules for the last 4 seasons —Mk4 and MK4is — and they’ve definitely treated us well. But as we start prepping for the next seasons, we’re seriously considering a switch.</p>\n<p>We’re currently comparing:<br>\n•\t<span class=\"abbreviation\">WCP<template class=\"tooltiptext\" data-text=\"West Coast Products\"></template></span> X2-ST<br>\n•\t<span class=\"abbreviation\">SDS<template class=\"tooltiptext\" data-text=\"Swerve Drive Specialties\"></template></span> MK4N</p>\n<p>If you’ve used either (or both), we’d love to hear your thoughts. Especially on:<br>\n•\tDurability and maintenance across multiple events<br>\n•\tDriving feel and performance under defense<br>\n•\tEncoder setup (we use CANcoders for absolute position)<br>\n•\tPackaging or mounting differences<br>\n•\tAny “we wish we knew this earlier” moments</p>\n<p>We’re not switching just for fun — we want to make a call based on real-world value for performance, reliability, and maintenance effort.</p>\n<p>Would really appreciate any insights, pros/cons, or even CAD examples if you’re willing to share.!</p>"
 
 # Format as a proper conversation using DeepSeek's chat template
 messages = [
