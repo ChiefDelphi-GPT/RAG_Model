@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
 
-DEBUG = True
+DEBUG = False
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"<p>") + len("\"cooked\": \"<p>")
@@ -90,18 +90,17 @@ def cleanText(lines):
                 "It should be a single paragraph with no line breaks. "
                 "The text is: " + string_org
             )
-            string_new, time_taken = queryDeepSeek(prompt)
-            line[i] = line.replace(string_org, string_new)
+            model_response, elapsed_time = queryDeepSeek(prompt)
+            lines[i] = line.replace(string_org, model_response)
             if DEBUG:
                 print()
                 print()
                 print()
-                print("Processing line:")
                 print("Original text:", string_org)
                 print()
-                print("Cleaned text:", string_new)
+                print("Model response:", model_response)
                 print()
-                print(f"Time taken for this line: {time_taken:.2f} seconds")
+                print("Time taken:", elapsed_time, "seconds")
     return lines
 
 def main(args):
@@ -111,18 +110,16 @@ def main(args):
     inputFile = open(inputFileName, 'r')
     inputText = inputFile.read()
     lines = inputText.splitlines()
+
     #DO THINGS WITH THE INPUT TEXT IN FUNCTIONS
     lines = cleanText(lines)
+
     outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/"+ name.split("/")[-1] + '_output.txt'
     outputFile = open(outputFileName, 'w')
-
-
     if DEBUG:
         print(f"Output written to {outputFileName}")
-        # for i, line in enumerate(lines):
-        #     print(f"Line {i}:\t", line)
     else:
-        outputFile.write('\n'.join(lines)) # MAYBE CHANGE
+        outputFile.write('\n'.join(lines))
     inputFile.close()
     outputFile.close()
 
