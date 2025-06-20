@@ -7,8 +7,11 @@ import time
 DEBUG = False
 
 def getTextFromLine(line):
-    start = line.find("\"cooked\": \"<p>") + len("\"cooked\": \"<p>")
-    end = line.find("</p>',")-len("</p>',")
+    start = line.find("\"cooked\": \"")+len("'cooked': '")
+    end = line.find("</p>\",")
+    if DEBUG:
+        print("START:", start)
+        print("END:", end)
     return line[start:end]
 
 def queryDeepSeek(input_text):
@@ -84,14 +87,20 @@ def cleanText(lines):
     for i, line in enumerate(lines):
         if ("\"cooked\": \"" in line):
             string_org = getTextFromLine(line)
+            print(string_org)
+            print()
+            print()
             prompt = (
                 "Please clean up the following text by removing all HTML tags and any other unnecessary elements. "
                 "The final output should preserve the original meaning, but be formatted using standard English grammar and punctuation. "
                 "It should be a single paragraph with no line breaks. "
+                "Importantly, if it seems to make sense don't change anything, just return the text as is. "
                 "The text is: " + string_org
             )
             model_response, elapsed_time = queryDeepSeek(prompt)
-            lines[i] = line.replace(string_org, model_response)
+            lines[i] = line.replace(string_org, model_response[model_response.find('</think>')+len("</think>"):].lstrip())
+            if lines[i].endswith("</p>\","):
+                lines[i] = lines[i].replace("</p>\",", "\",")
             if DEBUG:
                 print()
                 print()
@@ -102,6 +111,8 @@ def cleanText(lines):
                 print()
                 print("Time taken:", elapsed_time, "seconds")
     return lines
+
+
 
 def main(args):
     filename = args.files[0]
