@@ -5,7 +5,7 @@ import time
 import json
 
 DEBUG = False
-q_a = {}
+q_a = {} #the first element of this dictionary is the question and the rest are the answers
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
@@ -142,8 +142,17 @@ def cleanText(data):
 def extractFeatures(data):
     global q_a
     posts = data["data"]["post_stream"]["posts"]
-    print("POSTS")
-    print(posts)
+    for i, post in enumerate(posts):
+        if (i == 1): #evaluate the question
+            q_a[post["cooked"]] = []
+        print("new post")
+        print(post)
+        print()
+        print()
+        print()
+        print()
+        print()
+
 
 def main(args):
     filename = args.files[0]
@@ -158,7 +167,7 @@ def main(args):
 
     # Clean up the input text + responses
     # lines = cleanText(lines)
-    data = cleanText(data)
+    # data = cleanText(data)
 
     # makes dictionary for vector
     extractFeatures(data)
