@@ -1,10 +1,11 @@
-#opening files
 import argparse
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
+import json
 
 DEBUG = False
+q_a = {}
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
@@ -83,24 +84,24 @@ def queryDeepSeek(input_text):
     end_time = time.time()
     return response.strip(), end_time - start_time
 
-def cleanText(lines):
-    for i, line in enumerate(lines):
-        if ("\"cooked\": \"" in line):
-            string_org = getTextFromLine(line)
-            print(string_org)
-            print()
-            print()
+def cleanText(data):
+    posts = data["data"]["post_stream"]["posts"]
+    for post in posts:
+        if "cooked" in post:
+            string_org = post["cooked"]
+            if DEBUG:
+                print("Original text:", string_org)
             prompt = (
                 "Please clean up the following text by removing all HTML tags and any other unnecessary elements. "
                 "The final output should preserve the original meaning, but be formatted using standard English grammar and punctuation. "
                 "It should be a single paragraph with no line breaks. "
-                "Importantly, if it seems to make sense don't change anything, just return the text as is. "
+                "Most importantly, change as little as possible to make the text make sense. "
                 "The text is: " + string_org
             )
             model_response, elapsed_time = queryDeepSeek(prompt)
-            lines[i] = line.replace(string_org, model_response[model_response.find('</think>')+len("</think>"):].lstrip())
-            if lines[i].endswith("</p>\","):
-                lines[i] = lines[i].replace("</p>\",", "\",")
+            post["cooked"] = post["cooked"].replace(string_org, model_response[model_response.find('</think>')+len("</think>"):].lstrip())
+            if post["cooked"].endswith("</p>\","):
+                post["cooked"] = post["cooked"].replace("</p>\",", "\",")
             if DEBUG:
                 print()
                 print()
@@ -110,29 +111,68 @@ def cleanText(lines):
                 print("Model response:", model_response)
                 print()
                 print("Time taken:", elapsed_time, "seconds")
-    return lines
+    # for i, line in enumerate(lines):
+    #     if ("\"cooked\": \"" in line):
+    #         string_org = getTextFromLine(line)
+    #         print(string_org)
+    #         print()
+    #         print()
+    #         prompt = (
+    #             "Please clean up the following text by removing all HTML tags and any other unnecessary elements. "
+    #             "The final output should preserve the original meaning, but be formatted using standard English grammar and punctuation. "
+    #             "It should be a single paragraph with no line breaks. "
+    #             "Importantly, if it seems to make sense don't change anything, just return the text as is. "
+    #             "The text is: " + string_org
+    #         )
+    #         model_response, elapsed_time = queryDeepSeek(prompt)
+    #         lines[i] = line.replace(string_org, model_response[model_response.find('</think>')+len("</think>"):].lstrip())
+    #         if lines[i].endswith("</p>\","):
+    #             lines[i] = lines[i].replace("</p>\",", "\",")
+    #         if DEBUG:
+    #             print()
+    #             print()
+    #             print()
+    #             print("Original text:", string_org)
+    #             print()
+    #             print("Model response:", model_response)
+    #             print()
+    #             print("Time taken:", elapsed_time, "seconds")
+    # return lines
 
-
+def extractFeatures(data):
+    global q_a
+    posts = data["data"]["post_stream"]["posts"]
+    print("POSTS")
+    print(posts)
 
 def main(args):
     filename = args.files[0]
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
-    inputFile = open(inputFileName, 'r')
-    inputText = inputFile.read()
-    lines = inputText.splitlines()
+    with open(inputFileName, 'r') as inputFile:
+        data = json.load(inputFile)
 
-    #DO THINGS WITH THE INPUT TEXT IN FUNCTIONS
-    lines = cleanText(lines)
+    # inputFile = open(inputFileName, 'r')
+    # inputText = inputFile.read()
+    # lines = inputText.splitlines()
 
-    outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser/"+ name.split("/")[-1] + '_output.txt'
-    outputFile = open(outputFileName, 'w')
-    if DEBUG:
-        print(f"Output written to {outputFileName}")
-    else:
-        outputFile.write('\n'.join(lines))
+    # Clean up the input text + responses
+    # lines = cleanText(lines)
+    data = cleanText(data)
+
+    # makes dictionary for vector
+    extractFeatures(data)
+
+    # puts it into vector database
+
+    # outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/"+ name.split("/")[-1] + '.json'
+    # outputFile = open(outputFileName, 'w')
+    # if DEBUG:
+    #     print(f"Output written to {outputFileName}")
+    # else:
+    #     outputFile.write('\n'.join(lines))
     inputFile.close()
-    outputFile.close()
+    # outputFile.close()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='JSON Parser')
