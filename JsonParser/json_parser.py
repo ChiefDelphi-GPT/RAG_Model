@@ -5,6 +5,7 @@ import time
 import json
 
 DEBUG = False
+MAC = False
 q_a = {} #the first element of this dictionary is the question and the rest are the answers
 
 def getTextFromLine(line):
@@ -158,30 +159,36 @@ def main(args):
     filename = args.files[0]
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
-    with open(inputFileName, 'r') as inputFile:
-        data = json.load(inputFile)
-
-    # inputFile = open(inputFileName, 'r')
-    # inputText = inputFile.read()
-    # lines = inputText.splitlines()
+    if MAC:
+        with open(inputFileName, 'r') as inputFile:
+            data = json.load(inputFile)
+    else:
+        with open(inputFileName, 'r', encoding='utf-8') as inputFile:
+            data = json.load(inputFile)
 
     # Clean up the input text + responses
-    # lines = cleanText(lines)
-    # data = cleanText(data)
+    data = cleanText(data)
 
     # makes dictionary for vector
-    extractFeatures(data)
+    #extractFeatures(data)
 
     # puts it into vector database
 
-    # outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/"+ name.split("/")[-1] + '.json'
-    # outputFile = open(outputFileName, 'w')
-    # if DEBUG:
-    #     print(f"Output written to {outputFileName}")
-    # else:
-    #     outputFile.write('\n'.join(lines))
-    inputFile.close()
-    # outputFile.close()
+    if MAC:
+        outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/"+ name.split("/")[-1] + '.json'
+    else:
+        file_name = name.split("/")[-1]
+        outputFileName = rf"C:\Users\serge\Downloads\FRC\RAG_model\Cheif_Delphi_JSONS\{file_name}.json"
+    if DEBUG:
+        print(f"Output written to {outputFileName}")
+        print("Dataa = \n", data)
+    else:
+        if MAC:
+            with open(outputFileName, 'w') as outputFile:
+                json.dump(data, outputFile, indent=4, ensure_ascii=False)
+        else:
+            with open(outputFileName, 'w', encoding='utf-8') as outputFile:
+                json.dump(data, outputFile, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='JSON Parser')
