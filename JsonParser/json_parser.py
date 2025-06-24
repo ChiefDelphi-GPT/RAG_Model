@@ -160,11 +160,21 @@ def main(args):
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
     if MAC:
-        with open(inputFileName, 'r') as inputFile:
-            data = json.load(inputFile)
+        print(f"Type of data: {type(data)}")
+        if isinstance(data, str):
+            print("Looks like the JSON file was encoded as a string. Fixing it...")
+            data = json.loads(data)
+        else:
+            with open(inputFileName, 'r') as inputFile:
+                data = json.load(inputFile)
     else:
-        with open(inputFileName, 'r', encoding='utf-8') as inputFile:
-            data = json.load(inputFile)
+        print(f"Type of data: {type(data)}")
+        if isinstance(data, str):
+            print("Looks like the JSON file was encoded as a string. Fixing it...")
+            data = json.loads(data)
+        else:
+            with open(inputFileName, 'r', encoding='utf-8') as inputFile:
+                data = json.load(inputFile)
 
     # Clean up the input text + responses
     data = cleanText(data)
