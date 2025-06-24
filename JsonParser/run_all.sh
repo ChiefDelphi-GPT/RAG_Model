@@ -3,18 +3,21 @@ set -e
 
 # Copy data directory to remote
 scp -r /Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/json_originals fe.ds:/home/rhayrapetyan/automatic/
+scp -r /Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser fe.ds:/home/rhayrapetyan/automatic/
+
 
 # SSH and execute commands on remote
 ssh fe.ds << 'EOF'
 set -e
 cd /home/rhayrapetyan/automatic/
-
+mkdir -p /home/rhayrapetyan/automatic/Cheif_Delphi_JSONS
 # Create the run.sh script
 cat > run.sh << 'EORUN'
 #!/bin/bash
+cd /home/rhayrapetyan/automatic/JsonParser  # ADD THIS LINE
 for i in {0..149}
 do
-    python3 /home/rhayrapetyan/automatic/JsonParser/input_cleaner.py /home/rhayrapetyan/automatic/json_originals/${i}.json
+    python3 input_cleaner.py ../json_originals/${i}.json  # USE RELATIVE PATH
 done
 EORUN
 
