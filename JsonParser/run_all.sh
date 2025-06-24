@@ -14,7 +14,7 @@ cat > run.sh << 'EORUN'
 #!/bin/bash
 for i in {0..149}
 do
-    python3 /home/rhayrapetyan/automatic/JsonParser/json_parser.py /home/rhayrapetyan/automatic/json_originals/${i}.json
+    python3 /home/rhayrapetyan/automatic/JsonParser/input_cleaner.py /home/rhayrapetyan/automatic/json_originals/${i}.json
 done
 EORUN
 

@@ -6,7 +6,6 @@ import json
 
 DEBUG = False
 MAC = False
-q_a = {} #the first element of this dictionary is the question and the rest are the answers
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
@@ -140,49 +139,19 @@ def cleanText(data):
     #             print("Time taken:", elapsed_time, "seconds")
     # return lines
 
-def extractFeatures(data):
-    global q_a
-    posts = data["data"]["post_stream"]["posts"]
-    for i, post in enumerate(posts):
-        if (i == 1): #evaluate the question
-            q_a[post["cooked"]] = []
-        print("new post")
-        print(post)
-        print()
-        print()
-        print()
-        print()
-        print()
-
-
 def main(args):
     filename = args.files[0]
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
     if MAC:
-        print(f"Type of data: {type(data)}")
-        if isinstance(data, str):
-            print("Looks like the JSON file was encoded as a string. Fixing it...")
-            data = json.loads(data)
-        else:
-            with open(inputFileName, 'r') as inputFile:
-                data = json.load(inputFile)
+        with open(inputFileName, 'r') as inputFile:
+            data = json.load(inputFile)
     else:
-        print(f"Type of data: {type(data)}")
-        if isinstance(data, str):
-            print("Looks like the JSON file was encoded as a string. Fixing it...")
-            data = json.loads(data)
-        else:
-            with open(inputFileName, 'r', encoding='utf-8') as inputFile:
-                data = json.load(inputFile)
+        with open(inputFileName, 'r', encoding='utf-8') as inputFile:
+            data = json.load(inputFile)
 
     # Clean up the input text + responses
     data = cleanText(data)
-
-    # makes dictionary for vector
-    #extractFeatures(data)
-
-    # puts it into vector database
 
     if MAC:
         outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/"+ name.split("/")[-1] + '.json'
