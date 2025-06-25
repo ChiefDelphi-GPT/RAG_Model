@@ -182,8 +182,7 @@ def process_json_string(json_str):
     return json.dumps(cleaned_data, indent=4, ensure_ascii=False)
 
 def main(args):
-    inputFileName = args.files[0]  # Use the full path directly
-    name = inputFileName.split('.json')[0]  # This will keep the full path minus .json
+    inputFileName = args.files[0]
     
     print("\n" + "="*80)
     print(f"STARTING PROCESSING FOR FILE: {inputFileName}")
@@ -193,7 +192,9 @@ def main(args):
     print("="*80)
     
     data = None
+    content = None
     
+    # Step 1: Read the file
     try:
         print(f"Reading file: {inputFileName}")
         
@@ -205,50 +206,151 @@ def main(args):
                 content = inputFile.read()
         
         print("  File read successfully!")
+        print(f"  Content length: {len(content)} characters")
+        print(f"  First 200 characters: {content[:200]}")
         
-        # Try to parse as JSON first
-        try:
-            print("  Attempting to parse as JSON...")
-            data = json.loads(content)
-            print("  File parsed as JSON successfully!")
-            print(f"  Data type after parsing: {type(data)}")
-            
-            # Check if we have the expected structure
-            if isinstance(data, dict) and "data" in data and "post_stream" in data["data"] and "posts" in data["data"]["post_stream"]:
-                print("  JSON has expected structure, proceeding...")
-            else:
-                print("  WARNING: JSON doesn't have expected structure")
-                print(f"  Available keys at root level: {list(data.keys()) if isinstance(data, dict) else 'Not a dictionary'}")
-                
-        except json.JSONDecodeError as e:
-            print(f"  ERROR: Failed to parse JSON: {e}")
-            return
-            
-    except FileNotFoundError as e:
-        print(f"  ERROR: File not found: {e}")
-        return
     except Exception as e:
         print(f"  ERROR: Error reading file: {e}")
+        print("  CANNOT CONTINUE WITHOUT FILE CONTENT - EXITING")
         return
     
-    print("\nStarting text cleaning process...")
-    data = cleanText(data, inputFileName)
+    # Step 2: Parse JSON - with detailed diagnostics
+    try:
+        print("  Attempting to parse as JSON...")
+        data = json.loads(content)
+        print("  File parsed as JSON successfully!")
+        print(f"  Data type after parsing: {type(data)}")
+        
+        if isinstance(data, dict):
+            print(f"  Root dictionary keys: {list(data.keys())}")
+        elif isinstance(data, list):
+            print(f"  Root is a list with {len(data)} items")
+            if len(data) > 0:
+                print(f"  First item type: {type(data[0])}")
+                if isinstance(data[0], dict):
+                    print(f"  First item keys: {list(data[0].keys())}")
+        else:
+            print(f"  Root is neither dict nor list, it's: {type(data)}")
+            print(f"  Value: {str(data)[:200]}...")
+        
+    except json.JSONDecodeError as e:
+        print(f"  ERROR: Failed to parse JSON: {e}")
+        print(f"  JSON Error details: {str(e)}")
+        print(f"  Error at position: {e.pos if hasattr(e, 'pos') else 'unknown'}")
+        print("  CANNOT CONTINUE WITHOUT VALID JSON - EXITING")
+        return
     
-    # Determine output filename - extract just the filename from the full path
-    base_filename = inputFileName.split('/')[-1].split('.json')[0]  # Get just the filename part
+    # Step 3: Detailed structure analysis
+    print("\n  DETAILED STRUCTURE ANALYSIS:")
+    print("  " + "="*50)
     
-    if SSH: 
-        outputFileName = f"/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/{base_filename}.json"
-    elif MAC:
-        outputFileName = f"/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/{base_filename}.json"
-    else:
-        outputFileName = rf"C:\Users\serge\Downloads\FRC\RAG_model\Cheif_Delphi_JSONS\{base_filename}.json"
-    
-    print(f"\nDEBUG: Output filename will be: {outputFileName}")
-    print(f"DEBUG: Output directory exists: {os.path.exists(os.path.dirname(outputFileName))}")
-    print(f"Writing output to: {outputFileName}")
+    structure_ok = False
     
     try:
+        if isinstance(data, dict):
+            print(f"  ✓ Root is dictionary with keys: {list(data.keys())}")
+            
+            if "data" in data:
+                print(f"  ✓ Has 'data' key, type: {type(data['data'])}")
+                
+                if isinstance(data["data"], dict):
+                    print(f"  ✓ data['data'] is dict with keys: {list(data['data'].keys())}")
+                    
+                    if "post_stream" in data["data"]:
+                        print(f"  ✓ Has 'post_stream', type: {type(data['data']['post_stream'])}")
+                        
+                        if isinstance(data["data"]["post_stream"], dict):
+                            print(f"  ✓ post_stream is dict with keys: {list(data['data']['post_stream'].keys())}")
+                            
+                            if "posts" in data["data"]["post_stream"]:
+                                posts = data["data"]["post_stream"]["posts"]
+                                print(f"  ✓ Has 'posts', type: {type(posts)}")
+                                
+                                if isinstance(posts, list):
+                                    print(f"  ✓ posts is list with {len(posts)} items")
+                                    if len(posts) > 0:
+                                        print(f"  ✓ First post type: {type(posts[0])}")
+                                        if isinstance(posts[0], dict):
+                                            print(f"  ✓ First post keys: {list(posts[0].keys())}")
+                                            structure_ok = True
+                                        else:
+                                            print(f"  ✗ First post is not dict: {type(posts[0])}")
+                                    else:
+                                        print("  ! Posts list is empty")
+                                        structure_ok = True  # Empty is still valid structure
+                                else:
+                                    print(f"  ✗ posts is not list: {type(posts)}")
+                            else:
+                                print(f"  ✗ No 'posts' in post_stream")
+                        else:
+                            print(f"  ✗ post_stream is not dict: {type(data['data']['post_stream'])}")
+                    else:
+                        print(f"  ✗ No 'post_stream' in data")
+                else:
+                    print(f"  ✗ data['data'] is not dict: {type(data['data'])}")
+            else:
+                print(f"  ✗ No 'data' key in root")
+        else:
+            print(f"  ✗ Root is not dict: {type(data)}")
+            
+    except Exception as e:
+        print(f"  ERROR during structure analysis: {e}")
+        import traceback
+        print(f"  Traceback: {traceback.format_exc()}")
+    
+    print(f"  Structure OK: {structure_ok}")
+    print("  " + "="*50)
+    
+    # Step 4: Attempt processing regardless of structure issues
+    if structure_ok:
+        print("\n✓ Structure looks good, proceeding with normal processing...")
+        try:
+            data = cleanText(data, inputFileName)
+            print("✓ Text cleaning completed successfully!")
+        except Exception as e:
+            print(f"ERROR during cleanText: {e}")
+            import traceback
+            print(f"Traceback: {traceback.format_exc()}")
+            print("! Continuing with original data...")
+    else:
+        print("\n! Structure issues detected, but continuing anyway...")
+        print("! Attempting to process with modified approach...")
+        
+        # Try alternative processing approaches
+        if isinstance(data, dict):
+            if "data" in data and isinstance(data["data"], str):
+                print("! Detected data['data'] is a string, attempting to parse it...")
+                try:
+                    nested_data = json.loads(data["data"])
+                    print(f"! Successfully parsed nested JSON, type: {type(nested_data)}")
+                    if isinstance(nested_data, dict):
+                        data["data"] = nested_data
+                        print("! Replaced string with parsed object, retrying...")
+                        try:
+                            data = cleanText(data, inputFileName)
+                            print("✓ Text cleaning completed after nested parse!")
+                        except Exception as e:
+                            print(f"! Still failed after nested parse: {e}")
+                except Exception as e:
+                    print(f"! Failed to parse nested JSON: {e}")
+            else:
+                print("! No clear fix available, saving original data...")
+        else:
+            print("! Data is not a dictionary, saving as-is...")
+    
+    # Step 5: Always try to write output
+    try:
+        base_filename = inputFileName.split('/')[-1].split('.json')[0]
+        
+        if SSH: 
+            outputFileName = f"/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/{base_filename}.json"
+        elif MAC:
+            outputFileName = f"/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/{base_filename}.json"
+        else:
+            outputFileName = rf"C:\Users\serge\Downloads\FRC\RAG_model\Cheif_Delphi_JSONS\{base_filename}.json"
+        
+        print(f"\nWriting output to: {outputFileName}")
+        
         if MAC:
             with open(outputFileName, 'w') as outputFile:
                 json.dump(data, outputFile, indent=4, ensure_ascii=False)
@@ -256,34 +358,18 @@ def main(args):
             with open(outputFileName, 'w', encoding='utf-8') as outputFile:
                 json.dump(data, outputFile, indent=4, ensure_ascii=False)
         
-        print("  Output file written successfully!")
+        print("✓ Output file written successfully!")
         
     except Exception as e:
-        print(f"  ERROR: Failed to write output file: {e}")
-        return
+        print(f"ERROR: Failed to write output file: {e}")
+        import traceback
+        print(f"Traceback: {traceback.format_exc()}")
+        print("! This is a critical error, but file analysis is complete")
     
-    if DEBUG:
-        print(f"Debug info - Data: \n{data}")
-    
-    print(f"\n✅ COMPLETED PROCESSING FOR: {inputFileName}")
+    print(f"\n📊 ANALYSIS COMPLETED FOR: {inputFileName}")
+    print(f"   Structure Valid: {structure_ok}")
+    print(f"   Data Type: {type(data)}")
+    if isinstance(data, dict):
+        print(f"   Root Keys: {list(data.keys())}")
     print("="*80)
-    print("\n" + " "*20 + "READY FOR NEXT FILE" + " "*20)
     print("\n")
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Process Chief Delphi JSON files')
-    parser.add_argument('files', nargs='*', help='Input JSON files to process')
-    
-    args = parser.parse_args()
-    
-    # If no files provided via command line, you can hardcode for testing
-    if not args.files:
-        print("No files provided via command line.")
-        print("Please run with: python script.py filename.json")
-        print("Or modify the script to hardcode a test file.")
-        exit(1)
-    
-    for filename in args.files:
-        # Create a mock args object for each file
-        file_args = argparse.Namespace(files=[filename])
-        main(file_args)
