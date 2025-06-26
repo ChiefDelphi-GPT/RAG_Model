@@ -14,11 +14,14 @@ mkdir -p /home/rhayrapetyan/automatic/Cheif_Delphi_JSONS
 # Create the run.sh script
 cat > run.sh << 'EORUN'
 #!/bin/bash
-cd /home/rhayrapetyan/automatic/JsonParser  # ADD THIS LINE
-for i in {0..149}
+cd JsonParser/  # ADD THIS LINE
+for i in {seq 3 149}
 do
     python3 input_cleaner.py ../json_originals/${i}.json  # USE RELATIVE PATH
 done
+python3 input_cleaner.py ../json_originals/${0}.json
+python3 input_cleaner.py ../json_originals/${1}.json
+python3 input_cleaner.py ../json_originals/${2}.json
 EORUN
 
 chmod +x run.sh
