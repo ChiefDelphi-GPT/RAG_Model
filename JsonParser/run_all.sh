@@ -1,27 +1,32 @@
 #!/bin/bash
 set -e
 
-# Copy data directory to remote
+# Copy data directory to remote source
+./clean_all.sh
 scp -r /Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/json_originals fe.ds:/home/rhayrapetyan/automatic/
 scp -r /Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/JsonParser fe.ds:/home/rhayrapetyan/automatic/
-
 
 # SSH and execute commands on remote
 ssh fe.ds << 'EOF'
 set -e
 cd /home/rhayrapetyan/automatic/
 mkdir -p /home/rhayrapetyan/automatic/Cheif_Delphi_JSONS
+
 # Create the run.sh script
 cat > run.sh << 'EORUN'
 #!/bin/bash
-cd JsonParser/  # ADD THIS LINE
-for i in {seq 3 149}
+cd JsonParser/
+
+# Process files 3-149 first
+for i in $(seq 3 149)
 do
-    python3 input_cleaner.py ../json_originals/${i}.json  # USE RELATIVE PATH
+    python3 input_cleaner.py ../json_originals/${i}.json
 done
-python3 input_cleaner.py ../json_originals/${0}.json
-python3 input_cleaner.py ../json_originals/${1}.json
-python3 input_cleaner.py ../json_originals/${2}.json
+
+# Then process files 0, 1, and 2
+python3 input_cleaner.py ../json_originals/0.json
+python3 input_cleaner.py ../json_originals/1.json
+python3 input_cleaner.py ../json_originals/2.json
 EORUN
 
 chmod +x run.sh

@@ -4,9 +4,9 @@ import torch
 import time
 import json
 
-DEBUG = False
-MAC = False
-SSH = True
+DEBUG = True
+MAC = True
+SSH = False
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
@@ -140,6 +140,7 @@ def cleanText(data):
     #             print()
     #             print("Time taken:", elapsed_time, "seconds")
     # return lines
+
 def process_json_string(json_str):
     try:
         data = json.loads(json_str)
@@ -160,7 +161,7 @@ def main(args):
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
     data = None
-    
+    content = None
     try:
         if MAC:
             with open(inputFileName, 'r') as inputFile:
@@ -169,7 +170,6 @@ def main(args):
             with open(inputFileName, 'r', encoding='utf-8') as inputFile:
                 content = inputFile.read()
         
-        # Try to parse as JSON first
         try:
             data = json.loads(content)
             # Check if data is actually a string (JSON containing a string)
@@ -182,6 +182,8 @@ def main(args):
             print("File contains raw string, processing with process_json_string...")
             processed_content = process_json_string(content)
             data = json.loads(processed_content)
+        if isinstance(data["data"], str):
+            data["data"] = json.loads(data["data"])
             
     except FileNotFoundError as e:
         print(f"File not found: {e}")
@@ -195,6 +197,9 @@ def main(args):
     print()
     print()
     print("FILENAME:", inputFileName)
+    print("TYPE:", type(data))
+    print("TYPE data[data]:", type(data["data"]))
+    print("TYPE data[data]:", type(data["data"]))
     
     data = cleanText(data)
     if SSH: 
@@ -207,11 +212,16 @@ def main(args):
     
     if DEBUG:
         print(f"Output written to {outputFileName}")
-        print("Dataa = \n", data)
+        print("Data = \n", data)
+    if MAC:
+        with open(outputFileName, 'w') as outputFile:
+            json.dump(data, outputFile, indent=4, ensure_ascii=False)
     else:
-        if MAC:
-            with open(outputFileName, 'w') as outputFile:
-                json.dump(data, outputFile, indent=4, ensure_ascii=False)
-        else:
-            with open(outputFileName, 'w', encoding='utf-8') as outputFile:
-                json.dump(data, outputFile, indent=4, ensure_ascii=False)
+        with open(outputFileName, 'w', encoding='utf-8') as outputFile:
+            json.dump(data, outputFile, indent=4, ensure_ascii=False)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="JSON Parser")
+    parser.add_argument('files', type=str, nargs='+', help='Input Clened JSON')
+    args = parser.parse_args()
+    main(args)
