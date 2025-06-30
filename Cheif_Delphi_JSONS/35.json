@@ -1,0 +1,1128 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3599149,
+                    "name": "Khiry Rheubottom",
+                    "username": "tagless",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png",
+                    "created_at": "2025-04-21T22:40:41.868Z",
+                    "cooked": "A couple of students on my team have expressed an interest in writing their own Shuffleboard plugins/widgets.\n\nHowever, normally, I’d point them towards [this part of the documentation](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/creating-plugins.html) and let them go wild—but in going through them myself to clarify some parts, I’ve encountered an issue.\n\nI’ve followed the docs closely, referencing [this blog post](https://blog.fixermark.com/posts/2022/create-custom-shuffleboard-plugin/) as a foundation. The repository loaded fine locally, but VSCode flags non-existent imports: `edu.wpi.first.shuffleboard.api`.\n\nBelow is the relevant code:\n\n```java\npackage com.example.simplewidget;\n\nimport edu.wpi.first.shuffleboard.api.data.DataType;\nimport edu.wpi.first.shuffleboard.api.plugin.Description;\nimport edu.wpi.first.shuffleboard.api.plugin.Plugin;\nimport edu.wpi.first.shuffleboard.api.widget.ComponentType;\nimport edu.wpi.first.shuffleboard.api.widget.WidgetType;\n\nimport com.example.simplewidget.data.type.PointType;\nimport com.example.simplewidget.widget.SimplePointWidget;\n\nimport java.util.List;\nimport java.util.Map;\n\n/**\n * Example plugin providing a custom data type (2D point) and a widget for displaying it.\n */\n@Description(\n    group = \"com.example\",\n    name = \"SimpleWidgetExample\",\n    version = \"2019.1.1\",\n    summary = \"Example plugin providing a data type and widget\"\n)\npublic final class SimpleWidgetExamplePlugin extends Plugin {\n\n  @Override\n  public List<DataType> getDataTypes() {\n    return List.of(PointType.getInstance());\n  }\n\n  @Override\n  public List<ComponentType> getComponents() {\n    return List.of(WidgetType.forAnnotatedWidget(SimplePointWidget.class));\n  }\n\n  @Override\n  public Map<DataType, ComponentType> getDefaultComponents() {\n    return Map.of(\n        PointType.getInstance(), WidgetType.forAnnotatedWidget(SimplePointWidget.class)\n    );\n  }\n}\n```\n\nVSCode complains about unresolved imports from `edu.wpi`. This suggests the project lacks awareness of the required dependencies. Researching the API documentation shows that the packages used aren’t part of the current `wpilib` release—perhaps they were deprecated or moved.\n\nOptions include:\n1. Double-checking for any oversight or blindness\n2. Waiting until newer versions of `shuffleboard` integrate these packages\n\nWould you like further guidance?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2025-04-21T22:40:41.868Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 113,
+                    "readers_count": 112,
+                    "score": 46.8,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "Khiry Rheubottom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/creating-plugins.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Creating a Plugin — FIRST Robotics Competition documentation",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://blog.fixermark.com/posts/2022/create-custom-shuffleboard-plugin/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Creating a custom Shuffleboard plugin | Mark's Project Blog",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/index.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Overview (WPILib API 2025.3.2)",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 75055,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Mentor (3490)"
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3599205,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2025-04-21T23:25:41.067Z",
+                    "cooked": "I’ve gotten the repository on my local machine just fine, but VSCode seems convinced that the `edu.first` imports don’t exist. You didn’t say how you created your project. An easy way to add libraries in VSCode is to hit the plus sign in the Referenced Libraries area. That adds to the `settings.json` file.  \n\n![Image](https://www.chiefdelphi.com/uploads/default/original/4X/5/5/b/55b6ab8d59543a07e9ed7d1b80fdf4045211401f.png?base62-sha1=cefX8Tz3sFz9kNR9bRcqsCu4Aaz)  \n![Settings](https://www.chiefdelphi.com/uploads/default/original/4X/5/5/b/55b6ab8d59543a07e9ed7d1b80fdf4045211401f.png?base62-sha1=cefX8Tz3sFz9kNR9bRcqsCu4Aaz)",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2025-04-21T23:25:41.067Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 20.4,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3599292,
+                    "name": "Khiry Rheubottom",
+                    "username": "tagless",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png",
+                    "created_at": "2025-04-22T00:13:58.980Z",
+                    "cooked": "Here’s the step-by-step explanation and the final answer:\n\n**Step-by-Step Explanation:**\n\n1. **Remove HTML Tags:**  \n   - Strip out `<p>` tags and any other HTML structure while preserving the content's integrity.\n\n2. **Identify Unnecessary Elements:**  \n   - Remove `<div>` wrappers that enclose image and metadata sections without essential context.\n\n3. **Simplify Descriptions:**  \n   - Condense explanations without losing the core message or intent behind each point raised in the original text.\n\n4. **Ensure Coherence:**  \n   - Maintain logical flow between paragraphs to enhance readability and comprehension.\n\n---\n\n**Cleaned-Up Text:**\n\nThank you for your response!  \n\nUnfortunately, I'm encountering an issue where the application can't locate the `libNotFound` file. Could you please guide me on which additional libraries I might need to include in my project setup?  \n\nPreviously, I've successfully added libraries directly from Maven for my smaller projects, but this particular case is proving challenging since I'm unsure about the exact libraries VSCode expects.  \n\nAfter attempting to search the API documentation for the relevant classes (`edu.wpi.first.shuffleboard.api.*`), it appears these classes and their members aren't listed there. I wonder if I'm searching in the correct location.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "updated_at": "2025-04-22T00:13:58.980Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 71,
+                    "readers_count": 70,
+                    "score": 23.4,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "Khiry Rheubottom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "username": "SLAB-Mr.Thomas",
+                        "name": "SLAB-Mr.Thomas",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 75055,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Mentor (3490)"
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3599464,
+                    "name": "Joe Ross",
+                    "username": "Joe_Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                    "created_at": "2025-04-22T02:19:38.386Z",
+                    "cooked": "so i tried to dig into the wpilib api docs but found the packages involved aren't part of wpilib yet. those are the api docs from wpilib the shuffleboard plugin api is part of shuffleboard you can get those javadoc here jfrog",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "updated_at": "2025-04-22T02:19:38.386Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 9.0,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "Joe Ross",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://frcmaven.wpi.edu/ui/native/release/edu/wpi/first/shuffleboard/api/2025.3.2/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "JFrog",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 65,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3599465,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2025-04-22T02:19:57.790Z",
+                    "cooked": "This Shuffleboard.jar appears to be what you're looking for. The source code has been updated since the release of the jar file. I think ShuffleBoard might be retired soon, so maybe consider alternative approaches.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "updated_at": "2025-04-22T02:19:57.790Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 47,
+                    "readers_count": 46,
+                    "score": 8.8,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/shuffleboard/releases",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Releases · wpilibsuite/shuffleboard · GitHub",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "username": "tagless",
+                        "name": "Khiry Rheubottom",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3599535,
+                    "name": "Joe Ross",
+                    "username": "Joe_Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                    "created_at": "2025-04-22T03:59:54.375Z",
+                    "cooked": "I'm not sure why VS Code isn't finding the API; it should pull it from the project and build it locally if it hasn't been built yet. The API references include:\n- `shuffleboard/example-plugins/custom-data-and-widget/custom-data-and-widget.gradle` at commit `68a14d7`\n- `shuffleboard/api/src/main/java/edu/wpi/first/shuffleboard/api`\n\nThese references suggest the issue may stem from custom build.gradle file names used by Shuffleboard, potentially confusing the VS Code Java plugin. Testing shows it works in IntelliJ, though.",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "updated_at": "2025-04-22T04:02:43.464Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 21.2,
+                    "yours": false,
+                    "topic_id": 500056,
+                    "topic_slug": "shuffleboard-custom-plugin-shenanigans",
+                    "display_username": "Joe Ross",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/shuffleboard/blob/68a14d7def8de2dc2bb77b10cf31e1b00a1df15e/example-plugins/custom-data-and-widget/custom-data-and-widget.gradle#L14",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "shuffleboard/example-plugins/custom-data-and-widget/custom-data-and-widget.gradle at 68a14d7def8de2dc2bb77b10cf31e1b00a1df15e · wpilibsuite/shuffleboard · GitHub",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://github.com/wpilibsuite/shuffleboard/tree/main/api/src/main/java/edu/wpi/first/shuffleboard/api",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "shuffleboard/api/src/main/java/edu/wpi/first/shuffleboard/api at main · wpilibsuite/shuffleboard · GitHub",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "username": "tagless",
+                        "name": "Khiry Rheubottom",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 65,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                }
+            ],
+            "stream": [
+                3599149,
+                3599205,
+                3599292,
+                3599464,
+                3599465,
+                3599535
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                3
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 468380,
+                "title": "CANSparkMax HALSim Websocket Simulation Support",
+                "fancy_title": "CANSparkMax HALSim Websocket Simulation Support",
+                "slug": "cansparkmax-halsim-websocket-simulation-support",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-07-06T18:28:03.709Z",
+                "last_posted_at": "2024-07-06T21:27:17.826Z",
+                "bumped": true,
+                "bumped_at": "2024-07-06T21:27:17.826Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 159,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3405832,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 32710,
+                            "username": "n30b4rt",
+                            "name": "n30b4rt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/n30b4rt/{size}/10142_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 474442,
+                "title": "Unblocking Vendordeps",
+                "fancy_title": "Unblocking Vendordeps",
+                "slug": "unblocking-vendordeps",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-11-06T17:54:55.012Z",
+                "last_posted_at": "2024-11-06T23:54:20.059Z",
+                "bumped": true,
+                "bumped_at": "2024-11-06T23:54:20.059Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 469,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444360,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54656,
+                            "username": "PatMcN",
+                            "name": "Patrick McNaughton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 27012,
+                            "username": "bdaroz",
+                            "name": "Brian Rozmierski",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bdaroz/{size}/128636_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 479550,
+                "title": "StartCompetition()",
+                "fancy_title": "StartCompetition()",
+                "slug": "startcompetition",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-06T21:07:34.644Z",
+                "last_posted_at": "2025-01-07T10:48:32.926Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T10:48:32.926Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 357,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3472957,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60531,
+                            "username": "NKRY_FRC",
+                            "name": "Krypton #9487",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nkry_frc/{size}/206723_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 481036,
+                "title": "Touch screen adjacent to the driver station",
+                "fancy_title": "Touch screen adjacent to the driver station",
+                "slug": "touch-screen-adjacent-to-the-driver-station",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-11T20:52:26.071Z",
+                "last_posted_at": "2025-01-12T03:45:56.678Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T03:45:56.678Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 300,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479409,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": {
+                    "id": 84224,
+                    "user_id": 56456,
+                    "name": null,
+                    "reminder_at": null,
+                    "created_at": "2025-01-11T20:53:52.899Z",
+                    "updated_at": "2025-01-12T13:01:08.071Z",
+                    "reminder_last_sent_at": "2025-01-12T13:01:08.069Z",
+                    "reminder_set_at": null,
+                    "auto_delete_preference": 3,
+                    "pinned": null,
+                    "bookmarkable_id": 3479409,
+                    "bookmarkable_type": "Post"
+                },
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51602,
+                            "username": "Sepu2002",
+                            "name": "Santiago Sepúlveda",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/c67d28/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58492,
+                            "username": "Pyan",
+                            "name": "Ryan Smith",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pyan/{size}/224474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 485264,
+                "title": "SmartDashboard Boolean Array trouble",
+                "fancy_title": "SmartDashboard Boolean Array trouble",
+                "slug": "smartdashboard-boolean-array-trouble",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/7/07090b228b441738ad766e39ed142f1da95b18a9.png",
+                "created_at": "2025-02-05T07:18:34.022Z",
+                "last_posted_at": "2025-02-17T02:41:35.263Z",
+                "bumped": true,
+                "bumped_at": "2025-02-17T02:41:35.263Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "driverstation"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 128,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3502586,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69618,
+                            "username": "henzo",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/a9adbd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "programming"
+        ],
+        "tags_descriptions": {},
+        "id": 500056,
+        "title": "Shuffleboard Custom Plugin Shenanigans",
+        "fancy_title": "Shuffleboard Custom Plugin Shenanigans",
+        "posts_count": 6,
+        "created_at": "2025-04-21T22:40:41.816Z",
+        "views": 184,
+        "reply_count": 3,
+        "like_count": 3,
+        "last_posted_at": "2025-04-22T03:59:54.375Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "shuffleboard-custom-plugin-shenanigans",
+        "category_id": 30,
+        "word_count": 855,
+        "deleted_at": null,
+        "user_id": 75055,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_500056",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46932,
+            "execute_at": "2026-04-22T03:59:54.375Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 45,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "open_mouth",
+            "cry",
+            "angry",
+            "100",
+            "point_up",
+            "+1",
+            "-1",
+            "call_me_hand",
+            "hugs",
+            "thinking",
+            "question"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 24594,
+                    "username": "SLAB-Mr.Thomas",
+                    "name": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 75055,
+                    "username": "tagless",
+                    "name": "Khiry Rheubottom",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 75055,
+                "username": "tagless",
+                "name": "Khiry Rheubottom",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/tagless/{size}/259163_2.png"
+            },
+            "last_poster": {
+                "id": 65,
+                "username": "Joe_Ross",
+                "name": "Joe Ross",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/creating-plugins.html",
+                    "title": "Creating a Plugin — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 75055,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://blog.fixermark.com/posts/2022/create-custom-shuffleboard-plugin/",
+                    "title": "Creating a custom Shuffleboard plugin | Mark's Project Blog",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 75055,
+                    "domain": "blog.fixermark.com",
+                    "root_domain": "fixermark.com"
+                },
+                {
+                    "url": "https://frcmaven.wpi.edu/ui/native/release/edu/wpi/first/shuffleboard/api/2025.3.2/",
+                    "title": "JFrog",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 65,
+                    "domain": "frcmaven.wpi.edu",
+                    "root_domain": "wpi.edu"
+                },
+                {
+                    "url": "https://github.com/wpilibsuite/shuffleboard/releases",
+                    "title": "Releases · wpilibsuite/shuffleboard · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 24594,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/index.html",
+                    "title": "Overview (WPILib API 2025.3.2)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 75055,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

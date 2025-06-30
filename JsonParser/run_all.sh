@@ -32,7 +32,7 @@ EORUN
 chmod +x run.sh
 
 # Submit job to Slurm
-srun -p general --mem=500G --ntasks=2 -t 10:00:00 --gres=gpu:1 ./run.sh
+srun -p general --mem=800G --ntasks=2 -t 12:00:00 --gres=gpu:1 ./run.sh
 
 exit
 EOF

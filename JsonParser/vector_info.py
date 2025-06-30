@@ -4,6 +4,7 @@ import json
 MAC = True
 DEBUG = False
 vectors = [] #the first element of this dictionary is the question and the rest are the answers
+topic-slug_set = {}
 
 def extractFeatures(data):
     global vectors
@@ -12,7 +13,12 @@ def extractFeatures(data):
     replies = []
     for i, post in enumerate(posts):
         if (i == 1): #evaluate the question
-            q_a[post["cooked"]] = [
+            # q_a[post["cooked"]] = [
+            #     post["created_at"],
+            #     post["readers_count"],
+            #     post["trust_level"]
+            # ]
+            q_a[(post["cooked"], post["topic_id"], post["topic_slug"])] = [
                 post["created_at"],
                 post["readers_count"],
                 post["trust_level"]
@@ -30,8 +36,8 @@ def extractFeatures(data):
 
 def scoreReplies(data, replies):
     #getting number of positive reactions
-    positive_ids = {"heart", "point_up", "+1"}
-    negative_ids = {"-1", "question", "cry"}
+    positive_ids = {"heart", "point_up", "+1", "laughing", "call_me_hand", "hugs"}
+    negative_ids = {"-1", "question", "cry", "angry", ""}
     total_positive = sum(
         reaction.get("count", 0)
         for reaction in replies.get("reactions", [])
@@ -57,10 +63,13 @@ def scoreReplies(data, replies):
         reply_dict = {}
         reply_dict[replies["cooked"]] = [
             replies["accepted_answer"],
+            replies["topic_accepted_answer"],
+            replies["created_at"],
             replies["reads"],
-            positive_ids,
-            negative_ids
-            
+            positive_ids/(total_positive+total_negative),
+            negative_ids/(total_positive+total_negative),
+            replies["trust_level"],
+            replies["score"]
         ]
         replies_data.append()
 
