@@ -12,28 +12,32 @@ set -e
 cd /home/rhayrapetyan/automatic/
 mkdir -p /home/rhayrapetyan/automatic/Cheif_Delphi_JSONS
 
-# Create the run.sh script
-cat > run.sh << 'EORUN'
-#!/bin/bash
-cd JsonParser/
+# # Create the run.sh script
+# cat > run.sh << 'EORUN'
+# #!/bin/bash
+# cd JsonParser/
 
-# Process files 3-149 first
-for i in $(seq 3 149)
+# # Process files 3-149 first
+# for i in $(seq 3 149)
+# do
+#     python3 input_cleaner.py ../json_originals/${i}.json
+# done
+
+# # Then process files 0, 1, and 2
+# python3 input_cleaner.py ../json_originals/0.json
+# python3 input_cleaner.py ../json_originals/1.json
+# python3 input_cleaner.py ../json_originals/2.json
+# EORUN
+
+# chmod +x run.sh
+
+# # Submit job to Slurm
+# srun -p general --mem=800G --ntasks=2 -t 12:00:00 --gres=gpu:1 ./run.sh
+
+for i in {0..149}
 do
-    python3 input_cleaner.py ../json_originals/${i}.json
+  srun -p general --mem=800G --ntasks=2 -t 5:00:00 --gres=gpu:1 python3 input_cleaner.py ../json_originals/${i}.json
 done
-
-# Then process files 0, 1, and 2
-python3 input_cleaner.py ../json_originals/0.json
-python3 input_cleaner.py ../json_originals/1.json
-python3 input_cleaner.py ../json_originals/2.json
-EORUN
-
-chmod +x run.sh
-
-# Submit job to Slurm
-srun -p general --mem=800G --ntasks=2 -t 12:00:00 --gres=gpu:1 ./run.sh
-
 exit
 EOF
 
