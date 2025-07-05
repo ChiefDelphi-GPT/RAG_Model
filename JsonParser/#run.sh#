@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for i in {0..149}
-do
-    python3 json_parser.py ../Cheif_Delphi_JSONS/$i.json
-done
-python3 -c 'with open("run_all.sh", "w") as f:
-    f.write("#!/bin/bash\n\n")
-    f.writelines([f"python3 json_parser.py ../Cheif_Delphi_JSONS/{i}.json\n" for i in range(150)])'

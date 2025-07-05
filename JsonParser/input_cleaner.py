@@ -23,9 +23,9 @@ def queryDeepSeek(input_text):
     
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
-    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"  # Very large - needs lots of RAM
     # model_name = "deepseek-ai/DeepSeek-R1"                     # Main flagship - enterprise only (671B)
 
@@ -72,7 +72,7 @@ def queryDeepSeek(input_text):
         outputs = model.generate(
             input_ids,
             attention_mask=attention_mask,
-            max_new_tokens=10000,
+            max_new_tokens=20000,
             temperature=0.7,
             do_sample=True,
             top_p=0.9,
