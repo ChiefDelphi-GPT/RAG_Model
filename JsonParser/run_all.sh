@@ -19,7 +19,7 @@ cd JsonParser/
 
 for i in $(seq 0 149)
 do
-    srun -p general --mem=800G --ntasks=2 -t 2:00:00 --gres=gpu:1 ./run.sh python3 input_cleaner.py ../json_originals/${i}.json
+    srun -p general --mem=800G --ntasks=2 -t 2:00:00 --gres=gpu:1 python3 input_cleaner.py ../json_originals/${i}.json
 done
 EORUN
 
