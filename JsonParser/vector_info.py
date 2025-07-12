@@ -6,7 +6,7 @@ from math import sqrt
 
 MAC = True
 DEBUG = True
-vectors = [] #the first element of this dictionary is the question and the rest are the answers
+vectors = [] # [("cooked", "topic_id", "topic_slug")]
 
 def diff_days(other_date, to_date=dt.datetime.today().date()):
     return (to_date - other_date).days
@@ -23,7 +23,7 @@ def extractFeatures(data):
             difference = diff_days(dt.date(int(post["created_at"].split("T")[0].split("-")[0]),
                 int(post["created_at"].split("T")[0].split("-")[1]),
                 int(post["created_at"].split("T")[0].split("-")[2])))
-            recencyScore = np.exp(-1.0 * (difference) / 270)
+            recencyScore = np.exp(-1.0 * (difference) / 1080)
             confidenceScore = sqrt(post["readers_count"])
             q_a = ([post["cooked"], post["topic_id"], post["topic_slug"]], recencyScore * confidenceScore)
             if DEBUG:
@@ -43,6 +43,7 @@ def extractFeatures(data):
         print()
         print("REPLIES")
         print(replies)
+    return (q_a, replies)
 
 def scoreReplies(replies):
     #getting number of positive reactions

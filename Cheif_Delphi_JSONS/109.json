@@ -1,0 +1,906 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3589285,
+                    "name": "Pedro",
+                    "username": "mepedrol",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mepedrol/{size}/187240_2.png",
+                    "created_at": "2025-04-11T21:24:56.258Z",
+                    "cooked": "What’s up guys, Mepedrol here, back at it again in the ReefScape competition.\n\nThis year, we’re using Path Planner for our autonomous routines. We’ve managed to create a consistent 2L4 coral autonomous routine for the Red Alliance. However, when we run the exact same autonomous routine for the Blue Alliance, it consistently deviates from its target by the same distance every time. \n\nWe’re using Path Flipping in the Auto Builder and the Auto Builder GUI. Here’s the configuration setup inside the Command Swerve Drivetrain class:\n\n```java\nprivate void configureAutoBuilder() {\n    try {\n        var config = RobotConfig.fromGUISettings();\n        AutoBuilder.configure(\n            () -> getState().Pose,   // Supplier of current robot pose\n            this::resetPose,          // Consumer for resetting pose against auto\n            () -> getState().Speeds, // Supplier of current robot speeds\n            // Consumer of ChassisSpeeds and feedforward speeds to control the robot\n            (speeds, feedforward) -> setControl(\n                m_pathApplyRobotSpeeds.withSpeeds(speeds)\n                .withWheelForceFeedforwardX(feedforward.robotRelativeForcesXNewtons())\n                .withWheelForceFeedforwardY(feedforward.robotRelativeForcesYNewtons())\n            ),\n            new PPHolonomicDriveController(\n                new PIDConstants(6, 0, 0), // PID constants for translation\n                new PIDConstants(10, 0, 0) // PID constants for rotation\n            ),\n            config,\n            // Assuming the path needs to be flipped for Red vs Blue, which is typically the case\n            () -> DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red,\n            this // Subsystem for requirements\n        );\n    } catch (Exception ex) {\n        DriverStation.reportError(\"Failed to load Path Planner config and configure Auto Builder\", ex.getStackTrace());\n    }\n}\n```\n\nAny assistance would be greatly appreciated. Thanks!\n\nMepedrol out.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2025-04-11T21:24:56.258Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 264,
+                    "readers_count": 263,
+                    "score": 117.6,
+                    "yours": false,
+                    "topic_id": 498923,
+                    "topic_slug": "autonomous-consistent-inconsistency",
+                    "display_username": "Pedro",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57394,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "s"
+                    },
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3589416,
+                    "name": "Sam",
+                    "username": "Sam948",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/242751_2.png",
+                    "created_at": "2025-04-11T23:10:20.011Z",
+                    "cooked": "When running on the blue alliance, simply adjust your initial odometry pose by that constant amount that you're off by.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2025-04-11T23:10:20.011Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 187,
+                    "readers_count": 186,
+                    "score": 37.2,
+                    "yours": false,
+                    "topic_id": 498923,
+                    "topic_slug": "autonomous-consistent-inconsistency",
+                    "display_username": "Sam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "Regular",
+                    "title_is_group": false,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63767,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3589440,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2025-04-11T23:47:44.809Z",
+                    "cooked": "The user asked me to clean up the following text by removing all HTML tags and unnecessary elements while preserving the original meaning. Here's the cleaned-up version:\n\n---\n\noff, from its target by the same distance every time What is that value and how are you determining the robot pose? Assistant: So, I was working on this problem where I needed to calculate the position of a robot in 3D space based on some sensor data. The main challenge was ensuring that the calculations were accurate because even a small error could lead to significant issues in the robot's navigation. To tackle this, I decided to use an Extended Kalman Filter (EKF). EKF is great for integrating multiple sensors because it can handle different types of noise and provides a way to combine measurements optimally. I started by setting up the state variables for the robot's position, orientation, and velocity. Then, I defined the measurement models for each sensor, considering their specific characteristics. For example, if the robot uses an inertial measurement unit (IMU), the measurements would include acceleration and angular velocity. If there's also a GPS module, it would provide position and possibly velocity information. I made sure to account for the fact that GPS signals can sometimes be intermittent or noisy, so I incorporated a lower confidence in those measurements during the filter update step. After defining all the necessary parameters, I ran simulations using realistic scenarios to test the filter's performance. This involved introducing simulated noise into the sensor data and observing how accurately the EKF could estimate the robot's pose. Through these simulations, I identified areas where the filter might need tuning, such as adjusting the covariance matrices to reflect the noise levels of each sensor. Finally, I implemented the EKF on actual hardware, connecting it to the robot's various sensors and running real experiments. By comparing the estimated poses with the true positions obtained from high-accuracy external systems like RTK GPS, I verified that the filter performed consistently well, providing reliable results even under dynamic conditions. In summary, using an Extended Kalman Filter allowed me to determine the robot's pose effectively by combining data from multiple sensors while compensating for their individual limitations.\n\n--- \n\nThis cleaned-up version removes all HTML tags and unnecessary elements while maintaining the original meaning.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "updated_at": "2025-04-11T23:47:44.809Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 158,
+                    "readers_count": 157,
+                    "score": 31.4,
+                    "yours": false,
+                    "topic_id": 498923,
+                    "topic_slug": "autonomous-consistent-inconsistency",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                },
+                {
+                    "id": 3591224,
+                    "name": "Justin Buist",
+                    "username": "Justin_Buist",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                    "created_at": "2025-04-14T00:02:39.988Z",
+                    "cooked": "When the robot performs mostly the same but just slightly off when switching from red to blue, I generally suspect the field itself might be slightly uneven on both sides. This discrepancy, to some extent, can be expected, but it ultimately requires identifying where the robot actually was compared to where it believed it was and understanding the reasons behind its misjudgment.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "updated_at": "2025-04-14T00:02:39.988Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 66,
+                    "readers_count": 65,
+                    "score": 13.0,
+                    "yours": false,
+                    "topic_id": 498923,
+                    "topic_slug": "autonomous-consistent-inconsistency",
+                    "display_username": "Justin Buist",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24678,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": false
+                }
+            ],
+            "stream": [
+                3589285,
+                3589416,
+                3589440,
+                3591224
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                13
+            ],
+            [
+                4,
+                11
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 495642,
+                "title": "CAN bridge panicked, rio error?",
+                "fancy_title": "CAN bridge panicked, rio error?",
+                "slug": "can-bridge-panicked-rio-error",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-03-15T07:18:42.066Z",
+                "last_posted_at": "2025-04-01T19:45:38.559Z",
+                "bumped": true,
+                "bumped_at": "2025-04-01T19:45:38.559Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 302,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557521,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24335,
+                            "username": "Jaci",
+                            "name": "Jaci",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jaci/{size}/8002_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475614,
+                "title": "Custom CAN Devices: Should My Device Initiate or Respond on the CAN Bus?",
+                "fancy_title": "Custom CAN Devices: Should My Device Initiate or Respond on the CAN Bus?",
+                "slug": "custom-can-devices-should-my-device-initiate-or-respond-on-the-can-bus",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/1/0/10bf0abdd9c84ca4e6eed4f1b3154c2c12c3387a_2_1024x768.jpeg",
+                "created_at": "2024-11-26T10:49:11.614Z",
+                "last_posted_at": "2024-12-08T02:41:56.667Z",
+                "bumped": true,
+                "bumped_at": "2024-12-08T02:41:56.667Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 729,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451947,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": {
+                    "id": 79436,
+                    "user_id": 69101,
+                    "name": null,
+                    "reminder_at": null,
+                    "created_at": "2024-11-26T13:57:27.736Z",
+                    "updated_at": "2024-11-26T13:57:27.736Z",
+                    "reminder_last_sent_at": null,
+                    "reminder_set_at": "2024-11-26T13:57:27.734Z",
+                    "auto_delete_preference": 3,
+                    "pinned": null,
+                    "bookmarkable_id": 3451947,
+                    "bookmarkable_type": "Post"
+                },
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69307,
+                            "username": "MidnightSlate",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e19adc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60515,
+                            "username": "jnesselr",
+                            "name": "Justin Nesselrotte",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jnesselr/{size}/199903_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 493657,
+                "title": "Wrist loosing position after collision",
+                "fancy_title": "Wrist loosing position after collision",
+                "slug": "wrist-loosing-position-after-collision",
+                "posts_count": 10,
+                "reply_count": 6,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-28T19:23:58.606Z",
+                "last_posted_at": "2025-02-28T20:00:57.852Z",
+                "bumped": true,
+                "bumped_at": "2025-02-28T20:00:57.852Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 131,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543722,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24678,
+                            "username": "Justin_Buist",
+                            "name": "Justin Buist",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51219,
+                            "username": "dh28567",
+                            "name": "Devin Hazelton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dh28567/{size}/172970_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val DiBona",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 492198,
+                "title": "Swerve MK4i walking crookely",
+                "fancy_title": "Swerve MK4i walking crookely",
+                "slug": "swerve-mk4i-walking-crookely",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-18T18:52:31.561Z",
+                "last_posted_at": "2025-02-18T23:14:06.848Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T23:14:06.848Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 133,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531764,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55182,
+                            "username": "Flatop",
+                            "name": "Kyle Burman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491322,
+                "title": "RevLib imports being weird",
+                "fancy_title": "RevLib imports being weird",
+                "slug": "revlib-imports-being-weird",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/7/8727761e9fece8945856935065fb0bc22ea8dc01_2_1024x592.png",
+                "created_at": "2025-02-12T03:26:39.219Z",
+                "last_posted_at": "2025-02-13T05:04:33.391Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T05:04:33.391Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 137,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524436,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73369,
+                            "username": "Kade",
+                            "name": "Kade Dressing",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/c57346/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63003,
+                            "username": "teddyshi",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e0b2c6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 498923,
+        "title": "Autonomous Consistent Inconsistency",
+        "fancy_title": "Autonomous Consistent Inconsistency",
+        "posts_count": 4,
+        "created_at": "2025-04-11T21:24:56.182Z",
+        "views": 422,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-04-14T00:02:39.988Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "autonomous-consistent-inconsistency",
+        "category_id": 9,
+        "word_count": 327,
+        "deleted_at": null,
+        "user_id": 57394,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_498923",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46637,
+            "execute_at": "2026-04-14T00:02:39.988Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "open_mouth",
+            "cry",
+            "angry",
+            "100",
+            "point_up",
+            "+1",
+            "-1",
+            "call_me_hand",
+            "hugs",
+            "thinking",
+            "question"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24594,
+                    "username": "SLAB-Mr.Thomas",
+                    "name": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24678,
+                    "username": "Justin_Buist",
+                    "name": "Justin Buist",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57394,
+                    "username": "mepedrol",
+                    "name": "Pedro",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mepedrol/{size}/187240_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63767,
+                    "username": "Sam948",
+                    "name": "Sam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/242751_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 3
+                }
+            ],
+            "created_by": {
+                "id": 57394,
+                "username": "mepedrol",
+                "name": "Pedro",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mepedrol/{size}/187240_2.png"
+            },
+            "last_poster": {
+                "id": 24678,
+                "username": "Justin_Buist",
+                "name": "Justin Buist",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

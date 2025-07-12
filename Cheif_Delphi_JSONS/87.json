@@ -1,0 +1,754 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3593033,
+                    "name": null,
+                    "username": "Betaloop",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/2bfe46/{size}.png",
+                    "created_at": "2025-04-15T13:48:25.797Z",
+                    "cooked": "I'm attempting to simulate a pivot-based elevator using WPILib, but I've noticed that the ElevatorSim class primarily supports upright models. To achieve a rotating or turntable-like functionality, here's a structured approach:\n\n1. **Check Existing Features**: Investigate if WPILib offers any built-in capabilities for rotation or custom classes developed by the community that could be adapted.\n\n2. **Modify ElevatorSim**: If direct support isn't available, consider enhancing the ElevatorSim to include a pivot mechanism. This would involve adjusting position and angle calculations based on rotation.\n\n3. **Use Alternative Systems**: Explore using a Turntable class as an alternative. Define a pivot point and compute angles relative to this point, allowing for independent control of both elevation and rotation.\n\n4. **User Input Handling**: Assign distinct controls for elevation and rotation, possibly using separate joysticks or buttons to prevent confusion and ensure precise operation.\n\n5. **Implement Smoothing**: Use smoothing algorithms to ensure smooth motion, preventing abrupt changes in speed or direction, thus enhancing the user experience.\n\n6. **Set Safety Limits**: Establish maximum rotation speeds and acceleration thresholds to prevent dangerous movements and provide visual indicators for operational status.\n\n7. **Thorough Testing**: Develop a test environment to manually manipulate the system, gather feedback, and refine mechanics under various conditions.\n\n8. **Create Documentation**: Provide detailed instructions for installation, usage, and safety considerations to aid future users.\n\n9. **Seek Community Support**: Engage with forums or mentors for insights or solutions if encountered, potentially collaborating with the community to overcome challenges.\n\nBy systematically addressing each aspect, the goal is to successfully create a functional pivot-based elevator simulation within WPILib.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2025-04-15T13:48:25.797Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 266,
+                    "readers_count": 265,
+                    "score": 122.8,
+                    "yours": false,
+                    "topic_id": 499407,
+                    "topic_slug": "pivoting-elevator-simulation",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65566,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3593419,
+                    "name": "paulonis",
+                    "username": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "created_at": "2025-04-15T21:04:38.005Z",
+                    "cooked": "As far as I can tell, the ElevatorSim class does not currently support elevators that tilt either statically or dynamically. If someone were attempting to implement this (though I haven’t tried it myself), they might subclass ElevatorSim and modify the updateX method to include the elevator’s angle in the gravity compensation calculation. For a fixed angle, the gravity compensation might look like:\n\n```\nxdot = xdot.plus(VecBuilder.fill(\n    0,\n    -9.8 * Math.sin(kAngleRadFromHoriz)));\n```\n\nIf the angle were dynamic, it would need to be provided by a supplier, and the gravity compensation might appear as:\n\n```\nxdot = xdot.plus(VecBuilder.fill(\n    0,\n    -9.8 * Math.sin(angleRadFromHorizSupplier.getAsDouble())));\n```\n\nAdditionally, if simulating the pivoting \"arm\" of the elevator, the SingleJointedArmSim would require adjustments to account for changes in arm length as the elevator extends or retracts. A more effective approach might be to create a unified model that incorporates both the elevator and arm components, though this may not be feasible with the LinearSystemSim class. Instead, one would likely need to develop a custom model and perform numerical integration, which would be a substantial undertaking.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2025-04-15T21:04:38.005Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 171,
+                    "readers_count": 170,
+                    "score": 38.8,
+                    "yours": false,
+                    "topic_id": 499407,
+                    "topic_slug": "pivoting-elevator-simulation",
+                    "display_username": "paulonis",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22261,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3593907,
+                    "name": null,
+                    "username": "Betaloop",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/2bfe46/{size}.png",
+                    "created_at": "2025-04-16T13:27:30.550Z",
+                    "cooked": "Thank you, I will try that.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "updated_at": "2025-04-16T13:27:30.550Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 10.2,
+                    "yours": false,
+                    "topic_id": 499407,
+                    "topic_slug": "pivoting-elevator-simulation",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "username": "paulonis",
+                        "name": "paulonis",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65566,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3593033,
+                3593419,
+                3593907
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                10
+            ],
+            [
+                2,
+                9
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 491611,
+                "title": "YAGSL swerve is inverted sideways",
+                "fancy_title": "YAGSL swerve is inverted sideways",
+                "slug": "yagsl-swerve-is-inverted-sideways",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-13T23:01:54.617Z",
+                "last_posted_at": "2025-02-14T00:18:23.647Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T00:18:23.647Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 114,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526581,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69472,
+                            "username": "sink",
+                            "name": "allison zhang",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sink/{size}/237947_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 22664,
+                            "username": "pabeekm",
+                            "name": "Patricia Beekman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pabeekm/{size}/7077_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476043,
+                "title": "Error converting .hoot",
+                "fancy_title": "Error converting .hoot",
+                "slug": "error-converting-hoot",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-04T23:37:19.611Z",
+                "last_posted_at": "2024-12-10T15:45:36.020Z",
+                "bumped": true,
+                "bumped_at": "2024-12-10T15:45:36.020Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 214,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454801,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60754,
+                            "username": "Spaceman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63244,
+                            "username": "Pickle_Face5",
+                            "name": "Caden R Dalley",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pickle_face5/{size}/210767_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476863,
+                "title": "Autonomous without using camera",
+                "fancy_title": "Autonomous without using camera",
+                "slug": "autonomous-without-using-camera",
+                "posts_count": 11,
+                "reply_count": 4,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-12-17T12:22:05.762Z",
+                "last_posted_at": "2024-12-17T14:36:17.041Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T14:36:17.041Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "autonomous"
+                ],
+                "tags_descriptions": {},
+                "like_count": 18,
+                "views": 377,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460247,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69671,
+                            "username": "AhmetYagiz",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/c6cbf5/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 470491,
+                "title": "How does FusedCANCoder work?",
+                "fancy_title": "How does FusedCANCoder work?",
+                "slug": "how-does-fusedcancoder-work",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2024-08-30T13:41:28.332Z",
+                "last_posted_at": "2024-09-07T00:02:23.542Z",
+                "bumped": true,
+                "bumped_at": "2024-09-07T00:02:23.542Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 706,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3419417,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35208,
+                            "username": "bathtubed",
+                            "name": "Eric Ward",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491837,
+                "title": "Creating a Suitable Goal Pose to Align to",
+                "fancy_title": "Creating a Suitable Goal Pose to Align to",
+                "slug": "creating-a-suitable-goal-pose-to-align-to",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-02-15T18:27:48.094Z",
+                "last_posted_at": "2025-02-15T19:20:34.063Z",
+                "bumped": true,
+                "bumped_at": "2025-02-15T19:20:34.063Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 240,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528079,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53665,
+                            "username": "jio",
+                            "name": "Jiovanni Zinedine Sookhai",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/fbc32d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56055,
+                            "username": "lol",
+                            "name": "Adam",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/5daacb/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "simulation"
+        ],
+        "tags_descriptions": {},
+        "id": 499407,
+        "title": "Pivoting elevator simulation",
+        "fancy_title": "Pivoting elevator simulation",
+        "posts_count": 3,
+        "created_at": "2025-04-15T13:48:25.720Z",
+        "views": 431,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-04-16T13:27:30.550Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pivoting-elevator-simulation",
+        "category_id": 30,
+        "word_count": 260,
+        "deleted_at": null,
+        "user_id": 65566,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_499407",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46737,
+            "execute_at": "2026-04-16T13:27:30.550Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "open_mouth",
+            "cry",
+            "angry",
+            "100",
+            "point_up",
+            "+1",
+            "-1",
+            "call_me_hand",
+            "hugs",
+            "thinking",
+            "question"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "paulonis",
+            "excerpt": "As far as I can tell, the ElevatorSim class does not support an elevator that is tilted statically or dynamically.  If I was trying to do this (and I have not tried), I would subclass ElevatorSim and modify updateX so the gravity compensation included the angle of the elevator.  If the angle was fix&hellip;",
+            "name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 65566,
+                    "username": "Betaloop",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/2bfe46/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 22261,
+                    "username": "paulonis",
+                    "name": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 65566,
+                "username": "Betaloop",
+                "name": null,
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/2bfe46/{size}.png"
+            },
+            "last_poster": {
+                "id": 65566,
+                "username": "Betaloop",
+                "name": null,
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/2bfe46/{size}.png"
+            }
+        },
+        "bookmarks": []
+    }
+}
