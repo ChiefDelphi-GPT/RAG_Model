@@ -3,6 +3,7 @@ import json
 import datetime as dt
 import numpy as np
 from math import sqrt
+from sentence_transformers import SentenceTransformer
 
 MAC = True
 DEBUG = True
