@@ -4,10 +4,19 @@ import datetime as dt
 import numpy as np
 from math import sqrt
 from sentence_transformers import SentenceTransformer
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+import time
+import re
 
 MAC = True
 DEBUG = True
-vectors = [] # [("cooked", "topic_id", "topic_slug")]
+SCORE_CLIPPING = 1000
+RECENCY_DECAY = 1080
+MIN_TRUST_LEVEL = 0.1
+Q_A_CLIPPINNG = 1500
+question = None
+vectors = []
 
 def diff_days(other_date, to_date=dt.datetime.today().date()):
     return (to_date - other_date).days
@@ -21,12 +30,16 @@ def extractFeatures(data):
         if (i == 0): #evaluate the question
             print()
             print("DOING QUESTION")
+            post["score"] = min(post["score"], SCORE_CLIPPING)                
             difference = diff_days(dt.date(int(post["created_at"].split("T")[0].split("-")[0]),
                 int(post["created_at"].split("T")[0].split("-")[1]),
                 int(post["created_at"].split("T")[0].split("-")[2])))
-            recencyScore = np.exp(-1.0 * (difference) / 1080)
+            recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
             confidenceScore = sqrt(post["readers_count"])
-            q_a = ([post["cooked"], post["topic_id"], post["topic_slug"]], recencyScore * confidenceScore)
+            q_a = ([post["cooked"], post["topic_id"], post["topic_slug"]], 
+                   min(recencyScore * confidenceScore * sqrt(post["score"]) * (post["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG), 
+                   post["id"])
+            question = post["cooked"]
             if DEBUG:
                 print(f"QA: {q_a}")
         else:
@@ -46,35 +59,88 @@ def extractFeatures(data):
         print(replies)
     return (q_a, replies)
 
+def queryDeepSeek(input_text):
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"  # Very large - needs lots of RAM
+    # model_name = "deepseek-ai/DeepSeek-R1"                     # Main flagship - enterprise only (671B)
+
+    if (torch.backends.mps.is_available()):
+        device = "mps"
+        torch_dtype = torch.float32  # MPS works better with float32
+    elif (torch.cuda.is_available()):
+        device = "cuda"
+        torch_dtype = torch.float16
+    else:
+        device = "cpu"
+        torch_dtype = torch.float32
+
+    print(f"Using device: {device}")
+    print(f"Loading model: {model_name}")
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        torch_dtype=torch_dtype,
+        device_map=None,  # Don't use auto device mapping
+        trust_remote_code=True  # DeepSeek models may require this
+    ).to(device)
+
+    messages = [
+        {"role": "user", "content": input_text}
+    ]
+    try: 
+        formatted_input = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+    except:
+        formatted_input = f"User: {input_text}\nAssistant:"
+
+    start_time = time.time()
+    input_ids = tokenizer.encode(formatted_input, return_tensors='pt').to(device)
+    attention_mask = torch.ones_like(input_ids).to(device)
+
+    with torch.no_grad():
+        outputs = model.generate(
+            input_ids,
+            attention_mask=attention_mask,
+            max_new_tokens=10000,
+            temperature=0.7,
+            do_sample=True,
+            top_p=0.9,
+            repetition_penalty=1.1,
+            pad_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id
+        )
+
+    response_ids = outputs[0][input_ids.shape[1]:]
+    response = tokenizer.decode(response_ids, skip_special_tokens=True)
+    end_time = time.time()
+    return response.strip(), end_time - start_time
+
+def extract_float_in_range(text):
+    """Extract the last floating point number between 0.1 and 4.1 from a string."""
+    pattern = r'-?\d+\.?\d*'
+    matches = re.findall(pattern, text)
+    
+    valid_scores = []
+    for match in matches:
+        try:
+            num = float(match)
+            if 0.1 <= num <= 4.1:
+                valid_scores.append(num)
+        except ValueError:
+            continue
+
+    return valid_scores[-1] if valid_scores else None
+
+
 def scoreReplies(replies):
-    #getting number of positive reactions
-    positive_ids = {"heart", "point_up", "+1", "laughing", "call_me_hand", "hugs"}
-    negative_ids = {"-1", "question", "cry", "angry"}
-    total_positive = sum(
-        reaction.get("count")
-        for reply in replies
-        for reaction in reply["reactions"]
-        if reaction.get("id") in positive_ids
-    )
-    total_negative = sum(
-        reaction.get("count")
-        for reply in replies
-        for reaction in reply["reactions"]
-        if reaction.get("id") in negative_ids
-    )
-    total_reads = sum(
-        reply["reads"] for reply in replies
-    )
-    total_created_at = sum(
-        diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
-                int(reply["created_at"].split("T")[0].split("-")[1]),
-                int(reply["created_at"].split("T")[0].split("-")[2])))  for reply in replies
-    )
-    if DEBUG:
-        print("REPLY STATS")
-        print("Total_pos_neg:", total_positive+total_negative)
-        print("Total_reads:", total_reads)
-        print("Total_created_at:", total_created_at)
     replies_data = []
     best_reps = []
     for reply in replies:
@@ -82,39 +148,34 @@ def scoreReplies(replies):
             if DEBUG:
                 print("A reply that was the accepted answer:", reply["cooked"])
             best_reps.append(reply)
-        local_positive = sum(
-            reaction.get("count", 0)
-            for reaction in reply["reactions"]
-            if reaction.get("id") in positive_ids
+        SCORE_CLIPPING = 1000
+        reply["score"] = min(reply["score"], SCORE_CLIPPING)                
+        difference = diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
+            int(reply["created_at"].split("T")[0].split("-")[1]),
+            int(reply["created_at"].split("T")[0].split("-")[2])))
+        RECENCY_DECAY = 1080
+        recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
+        confidenceScore = sqrt(reply["readers_count"])
+        MIN_TRUST_LEVEL = 0.1
+        Q_A_CLIPPINNG = 1500
+        reply_score = sqrt(min(recencyScore * confidenceScore * sqrt(reply["score"]) * (reply["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG))
+        prompt = (
+            "You will be given two texts. The first text will be a question/statement and the second text will be an response.\n"
+            "Your job is to tell me how good of an response to the question/statement is the second text.\n"
+            "You will generate a decimal score between 0.1 and 4.1 such that a score of 0.1 means that the second text is a terrible response to the question/statement presented in the first text and such that a score of 4.1 means that the second text is a terrific response to the question/statement presented in the first text.\n"
+            "Think carefully\n"
+            f"Here is the first text, the question/statement:\t{question}\n"
+            f"Here is the second text, the response to the question/statement presented in the first text:\t{reply["cooked"]}"
         )
-        local_negative = sum(
-            reaction.get("count", 0)
-            for reaction in reply["reactions"]
-            if reaction.get("id") in negative_ids
-        )
+        model_response, elapsed_time = queryDeepSeek(prompt)
+        ai_score = extract_float_in_range(model_response)
+        score = reply_score * ai_score
         if DEBUG:
-            print("STATS USED FOR SCORE")
-            print("Local created at:", diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
-                int(reply["created_at"].split("T")[0].split("-")[1]),
-                int(reply["created_at"].split("T")[0].split("-")[2]))))
-            print("Local reads:", reply["reads"])
-            print("Local positive (versus all):", local_positive)
-            print("Local negative (versus all):", local_negative)
-            
-        if total_positive + total_negative == 0:
-            score = (0.5*diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
-                int(reply["created_at"].split("T")[0].split("-")[1]),
-                int(reply["created_at"].split("T")[0].split("-")[2])))/total_created_at) +\
-                (0.5*reply["reads"]/total_reads)
-        else:
-            score = (0.35*diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
-                int(reply["created_at"].split("T")[0].split("-")[1]),
-                int(reply["created_at"].split("T")[0].split("-")[2])))/total_created_at) +\
-                (0.35*reply["reads"]/total_reads)+\
-                (0.15*local_positive/(total_positive+total_negative))-\
-                (0.15*local_negative/(total_positive+total_negative)) #possibly add score and trust_level
-        
-        if DEBUG:
+            print()
+            print()
+            print()
+            print("Model response:", model_response)
+            print("Time taken:", elapsed_time, "seconds")
             print("Score:", score)
             print("The reply:", reply["cooked"])
 
@@ -133,7 +194,31 @@ def scoreReplies(replies):
         if reply_data[1] < max(x[1] for x in parsed_replies_data):
             parsed_replies_data[0] = reply_data
     replies = [reply[0] for reply in parsed_replies_data]
+
     return replies
+
+def vector_creation(data):
+    encoder_question_data, metadata_question_data = data[0]
+    replies_list = data[1]
+    post_id = data[2]
+    vector_text = (
+        f"Question: {encoder_question_data[0]}\n"
+        f"Topic_ID: {encoder_question_data[1]}\n"
+        f"Topic_Slug: {encoder_question_data[2]}\n"
+    )
+    metadata = [
+        f"Score: {metadata_question_data}\n"
+    ]
+    for i, reply in enumerate(replies_list):
+        metadata.append(f"Reply {i}: {reply}\n")
+    
+    model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
+    embedding_vector = model.encode(vector_text, prompt_name="query")
+    return {
+       "vector": embedding_vector.tolist(),
+       "metadata": metadata,
+       "id": f"topic_{post_id}"
+    }
 
 def main(args):
     filename = args.files[0]
@@ -147,8 +232,7 @@ def main(args):
             data = json.load(inputFile)
     
     data = extractFeatures(data)
-
-    #possibly do something to put the output into a file
+    data_dict = vector_creation(data)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="JSON Parser")

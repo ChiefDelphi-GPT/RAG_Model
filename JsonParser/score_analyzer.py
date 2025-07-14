@@ -3,40 +3,29 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
+from collections import Counter
 
-def extract_scores_from_jsons(folder_path):
-    """
-    Extract all scores from JSON files in the specified folder.
-    
-    Args:
-        folder_path (str): Path to the folder containing JSON files
-    
-    Returns:
-        list: List of all scores found in the JSON files
-    """
-    scores = []
+def extract_field_from_jsons(folder_path, field_name):
+    values = []
     folder = Path(folder_path)
-    
-    # Loop through JSON files 0.json to 149.json
+
     for i in range(150):
         json_file = folder / f"{i}.json"
-        
+
         if json_file.exists():
             try:
                 with open(json_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                
-                # Navigate to posts array
+
                 if 'data' in data and 'post_stream' in data['data'] and 'posts' in data['data']['post_stream']:
                     posts = data['data']['post_stream']['posts']
-                    
-                    # Extract score from each post
+
                     for post in posts:
-                        if 'score' in post and post['score'] is not None:
-                            scores.append(post['score'])
-                
-                print(f"Processed {json_file.name} - Found {len([p for p in data['data']['post_stream']['posts'] if 'score' in p])} posts with scores")
-                
+                        if field_name in post and post[field_name] is not None:
+                            values.append(post[field_name])
+
+                print(f"Processed {json_file.name} - Found {len([p for p in data['data']['post_stream']['posts'] if field_name in p])} posts with {field_name}")
+
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON in {json_file.name}: {e}")
             except KeyError as e:
@@ -45,248 +34,218 @@ def extract_scores_from_jsons(folder_path):
                 print(f"Error processing {json_file.name}: {e}")
         else:
             print(f"File {json_file.name} not found")
-    
-    return scores
 
-def create_scatterplot(scores, save_path=None):
-    """
-    Create a scatterplot of the scores.
-    
-    Args:
-        scores (list): List of scores to plot
-        save_path (str, optional): Path to save the plot
-    """
-    if not scores:
-        print("No scores found to plot!")
-        return
-    
-    # Create index for x-axis (post number/order)
-    x_values = list(range(len(scores)))
-    
-    # Create the scatterplot
-    plt.figure(figsize=(12, 8))
-    plt.scatter(x_values, scores, alpha=0.6, s=20)
-    
-    # Customize the plot
-    plt.title(f'Chief Delphi Post Scores Distribution\n(Total Posts: {len(scores)})', fontsize=14, fontweight='bold')
-    plt.xlabel('Post Index', fontsize=12)
-    plt.ylabel('Score', fontsize=12)
-    
-    # Add grid for better readability
+    return values
+
+def extract_reactions_from_jsons(folder_path):
+    folder = Path(folder_path)
+    positive_ids = {"heart", "point_up", "+1", "laughing", "call_me_hand", "hugs"}
+    negative_ids = {"-1", "question", "cry", "angry"}
+
+    reaction_counts = Counter()
+    positive_distribution = []
+    negative_distribution = []
+
+    for i in range(150):
+        json_file = folder / f"{i}.json"
+        if json_file.exists():
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+
+                if 'data' in data and 'post_stream' in data['data'] and 'posts' in data['data']['post_stream']:
+                    posts = data['data']['post_stream']['posts']
+
+                    for post in posts:
+                        pos_sum = 0
+                        neg_sum = 0
+                        if 'reactions' in post:
+                            for r in post['reactions']:
+                                reaction_counts[r['id']] += r['count']
+                                if r['id'] in positive_ids:
+                                    pos_sum += r['count']
+                                elif r['id'] in negative_ids:
+                                    neg_sum += r['count']
+                        positive_distribution.append(pos_sum)
+                        negative_distribution.append(neg_sum)
+            except Exception as e:
+                print(f"Failed on file {json_file.name}: {e}")
+
+    return reaction_counts, positive_distribution, negative_distribution
+
+def plot_all_together_dual(scores, reader_counts, trust_levels, save_path=None):
+    import matplotlib.pyplot as plt
+    from scipy import stats
+    import numpy as np
+
+    fig, axs = plt.subplots(4, 3, figsize=(24, 20))
+    fig.suptitle('Chief Delphi Post Analysis: Score vs Readers Count vs Trust Level', fontsize=18, fontweight='bold')
+
+    datasets = [(scores, 'Score'), (reader_counts, 'Readers Count'), (trust_levels, 'Trust Level')]
+
+    for col, (data, label) in enumerate(datasets):
+        data = np.array(data)
+        stats_col = {
+            'mean': np.mean(data),
+            'median': np.median(data),
+            'std': np.std(data),
+            'min': np.min(data),
+            'max': np.max(data),
+        }
+
+        mean = stats_col['mean']
+        median = stats_col['median']
+        std = stats_col['std']
+
+        axs[0, col].scatter(range(len(data)), data, alpha=0.6, s=20)
+        axs[0, col].set_title(f'{label} - Scatter Plot')
+        axs[0, col].set_xlabel('Post Index')
+        axs[0, col].set_ylabel(label)
+        axs[0, col].grid(True, alpha=0.3)
+        text = (
+            f"Mean: {mean:.2f}\n"
+            f"Median: {median:.2f}\n"
+            f"Std: {std:.2f}\n"
+            f"Min: {stats_col['min']:.2f}\n"
+            f"Max: {stats_col['max']:.2f}"
+        )
+        axs[0, col].text(0.02, 0.98, text, transform=axs[0, col].transAxes,
+                         fontsize=9, verticalalignment='top',
+                         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+
+        axs[1, col].hist(data, bins=50, alpha=0.7, color='skyblue', edgecolor='black')
+        axs[1, col].axvline(mean, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean:.2f}')
+        axs[1, col].axvline(median, color='green', linestyle='--', linewidth=2, label=f'Median: {median:.2f}')
+        axs[1, col].legend()
+        axs[1, col].set_title(f'{label} - Histogram')
+        axs[1, col].set_xlabel(label)
+        axs[1, col].set_ylabel('Frequency')
+        axs[1, col].grid(True, alpha=0.3)
+
+        jitter = np.random.normal(0, 0.05, len(data))
+        axs[2, col].scatter(data, np.zeros_like(data), alpha=0.6, s=8, color='darkblue')
+        axs[2, col].scatter(data, jitter, alpha=0.3, s=6, color='blue')
+        axs[2, col].axvline(mean, color='red', linestyle='--', linewidth=2)
+        axs[2, col].axvline(median, color='green', linestyle='--', linewidth=2)
+        axs[2, col].set_ylim(-0.3, 0.3)
+        axs[2, col].set_title(f'{label} - Number Line')
+        axs[2, col].set_xlabel(label)
+        axs[2, col].grid(True, alpha=0.3)
+
+        try:
+            density = stats.gaussian_kde(data)
+            xs = np.linspace(min(data), max(data), 200)
+            curve = density(xs)
+            axs[3, col].plot(xs, curve, linewidth=2, color='purple')
+            axs[3, col].fill_between(xs, curve, alpha=0.3, color='purple')
+            axs[3, col].scatter(data, np.zeros_like(data), alpha=0.4, s=10, color='darkblue')
+            axs[3, col].axvline(mean, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean:.2f}')
+            axs[3, col].axvline(median, color='green', linestyle='--', linewidth=2, label=f'Median: {median:.2f}')
+            axs[3, col].legend()
+            axs[3, col].set_title(f'{label} - Density Plot')
+            axs[3, col].set_xlabel(label)
+            axs[3, col].set_ylabel('Density')
+            axs[3, col].grid(True, alpha=0.3)
+        except Exception as e:
+            axs[3, col].text(0.5, 0.5, f"KDE failed: {str(e)}", ha='center', va='center')
+            axs[3, col].set_title(f'{label} - Density Plot')
+
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Combined distribution plot saved to {save_path}")
+    plt.show()
+
+def plot_reactions(pos_reactions, neg_reactions, save_path=None):
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    fig, axs = plt.subplots(1, 2, figsize=(16,6))
+    fig.suptitle('Positive and Negative Reaction Distributions', fontsize=16, fontweight='bold')
+
+    # Positive reactions histogram
+    axs[0].hist(pos_reactions, bins=30, color='green', alpha=0.7, edgecolor='black')
+    axs[0].set_title('Positive Reactions per Post')
+    axs[0].set_xlabel('Count')
+    axs[0].set_ylabel('Frequency')
+    axs[0].grid(True, alpha=0.3)
+    axs[0].axvline(np.mean(pos_reactions), color='red', linestyle='--', linewidth=2, label=f'Mean: {np.mean(pos_reactions):.2f}')
+    axs[0].legend()
+
+    # Negative reactions histogram
+    axs[1].hist(neg_reactions, bins=30, color='red', alpha=0.7, edgecolor='black')
+    axs[1].set_title('Negative Reactions per Post')
+    axs[1].set_xlabel('Count')
+    axs[1].set_ylabel('Frequency')
+    axs[1].grid(True, alpha=0.3)
+    axs[1].axvline(np.mean(neg_reactions), color='blue', linestyle='--', linewidth=2, label=f'Mean: {np.mean(neg_reactions):.2f}')
+    axs[1].legend()
+
+    plt.tight_layout()
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Reactions distribution plot saved to {save_path}")
+    plt.show()
+
+def plot_cumulative_score(scores, save_path=None):
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    # Clip scores at 1000 for cumulative plot only
+    clipped_scores = [min(score, 1000) for score in scores]
+    sorted_scores = np.sort(clipped_scores)[::-1]  # sort descending
+    cumulative = np.cumsum(sorted_scores)
+    cumulative_norm = cumulative / cumulative[-1]  # normalize to 1
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(cumulative_norm, linewidth=2, color='blue')
+    plt.title('Cumulative Sum of Scores (Clipped at 1000) Normalized to 1', fontsize=14, fontweight='bold')
+    plt.xlabel('Posts sorted by score (descending)')
+    plt.ylabel('Cumulative fraction of total score')
     plt.grid(True, alpha=0.3)
-    
-    # Add some statistics as text
-    mean_score = np.mean(scores)
-    median_score = np.median(scores)
-    max_score = max(scores)
-    min_score = min(scores)
-    
-    stats_text = f'Mean: {mean_score:.2f}\nMedian: {median_score:.2f}\nMax: {max_score:.2f}\nMin: {min_score:.2f}'
-    plt.text(0.02, 0.98, stats_text, transform=plt.gca().transAxes, fontsize=10,
-             verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
-    
-    # Adjust layout to prevent label cutoff
     plt.tight_layout()
-    
-    # Save plot if path provided
+
     if save_path:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"Plot saved to {save_path}")
-    
-    # Show the plot
+        print(f"Cumulative score plot saved to {save_path}")
     plt.show()
-
-def create_histogram(scores, save_path=None):
-    """
-    Create a histogram of the scores for additional analysis.
-    
-    Args:
-        scores (list): List of scores to plot
-        save_path (str, optional): Path to save the plot
-    """
-    if not scores:
-        print("No scores found to plot!")
-        return
-    
-    plt.figure(figsize=(10, 6))
-    plt.hist(scores, bins=50, alpha=0.7, color='skyblue', edgecolor='black')
-    
-    plt.title(f'Chief Delphi Post Scores Distribution (Histogram)\n(Total Posts: {len(scores)})', fontsize=14, fontweight='bold')
-    plt.xlabel('Score', fontsize=12)
-    plt.ylabel('Frequency', fontsize=12)
-    
-    # Add grid for better readability
-    plt.grid(True, alpha=0.3)
-    
-    # Add statistics
-    mean_score = np.mean(scores)
-    median_score = np.median(scores)
-    plt.axvline(mean_score, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean_score:.2f}')
-    plt.axvline(median_score, color='green', linestyle='--', linewidth=2, label=f'Median: {median_score:.2f}')
-    
-    plt.legend()
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"Histogram saved to {save_path}")
-    
-    plt.show()
-
-def create_number_line_distribution(scores, save_path=None):
-    """
-    Create a number line distribution showing scores density along a horizontal line.
-    
-    Args:
-        scores (list): List of scores to plot
-        save_path (str, optional): Path to save the plot
-    """
-    if not scores:
-        print("No scores found to plot!")
-        return
-    
-    # Create figure with subplots
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 8), gridspec_kw={'height_ratios': [3, 1]})
-    
-    # Top plot: Traditional histogram for context
-    ax1.hist(scores, bins=50, alpha=0.7, color='lightblue', edgecolor='black')
-    ax1.set_title(f'Chief Delphi Post Scores Distribution\n(Total Posts: {len(scores)})', 
-                  fontsize=14, fontweight='bold')
-    ax1.set_ylabel('Frequency', fontsize=12)
-    ax1.grid(True, alpha=0.3)
-    
-    # Add statistics to top plot
-    mean_score = np.mean(scores)
-    median_score = np.median(scores)
-    ax1.axvline(mean_score, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean_score:.2f}')
-    ax1.axvline(median_score, color='green', linestyle='--', linewidth=2, label=f'Median: {median_score:.2f}')
-    ax1.legend()
-    
-    # Bottom plot: Number line distribution
-    # Create a rug plot (marks on the x-axis) for each score
-    ax2.scatter(scores, np.zeros_like(scores), alpha=0.6, s=8, color='darkblue')
-    
-    # Add jitter to y-axis to spread out overlapping points
-    jitter = np.random.normal(0, 0.05, len(scores))
-    ax2.scatter(scores, jitter, alpha=0.3, s=6, color='blue')
-    
-    # Customize the number line plot
-    ax2.set_xlabel('Score', fontsize=12)
-    ax2.set_ylabel('Distribution', fontsize=12)
-    ax2.set_title('Number Line Distribution (Each dot represents a post)', fontsize=12)
-    ax2.grid(True, alpha=0.3)
-    ax2.set_ylim(-0.3, 0.3)
-    
-    # Add statistical markers on the number line
-    ax2.axvline(mean_score, color='red', linestyle='--', linewidth=2, alpha=0.8)
-    ax2.axvline(median_score, color='green', linestyle='--', linewidth=2, alpha=0.8)
-    
-    # Add quartile markers
-    q1 = np.percentile(scores, 25)
-    q3 = np.percentile(scores, 75)
-    ax2.axvline(q1, color='orange', linestyle=':', linewidth=1.5, alpha=0.7, label=f'Q1: {q1:.2f}')
-    ax2.axvline(q3, color='orange', linestyle=':', linewidth=1.5, alpha=0.7, label=f'Q3: {q3:.2f}')
-    
-    # Add text annotations
-    ax2.text(mean_score, 0.25, f'Mean\n{mean_score:.2f}', ha='center', va='bottom', 
-             fontsize=9, color='red', fontweight='bold')
-    ax2.text(median_score, -0.25, f'Median\n{median_score:.2f}', ha='center', va='top', 
-             fontsize=9, color='green', fontweight='bold')
-    
-    plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"Number line distribution saved to {save_path}")
-    
-    plt.show()
-
-def create_density_plot(scores, save_path=None):
-    """
-    Create a kernel density estimation plot showing smooth distribution curve.
-    
-    Args:
-        scores (list): List of scores to plot
-        save_path (str, optional): Path to save the plot
-    """
-    if not scores:
-        print("No scores found to plot!")
-        return
-    
-    try:
-        from scipy import stats
-        
-        plt.figure(figsize=(12, 6))
-        
-        # Create density plot
-        density = stats.gaussian_kde(scores)
-        xs = np.linspace(min(scores), max(scores), 200)
-        density_curve = density(xs)
-        
-        plt.plot(xs, density_curve, linewidth=2, color='purple', label='Density Curve')
-        plt.fill_between(xs, density_curve, alpha=0.3, color='purple')
-        
-        # Add individual score markers on x-axis
-        plt.scatter(scores, np.zeros_like(scores), alpha=0.4, s=10, color='darkblue', 
-                   label=f'Individual Scores (n={len(scores)})')
-        
-        # Add statistical lines
-        mean_score = np.mean(scores)
-        median_score = np.median(scores)
-        plt.axvline(mean_score, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean_score:.2f}')
-        plt.axvline(median_score, color='green', linestyle='--', linewidth=2, label=f'Median: {median_score:.2f}')
-        
-        plt.title('Chief Delphi Post Scores - Density Distribution', fontsize=14, fontweight='bold')
-        plt.xlabel('Score', fontsize=12)
-        plt.ylabel('Density', fontsize=12)
-        plt.grid(True, alpha=0.3)
-        plt.legend()
-        
-        plt.tight_layout()
-        
-        if save_path:
-            plt.savefig(save_path, dpi=300, bbox_inches='tight')
-            print(f"Density plot saved to {save_path}")
-        
-        plt.show()
-        
-    except ImportError:
-        print("SciPy not available. Skipping density plot. Install with: pip install scipy")
 
 def main():
-    """
-    Main function to run the analysis.
-    """
-    # Set the folder path
-    folder_path = "Cheif_Delphi_Jsons"  # Note: keeping the original spelling as specified
-    
+    folder_path = "Cheif_Delphi_Jsons"
+
     print(f"Starting analysis of JSON files in '{folder_path}'...")
     print("=" * 50)
-    
-    # Extract scores from all JSON files
-    scores = extract_scores_from_jsons(folder_path)
-    
+
+    scores = extract_field_from_jsons(folder_path, 'score')
+    reader_counts = extract_field_from_jsons(folder_path, 'readers_count')
+    trust_levels = extract_field_from_jsons(folder_path, 'trust_level')
+    reaction_counts, pos_reactions, neg_reactions = extract_reactions_from_jsons(folder_path)
+
     print("=" * 50)
-    print(f"Analysis complete! Found {len(scores)} posts with scores.")
-    
-    if scores:
-        print(f"Score range: {min(scores):.2f} to {max(scores):.2f}")
-        print(f"Average score: {np.mean(scores):.2f}")
-        print(f"Median score: {np.median(scores):.2f}")
-        
-        # Create scatterplot
-        create_scatterplot(scores, save_path="chief_delphi_scores_scatter.png")
-        
-        # Create histogram for additional insight
-        create_histogram(scores, save_path="chief_delphi_scores_histogram.png")
-        
-        # Create number line distribution
-        create_number_line_distribution(scores, save_path="chief_delphi_scores_numberline.png")
-        
-        # Create density plot
-        create_density_plot(scores, save_path="chief_delphi_scores_density.png")
+    print(f"Found {len(scores)} posts with scores.")
+    print(f"Found {len(reader_counts)} posts with readers_count.")
+    print(f"Found {len(trust_levels)} posts with trust_level.")
+
+    if scores and reader_counts and trust_levels:
+        print(f"SCORE - Mean: {np.mean(scores):.2f}, Std: {np.std(scores):.2f}")
+        print(f"READERS_COUNT - Mean: {np.mean(reader_counts):.2f}, Std: {np.std(reader_counts):.2f}")
+        print(f"TRUST_LEVEL - Mean: {np.mean(trust_levels):.2f}, Std: {np.std(trust_levels):.2f}")
+
+        print("=" * 50)
+        print("Reaction Counts:")
+        for k, v in reaction_counts.items():
+            print(f"{k}: {v}")
+
+        print("=" * 50)
+        print(f"POSITIVE REACTIONS - Mean: {np.mean(pos_reactions):.2f}, Std: {np.std(pos_reactions):.2f}")
+        print(f"NEGATIVE REACTIONS - Mean: {np.mean(neg_reactions):.2f}, Std: {np.std(neg_reactions):.2f}")
+
+        plot_all_together_dual(scores, reader_counts, trust_levels, save_path="chief_delphi_combined_all.png")
+        plot_reactions(pos_reactions, neg_reactions, save_path="chief_delphi_reactions.png")
+        plot_cumulative_score(scores, save_path="chief_delphi_cumulative_score.png")
+
     else:
-        print("No scores found in the JSON files. Please check the file structure and paths.")
+        print("Insufficient data found in JSON files.")
 
 if __name__ == "__main__":
     main()
