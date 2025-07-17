@@ -4,7 +4,7 @@ import torch
 import time
 import json
 
-DEBUG = False
+DEBUG = True
 MAC = False
 SSH = True
 PRINT_MUCH = True
@@ -114,7 +114,8 @@ def cleanText(data):
                 "Please clean up the following text by removing all HTML tags and any other unnecessary elements. "
                 "The final output should preserve the original meaning, but be formatted using standard English grammar and punctuation. "
                 "It should be a single paragraph with no line breaks. "
-                "Most importantly, change as little as possible to make the text make sense. "
+                "Most importantly, change as little as possible to make the text make sense.\n "
+                "EXTREMLY IMPORTANTLY - DO NOT OUTPUT ANYTHING BUT THE CLEANED VERSION (NO INTRODUCTION, NO OTHER LITTLE EXPLENATION), JUST THE CLEANED PARAGRAPH. \n"
                 "The text is: " + string_org
             )
             

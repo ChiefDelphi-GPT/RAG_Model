@@ -160,12 +160,10 @@ def scoreReplies(replies):
         Q_A_CLIPPINNG = 1500
         reply_score = sqrt(min(recencyScore * confidenceScore * sqrt(reply["score"]) * (reply["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG))
         prompt = (
-            "You will be given two texts. The first text will be a question/statement and the second text will be an response.\n"
-            "Your job is to tell me how good of an response to the question/statement is the second text.\n"
-            "You will generate a decimal score between 0.1 and 4.1 such that a score of 0.1 means that the second text is a terrible response to the question/statement presented in the first text and such that a score of 4.1 means that the second text is a terrific response to the question/statement presented in the first text.\n"
-            "Think carefully\n"
-            f"Here is the first text, the question/statement:\t{question}\n"
-            f"Here is the second text, the response to the question/statement presented in the first text:\t{reply["cooked"]}"
+            "You will receive two texts: a question or statement as the first text, and a response as the second text. Your task is to evaluate how well the second text responds to the first. Provide a decimal score between 0.1 and 4.1, where 0.1 indicates an unhelpful response and 4.1 indicates an excellent response. Your score should reflect the helpfulness or quality of the response in relation to the question or statement.\n",
+            "Output only the score\n",
+            f"Here is the question/statement:\t{question}\n",
+            f"Here is the response to the question/statement:\t{reply["cooked"]}"
         )
         model_response, elapsed_time = queryDeepSeek(prompt)
         ai_score = extract_float_in_range(model_response)
