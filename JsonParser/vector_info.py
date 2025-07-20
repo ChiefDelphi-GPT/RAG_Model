@@ -8,6 +8,13 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
 import re
+from qdrant_client import QdrantClient
+from qdrant_client.models import Distance, VectorParams
+from qdrant_client.models import PointStruct
+import uuid
+
+
+
 
 MAC = True
 DEBUG = True
@@ -15,6 +22,7 @@ SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
 MIN_TRUST_LEVEL = 0.1
 Q_A_CLIPPINNG = 1500
+HOST_URL = ""
 question = None
 vectors = []
 
@@ -37,9 +45,8 @@ def extractFeatures(data):
             recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
             confidenceScore = sqrt(post["readers_count"])
             q_a = ([post["cooked"], post["topic_id"], post["topic_slug"]], 
-                   min(recencyScore * confidenceScore * sqrt(post["score"]) * (post["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG), 
+                   sqrt(min(recencyScore * confidenceScore * sqrt(post["score"]) * (post["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG)), 
                    post["id"])
-            question = post["cooked"]
             if DEBUG:
                 print(f"QA: {q_a}")
         else:
@@ -200,23 +207,40 @@ def vector_creation(data):
     replies_list = data[1]
     post_id = data[2]
     vector_text = (
-        f"Question: {encoder_question_data[0]}\n"
-        f"Topic_ID: {encoder_question_data[1]}\n"
-        f"Topic_Slug: {encoder_question_data[2]}\n"
+        f"Question: {encoder_question_data[0]}\n",
+        f"Topic_ID: {encoder_question_data[1]}\n",
+        f"Topic_Slug: {encoder_question_data[2]}\n",
     )
     metadata = [
-        f"Score: {metadata_question_data}\n"
+        f"Score: {metadata_question_data}",
+        f"Post_ID: {post_id}",
     ]
     for i, reply in enumerate(replies_list):
-        metadata.append(f"Reply {i}: {reply}\n")
+        metadata.append(f"Reply {i+1}: {reply}\n")
     
     model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
     embedding_vector = model.encode(vector_text, prompt_name="query")
     return {
        "vector": embedding_vector.tolist(),
-       "metadata": metadata,
-       "id": f"topic_{post_id}"
+       "metadata": metadata
     }
+
+def add_to_vector_databse(data_dict):
+    client = QdrantClient(url=HOST_URL)
+    id = uuid.uuid4()
+
+    client.create_collection(
+        collection_name="chief-delphi-gpt",
+        vectors_config=VectorParams(size=len(data_dict["vector"]), distance=Distance.DOT)
+    )
+    new_point = PointStruct(id=id, vector=data_dict["vector"], payload=data_dict["metadata"])
+    operation_info = client.upsert(
+        collection_name="chief-delphi-gpt",
+        wait=True,
+        points=new_point,
+    )
+    print(operation_info)
+
 
 def main(args):
     filename = args.files[0]
@@ -231,6 +255,7 @@ def main(args):
     
     data = extractFeatures(data)
     data_dict = vector_creation(data)
+    add_to_vector_databse(data_dict)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="JSON Parser")
