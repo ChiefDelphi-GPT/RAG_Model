@@ -212,6 +212,8 @@ def vector_creation(data):
         f"Topic_Slug: {encoder_question_data[2]}\n",
     )
     metadata = [
+        f"Question: {encoder_question_data[0]}",
+        f"Topic_Slug: {encoder_question_data[1]}",
         f"Score: {metadata_question_data}",
         f"Post_ID: {post_id}",
     ]
