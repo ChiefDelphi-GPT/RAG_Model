@@ -44,7 +44,7 @@ def extractFeatures(data):
                 int(post["created_at"].split("T")[0].split("-")[2])))
             recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
             confidenceScore = sqrt(post["readers_count"])
-            q_a = ([post["cooked"], post["topic_id"], post["topic_slug"]], 
+            q_a = ([post["cooked"], post["topic_slug"]], 
                    sqrt(min(recencyScore * confidenceScore * sqrt(post["score"]) * (post["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG)), 
                    post["id"])
             if DEBUG:
@@ -208,7 +208,6 @@ def vector_creation(data):
     post_id = data[2]
     vector_text = (
         f"Question: {encoder_question_data[0]}\n",
-        f"Topic_ID: {encoder_question_data[1]}\n",
         f"Topic_Slug: {encoder_question_data[2]}\n",
     )
     metadata = [

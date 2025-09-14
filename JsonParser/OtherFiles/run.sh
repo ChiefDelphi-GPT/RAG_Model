@@ -3,4 +3,3 @@ do
     python3 input_cleaner.py ../json_originals/${i}.json
 done
 
-
