@@ -22,7 +22,7 @@ SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
 MIN_TRUST_LEVEL = 0.1
 Q_A_CLIPPINNG = 1500
-HOST_URL = ""
+HOST_URL = "http://localhost:6333"
 question = None
 vectors = []
 
@@ -67,8 +67,8 @@ def extractFeatures(data):
     return (q_a, replies)
 
 def queryDeepSeek(input_text):
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
-    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
@@ -131,21 +131,30 @@ def queryDeepSeek(input_text):
     return response.strip(), end_time - start_time
 
 def extract_float_in_range(text):
-    """Extract the last floating point number between 0.1 and 4.1 from a string."""
-    pattern = r'-?\d+\.?\d*'
-    matches = re.findall(pattern, text)
+    """
+    Extract the first floating point number between 0.1 and 4.1 from a string.
+    Handles + sign, scientific notation, and thousands separators.
+    """
+    # Normalize
+    text = text.strip()
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'(?<=\d),(?=\d)', '', text)
     
-    valid_scores = []
+    pattern = r'[+-]?\d*\.?\d+(?:[eE][+-]?\d+)?'
+    matches = re.findall(pattern, text)
+
     for match in matches:
         try:
             num = float(match)
             if 0.1 <= num <= 4.1:
-                valid_scores.append(num)
+                return num
+            elif num > 4.1:
+                return 4.1
+            elif num < 0.1:
+                return 0.1
         except ValueError:
             continue
-
-    return valid_scores[-1] if valid_scores else None
-
+    return None
 
 def scoreReplies(replies):
     replies_data = []
@@ -155,37 +164,38 @@ def scoreReplies(replies):
             if DEBUG:
                 print("A reply that was the accepted answer:", reply["cooked"])
             best_reps.append(reply)
-        SCORE_CLIPPING = 1000
         reply["score"] = min(reply["score"], SCORE_CLIPPING)                
         difference = diff_days(dt.date(int(reply["created_at"].split("T")[0].split("-")[0]),
             int(reply["created_at"].split("T")[0].split("-")[1]),
             int(reply["created_at"].split("T")[0].split("-")[2])))
-        RECENCY_DECAY = 1080
         recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
         confidenceScore = sqrt(reply["readers_count"])
-        MIN_TRUST_LEVEL = 0.1
-        Q_A_CLIPPINNG = 1500
+
         reply_score = sqrt(min(recencyScore * confidenceScore * sqrt(reply["score"]) * (reply["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG))
         prompt = (
             "You will receive two texts: a question or statement as the first text, and a response as the second text. Your task is to evaluate how well the second text responds to the first. Provide a decimal score between 0.1 and 4.1, where 0.1 indicates an unhelpful response and 4.1 indicates an excellent response. Your score should reflect the helpfulness or quality of the response in relation to the question or statement.\n",
             "Output only the score\n",
             f"Here is the question/statement:\t{question}\n",
-            f"Here is the response to the question/statement:\t{reply["cooked"]}"
+            f'Here is the response to the question/statement:\t{reply["cooked"]}'
         )
         model_response, elapsed_time = queryDeepSeek(prompt)
         ai_score = extract_float_in_range(model_response)
-        score = reply_score * ai_score
         if DEBUG:
-            print()
-            print()
-            print()
-            print("Model response:", model_response)
-            print("Time taken:", elapsed_time, "seconds")
-            print("Score:", score)
-            print("The reply:", reply["cooked"])
-
-        reply_touple = (reply["cooked"], score)
-        replies_data.append(reply_touple)
+            print("AI Score:", ai_score)
+        if (ai_score):
+            score = reply_score * float(ai_score)
+            if DEBUG:
+                print()
+                print()
+                print()
+                print("Model response:", model_response)
+                print("Time taken:", elapsed_time, "seconds")
+                print("Score:", score)
+                print("The reply:", reply["cooked"])
+            reply_touple = (reply["cooked"], score)
+            replies_data.append(reply_touple)
+        else:
+            continue
     parsed_replies_data = []
     for i, reply_data in enumerate(replies_data):
         if i == 0:
@@ -203,21 +213,21 @@ def scoreReplies(replies):
     return replies
 
 def vector_creation(data):
-    encoder_question_data, metadata_question_data = data[0]
-    replies_list = data[1]
-    post_id = data[2]
+    encoder_question_data, replies_list = data
+    score = encoder_question_data[1]
+    post_id = encoder_question_data[2]
     vector_text = (
-        f"Question: {encoder_question_data[0]}\n",
-        f"Topic_Slug: {encoder_question_data[2]}\n",
+        f"Question: {encoder_question_data[0][0]}\n",
+        f"Topic_Slug: {encoder_question_data[0][1]}\n",
     )
-    metadata = [
-        f"Question: {encoder_question_data[0]}",
-        f"Topic_Slug: {encoder_question_data[1]}",
-        f"Score: {metadata_question_data}",
-        f"Post_ID: {post_id}",
-    ]
+    metadata = {
+        f"Question": encoder_question_data[0][0],
+        f"Topic_Slug": encoder_question_data[0][1],
+        f"Score": score,
+        f"Post_ID": post_id,
+    }
     for i, reply in enumerate(replies_list):
-        metadata.append(f"Reply {i+1}: {reply}\n")
+        metadata[f"Reply {i+1}"] = reply
     
     model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
     embedding_vector = model.encode(vector_text, prompt_name="query")
@@ -228,17 +238,18 @@ def vector_creation(data):
 
 def add_to_vector_databse(data_dict):
     client = QdrantClient(url=HOST_URL)
-    id = uuid.uuid4()
-
-    client.create_collection(
-        collection_name="chief-delphi-gpt",
-        vectors_config=VectorParams(size=len(data_dict["vector"]), distance=Distance.DOT)
-    )
+    id = str(uuid.uuid4())
+    existing_collections = [c.name for c in client.get_collections().collections]
+    if "chief-delphi-gpt" not in existing_collections:
+        client.create_collection(
+            collection_name="chief-delphi-gpt",
+            vectors_config=VectorParams(size=len(data_dict["vector"]), distance=Distance.COSINE)
+        )
     new_point = PointStruct(id=id, vector=data_dict["vector"], payload=data_dict["metadata"])
     operation_info = client.upsert(
         collection_name="chief-delphi-gpt",
         wait=True,
-        points=new_point,
+        points=[new_point],
     )
     print(operation_info)
 
@@ -257,7 +268,7 @@ def main(args):
     data = extractFeatures(data)
     data_dict = vector_creation(data)
     add_to_vector_databse(data_dict)
-
+    print(data_dict)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="JSON Parser")
     parser.add_argument('files', type=str, nargs='+', help='Input Clened JSON')

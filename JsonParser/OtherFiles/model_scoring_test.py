@@ -24,7 +24,8 @@ sns.set_palette("husl")
 # Configuration
 # -----------------------------
 
-MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+# MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
 Q_A_CLIPPING = 1500
