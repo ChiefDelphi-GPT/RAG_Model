@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chief_DelphiGPT</title>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f7;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    header {
+        background: #343541;
+        color: #ffffff;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    #chat {
+        max-width: 700px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .message {
+        margin: 6px 0;
+        padding: 12px 16px;
+        border-radius: 12px;
+        max-width: 80%;
+        word-wrap: break-word;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        font-size: 1em;
+        line-height: 1.4em;
+        transition: all 0.2s ease;
+    }
+    .user {
+        align-self: flex-end;
+        background: #10a37f;
+        color: white;
+        border-bottom-right-radius: 0;
+    }
+    .bot {
+        align-self: flex-start;
+        background: #e4e5ea;
+        color: black;
+        border-bottom-left-radius: 0;
+        white-space: pre-wrap;
+    }
+    #input-area {
+        display: flex;
+        max-width: 700px;
+        margin: 10px auto 20px auto;
+    }
+    #input-area textarea {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+        resize: none;
+        min-height: 60px;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    #input-area button {
+        padding: 12px 20px;
+        margin-left: 8px;
+        border: none;
+        background: #10a37f;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    #input-area button:hover {
+        background: #0e8c6a;
+    }
+    #status {
+        max-width: 700px;
+        margin: 5px auto;
+        font-style: italic;
+        color: #555;
+    }
+</style>
+</head>
+<body>
+<header>Chief_DelphiGPT</header>
+<main>
+    <div id="chat"></div>
+    <div id="status"></div>
+</main>
+<div id="input-area">
+    <textarea id="question" placeholder="Type your question..."></textarea>
+    <input type="text" id="topic" placeholder="Topic slug" style="width:150px; margin-left:8px;" />
+    <button onclick="sendQuestion()">Send</button>
+</div>
+
+<script>
+let ws = new WebSocket(`ws://${location.host}/ws`);
+let chat = document.getElementById("chat");
+let statusDiv = document.getElementById("status");
+
+ws.onmessage = function(event) {
+    let data = event.data;
+    // Progress updates
+    if (data.startsWith("status:")) {
+        statusDiv.innerText = data.replace("status:", "");
+        return;
+    }
+    // Streaming response
+    let lastBot = chat.querySelector(".bot:last-child");
+    if (!lastBot || lastBot.dataset.streaming != "true") {
+        lastBot = document.createElement("div");
+        lastBot.className = "message bot";
+        lastBot.dataset.streaming = "true";
+        chat.appendChild(lastBot);
+    }
+    if (data === "[DONE]") {
+        lastBot.dataset.streaming = "false";
+        statusDiv.innerText = "";
+        return;
+    }
+    lastBot.textContent += data;
+    chat.scrollTop = chat.scrollHeight;
+};
+
+function sendQuestion() {
+    let question = document.getElementById("question").value.trim();
+    let topic = document.getElementById("topic").value.trim();
+    if(!question) return;
+    addMessage("user", question);
+    statusDiv.innerText = "Starting...";
+    ws.send(JSON.stringify({question: question, topic: topic}));
+    document.getElementById("question").value = "";
+}
+
+function addMessage(sender, text) {
+    let div = document.createElement("div");
+    div.className = "message " + sender;
+    div.textContent = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+// Auto-expand textarea
+const textarea = document.getElementById("question");
+textarea.addEventListener("input", function(){
+    this.style.height = "auto";
+    this.style.height = (this.scrollHeight) + "px";
+});
+</script>
+</body>
+</html>
