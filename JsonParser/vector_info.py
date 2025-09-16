@@ -200,7 +200,7 @@ def scoreReplies(replies):
     for i, reply_data in enumerate(replies_data):
         if i == 0:
             parsed_replies_data.append(reply_data)
-        if i < 5:
+        if i < 4:
             if reply_data[1] < parsed_replies_data[0][1]:
                 parsed_replies_data.append(reply_data)
             else:
@@ -216,10 +216,7 @@ def vector_creation(data):
     encoder_question_data, replies_list = data
     score = encoder_question_data[1]
     post_id = encoder_question_data[2]
-    vector_text = (
-        f"Question: {encoder_question_data[0][0]}\n",
-        f"Topic_Slug: {encoder_question_data[0][1]}\n",
-    )
+    vector_text = f"Question: {encoder_question_data[0][0]}\nTopic_Slug: {encoder_question_data[0][1]}"
     metadata = {
         f"Question": encoder_question_data[0][0],
         f"Topic_Slug": encoder_question_data[0][1],
@@ -243,7 +240,7 @@ def add_to_vector_databse(data_dict):
     if "chief-delphi-gpt" not in existing_collections:
         client.create_collection(
             collection_name="chief-delphi-gpt",
-            vectors_config=VectorParams(size=len(data_dict["vector"]), distance=Distance.COSINE)
+            vectors_config=VectorParams(size=1024, distance=Distance.COSINE)
         )
     new_point = PointStruct(id=id, vector=data_dict["vector"], payload=data_dict["metadata"])
     operation_info = client.upsert(

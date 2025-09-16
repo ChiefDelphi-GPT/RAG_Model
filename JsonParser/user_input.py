@@ -1,4 +1,4 @@
-from time import time
+import time
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 from qdrant_client.models import PointStruct
@@ -10,10 +10,7 @@ HOST_URL = "http://localhost:6333"
 DEBUG = False
 
 def query_vector_creation(user_question, user_topic):
-    vector_text = (
-        f"Question: {user_question}\n",
-        f"Topic_Slug: {user_topic}\n",
-    )
+    vector_text = f"Question: {user_question}\nTopic_Slug: {user_topic}"
     model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
     embedding_vector = model.encode(vector_text, prompt_name="query")
     return {
@@ -24,44 +21,37 @@ def extract_info(vector_dict, top_k=50):
     client = QdrantClient(url=HOST_URL)
     search_result = client.query_points(
         collection_name="chief-delphi-gpt",
-        query_vector=vector_dict["vector"],
+        query=vector_dict["vector"],
         limit=top_k,
         with_payload=True,
     ).points
 
     if DEBUG:
-        print(f"Found {len(search_result)} vectors above threshold {similarity_threshold}")
+        print(f"Found {len(search_result)} vectors")
         for point in search_result:
             print(f"ID: {point.id}, Score: {point.score}, Payload: {point.payload}")
 
     return search_result
 
 def get_best_results(search_results):
-    all_items = []
-    for item in search_results:
-        similarity_score = item["score"]
-        payload = item["payload"]
-        regular_score = payload["Score"]
-        combined_score = similarity_score * regular_score
-        replies = [
-            v.strip() 
-            for k, v in sorted(payload.items())
-            if k.startswith("Reply_")
-        ]     
-        item_data = (
-            payload["Question"],
-            combined_score,
-            payload["Post_ID"],
-            replies
-        )
-        all_items.append(item_data)
-    top_items = sorted(all_items, key=lambda x: x[1], reverse=True)[:5]
-    return top_items
+    return sorted(
+        (
+            (
+                p.payload["Question"],
+                p.score * p.payload.get("Score", 1),
+                p.payload["Post_ID"],
+                [v.strip() for k, v in p.payload.items() if k.startswith("Reply_")]
+            )
+            for p in search_results
+        ),
+        key=lambda x: x[1],
+        reverse=True
+    )[:5]
 
 def queryDeepSeek(input_text):
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
-    model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
+    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
     # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"  # Very large - needs lots of RAM
@@ -123,9 +113,26 @@ def queryDeepSeek(input_text):
     return response.strip(), end_time - start_time
 
 def feed_through_model(top_items, user_question):
-    pass
+    prompt = "You are an expert assistant for the Chief Delphi forums, helping users find accurate and relevant information based on their questions. Use the provided context from previous discussions to formulate a comprehensive and helpful response to the user's question.\n\n"
+    for i, item in enumerate(top_items):
+        prompt += f"Context {i+1}:\nQuestion: {item[0]}\nReplies:\n"
+        for reply in item[3]:
+            prompt += f"- {reply}\n"
+        prompt += "\n"
+    prompt += f"User's Question: {user_question}\n\n"
+    prompt += "Based on the above contexts, provide a detailed and accurate answer to the user's question. If the information is insufficient, indicate that more details are needed.\n"
+    response, duration = queryDeepSeek(prompt)
+    if DEBUG:
+        print(f"Model response time: {duration:.2f} seconds")
+    return response
 
 if __name__ == "__main__":
-    user_question = str(input("Enter your question: \t"))
-    user_topic = str(input("Enter the topic slug: \t"))
+    user_question = input("Enter your question: ")
+    user_topic = input("Enter the topic slug: ")
+
+    vector_dict = query_vector_creation(user_question, user_topic)
+    search_results = extract_info(vector_dict, top_k=50)
+    top_items = get_best_results(search_results)
+    final_response = feed_through_model(top_items, user_question)
+    print(f"\nModel Response:\n{final_response}\n")
 
