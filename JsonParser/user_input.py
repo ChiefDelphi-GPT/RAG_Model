@@ -1,13 +1,17 @@
 import time
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams
-from qdrant_client.models import PointStruct
 from sentence_transformers import SentenceTransformer
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import subprocess, sys, os
+
 
 HOST_URL = "http://localhost:6333"
 DEBUG = False
+
+def install_requirements():
+    req_file = os.path.join(os.path.dirname(__file__), "requirements.txt")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", req_file])
 
 def query_vector_creation(user_question, user_topic):
     vector_text = f"Question: {user_question}\nTopic_Slug: {user_topic}"
@@ -127,6 +131,10 @@ def feed_through_model(top_items, user_question):
     return response
 
 if __name__ == "__main__":
+    # THIS IS THE LINE THAT AUTO INSTALLS THE REQUIREMENTS
+    #--------------------------------
+    install_requirements()
+    #--------------------------------
     user_question = input("Enter your question: ")
     user_topic = input("Enter the topic slug: ")
 
