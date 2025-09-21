@@ -6,6 +6,39 @@ START=150
 END=1650
 STEP=3
 
+if [ "$1" == "--fresh" ]; then
+    echo "Starting a fresh run: deleting local and remote progress files..."
+    rm -f "$PROGRESS_FILE"
+    ssh fe.ds "rm -f /home/rhayrapetyan/automatic/progress_clean_inputs.txt"
+    echo "Fresh run setup complete."
+fi
+
+cleanup_and_exit() {
+    echo ""
+    echo "Caught Ctrl+C! Updating local progress before exiting..."
+    
+    # Copy the latest progress file from remote
+    if scp fe.ds:/home/rhayrapetyan/automatic/progress_clean_inputs.txt "$PROGRESS_FILE" 2>/dev/null; then
+        LATEST_PROGRESS=$(cat "$PROGRESS_FILE")
+        echo "Updated local progress to: $LATEST_PROGRESS"
+    else
+        echo "Could not retrieve remote progress file"
+    fi
+
+    if scp -r fe.ds:/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/* ../../../RAG_Model/Cheif_Delphi_JSONS/; then
+        echo "Copied processed JSON files to local Cheif_Delphi_JSONS directory."
+    else
+        echo "Could not copy processed JSON files from remote."
+    fi
+
+    
+    echo "Exiting..."
+    exit 130
+}
+
+# Set up trap to catch Ctrl+C (SIGINT)
+trap cleanup_and_exit SIGINT
+
 if [ ! -f "$PROGRESS_FILE" ]; then
     echo "$START" > "$PROGRESS_FILE"
     echo "Creating new progress file starting at $START.json..."
