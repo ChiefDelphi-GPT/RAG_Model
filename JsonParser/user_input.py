@@ -6,7 +6,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import subprocess, sys, os
 
  
-HOST_URL = "http://localhost:6333"
 DEBUG = False
 
 def install_requirements():
@@ -22,7 +21,10 @@ def query_vector_creation(user_question, user_topic):
     }
 
 def extract_info(vector_dict, top_k=50):
-    client = QdrantClient(url=HOST_URL)
+    client = QdrantClient(
+        url="https://a9af870a-09da-4734-8536-26e6fbbed330.us-east4-0.gcp.cloud.qdrant.io:6333", 
+        api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.RfaG8hSt4RgVl9ehod1ejyLh_CVZF1Xu-C7OkqsRVRg",
+    )
     search_result = client.query_points(
         collection_name="chief-delphi-gpt",
         query=vector_dict["vector"],

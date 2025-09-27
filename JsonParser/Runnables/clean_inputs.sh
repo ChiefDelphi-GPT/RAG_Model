@@ -13,25 +13,32 @@ if [ "$1" == "--fresh" ]; then
     echo "Fresh run setup complete."
 fi
 
+retry_scp () {
+    local src=$1
+    local dest=$2
+    local delay=5
+    while true; do
+        if scp -r "$src" "$dest"; then
+            echo "Successfully copied $src to $dest"
+            break
+        else
+            echo "Copy failed for $src → $dest, retrying in ${delay}s..."
+            sleep $delay
+        fi
+    done
+}
+
 cleanup_and_exit() {
     echo ""
     echo "Caught Ctrl+C! Updating local progress before exiting..."
-    
-    # Copy the latest progress file from remote
-    if scp fe.ds:/home/rhayrapetyan/automatic/progress_clean_inputs.txt "$PROGRESS_FILE" 2>/dev/null; then
-        LATEST_PROGRESS=$(cat "$PROGRESS_FILE")
-        echo "Updated local progress to: $LATEST_PROGRESS"
-    else
-        echo "Could not retrieve remote progress file"
-    fi
 
-    if scp -r fe.ds:/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/* ../../../RAG_Model/Cheif_Delphi_JSONS/; then
-        echo "Copied processed JSON files to local Cheif_Delphi_JSONS directory."
-    else
-        echo "Could not copy processed JSON files from remote."
-    fi
+    # Keep trying to copy the remote progress file
+    retry_scp "fe.ds:/home/rhayrapetyan/automatic/progress_clean_inputs.txt" "$PROGRESS_FILE"
 
-    
+    # Keep trying to copy all processed JSON files
+    retry_scp "fe.ds:/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/*" \
+              "../../../RAG_Model/Cheif_Delphi_JSONS/"
+
     echo "Exiting..."
     exit 130
 }
@@ -125,7 +132,7 @@ EOF
 
 
 # Copy output directory back to local
-scp -r fe.ds:/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/* ../../../RAG_Model/Cheif_Delphi_JSONS/
+scp -r 'fe.ds:/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/*' ../../../RAG_Model/Cheif_Delphi_JSONS/
 
 echo "All JSON files processed and copied to Cheif_Delphi_JSONS directory."
 rm -f "$PROGRESS_FILE"

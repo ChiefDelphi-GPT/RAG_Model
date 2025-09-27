@@ -3,8 +3,8 @@
 # Processes 0.json to 149.json, remembering where it left off.
 
 PROGRESS_FILE="progress_adding_vectors.txt"
-START=150
-END=1649
+START=0
+END=653
 
 # If progress file exists, resume from the next index
 if [ -f "$PROGRESS_FILE" ]; then
@@ -17,7 +17,7 @@ fi
 
 for i in $(seq $START $END); do
     echo "Processing $i.json..."
-    python3 vector_info.py "../../Cheif_Delphi_JSONS/$i.json"
+    python3 ../vector_info.py "../../Cheif_Delphi_JSONS/$i.json"
 
     # Save the current index after successful run
     if [ $? -eq 0 ]; then

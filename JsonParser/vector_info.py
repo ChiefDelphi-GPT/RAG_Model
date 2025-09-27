@@ -12,9 +12,8 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 from qdrant_client.models import PointStruct
 import uuid
-
-
-
+import re
+from html import unescape
 
 MAC = True
 DEBUG = True
@@ -22,9 +21,36 @@ SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
 MIN_TRUST_LEVEL = 0.1
 Q_A_CLIPPINNG = 1500
-HOST_URL = "http://localhost:6333"
 question = None
 vectors = []
+
+MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+
+if torch.backends.mps.is_available():
+    DEVICE = "mps"
+    TORCH_DTYPE = torch.float32
+elif torch.cuda.is_available():
+    DEVICE = "cuda"
+    TORCH_DTYPE = torch.float16
+else:
+    DEVICE = "cpu"
+    TORCH_DTYPE = torch.float32
+
+print(f"Loading model {MODEL_NAME} once on {DEVICE} ...")
+TOKENIZER = AutoTokenizer.from_pretrained(MODEL_NAME)
+MODEL = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME,
+    torch_dtype=TORCH_DTYPE,
+    trust_remote_code=True
+).to(DEVICE)
+MODEL.eval()
+def getTextFromLine(line):
+    start = line.find("\"cooked\": \"")+len("'cooked': '")
+    end = line.find("</p>\",")
+    if DEBUG:
+        print("START:", start)
+        print("END:", end)
+    return line[start:end]
 
 def diff_days(other_date, to_date=dt.datetime.today().date()):
     return (to_date - other_date).days
@@ -66,54 +92,32 @@ def extractFeatures(data):
         print(replies)
     return (q_a, replies)
 
+def strip_html(raw):
+    # remove HTML tags
+    no_tags = re.sub(r"<[^>]+>", "", raw)
+    return unescape(no_tags).strip()
+
+
 def queryDeepSeek(input_text):
-    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"   # Smallest - fastest loading
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"    # Good balance of quality and resource usage
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"   # Alternative 8B option
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"   # Larger for better reasoning
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"   # High-end consumer hardware
-    # model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"  # Very large - needs lots of RAM
-    # model_name = "deepseek-ai/DeepSeek-R1"                     # Main flagship - enterprise only (671B)
+    if DEBUG:
+        print(f"Starting DeepSeek query (input length: {len(input_text)} chars)...")
 
-    if (torch.backends.mps.is_available()):
-        device = "mps"
-        torch_dtype = torch.float32  # MPS works better with float32
-    elif (torch.cuda.is_available()):
-        device = "cuda"
-        torch_dtype = torch.float16
-    else:
-        device = "cpu"
-        torch_dtype = torch.float32
-
-    print(f"Using device: {device}")
-    print(f"Loading model: {model_name}")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        torch_dtype=torch_dtype,
-        device_map=None,  # Don't use auto device mapping
-        trust_remote_code=True  # DeepSeek models may require this
-    ).to(device)
-
-    messages = [
-        {"role": "user", "content": input_text}
-    ]
-    try: 
-        formatted_input = tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True
+    # Use the globally loaded TOKENIZER and MODEL
+    messages = [{"role": "user", "content": input_text}]
+    try:
+        formatted_input = TOKENIZER.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
         )
-    except:
+    except Exception:
         formatted_input = f"User: {input_text}\nAssistant:"
 
+
     start_time = time.time()
-    input_ids = tokenizer.encode(formatted_input, return_tensors='pt').to(device)
-    attention_mask = torch.ones_like(input_ids).to(device)
+    input_ids = TOKENIZER.encode(formatted_input, return_tensors="pt").to(DEVICE)
+    attention_mask = torch.ones_like(input_ids).to(DEVICE)
 
     with torch.no_grad():
-        outputs = model.generate(
+        outputs = MODEL.generate(
             input_ids,
             attention_mask=attention_mask,
             max_new_tokens=10000,
@@ -121,14 +125,19 @@ def queryDeepSeek(input_text):
             do_sample=True,
             top_p=0.9,
             repetition_penalty=1.1,
-            pad_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id,
-            eos_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else tokenizer.pad_token_id
+            pad_token_id=TOKENIZER.eos_token_id or TOKENIZER.pad_token_id,
+            eos_token_id=TOKENIZER.eos_token_id or TOKENIZER.pad_token_id,
         )
 
     response_ids = outputs[0][input_ids.shape[1]:]
-    response = tokenizer.decode(response_ids, skip_special_tokens=True)
+    response = TOKENIZER.decode(response_ids, skip_special_tokens=True)
+
     end_time = time.time()
+    if DEBUG:
+        print(f"DeepSeek query completed in {end_time - start_time:.2f} seconds")
+
     return response.strip(), end_time - start_time
+
 
 def extract_float_in_range(text):
     """
@@ -234,7 +243,10 @@ def vector_creation(data):
     }
 
 def add_to_vector_databse(data_dict):
-    client = QdrantClient(url=HOST_URL)
+    client = QdrantClient(
+        url="https://a9af870a-09da-4734-8536-26e6fbbed330.us-east4-0.gcp.cloud.qdrant.io:6333", 
+        api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.RfaG8hSt4RgVl9ehod1ejyLh_CVZF1Xu-C7OkqsRVRg",
+    )
     id = str(uuid.uuid4())
     existing_collections = [c.name for c in client.get_collections().collections]
     if "chief-delphi-gpt" not in existing_collections:

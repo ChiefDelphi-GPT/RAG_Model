@@ -1,0 +1,1109 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3661011,
+                    "name": "Yishai Levy",
+                    "username": "levyishai",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                    "created_at": "2025-06-23T13:11:06.479Z",
+                    "cooked": "This is the general code I'm running:  \n```dart  \nstatic const String apiKey = \"APIKEY\";  \nstatic final Dio dio = Dio(BaseOptions(  \n    headers: <String, String>{  \n        X-TBA-Auth-Key: apiKey},  \n    baseUrl: \"https://www.thebluealliance.com/api/v3\",  \n));  \nstatic final TbaApiV3 tbaApi = TbaApiV3(dio: dio);  \nstatic final EventApi tbaEventApi = tbaApi.getEventApi();  \n\nstatic Future<BuiltList<Match>?> getCMPMatches() async {  \n    final Response<BuiltList<Match>> eventsResponse = await tbaEventApi.getEventMatches(eventKey: \"2025cmptx\");  \n    return eventsResponse.data;  \n}  \n```  \n\nI'm getting the following error:  \n```dart  \nDartError: DioException [bad response]: This exception was thrown because the response has a status code of 404 and RequestOptions.validateStatus  \nwas configured to throw for this status code.  \nThe status code of 404 has the following meaning: \"Client error - the request contains bad syntax or cannot be fulfilled\".  \n```  \n\nI verified the dio itself is good, and that the event key is valid using this piece of code (which returned 200):  \n```dart  \nfinal resp = await get<List<dynamic>>(  \n    '/event/2025cmptx/matches',  \n    options: Options(validateStatus: (_) => true),  \n);  \nprint(resp.statusCode);  \nprint((resp.data?.first) ?? 'No data');  \n```  \n\nMight this be an internal library problem? Has anyone used the TBA API in dart recently and can help here? Is the better way to go about this just to do the requests manually without the api library?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:15:54.354Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 125,
+                    "readers_count": 124,
+                    "score": 90.0,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Yishai Levy",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57809,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team Captain, Programming Lead & Operator"
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3661016,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2025-06-23T13:25:42.978Z",
+                    "cooked": "Is this the library you're trying to use github com tba api tba api client dart If so that's an unofficial project using generated code with zero testing quality control built years ago by me I should probably take another look at that stuff",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:25:42.978Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 113,
+                    "readers_count": 112,
+                    "score": 132.6,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/TBA-API/tba-api-client-dart",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - TBA-API/tba-api-client-dart",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 6
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 6
+                        },
+                        {
+                            "id": "laughing",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 7,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3661022,
+                    "name": "Yishai Levy",
+                    "username": "levyishai",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                    "created_at": "2025-06-23T13:38:47.184Z",
+                    "cooked": "I might investigate it further, and then propose creating a pull request if that’s acceptable. I thought it was likely the case, but just wanted to double-check.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:38:47.184Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 107,
+                    "readers_count": 106,
+                    "score": 61.4,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Yishai Levy",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 9105,
+                        "username": "Fletch1373",
+                        "name": "Fletch",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57809,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team Captain, Programming Lead & Operator"
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/3",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3661025,
+                    "name": "Justin Tervay",
+                    "username": "jtrv",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jtrv/{size}/203436_2.png",
+                    "created_at": "2025-06-23T13:47:34.754Z",
+                    "cooked": "If it’s generated based on the openapi spec, it’s gonna need another regen. I’ve made a lot of changes the last few months.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:47:34.754Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 103,
+                    "readers_count": 102,
+                    "score": 40.6,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Justin Tervay",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 9105,
+                        "username": "Fletch1373",
+                        "name": "Fletch",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 19731,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/4",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3661029,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2025-06-23T13:56:11.766Z",
+                    "cooked": "It should automatically regenerate whenever the spec file changes, but there are some issues with the implementation (e.g., it doesn’t purge the repo before committing updated files, so if something gets deleted from the spec, the class/method may still exist in the library).",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:56:11.766Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 95,
+                    "readers_count": 94,
+                    "score": 34.0,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 19731,
+                        "username": "jtrv",
+                        "name": "Justin Tervay",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/jtrv/{size}/203436_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/5",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3661030,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2025-06-23T13:58:54.359Z",
+                    "cooked": "It’s generated code, so pull requests to the library repo itself can’t really be accepted. They could easily break the ability for the generator to commit changes due to merge conflicts. I’ll take a look at the generator later today and make sure it’s actually running. In the meantime, you should be able to reproduce what it’s doing locally and build a fresh version of the library to see if it works.",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-23T13:58:54.359Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 91,
+                    "readers_count": 90,
+                    "score": 33.2,
+                    "yours": false,
+                    "topic_id": 503527,
+                    "topic_slug": "tba-api-library-in-dart-always-seems-to-return-404",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 57809,
+                        "username": "levyishai",
+                        "name": "Yishai Levy",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/tba-api-library-in-dart-always-seems-to-return-404/503527/6",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3661011,
+                3661016,
+                3661022,
+                3661025,
+                3661029,
+                3661030
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                41
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 492517,
+                "title": "Motion Magic Voltage Issue on Elevator – Help Needed",
+                "fancy_title": "Motion Magic Voltage Issue on Elevator – Help Needed",
+                "slug": "motion-magic-voltage-issue-on-elevator-help-needed",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-20T23:50:30.818Z",
+                "last_posted_at": "2025-02-21T16:24:58.680Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T16:24:58.680Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone! I am the lead programmer for Team 2491 NoMythic, and this year we are running an elevator with two end an algae end effector and a coral end effector. Elevator Setup Stru…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pid",
+                    "elevator",
+                    "phoenix",
+                    "phoenix-6",
+                    "motionmagic"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 198,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3534832,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73641,
+                    "username": "rflood",
+                    "name": "Rowan Flood",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/7bcc69/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73641,
+                            "username": "rflood",
+                            "name": "Rowan Flood",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/7bcc69/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 36833,
+                            "username": "chauser",
+                            "name": "Carl Hauser",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 495519,
+                "title": "Need Help Getting PathPlanner Auto to Match Real Life Behavior",
+                "fancy_title": "Need Help Getting PathPlanner Auto to Match Real Life Behavior",
+                "slug": "need-help-getting-pathplanner-auto-to-match-real-life-behavior",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/a/f/af2019d4503a662dcf29b18cd67d114bb40cccc4_2_1024x768.jpeg",
+                "created_at": "2025-03-14T00:14:36.183Z",
+                "last_posted_at": "2025-03-22T00:41:25.112Z",
+                "bumped": true,
+                "bumped_at": "2025-03-22T00:41:25.112Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone, I’m having trouble getting PathPlanner paths to accurately reflect real-life behavior on our swerve drive robot. Right now, the first movement works fine (using our teleop basic auto-ali…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 140,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3556655,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74331,
+                    "username": "amazinghawkman",
+                    "name": "Drew Robertson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74331,
+                            "username": "amazinghawkman",
+                            "name": "Drew Robertson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/8baadc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28748,
+                            "username": "DISCBOTS6023",
+                            "name": "Discbots6023",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/73ab20/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 492160,
+                "title": "Can the new radio be used as a network switch?",
+                "fancy_title": "Can the new radio be used as a network switch?",
+                "slug": "can-the-new-radio-be-used-as-a-network-switch",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-18T13:55:46.427Z",
+                "last_posted_at": "2025-02-18T20:02:49.216Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T20:02:49.216Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Radio performs as one.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 233,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531386,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 66298,
+                    "username": "sokoloff",
+                    "name": "Jim Sokoloff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61009,
+                            "username": "Foodonice",
+                            "name": "Krish",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/858c86/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63322,
+                            "username": "CKioxide",
+                            "name": "Corbin Kuster",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ckioxide/{size}/235143_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491364,
+                "title": "YAGSL - 'No Robot Code' when deployed",
+                "fancy_title": "YAGSL - &lsquo;No Robot Code&rsquo; when deployed",
+                "slug": "yagsl-no-robot-code-when-deployed",
+                "posts_count": 10,
+                "reply_count": 6,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-12T16:35:36.913Z",
+                "last_posted_at": "2025-02-18T13:11:23.929Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T13:11:23.929Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, I’ve been having an issue that I get ‘no robot code’ when deploying the code to the robot. After testing, I pinpointed the issue to the YAGSL config files as the code moved when deploying with an …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "frc",
+                    "programming",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 121,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524860,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 72064,
+                    "username": "aj29-technosaints",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/7cd45c/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 72064,
+                            "username": "aj29-technosaints",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/7cd45c/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60651,
+                            "username": "enishangck",
+                            "name": "Enishan Eren Gücük ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 495777,
+                "title": "Swerve mode",
+                "fancy_title": "Swerve mode",
+                "slug": "swerve-mode",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-16T14:16:28.951Z",
+                "last_posted_at": "2025-03-16T16:36:44.503Z",
+                "bumped": true,
+                "bumped_at": "2025-03-16T16:36:44.503Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, I was thinking about the traction of the swerve and I thought about what would be the best engine mode for it, the angle and traction, we use the traction in the brake and the angle in…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "regional"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 103,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3558279,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64053,
+                    "username": "Matheus",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64053,
+                            "username": "Matheus",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "tba",
+            "api"
+        ],
+        "tags_descriptions": {},
+        "id": 503527,
+        "title": "TBA API library in dart always seems to return 404",
+        "fancy_title": "TBA API library in dart always seems to return 404",
+        "posts_count": 6,
+        "created_at": "2025-06-23T13:11:06.375Z",
+        "views": 171,
+        "reply_count": 4,
+        "like_count": 13,
+        "last_posted_at": "2025-06-23T13:58:54.359Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "tba-api-library-in-dart-always-seems-to-return-404",
+        "category_id": 30,
+        "word_count": 436,
+        "deleted_at": null,
+        "user_id": 57809,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_503527",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 47774,
+            "execute_at": "2026-06-23T13:58:54.359Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57809,
+                    "username": "levyishai",
+                    "name": "Yishai Levy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 19731,
+                    "username": "jtrv",
+                    "name": "Justin Tervay",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jtrv/{size}/203436_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 57809,
+                "username": "levyishai",
+                "name": "Yishai Levy",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png"
+            },
+            "last_poster": {
+                "id": 9105,
+                "username": "Fletch1373",
+                "name": "Fletch",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/TBA-API/tba-api-client-dart",
+                    "title": "GitHub - TBA-API/tba-api-client-dart",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 9105,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

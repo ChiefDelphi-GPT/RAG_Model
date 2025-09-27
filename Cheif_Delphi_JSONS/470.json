@@ -1,0 +1,1009 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3635005,
+                    "name": "Tio",
+                    "username": "Tio",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png",
+                    "created_at": "2025-05-24T14:16:00.972Z",
+                    "cooked": "Can anyone recommend a tutorial to use PhotonVision to control a swerve drive robot to go April Tag.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-05-24T14:16:00.972Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 27,
+                    "reads": 177,
+                    "readers_count": 176,
+                    "score": 180.4,
+                    "yours": false,
+                    "topic_id": 502338,
+                    "topic_slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+                    "display_username": "Tio",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28847,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags/502338/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3635028,
+                    "name": "Tom",
+                    "username": "Tom_Neu",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                    "created_at": "2025-05-24T15:11:47.269Z",
+                    "cooked": "Assuming you already have a command that drives your swerve drivetrain typically based on joystick input e.g. left stick X/Y for translation and right stick X for rotation you can repurpose that structure for autonomous AprilTag alignment using PhotonVision. PhotonVision can provide the pose of an AprilTag relative to your robot. This gives you the positional error in X Y and rotation between your current pose and the target. You can then run a separate PID controller for each axis X Y and rotation to reduce those errors to zero. Make sure the PID outputs are scaled to match your drive input expectations e.g. between -1 and 1 if you're mimicking joystick input. Once scaled appropriately feed those outputs into your drive command in place of joystick values. This allows your robot to automatically drive toward and align with the AprilTag as if it were being manually controlled.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-05-24T15:11:47.269Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 169,
+                    "readers_count": 168,
+                    "score": 33.8,
+                    "yours": false,
+                    "topic_id": 502338,
+                    "topic_slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+                    "display_username": "Tom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59306,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5554 - Alumni. Former head of software, strategy and development"
+                    },
+                    "post_url": "/t/best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags/502338/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3635038,
+                    "name": "Nolan Barker",
+                    "username": "therekrab",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "created_at": "2025-05-24T15:47:06.520Z",
+                    "cooked": "Here’s my take on the problem: Although drive-to-pose logic heavily relies on accurate pose estimation, these are distinct processes. The optimal approach involves coupling your vision system with the robot’s pose estimator. Using tools like PhotonVision simplifies setting up 3D pose estimation with minimal effort. For a SwerveDrive platform, vision integration is straightforward via built-in methods, though documentation for setup is available at [link]. Without AprilTags, relying on odometry from swerve modules provides sufficient accuracy. Achieving precise positioning requires aligning the robot to a known pose, which can be done using either a HolonomicDriveController for direct path navigation or Pathplanner-generated routes avoiding obstacles like reefs. The simplest solution is employing HolonomicDriveController for straight-line targeting, applying calculated speeds directly to the chassis.\n\nAdvantages of integrating full-field localization and separating drive-to-pose and pose estimation include:\n- Greater flexibility in target placement, eliminating reliance on AprilTags\n- No requirement for AprilTags, provided cameras are positioned correctly\n- Ability to enhance drive-to-pose algorithms without compromising vision functionality\n- Integration of pose estimates into additional autonomous features, like intake motor control\n- Division of labor between vision and navigation teams, allowing independent development",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-05-24T15:47:44.985Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 132,
+                    "readers_count": 131,
+                    "score": 56.4,
+                    "yours": false,
+                    "topic_id": 502338,
+                    "topic_slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+                    "display_username": "Nolan Barker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/HolonomicDriveController.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "HolonomicDriveController (WPILib API 2025.3.2)",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SwerveDrivePoseEstimator (WPILib API 2025.3.2)",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "Regular",
+                    "title_is_group": false,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65568,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Lead - 3414 Hackbots"
+                    },
+                    "post_url": "/t/best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags/502338/3",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3635138,
+                    "name": "Ed Peters",
+                    "username": "epeters1111",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/epeters1111/{size}/182731_2.png",
+                    "created_at": "2025-05-24T18:58:42.803Z",
+                    "cooked": "The text has been cleaned to remove HTML tags and unnecessary elements while preserving the original meaning:\n\nEXTREMLY IMPORTANTLY - DO NOT OUTPUT ANYTHING BUT THE CLEANED VERSION (NO INTRODUCTION, NO OTHER LITTLE EXPLENATION), JUST THE CLEANED PARAGRAPH.  \n\nThe cleaned version is:  \nI’m curious how accurate full field pose really is and how people tune it. This was our first year trying it using a Limelight with MegaTag2. We got the code working relatively easily but struggled due to the lack of a practice field. We positioned field pieces in the lobby as best as we could. Our accuracy was often off by a few inches, making it hard to benefit from auto positioning during this year’s challenge. Without using auto scoring initially, we rewrote our targeting to do image-based positioning, which we tuned quite well. I’d love to understand full field positioning better—it seems powerful. How do you tune it?",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-05-24T18:58:42.803Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 85,
+                    "readers_count": 84,
+                    "score": 22.0,
+                    "yours": false,
+                    "topic_id": 502338,
+                    "topic_slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+                    "display_username": "Ed Peters",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags/502338/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3635227,
+                    "name": "Nolan Barker",
+                    "username": "therekrab",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "created_at": "2025-05-24T21:42:54.297Z",
+                    "cooked": "We saw that there were definite areas where full field pose estimation wasn't as accurate as others. Without a specialized vision setup, we used four cameras set at the minimum resolution for Photon Vision, an open-source vision library for coprocessors, operating at 320x240 pixels. By simulating camera placements across the robot, we identified spots where two \"eyes\" on the AprilTags provided measurements from slightly different angles, albeit with considerable skew, when aligned closely to the reef. This division resulted in three distinct zones on the field:\n\n1. Reef zone: Within 6 feet of the reef, we observed accurate multi-tag and single-tag pose estimates.\n2. Intake station: Near the intake station, distances ensured error margins between 3-4 inches, allowing for less precise alignment.\n3. Elsewhere: Outside these zones, pose estimates were infrequent, relying heavily on module odometry, which often deviated by over 8 inches.\n\nWhile full-field estimations have issues, they weren't problematic due to our camera setup ensuring accuracy where needed. Additionally, weighting pose estimates differently based on their quality has proven effective.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-05-24T21:42:54.297Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 63,
+                    "readers_count": 62,
+                    "score": 27.6,
+                    "yours": false,
+                    "topic_id": 502338,
+                    "topic_slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+                    "display_username": "Nolan Barker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/localization-finding-standard-deviations-for-setvisionmeasurementstddevs/496596/7",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Localization: Finding Standard Deviations for SetVisionMeasurementStdDevs",
+                            "clicks": 8
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "Regular",
+                    "title_is_group": false,
+                    "reply_to_user": {
+                        "id": 56650,
+                        "username": "epeters1111",
+                        "name": "Ed Peters",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/epeters1111/{size}/182731_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65568,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Lead - 3414 Hackbots"
+                    },
+                    "post_url": "/t/best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags/502338/5",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3635005,
+                3635028,
+                3635038,
+                3635138,
+                3635227
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                71
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 491523,
+                "title": "How to disable code formatting on deploy?",
+                "fancy_title": "How to disable code formatting on deploy?",
+                "slug": "how-to-disable-code-formatting-on-deploy",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/9/797b4ad91d6e8ab53615d0c598ff3e0966becfa9.png",
+                "created_at": "2025-02-13T14:24:47.904Z",
+                "last_posted_at": "2025-02-13T16:03:40.302Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T16:03:40.302Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I see that you are using AdvantageKit, which means you’ve probably used a template build.gradle with spotless. You can remove that. Just look up the spotless config (should be towards the bottom) and …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 139,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526099,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 46476,
+                    "username": "AMysterium",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/amysterium/{size}/167374_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61815,
+                            "username": "Mohammed",
+                            "name": "Mohammed",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 46476,
+                            "username": "AMysterium",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/amysterium/{size}/167374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11822,
+                            "username": "msoucy",
+                            "name": "Matt Soucy (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/msoucy/{size}/237623_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 473910,
+                "title": "Problems with OrangePi vision and large brown outs/delays",
+                "fancy_title": "Problems with OrangePi vision and large brown outs/delays",
+                "slug": "problems-with-orangepi-vision-and-large-brown-outs-delays",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-10-28T17:57:34.189Z",
+                "last_posted_at": "2024-10-30T06:52:19.233Z",
+                "bumped": true,
+                "bumped_at": "2024-10-30T06:52:19.233Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We recently installed an Orange Pi into our photon vision pipeline. We can use it to do various vision tasks like homing onto an object. However, ONLY when plugged in, our robot will randomly have VER…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision",
+                    "orangepi",
+                    "brownout"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 157,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440798,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58497,
+                    "username": "ThomasMcDonald904",
+                    "name": "Thomas McDonald",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e8c25b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58497,
+                            "username": "ThomasMcDonald904",
+                            "name": "Thomas McDonald",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e8c25b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476285,
+                "title": "How to find Max Acceleration for a robot (Swerve Setpoint Generator)",
+                "fancy_title": "How to find Max Acceleration for a robot (Swerve Setpoint Generator)",
+                "slug": "how-to-find-max-acceleration-for-a-robot-swerve-setpoint-generator",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-08T18:54:38.665Z",
+                "last_posted_at": "2024-12-08T20:08:12.013Z",
+                "bumped": true,
+                "bumped_at": "2024-12-08T20:08:12.013Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For this kind of tuning I think it’s useful to create a tiny separate robot project (click “new project” in vscode), and make that project do just one very simple thing. For example, you could make y…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 401,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3456503,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 53190,
+                    "username": "truher",
+                    "name": "joel truher",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64852,
+                            "username": "Mehmet1",
+                            "name": "9016 captain/head prgm/driver",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mehmet1/{size}/238645_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 484691,
+                "title": "Smartdashboard being deprecated",
+                "fancy_title": "Smartdashboard being deprecated",
+                "slug": "smartdashboard-being-deprecated",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-01T19:52:00.623Z",
+                "last_posted_at": "2025-02-21T12:54:32.848Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T12:54:32.848Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The plan is to replace the SmartDashboard class with a general purpose Telemetry class with similar “flavor” in terms of ease-of-use (so not a straight rename, but with the aim of it being just as use…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 287,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499243,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57486,
+                            "username": "jgarder",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a183cd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60214,
+                            "username": "spacey_sooty",
+                            "name": "Jade",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/spacey_sooty/{size}/256378_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50591,
+                            "username": "BMLSS",
+                            "name": "Bill Bagshaw",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 494995,
+                "title": "Could not instantiate robot com.pathplanner.lib.auto.AutoBuilder!",
+                "fancy_title": "Could not instantiate robot com.pathplanner.lib.auto.AutoBuilder!",
+                "slug": "could-not-instantiate-robot-com-pathplanner-lib-auto-autobuilder",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-10T16:54:45.772Z",
+                "last_posted_at": "2025-03-10T17:15:34.716Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T17:15:34.716Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Have you configured AutoBuilder?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 89,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3552936,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 49785,
+                    "username": "rcam",
+                    "name": "Jeffords",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rcam/{size}/171561_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68136,
+                            "username": "jom",
+                            "name": "Miles.D",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jom/{size}/256684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 49785,
+                            "username": "rcam",
+                            "name": "Jeffords",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rcam/{size}/171561_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 502338,
+        "title": "Best tutorial on using photonvision with swerve drive to drive to apriltags",
+        "fancy_title": "Best tutorial on using photonvision with swerve drive to drive to apriltags",
+        "posts_count": 5,
+        "created_at": "2025-05-24T14:16:00.914Z",
+        "views": 277,
+        "reply_count": 1,
+        "like_count": 4,
+        "last_posted_at": "2025-05-24T21:42:54.297Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "best-tutorial-on-using-photonvision-with-swerve-drive-to-drive-to-apriltags",
+        "category_id": 30,
+        "word_count": 1087,
+        "deleted_at": null,
+        "user_id": 28847,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_502338",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 47453,
+            "execute_at": "2026-05-24T21:42:54.297Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 65568,
+                    "username": "therekrab",
+                    "name": "Nolan Barker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 3
+                },
+                {
+                    "id": 28847,
+                    "username": "Tio",
+                    "name": "Tio",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 56650,
+                    "username": "epeters1111",
+                    "name": "Ed Peters",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/epeters1111/{size}/182731_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 59306,
+                    "username": "Tom_Neu",
+                    "name": "Tom",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 28847,
+                "username": "Tio",
+                "name": "Tio",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png"
+            },
+            "last_poster": {
+                "id": 65568,
+                "username": "therekrab",
+                "name": "Nolan Barker",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/localization-finding-standard-deviations-for-setvisionmeasurementstddevs/496596/7",
+                    "title": "Localization: Finding Standard Deviations for SetVisionMeasurementStdDevs",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 65568,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/HolonomicDriveController.html",
+                    "title": "HolonomicDriveController (WPILib API 2025.3.2)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 65568,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}
