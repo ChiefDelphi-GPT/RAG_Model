@@ -15,7 +15,7 @@ import uuid
 import re
 from html import unescape
 
-MAC = True
+MAC = False
 DEBUG = True
 SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
@@ -26,24 +26,91 @@ vectors = []
 
 MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 
-if torch.backends.mps.is_available():
-    DEVICE = "mps"
-    TORCH_DTYPE = torch.float32
-elif torch.cuda.is_available():
-    DEVICE = "cuda"
-    TORCH_DTYPE = torch.float16
-else:
-    DEVICE = "cpu"
-    TORCH_DTYPE = torch.float32
+def setup_device_and_model_cpu():
+    """Fallback CPU setup"""
+    device = "cpu"
+    torch_dtype = torch.float32
+    print(f"Loading model {MODEL_NAME} on CPU...")
+    
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        torch_dtype=torch_dtype,
+        trust_remote_code=True
+    ).to(device)
+    model.eval()
+    
+    return device, torch_dtype, tokenizer, model
 
-print(f"Loading model {MODEL_NAME} once on {DEVICE} ...")
-TOKENIZER = AutoTokenizer.from_pretrained(MODEL_NAME)
-MODEL = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
-    torch_dtype=TORCH_DTYPE,
-    trust_remote_code=True
-).to(DEVICE)
-MODEL.eval()
+
+def setup_device_and_model():
+    """Setup device and load model with proper error handling"""
+    
+    # Device selection with more detailed info
+    if torch.backends.mps.is_available():
+        device = "mps"
+        torch_dtype = torch.float32
+        print(f"Using Apple Silicon MPS")
+    elif torch.cuda.is_available():
+        device = "cuda"
+        torch_dtype = torch.float16
+        gpu_count = torch.cuda.device_count()
+        gpu_name = torch.cuda.get_device_name(0)
+        gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1e9
+        print(f"Using NVIDIA GPU: {gpu_name}")
+        print(f"GPU Memory: {gpu_memory:.1f} GB")
+        print(f"Available GPUs: {gpu_count}")
+        
+        # Optionally specify which GPU to use (0 is default)
+        device = f"cuda:0"  # or just "cuda" for default
+    else:
+        device = "cpu"
+        torch_dtype = torch.float32
+        print("Using CPU (no GPU detected)")
+    
+    print(f"Loading model {MODEL_NAME} on {device}...")
+    
+    try:
+        # Load tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        
+        # Load model with error handling
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_NAME,
+            torch_dtype=torch_dtype,
+            trust_remote_code=True,
+            device_map="auto" if device.startswith("cuda") else None  # Automatic GPU mapping
+        )
+        
+        # Move to device if not using device_map
+        if not device.startswith("cuda"):
+            model = model.to(device)
+        
+        model.eval()
+        
+        # Verify model is on correct device
+        model_device = next(model.parameters()).device
+        print(f"Model successfully loaded on: {model_device}")
+        
+        # Test GPU memory usage if using CUDA
+        if device.startswith("cuda"):
+            torch.cuda.empty_cache()  # Clear cache
+            memory_allocated = torch.cuda.memory_allocated(0) / 1e9
+            memory_cached = torch.cuda.memory_reserved(0) / 1e9
+            print(f"GPU Memory - Allocated: {memory_allocated:.2f} GB, Cached: {memory_cached:.2f} GB")
+        
+        return device, torch_dtype, tokenizer, model
+        
+    except Exception as e:
+        print(f"Error loading model on {device}: {e}")
+        if device != "cpu":
+            print("Falling back to CPU...")
+            return setup_device_and_model_cpu()
+        else:
+            raise e
+        
+DEVICE, TORCH_DTYPE, TOKENIZER, MODEL = setup_device_and_model()
+
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
     end = line.find("</p>\",")
@@ -56,7 +123,7 @@ def diff_days(other_date, to_date=dt.datetime.today().date()):
     return (to_date - other_date).days
 
 def extractFeatures(data):
-    global vectors
+    global vectors, question
     posts = data["data"]["post_stream"]["posts"]
     q_a = None
     replies = []
