@@ -6,7 +6,8 @@ import json
 
 DEBUG = True
 MAC = False
-SSH = True
+SSH = False
+LINUX = True
 PRINT_MUCH = True
 
 MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
@@ -163,7 +164,7 @@ def main(args):
         print(f"Input file: {inputFileName}")
     
     try:
-        if MAC:
+        if MAC or LINUX:
             with open(inputFileName, 'r') as inputFile:
                 content = inputFile.read()
         else:
@@ -221,6 +222,8 @@ def main(args):
         outputFileName = "/home/rhayrapetyan/automatic/Cheif_Delphi_JSONS/" + name.split("/")[-1] + ".json"
     elif MAC:
         outputFileName = "/Users/rubenhayrapetyan/Downloads/Code/FRC/CheifDelphi-GPT/RAG_Model/Cheif_Delphi_JSONS/"+ name.split("/")[-1] + '.json'
+    elif LINUX:
+        outputFileName = "/mnt/c/Users/serge/Downloads/FRC/RAG_Model/Cheif_Delphi_JSONS/" + name.split("/")[-1] + '.json'
     else:
         file_name = name.split("/")[-1]
         outputFileName = rf"C:\Users\serge\Downloads\FRC\RAG_model\Cheif_Delphi_JSONS\{file_name}.json"
@@ -232,7 +235,7 @@ def main(args):
         print(f"Output written to {outputFileName}")
         print("Data = \n", data)
 
-    if MAC:
+    if MAC or LINUX:
         with open(outputFileName, 'w') as outputFile:
             json.dump(data, outputFile, indent=4, ensure_ascii=False)
     else:

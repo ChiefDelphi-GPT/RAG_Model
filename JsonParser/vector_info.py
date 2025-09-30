@@ -16,6 +16,7 @@ import re
 from html import unescape
 
 MAC = False
+LINUX = True
 DEBUG = True
 SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
@@ -334,7 +335,7 @@ def main(args):
     filename = args.files[0]
     name = filename.split('.json')[0]
     inputFileName = name+'.json'
-    if MAC:
+    if MAC or LINUX:
         with open(inputFileName, 'r') as inputFile:
             data = json.load(inputFile)
     else:

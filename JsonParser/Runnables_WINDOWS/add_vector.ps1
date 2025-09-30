@@ -3,7 +3,7 @@
 
 $PROGRESS_FILE = "C:\Users\serge\Downloads\FRC\RAG_Model\JsonParser\Runnables_WINDOWS\progress_adding_vectors.txt"
 $START = 0
-$END = 653
+$END = 1151
 
 # If progress file exists, resume from the next index
 if (Test-Path $PROGRESS_FILE) {
@@ -22,8 +22,11 @@ for ($i = $START; $i -le $END; $i++) {
     
     # Check if the command was successful
     if ($LASTEXITCODE -eq 0) {
-        # Save the current index after successful run
-        $i | Out-File -FilePath $PROGRESS_FILE -NoNewline
+        # Save the current index after successful run (overwrite previous)
+        $i | Out-File -FilePath $PROGRESS_FILE -Encoding UTF8
+
+        # Print a confirmation message
+        Write-Host "$i.json finished successfully." -ForegroundColor Green
     } else {
         Write-Host "Error on $i.json, stopping." -ForegroundColor Red
         exit 1

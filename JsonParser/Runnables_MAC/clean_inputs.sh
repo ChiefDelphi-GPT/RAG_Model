@@ -3,7 +3,7 @@ set -e
 
 PROGRESS_FILE="progress_clean_inputs.txt"
 START=150
-END=1650
+END=1151
 STEP=3
 
 if [ "$1" == "--fresh" ]; then
@@ -65,7 +65,7 @@ fi
 
 # Copy data directory to remote source
 ./delete_remote.sh
-scp -r ../../json_originals_150-1649 fe.ds:/home/rhayrapetyan/automatic/
+scp -r ../../json_originals_150-1151 fe.ds:/home/rhayrapetyan/automatic/
 ssh fe.ds "mkdir -p /home/rhayrapetyan/automatic/JsonParser"
 scp ../input_cleaner.py fe.ds:/home/rhayrapetyan/automatic/JsonParser/
 scp $PROGRESS_FILE fe.ds:/home/rhayrapetyan/automatic/ || true
@@ -85,7 +85,7 @@ else
     echo "Starting fresh..."
 fi
 
-END=1650
+END=1151
 STEP=3
 
 cd /home/rhayrapetyan/automatic/
@@ -97,7 +97,7 @@ cat > run.sh << 'EORUN'
 cd JsonParser/
 
 START=150
-END=1650
+END=1151
 STEP=3
 
 PROGRESS_FILE="/home/rhayrapetyan/automatic/progress_clean_inputs.txt"
@@ -109,14 +109,14 @@ fi
 for i in $(seq $START $STEP $END); do
     srun -p general --mem=800G --ntasks=1 -t 6:00:00 --gres=gpu:1 \
         bash -c "
-            python3 input_cleaner.py ../json_originals_150-1649/${i}.json && echo ${i} > $PROGRESS_FILE
+            python3 input_cleaner.py ../json_originals_150-1151/${i}.json && echo ${i} > $PROGRESS_FILE
 
-            if [ -f ../json_originals_150-1649/\$((${i} + 1)).json ]; then
-                python3 input_cleaner.py ../json_originals_150-1649/\$((${i} + 1)).json && echo \$((${i} + 1)) > $PROGRESS_FILE
+            if [ -f ../json_originals_150-1151/\$((${i} + 1)).json ]; then
+                python3 input_cleaner.py ../json_originals_150-1151/\$((${i} + 1)).json && echo \$((${i} + 1)) > $PROGRESS_FILE
             fi
 
-            if [ -f ../json_originals_150-1649/\$((${i} + 2)).json ]; then
-                python3 input_cleaner.py ../json_originals_150-1649/\$((${i} + 2)).json && echo \$((${i} + 2)) > $PROGRESS_FILE
+            if [ -f ../json_originals_150-1151/\$((${i} + 2)).json ]; then
+                python3 input_cleaner.py ../json_originals_150-1151/\$((${i} + 2)).json && echo \$((${i} + 2)) > $PROGRESS_FILE
             fi
         "
 done
