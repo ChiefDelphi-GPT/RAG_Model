@@ -1,0 +1,919 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3558140,
+                    "name": "Jason",
+                    "username": "Jason81",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "created_at": "2025-03-16T04:37:46.341Z",
+                    "cooked": "To give some context, our team is currently using a proportional swerve alignment approach to aligning with the reef april tags involving a hand-made PID controller to control the swerves based on the error between our robot’s position we derive from Limelight MT2 and the nearest april tag’s position on the field. This approach for us has worked well on the blue side and posed no issues however the same code will perform differently on the red side if we don’t add code to invert the drive/rotation…\n\nHere is the link to the code: Reefscape2025/src/main/java/frc/robot/commands/ProportionalAlign.java at Proportional-align-and-megatag-testing · 6500gearcats/Reefscape2025 · GitHub\n\nThe issue we are facing is not the fact that this inverting code doesn’t work but the fact that including it to change the rotation will occasionally cause issues on April Tags #7 & #10 on the reef. Normally I’d assume this is some math error on our behalf however the behavior for tag #7 (where the target rotation for the april tag is 0) is especially strange. Very occasionally when we attempt to line up with the tag using our proportional align the robot seems to lose it’s mind and start driving forward/to the side inexplicably. The weirdest part is that the driving will continue EVEN AFTER disabling and re-enabling the robot. This is especially strange to us as we’re simply calling a .drive() command.\n\nAny help is appreciated, the carpet that has had holes burnt into it because of this bug would also be thankful",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-16T04:37:46.341Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 46.0,
+                    "yours": false,
+                    "topic_id": 495754,
+                    "topic_slug": "drive-command-keeps-running-between-enables",
+                    "display_username": "Jason",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/6500gearcats/Reefscape2025/blob/Proportional-align-and-megatag-testing/src/main/java/frc/robot/commands/ProportionalAlign.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reefscape2025/src/main/java/frc/robot/commands/ProportionalAlign.java at Proportional-align-and-megatag-testing · 6500gearcats/Reefscape2025 · GitHub",
+                            "clicks": 7
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/drive-command-keeps-running-between-enables/495754/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3560998,
+                    "name": "Jason",
+                    "username": "Jason81",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "created_at": "2025-03-18T19:47:50.217Z",
+                    "cooked": "Since this issue only happens for a specific april tag, and every april tag’s rotation is different, our current suspicion is that potentially dividing by 0 in one of the april tags causes a break in comms very quickly and for whatever reason causes the command to not stop",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-18T19:47:50.217Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 39,
+                    "readers_count": 38,
+                    "score": 12.8,
+                    "yours": false,
+                    "topic_id": 495754,
+                    "topic_slug": "drive-command-keeps-running-between-enables",
+                    "display_username": "Jason",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/drive-command-keeps-running-between-enables/495754/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3562172,
+                    "name": "icemannie",
+                    "username": "icemannie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                    "created_at": "2025-03-19T19:06:09.538Z",
+                    "cooked": "You have 4 calls to ProportionalAlign in RobotContainer. 2 of them use whileTrue which would cancel the command if the button is released. The other 2 use onTrue which will wait for the axes in position before ending. Is it only the onTrue calls that continue after disable / re-enable? We also run our own PID Drive To Pose and don’t invert based on Alliance. All calls to it are whileTrue. Only Red Alliance inversion we do is to the forward and strafe outputs of the gamepad.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-19T19:07:12.367Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 33,
+                    "readers_count": 32,
+                    "score": 11.6,
+                    "yours": false,
+                    "topic_id": 495754,
+                    "topic_slug": "drive-command-keeps-running-between-enables",
+                    "display_username": "icemannie",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 69118,
+                        "username": "Jason81",
+                        "name": "Jason",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28240,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/drive-command-keeps-running-between-enables/495754/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3563657,
+                    "name": "Jason",
+                    "username": "Jason81",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "created_at": "2025-03-21T00:35:22.164Z",
+                    "cooked": "No, the issue is regardless of onTrue/whileTrue and occurs on a disable/re-enable even when completely not holding a whileTrue.\n\nFor now our team’s fix is to completely remove the problematic tags from the alignment code which has worked fine- it’s just weird that this happens in the first place. Auto align for us is really only used very often in autos and in auto we never try to align with any of those tags.\n\nAgain my assumption is a math error because those problematic tags happen to be either 0 or 180 degrees rotation values, I just am unsure why whatever error we have would give the behavior the robot experiences",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-21T00:35:22.164Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 27,
+                    "readers_count": 26,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 495754,
+                    "topic_slug": "drive-command-keeps-running-between-enables",
+                    "display_username": "Jason",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 28240,
+                        "username": "icemannie",
+                        "name": "icemannie",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/drive-command-keeps-running-between-enables/495754/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3558140,
+                3560998,
+                3562172,
+                3563657
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                141
+            ],
+            [
+                2,
+                138
+            ],
+            [
+                3,
+                137
+            ],
+            [
+                4,
+                136
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 490894,
+                "title": "Adjusting Pathplanner Paths to Start at Robot's Current Position",
+                "fancy_title": "Adjusting Pathplanner Paths to Start at Robot&rsquo;s Current Position",
+                "slug": "adjusting-pathplanner-paths-to-start-at-robots-current-position",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-09T17:13:44.727Z",
+                "last_posted_at": "2025-04-11T11:58:50.963Z",
+                "bumped": true,
+                "bumped_at": "2025-04-11T12:07:43.788Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, My team is using PathPlanner for autonomous paths and a Limelight for pose estimation. I want our autonomous routines to start from wherever the robot is actually positioned at the begi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 597,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3521440,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57331,
+                    "username": "jacob_mazelin",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57331,
+                            "username": "jacob_mazelin",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25791,
+                            "username": "pryland",
+                            "name": "pryland",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pryland/{size}/131208_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69490,
+                            "username": "mythgarr",
+                            "name": "Andrew J (FRC 2881)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mythgarr/{size}/238053_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25454,
+                            "username": "Corey_Applegate",
+                            "name": "Corey Applegate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/corey_applegate/{size}/250858_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 493093,
+                "title": "Question about motor control on our elevator",
+                "fancy_title": "Question about motor control on our elevator",
+                "slug": "question-about-motor-control-on-our-elevator",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-25T04:43:31.463Z",
+                "last_posted_at": "2025-02-26T03:44:54.866Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T03:44:54.866Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! We’re working on our elevator, using 2 neo brushless motors and sparkmax controllers. The elevator rises to the correct position, but then it starts sliding back down. The motors are in brake m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 185,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3539049,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61068,
+                    "username": "IAmBlanton",
+                    "name": "Michael Blanton",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/iamblanton/{size}/202102_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61068,
+                            "username": "IAmBlanton",
+                            "name": "Michael Blanton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/iamblanton/{size}/202102_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 7334,
+                            "username": "usbcd36",
+                            "name": "usbcd36",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/usbcd36/{size}/2444_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 484816,
+                "title": "FusedCANcoder fallback state",
+                "fancy_title": "FusedCANcoder fallback state",
+                "slug": "fusedcancoder-fallback-state",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-02T18:33:46.217Z",
+                "last_posted_at": "2025-02-03T02:11:00.652Z",
+                "bumped": true,
+                "bumped_at": "2025-02-03T02:11:00.652Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So if you have a TalonFX set to FusedCancoder and the cancoder dies in a match. Is the position of the mechanism now toast or does it fallback to the rotor sensor?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 115,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499999,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48345,
+                    "username": "narmstro",
+                    "name": "Nicholas Armstrong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 48345,
+                            "username": "narmstro",
+                            "name": "Nicholas Armstrong",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15041,
+                            "username": "Clayton_Yocom",
+                            "name": "Clayton Yocom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clayton_yocom/{size}/194737_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 15922,
+                            "username": "gcschmit",
+                            "name": "gcschmit",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 482791,
+                "title": "CTRE Swerve - FieldCentricFacingAngle",
+                "fancy_title": "CTRE Swerve - FieldCentricFacingAngle",
+                "slug": "ctre-swerve-fieldcentricfacingangle",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-20T21:50:58.098Z",
+                "last_posted_at": "2025-03-12T14:45:09.694Z",
+                "bumped": true,
+                "bumped_at": "2025-03-12T14:45:09.694Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is using the CTRE generated Swerve drive for the first time. Normal drive is working fine but our driver prefers to use the right joystick to set the angle instead of rotating. We’ve tried …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 289,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488474,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64978,
+                    "username": "anthv",
+                    "name": "Anthony",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/9de053/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64978,
+                            "username": "anthv",
+                            "name": "Anthony",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/9de053/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51835,
+                            "username": "JimB1918",
+                            "name": "Jim Barstow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jimb1918/{size}/166841_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 495980,
+                "title": "How do teams do auto aim/alignment for this game?",
+                "fancy_title": "How do teams do auto aim/alignment for this game?",
+                "slug": "how-do-teams-do-auto-aim-alignment-for-this-game",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-18T00:08:55.475Z",
+                "last_posted_at": "2025-03-18T01:11:08.284Z",
+                "bumped": true,
+                "bumped_at": "2025-03-18T01:11:08.284Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We were wondering how the top teams do auto aiming on the reef. Do you do it entirely using pose estimation or do you use other sensors (Time Of Flight, etc)?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 235,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559933,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63884,
+                    "username": "Cheez444",
+                    "name": "Ashton Esler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cheez444/{size}/213661_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63884,
+                            "username": "Cheez444",
+                            "name": "Ashton Esler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cheez444/{size}/213661_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69000,
+                            "username": "PixL",
+                            "name": "Chase Eid",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pixl/{size}/250824_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66195,
+                            "username": "Hammyboi",
+                            "name": "James Mou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hammyboi/{size}/254112_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 495754,
+        "title": "Drive command keeps running between enables",
+        "fancy_title": "Drive command keeps running between enables",
+        "posts_count": 4,
+        "created_at": "2025-03-16T04:37:46.284Z",
+        "views": 134,
+        "reply_count": 2,
+        "like_count": 0,
+        "last_posted_at": "2025-03-21T00:35:22.164Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "drive-command-keeps-running-between-enables",
+        "category_id": 30,
+        "word_count": 524,
+        "deleted_at": null,
+        "user_id": 69118,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_495754",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45592,
+            "execute_at": "2026-03-21T00:35:22.164Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 69118,
+                    "username": "Jason81",
+                    "name": "Jason",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 28240,
+                    "username": "icemannie",
+                    "name": "icemannie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 69118,
+                "username": "Jason81",
+                "name": "Jason",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+            },
+            "last_poster": {
+                "id": 69118,
+                "username": "Jason81",
+                "name": "Jason",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/6500gearcats/Reefscape2025/blob/Proportional-align-and-megatag-testing/src/main/java/frc/robot/commands/ProportionalAlign.java",
+                    "title": "Reefscape2025/src/main/java/frc/robot/commands/ProportionalAlign.java at Proportional-align-and-megatag-testing · 6500gearcats/Reefscape2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 69118,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

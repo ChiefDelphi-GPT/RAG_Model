@@ -1,0 +1,808 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3551364,
+                    "name": "Devin Lee",
+                    "username": "codeduck101",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/codeduck101/{size}/253970_2.png",
+                    "created_at": "2025-03-08T20:15:38.676Z",
+                    "cooked": "We first noticed that our drivetrain was demanding ~4 volts during the Pinnacles Regional. Citrus helped us circumvent this by changing kSpeedAt12Volts (in Phoenix Tuner’s TunerConstants.java file) from 5.15 m/s to 15.25 m/s, which demands about 12 volts when the left joystick is fully tilted. This behavior is similar to what happens on our test rig, which lacks everything except for a drivetrain.\n\nI have already tried searching here, but I did not find a solution. If there is already a solution out there, that’d be appreciated too.\n\nI notice that this is suspiciously similar to a feet-to-meters conversion issue, but I’m not sure where that would be happening in our code. Below is information about our robot and our code.\n\nWe are using WCP ’s Swerve X Flipped for our test rig and their Swerve X2i for our competition robot. I recorded the below data on our test rig, and the repository provided is used solely on our test rig. (The main difference is the TunerConstants.java file due to the differing drivetrains.)\n\nI cannot upload attachments because I am a new user, but I ran the test rig on a stand to put together an AdvantageKit log file. Here’re a few images of that file’s odometry outputs:\n\nimage 1598×1023 53.8 KB image 1600×1023 58.4 KB image 1604×1020 50.8 KB\n\nimage 1598×1023 53.8 KB\n\nimage 1598×1023 53.8 KB\n\nimage 1600×1023 58.4 KB\n\nimage 1600×1023 58.4 KB\n\nimage 1604×1020 50.8 KB\n\nimage 1604×1020 50.8 KB\n\nHere’s a link to the repository and branch that I used to gather that data:\n\ndevin/9999-command-autonomous\n\n9999 PRACTICE ROBOT CODE ONLY. Contribute to TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape development by creating an account on GitHub.\n\nThanks for helping.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-08T20:15:38.676Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 204,
+                    "reads": 82,
+                    "readers_count": 81,
+                    "score": 1046.4,
+                    "yours": false,
+                    "topic_id": 494769,
+                    "topic_slug": "drivetrain-motors-running-at-about-1-3-demanded-voltage-and-velocity",
+                    "display_username": "Devin Lee",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://wcproducts.com/collections/gearboxes/products/swerve-x-flipped",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Swerve X Flipped – WestCoast Products",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape/tree/devin/9999-command-autonomous",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape at devin/9999-command-autonomous",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://wcproducts.com/collections/gearboxes/products/swerve-x2i",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Swerve X2i – WestCoast Products",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 74145,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3257 Programmer"
+                    },
+                    "post_url": "/t/drivetrain-motors-running-at-about-1-3-demanded-voltage-and-velocity/494769/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3551521,
+                    "name": "Benjamin Hall",
+                    "username": "bhall-ctre",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "created_at": "2025-03-08T23:56:38.117Z",
+                    "cooked": "It looks like you might be using closed-loop control on the drive motors, in which case you need to tune your drive gains . I believe that unlike our swerve API, AdvantageKit uses wheel rotations instead of motor rotations, so you need to at a minimum scale up those gains by your gear ratio (so kV would be 0.694, for example).",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-08T23:57:06.085Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 31.2,
+                    "yours": false,
+                    "topic_id": 494769,
+                    "topic_slug": "drivetrain-motors-running-at-about-1-3-demanded-voltage-and-velocity",
+                    "display_username": "Benjamin Hall",
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 57,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape/blob/8ab7a0367372f62246f3428e6964d3241269dc81/src/main/java/frc/robot/generated/TunerConstants.java#L36",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "9999-PRACTICE-ROBOT-3257-2025-Reefscape/src/main/java/frc/robot/generated/TunerConstants.java at 8ab7a0367372f62246f3428e6964d3241269dc81 · TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape · GitHub",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48146,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Software Engineering Intern at CTR Electronics"
+                    },
+                    "post_url": "/t/drivetrain-motors-running-at-about-1-3-demanded-voltage-and-velocity/494769/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3551364,
+                3551521
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                148
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 471216,
+                "title": "Using a Raspberry Pi HDMI to CSI Module with an Orange Pi",
+                "fancy_title": "Using a Raspberry Pi HDMI to CSI Module with an Orange Pi",
+                "slug": "using-a-raspberry-pi-hdmi-to-csi-module-with-an-orange-pi",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-09-14T08:09:10.178Z",
+                "last_posted_at": "2024-09-16T04:43:08.019Z",
+                "bumped": true,
+                "bumped_at": "2024-09-16T04:43:08.019Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, I’m exploring the possibility of integrating a Raspberry Pi HDMI to CSI module with an Orange Pi 5 Plus board, and I’m looking for some insights or experiences from the community. I …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 299,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3423595,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67900,
+                    "username": "pdoanthuannb96",
+                    "name": "Edward Phan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/a3d4f5/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67900,
+                            "username": "pdoanthuannb96",
+                            "name": "Edward Phan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/a3d4f5/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16115,
+                            "username": "CarlosGJ",
+                            "name": "Carlos Gross Jones",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carlosgj/{size}/131747_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476951,
+                "title": "Swerve MK4i",
+                "fancy_title": "Swerve MK4i",
+                "slug": "swerve-mk4i",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-18T15:19:51.338Z",
+                "last_posted_at": "2024-12-18T17:14:24.602Z",
+                "bumped": true,
+                "bumped_at": "2024-12-18T17:14:24.602Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "boa tarde a todos! minha equipe recebeu um kit swerve, montamos, fizemos a elétrica e quando nós fomos testar o código, vimos que nosso swerve ficou travando. Com isso, vimos que pode má calibração d…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 304,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460805,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52870,
+                            "username": "FinIce",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/finice/{size}/228172_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14215,
+                            "username": "Peyton_Yeung",
+                            "name": "Peyton Yeung",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peyton_yeung/{size}/4840_2.png",
+                            "primary_group_name": "AndyMark",
+                            "flair_name": "AndyMark",
+                            "flair_url": "/uploads/default/original/3X/7/2/72db24f824a25ae17c6413b3d02a345e47f060a9.png",
+                            "flair_group_id": 59,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 477378,
+                "title": "How to implement torque feedforward with VelocityVoltage request?",
+                "fancy_title": "How to implement torque feedforward with VelocityVoltage request?",
+                "slug": "how-to-implement-torque-feedforward-with-velocityvoltage-request",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-12-27T01:55:10.290Z",
+                "last_posted_at": "2024-12-27T09:59:26.075Z",
+                "bumped": true,
+                "bumped_at": "2024-12-27T09:59:26.075Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team does not have a Phoenix Pro license, so we used the VelocityVoltage request for driving wheels on our swerve drive. We want to add a torque feed-forward to the control request. There seems to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 208,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463736,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491290,
+                "title": "Swerve module not aligning with others",
+                "fancy_title": "Swerve module not aligning with others",
+                "slug": "swerve-module-not-aligning-with-others",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-12T00:56:25.242Z",
+                "last_posted_at": "2025-02-12T06:06:07.604Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T06:12:54.696Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We recently had to replace a Neo on our swerve drive after an encoder wire broke, and now that module sometimes doesn’t align with the others. It is off by and inconsistent amount, and the encoder kno…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "yagsl",
+                    "swervemodule"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 113,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524265,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69694,
+                    "username": "NukeMinecart",
+                    "name": "Bradley Chumanov",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nukeminecart/{size}/238978_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69694,
+                            "username": "NukeMinecart",
+                            "name": "Bradley Chumanov",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nukeminecart/{size}/238978_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 469588,
+                "title": "FIRST LEGO League Submerged game reveal",
+                "fancy_title": "FIRST LEGO League Submerged game reveal",
+                "slug": "first-lego-league-submerged-game-reveal",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-08-06T17:03:39.754Z",
+                "last_posted_at": "2024-08-06T17:32:14.897Z",
+                "bumped": true,
+                "bumped_at": "2024-08-06T17:32:14.897Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 476,
+                "category_id": 57,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3413688,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66542,
+                    "username": "Clodsire",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/clodsire/{size}/266066_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66542,
+                            "username": "Clodsire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clodsire/{size}/266066_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "programming",
+            "motor"
+        ],
+        "tags_descriptions": {},
+        "id": 494769,
+        "title": "Drivetrain motors running at about 1/3 demanded voltage and velocity",
+        "fancy_title": "Drivetrain motors running at about 1/3 demanded voltage and velocity",
+        "posts_count": 2,
+        "created_at": "2025-03-08T20:15:38.598Z",
+        "views": 314,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-03-08T23:56:38.117Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "drivetrain-motors-running-at-about-1-3-demanded-voltage-and-velocity",
+        "category_id": 9,
+        "word_count": 370,
+        "deleted_at": null,
+        "user_id": 74145,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/a/5af73752fe560ae8133af99feb270daa0707b6fe_2_1024x655.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494769",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45224,
+            "execute_at": "2026-03-08T23:56:38.117Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1598,
+                "height": 1023,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/a/5af73752fe560ae8133af99feb270daa0707b6fe.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 655,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/a/5af73752fe560ae8133af99feb270daa0707b6fe_2_1024x655.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 57,
+                    "trust_level": 2
+                },
+                {
+                    "id": 74145,
+                    "username": "codeduck101",
+                    "name": "Devin Lee",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/codeduck101/{size}/253970_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 74145,
+                "username": "codeduck101",
+                "name": "Devin Lee",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/codeduck101/{size}/253970_2.png"
+            },
+            "last_poster": {
+                "id": 48146,
+                "username": "bhall-ctre",
+                "name": "Benjamin Hall",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape/blob/8ab7a0367372f62246f3428e6964d3241269dc81/src/main/java/frc/robot/generated/TunerConstants.java#L36",
+                    "title": "9999-PRACTICE-ROBOT-3257-2025-Reefscape/src/main/java/frc/robot/generated/TunerConstants.java at 8ab7a0367372f62246f3428e6964d3241269dc81 · TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 48146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape/tree/devin/9999-command-autonomous",
+                    "title": "GitHub - TeamVortechs/9999-PRACTICE-ROBOT-3257-2025-Reefscape at devin/9999-command-autonomous",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 74145,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://wcproducts.com/collections/gearboxes/products/swerve-x-flipped",
+                    "title": "Swerve X Flipped – WestCoast Products",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 74145,
+                    "domain": "wcproducts.com",
+                    "root_domain": "wcproducts.com"
+                },
+                {
+                    "url": "https://wcproducts.com/collections/gearboxes/products/swerve-x2i",
+                    "title": "Swerve X2i – WestCoast Products",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 74145,
+                    "domain": "wcproducts.com",
+                    "root_domain": "wcproducts.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

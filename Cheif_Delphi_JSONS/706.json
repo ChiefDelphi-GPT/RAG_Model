@@ -1,0 +1,702 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3530786,
+                    "name": "",
+                    "username": "pigrammer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                    "created_at": "2025-02-17T23:37:33.305Z",
+                    "cooked": "Recently we have begun to have an issue where the navX2 gyro on our robot is not zeroed on startup. Turning off the robot and turning it back on, calling reset() or zeroYaw() in code, and even pressing the reset button physically on the gyro (more on this larer) do not do anything. This behavior is consistent with the navX2 and also a classic navX that I swapped it for.\n\nSpecifically the reset button has really weird behavior. After pressing it, the reported yaw value remains the same for a few seconds - this is expected as the gyro is rebooting. Then, it boots with a value, and begins continuously changing this value (in the same direction and at the same rate every time, as far as I could tell) until it settles on a value. Once, I saw the value go to 0 a few seconds after this, but this did not happen again.\n\nI have tried to firmware update the navX2, but following the directions here I encountered an issue where although I held down the CAL button while plugging in the cable and only the red 3.3V LED was on, and the firmware update software showed that the device was in firmware update mode, when I clicked on the button to update the firmware it would think for a few seconds and then tell me the device was not in firmware update mode, although it clearly was. If anyone has a solution for this that would be great.\n\nBut more generally, this is really weird because we did not change anything about our code with the gyro since last year other than changing to the library provided by Studica as opposed to the old library, and did not change anything physically or firmware update the gyro. I could believe that it was caused by the library change except that the physical reset button does not work, and it is not zeroed on startup.\n\nI even tried getting the yaw value on initialization, saving it, and then subtracting it from all future measurements to do in user code what the library is supposed to be able to do, but that did not make a difference somehow.\n\nI have tried searching but could not find anyone with a similar problem. If someone has encountered this issue before and/or has a solution that would be greatly appreciated.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-17T23:37:33.305Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 19,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 111.6,
+                    "yours": false,
+                    "topic_id": 492097,
+                    "topic_slug": "navx-2-zeroing-issue",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.kauailabs.com/support/navx-mxp/kb/faq.php?id=48",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "navX-Sensor Support",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64857,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "246 Software Lead"
+                    },
+                    "post_url": "/t/navx-2-zeroing-issue/492097/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3599033,
+                    "name": "Christoforus Cedric Kurniawan",
+                    "username": "Cedric_2587",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png",
+                    "created_at": "2025-04-21T20:22:52.743Z",
+                    "cooked": "Is it letting the robot drive, is the code not building? I’ve had some experience tinkering with a NavX and MAXSwerve this past December and ran into a couple issues. I would try to see if you are having a code or a hardware issue. Adding a simple print statement to see the status of the gyro may help you degub. These are the extent of my experience with the NavX:\n\nNavX2-MXP always Calibrating Programming\n\nNavX2-MXP with MAXSwerve 2025 Programming\n\nGyro Not Zero-ing Programming",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-04-21T20:22:52.743Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 44,
+                    "readers_count": 43,
+                    "score": 8.8,
+                    "yours": false,
+                    "topic_id": 492097,
+                    "topic_slug": "navx-2-zeroing-issue",
+                    "display_username": "Christoforus Cedric Kurniawan",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/navx2-mxp-always-calibrating/477949/7",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "NavX2-MXP always Calibrating",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/navx2-mxp-with-maxswerve-2025/477727/7",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "NavX2-MXP with MAXSwerve 2025",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/gyro-not-zero-ing/477755/4",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Gyro Not Zero-ing",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63122,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/navx-2-zeroing-issue/492097/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3530786,
+                3599033
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                167
+            ],
+            [
+                2,
+                104
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 491204,
+                "title": "Phoenix Tuner X Generated Swerve Tuning",
+                "fancy_title": "Phoenix Tuner X Generated Swerve Tuning",
+                "slug": "phoenix-tuner-x-generated-swerve-tuning",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-11T17:23:35.592Z",
+                "last_posted_at": "2025-02-11T17:23:35.651Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T17:23:35.651Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We used Phoenix Tuner X to generate swerve code for our MK4i (kraken drive/steer) drive train. We’ve noticed that when making small adjustments to the robot’s position by driving the robot, the drive …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 81,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523620,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63322,
+                    "username": "CKioxide",
+                    "name": "Corbin Kuster",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ckioxide/{size}/235143_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63322,
+                            "username": "CKioxide",
+                            "name": "Corbin Kuster",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ckioxide/{size}/235143_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 474658,
+                "title": "How can we create a Swerve Diagnostics program with YAGSL Swerve?",
+                "fancy_title": "How can we create a Swerve Diagnostics program with YAGSL Swerve?",
+                "slug": "how-can-we-create-a-swerve-diagnostics-program-with-yagsl-swerve",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-11-10T20:12:31.820Z",
+                "last_posted_at": "2024-11-10T22:22:55.160Z",
+                "bumped": true,
+                "bumped_at": "2024-11-10T22:22:55.160Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! For the upcoming season, our team is trying to create a “Swerve Diagnostics program” Allowing us to detect issues and breaks in the swerve drive before each match in competition. One thing to c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "drivetrain"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 137,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445747,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69003,
+                    "username": "BetterAtharv",
+                    "name": "Atharv Saxena",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/betteratharv/{size}/260639_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69003,
+                            "username": "BetterAtharv",
+                            "name": "Atharv Saxena",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/betteratharv/{size}/260639_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 474941,
+                "title": "Limelight Pose Estimator Crashes",
+                "fancy_title": "Limelight Pose Estimator Crashes",
+                "slug": "limelight-pose-estimator-crashes",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-11-15T16:48:04.501Z",
+                "last_posted_at": "2024-11-18T16:30:40.068Z",
+                "bumped": true,
+                "bumped_at": "2024-11-18T16:30:40.068Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "is the tag count or the pose estimate null? ive seen example code that checks if(mt1 != null), i assume theres a chance for getBotPoseEstimate calls to return null if theres no estimate, mabe while th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 393,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3448014,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 61239,
+                    "username": "AvocadoPeel",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53159,
+                            "username": "webs98",
+                            "name": "Samuel",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/ed655f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 17669,
+                            "username": "BrennanB",
+                            "name": "Brennan Bibic",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/brennanb/{size}/265044_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 471179,
+                "title": "Odd Swerve Behavior (Swerve Code Help)",
+                "fancy_title": "Odd Swerve Behavior (Swerve Code Help)",
+                "slug": "odd-swerve-behavior-swerve-code-help",
+                "posts_count": 10,
+                "reply_count": 7,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-09-13T14:07:10.591Z",
+                "last_posted_at": "2024-09-18T22:06:34.588Z",
+                "bumped": true,
+                "bumped_at": "2024-09-18T22:06:34.588Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Invert your angle motors that are decreasing. Also your drive motor inversions should be uniform, you have 2 differing ones. 1st lets set all inversions to false. Then check your telemetry. If …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 284,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3423758,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 7,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 67890,
+                            "username": "Yamada",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/y/c4cdca/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 492747,
+                "title": "How to generate a swerve project with two different swerve modules",
+                "fancy_title": "How to generate a swerve project with two different swerve modules",
+                "slug": "how-to-generate-a-swerve-project-with-two-different-swerve-modules",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-22T20:07:33.200Z",
+                "last_posted_at": "2025-02-22T20:07:33.267Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T20:07:33.267Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am trying to generate swerve code using phoenix tuner x for a chassis with two different swerve modules for two MK4Is and two MK4ns. Does anyone know how to do this? Should I just generate for the M…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 51,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536646,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54575,
+                    "username": "blanck",
+                    "name": "Arjan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/848f3c/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 54575,
+                            "username": "blanck",
+                            "name": "Arjan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/848f3c/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "gyro",
+            "navx"
+        ],
+        "tags_descriptions": {},
+        "id": 492097,
+        "title": "navX (2) zeroing issue",
+        "fancy_title": "navX (2) zeroing issue",
+        "posts_count": 2,
+        "created_at": "2025-02-17T23:37:33.238Z",
+        "views": 127,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-04-21T20:22:52.743Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "navx-2-zeroing-issue",
+        "category_id": 30,
+        "word_count": 516,
+        "deleted_at": null,
+        "user_id": 64857,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_492097",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44163,
+            "execute_at": "2026-04-21T20:22:52.743Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 63122,
+                    "username": "Cedric_2587",
+                    "name": "Christoforus Cedric Kurniawan",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64857,
+                    "username": "pigrammer",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 3
+                }
+            ],
+            "created_by": {
+                "id": 64857,
+                "username": "pigrammer",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png"
+            },
+            "last_poster": {
+                "id": 63122,
+                "username": "Cedric_2587",
+                "name": "Christoforus Cedric Kurniawan",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.kauailabs.com/support/navx-mxp/kb/faq.php?id=48",
+                    "title": "navX-Sensor Support",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 64857,
+                    "domain": "www.kauailabs.com",
+                    "root_domain": "kauailabs.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

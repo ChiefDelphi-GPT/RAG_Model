@@ -1,0 +1,960 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3488550,
+                    "name": "",
+                    "username": "MrMWP",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/58f4c7/{size}.png",
+                    "created_at": "2025-01-20T23:09:24.899Z",
+                    "cooked": "Our team competes in a college-level competition, and we’re using swerve drive for our robot. We decided to design our own swerve modules because we wanted to use the pneumatic wheels that we’ve used on our previous robots, and also because it would give our team more experience with machining components.\n\nWe’ve run into problems with our design, being that the module seems to be incapable of rotating and driving at the same time, and are having trouble understanding why other modules don’t seem to have the same problem.\n\nLabeled Bevel Gears 1920×1080 201 KB\n\nLabeled Bevel Gears 1920×1080 201 KB\n\nLabeled Bevel Gears 1920×1080 201 KB\n\nAbove is a photo of a 3D-printed prototype of our module. There is a hex shaft that goes through the top plate and drives the bevel gears which then drive the wheel. The red 3D-printed gear towards the top is used for reorienting the direction of the wheel.\n\nFor the sake of brevity, let’s call the bevel gear on the vertical hex shaft bevel gear A, and the bevel gear on the horizontal hex shaft bevel gear B.\n\nWhen the module rotates, bevel gear B will then rotate about the axis of rotation of the module. One of two things will then happen\n\nIf you assume bevel gear A does not rotate, then this will cause bevel gear B to rotate relative to bevel gear A, which will then rotate the horizontal shaft, which will drive the wheel. (This case generally happens when the wheel is not in contact with the ground)\n\nIf you assume that bevel gear A is free to rotate, then bevel gear B will not rotate relative to A, but it will now cause bevel gear A to rotate, which will rotate the vertical hex shaft, eventually feeding back into the motor. (This case generally happens when the wheel is in contact with the ground)\n\nNow, backfeeding into the motor isn’t a huge issue, because you can just let the motor coast, which isn’t a problem if you do not rotate and drive at the same time. The problem is, if you do want to rotate and drive at the same time (which with swerve, you generally do), this current system seems to be unable to do that.\n\nswerveVideo1 387×522 105 KB\n\nswerveVideo1 387×522 105 KB\n\nswerveVideo1 387×522 105 KB\n\nAt first, I assumed this was just a fundamental design flaw with our system, and we would either need to redesign or just buy some COTS modules. But after doing more research I’ve found that there are modules that seem to have the same basic design, which can be found above.\n\nswerving 793×1054 40.2 KB\n\nswerving 793×1054 40.2 KB\n\nswerving 793×1054 40.2 KB\n\nAnd while the design is different, I would think the SDS MK4 modules would have the same problems I listed above with either the wheel rotating or needing to backfeed into the motor whenever the module is reoriented. (Photo is courtesy of theJudah at this post Coaxial Swerve Explanation ).\n\nHas anyone dealt with this problem before? And would someone be able to explain why our design is unable to work and the others are? Or would our design work, and I’m just missing something about how swerve drive works?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-01-20T23:09:24.899Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 40,
+                    "reads": 123,
+                    "readers_count": 122,
+                    "score": 224.6,
+                    "yours": false,
+                    "topic_id": 482808,
+                    "topic_slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/coaxial-swerve-explanation/439591",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Coaxial Swerve Explanation",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71589,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time/482808/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3488555,
+                    "name": "Rod",
+                    "username": "Weldingrod1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "created_at": "2025-01-20T23:17:23.186Z",
+                    "cooked": "All the coaxial swerves have an interaction between rotating and steering.  IE, steering causes the wheel to rotate a bit.\n\nJust bake it into your programming",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-01-20T23:17:23.186Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 97,
+                    "readers_count": 96,
+                    "score": 54.4,
+                    "yours": false,
+                    "topic_id": 482808,
+                    "topic_slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+                    "display_username": "Rod",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46443,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time/482808/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3488573,
+                    "name": "9016 captain/head prgm/driver",
+                    "username": "Mehmet1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mehmet1/{size}/238645_2.png",
+                    "created_at": "2025-01-20T23:46:21.205Z",
+                    "cooked": "Is this the Azimuth ratio of the module?\n\nI remember seeing this constant in CTRE swerve’s tuner constants. How would I figure out what the Azimuth ratio is for a L3 Mk4i? Is there an empirical test I can do?",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-01-20T23:46:21.205Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 22.4,
+                    "yours": false,
+                    "topic_id": 482808,
+                    "topic_slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+                    "display_username": "9016 captain/head prgm/driver",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 46443,
+                        "username": "Weldingrod1",
+                        "name": "Rod",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64852,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time/482808/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3584207,
+                    "name": "Rod",
+                    "username": "Weldingrod1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "created_at": "2025-04-08T19:55:40.844Z",
+                    "cooked": "I think that’s right.  I’m not up on the programming aspect of it.\n\nIt should be listed on the SDS site.\n\nYou can calculate it if you have the various gear ratios in hand.  I would do that rather than doing the physical measurement.  That said, a sanity check is to hold the drive motor from turning, mark the wheel (tape and sharpie lining up with the fork edge), and turn the steering motion until the tape makes a full trip around, counting turns.  It will be quite a few turns.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-08T19:55:40.844Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 40,
+                    "readers_count": 39,
+                    "score": 8.0,
+                    "yours": false,
+                    "topic_id": 482808,
+                    "topic_slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+                    "display_username": "Rod",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 64852,
+                        "username": "Mehmet1",
+                        "name": "9016 captain/head prgm/driver",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/mehmet1/{size}/238645_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46443,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time/482808/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3488550,
+                3488555,
+                3488573,
+                3584207
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                195
+            ],
+            [
+                4,
+                117
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 483811,
+                "title": "Omio X8 new spindle rotating wrong direction",
+                "fancy_title": "Omio X8 new spindle rotating wrong direction",
+                "slug": "omio-x8-new-spindle-rotating-wrong-direction",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-27T17:43:44.753Z",
+                "last_posted_at": "2025-01-27T19:55:31.358Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T19:55:31.358Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So, recently we had to replace the spindle in our Omio X8 and we got this one because it seemed to match up with the original’s specs, however, we’ve noticed that it is spinning the spindle in the opp…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 18,
+                "views": 193,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493829,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 13247,
+                    "username": "deeek",
+                    "name": "Derek W.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/ce7236/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 13247,
+                            "username": "deeek",
+                            "name": "Derek W.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50115,
+                            "username": "barkinvar",
+                            "name": "Barkın Var",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/barkinvar/{size}/171468_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15467,
+                            "username": "philso",
+                            "name": "philso",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 480853,
+                "title": "Issue w/ 3D printed swerve covers, could it shred the gears over time?",
+                "fancy_title": "Issue w/ 3D printed swerve covers, could it shred the gears over time?",
+                "slug": "issue-w-3d-printed-swerve-covers-could-it-shred-the-gears-over-time",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/0/7/07a2f9f53994ec206290383521de19e2d2455a93_2_1024x768.jpeg",
+                "created_at": "2025-01-11T03:07:04.598Z",
+                "last_posted_at": "2025-01-12T02:57:24.435Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T02:57:24.435Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team recently installed 3d printed swerve covers for our mk4i swerves. We printed covers out of duramic pla+ on bambulab a1s. Some had 2 walls and no supports, some were printed with 4 walls and s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 271,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3478819,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70961,
+                    "username": "icedlatter",
+                    "name": "Albert Sun",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/f19dbf/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70961,
+                            "username": "icedlatter",
+                            "name": "Albert Sun",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/f19dbf/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 481228,
+                "title": "Backstop Bearing/clutch for 1/2in Hex shafts?",
+                "fancy_title": "Backstop Bearing/clutch for 1/2in Hex shafts?",
+                "slug": "backstop-bearing-clutch-for-1-2in-hex-shafts",
+                "posts_count": 11,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-12T18:49:57.233Z",
+                "last_posted_at": "2025-01-13T02:23:32.643Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T02:23:32.643Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone! I am currently working on a climb prototype, using a shaft. My question Is there anything such as a “backstop clutch” or “ratchet” that can be attached/mounted at the end of the shaf…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 443,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480137,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70129,
+                    "username": "ruskcoder",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ruskcoder/{size}/261515_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70129,
+                            "username": "ruskcoder",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ruskcoder/{size}/261515_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55833,
+                            "username": "unident",
+                            "name": "Nicholas ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/unident/{size}/188354_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14765,
+                            "username": "Everett33",
+                            "name": "Everett33",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/everett33/{size}/5027_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14215,
+                            "username": "Peyton_Yeung",
+                            "name": "Peyton Yeung",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peyton_yeung/{size}/4840_2.png",
+                            "primary_group_name": "AndyMark",
+                            "flair_name": "AndyMark",
+                            "flair_url": "/uploads/default/original/3X/7/2/72db24f824a25ae17c6413b3d02a345e47f060a9.png",
+                            "flair_group_id": 59,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476637,
+                "title": "SDS MK4 Gear Grease?",
+                "fancy_title": "SDS MK4 Gear Grease?",
+                "slug": "sds-mk4-gear-grease",
+                "posts_count": 7,
+                "reply_count": 2,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-13T14:41:17.012Z",
+                "last_posted_at": "2024-12-17T16:32:02.345Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T16:32:02.345Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is it better to use white lithium grease, or the red n tacky grease for greasing the gears on swerve pods? What are the differences between the 2? Also does your team use any pod covers to keep the g…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 907,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458846,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66211,
+                    "username": "Suppdog222",
+                    "name": "Will C",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/suppdog222/{size}/256515_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66211,
+                            "username": "Suppdog222",
+                            "name": "Will C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/suppdog222/{size}/256515_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69310,
+                            "username": "AvisAutomata5826",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avisautomata5826/{size}/237369_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56684,
+                            "username": "schaefbl",
+                            "name": "Brett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/schaefbl/{size}/238067_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64262,
+                            "username": "TJP1699",
+                            "name": "Tom Praisner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tjp1699/{size}/216696_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491325,
+                "title": "2485 Overclocked CAM Standards Release! (2025)",
+                "fancy_title": "2485 Overclocked CAM Standards Release! (2025)",
+                "slug": "2485-overclocked-cam-standards-release-2025",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-12T04:13:16.678Z",
+                "last_posted_at": "2025-02-12T06:03:48.455Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T06:03:48.455Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "2485 2025 CAM Standards - CD Release.pdf (11.1 MB) Team 2485 is excited to release our 2025 updated CAM Standards, which have guided our CNC machining process during the Reefscape Season! CNC machini…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "2025",
+                    "solidworks",
+                    "cnc",
+                    "cncrouter",
+                    "manufacturing",
+                    "cam",
+                    "cncmill"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 368,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524483,
+                "topic_post_liked": false,
+                "topic_post_like_count": 7,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58131,
+                    "username": "ssariowan",
+                    "name": "Sara Sariowan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/8edcca/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58131,
+                            "username": "ssariowan",
+                            "name": "Sara Sariowan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/8edcca/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 10647,
+                            "username": "AllenGregoryIV",
+                            "name": "AllenGregoryIV",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/allengregoryiv/{size}/65531_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve",
+            "swervedrive",
+            "mechanical",
+            "swervemodule",
+            "coaxialswerve"
+        ],
+        "tags_descriptions": {},
+        "id": 482808,
+        "title": "Swerve module physically unable to drive and rotate at the same time",
+        "fancy_title": "Swerve module physically unable to drive and rotate at the same time",
+        "posts_count": 4,
+        "created_at": "2025-01-20T23:09:24.831Z",
+        "views": 238,
+        "reply_count": 2,
+        "like_count": 2,
+        "last_posted_at": "2025-04-08T19:55:40.844Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+        "category_id": 80,
+        "word_count": 701,
+        "deleted_at": null,
+        "user_id": 71589,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/f/5fad5aca049783af1c32873d7858d22586ab2e04_2_1024x576.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_482808",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 39746,
+            "execute_at": "2026-04-08T19:55:40.844Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1920,
+                "height": 1080,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/f/5fad5aca049783af1c32873d7858d22586ab2e04.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 576,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/f/5fad5aca049783af1c32873d7858d22586ab2e04_2_1024x576.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Weldingrod1",
+            "name": null,
+            "excerpt": "All the coaxial swerves have an interaction between rotating and steering.  IE, steering causes the wheel to rotate a bit. \nJust bake it into your programming <img src=\"https://www.chiefdelphi.com/images/emoji/google/wink.png?v=12\" title=\":wink:\" class=\"emoji\" alt=\":wink:\" loading=\"lazy\" width=\"20\" height=\"20\">",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64852,
+                    "username": "Mehmet1",
+                    "name": "9016 captain/head prgm/driver",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mehmet1/{size}/238645_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 71589,
+                    "username": "MrMWP",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/58f4c7/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 71589,
+                "username": "MrMWP",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/58f4c7/{size}.png"
+            },
+            "last_poster": {
+                "id": 46443,
+                "username": "Weldingrod1",
+                "name": "Rod",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/coaxial-swerve-explanation/439591",
+                    "title": "Coaxial Swerve Explanation",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 71589,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

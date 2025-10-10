@@ -1,0 +1,941 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3563042,
+                    "name": "Nicholas Armstrong",
+                    "username": "narmstro",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                    "created_at": "2025-03-20T16:47:10.331Z",
+                    "cooked": "So as a learner of C++ I want to use CLion to experiment with some robot programming in C++.\n\nSince gradle is used even for C++ I had some troubles, because CLion uses CMake.\n\nSo I downloaded the gradle plugin for CLion for building a project.  I get no code completion or help on the includes, but I can build a project.  The project was created using WPILib VSCode.\n\nSo to rectify this (just for the code completion and support in the #include ’s) I made a dummy CMakeLists.txt and added the include directories.  These were stored in my user folder in .gradle/caches/8.11/transforms/#######/transformed/…\n\nThese folders were found by running the vscodeconfig generator in gradle and looking in build/vscodeconfig.json\n\nI then copy pasted them into the CMake with include_directories for each one.  I have included that file.\n\nNow I have code completion.  Anyone have a way of doing this in a simpler fashion.  These file paths are dependent on the user not the project.\n\nCMakeLists.txt (2.9 KB)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-20T16:47:10.331Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 12,
+                    "reads": 59,
+                    "readers_count": 58,
+                    "score": 86.8,
+                    "yours": false,
+                    "topic_id": 496348,
+                    "topic_slug": "clion-cmake-file-for-robot-project",
+                    "display_username": "Nicholas Armstrong",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "/uploads/short-url/Amqx7KFs9ZetOWrRqzRkBLAGy0d.txt",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48345,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/clion-cmake-file-for-robot-project/496348/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3563550,
+                    "name": "neev dadhania",
+                    "username": "nevadexehs",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                    "created_at": "2025-03-20T22:04:02.316Z",
+                    "cooked": "interesting work. tbh im interested in finding a way to replace gradle with cmake with cpp and java, but i havent really put any time into it.\n\none thing to note, wpilib provides building and usage instructions for cmake, its in a separate README file ( link ). this was only necessary for me cuz i needed to make some changes to the source before compiling. i also used a DESTDIR var so i could manage versions easily\n\nsome info if you need it: to use cpp vendordeps, you need to download the artifacts (.so and headers) from their gradles (info in the json file), and then link it in cmake (i link by setting them as an imported static lib). some libs need to also be linked to wpilib as well, or to other shared objects\n\nexample download script for revlib:\n\nexample of using library in cmake: link check common_deps.cmake and any package’s CMakeLists.txt",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-20T22:04:02.316Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 38,
+                    "readers_count": 37,
+                    "score": 12.6,
+                    "yours": false,
+                    "topic_id": 496348,
+                    "topic_slug": "clion-cmake-file-for-robot-project",
+                    "display_username": "neev dadhania",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/allwpilib/blob/main/README-CMake.md",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "allwpilib/README-CMake.md at main · wpilibsuite/allwpilib · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/vikings204/reefscaperos/tree/master/src",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "reefscaperos/src at master · vikings204/reefscaperos · GitHub",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57670,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "204 programmer + electrical"
+                    },
+                    "post_url": "/t/clion-cmake-file-for-robot-project/496348/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3563916,
+                    "name": "Nicholas Armstrong",
+                    "username": "narmstro",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                    "created_at": "2025-03-21T09:48:46.476Z",
+                    "cooked": "Is there a better (more universal) location for these headers like in public/wpilib?",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-21T09:48:46.476Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 28,
+                    "readers_count": 27,
+                    "score": 10.6,
+                    "yours": false,
+                    "topic_id": 496348,
+                    "topic_slug": "clion-cmake-file-for-robot-project",
+                    "display_username": "Nicholas Armstrong",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 57670,
+                        "username": "nevadexehs",
+                        "name": "neev dadhania",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48345,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/clion-cmake-file-for-robot-project/496348/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3564476,
+                    "name": "neev dadhania",
+                    "username": "nevadexehs",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                    "created_at": "2025-03-21T14:47:05.184Z",
+                    "cooked": "the only “more universal” way AFAIK to get the headers right from the source. when you install wpilib with the installer, you dont get the headers in a simple structure, they would just come with the artifacts (which is the gradle way)",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-21T14:47:05.184Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 23,
+                    "readers_count": 22,
+                    "score": 4.6,
+                    "yours": false,
+                    "topic_id": 496348,
+                    "topic_slug": "clion-cmake-file-for-robot-project",
+                    "display_username": "neev dadhania",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 48345,
+                        "username": "narmstro",
+                        "name": "Nicholas Armstrong",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57670,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "204 programmer + electrical"
+                    },
+                    "post_url": "/t/clion-cmake-file-for-robot-project/496348/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3563042,
+                3563550,
+                3563916,
+                3564476
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                136
+            ],
+            [
+                3,
+                135
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 470679,
+                "title": "Looking for simulation documentation",
+                "fancy_title": "Looking for simulation documentation",
+                "slug": "looking-for-simulation-documentation",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-09-04T10:18:21.775Z",
+                "last_posted_at": "2024-09-04T13:21:04.936Z",
+                "bumped": true,
+                "bumped_at": "2024-09-04T13:21:04.936Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is looking into simulating our entire robot using advantage scope, and I am the one who is in charge of the project. I managed to get the drivetrain working almost perfectly, but I am having …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 190,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3420527,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62572,
+                    "username": "Feenchboi15",
+                    "name": "Oded Benjamini ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/3ec8ea/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62572,
+                            "username": "Feenchboi15",
+                            "name": "Oded Benjamini ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/3ec8ea/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55016,
+                            "username": "person4268",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 471620,
+                "title": "Simulated arm snapping to the min and max angle",
+                "fancy_title": "Simulated arm snapping to the min and max angle",
+                "slug": "simulated-arm-snapping-to-the-min-and-max-angle",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-09-21T21:01:49.833Z",
+                "last_posted_at": "2024-09-22T08:29:09.306Z",
+                "bumped": true,
+                "bumped_at": "2024-09-22T08:29:09.306Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My simulated arm code seems to just snap between the minimum and maximum angle and I can’t figure out why, HERE is the download for the video, and HERE is our code",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 184,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3425934,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57393,
+                    "username": "Tatiman-Dev",
+                    "name": "Falon Clark",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tatiman-dev/{size}/236095_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57393,
+                            "username": "Tatiman-Dev",
+                            "name": "Falon Clark",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatiman-dev/{size}/236095_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 471129,
+                "title": "DC Motor Speed Control",
+                "fancy_title": "DC Motor Speed Control",
+                "slug": "dc-motor-speed-control",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-09-12T17:01:26.725Z",
+                "last_posted_at": "2024-09-12T19:36:23.544Z",
+                "bumped": true,
+                "bumped_at": "2024-09-12T19:47:03.207Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I want to couple 2 DC motors with encoders to my shooter mechanism that is capable of shooting balls with speed control. My past experience without any feedback loop, the motors are not consistent al…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "encoder",
+                    "pid",
+                    "velocity"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 240,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3423066,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67876,
+                    "username": "ninja29",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/85e7bf/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67876,
+                            "username": "ninja29",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/85e7bf/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 67264,
+                            "username": "krowney_sf",
+                            "name": "Kevin Rowney",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53784,
+                            "username": "Max_Morehead",
+                            "name": "Max Morehead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475298,
+                "title": "Swerve drive not reaching the final destination",
+                "fancy_title": "Swerve drive not reaching the final destination",
+                "slug": "swerve-drive-not-reaching-the-final-destination",
+                "posts_count": 17,
+                "reply_count": 11,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2024-11-20T20:52:15.148Z",
+                "last_posted_at": "2024-11-25T06:35:30.516Z",
+                "bumped": true,
+                "bumped_at": "2024-11-25T06:35:30.516Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Thanks for all the help got it working! Now, I’ve ran into two different issues, first is how do I change over to using “autos” instead of “paths”? And when the robot gets to the final position it ov…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner",
+                    "swervedrive",
+                    "mk4i"
+                ],
+                "tags_descriptions": {},
+                "like_count": 21,
+                "views": 449,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451562,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 17,
+                "topic_post_user": {
+                    "id": 69027,
+                    "username": "Joshua09",
+                    "name": "Joshua Scott",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joshua09/{size}/256070_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 69027,
+                            "username": "Joshua09",
+                            "name": "Joshua Scott",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joshua09/{size}/256070_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62742,
+                            "username": "not_a_robot",
+                            "name": "Mike Smith",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491683,
+                "title": "WPILib 2025.3.1 Update Release",
+                "fancy_title": "WPILib 2025.3.1 Update Release",
+                "slug": "wpilib-2025-3-1-update-release",
+                "posts_count": 13,
+                "reply_count": 9,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-02-14T15:56:55.418Z",
+                "last_posted_at": "2025-03-06T15:38:37.911Z",
+                "bumped": true,
+                "bumped_at": "2025-03-06T15:38:37.911Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is an update release of WPILib for the 2025 season. This release adds an update to the AprilTags layout (see TU12 for details), restores Shuffleboard to 2024 functionality, and has a number of …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 31,
+                "views": 1280,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3527060,
+                "topic_post_liked": false,
+                "topic_post_like_count": 27,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51077,
+                            "username": "MrCauthers",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrcauthers/{size}/250448_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 496348,
+        "title": "CLion Cmake file for Robot Project",
+        "fancy_title": "CLion Cmake file for Robot Project",
+        "posts_count": 4,
+        "created_at": "2025-03-20T16:47:10.278Z",
+        "views": 93,
+        "reply_count": 2,
+        "like_count": 1,
+        "last_posted_at": "2025-03-21T14:47:05.184Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "clion-cmake-file-for-robot-project",
+        "category_id": 30,
+        "word_count": 447,
+        "deleted_at": null,
+        "user_id": 48345,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_496348",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45834,
+            "execute_at": "2026-03-21T14:47:05.184Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 48345,
+                    "username": "narmstro",
+                    "name": "Nicholas Armstrong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57670,
+                    "username": "nevadexehs",
+                    "name": "neev dadhania",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 48345,
+                "username": "narmstro",
+                "name": "Nicholas Armstrong",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+            },
+            "last_poster": {
+                "id": 57670,
+                "username": "nevadexehs",
+                "name": "neev dadhania",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/wpilibsuite/allwpilib/blob/main/README-CMake.md",
+                    "title": "allwpilib/README-CMake.md at main · wpilibsuite/allwpilib · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 57670,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

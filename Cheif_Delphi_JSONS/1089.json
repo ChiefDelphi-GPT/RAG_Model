@@ -1,0 +1,669 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3565069,
+                    "name": "Question all assumptions, search for truth.",
+                    "username": "celttechie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png",
+                    "created_at": "2025-03-22T01:13:11.560Z",
+                    "cooked": "We have commands to move our elevator, shoulder, and arm subsystems to various positions to reach the different levels of the reef.  We have a single button on the driver controller mapped to run the command sequence, and our operator has buttons to specify which positions to use for the various levels.  So our command factory gets the positions from an attribute and returns a command sequence to move all 3 subsystems.  This works for a while, but eventually it stops working and never comes back until we restart the code.  In our matches it can occur after a few times of moving to a position, or it can go nearly the whole match without “locking up”.  The stranger thing is that there are a couple of other buttons mapped to other more explicit command sequences for the same subsystems that always work.  The difference is the positions are always static for each subsystem.\n\nOn top of that, I put each of the subsystems on SmartDashboard to watch their running command and used AdvantageScope to watch in realtime when the systems get commands.  For the command sequence that moves to varying positions based on what the operator chose I never see the subsystem get the command, even when the subsystems are actually moving correctly.  For the command sequence that has static positions for each of the subsystems I always see the commands given to the subsystems.\n\nI kept trying to find if some other command was interrupting the command, or if we weren’t hitting some of our positions, but I can find nothing interfering.  Does anyone have ideas about what may be happening?\n\nHere’s the command that will eventually fail and never work again:\n\ndef move_to_station(self) -> Command:\n\nreturn (\n\nself.arm.move(0)\n\n.andThen(self.shoulder.move(-0.2))\n\n.alongWith(self.elevator.move(10))\n\n)\n\ndef hold_algae_during_travel(self) -> Command:\n\nreturn self.arm.move(0).alongWith(self.shoulder.move(-0.15))\n\ndef move_to_position(self) -> Command:\n\nfirst_shoulder_pos = self.scoringConfig.shoulder_start_pos\n\nelevator_pos = self.scoringConfig.elevator_pos\n\nsecond_shoulder_pos = self.scoringConfig.shoulder_end_pos\n\narm_pos = self.scoringConfig.arm_pos\n\nreturn (\n\nself.shoulder.move(first_shoulder_pos)\n\n.andThen(waitUntil(lambda: self.shoulder.at_position(first_shoulder_pos)))\n\n.andThen(self.elevator.move(elevator_pos))\n\nAnd here’s a static sequence that always works:\n\n.andThen(self.arm.move(0))\n\n)\n\ndef hold_coral_during_travel(self) -> Command:\n\nreturn (\n\nself.grabber.run_motor(0)\n\n.andThen(self.arm.move(0))\n\n.alongWith(self.shoulder.move(-0.2))\n\n)\n\ndef move_to_home(self) -> Command:\n\nreturn (\n\nself.grabber.stop_motor()\n\n.andThen(self.arm.move(0))\n\n.andThen(waitUntil(self.arm.at_home))\n\n.andThen(self.elevator.move(0))\n\n.alongWith(self.shoulder.move(-0.2))\n\n)\n\ndef move_to_station(self) -> Command:\n\nreturn (",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 1,
+                    "updated_at": "2025-03-22T01:13:11.560Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 21,
+                    "readers_count": 20,
+                    "score": 14.2,
+                    "yours": false,
+                    "topic_id": 496509,
+                    "topic_slug": "having-strange-issue-with-a-command-sequence-failing-to-run-after-an-indeterminate-time",
+                    "display_username": "Question all assumptions, search for truth.",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/FROG3160/2025-reefscape/blob/46b415c7b019408aca9f5eb01bcaa27e223167e0/roborio/robotcontainer.py#L269",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2025-reefscape/roborio/robotcontainer.py at 46b415c7b019408aca9f5eb01bcaa27e223167e0 · FROG3160/2025-reefscape · GitHub",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://github.com/FROG3160/2025-reefscape/blob/46b415c7b019408aca9f5eb01bcaa27e223167e0/roborio/robotcontainer.py#L250",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2025-reefscape/roborio/robotcontainer.py at 46b415c7b019408aca9f5eb01bcaa27e223167e0 · FROG3160/2025-reefscape · GitHub",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 29320,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/having-strange-issue-with-a-command-sequence-failing-to-run-after-an-indeterminate-time/496509/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3565069
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                135
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 482934,
+                "title": "Python choice not found in WPI project create",
+                "fancy_title": "Python choice not found in WPI project create",
+                "slug": "python-choice-not-found-in-wpi-project-create",
+                "posts_count": 16,
+                "reply_count": 9,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-01-21T21:32:57.770Z",
+                "last_posted_at": "2025-01-24T19:06:39.285Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T19:06:39.285Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am trying to use the XRP with python on VS code on an Ubuntu 24 laptop. (no I am not a masochist, I am resource poor). I have python3, robot.py installed and the WPI installer run. When I try to c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 279,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489241,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24375,
+                    "username": "Ubiquity",
+                    "name": "Alan Federman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24375,
+                            "username": "Ubiquity",
+                            "name": "Alan Federman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 47943,
+                            "username": "megarubber",
+                            "name": "Guilherme Samuel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 483291,
+                "title": "Phoenix 6 generated swerve default steer gains oscillating",
+                "fancy_title": "Phoenix 6 generated swerve default steer gains oscillating",
+                "slug": "phoenix-6-generated-swerve-default-steer-gains-oscillating",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-23T23:23:08.940Z",
+                "last_posted_at": "2025-01-25T16:40:37.664Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T16:40:37.664Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We re ran the project generator and found that the steer motors should have been inverted, since they originally ran clockwise as seen from the top of the robot in the steer test. The oscillations are…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "pid",
+                    "phoenix-6"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 191,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492390,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 56515,
+                    "username": "llthehackr",
+                    "name": "L",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/2acd7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 56515,
+                            "username": "llthehackr",
+                            "name": "L",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/2acd7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476909,
+                "title": "CTRE Cancoders not reporting degrees",
+                "fancy_title": "CTRE Cancoders not reporting degrees",
+                "slug": "ctre-cancoders-not-reporting-degrees",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-17T22:32:06.759Z",
+                "last_posted_at": "2024-12-22T02:38:31.689Z",
+                "bumped": true,
+                "bumped_at": "2024-12-22T02:38:31.689Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can use the WPILib units library to convert rotations to degrees. double inDegrees = Units.rotationsToDegrees(rotations); Or degrees to rotations double inRotations = Units.degreesToRotations(d…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swervedrive",
+                    "ctre",
+                    "ctre-encoder"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 297,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460549,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 55818,
+                    "username": "Crafter",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/77aa72/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69687,
+                            "username": "ZachMahan",
+                            "name": "Zach Mahan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/z/67e7ee/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 55818,
+                            "username": "Crafter",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/77aa72/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59402,
+                            "username": "Hyperspace1710",
+                            "name": "Micah",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 482630,
+                "title": "Reef Alignment in Code",
+                "fancy_title": "Reef Alignment in Code",
+                "slug": "reef-alignment-in-code",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-19T06:40:35.224Z",
+                "last_posted_at": "2025-01-19T18:08:53.160Z",
+                "bumped": true,
+                "bumped_at": "2025-01-19T18:08:53.160Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can use Commands.defer() to create the command on schedule. /** * decides which reef to align and return the desired robot pose for auto alignment **/ public Pose2d decideAutoAlignmentTa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 776,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3487359,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61960,
+                            "username": "Wihy",
+                            "name": "Wihy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wihy/{size}/225659_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53032,
+                            "username": "Traptricker",
+                            "name": "Jackson Elia",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49147,
+                            "username": "CarvalhoJeo",
+                            "name": "Luca Carvalho",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491988,
+                "title": "Help with Controlling Servos using Command Base",
+                "fancy_title": "Help with Controlling Servos using Command Base",
+                "slug": "help-with-controlling-servos-using-command-base",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-17T01:23:53.221Z",
+                "last_posted_at": "2025-02-17T01:40:31.338Z",
+                "bumped": true,
+                "bumped_at": "2025-02-17T01:40:31.338Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Starting the thread for these guys as I am not a software guy. @Egeler I hope your question gets answered!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "command-based",
+                    "servo"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 53,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529259,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 30778,
+                    "username": "LuiTheFly",
+                    "name": "Luin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/luithefly/{size}/175341_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 30778,
+                            "username": "LuiTheFly",
+                            "name": "Luin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/luithefly/{size}/175341_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 496509,
+        "title": "Having strange issue with a command sequence failing to run after an indeterminate time",
+        "fancy_title": "Having strange issue with a command sequence failing to run after an indeterminate time",
+        "posts_count": 1,
+        "created_at": "2025-03-22T01:13:11.508Z",
+        "views": 41,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-03-22T01:13:11.560Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "having-strange-issue-with-a-command-sequence-failing-to-run-after-an-indeterminate-time",
+        "category_id": 30,
+        "word_count": 319,
+        "deleted_at": null,
+        "user_id": 29320,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_496509",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 1,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45901,
+            "execute_at": "2026-03-22T01:13:11.560Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 29320,
+                    "username": "celttechie",
+                    "name": "Question all assumptions, search for truth.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 29320,
+                "username": "celttechie",
+                "name": "Question all assumptions, search for truth.",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png"
+            },
+            "last_poster": {
+                "id": 29320,
+                "username": "celttechie",
+                "name": "Question all assumptions, search for truth.",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/FROG3160/2025-reefscape/blob/46b415c7b019408aca9f5eb01bcaa27e223167e0/roborio/robotcontainer.py#L269",
+                    "title": "2025-reefscape/roborio/robotcontainer.py at 46b415c7b019408aca9f5eb01bcaa27e223167e0 · FROG3160/2025-reefscape · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 29320,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/FROG3160/2025-reefscape/blob/46b415c7b019408aca9f5eb01bcaa27e223167e0/roborio/robotcontainer.py#L250",
+                    "title": "2025-reefscape/roborio/robotcontainer.py at 46b415c7b019408aca9f5eb01bcaa27e223167e0 · FROG3160/2025-reefscape · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 29320,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,1096 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3568164,
+                    "name": "Tyler Veness",
+                    "username": "calcmogul",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "created_at": "2025-03-25T17:02:04.200Z",
+                    "cooked": "Connected the dots on this issue today:\n\nPose estimator doesn't update odometry pose with vision measurements over time, leading to drift opened 04:11PM - 25 Mar 25 UTC calcmogul type: bug component: wpimath\n\nPose estimator doesn't update odometry pose with vision measurements over time, leading to drift opened 04:11PM - 25 Mar 25 UTC calcmogul type: bug component: wpimath\n\nopened 04:11PM - 25 Mar 25 UTC calcmogul\n\nopened 04:11PM - 25 Mar 25 UTC\n\ncalcmogul\n\ntype: bug component: wpimath\n\nInitially reported by FRC team 2363:\n\nStep 9 of `PoseEstimator.addVisionMeasurem … ent()` sets the PoseEstimator pose estimate to a vision-compensated version of the latest odometry object pose, but the odometry object's pose is only updated by twists passed to `PoseEstimator.updateWithTime()`. This means the odometry pose is still allowed to drift over time instead of being gradually fixed by vision measurements. In other words, the odometry is only ever getting fixed by one vision measurement instead of a backlog of all of them.\n\nThe old implementation applied vision updates to old pose estimates, then replayed odometry updates up to the current time. That was too expensive at the time, so idk if we can fix this properly.\n\nThe odometry object pose not being vision-compensated also causes `PoseEstimator.resetRotation()` to make the translation estimate teleport from the vision-compensated version to the odometry-only version.\n\nInitially reported by FRC team 2363:\n\nStep 9 of `PoseEstimator.addVisionMeasurem … ent()` sets the PoseEstimator pose estimate to a vision-compensated version of the latest odometry object pose, but the odometry object's pose is only updated by twists passed to `PoseEstimator.updateWithTime()`. This means the odometry pose is still allowed to drift over time instead of being gradually fixed by vision measurements. In other words, the odometry is only ever getting fixed by one vision measurement instead of a backlog of all of them.\n\nThe old implementation applied vision updates to old pose estimates, then replayed odometry updates up to the current time. That was too expensive at the time, so idk if we can fix this properly.\n\nThe odometry object pose not being vision-compensated also causes `PoseEstimator.resetRotation()` to make the translation estimate teleport from the vision-compensated version to the odometry-only version.\n\nIf you’re having pose estimator convergence issues that isn’t fixed by throwing more vision measurements at it, this is probably why. Reverting to the 2024 version has the “proper” fix (replaying old odometry updates), but it was too expensive for the roboRIO to handle.\n\nThis affects CTRE ’s pose estimator as well, since it’s based on WPILib’s 2025 pose estimator.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T17:15:49.798Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 169,
+                    "reads": 389,
+                    "readers_count": 388,
+                    "score": 1267.8,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Tyler Veness",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/allwpilib/issues/7881",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Pose estimator doesn't update odometry pose with vision measurements over time, leading to drift · Issue #7881 · wpilibsuite/allwpilib · GitHub",
+                            "clicks": 160
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 23
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16846,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib controls | Choreo optimizer backend"
+                    },
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 23
+                        },
+                        {
+                            "id": "-1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 24,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3568214,
+                    "name": "Miles",
+                    "username": "mhelve46",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/b3f665/{size}.png",
+                    "created_at": "2025-03-25T17:32:58.234Z",
+                    "cooked": "Thank you for finding this. It explains something we have been stumped on for a while.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T17:32:58.234Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 351,
+                    "readers_count": 350,
+                    "score": 90.2,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Miles",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63537,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3568217,
+                    "name": "Joseph Farkas",
+                    "username": "MrRedness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrredness/{size}/229088_2.png",
+                    "created_at": "2025-03-25T17:34:59.460Z",
+                    "cooked": "If I’m understanding correctly, the odometry pose is just going to be wrong after just 30 seconds to driving, and the vision is trying it’s darn best to pull the pose to be correct but it’s having to fight extremely hard since odometry is never actually corrected ? With that in mind, I’m genuinely confused how we are able to drive for close to an hour and notice no difference in vision performance.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T17:34:59.460Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 346,
+                    "readers_count": 345,
+                    "score": 144.2,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Joseph Farkas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50693,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1771 Programming, Operator"
+                    },
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/3",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3568219,
+                    "name": "Will Weiszhaar",
+                    "username": "trig",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ebca7d/{size}.png",
+                    "created_at": "2025-03-25T17:35:28.482Z",
+                    "cooked": "If we are using a RoboRIO 2, would the suggested change be to use the 2024 pose estimator?",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T17:35:28.482Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 350,
+                    "readers_count": 349,
+                    "score": 89.8,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Will Weiszhaar",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65296,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/4",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3568248,
+                    "name": "Jared Russell",
+                    "username": "Jared_Russell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jared_russell/{size}/399_2.png",
+                    "created_at": "2025-03-25T17:53:17.233Z",
+                    "cooked": "I don’t see a big problem?\n\nThe consequence of not updating past odometry measurements is just that m_odometry is free to drift over time and never gets corrected in itself.\n\nThis is a totally valid choice of problem definition (and is the way ROS ’s robot pose EKF and many other implementations define it): odometry happens in its own odometric reference frame that is never updated by vision, and instead vision is used to update a transform mapping the odometric frame into a global frame rather than updating the pose estimate itself.\n\nVision doesn’t have to “fight” odometry, because when we process a vision update we already correct the prior odometry pose estimate using the previous (fused) vision update, then compute a twist based on that. The new twist is basically “how much the odom-to-global transform has moved since the last vision update”, which is the appropriate thing to multiply by Kalman gain.\n\nI think the only thing we’re losing by not updating the odom pose history is the ability to account for the odom-to-global transform not being stationary over time: implicitly, the current implementation is treating vision updates with a zero-order hold: “Aha, I now know the truth is I’ve always been here!” as opposed to “Well, I know I’m here now but a little bit ago I may have been somewhere else”. There can be subtle differences in how you integrate past odometry under different assumptions, but I doubt they are actually consequential in the common case in FRC (vision updates lagging odometry by a couple hundred ms worst case).",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T17:53:17.233Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 58,
+                    "reads": 331,
+                    "readers_count": 330,
+                    "score": 806.0,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Jared Russell",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 28
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 1267,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Oh so close"
+                    },
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/5",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 26
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 28,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3568262,
+                    "name": "Joseph Farkas",
+                    "username": "MrRedness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrredness/{size}/229088_2.png",
+                    "created_at": "2025-03-25T18:04:07.064Z",
+                    "cooked": "Very well explained. Thank you!",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-03-25T18:04:07.064Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 5,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 288,
+                    "readers_count": 287,
+                    "score": 77.4,
+                    "yours": false,
+                    "topic_id": 496876,
+                    "topic_slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+                    "display_username": "Joseph Farkas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 1267,
+                        "username": "Jared_Russell",
+                        "name": "Jared Russell",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/jared_russell/{size}/399_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50693,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1771 Programming, Operator"
+                    },
+                    "post_url": "/t/psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements/496876/6",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3568164,
+                3568214,
+                3568217,
+                3568219,
+                3568248,
+                3568262
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                131
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 480004,
+                "title": "CTRE Swerve Next Steps",
+                "fancy_title": "CTRE Swerve Next Steps",
+                "slug": "ctre-swerve-next-steps",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-08T00:14:30.395Z",
+                "last_posted_at": "2025-01-08T01:18:02.131Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T01:18:02.131Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is switching from a REV/CTRE hybrid swerve to a fully CTRE swerve system, so we are using the Phoenix Tuner X generated swerve code. After we use the project generator, what are the next step…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 195,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474698,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64553,
+                    "username": "myer",
+                    "name": "Myer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 54750,
+                            "username": "Ledesma",
+                            "name": "Ramon Ledesma",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 477323,
+                "title": "CameraSpace Transform3d from Limelight's PriorityTag",
+                "fancy_title": "CameraSpace Transform3d from Limelight&rsquo;s PriorityTag",
+                "slug": "cameraspace-transform3d-from-limelights-prioritytag",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-12-25T14:42:17.888Z",
+                "last_posted_at": "2024-12-25T15:41:26.928Z",
+                "bumped": true,
+                "bumped_at": "2024-12-25T15:41:26.928Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So LL’s priorityTag setup allows me to set a desired tag to retrieve 2D values from, tx, ty, ta, etc. Everything is from the camera’s perspective at the end. So to get the Camera space Transform3d I…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 135,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463338,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48345,
+                    "username": "narmstro",
+                    "name": "Nicholas Armstrong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 48345,
+                            "username": "narmstro",
+                            "name": "Nicholas Armstrong",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 482791,
+                "title": "CTRE Swerve - FieldCentricFacingAngle",
+                "fancy_title": "CTRE Swerve - FieldCentricFacingAngle",
+                "slug": "ctre-swerve-fieldcentricfacingangle",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-20T21:50:58.098Z",
+                "last_posted_at": "2025-03-12T14:45:09.694Z",
+                "bumped": true,
+                "bumped_at": "2025-03-12T14:45:09.694Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is using the CTRE generated Swerve drive for the first time. Normal drive is working fine but our driver prefers to use the right joystick to set the angle instead of rotating. We’ve tried …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 289,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488474,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64978,
+                    "username": "anthv",
+                    "name": "Anthony",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/9de053/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64978,
+                            "username": "anthv",
+                            "name": "Anthony",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/9de053/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51835,
+                            "username": "JimB1918",
+                            "name": "Jim Barstow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jimb1918/{size}/166841_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 485687,
+                "title": "PathPlanner on-the-fly tool makes robot to the incorrect pose",
+                "fancy_title": "PathPlanner on-the-fly tool makes robot to the incorrect pose",
+                "slug": "pathplanner-on-the-fly-tool-makes-robot-to-the-incorrect-pose",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-08T17:24:12.049Z",
+                "last_posted_at": "2025-02-08T17:24:12.095Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T17:24:12.095Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone. Our team is trying to use pathplanner’s on-the-fly pathfinding, but the robot occasionally goes to the complete wrong pose and stops prematurely (and from the gui it is evident that the …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 57,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3506001,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64351,
+                    "username": "GronkBaby",
+                    "name": "Emil",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64351,
+                            "username": "GronkBaby",
+                            "name": "Emil",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491162,
+                "title": "Feedback and Feedforward through wpilib",
+                "fancy_title": "Feedback and Feedforward through wpilib",
+                "slug": "feedback-and-feedforward-through-wpilib",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-02-11T13:02:53.607Z",
+                "last_posted_at": "2025-02-11T14:09:29.226Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T14:09:29.226Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "There is a great WPILib page on exactly what you are looking for! You take the output of both controllers and literally add them together.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 113,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523272,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 23320,
+                    "username": "Owen_Busler",
+                    "name": "Owen Busler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "wpilib"
+        ],
+        "tags_descriptions": {},
+        "id": 496876,
+        "title": "PSA: WPILib pose estimator drifts and ignores most vision measurements",
+        "fancy_title": "PSA: WPILib pose estimator drifts and ignores most vision measurements",
+        "posts_count": 6,
+        "created_at": "2025-03-25T17:02:04.143Z",
+        "views": 811,
+        "reply_count": 1,
+        "like_count": 58,
+        "last_posted_at": "2025-03-25T18:04:07.064Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "psa-wpilib-pose-estimator-drifts-and-ignores-most-vision-measurements",
+        "category_id": 30,
+        "word_count": 465,
+        "deleted_at": null,
+        "user_id": 16846,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_496876",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46030,
+            "execute_at": "2026-03-25T18:04:07.064Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 5,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 5,
+            "username": "Jared_Russell",
+            "name": null,
+            "excerpt": "I don’t see a big problem? \nThe consequence of not updating past odometry measurements is just that m_odometry is free to drift over time and never gets corrected in itself. \nThis is a totally valid choice of problem definition (and is the way ROS’s robot pose EKF and many other implementations defi&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 50693,
+                    "username": "MrRedness",
+                    "name": "Joseph Farkas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrredness/{size}/229088_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 1267,
+                    "username": "Jared_Russell",
+                    "name": "Jared Russell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jared_russell/{size}/399_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16846,
+                    "username": "calcmogul",
+                    "name": "Tyler Veness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63537,
+                    "username": "mhelve46",
+                    "name": "Miles",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/b3f665/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 65296,
+                    "username": "trig",
+                    "name": "Will Weiszhaar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ebca7d/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 16846,
+                "username": "calcmogul",
+                "name": "Tyler Veness",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png"
+            },
+            "last_poster": {
+                "id": 50693,
+                "username": "MrRedness",
+                "name": "Joseph Farkas",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mrredness/{size}/229088_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/wpilibsuite/allwpilib/issues/7881",
+                    "title": "Pose estimator doesn't update odometry pose with vision measurements over time, leading to drift · Issue #7881 · wpilibsuite/allwpilib · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 160,
+                    "user_id": 16846,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,887 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3548955,
+                    "name": "steinra",
+                    "username": "steinra",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png",
+                    "created_at": "2025-03-06T03:38:46.458Z",
+                    "cooked": "We are seeing several errors and have tried different things to solve.  We stripped it down to just the drive template, and made sure we had realtime threads off and we did characterize the feed forwards for the drive.\n\nIssues:  The drive system was extremely laggy.  Or unresponsive to inputs.  May start OK and then degrade over time to sluggish movement.\n\nHardware:  RoboRio 1 - moved to RoboRio 2.  Rev Vortex motors and CAN Coders.  Paired radios robot in bridge to one on desk acting as AP on 6G.  Ethernet connected driver station to the desktop AP radio.\n\nWe are seeing multiple loop overruns and delayed loop processors.  We will also see Advantage Scope just stop receiving data and pause and then do a quick catch up.  The logged server drive states show major lag between setpoint and measured outputs.\n\nHere are some errors.\n\nERROR 1 [AdvantageKit] Capacity of receiver queue exceeded, data will NOT be logged. org.littletonrobotics.junction.Logger.periodicAfterUser(Logger.java:369)\n\ndc81e64a-75db-464a-a8e8-154a0befd9bb 2048×1536 170 KB 188637d0-527d-4333-af7b-a6f3db0f77d9 2048×1536 168 KB 8f4aeead-6ab6-4eb3-969d-9f591fb8eb72 2048×1536 173 KB\n\ndc81e64a-75db-464a-a8e8-154a0befd9bb 2048×1536 170 KB\n\ndc81e64a-75db-464a-a8e8-154a0befd9bb 2048×1536 170 KB\n\n188637d0-527d-4333-af7b-a6f3db0f77d9 2048×1536 168 KB\n\n188637d0-527d-4333-af7b-a6f3db0f77d9 2048×1536 168 KB\n\n8f4aeead-6ab6-4eb3-969d-9f591fb8eb72 2048×1536 173 KB\n\n8f4aeead-6ab6-4eb3-969d-9f591fb8eb72 2048×1536 173 KB\n\nAny things we can try to solve this?\n\nWe did just go to a default WPILib swerve template with PWM motor controllers.  We saw the delay on entry for first time to teleop and auto of 90 ms and 50 ms, but that only occurred once and repeated enable and disable did not cause it to occur again.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T03:45:46.094Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 26,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 146.0,
+                    "yours": false,
+                    "topic_id": 494446,
+                    "topic_slug": "loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark",
+                    "display_username": "steinra",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10996,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark/494446/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3548980,
+                    "name": "steinra",
+                    "username": "steinra",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png",
+                    "created_at": "2025-03-06T04:21:36.950Z",
+                    "cooked": "OK not fully solved, but did make a step forward.  The USB drive we were using to write the logs to was too slow.  We pulled it and did not write to it and a large part of the overruns are gone.  But we are still seeing some periodic overruns in just the base template.\n\nHave new USB drives on order to see if that works tomorrow.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T04:21:36.950Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 65,
+                    "readers_count": 64,
+                    "score": 28.0,
+                    "yours": false,
+                    "topic_id": 494446,
+                    "topic_slug": "loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark",
+                    "display_username": "steinra",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10996,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark/494446/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3550908,
+                    "name": "Jonah Bonner",
+                    "username": "jonahb55",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                    "created_at": "2025-03-08T02:28:52.938Z",
+                    "cooked": "Can you post a log file where you see loop overruns? Keep in mind that occasional loop overruns should be expected on most robot projects, and are only an actual concern if they meaningfully affect the robot operation. In particular, they are likely to be a problem if the overruns are either very large (e.g. >50-100ms) or very frequent (e.g. >5-10 times per second).",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-08T02:28:52.938Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 51,
+                    "readers_count": 50,
+                    "score": 15.2,
+                    "yours": false,
+                    "topic_id": 494446,
+                    "topic_slug": "loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark",
+                    "display_username": "Jonah Bonner",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44471,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6328M/WPILib"
+                    },
+                    "post_url": "/t/loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark/494446/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3551047,
+                    "name": "steinra",
+                    "username": "steinra",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png",
+                    "created_at": "2025-03-08T05:52:34.241Z",
+                    "cooked": "We found it was indeed the USB drive for the logs bogging everything down.  We pulled it and everything seemed to run better.  Working to add code back in and we will see if we have other overrun issues.  We do at start up but it seems to settle down after that.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-08T05:52:34.241Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 33,
+                    "readers_count": 32,
+                    "score": 11.6,
+                    "yours": false,
+                    "topic_id": 494446,
+                    "topic_slug": "loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark",
+                    "display_username": "steinra",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 44471,
+                        "username": "jonahb55",
+                        "name": "Jonah Bonner",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10996,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark/494446/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3548955,
+                3548980,
+                3550908,
+                3551047
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                151
+            ],
+            [
+                3,
+                149
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 495757,
+                "title": "Every Auto Path Waits Half a Second?",
+                "fancy_title": "Every Auto Path Waits Half a Second?",
+                "slug": "every-auto-path-waits-half-a-second",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-03-16T06:00:50.388Z",
+                "last_posted_at": "2025-04-09T18:28:42.292Z",
+                "bumped": true,
+                "bumped_at": "2025-04-09T18:28:42.292Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The real problem was in setting all the drivetrain motors to brake mode on disabledExit()",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 677,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3585483,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 62784,
+                    "username": "Dex999999999",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/dex999999999/{size}/209038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 62784,
+                            "username": "Dex999999999",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dex999999999/{size}/209038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7271,
+                            "username": "Bochek",
+                            "name": "Adam Bochek",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bochek/{size}/2414_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 481413,
+                "title": "The constructor Arm_pidkeremabi(ArmSubsystem, int) is undefinedJava(134217858)error",
+                "fancy_title": "The constructor Arm_pidkeremabi(ArmSubsystem, int) is undefinedJava(134217858)error",
+                "slug": "the-constructor-arm-pidkeremabi-armsubsystem-int-is-undefinedjava-134217858-error",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/7/973f1ed243a851cbdbfe639d0a95c83dc35421be.png",
+                "created_at": "2025-01-13T17:14:21.717Z",
+                "last_posted_at": "2025-01-13T17:38:55.706Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T17:38:55.706Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In your screenshot, four lines have red underlines. What does the hoverover tell you, and what are the suggested quick fixes?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 80,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3481068,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71059,
+                            "username": "Ogi",
+                            "name": "oğuzalp ozdemir",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/35a633/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 469772,
+                "title": "Choreo integration into AutoChooser",
+                "fancy_title": "Choreo integration into AutoChooser",
+                "slug": "choreo-integration-into-autochooser",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-08-12T17:24:55.547Z",
+                "last_posted_at": "2024-08-12T17:49:39.552Z",
+                "bumped": true,
+                "bumped_at": "2024-08-12T17:49:39.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you have configured AutoBuilder, which it seems you have, you can call AutoBuilder.followPath to generate a command that will follow a path. From Follow a Single Path | public cla…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner",
+                    "choreo"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 137,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3414903,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65296,
+                    "username": "trig",
+                    "name": "Will Weiszhaar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ebca7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64635,
+                            "username": "brianweiss",
+                            "name": "Brian Weiss",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/5f9b8f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65296,
+                            "username": "trig",
+                            "name": "Will Weiszhaar",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ebca7d/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491029,
+                "title": "Rev Soft Limit Example",
+                "fancy_title": "Rev Soft Limit Example",
+                "slug": "rev-soft-limit-example",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-10T14:28:35.551Z",
+                "last_posted_at": "2025-02-20T22:52:23.570Z",
+                "bumped": true,
+                "bumped_at": "2025-02-20T22:52:23.570Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, recently I have been looking for how to code a soft limit using a rev motor controller and neo motor. The only examples I find are from 2022 when the syntax was different, does anyone have a mo…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 347,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3522168,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63946,
+                    "username": "TuckerS",
+                    "name": "Tucker Stanton",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/c4cdca/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63946,
+                            "username": "TuckerS",
+                            "name": "Tucker Stanton",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/c4cdca/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2992,
+                            "username": "lynca",
+                            "name": "Andy Lynch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lynca/{size}/937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 73613,
+                            "username": "Wabbitt",
+                            "name": "William Babbitt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/e480ec/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 497411,
+                "title": "Trouble with losing robot code during enable, stacktrace",
+                "fancy_title": "Trouble with losing robot code during enable, stacktrace",
+                "slug": "trouble-with-losing-robot-code-during-enable-stacktrace",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-03-30T15:47:32.821Z",
+                "last_posted_at": "2025-04-18T14:23:31.311Z",
+                "bumped": true,
+                "bumped_at": "2025-04-18T14:23:31.311Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our FRC team (3843) is having an intermittent error that stops our robot code in the middle of enable, disabling it automatically. This happens occasionally during our test driving runs. We can’t seem…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 288,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3573808,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22201,
+                    "username": "bharrison6",
+                    "name": "bharrison6",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/ecae2f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 22201,
+                            "username": "bharrison6",
+                            "name": "bharrison6",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/ecae2f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16385,
+                            "username": "BillDunlap",
+                            "name": "BillDunlap",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/7ea924/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57180,
+                            "username": "ninjadrknss",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ninjadrknss/{size}/247388_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65606,
+                            "username": "pinkfloyd145",
+                            "name": "Ben Malito",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "advantagekit"
+        ],
+        "tags_descriptions": {},
+        "id": 494446,
+        "title": "Loop Overrun and other errors Advantage Kit Swerve Base Template for Spark",
+        "fancy_title": "Loop Overrun and other errors Advantage Kit Swerve Base Template for Spark",
+        "posts_count": 4,
+        "created_at": "2025-03-06T03:38:46.394Z",
+        "views": 154,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-03-08T05:52:34.241Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "loop-overrun-and-other-errors-advantage-kit-swerve-base-template-for-spark",
+        "category_id": 75,
+        "word_count": 436,
+        "deleted_at": null,
+        "user_id": 10996,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/5/55c08994930ccf0e8d25c10d105afac3cfe4db08_2_1024x768.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494446",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45093,
+            "execute_at": "2026-03-08T05:52:34.241Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 2048,
+                "height": 1536,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/5/55c08994930ccf0e8d25c10d105afac3cfe4db08.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 768,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/5/55c08994930ccf0e8d25c10d105afac3cfe4db08_2_1024x768.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 10996,
+                    "username": "steinra",
+                    "name": "steinra",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 10996,
+                "username": "steinra",
+                "name": "steinra",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png"
+            },
+            "last_poster": {
+                "id": 10996,
+                "username": "steinra",
+                "name": "steinra",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,1041 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3552124,
+                    "name": "E DiCarlo",
+                    "username": "E_DiCarlo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png",
+                    "created_at": "2025-03-09T20:49:57.147Z",
+                    "cooked": "I’m a programming mentor from Team 236.  We are using two KrakenX60 motors for our elevator, and they are too aggressive when going to Reef branches Levels 3 and 4.   We are trying to use profiled trapezoidal PID to slow it down, but no matter what values of max velocity and max acceleration we put in the TrapezoidalProfile, it still goes just as fast (tried values as low as 0.0001).  The code is here and copied below, and at this link: GitHub - Team236/2025-Robot\n\nBefore converting to meters (desired height was originally kept in units of inches), the code ran but did not slow anything down.  After converting to meters, nothing happens when the command is called.\n\nAny advice would be much appreciated!\n\npublic class DangerProfiledPIDToHeight extends Command { private Elevator elevator; private double desiredHeight; //desired height in inches private double kP= Constants.Elevator.KP_ELEV; private double kI = Constants.Elevator.KI_ELEV; private double kD = Constants.Elevator.KD_ELEV; private final TrapezoidProfile.Constraints constraints; private final ProfiledPIDController pidController;\n\n//Must use meters for units in the profiledPIDController public DangerProfiledPIDToHeight(Elevator elevator, double desiredHeight) { this.elevator = elevator; this.desiredHeight = desiredHeight; addRequirements(elevator);\n\n}\n\n@Override public void initialize() { pidController.reset(0); }\n\n@Override public void execute() { pidController.setGoal(desiredHeight*0.0254); elevator.setElevSpeed(pidController.calculate(elevator.getElevatorHeightMeters())); }\n\n@Override public void end(boolean interrupted) { }\n\n@Override public boolean isFinished() { return false; } }",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-03-09T20:49:57.147Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 11,
+                    "reads": 108,
+                    "readers_count": 107,
+                    "score": 76.4,
+                    "yours": false,
+                    "topic_id": 494876,
+                    "topic_slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+                    "display_username": "E DiCarlo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Team236/2025-Robot.git",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Team236/2025-Robot",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30734,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/need-help-creating-profiled-trapezoidal-pid-for-elevator/494876/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3552133,
+                    "name": "",
+                    "username": "TheBatman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png",
+                    "created_at": "2025-03-09T20:59:11.470Z",
+                    "cooked": "I think you should consider switching to the in-built motion profiles by ctre:\n\nIn addition to basic PID control, the Talon FX also supports onboard motion profiling using Motion Magic® controls. Motion Magic®: Motion Magic® is a control mode that provides the benefit of Motio...",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-03-09T20:59:11.470Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 93,
+                    "readers_count": 92,
+                    "score": 103.4,
+                    "yours": false,
+                    "topic_id": 494876,
+                    "topic_slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/2024/docs/api-reference/device-specific/talonfx/motion-magic.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Motion Magic® Controls",
+                            "clicks": 13
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71857,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Vigilante"
+                    },
+                    "post_url": "/t/need-help-creating-profiled-trapezoidal-pid-for-elevator/494876/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3552198,
+                    "name": "E DiCarlo",
+                    "username": "E_DiCarlo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png",
+                    "created_at": "2025-03-09T22:17:43.478Z",
+                    "cooked": "Thanks for this advice.  I have set this up in code to test out tomorrow.\n\nAny recommendations on how to tune all of the constants below, or are the numbers in the sample code below typically good? // set slot 0 gains var slotRConfigs = rightTalonConfig.Slot0; slotRConfigs.kS = 0.25; // Add 0.25 V output to overcome static friction slotRConfigs.kV = 0.12; // A velocity target of 1 rps results in 0.12 V output slotRConfigs.kA = 0.01; // An acceleration of 1 rps/s requires 0.01 V output slotRConfigs.kP = 4.8; // A position error of 2.5 rotations results in 12 V output slotRConfigs.kI = 0; // no output for integrated error slotRConfigs.kD = 0.1; // A velocity error of 1 rps results in 0.1 V output",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-03-09T22:17:43.478Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 84,
+                    "readers_count": 83,
+                    "score": 26.6,
+                    "yours": false,
+                    "topic_id": 494876,
+                    "topic_slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+                    "display_username": "E DiCarlo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30734,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/need-help-creating-profiled-trapezoidal-pid-for-elevator/494876/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3554394,
+                    "name": "E DiCarlo",
+                    "username": "E_DiCarlo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png",
+                    "created_at": "2025-03-11T19:31:54.792Z",
+                    "cooked": "Thank you - you really are a super hero!  The motion magic was easy to implement and tune, and it worked like a charm (combined with other Chief Delphi advice truncated and copied below):\n\nMotion Magic configs, the max possible cruise velocity for a Kraken X60 is 100.0 / sensor to mech ratio. So I would probably set your cruise velocity to 3.5 mechanism RPS (~90.0 rps / 25.0) to give yourself some headroom.\n\nFrom there, acceleration depends on how long you want the profile to take to reach max velocity. If you want it to take about half a second, then acceleration should be double your cruise velocity. For 0.2 s, it should be 5x your cruise velocity.\n\nJerk is optional, but if you want to include it for smoother motion, a good starting point is around 10x your acceleration, which means the acceleration would take 0.1 s to reach the max.\n\nAs for your PID gains, your kS is fine, but your other gains are going to be far too weak in terms of mechanism rotations. For a SensorToMechanismRatio of 25, I would expect a kV of 2.75 and a kP of around 50-100 for reference. You can use SysId to find your gains, otherwise you can manually tune them. If you use SysId, make sure your SensorToMechanismRatio is applied before you run the test.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-03-11T19:31:54.792Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 57,
+                    "readers_count": 56,
+                    "score": 16.2,
+                    "yours": false,
+                    "topic_id": 494876,
+                    "topic_slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+                    "display_username": "E DiCarlo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 71857,
+                        "username": "TheBatman",
+                        "name": "",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30734,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/need-help-creating-profiled-trapezoidal-pid-for-elevator/494876/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3554453,
+                    "name": "",
+                    "username": "TheBatman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png",
+                    "created_at": "2025-03-11T20:38:11.100Z",
+                    "cooked": "Im really happy that you it worked for you, have a great season",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-03-11T20:38:11.100Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 42,
+                    "readers_count": 41,
+                    "score": 8.2,
+                    "yours": false,
+                    "topic_id": 494876,
+                    "topic_slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 30734,
+                        "username": "E_DiCarlo",
+                        "name": "E DiCarlo",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71857,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Vigilante"
+                    },
+                    "post_url": "/t/need-help-creating-profiled-trapezoidal-pid-for-elevator/494876/5",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3552124,
+                3552133,
+                3552198,
+                3554394,
+                3554453
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                147
+            ],
+            [
+                4,
+                145
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 473064,
+                "title": "Controlling non addressable leds",
+                "fancy_title": "Controlling non addressable leds",
+                "slug": "controlling-non-addressable-leds",
+                "posts_count": 13,
+                "reply_count": 7,
+                "highest_post_number": 13,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/4/c/4ccf2dbc3242833ea030cd76dc8646bdb8e5cf9b_2_768x1024.jpeg",
+                "created_at": "2024-10-15T06:52:39.002Z",
+                "last_posted_at": "2024-10-15T14:16:41.079Z",
+                "bumped": true,
+                "bumped_at": "2024-10-15T14:22:34.368Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have this type of LEDs where there is 4 pins. 1 labeld +5V, and one for each R G B. We don’t have any led driver like the REV or CTRE one. How can you control them from the Rio?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 181,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3435046,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60986,
+                    "username": "GalDotan",
+                    "name": "Gal",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60986,
+                            "username": "GalDotan",
+                            "name": "Gal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 43037,
+                            "username": "ProbablyWont",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e19adc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 473362,
+                "title": "When typically release library updates for WPIiLb?",
+                "fancy_title": "When typically release library updates for WPIiLb?",
+                "slug": "when-typically-release-library-updates-for-wpiilb",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-10-21T01:01:49.568Z",
+                "last_posted_at": "2024-10-21T03:07:17.210Z",
+                "bumped": true,
+                "bumped_at": "2024-10-21T03:07:17.210Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I updated my WPILib to the 2025 beta version, however most libraries give errors when installed in the code, such as YAGSL, REV, PathPlanner, among others. When I put them in my automatic code import,…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib",
+                    "library"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 350,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3437162,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64337,
+                    "username": "MiguelRodrigues0",
+                    "name": "Rodrigues",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/miguelrodrigues0/{size}/255312_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64337,
+                            "username": "MiguelRodrigues0",
+                            "name": "Rodrigues",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/miguelrodrigues0/{size}/255312_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53160,
+                            "username": "RomanTechPlus",
+                            "name": "Roman A.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/romantechplus/{size}/214929_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475762,
+                "title": "I need help with my autonomous mode",
+                "fancy_title": "I need help with my autonomous mode",
+                "slug": "i-need-help-with-my-autonomous-mode",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-11-28T23:09:04.949Z",
+                "last_posted_at": "2024-11-29T04:56:30.790Z",
+                "bumped": true,
+                "bumped_at": "2024-11-29T04:56:30.790Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I believe all the code you have currently is correct in the syntax and intention. After setting the target positions, set modes, and motor powers, I believe you need some kind of loop to stall the rob…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "programming",
+                    "ftc"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 252,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3453054,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65809,
+                    "username": "RavenRain44",
+                    "name": "Collin Arthur",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/a87d85/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69354,
+                            "username": "adriel_derof4735",
+                            "name": "Adriel ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/adriel_derof4735/{size}/253642_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65809,
+                            "username": "RavenRain44",
+                            "name": "Collin Arthur",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/a87d85/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476155,
+                "title": "3D printed WCP Through Bore?",
+                "fancy_title": "3D printed WCP Through Bore?",
+                "slug": "3d-printed-wcp-through-bore",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-06T02:00:48.609Z",
+                "last_posted_at": "2024-12-06T05:03:59.672Z",
+                "bumped": true,
+                "bumped_at": "2024-12-06T05:03:59.672Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We were 3D printing through bore housings for cancorders back in 2018, long before you could buy them COTS. The files will still work if you want ht…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 22,
+                "views": 490,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455631,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 22221,
+                    "username": "nuclearnerd",
+                    "name": "Brendan Simons, 5406",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuclearnerd/{size}/7324_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 22221,
+                            "username": "nuclearnerd",
+                            "name": "Brendan Simons, 5406",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nuclearnerd/{size}/7324_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64837,
+                            "username": "JAAMES",
+                            "name": "JAMES",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jaames/{size}/231436_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53758,
+                            "username": "Eeshwar",
+                            "name": "Eeshwar Krishnan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eeshwar/{size}/195169_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14572,
+                            "username": "Nick_Coussens",
+                            "name": "Nick Coussens",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nick_coussens/{size}/231882_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476835,
+                "title": "PathPlanner is not moving the robot during autonomous",
+                "fancy_title": "PathPlanner is not moving the robot during autonomous",
+                "slug": "pathplanner-is-not-moving-the-robot-during-autonomous",
+                "posts_count": 9,
+                "reply_count": 3,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-12-16T21:39:04.234Z",
+                "last_posted_at": "2024-12-22T21:41:12.351Z",
+                "bumped": true,
+                "bumped_at": "2024-12-22T21:41:12.351Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey, I am a new programmer for our team and we are trying to get PathPlanner to work for our autos. We were able to set up PathPlanner and get named commands to work. Everything works fine but the pat…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 494,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460034,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69667,
+                    "username": "Kevin1",
+                    "name": "Kevin",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69667,
+                            "username": "Kevin1",
+                            "name": "Kevin",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/a9adbd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56004,
+                            "username": "BirdyBird",
+                            "name": "David",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/47e85d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59898,
+                            "username": "GreenTomato",
+                            "name": "Otto",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/greentomato/{size}/214780_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "whoami"
+        ],
+        "tags_descriptions": {},
+        "id": 494876,
+        "title": "Need help creating profiled/trapezoidal PID for elevator",
+        "fancy_title": "Need help creating profiled/trapezoidal PID for elevator",
+        "posts_count": 5,
+        "created_at": "2025-03-09T20:49:57.022Z",
+        "views": 192,
+        "reply_count": 2,
+        "like_count": 5,
+        "last_posted_at": "2025-03-11T20:38:11.100Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "need-help-creating-profiled-trapezoidal-pid-for-elevator",
+        "category_id": 30,
+        "word_count": 695,
+        "deleted_at": null,
+        "user_id": 30734,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494876",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45271,
+            "execute_at": "2026-03-11T20:38:11.100Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "TheBatman",
+            "name": null,
+            "excerpt": "I think you should consider switching to the in-built motion profiles by ctre:",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 30734,
+                    "username": "E_DiCarlo",
+                    "name": "E DiCarlo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 71857,
+                    "username": "TheBatman",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 30734,
+                "username": "E_DiCarlo",
+                "name": "E DiCarlo",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/ecae2f/{size}.png"
+            },
+            "last_poster": {
+                "id": 71857,
+                "username": "TheBatman",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/2024/docs/api-reference/device-specific/talonfx/motion-magic.html",
+                    "title": "Motion Magic® Controls",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 71857,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://github.com/Team236/2025-Robot.git",
+                    "title": "GitHub - Team236/2025-Robot",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 30734,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

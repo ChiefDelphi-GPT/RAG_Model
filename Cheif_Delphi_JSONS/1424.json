@@ -1,0 +1,806 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3548789,
+                    "name": "Sorin Schiefelbein",
+                    "username": "sorinschief",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png",
+                    "created_at": "2025-03-06T00:19:33.842Z",
+                    "cooked": "I have two NEOs on my elevator and I would like to move it to a position and hold it at a position. I set config.idleMode(SparkBaseConfig.IdleMode.kBrake) on my SparkMaxConfig , but when I start to move it up ( .set(0.25) ) and then set it to 0 , nothing seems to happen and it just slides back down, and I’m not sure why.\n\nI’ve never used WPILib or REVLib before so sorry if I’m missing something that should be obvious.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-06T00:19:33.842Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 73,
+                    "readers_count": 72,
+                    "score": 84.6,
+                    "yours": false,
+                    "topic_id": 494424,
+                    "topic_slug": "holding-braking-a-spark-max-controller",
+                    "display_username": "Sorin Schiefelbein",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71514,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/holding-braking-a-spark-max-controller/494424/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3548793,
+                    "name": "Skye Leake",
+                    "username": "Skyehawk",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "created_at": "2025-03-06T00:27:18.140Z",
+                    "cooked": "You can think of brake mode as “drag mode”. It won’t hold position if there is a force beyond static friction.\n\nIt effectively just shorts the windings in the motor, the resistance you feel is those shorted windings fighting against the magnets in the motor (back EMF). There is more to it than that, but I hope you get the idea.\n\nMechanically you can counterbalance your mechanism (gas shocks, constant force springs)\n\nCode wise there is not much you can do when the robot is disabled.\n\nIf the robot is enabled, a PID controller should be able to hold position, beyond that you may be pouted to PIDF controllers ( PID + feed forward).",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-10T20:57:15.378Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 43.8,
+                    "yours": false,
+                    "topic_id": 494424,
+                    "topic_slug": "holding-braking-a-spark-max-controller",
+                    "display_username": "Skye Leake",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 19235,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Flyin' a hull |5934←2451←2767←876"
+                    },
+                    "post_url": "/t/holding-braking-a-spark-max-controller/494424/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3553248,
+                    "name": "Sorin Schiefelbein",
+                    "username": "sorinschief",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png",
+                    "created_at": "2025-03-10T20:50:09.981Z",
+                    "cooked": "Good to know, thank you",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-10T20:50:09.981Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 26,
+                    "readers_count": 25,
+                    "score": 5.2,
+                    "yours": false,
+                    "topic_id": 494424,
+                    "topic_slug": "holding-braking-a-spark-max-controller",
+                    "display_username": "Sorin Schiefelbein",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 19235,
+                        "username": "Skyehawk",
+                        "name": "Skye Leake",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71514,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/holding-braking-a-spark-max-controller/494424/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3548789,
+                3548793,
+                3553248
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                151
+            ],
+            [
+                3,
+                146
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 473699,
+                "title": "Simulating code causes a bunch of errors",
+                "fancy_title": "Simulating code causes a bunch of errors",
+                "slug": "simulating-code-causes-a-bunch-of-errors",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/2/52cd3bf65d69df877053965da8f6d7d40dfa6f6d_2_1024x353.png",
+                "created_at": "2024-10-25T15:09:45.790Z",
+                "last_posted_at": "2024-10-25T20:51:19.951Z",
+                "bumped": true,
+                "bumped_at": "2024-10-25T20:51:19.951Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Your Intake subsystem has its own copy of the LEDs subsystem. Don’t do this. Subsystems should only be created and stored by the RobotContainer",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 123,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3439117,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 25916,
+                    "username": "SamCarlberg",
+                    "name": "Sam Carlberg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68704,
+                            "username": "txrnqt",
+                            "name": "jace",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a9a28c/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 25916,
+                            "username": "SamCarlberg",
+                            "name": "Sam Carlberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475122,
+                "title": "Introducing BumbleBoard: A New FRC Dashboard",
+                "fancy_title": "Introducing BumbleBoard: A New FRC Dashboard",
+                "slug": "introducing-bumbleboard-a-new-frc-dashboard",
+                "posts_count": 26,
+                "reply_count": 18,
+                "highest_post_number": 29,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/e/8e1eadffebdf1aaa5403b030267a3b6261416063_2_1024x552.jpeg",
+                "created_at": "2024-11-18T21:18:41.026Z",
+                "last_posted_at": "2025-02-12T13:31:37.549Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T13:31:37.549Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "After a year of development, Team BumbleB 3339 is excited to announce BumbleBoard — a high-performance, customizable, and reliable dashboard alternative built with React. We developed BumbleBoard …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "programming",
+                    "field",
+                    "pits",
+                    "pit",
+                    "dashboard",
+                    "shuffleboard",
+                    "visualization",
+                    "drive-team"
+                ],
+                "tags_descriptions": {},
+                "like_count": 297,
+                "views": 2754,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3448990,
+                "topic_post_liked": false,
+                "topic_post_like_count": 26,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68925,
+                    "username": "Amit627",
+                    "name": "Amit Cohen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/amit627/{size}/236209_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68925,
+                            "username": "Amit627",
+                            "name": "Amit Cohen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/amit627/{size}/236209_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16846,
+                            "username": "calcmogul",
+                            "name": "Tyler Veness",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 478041,
+                "title": "7103 Code Release for 2024 Offseason",
+                "fancy_title": "7103 Code Release for 2024 Offseason",
+                "slug": "7103-code-release-for-2024-offseason",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-03T03:56:11.173Z",
+                "last_posted_at": "2025-01-03T03:56:11.236Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T03:56:11.236Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Here is the GitHub link for the offseason code for Team 7103, Robo Github This will act as our base robot project for the beginning of the season.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "release"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 67,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3467301,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 36869,
+                    "username": "tomjwinter",
+                    "name": "Tom Winter",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tomjwinter/{size}/110664_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 36869,
+                            "username": "tomjwinter",
+                            "name": "Tom Winter",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tomjwinter/{size}/110664_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 481024,
+                "title": "Unable to discover roborio when deploying",
+                "fancy_title": "Unable to discover roborio when deploying",
+                "slug": "unable-to-discover-roborio-when-deploying",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-01-11T20:33:52.021Z",
+                "last_posted_at": "2025-01-19T00:05:07.086Z",
+                "bumped": true,
+                "bumped_at": "2025-01-19T00:05:07.086Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, Whenever I try to deploy my code, the task discoverroborio fails. This only occurs on my Mac (MacOS Sequoia 15.2), and works on everyone else’s computer. This is also a new issue and did not occu…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "roborio"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 340,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479389,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71060,
+                    "username": "LaurensSchunk",
+                    "name": "Laurens Schunk",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/54ee81/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71060,
+                            "username": "LaurensSchunk",
+                            "name": "Laurens Schunk",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/54ee81/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29425,
+                            "username": "hschilling",
+                            "name": "Herb Schilling",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/f0a364/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 472127,
+                "title": "Using a Raspberry Pi as a DHCP Server for VH-113",
+                "fancy_title": "Using a Raspberry Pi as a DHCP Server for VH-113",
+                "slug": "using-a-raspberry-pi-as-a-dhcp-server-for-vh-113",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-09-30T16:45:38.968Z",
+                "last_posted_at": "2024-10-07T04:51:51.246Z",
+                "bumped": true,
+                "bumped_at": "2024-10-07T04:51:51.246Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m trying to set up a VH-109 in VH-113 mode as an AP for a simulated field network setup, but without an FMS (I just need the networking). I figured I could use a raspberry pi as a DHCP server for th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 515,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3429145,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 16147,
+                    "username": "Thad_House",
+                    "name": "Thad House",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6398,
+                            "username": "kiettyyyy",
+                            "name": "Kiet Chau",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kiettyyyy/{size}/194009_2.png",
+                            "flair_name": "Vivid-Hosting",
+                            "flair_url": "/uploads/default/original/3X/5/0/50d2e846f0add7aa9489092abe0f436644dde98d.png",
+                            "flair_group_id": 62,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "revrobotics"
+        ],
+        "tags_descriptions": {},
+        "id": 494424,
+        "title": "Holding/Braking a Spark MAX Controller",
+        "fancy_title": "Holding/Braking a Spark MAX Controller",
+        "posts_count": 3,
+        "created_at": "2025-03-06T00:19:33.762Z",
+        "views": 123,
+        "reply_count": 1,
+        "like_count": 1,
+        "last_posted_at": "2025-03-10T20:50:09.981Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "holding-braking-a-spark-max-controller",
+        "category_id": 30,
+        "word_count": 203,
+        "deleted_at": null,
+        "user_id": 71514,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494424",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45081,
+            "execute_at": "2026-03-10T20:50:09.981Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 71514,
+                    "username": "sorinschief",
+                    "name": "Sorin Schiefelbein",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 19235,
+                    "username": "Skyehawk",
+                    "name": "Skye Leake",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                }
+            ],
+            "created_by": {
+                "id": 71514,
+                "username": "sorinschief",
+                "name": "Sorin Schiefelbein",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png"
+            },
+            "last_poster": {
+                "id": 71514,
+                "username": "sorinschief",
+                "name": "Sorin Schiefelbein",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

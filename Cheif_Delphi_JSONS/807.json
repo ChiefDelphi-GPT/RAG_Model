@@ -1,0 +1,798 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3585778,
+                    "name": "Asher Olgeirson",
+                    "username": "Cynosure",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png",
+                    "created_at": "2025-04-09T23:10:26.239Z",
+                    "cooked": "Hi, we’re using pathplanner for our auto alignment and we’ve been running into an std::__throw_bad_optional_access() exception. This occurs when we call std::make_shared<PathPlannerPath>(...) and the code crashes after.\n\nThe call stack is here:\n\nThe relalvant code snippet is here:\n\nFull code is here: GitHub - FRC2240/Reefscape2025 at autoalign-testing .\n\nThanks for any help",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-09T23:10:26.239Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 59,
+                    "readers_count": 58,
+                    "score": 31.8,
+                    "yours": false,
+                    "topic_id": 498617,
+                    "topic_slug": "pathplanner-throwing-a-bad-optional-access-exception-on-path-construction",
+                    "display_username": "Asher Olgeirson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/FRC2240/Reefscape2025/tree/autoalign-testing",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - FRC2240/Reefscape2025 at autoalign-testing",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51179,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-throwing-a-bad-optional-access-exception-on-path-construction/498617/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3585796,
+                    "name": "Tyler Veness",
+                    "username": "calcmogul",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "created_at": "2025-04-09T23:22:34.538Z",
+                    "cooked": "Here’s the line of PathPlannerLib code doing the bad optional access: pathplanner/pathplannerlib/src/main/native/cpp/pathplanner/lib/path/PathPlannerPath.cpp at main · mjansen4857/pathplanner · GitHub\n\nSince they use operator[] instead of at() , it’s unclear if i + 1 is even a valid index. If it’s not, this could be UB anyway. Their clamping logic for the cubic interpolation parameter is funky too. Naturally, there’s no comments describing the code’s intent, and that intent isn’t clear from just reading the code.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-09T23:26:01.604Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 39,
+                    "readers_count": 38,
+                    "score": 32.8,
+                    "yours": false,
+                    "topic_id": 498617,
+                    "topic_slug": "pathplanner-throwing-a-bad-optional-access-exception-on-path-construction",
+                    "display_username": "Tyler Veness",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/mjansen4857/pathplanner/blob/main/pathplannerlib/src/main/native/cpp/pathplanner/lib/path/PathPlannerPath.cpp#L929",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "pathplanner/pathplannerlib/src/main/native/cpp/pathplanner/lib/path/PathPlannerPath.cpp at main · mjansen4857/pathplanner · GitHub",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16846,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib controls | Choreo optimizer backend"
+                    },
+                    "post_url": "/t/pathplanner-throwing-a-bad-optional-access-exception-on-path-construction/498617/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3585975,
+                    "name": "Asher Olgeirson",
+                    "username": "Cynosure",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png",
+                    "created_at": "2025-04-10T03:01:30.421Z",
+                    "cooked": "@mjansen4857 just hoping you see this",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-10T03:01:30.421Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 18,
+                    "readers_count": 17,
+                    "score": 3.6,
+                    "yours": false,
+                    "topic_id": 498617,
+                    "topic_slug": "pathplanner-throwing-a-bad-optional-access-exception-on-path-construction",
+                    "display_username": "Asher Olgeirson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51179,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-throwing-a-bad-optional-access-exception-on-path-construction/498617/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3585778,
+                3585796,
+                3585975
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                116
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 469570,
+                "title": "Troubleshooting Python NetworkTables Connection Issues in FRC Robot Code",
+                "fancy_title": "Troubleshooting Python NetworkTables Connection Issues in FRC Robot Code",
+                "slug": "troubleshooting-python-networktables-connection-issues-in-frc-robot-code",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-08-06T09:30:59.422Z",
+                "last_posted_at": "2024-08-07T18:58:54.260Z",
+                "bumped": true,
+                "bumped_at": "2024-08-07T18:58:54.260Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, I’ve been working on setting up the NetworkTables for our FRC robot using Python, but I’ve hit a snag. I’ve written a simple script to connect to the robot’s NetworkTables server, but…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "frc",
+                    "python",
+                    "network"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 172,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3413630,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67418,
+                    "username": "modismos",
+                    "name": "Elena",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/a9a28c/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67418,
+                            "username": "modismos",
+                            "name": "Elena",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/a9a28c/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 47943,
+                            "username": "megarubber",
+                            "name": "Guilherme Samuel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58611,
+                            "username": "Rocky_S",
+                            "name": "Rocky",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rocky_s/{size}/220194_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475402,
+                "title": "Driver station joysticks only appear for 1 windows user",
+                "fancy_title": "Driver station joysticks only appear for 1 windows user",
+                "slug": "driver-station-joysticks-only-appear-for-1-windows-user",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-11-22T01:25:36.046Z",
+                "last_posted_at": "2024-11-25T10:47:16.373Z",
+                "bumped": true,
+                "bumped_at": "2024-11-25T10:47:16.373Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have several shared laptops for our programmers and each programmer has their own local windows account on one of the computers. This helps prevent people from modifying other’s code, making admini…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 130,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3450652,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 28614,
+                    "username": "legoguy1000",
+                    "name": "Alex",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 475775,
+                "title": "UnicodeDecodeError calling sparkmax.iterate() with 2025 robotpy",
+                "fancy_title": "UnicodeDecodeError calling sparkmax.iterate() with 2025 robotpy",
+                "slug": "unicodedecodeerror-calling-sparkmax-iterate-with-2025-robotpy",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-11-29T06:47:31.524Z",
+                "last_posted_at": "2024-12-15T19:27:39.452Z",
+                "bumped": true,
+                "bumped_at": "2024-12-15T19:27:39.452Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "After updating to 2025 robotpy, when I simulate my code, which is basically 1 fairly minimal subsystem, I get the following 22:35:07:729 ERROR : robotpy : The robot program quit …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "python",
+                    "simulation"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 130,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3453090,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69490,
+                            "username": "mythgarr",
+                            "name": "Andrew J (FRC 2881)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mythgarr/{size}/238053_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 483526,
+                "title": "Problems calibrating pigeon 2.0",
+                "fancy_title": "Problems calibrating pigeon 2.0",
+                "slug": "problems-calibrating-pigeon-2-0",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/8/d862c2edf917e93843eadba677c1c68fccbf481d_2_1024x768.jpeg",
+                "created_at": "2025-01-25T15:03:14.988Z",
+                "last_posted_at": "2025-01-25T15:03:15.051Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T15:03:15.051Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Lately our team has started using Pigeon 2.0 and after defining the position of the electrical components, we tried to calibrate Pigeon 2.0 but we have been facing problems. We can’t leave Yaw at zer…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 95,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492322,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67184,
+                    "username": "Macieira_63",
+                    "name": "Esther",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/c5a1d2/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 67184,
+                            "username": "Macieira_63",
+                            "name": "Esther",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/c5a1d2/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 492535,
+                "title": "Buddy Auto with Choreo",
+                "fancy_title": "Buddy Auto with Choreo",
+                "slug": "buddy-auto-with-choreo",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-21T01:26:06.077Z",
+                "last_posted_at": "2025-02-21T04:29:20.351Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T04:29:20.351Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is considering a buddy auto that pushes our alliance members off the start line and scores a coral (guaranteeing the auto RP). We generally use choreo to generate our trajectories, but can it …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 312,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3534932,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73646,
+                    "username": "caterbob",
+                    "name": "Aidan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/c6cbf5/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73646,
+                            "username": "caterbob",
+                            "name": "Aidan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/c6cbf5/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61214,
+                            "username": "Paul_R",
+                            "name": "Paul Regnier",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/paul_r/{size}/203827_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 498617,
+        "title": "Pathplanner throwing a bad optional access exception on path construction",
+        "fancy_title": "Pathplanner throwing a bad optional access exception on path construction",
+        "posts_count": 3,
+        "created_at": "2025-04-09T23:10:26.186Z",
+        "views": 89,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-04-10T03:01:30.421Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pathplanner-throwing-a-bad-optional-access-exception-on-path-construction",
+        "category_id": 30,
+        "word_count": 1200,
+        "deleted_at": null,
+        "user_id": 51179,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_498617",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46557,
+            "execute_at": "2026-04-10T03:01:30.421Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 51179,
+                    "username": "Cynosure",
+                    "name": "Asher Olgeirson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16846,
+                    "username": "calcmogul",
+                    "name": "Tyler Veness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 51179,
+                "username": "Cynosure",
+                "name": "Asher Olgeirson",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png"
+            },
+            "last_poster": {
+                "id": 51179,
+                "username": "Cynosure",
+                "name": "Asher Olgeirson",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/FRC2240/Reefscape2025/tree/autoalign-testing",
+                    "title": "GitHub - FRC2240/Reefscape2025 at autoalign-testing",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 51179,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/mjansen4857/pathplanner/blob/main/pathplannerlib/src/main/native/cpp/pathplanner/lib/path/PathPlannerPath.cpp#L929",
+                    "title": "pathplanner/pathplannerlib/src/main/native/cpp/pathplanner/lib/path/PathPlannerPath.cpp at main · mjansen4857/pathplanner · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 16846,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

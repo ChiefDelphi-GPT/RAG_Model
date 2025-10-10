@@ -1,0 +1,838 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3550053,
+                    "name": "Rishab Tirupathi",
+                    "username": "rishabtirupathi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png",
+                    "created_at": "2025-03-07T01:10:01.564Z",
+                    "cooked": "We currently have a vision system with four ArducCams (OV9281), and two OrangePis (OrangePi 5 Plus), with two ArduCams connected to each. Then, we have a Limelight 3G, which has PhotonVision installed on it, and acts as a normal PhotonVision camera and coprocessor. During the Mishawaka competition, our pose was VERY good, and we had no PathPlanner jitter. However, when we came back to our shop, we have a noticeable amount  of jitter. This is weird, because we checked our apriltags in the shop, and they’re all within an inch of the actual field. We did some testing, and realized that if two cameras (for example, one of the ArduCams and the Limelight camera) both look at one tag, the position they calculate is a bit different from each other (the rotation of that estimated pose if the same for both cameras, but its translation is about half a meter off for both of them). We have triple-checked our camera constants , but this error keeps on happening with our pose estimation. We also tried not adding any vision measurements that have a high ambiguity, but even if 2 cameras are looking at the same AprilTag, and they have a very low ambiguity, there is still a different for the pose estimate for both cameras.\n\nWe have spent a lot of time trying to make all 5 cameras work in sync so that it would make our position better, but for some reason, it seems to make it worse, since all the cameras seem to have a different opinion of where the AprilTag they’re looking at actually is, even if they’re looking at the same AprilTag. We really think that we can make our pose estimation much better, to the point that the estimated pose is within 2 inches of the actual pose, but we don’t know how to get there. Any help would really help us .\n\nOur robot code is located at GitHub - FRC4926/ReefscapeMain at elevatorV2 (our latest code is in the elevatorV2 branch!), and our code for pose estimation is located in ReefscapeMain/src/main/java/frc/robot/subsystems/VisionSubsystem.java at elevatorV2 · FRC4926/ReefscapeMain · GitHub .",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-07T01:10:01.564Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 27,
+                    "reads": 138,
+                    "readers_count": 137,
+                    "score": 177.6,
+                    "yours": false,
+                    "topic_id": 494589,
+                    "topic_slug": "how-can-we-make-vision-systems-measurements-more-accurate",
+                    "display_username": "Rishab Tirupathi",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/FRC4926/ReefscapeMain/blob/elevatorV2/src/main/java/frc/robot/subsystems/VisionSubsystem.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ReefscapeMain/src/main/java/frc/robot/subsystems/VisionSubsystem.java at elevatorV2 · FRC4926/ReefscapeMain · GitHub",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://github.com/FRC4926/ReefscapeMain/blob/80bf8c65a7a064122a059a20f62d5b8a044e9e88/src/main/java/frc/robot/Constants.java#L159",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ReefscapeMain/src/main/java/frc/robot/Constants.java at 80bf8c65a7a064122a059a20f62d5b8a044e9e88 · FRC4926/ReefscapeMain · GitHub",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://github.com/FRC4926/ReefscapeMain/tree/elevatorV2",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - FRC4926/ReefscapeMain at elevatorV2",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69146,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2024"
+                    },
+                    "post_url": "/t/how-can-we-make-vision-systems-measurements-more-accurate/494589/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3550864,
+                    "name": null,
+                    "username": "A_human",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/a_human/{size}/186621_2.png",
+                    "created_at": "2025-03-08T01:15:56.378Z",
+                    "cooked": "Here are a few questions to think about. Hopefully they help.\n\nHas any photonvision code changed between the competition and now? If so, what changed? Have you try reverting back to the competition code if you did change anything, and restarting from there?\n\nDid any camera calibrations change?\n\nEven though the individual poses are off, is the overall pose still accurate?\n\nIs there a specific camera that’s off?\n\nCould the coprocessor be overheating?\n\nDoes the robot still move to the correct position despite the PathPlanner jitter?\n\nWhat is your PhotonPoseEstimator pose strategy? Have you tried messing with it?\n\nI’m seeing a lot of commented-out code. Is any of it necessary for a good pose? Would removing it help with organization?\n\nI hope this helps!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-08T01:15:56.378Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 96,
+                    "readers_count": 95,
+                    "score": 24.2,
+                    "yours": false,
+                    "topic_id": 494589,
+                    "topic_slug": "how-can-we-make-vision-systems-measurements-more-accurate",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56532,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-can-we-make-vision-systems-measurements-more-accurate/494589/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3551138,
+                    "name": "Allen Nuttle",
+                    "username": "nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "created_at": "2025-03-08T12:16:05.639Z",
+                    "cooked": "Are the cameras calibrated?  There can be significant individual variation in things like lens placement and properties that can cause inaccuracies, and these may not be uniform across the field-of-view.\n\nYou probably want/need some way of fusing the data (e.g. a Kalman filter), assuming you don’t already do this.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-08T12:16:05.639Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 14.0,
+                    "yours": false,
+                    "topic_id": 494589,
+                    "topic_slug": "how-can-we-make-vision-systems-measurements-more-accurate",
+                    "display_username": "Allen Nuttle",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 14283,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-can-we-make-vision-systems-measurements-more-accurate/494589/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3550053,
+                3550864,
+                3551138
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                150
+            ],
+            [
+                2,
+                149
+            ],
+            [
+                3,
+                148
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 484126,
+                "title": "Photonvision getting Skew data using Apriltags",
+                "fancy_title": "Photonvision getting Skew data using Apriltags",
+                "slug": "photonvision-getting-skew-data-using-apriltags",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/e/c/ecbb2b5dbf36567b841cdf7b8b31fb588811f444_2_1024x452.png",
+                "created_at": "2025-01-29T17:09:54.857Z",
+                "last_posted_at": "2025-01-29T21:03:34.769Z",
+                "bumped": true,
+                "bumped_at": "2025-01-29T21:03:34.769Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone, I want to do an alignment with using photonvision but not just aiming to apriltag with turning the robot. I want to move my robot right in front of the apriltag, like apriltag and my rob…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "photonvision",
+                    "alignment"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 276,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495724,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65439,
+                    "username": "kab",
+                    "name": "Kerem Alper Batal",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kab/{size}/247872_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65439,
+                            "username": "kab",
+                            "name": "Kerem Alper Batal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kab/{size}/247872_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18334,
+                            "username": "BobbyVanNess",
+                            "name": "BobbyVanNess",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bobbyvanness/{size}/193519_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 474649,
+                "title": "PhotonVision 2025 Beta Release",
+                "fancy_title": "PhotonVision 2025 Beta Release",
+                "slug": "photonvision-2025-beta-release",
+                "posts_count": 48,
+                "reply_count": 30,
+                "highest_post_number": 48,
+                "image_url": null,
+                "created_at": "2024-11-10T16:39:25.684Z",
+                "last_posted_at": "2025-01-15T03:51:38.944Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T04:13:42.467Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "PhotonVision v2025.0.0-beta-1 Too many things to list; get it while it’s hot! Vendor JSON is attached to the release. I’m eternally thankful to everyone who helped pitch in and push us across the fin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 164,
+                "views": 5571,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445656,
+                "topic_post_liked": false,
+                "topic_post_like_count": 40,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 37738,
+                    "username": "thatmattguy",
+                    "name": "Matt",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 37738,
+                            "username": "thatmattguy",
+                            "name": "Matt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51303,
+                            "username": "Jochem",
+                            "name": "Jochem van den Broek",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jochem/{size}/258967_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57809,
+                            "username": "levyishai",
+                            "name": "Yishai Levy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 473643,
+                "title": "Issues getting PhotonVision installed on an Orange Pi 5",
+                "fancy_title": "Issues getting PhotonVision installed on an Orange Pi 5",
+                "slug": "issues-getting-photonvision-installed-on-an-orange-pi-5",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/9/f9873b89304e6ef1d36053819896a97da2cf87dc_2_1024x768.jpeg",
+                "created_at": "2024-10-25T00:20:39.241Z",
+                "last_posted_at": "2024-11-06T12:43:00.694Z",
+                "bumped": true,
+                "bumped_at": "2024-11-06T12:43:25.818Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team has been working on experimenting with an Orange Pi for vision on our robot. We’ve ordered an Orange Pi 5 Pro but we’re struggling on getting PhotonVision to boot. We were able to get the Pi t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 286,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438895,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68675,
+                    "username": "nfoert",
+                    "name": "nfoert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nfoert/{size}/235138_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68675,
+                            "username": "nfoert",
+                            "name": "nfoert",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nfoert/{size}/235138_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55420,
+                            "username": "fedorlspp26",
+                            "name": "Fedor Leonov",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fedorlspp26/{size}/240103_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 483581,
+                "title": "Trouble with setting up Orange Pi 5 for Photon Vision",
+                "fancy_title": "Trouble with setting up Orange Pi 5 for Photon Vision",
+                "slug": "trouble-with-setting-up-orange-pi-5-for-photon-vision",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-25T18:19:57.574Z",
+                "last_posted_at": "2025-01-25T18:19:57.648Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T18:19:57.648Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have been attempting to install Photon Vision to the NVME of an Orange Pi 5. First, we tried to flash the photon vision image to the micro SD, which booted. The issue is that, no matter what we do,…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 125,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492493,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61810,
+                    "username": "NaN",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/cc9497/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 61810,
+                            "username": "NaN",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/cc9497/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 497535,
+                "title": "Arducam OV9281 + Raspberry Pi",
+                "fancy_title": "Arducam OV9281 + Raspberry Pi",
+                "slug": "arducam-ov9281-raspberry-pi",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-31T14:59:17.034Z",
+                "last_posted_at": "2025-03-31T14:59:17.077Z",
+                "bumped": true,
+                "bumped_at": "2025-03-31T14:59:17.077Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We recently ordered a OV9281 + Orange Pi 5 Plus to improve our vision system, previously (and currently) we were using two generic global shutters with two raspberry pi 4b’s. We wanted to add a third…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 172,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3574946,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63685,
+                    "username": "w1zxrd",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/w1zxrd/{size}/246745_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63685,
+                            "username": "w1zxrd",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/w1zxrd/{size}/246745_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "vision",
+            "photonvision",
+            "camera",
+            "apriltags"
+        ],
+        "tags_descriptions": {},
+        "id": 494589,
+        "title": "How can we make vision system's measurements more accurate?",
+        "fancy_title": "How can we make vision system&rsquo;s measurements more accurate?",
+        "posts_count": 3,
+        "created_at": "2025-03-07T01:10:01.503Z",
+        "views": 284,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-08T12:16:05.639Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-can-we-make-vision-systems-measurements-more-accurate",
+        "category_id": 87,
+        "word_count": 563,
+        "deleted_at": null,
+        "user_id": 69146,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494589",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 14283,
+                    "username": "nuttle",
+                    "name": "Allen Nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 56532,
+                    "username": "A_human",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/a_human/{size}/186621_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 69146,
+                    "username": "rishabtirupathi",
+                    "name": "Rishab Tirupathi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 69146,
+                "username": "rishabtirupathi",
+                "name": "Rishab Tirupathi",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png"
+            },
+            "last_poster": {
+                "id": 14283,
+                "username": "nuttle",
+                "name": "Allen Nuttle",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/FRC4926/ReefscapeMain/blob/elevatorV2/src/main/java/frc/robot/subsystems/VisionSubsystem.java",
+                    "title": "ReefscapeMain/src/main/java/frc/robot/subsystems/VisionSubsystem.java at elevatorV2 · FRC4926/ReefscapeMain · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 69146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/FRC4926/ReefscapeMain/blob/80bf8c65a7a064122a059a20f62d5b8a044e9e88/src/main/java/frc/robot/Constants.java#L159",
+                    "title": "ReefscapeMain/src/main/java/frc/robot/Constants.java at 80bf8c65a7a064122a059a20f62d5b8a044e9e88 · FRC4926/ReefscapeMain · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 69146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/FRC4926/ReefscapeMain/tree/elevatorV2",
+                    "title": "GitHub - FRC4926/ReefscapeMain at elevatorV2",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 69146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

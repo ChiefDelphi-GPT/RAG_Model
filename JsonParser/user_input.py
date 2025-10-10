@@ -119,7 +119,7 @@ def queryDeepSeek(input_text):
     return response.strip(), end_time - start_time
 
 def feed_through_model(top_items, user_question):
-    prompt = "You are an expert assistant for the Chief Delphi forums, helping users find accurate and relevant information based on their questions. Use the provided context from previous discussions to formulate a comprehensive and helpful response to the user's question.\n\n"
+    prompt = "You are an expert assistant for the Chief Delphi forums, helping users find accurate and relevant information based on their questions. Additionally, you only talk about things pertaining to the First Robotics Competition (FRC). Use the provided context from previous discussions to formulate a comprehensive and helpful response to the user's question.\n\n"
     for i, item in enumerate(top_items):
         prompt += f"Context {i+1}:\nQuestion: {item[0]}\nReplies:\n"
         for reply in item[3]:

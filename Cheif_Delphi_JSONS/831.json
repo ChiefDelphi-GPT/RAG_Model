@@ -1,0 +1,1623 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3581249,
+                    "name": "Rhett Adam",
+                    "username": "rhettadam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "created_at": "2025-04-06T05:26:47.194Z",
+                    "cooked": "It’s been a while since the last major Peekorobo update! With that, A LOT has changed.\n\nTo start, I have written new EPA models for every year from 1992-2025. The EPA model for 1992-2014 is the same because the API response before 2015 just provided an alliance total score and nothing else.\n\nHowever, I analyzed the scoring capabilities and nuances of each game from 2015-2025 to craft unique EPA models for each. Along with the proprietary scoring metrics is an entirely new system for weighting matches and the “confidence” in a team.\n\nA team’s final EPA is multiplied by a confidence value. This value is calculated by a weighted combination of three core factors: consistency, rookie status, and carry score.\n\nConsistency measures how stable a team’s performance is across matches. It’s computed as\n\n1 - (standard deviation / mean)\n\nof their scoring contributions. A more consistent team earns a higher multiplier.\n\nRookie score rewards veteran teams by assigning a higher value (1.0) to teams that competed in the previous season, and a lower value (0.6) to rookies.\n\nRookie score rewards veteran teams by assigning a higher value (1.0) to teams that competed in the previous season, and a lower value (0.6) to rookies.\n\nCarry score evaluates whether the team contributed a meaningful portion of their alliance’s EPA . It’s calculated as:\n\nCarry score evaluates whether the team contributed a meaningful portion of their alliance’s EPA . It’s calculated as:\n\nmin(1.0, team_epa / (average_teammate_epa + ε))\n\nwhere ε prevents division by zero. If a team often plays above the level of their alliance partners, this score trends higher.\n\nThe final confidence value is the average of these three metrics, clipped between 0.0 and 1.0. A team’s actual EPA is then:\n\nactual_epa = overall_epa * confidence\n\nThis model not only reflects how much a team scores, but also how reliably they do it, and how much of the load they carry. Combined with game-specific logic for 2015–2025 and global alliance-score-based estimates from 1992–2014, Peekorobo’s EPA system now delivers the most nuanced performance metric it’s ever had.\n\nMatches aren’t all treated equally:\n\nEarlier matches weigh more heavily (via exponential decay ).\n\nQualification matches are weighted higher than playoff matches due to their random nature\n\nA custom learning rate (K) adapts based on how many matches a team has played: Faster learning early on, slower (and more stable) later. This makes the model responsive but avoids overreacting to outliers.\n\nFaster learning early on, slower (and more stable) later.\n\nThis makes the model responsive but avoids overreacting to outliers.\n\nA trend delta is calculated, which sums recent EPA changes to reveal momentum:\n\nPositive trend? You’re improving.\n\nNegative? Time to retool. This is especially useful for mid-season scouting and gauging if a team is peaking or falling off.\n\nBehind the scenes, the entire infrastructure of Peekorobo has been upgraded with a completely restructured SQLite database , purpose-built for speed and minimal footprint.\n\nDespite tracking data from over 30 years of FRC history , the database now takes up significantly less space, with faster access times and more efficient updates.\n\nI ran a performance test before and after integrating the new database. Both of these tests were performed by loading the 2025 team page for 2910 Jack in the Bot.\n\nOld Test: Screenshot from 2025-04-06 00-57-25 1276×601 116 KB\n\nScreenshot from 2025-04-06 00-57-25 1276×601 116 KB\n\nScreenshot from 2025-04-06 00-57-25 1276×601 116 KB\n\nThe old test took 4.80 seconds to run. Yikes!\n\nNew Test: Screenshot from 2025-04-06 00-51-02 1276×601 111 KB\n\nScreenshot from 2025-04-06 00-51-02 1276×601 111 KB\n\nScreenshot from 2025-04-06 00-51-02 1276×601 111 KB\n\nThe new test only took 911 milliseconds to run! That’s not bad! Just by implementing a new database, loading times have been reduced by 5 times.\n\nThere have been some small UX updates for a more streamlined approach to analyzing matches from an individual team. Now, on each team page is a “Recent Events” section with a team’s rank, record, and matches with predictions.\n\nimage 1176×772 123 KB\n\nimage 1176×772 123 KB\n\nimage 1176×772 123 KB\n\nAlong with this, when you go to an event page, you can filter the matches by team:\n\nimage 831×848 111 KB\n\nimage 831×848 111 KB\n\nimage 831×848 111 KB\n\nMore to come soon—stay tuned!\n\nFeel free to reach out if you have any suggestions, feedback, or concerns!\n\nYou can visit Peekorobo Here You can visit the GitHub Here",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-06T06:07:21.130Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 74,
+                    "reads": 534,
+                    "readers_count": 533,
+                    "score": 686.8,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Rhett Adam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.peekorobo.com/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Peekorobo",
+                            "clicks": 170
+                        },
+                        {
+                            "url": "https://github.com/rhettadam/peekorobo",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - rhettadam/peekorobo: A web application that provides detailed insights into FIRST Robotics Competition teams.",
+                            "clicks": 11
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 14
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7525 Mentor | peekorobo.com"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/1",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 14
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 14,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3581281,
+                    "name": "Abhijit Gupta",
+                    "username": "Strategos",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/strategos/{size}/181536_2.png",
+                    "created_at": "2025-04-06T12:30:26.563Z",
+                    "cooked": "This is really cool! The website has a lot of features, including some I wished I had implemented in Statbotics but never got around to.\n\nI noticed the match predictions are often in the 40-60% range. Have you tried measuring how often an alliance with a 60% predicted win rate actually wins? My hunch is your model might be under confident. If you’re measuring prediction accuracy per year, you could consider adding Mean Squared Error as a second metric to measure calibration. It would also help compare your model to OPR and EPA . Lastly, I worry if having two separate websites with separate EPA numbers will be confusing and hard to discuss. Have you considered another name for your metric?",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-06T12:30:26.563Z",
+                    "reply_count": 3,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 310,
+                    "readers_count": 309,
+                    "score": 137.0,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Abhijit Gupta",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28856,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5511 | Former Captain"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3581318,
+                    "name": "John Christiansen",
+                    "username": "XaulZan11",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/xaulzan11/{size}/2313_2.png",
+                    "created_at": "2025-04-06T14:15:24.943Z",
+                    "cooked": "Strategos:\n\nLastly, I worry if having two separate websites with separate EPA numbers will be confusing and hard to discuss. Have you considered another name for your metric?\n\nThe NFL’s EPA metric (and other advanced stats) has the same situation.  There are many sites that calculate their EPA metric slightly differently.  They handle it by trying to include the site or stat provider ie :“Statbotic’s EPA has them 5th” or “37.5 EPA per Peakorobo”.\n\nPeakorobo looks great!  My team’s EPA is higher on Statbotics so I will continue using that, however.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-06T14:15:24.943Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 246,
+                    "readers_count": 245,
+                    "score": 129.2,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "John Christiansen",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 7040,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1706 - Scouting & Strategy Mentor"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/3",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        },
+                        {
+                            "id": "laughing",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 9,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3581425,
+                    "name": "Griffin Della Grotte",
+                    "username": "Griffin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/griffin/{size}/5624_2.png",
+                    "created_at": "2025-04-06T17:47:36.591Z",
+                    "cooked": "Strategos:\n\nLastly, I worry if having two separate websites with separate EPA numbers will be confusing and hard to discuss. Have you considered another name for your metric?\n\nXaulZan11:\n\nThey handle it by trying to include the site or stat provider ie :“Statbotic’s EPA has them 5th” or “37.5 EPA per Peakorobo”.\n\nSecond the request from @Strategos … I understand EPA is an existing term from Football, so it’s not like he invented it, but can we all just let statbotics.io own the term EPA for FRC ? Realistically people aren’t going to take the time to specify what source for EPA they’re using, so it’s just going to get confusing.\n\nIt’s not like there is a shortage of TLAs to pick from.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-06T17:47:36.591Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 2,
+                    "incoming_link_count": 0,
+                    "reads": 186,
+                    "readers_count": 185,
+                    "score": 52.2,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Griffin Della Grotte",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "http://statbotics.io",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Statbotics",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16726,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor & Drive Coach 5940"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/4",
+                    "reactions": [
+                        {
+                            "id": "100",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3581446,
+                    "name": "Rhett Adam",
+                    "username": "rhettadam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "created_at": "2025-04-06T18:23:50.623Z",
+                    "cooked": "Thanks so much! That really means a lot—Statbotics was a huge inspiration for Peekorobo, so I appreciate the kind words.\n\nYou’re absolutely right about the prediction confidence. I’ve noticed that same 40–60% clustering, especially in qualification matches where alliance strength is more random. Right now, the model leans conservative on purpose to avoid overfitting early in the season or on sparse data. That said, your point about calibration is spot on. I haven’t done a formal binning analysis yet (like checking how often 60% predictions win), but I definitely want to. Adding Mean Squared Error or Brier score per year is a great idea—I’ll look into it.\n\nAs for the EPA naming, yeah, I totally get the concern. I’ve been thinking about renaming it. I’d love any suggestions there. The goal is to be transparent and compatible, not confusing or competitive. Statbotics has built a fantastic shared language around EPA , and I want to make sure Peekorobo adds to it, not fragments it.\n\nLet me know if you’d ever want to chat about it more in-depth—would be fun to cross-compare approaches!",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-06T18:23:50.623Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 165,
+                    "readers_count": 164,
+                    "score": 138.0,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Rhett Adam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 28856,
+                        "username": "Strategos",
+                        "name": "Abhijit Gupta",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/strategos/{size}/181536_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7525 Mentor | peekorobo.com"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/5",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3583291,
+                    "name": "Rhett Adam",
+                    "username": "rhettadam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "created_at": "2025-04-08T02:19:47.652Z",
+                    "cooked": "@Strategos Peekorobo’s performance model is officially called ACE (adjusted contribution estimate), which is essentially EPA x confidence. The website has been updated accordingly with all existing mentions of EPA replaced by ACE. I have made a blog page to better explain this:\n\nA scouting and statistics platform for FRC teams that provides detailed insights and resources",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-08T02:19:47.652Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 5,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 108,
+                    "readers_count": 107,
+                    "score": 131.6,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Rhett Adam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.peekorobo.com/blog",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Peekorobo",
+                            "clicks": 27
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 55650,
+                        "username": "rhettadam",
+                        "name": "Rhett Adam",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7525 Mentor | peekorobo.com"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/6",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3583616,
+                    "name": "Zakk Jackson",
+                    "username": "Zakk_J",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/zakk_j/{size}/252109_2.png",
+                    "created_at": "2025-04-08T13:18:25.191Z",
+                    "cooked": "Aren’t you supposed to be in college?\n\nBut actually this is an amazing website and I use it all the time and I know a lot of 1912 does as well. Keep up the good work.",
+                    "post_number": 7,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-08T13:18:25.191Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 52.4,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Zakk Jackson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "Regular",
+                    "title_is_group": false,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 73488,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Recte age, nihil time"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/7",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3583754,
+                    "name": "Skye Leake",
+                    "username": "Skyehawk",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "created_at": "2025-04-08T14:51:48.133Z",
+                    "cooked": "Purely out of curiosity,\n\nIs there a reason why you are not calling std. dev. / mean the coeff. of variation? Or rather why you went with 1 - (std. dev. / mean)\n\nI absolutely agree with you this is the correct descriptive stat for looking at consistency, just not sure why you are not using the term (or one of the other terms for the same thing) / went with the 1 - CV approach.\n\nJust trying to get a grasp on it",
+                    "post_number": 8,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-08T14:51:59.390Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 6,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 74,
+                    "readers_count": 73,
+                    "score": 49.8,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Skye Leake",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 55650,
+                        "username": "rhettadam",
+                        "name": "Rhett Adam",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 19235,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Flyin' a hull |5934←2451←2767←876"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/8",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3583789,
+                    "name": "Rhett Adam",
+                    "username": "rhettadam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "created_at": "2025-04-08T15:09:19.909Z",
+                    "cooked": "I’m using 1 - (std dev / mean) instead of just the coefficient of variation because it flips the scale to make the interpretation more intuitive—higher values mean more consistency. CV increases with variability, but for this use case, I wanted a consistency score where 1 means very consistent and 0 means very erratic. So it’s based on CV, just adjusted for easier interpretation.",
+                    "post_number": 9,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-08T15:09:19.909Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 8,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 62,
+                    "readers_count": 61,
+                    "score": 87.4,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Rhett Adam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 19235,
+                        "username": "Skyehawk",
+                        "name": "Skye Leake",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7525 Mentor | peekorobo.com"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/9",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3583790,
+                    "name": "Rhett Adam",
+                    "username": "rhettadam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "created_at": "2025-04-08T15:11:00.987Z",
+                    "cooked": "God forbid a man has hobbies. But fr, thank you. I really appreciate it. I’ve put a lot of hard work into this website, and it means so much that it’s getting some use.",
+                    "post_number": 10,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2025-04-08T15:11:00.987Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 7,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 62,
+                    "readers_count": 61,
+                    "score": 32.4,
+                    "yours": false,
+                    "topic_id": 498117,
+                    "topic_slug": "peekorobo-major-update-2",
+                    "display_username": "Rhett Adam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 73488,
+                        "username": "Zakk_J",
+                        "name": "Zakk Jackson",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/zakk_j/{size}/252109_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55650,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7525 Mentor | peekorobo.com"
+                    },
+                    "post_url": "/t/peekorobo-major-update-2/498117/10",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3581249,
+                3581281,
+                3581318,
+                3581425,
+                3581446,
+                3583291,
+                3583616,
+                3583754,
+                3583789,
+                3583790
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                120
+            ],
+            [
+                2,
+                119
+            ],
+            [
+                6,
+                118
+            ],
+            [
+                7,
+                117
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 473310,
+                "title": "Swerve drive problem",
+                "fancy_title": "Swerve drive problem",
+                "slug": "swerve-drive-problem",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-10-19T16:19:16.599Z",
+                "last_posted_at": "2024-10-19T20:27:23.462Z",
+                "bumped": true,
+                "bumped_at": "2024-10-19T20:27:23.462Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, our team is having a problem that we can’t figure out. One of our modules is having an issue setting an offset angle. Every time we deploy, the offset changes and ends up being about 20 degrees of…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "swervedrive",
+                    "swervemodule"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 234,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3436836,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65693,
+                    "username": "Boaz",
+                    "name": "Boaz Meisler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/boaz/{size}/235253_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65693,
+                            "username": "Boaz",
+                            "name": "Boaz Meisler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/boaz/{size}/235253_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476019,
+                "title": "AdvantageKit 2025: Log Replay, Streamlined",
+                "fancy_title": "AdvantageKit 2025: Log Replay, Streamlined",
+                "slug": "advantagekit-2025-log-replay-streamlined",
+                "posts_count": 100,
+                "reply_count": 66,
+                "highest_post_number": 103,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/a/fa7fc5d3b503fdfdbf5e2b6eb4010206bfcfac5c_2_1024x186.png",
+                "created_at": "2024-12-04T19:21:32.601Z",
+                "last_posted_at": "2025-07-27T14:22:09.552Z",
+                "bumped": true,
+                "bumped_at": "2025-07-27T14:22:09.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "▶ What is AdvantageKit? We began our journey with AdvantageKit and log replay in 2021, and we’ve been excited to watch the community response over the past 3 years. AdvantageKit was used by 335 teams …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "frc6328"
+                ],
+                "tags_descriptions": {},
+                "like_count": 161,
+                "views": 6502,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454695,
+                "topic_post_liked": false,
+                "topic_post_like_count": 45,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65870,
+                            "username": "meer.com",
+                            "name": "meer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/meer.com/{size}/224746_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57453,
+                            "username": "Robotgobrrrr",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/robotgobrrrr/{size}/238076_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 76575,
+                            "username": "mapemaya",
+                            "name": "Maya",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mapemaya/{size}/267073_2.png",
+                            "trust_level": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476891,
+                "title": "PathPlanner with CTRE Swerve drive",
+                "fancy_title": "PathPlanner with CTRE Swerve drive",
+                "slug": "pathplanner-with-ctre-swerve-drive",
+                "posts_count": 8,
+                "reply_count": 6,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-12-17T20:30:34.255Z",
+                "last_posted_at": "2024-12-17T21:55:09.701Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T21:55:09.701Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is in our first year of using a swerve drive. We use pre-assembled Mk4i’s with Kraken X60’s, CANCoders, and a Pigeon 2.0. We used Tuner X to generate code for our swerve, unfortunately, due …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 374,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460454,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69300,
+                    "username": "devNafi",
+                    "name": "Nafi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/devnafi/{size}/251778_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69300,
+                            "username": "devNafi",
+                            "name": "Nafi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/devnafi/{size}/251778_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60080,
+                            "username": "GalenSpooner",
+                            "name": "Galen Spooner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galenspooner/{size}/229943_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 477727,
+                "title": "NavX2-MXP with MAXSwerve 2025",
+                "fancy_title": "NavX2-MXP with MAXSwerve 2025",
+                "slug": "navx2-mxp-with-maxswerve-2025",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/0/a/0a5bb834089e7d86fa1419804f6370f114a3f85d_2_1024x608.png",
+                "created_at": "2024-12-31T04:01:41.701Z",
+                "last_posted_at": "2024-12-31T21:06:32.168Z",
+                "bumped": true,
+                "bumped_at": "2024-12-31T21:06:32.168Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The Studica vendordep is the correct one to have installed. They changed how the object is constructed. It should private final AHRS m_gyro = new AHRS(NavXComType.kMXP_SPI); You can read through…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "navx",
+                    "maxswerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 1001,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465605,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 22351,
+                    "username": "KaseyB",
+                    "name": "KaseyB",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kaseyb/{size}/176177_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63122,
+                            "username": "Cedric_2587",
+                            "name": "Christoforus Cedric Kurniawan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 22351,
+                            "username": "KaseyB",
+                            "name": "KaseyB",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kaseyb/{size}/176177_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69630,
+                            "username": "programminggonewrong",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/programminggonewrong/{size}/239880_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53274,
+                            "username": "EmerqldWither",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/emerqldwither/{size}/226176_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 473535,
+                "title": "Download logs",
+                "fancy_title": "Download logs",
+                "slug": "download-logs",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-10-23T18:03:33.561Z",
+                "last_posted_at": "2024-10-23T19:45:58.809Z",
+                "bumped": true,
+                "bumped_at": "2024-10-23T19:45:58.809Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our robot generates wpilog file every match and they are stored on the roborio. Is there any way to make the robot automatically download it to the driver station computer?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 153,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438270,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60986,
+                    "username": "GalDotan",
+                    "name": "Gal",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60986,
+                            "username": "GalDotan",
+                            "name": "Gal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68136,
+                            "username": "jom",
+                            "name": "Miles.D",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jom/{size}/256684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51179,
+                            "username": "Cynosure",
+                            "name": "Asher Olgeirson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cynosure/{size}/184875_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "scouting",
+            "thebluealliance",
+            "statistics"
+        ],
+        "tags_descriptions": {},
+        "id": 498117,
+        "title": "Peekorobo Major Update #2",
+        "fancy_title": "Peekorobo Major Update #2",
+        "posts_count": 10,
+        "created_at": "2025-04-06T05:26:47.108Z",
+        "views": 937,
+        "reply_count": 7,
+        "like_count": 42,
+        "last_posted_at": "2025-04-08T15:11:00.987Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "peekorobo-major-update-2",
+        "category_id": 9,
+        "word_count": 1513,
+        "deleted_at": null,
+        "user_id": 55650,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/4X/f/c/5/fc5cb76203b4493f17e8632eb70815907149ffb2.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_498117",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 10,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46426,
+            "execute_at": "2026-04-08T15:11:00.987Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 6,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 460,
+                "height": 134,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/4X/f/c/5/fc5cb76203b4493f17e8632eb70815907149ffb2.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 5,
+            "username": "rhettadam",
+            "name": null,
+            "excerpt": "Thanks so much! That really means a lot—Statbotics was a huge inspiration for Peekorobo, so I appreciate the kind words. \nYou’re absolutely right about the prediction confidence. I’ve noticed that same 40–60% clustering, especially in qualification matches where alliance strength is more random. Rig&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55650,
+                    "username": "rhettadam",
+                    "name": "Rhett Adam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png",
+                    "post_count": 5,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 7040,
+                    "username": "XaulZan11",
+                    "name": "John Christiansen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/xaulzan11/{size}/2313_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16726,
+                    "username": "Griffin",
+                    "name": "Griffin Della Grotte",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/griffin/{size}/5624_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 19235,
+                    "username": "Skyehawk",
+                    "name": "Skye Leake",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 28856,
+                    "username": "Strategos",
+                    "name": "Abhijit Gupta",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/strategos/{size}/181536_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 73488,
+                    "username": "Zakk_J",
+                    "name": "Zakk Jackson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/zakk_j/{size}/252109_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 3
+                }
+            ],
+            "created_by": {
+                "id": 55650,
+                "username": "rhettadam",
+                "name": "Rhett Adam",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png"
+            },
+            "last_poster": {
+                "id": 55650,
+                "username": "rhettadam",
+                "name": "Rhett Adam",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/rhettadam/{size}/267138_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.peekorobo.com/",
+                    "title": "Peekorobo",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 170,
+                    "user_id": 55650,
+                    "domain": "www.peekorobo.com",
+                    "root_domain": "peekorobo.com"
+                },
+                {
+                    "url": "https://www.peekorobo.com/blog",
+                    "title": "Peekorobo",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 27,
+                    "user_id": 55650,
+                    "domain": "www.peekorobo.com",
+                    "root_domain": "peekorobo.com"
+                },
+                {
+                    "url": "https://github.com/rhettadam/peekorobo",
+                    "title": "GitHub - rhettadam/peekorobo: A web application that provides detailed insights into FIRST Robotics Competition teams.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 55650,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "http://statbotics.io",
+                    "title": "Statbotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 16726,
+                    "domain": "statbotics.io",
+                    "root_domain": "statbotics.io"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -16,7 +16,7 @@ import re
 from html import unescape
 
 MAC = False
-LINUX = True
+LINUX = False
 DEBUG = True
 SCORE_CLIPPING = 1000
 RECENCY_DECAY = 1080
@@ -36,7 +36,7 @@ def setup_device_and_model_cpu():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
-        torch_dtype=torch_dtype,
+        dtype=torch_dtype,
         trust_remote_code=True
     ).to(device)
     model.eval()
@@ -78,7 +78,7 @@ def setup_device_and_model():
         # Load model with error handling
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
-            torch_dtype=torch_dtype,
+            dtype=torch_dtype,
             trust_remote_code=True,
             device_map="auto" if device.startswith("cuda") else None  # Automatic GPU mapping
         )
@@ -111,6 +111,8 @@ def setup_device_and_model():
             raise e
         
 DEVICE, TORCH_DTYPE, TOKENIZER, MODEL = setup_device_and_model()
+print("Loading embedding model on CPU...")
+EMBEDDING_MODEL = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B", device="cpu")
 
 def getTextFromLine(line):
     start = line.find("\"cooked\": \"")+len("'cooked': '")
@@ -147,7 +149,8 @@ def extractFeatures(data):
             replies.append(post)
     print()
     print("DOING REPLIES")
-    replies = scoreReplies(replies)
+    reply_data, best_replies = scoreReplies(replies)
+    replies = pick_best_replies(reply_data, best_replies)
     if DEBUG:
         print()
         print()
@@ -170,7 +173,10 @@ def queryDeepSeek(input_text):
     if DEBUG:
         print(f"Starting DeepSeek query (input length: {len(input_text)} chars)...")
 
-    # Use the globally loaded TOKENIZER and MODEL
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.ipc_collect()
+
     messages = [{"role": "user", "content": input_text}]
     try:
         formatted_input = TOKENIZER.apply_chat_template(
@@ -178,7 +184,6 @@ def queryDeepSeek(input_text):
         )
     except Exception:
         formatted_input = f"User: {input_text}\nAssistant:"
-
 
     start_time = time.time()
     input_ids = TOKENIZER.encode(formatted_input, return_tensors="pt").to(DEVICE)
@@ -188,7 +193,7 @@ def queryDeepSeek(input_text):
         outputs = MODEL.generate(
             input_ids,
             attention_mask=attention_mask,
-            max_new_tokens=10000,
+            max_new_tokens=1024,
             temperature=0.7,
             do_sample=True,
             top_p=0.9,
@@ -199,6 +204,11 @@ def queryDeepSeek(input_text):
 
     response_ids = outputs[0][input_ids.shape[1]:]
     response = TOKENIZER.decode(response_ids, skip_special_tokens=True)
+
+    del input_ids, attention_mask, outputs, response_ids
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.ipc_collect()
 
     end_time = time.time()
     if DEBUG:
@@ -273,21 +283,30 @@ def scoreReplies(replies):
             replies_data.append(reply_touple)
         else:
             continue
-    parsed_replies_data = []
-    for i, reply_data in enumerate(replies_data):
-        if i == 0:
-            parsed_replies_data.append(reply_data)
-        if i < 4:
-            if reply_data[1] < parsed_replies_data[0][1]:
-                parsed_replies_data.append(reply_data)
-            else:
-                temp = [reply_data]
-                parsed_replies_data = temp + parsed_replies_data
-        if reply_data[1] < max(x[1] for x in parsed_replies_data):
-            parsed_replies_data[0] = reply_data
-    replies = [reply[0] for reply in parsed_replies_data]
+    return replies_data, best_reps
 
-    return replies
+def pick_best_replies(replies_data, best_replies):
+    """
+    Pick exactly 5 best replies:
+    - Always include accepted answers (best_replies).
+    - Fill the rest with the top scoring replies from replies_data.
+    - Ensure no duplicates.
+    """
+
+    # Start with accepted answers
+    accepted_texts = {r["cooked"] for r in best_replies}
+    final_replies = [r["cooked"] for r in best_replies]
+
+    # Sort all scored replies by score (descending)
+    sorted_replies = sorted(replies_data, key=lambda x: x[1], reverse=True)
+
+    # Add top replies until we reach 5
+    for reply_text, score in sorted_replies:
+        if reply_text not in accepted_texts and len(final_replies) < 5:
+            final_replies.append(reply_text)
+
+    # If fewer than 5 replies exist in total, pad with what we have
+    return final_replies[:5]
 
 def vector_creation(data):
     encoder_question_data, replies_list = data
@@ -302,9 +321,14 @@ def vector_creation(data):
     }
     for i, reply in enumerate(replies_list):
         metadata[f"Reply {i+1}"] = reply
-    
-    model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
-    embedding_vector = model.encode(vector_text, prompt_name="query")
+
+    # Use the global embedding model on CPU
+    embedding_vector = EMBEDDING_MODEL.encode(
+        vector_text,
+        prompt_name="query",
+        batch_size=1
+    )
+
     return {
        "vector": embedding_vector.tolist(),
        "metadata": metadata

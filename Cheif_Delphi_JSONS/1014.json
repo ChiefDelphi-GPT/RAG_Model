@@ -1,0 +1,816 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3567644,
+                    "name": "iRobot_",
+                    "username": "iRobot1",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/e79b87/{size}.png",
+                    "created_at": "2025-03-25T01:11:21.801Z",
+                    "cooked": "Hi All,\n\nThe previous robot design used a cancoder as a remote sensor on an arm that was controlled with motion magic. We determined setpoints using the absolute position on the cancoder with no issues.\n\nThe new robot design has the remote cancoder on a different gear ratio (cancoder spins faster than the mechanism). To get “360” rotation, we would now need to use the remote cancoder’s relative position OR the motors internal encoder. I think I prefer the remote cancoder due to having the absolute position to find the “offset” at the beginning of each match.\n\nOk, that being said. I think I took it for granted in the past. How does motion magic know to read the remote cancoder’s absolute position value rather than the relative position? Is there a way to use the remote cancoder’s relative position instead?\n\nI think that we may need to pivot to a different strategy - perhaps leveraging the sensorToMechanismRatio? Not really sure how to use the cancoder’s relative position or if this is completely abstracted away and I don’t need to think about it. Looking for some advice on how to approach this issue.\n\nThanks in advance!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-25T01:11:21.801Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 77,
+                    "readers_count": 76,
+                    "score": 60.4,
+                    "yours": false,
+                    "topic_id": 496822,
+                    "topic_slug": "ctre-and-remote-sensors",
+                    "display_username": "iRobot_",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22720,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/ctre-and-remote-sensors/496822/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3567680,
+                    "name": "Caleb Herring",
+                    "username": "bobsfriend12",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bobsfriend12/{size}/242284_2.png",
+                    "created_at": "2025-03-25T01:41:46.487Z",
+                    "cooked": "You can use a remote CANCoder like this:\n\nAfter you do this all of the other methods regarding the encoder will be using the cancoder, not the built in encoder.\n\nIf you’re not putting the CANCoder directly on the mechanism, then I don’t see why you wouldn’t just use the built in encoder. Putting the encoder directly on the mechanism means you could use it as an absolute encoder, meaning you wouldn’t need to set the zero.\n\nIf you’re set on having it behind a gear ratio, then there not much reason to use a CANCoder over the built-in encoder unless you’re worried about the encoder resolution.\n\nIf you do end up having it behind a gear ratio, then yes or can use the senorToMechanismRatio, or you can just leave it and have your setpoints be really weird numbers.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-25T01:41:46.487Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 65,
+                    "readers_count": 64,
+                    "score": 38.0,
+                    "yours": false,
+                    "topic_id": 496822,
+                    "topic_slug": "ctre-and-remote-sensors",
+                    "display_username": "Caleb Herring",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 70725,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2338 Programming Captain"
+                    },
+                    "post_url": "/t/ctre-and-remote-sensors/496822/2",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3567708,
+                    "name": "iRobot_",
+                    "username": "iRobot1",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/e79b87/{size}.png",
+                    "created_at": "2025-03-25T02:14:28.862Z",
+                    "cooked": "Thanks for the reply!\n\nWe have used the remote cancoder for some time now, so the issue is not on how to use it. The issue I am having is understanding how everything is happening “under the hood.”\n\nI can specify a sensorToMechanism ratio and I can request “number of mechanism rotations.” Does this request automatically use the relative cancoder rotations if I request more than one turn? I assume it must.\n\nIf you’re not putting the CANCoder directly on the mechanism, then I don’t see why you wouldn’t just use the built in encoder. Putting the encoder directly on the mechanism means you could use it as an absolute encoder, meaning you wouldn’t need to set the zero.\n\nI should still be able to utilize the absolute reading of the cancoder to ensure my relative position is in sync with the absolute position. Which would be useful to ensure that my mechanism doesn’t need to be initialized in the same state each time",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-25T02:14:28.862Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 50,
+                    "readers_count": 49,
+                    "score": 10.0,
+                    "yours": false,
+                    "topic_id": 496822,
+                    "topic_slug": "ctre-and-remote-sensors",
+                    "display_username": "iRobot_",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 70725,
+                        "username": "bobsfriend12",
+                        "name": "Caleb Herring",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/bobsfriend12/{size}/242284_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22720,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/ctre-and-remote-sensors/496822/3",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3567644,
+                3567680,
+                3567708
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                132
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 481995,
+                "title": "Trouble with pathplanner",
+                "fancy_title": "Trouble with pathplanner",
+                "slug": "trouble-with-pathplanner",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-16T00:47:38.131Z",
+                "last_posted_at": "2025-01-16T00:47:38.176Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T00:47:38.176Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’ve gotten to the point of this year’s build season where we’ve started to work with some autos, and this year, we wanted a simple command that would see an apriltag and drive to it. However, no mat…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 43,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484002,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65963,
+                    "username": "Swerveman",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/swerveman/{size}/234898_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 65963,
+                            "username": "Swerveman",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/swerveman/{size}/234898_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 491342,
+                "title": "[Polls] How Tall Is Your Robot?",
+                "fancy_title": "[Polls] How Tall Is Your Robot?",
+                "slug": "polls-how-tall-is-your-robot",
+                "posts_count": 21,
+                "reply_count": 13,
+                "highest_post_number": 21,
+                "image_url": null,
+                "created_at": "2025-02-12T13:12:02.781Z",
+                "last_posted_at": "2025-02-12T17:13:09.902Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T17:13:09.902Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How tall is your robot at starting config? poll What is the height fully extended? poll Just curious after a few other polls came around and didn’t see this one.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 95,
+                "views": 803,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524607,
+                "topic_post_liked": false,
+                "topic_post_like_count": 9,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 52870,
+                    "username": "FinIce",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/finice/{size}/228172_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 52870,
+                            "username": "FinIce",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/finice/{size}/228172_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56684,
+                            "username": "schaefbl",
+                            "name": "Brett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/schaefbl/{size}/238067_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65476,
+                            "username": "trashgoblin",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trashgoblin/{size}/234495_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 27664,
+                            "username": "pmattin5459",
+                            "name": "Pat Mattin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pmattin5459/{size}/182786_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59182,
+                            "username": "TrevJag",
+                            "name": "Trevor Dayal (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trevjag/{size}/235892_2.png",
+                            "trust_level": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 477513,
+                "title": "How to do field localization",
+                "fancy_title": "How to do field localization",
+                "slug": "how-to-do-field-localization",
+                "posts_count": 11,
+                "reply_count": 5,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-12-29T01:49:10.241Z",
+                "last_posted_at": "2024-12-29T04:44:59.851Z",
+                "bumped": true,
+                "bumped_at": "2024-12-29T04:44:59.851Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How does field localization work? I am the only programmer (unless you count underclassmen) and my team doesn’t have a programming mentor so I’m turning to the Internet for this. Last year, I really w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "localization"
+                ],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 724,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3464543,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66516,
+                    "username": "mineable3",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mineable3/{size}/231504_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66516,
+                            "username": "mineable3",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mineable3/{size}/231504_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/8072_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 479694,
+                "title": "Can frame not received/too-stale",
+                "fancy_title": "Can frame not received/too-stale",
+                "slug": "can-frame-not-received-too-stale",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-07T02:08:42.400Z",
+                "last_posted_at": "2025-01-07T09:35:47.363Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T09:35:47.363Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, my team switched to using krakenX60’s this year for a swerve drivetrain, and whenever code is deployed, the can frame not received/too-stale is thrown. Does anyone have any ideas that could…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 201,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473430,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70577,
+                    "username": "Jotty",
+                    "name": "Ben Gottschalk",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/3ab097/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70577,
+                            "username": "Jotty",
+                            "name": "Ben Gottschalk",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/3ab097/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65870,
+                            "username": "meer.com",
+                            "name": "meer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/meer.com/{size}/224746_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57606,
+                            "username": "Tamy0",
+                            "name": "Tamer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/b77776/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51932,
+                            "username": "ashtondemmer",
+                            "name": "Ashton Demmer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ashtondemmer/{size}/230987_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 473596,
+                "title": "Testing Kraken mechanisms",
+                "fancy_title": "Testing Kraken mechanisms",
+                "slug": "testing-kraken-mechanisms",
+                "posts_count": 24,
+                "reply_count": 10,
+                "highest_post_number": 24,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/6/86f6033973556d1d6da00edd554fc2ef67e63dcb_2_1024x767.jpeg",
+                "created_at": "2024-10-24T15:11:15.663Z",
+                "last_posted_at": "2024-11-04T02:42:51.165Z",
+                "bumped": true,
+                "bumped_at": "2024-11-04T02:42:51.165Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The display is PWM in microseconds. Step 1 is to remove the cover and expose the four screws on the servo tester. The pot we are going to remove or bypass is on the upper right (top view). In the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 34,
+                "views": 2041,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440275,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 18,
+                "topic_post_user": {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 40142,
+                            "username": "zog",
+                            "name": "Chris Herzog",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/zog/{size}/266762_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10484,
+                            "username": "cmwilson13",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmwilson13/{size}/3628_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26091,
+                            "username": "kswaid",
+                            "name": "Kyle Swaidner",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/df788c/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19880,
+                            "username": "Bpk9p4",
+                            "name": "Bpk9p4",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bpk9p4/{size}/4879_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "id": 496822,
+        "title": "CTRE and remote sensors",
+        "fancy_title": "CTRE and remote sensors",
+        "posts_count": 3,
+        "created_at": "2025-03-25T01:11:21.751Z",
+        "views": 124,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-03-25T02:14:28.862Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "ctre-and-remote-sensors",
+        "category_id": 9,
+        "word_count": 530,
+        "deleted_at": null,
+        "user_id": 22720,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_496822",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46009,
+            "execute_at": "2026-03-25T02:14:28.862Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 22720,
+                    "username": "iRobot1",
+                    "name": "iRobot_",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/e79b87/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 70725,
+                    "username": "bobsfriend12",
+                    "name": "Caleb Herring",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bobsfriend12/{size}/242284_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 22720,
+                "username": "iRobot1",
+                "name": "iRobot_",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/i/e79b87/{size}.png"
+            },
+            "last_poster": {
+                "id": 22720,
+                "username": "iRobot1",
+                "name": "iRobot_",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/i/e79b87/{size}.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

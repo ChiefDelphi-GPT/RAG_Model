@@ -3,7 +3,7 @@
 
 $PROGRESS_FILE = "C:\Users\serge\Downloads\FRC\RAG_Model\JsonParser\Runnables_WINDOWS\progress_adding_vectors.txt"
 $START = 0
-$END = 1151
+$END = 1649
 
 # If progress file exists, resume from the next index
 if (Test-Path $PROGRESS_FILE) {
@@ -18,7 +18,7 @@ for ($i = $START; $i -le $END; $i++) {
     Write-Host "Processing $i.json..."
     
     # Run the Python script
-    python3 ../vector_info.py "../../Cheif_Delphi_JSONS/$i.json"
+    python ../vector_info.py "../../Cheif_Delphi_JSONS/$i.json"
     
     # Check if the command was successful
     if ($LASTEXITCODE -eq 0) {

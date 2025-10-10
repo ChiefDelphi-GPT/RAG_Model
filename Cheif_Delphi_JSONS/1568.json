@@ -1,0 +1,970 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3548799,
+                    "name": "",
+                    "username": "Sean7183",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/b19c9b/{size}.png",
+                    "created_at": "2025-03-06T00:39:43.964Z",
+                    "cooked": "Our team is using two Kraken x60 motors to drive our TTB 2 stage elevator. However, when trying to test the elevator, we noticed that our motors weren’t running at all. We tried code that only ran those motors and did nothing else, but the motors weren’t spinning at all and the status lights weren’t changing. We then tried running one of the motors with Phoenix Tuner, but the motor did not move whatsoever despite Phoenix Tuner stating that it was enabled.\n\nWe have double checked that our motors have the correct IDs and firmware in Phoenix Tuner. Both of the motors are on a CANivore. We have cut down our Krakens’ motor shafts to work with the short block configuration for sport gearboxes , but we were very careful during this and aren’t sure how it could have damaged the motor internally. We’re pretty lost on where to go from here other than just using a new motor, so any help would be greatly appreciated.\n\nHere’s our robot code if it helps: github",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T00:39:43.964Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 26,
+                    "reads": 124,
+                    "readers_count": 123,
+                    "score": 159.8,
+                    "yours": false,
+                    "topic_id": 494426,
+                    "topic_slug": "krakens-seem-fine-but-dont-run",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.andymark.com/products/sport-gearbox-options",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Sport Gearbox - AndyMark, Inc",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://github.com/warroboticss/Fluke2025/tree/new",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - warroboticss/Fluke2025 at new",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63941,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/krakens-seem-fine-but-dont-run/494426/1",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3548802,
+                    "name": "Cory",
+                    "username": "TytanRock",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tytanrock/{size}/167849_2.png",
+                    "created_at": "2025-03-06T00:45:57.474Z",
+                    "cooked": "Sean7183:\n\nBoth of the motors are on a CANivore\n\nIt looks like you construct your TalonFX’s as if they’re on the RIO bus:\n\nimport edu.wpi.first.math.controller.ElevatorFeedforward;\n\nimport edu.wpi.first.math.controller.PIDController;\n\nimport edu.wpi.first.wpilibj.DigitalInput;\n\nimport edu.wpi.first.wpilibj.Encoder;\n\nimport edu.wpi.first.wpilibj.PowerDistribution;\n\nimport edu.wpi.first.wpilibj.PowerDistribution.ModuleType;\n\nimport edu.wpi.first.wpilibj.Timer;\n\npublic class ElevatorSubsystem extends SubsystemBase{\n\nprivate static TalonFX elevatorMotorLeft = new TalonFX(17);\n\nprivate static TalonFXConfigurator elevatorMotorLeftC = elevatorMotorLeft.getConfigurator();\n\nprivate static TalonFX elevatorMotorRight = new TalonFX(18);\n\nprivate static TalonFXConfigurator elevatorMotorRightC = elevatorMotorRight.getConfigurator();\n\n// CurrentLimitsConfigs config = new CurrentLimitsConfigs();\n\n// config.SupplyCurrentLimitEnable = true;\n\n// config.SupplyCurrentLimit = 40;\n\n// elevatorMotorLeftC.apply(config);\n\nYou should use the two-parameter constructor, with the second parameter matching the name of the CANivore they’re on, similar to our example:\n\nimport edu.wpi.first.wpilibj.XboxController;\n\nimport frc.robot.sim.PhysicsSim;\n\n/**\n\n* The VM is configured to automatically run this class, and to call the functions corresponding to\n\n* each mode, as described in the TimedRobot documentation. If you change the name of this class or\n\n* the package after creating this project, you must also update the build.gradle file in the\n\n* project.\n\n*/\n\npublic class Robot extends TimedRobot {\n\nprivate final TalonFX m_fx = new TalonFX(1, \"canivore\");\n\nprivate final MotionMagicVoltage m_mmReq = new MotionMagicVoltage(0);\n\nprivate final XboxController m_joystick = new XboxController(0);\n\nprivate int m_printCount = 0;\n\nprivate final Mechanisms m_mechanisms = new Mechanisms();\n\n@Override\n\npublic void simulationInit() {\n\nPhysicsSim.getInstance().addTalonFX(m_fx, 0.001);",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T00:45:57.474Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 7,
+                    "reads": 115,
+                    "readers_count": 114,
+                    "score": 88.0,
+                    "yours": false,
+                    "topic_id": 494426,
+                    "topic_slug": "krakens-seem-fine-but-dont-run",
+                    "display_username": "Cory",
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 57,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/warroboticss/Fluke2025/blob/new/src/main/java/frc/robot/Subsystems/ElevatorSubsystem.java#L22",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Fluke2025/src/main/java/frc/robot/Subsystems/ElevatorSubsystem.java at new · warroboticss/Fluke2025 · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/MotionMagic/src/main/java/frc/robot/Robot.java#L28",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Phoenix6-Examples/java/MotionMagic/src/main/java/frc/robot/Robot.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 26269,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7762 Mentor, CTRE Engineer, CSA"
+                    },
+                    "post_url": "/t/krakens-seem-fine-but-dont-run/494426/2",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3548820,
+                    "name": "Daniel Millichamp",
+                    "username": "Waffle20",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/waffle20/{size}/241607_2.png",
+                    "created_at": "2025-03-06T01:12:26.842Z",
+                    "cooked": "I’m sure they are broken you should like just give them to us to scrap",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T01:12:26.842Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 67,
+                    "readers_count": 66,
+                    "score": 53.4,
+                    "yours": false,
+                    "topic_id": 494426,
+                    "topic_slug": "krakens-seem-fine-but-dont-run",
+                    "display_username": "Daniel Millichamp",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69817,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Waffle20"
+                    },
+                    "post_url": "/t/krakens-seem-fine-but-dont-run/494426/3",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        },
+                        {
+                            "id": "laughing",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3548843,
+                    "name": "Jared Van Horn",
+                    "username": "CuteRedpandas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                    "created_at": "2025-03-06T01:32:42.237Z",
+                    "cooked": "did you enable the robot when you tried to run the motors with tuner x? the driver station needs to be enabled for it to work",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-06T01:32:42.237Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 10.6,
+                    "yours": false,
+                    "topic_id": 494426,
+                    "topic_slug": "krakens-seem-fine-but-dont-run",
+                    "display_username": "Jared Van Horn",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51417,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Alum/FIRST in Alabama YAC"
+                    },
+                    "post_url": "/t/krakens-seem-fine-but-dont-run/494426/4",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3548799,
+                3548802,
+                3548820,
+                3548843
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                151
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "id": 472796,
+                "title": "Swerve path is far off from intended start position",
+                "fancy_title": "Swerve path is far off from intended start position",
+                "slug": "swerve-path-is-far-off-from-intended-start-position",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/e/5ee28a3c31dfd7e194bda5bb96a7a815814ad33f.gif",
+                "created_at": "2024-10-11T01:37:32.135Z",
+                "last_posted_at": "2024-10-14T20:35:28.786Z",
+                "bumped": true,
+                "bumped_at": "2024-10-14T20:35:28.786Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are a new team - joining FRC with Crescendo - that was recently able to build a swerve drivetrain utilizing NEO motors in SDS MK4i modules. I am the lead programmer for our team, and I have been ha…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 286,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3433509,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68321,
+                    "username": "Shunuros",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/71c47a/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68321,
+                            "username": "Shunuros",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/71c47a/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 476345,
+                "title": "PathPlannerLib import issue",
+                "fancy_title": "PathPlannerLib import issue",
+                "slug": "pathplannerlib-import-issue",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-12-09T20:46:51.849Z",
+                "last_posted_at": "2024-12-10T10:32:14.476Z",
+                "bumped": true,
+                "bumped_at": "2024-12-10T10:32:14.476Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, My team is trying to implement PathPlanner this year and we’re trying to configure the AutoBuilder in the SwerveDriveSubsystem constructor, but the import doesn’t work. The error says “The import…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 119,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3456969,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57483,
+                    "username": "KaV1a",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kav1a/{size}/218881_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57483,
+                            "username": "KaV1a",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kav1a/{size}/218881_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 480568,
+                "title": "Powering pi 4b on Romi",
+                "fancy_title": "Powering pi 4b on Romi",
+                "slug": "powering-pi-4b-on-romi",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-09T22:55:39.754Z",
+                "last_posted_at": "2025-01-09T22:55:39.818Z",
+                "bumped": true,
+                "bumped_at": "2025-01-09T22:55:39.818Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I updated the raspberry pi on my Romi from a 3b Plus to 4b and started seeing these errors along with more beep/disconnect 2023-02-19 [ROMI] Status byte is 0. Assuming bro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 45,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477367,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63731,
+                    "username": "romi_roams",
+                    "name": "Matt",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/779978/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63731,
+                            "username": "romi_roams",
+                            "name": "Matt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/779978/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 481920,
+                "title": "‘robotpy’ is a package and cannot be directly executed",
+                "fancy_title": "‘robotpy’ is a package and cannot be directly executed",
+                "slug": "robotpy-is-a-package-and-cannot-be-directly-executed",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-15T18:47:29.361Z",
+                "last_posted_at": "2025-01-17T16:31:15.807Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T16:31:15.807Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "To get the version of python, you can run py --version. It sounds like you have some kind of environmental conflict – do you have multiple versions of python installed? Try running these m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 224,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485666,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 11,
+                "topic_post_user": {
+                    "id": 11063,
+                    "username": "virtuald",
+                    "name": "Dustin Spicuzza",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66158,
+                            "username": "ahuang",
+                            "name": "ahuang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 472757,
+                "title": "New Radio, New Rules! (?)",
+                "fancy_title": "New Radio, New Rules! (?)",
+                "slug": "new-radio-new-rules",
+                "posts_count": 14,
+                "reply_count": 7,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-10-10T18:06:31.100Z",
+                "last_posted_at": "2024-10-11T12:35:42.402Z",
+                "bumped": true,
+                "bumped_at": "2024-10-11T12:35:42.402Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As far as I can tell, there is not much information on how rules will be changed this upcoming year in relation to the new radio. Given the spec sheets, requirements for operation, and the reasons for…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "competition",
+                    "radio",
+                    "fms"
+                ],
+                "tags_descriptions": {},
+                "like_count": 22,
+                "views": 910,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3433325,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53538,
+                    "username": "nonokirby",
+                    "name": "Noah Kirby",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/9de053/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53538,
+                            "username": "nonokirby",
+                            "name": "Noah Kirby",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/9de053/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13032,
+                            "username": "Kpchem",
+                            "name": "Kevin Emery",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kpchem/{size}/122235_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29846,
+                            "username": "Ryan_Blue",
+                            "name": "Ryan Blue",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_blue/{size}/174016_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "motor",
+            "software"
+        ],
+        "tags_descriptions": {},
+        "id": 494426,
+        "title": "Krakens Seem Fine But Don't Run",
+        "fancy_title": "Krakens Seem Fine But Don&rsquo;t Run",
+        "posts_count": 4,
+        "created_at": "2025-03-06T00:39:43.866Z",
+        "views": 196,
+        "reply_count": 0,
+        "like_count": 4,
+        "last_posted_at": "2025-03-06T01:32:42.237Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "krakens-seem-fine-but-dont-run",
+        "category_id": 9,
+        "word_count": 325,
+        "deleted_at": null,
+        "user_id": 63941,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_494426",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45083,
+            "execute_at": "2026-03-06T01:32:42.237Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "TytanRock",
+            "name": null,
+            "excerpt": "It looks like you construct your TalonFX’s as if they’re on the RIO bus: \n\nYou should use the two-parameter constructor, with the second parameter matching the name of the CANivore they’re on, similar to our example:",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 26269,
+                    "username": "TytanRock",
+                    "name": "Cory",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tytanrock/{size}/167849_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 57,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51417,
+                    "username": "CuteRedpandas",
+                    "name": "Jared Van Horn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63941,
+                    "username": "Sean7183",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/b19c9b/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 69817,
+                    "username": "Waffle20",
+                    "name": "Daniel Millichamp",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/waffle20/{size}/241607_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 63941,
+                "username": "Sean7183",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/b19c9b/{size}.png"
+            },
+            "last_poster": {
+                "id": 51417,
+                "username": "CuteRedpandas",
+                "name": "Jared Van Horn",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/MotionMagic/src/main/java/frc/robot/Robot.java#L28",
+                    "title": "Phoenix6-Examples/java/MotionMagic/src/main/java/frc/robot/Robot.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 26269,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/warroboticss/Fluke2025/blob/new/src/main/java/frc/robot/Subsystems/ElevatorSubsystem.java#L22",
+                    "title": "Fluke2025/src/main/java/frc/robot/Subsystems/ElevatorSubsystem.java at new · warroboticss/Fluke2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 26269,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.andymark.com/products/sport-gearbox-options",
+                    "title": "Sport Gearbox - AndyMark, Inc",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 63941,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}
