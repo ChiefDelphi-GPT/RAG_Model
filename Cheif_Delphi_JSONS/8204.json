@@ -1,0 +1,920 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3313862,
+                    "name": "Ishaan Masilamony",
+                    "username": "StarkOdinson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/starkodinson/{size}/191062_2.png",
+                    "created_at": "2024-02-20T19:33:31.149Z",
+                    "cooked": "I’m working on an engineering project, for which I need to be able to control a motor’s speed using a controller of some sort. Due to cost, we’ve opted for an Orange PI 3+ as our brain, and we have a VictorSPX motor controller hooked up to the actual motor. I’m intending to use the VictorSPX in PWM mode since as far as I know, the Orange Pi doesn’t really have CAN support, but I haven’t really found any docs for how to actually use the controller with a non-Roborio device. Any info on this would be greatly appreciated in terms of the hardware/connectivity and software needed to do this.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-20T19:33:31.149Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 61,
+                    "readers_count": 60,
+                    "score": 52.2,
+                    "yours": false,
+                    "topic_id": 455462,
+                    "topic_slug": "victorspx-controller-with-orange-pi",
+                    "display_username": "Ishaan Masilamony",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 58603,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8177 | Prog Lead"
+                    },
+                    "post_url": "/t/victorspx-controller-with-orange-pi/455462/1",
+                    "custom_user_title": "8177 | Prog Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3313880,
+                    "name": "s-neff",
+                    "username": "s-neff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                    "created_at": "2024-02-20T19:50:15.206Z",
+                    "cooked": "You could put a USB- CAN converter on the OPi3+, but then you’d also need to get that converter to use the FIRST CAN frames and give it an Enable signal on the CAN bus and etc etc, so your idea of using the PWM mode is going to be much simpler and more achievable.\n\nThe PWM mode is sometimes referred to as “hobby servo PWM ”. Without being familiar with OPi3+, there are libraries for Raspberry Pi that use GPIO as PWM outputs and so I presume the OPi3+ has GPIO pins that can be set to PWM modes as well.\n\nSome background on PWM :\n\nhttps://learn.sparkfun.com/tutorials/hobby-servo-tutorial/all",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-20T19:50:15.206Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 11.2,
+                    "yours": false,
+                    "topic_id": 455462,
+                    "topic_slug": "victorspx-controller-with-orange-pi",
+                    "display_username": "s-neff",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://learn.sparkfun.com/tutorials/hobby-servo-tutorial/all",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28019,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/victorspx-controller-with-orange-pi/455462/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3533415,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-19T19:50:19.047Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-19T19:50:19.047Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 455462,
+                    "topic_slug": "victorspx-controller-with-orange-pi",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/victorspx-controller-with-orange-pi/455462/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3313862,
+                3313880,
+                3533415
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                599
+            ],
+            [
+                3,
+                234
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Thrifty elevator chain issue",
+                "id": 484418,
+                "title": "Thrifty elevator chain issue",
+                "slug": "thrifty-elevator-chain-issue",
+                "posts_count": 9,
+                "reply_count": 2,
+                "highest_post_number": 10,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/9/894539eab3028c1ecf3b01324c146ff06c013ad6_2_768x1024.jpeg",
+                "created_at": "2025-01-31T02:43:22.361Z",
+                "last_posted_at": "2025-03-25T01:33:26.970Z",
+                "bumped": true,
+                "bumped_at": "2025-03-25T01:33:26.970Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’d add make sure the grip length of your rivets is correct too - if it’s not in the range of the combined thicknesses of material that you’re going through they won’t work as well. Steel 3/16 rivets …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 397,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3497471,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 985,
+                    "username": "Ryan_Dognaux",
+                    "name": "Ryan Dognaux",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_dognaux/{size}/129138_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 985,
+                            "username": "Ryan_Dognaux",
+                            "name": "Ryan Dognaux",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_dognaux/{size}/129138_2.png",
+                            "primary_group_name": "Thriftybot",
+                            "flair_name": "Thriftybot",
+                            "flair_group_id": 58,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57101,
+                            "username": "pdiakoloukas2023",
+                            "name": "P.D",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/f08c70/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53544,
+                            "username": "TyJac42",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tyjac42/{size}/230279_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52404,
+                            "username": "davej323",
+                            "name": "Dave",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/e0b2c6/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MAX Swerve turning while moving forward issue",
+                "id": 475936,
+                "title": "MAX Swerve turning while moving forward issue",
+                "slug": "max-swerve-turning-while-moving-forward-issue",
+                "posts_count": 16,
+                "reply_count": 4,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2024-12-03T18:48:51.565Z",
+                "last_posted_at": "2024-12-17T00:31:46.658Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T00:31:46.658Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team has used MAX Swerve since last season and we have always had a problem while moving forward with the Swerve. When we just move it forward, the robot turns too, not being a straight translation…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 483,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454229,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67842,
+                    "username": "TiagoGodoy",
+                    "name": "Tiago Rodrigues de Moraes Godoy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tiagogodoy/{size}/238115_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67842,
+                            "username": "TiagoGodoy",
+                            "name": "Tiago Rodrigues de Moraes Godoy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tiagogodoy/{size}/238115_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59952,
+                            "username": "Ethan_L",
+                            "name": "Ethan Leung | 2473 | Hardware Lead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ethan_l/{size}/233365_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53544,
+                            "username": "TyJac42",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tyjac42/{size}/230279_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Slow Limelight Camera Stream on Elastic and Shuffleboard",
+                "id": 476306,
+                "title": "Slow Limelight Camera Stream on Elastic and Shuffleboard",
+                "slug": "slow-limelight-camera-stream-on-elastic-and-shuffleboard",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-09T01:07:29.630Z",
+                "last_posted_at": "2024-12-15T01:22:45.268Z",
+                "bumped": true,
+                "bumped_at": "2024-12-15T01:22:45.268Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey there! I’m trying to track down this issue and I havent found anything yet. I have a Limelight 3G running on our robot and, on the web dashboard, the camera stream is nice and fast and responsive…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight",
+                    "shuffleboard"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 553,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3456600,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54317,
+                    "username": "SirFire",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57374,
+                            "username": "Gold87",
+                            "name": "Nadav",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gold87/{size}/191382_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 36833,
+                            "username": "chauser",
+                            "name": "Carl Hauser",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SparkMaxSim applying 0 output?",
+                "id": 477178,
+                "title": "SparkMaxSim applying 0 output?",
+                "slug": "sparkmaxsim-applying-0-output",
+                "posts_count": 13,
+                "reply_count": 8,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2024-12-21T20:09:01.636Z",
+                "last_posted_at": "2025-01-03T00:28:46.243Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T00:28:46.243Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’ve updated to 2025 robotpy and was pleasantly surprised to see the SparkSim class added. However, my code using the SparkSim doesn’t work. The simulated Spark sees its position, velocity, and setpoi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "python",
+                    "simulation",
+                    "beta"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 256,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462297,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33581,
+                            "username": "Aree_Vanier",
+                            "name": "Greg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aree_vanier/{size}/129629_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69490,
+                            "username": "mythgarr",
+                            "name": "Andrew J (FRC 2881)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mythgarr/{size}/238053_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What Scouting app is your team planning to use?",
+                "id": 477091,
+                "title": "What Scouting app is your team planning to use?",
+                "slug": "what-scouting-app-is-your-team-planning-to-use",
+                "posts_count": 39,
+                "reply_count": 11,
+                "highest_post_number": 39,
+                "image_url": null,
+                "created_at": "2024-12-20T05:23:55.718Z",
+                "last_posted_at": "2025-01-03T10:01:56.823Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T10:01:56.823Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, I’m in the process of choosing a scouting app for our team this season. With so many different options out there, it’s getting a bit overwhelming to pick one. To help narrow it down, I…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 66,
+                "views": 1563,
+                "category_id": 28,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461769,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 39084,
+                    "username": "TFM110",
+                    "name": "Tauseef Afraz",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8103,
+                            "username": "Footie",
+                            "name": "Nick Foote",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/footie/{size}/218325_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 34224,
+                            "username": "Bilby",
+                            "name": "Adam Jenkins",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bilby/{size}/65280_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "can",
+            "motorcontroller",
+            "pwm"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "VictorSPX Controller with Orange Pi",
+        "id": 455462,
+        "title": "VictorSPX Controller with Orange Pi",
+        "posts_count": 3,
+        "created_at": "2024-02-20T19:33:31.034Z",
+        "views": 201,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-19T19:50:19.047Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "victorspx-controller-with-orange-pi",
+        "category_id": 9,
+        "word_count": 250,
+        "deleted_at": null,
+        "user_id": 58603,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_455462",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 28019,
+                    "username": "s-neff",
+                    "name": "s-neff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 58603,
+                    "username": "StarkOdinson",
+                    "name": "Ishaan Masilamony",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/starkodinson/{size}/191062_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 58603,
+                "username": "StarkOdinson",
+                "name": "Ishaan Masilamony",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/starkodinson/{size}/191062_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://learn.sparkfun.com/tutorials/hobby-servo-tutorial/all",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 28019,
+                    "domain": "learn.sparkfun.com",
+                    "root_domain": "sparkfun.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,853 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2980329,
+                    "name": "Antone",
+                    "username": "aolney",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/b487fb/{size}.png",
+                    "created_at": "2021-12-07T21:32:03.532Z",
+                    "cooked": "We’re having issues with our library. We installed the Stryke Force libraries online but we don’t seem to be importing the correct sections. It’s not matching the GitHub we’re looking at. The Thrifty Bot GitHub says we should be importing the following: org.strykeforce.thirdcoast.swerve.SwerveDriveConfig; but then it shows up as an error and Ctrl +  . just shows up as remove unused import. All of our imports also show strykeforce.swerve instead of strykerforce.thirdcoast.swerve. Any help would be greatly appreciated.\n\nTSDError3 970×402 25.7 KB TSFError2 825×756 44.2 KB TSWError1 807×773 50.7 KB\n\nTSDError3 970×402 25.7 KB\n\nTSDError3 970×402 25.7 KB\n\nTSFError2 825×756 44.2 KB\n\nTSFError2 825×756 44.2 KB\n\nTSWError1 807×773 50.7 KB\n\nTSWError1 807×773 50.7 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-12-07T21:32:03.532Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 73,
+                    "reads": 173,
+                    "readers_count": 172,
+                    "score": 399.6,
+                    "yours": false,
+                    "topic_id": 397913,
+                    "topic_slug": "thrifty-swerve-drive-library-issue",
+                    "display_username": "Antone",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/0/a0348ae3c4a6b5fc7489756acf2e2614738d79d8.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/5/85a9082dcd69d46d5d278787ad62614253f5e55a.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/9/0934f61045ccba5b01bc52fd633b80b369bd38fb.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44469,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/thrifty-swerve-drive-library-issue/397913/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 2980436,
+                    "name": "Marisa",
+                    "username": "mwitcpalek",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mwitcpalek/{size}/129083_2.png",
+                    "created_at": "2021-12-08T13:18:29.788Z",
+                    "cooked": "We did quite a bit of refactoring on our swerve drive library this summer to use more of the WPILib swerve code and better integrate with some of the odometry and path following resources. As part of this refactor the package for the swerve portion of the library is now under org.strykeforce.swerve so your import statements are correct.\n\nI looked at the thrifty swerve example github and they are still using the 20.4.1 version of our library in vendordeps, this was before the refactor (the latest is 21.3.1).\n\nAs part of the code refactoring we don’t have a class called SwerveDriveConfig anymore. If you want a reference for instantiating a swerve drive using our refactored code you can look at the drive subsystem in our infinite recharge repository. This code is for our swerve hardware not the thrifty swerve modules so some of the exact config details may not match your hardware. https://github.com/strykeforce/infiniterecharge/blob/master/src/main/java/frc/robot/subsystems/DriveSubsystem.java",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-12-12T23:25:49.043Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 103,
+                    "readers_count": 102,
+                    "score": 60.6,
+                    "yours": false,
+                    "topic_id": 397913,
+                    "topic_slug": "thrifty-swerve-drive-library-issue",
+                    "display_username": "Marisa",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/strykeforce/infiniterecharge/blob/master/src/main/java/frc/robot/subsystems/DriveSubsystem.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 22
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 41485,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/thrifty-swerve-drive-library-issue/397913/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3108549,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-12-08T13:18:53.891Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2022-12-08T13:18:53.891Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 6,
+                    "readers_count": 5,
+                    "score": 11.2,
+                    "yours": false,
+                    "topic_id": 397913,
+                    "topic_slug": "thrifty-swerve-drive-library-issue",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/thrifty-swerve-drive-library-issue/397913/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                2980329,
+                2980436,
+                3108549
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1404
+            ],
+            [
+                3,
+                1039
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "What do teams make there swerve base and side out of",
+                "id": 475227,
+                "title": "What do teams make there swerve base and side out of",
+                "slug": "what-do-teams-make-there-swerve-base-and-side-out-of",
+                "posts_count": 11,
+                "reply_count": 5,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-11-20T01:12:00.199Z",
+                "last_posted_at": "2024-12-11T14:58:39.813Z",
+                "bumped": true,
+                "bumped_at": "2024-12-11T14:58:39.813Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is trying to decide what to make out base and sides out of for out swerve this is are first year and we are at a standstill about it. So we would like to know what other people think are the b…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 672,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3449669,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57952,
+                    "username": "thegravitor",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57952,
+                            "username": "thegravitor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50093,
+                            "username": "Mike_FRC_56",
+                            "name": "Mike",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_frc_56/{size}/178961_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50070,
+                            "username": "ElliotS",
+                            "name": "Elliot S",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/elliots/{size}/177628_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 67716,
+                            "username": "Eugene_EB",
+                            "name": "Eugene_EB",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eugene_eb/{size}/235766_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Rotary arm on sideways elevator",
+                "id": 479729,
+                "title": "Rotary arm on sideways elevator",
+                "slug": "rotary-arm-on-sideways-elevator",
+                "posts_count": 20,
+                "reply_count": 14,
+                "highest_post_number": 20,
+                "image_url": null,
+                "created_at": "2025-01-07T03:52:40.959Z",
+                "last_posted_at": "2025-01-08T15:38:13.111Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T15:38:13.111Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "just got a couple questions about how much caution i should take in having a 20 inch arm going 180 degrees with almost a 20-25 pound endeffector on the end of the arm. i know this is quite a long cant…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 38,
+                "views": 1697,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473537,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59141,
+                    "username": "petedog07",
+                    "name": "Peter Clausen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/petedog07/{size}/199760_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59141,
+                            "username": "petedog07",
+                            "name": "Peter Clausen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/petedog07/{size}/199760_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56061,
+                            "username": "BTYWAR",
+                            "name": "Justin | 6925 Alumentor",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/btywar/{size}/191771_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55172,
+                            "username": "superdude311",
+                            "name": "Matthew K",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/superdude311/{size}/230653_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50452,
+                            "username": "robpl",
+                            "name": "Robert Lewis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/robpl/{size}/179282_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Double Sided Elevator?",
+                "id": 480196,
+                "title": "Double Sided Elevator?",
+                "slug": "double-sided-elevator",
+                "posts_count": 17,
+                "reply_count": 7,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-08T19:09:32.174Z",
+                "last_posted_at": "2025-01-09T01:32:47.333Z",
+                "bumped": true,
+                "bumped_at": "2025-01-09T01:32:47.333Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "A big “Elevator Noob” question here… Wondering if anyone knows of examples where manipulators were mounted on both sides of an elevator carriage (meaning the “front” and “back”). I know there are cro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 41,
+                "views": 1435,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475611,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56074,
+                    "username": "jjbydlon",
+                    "name": "Jeremy Bydlon",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jjbydlon/{size}/271280_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56074,
+                            "username": "jjbydlon",
+                            "name": "Jeremy Bydlon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jjbydlon/{size}/271280_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53784,
+                            "username": "Max_Morehead",
+                            "name": "Max Morehead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Bringing MK4i Swerve Modules To UK",
+                "id": 476625,
+                "title": "Bringing MK4i Swerve Modules To UK",
+                "slug": "bringing-mk4i-swerve-modules-to-uk",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2024-12-13T09:58:51.586Z",
+                "last_posted_at": "2024-12-13T09:58:51.653Z",
+                "bumped": true,
+                "bumped_at": "2024-12-14T09:37:33.266Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am not a UK citizen, so I don’t have much information regarding this topic. Is the MK4i swerve module able to get through customs easily? And are there any taxes or other charges that I’d have to pa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "mk4i"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 295,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458791,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62454,
+                    "username": "canucan15",
+                    "name": "Can Uçan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/c37758/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62454,
+                            "username": "canucan15",
+                            "name": "Can Uçan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/c37758/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "TTB Swerve vs WCP swerve X2i",
+                "id": 496879,
+                "title": "TTB Swerve vs WCP swerve X2i",
+                "slug": "ttb-swerve-vs-wcp-swerve-x2i",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-25T17:08:42.984Z",
+                "last_posted_at": "2025-03-25T18:25:31.369Z",
+                "bumped": true,
+                "bumped_at": "2025-03-25T18:25:31.369Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey, CD I want to know what experiences y’all had with either swerve so that our team can get a first-hand opinion with either swerve. We will switch to swerve this off-season. We are also a returning…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 352,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3568171,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68890,
+                    "username": "Mako",
+                    "name": "M",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mako/{size}/270886_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68890,
+                            "username": "Mako",
+                            "name": "M",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mako/{size}/270886_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61769,
+                            "username": "Soren_1",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/soren_1/{size}/262420_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Thrifty Swerve Drive Library Issue",
+        "id": 397913,
+        "title": "Thrifty Swerve Drive Library Issue",
+        "posts_count": 3,
+        "created_at": "2021-12-07T21:32:03.310Z",
+        "views": 818,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2022-12-08T13:18:53.891Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "thrifty-swerve-drive-library-issue",
+        "category_id": 25,
+        "word_count": 293,
+        "deleted_at": null,
+        "user_id": 44469,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/0/a0348ae3c4a6b5fc7489756acf2e2614738d79d8.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_397913",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 970,
+                "height": 402,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/0/a0348ae3c4a6b5fc7489756acf2e2614738d79d8.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "mwitcpalek",
+            "name": null,
+            "excerpt": "We did quite a bit of refactoring on our swerve drive library this summer to use more of the WPILib swerve code and better integrate with some of the odometry and path following resources. As part of this refactor the package for the swerve portion of the library is now under org.strykeforce.swerve &hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 41485,
+                    "username": "mwitcpalek",
+                    "name": "Marisa",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mwitcpalek/{size}/129083_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 44469,
+                    "username": "aolney",
+                    "name": "Antone",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/b487fb/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 44469,
+                "username": "aolney",
+                "name": "Antone",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/a/b487fb/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/strykeforce/infiniterecharge/blob/master/src/main/java/frc/robot/subsystems/DriveSubsystem.java",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 22,
+                    "user_id": 41485,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

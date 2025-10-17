@@ -1,0 +1,827 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3347257,
+                    "name": "Harrison",
+                    "username": "rackdev",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                    "created_at": "2024-03-29T16:55:54.690Z",
+                    "cooked": "Hi everyone,\n\nOur programmers are trying to make our robot turn to face a April tag when the drive team presses a button to assist with aiming for launching notes. We’re getting this setup and have managed to make the bot turn using the DriveTrain Drive Request and have moved on to the next step of implementing the apriltag detection with our Limelight 3.\n\nWe are just trying to turn right now when we see an April tag for troubleshooting purposes.\n\nWe’re using the LimelightHelper’s class using the TV variable for the testing right now to see if we see any April tag. In our class we have the tv value printed to the DriverStation to confirm that we see or do not see an April tag and this is working as intended. Once we actually implement the boolean tv into an if statement that would make the robot turn when we see an April tag, the drive request does not run.\n\nWe have added another debug statement into the if statement reporting to the DriverStation ‘IF STATEMENT’ if it runs, and it does when tv is true. It will just not process the drive request for some reason. We’re unable to figure out this reasoning and need help with this issue, if we put a different boolean in the if statement instead of tv the code runs fine.\n\nWe’re using the Phoenix Tuner X swerve generator. You can find our code at our GitHub , the if statement thats causing us issues is Line 54.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-29T16:55:54.690Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 54,
+                    "readers_count": 53,
+                    "score": 80.8,
+                    "yours": false,
+                    "topic_id": 460616,
+                    "topic_slug": "swerve-not-turning-when-using-limelight-tv-variable",
+                    "display_username": "Harrison",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/vickitine404/2024MainTestChassis-main/blob/main/src/main/java/frc/robot/commands/swerveTurn.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024MainTestChassis-main/src/main/java/frc/robot/commands/swerveTurn.java at main · vickitine404/2024MainTestChassis-main · GitHub",
+                            "clicks": 8
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60894,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8709 Alum/Mentor - Volunteer"
+                    },
+                    "post_url": "/t/swerve-not-turning-when-using-limelight-tv-variable/460616/1",
+                    "custom_user_title": "8709 Alum/Mentor - Volunteer",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3348190,
+                    "name": "Adithya Anand",
+                    "username": "Adithya_Anand",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/adithya_anand/{size}/208753_2.png",
+                    "created_at": "2024-03-31T02:22:26.971Z",
+                    "cooked": "It looks like you are setting the priority tag ID to be 18 on line 48. I would first test it without setting this, as the getTV() function only returns true if that specific tag is visible. Also, for aligning to speaker, you should be using red/blue alliance’s speaker tags, which should be 3/4 and 7/8 if I remember correctly, not tag 18.\n\nOn another note, it might be worth putting the limelight’s hostname into the first arg on the Limelighthelper functions. I’m pretty sure it should default to limelight if the field is blank, but it might be worth checking out.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-31T02:22:26.971Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 6.0,
+                    "yours": false,
+                    "topic_id": 460616,
+                    "topic_slug": "swerve-not-turning-when-using-limelight-tv-variable",
+                    "display_username": "Adithya Anand",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62693,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "177 Programming/Strategy Lead"
+                    },
+                    "post_url": "/t/swerve-not-turning-when-using-limelight-tv-variable/460616/2",
+                    "custom_user_title": "177 Programming/Strategy Lead",
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3574545,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-31T02:23:20.088Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-31T02:23:20.088Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 460616,
+                    "topic_slug": "swerve-not-turning-when-using-limelight-tv-variable",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/swerve-not-turning-when-using-limelight-tv-variable/460616/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3347257,
+                3348190,
+                3574545
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                561
+            ],
+            [
+                2,
+                560
+            ],
+            [
+                3,
+                195
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Combing two commands under one button",
+                "id": 495018,
+                "title": "Combing two commands under one button",
+                "slug": "combing-two-commands-under-one-button",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-10T18:14:49.862Z",
+                "last_posted_at": "2025-03-11T10:13:56.308Z",
+                "bumped": true,
+                "bumped_at": "2025-03-11T10:13:56.308Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So I am running into a issue with running out of buttons for our operator to use so is it possible to make commands activate under one button what I mean by this is like we hit button a and then our w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 171,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3553052,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64705,
+                    "username": "LaytonK737",
+                    "name": "Layton",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64705,
+                            "username": "LaytonK737",
+                            "name": "Layton",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19820,
+                            "username": "ArchdukeTim",
+                            "name": "Tim Winters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65822,
+                            "username": "ConnorMasini",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ac8455/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VS CODE error",
+                "id": 481868,
+                "title": "VS CODE error",
+                "slug": "vs-code-error",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-15T13:14:50.805Z",
+                "last_posted_at": "2025-01-15T14:25:44.569Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T14:25:44.569Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "good morning everybody! I’m having problems with VS CODE version 2025. Even installing the appropriate libraries and going through the entire process, the program says that the import cannot be resolv…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 100,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483232,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65809,
+                            "username": "RavenRain44",
+                            "name": "Collin Arthur",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/a87d85/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67007,
+                            "username": "fuzzyrobots",
+                            "name": "saran wagner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fuzzyrobots/{size}/233820_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AdvantageKit BuildConstants issue",
+                "id": 481841,
+                "title": "AdvantageKit BuildConstants issue",
+                "slug": "advantagekit-buildconstants-issue",
+                "posts_count": 20,
+                "reply_count": 15,
+                "highest_post_number": 20,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/0/90c1a671d8703792ba01705d57d0f9326e1f206d_2_1023x545.png",
+                "created_at": "2025-01-15T04:55:30.802Z",
+                "last_posted_at": "2025-01-27T18:13:37.114Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T18:13:37.114Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Sorry for not getting back to y’all. I fixed it by restarting my computer. When I opened it next time it just worked. I did download Git before the restart though.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 285,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493864,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 20,
+                "topic_post_user": {
+                    "id": 64095,
+                    "username": "Tetsu",
+                    "name": "Tetsuya Cox",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/41988e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 64095,
+                            "username": "Tetsu",
+                            "name": "Tetsuya Cox",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/41988e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18342,
+                            "username": "jdaming",
+                            "name": "Jason Daming",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jdaming/{size}/137720_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59741,
+                            "username": "noto501",
+                            "name": "Kynam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/noto501/{size}/262198_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "TigerHelpers: an improved LimelightHelpers",
+                "id": 494356,
+                "title": "TigerHelpers: an improved LimelightHelpers",
+                "slug": "tigerhelpers-an-improved-limelighthelpers",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-05T16:44:38.498Z",
+                "last_posted_at": "2025-03-07T03:42:16.894Z",
+                "bumped": true,
+                "bumped_at": "2025-03-07T03:42:16.894Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Introducing TigerHelpers Recently, my team found LimelightHelpers to be limiting, so we created our own improved TigerHelpers. Our goal was to modernize it and make it easier to interact with…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "limelight",
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 186,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548326,
+                "topic_post_liked": false,
+                "topic_post_like_count": 9,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53032,
+                    "username": "Traptricker",
+                    "name": "Jackson Elia",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53032,
+                            "username": "Traptricker",
+                            "name": "Jackson Elia",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56221,
+                            "username": "Ishan1",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/439d5e/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elastic help",
+                "id": 495307,
+                "title": "Elastic help",
+                "slug": "elastic-help",
+                "posts_count": 10,
+                "reply_count": 6,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-03-12T17:06:18.916Z",
+                "last_posted_at": "2025-03-13T11:46:45.595Z",
+                "bumped": true,
+                "bumped_at": "2025-03-13T11:46:45.595Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can look at what I did in my disabledPeriodic and autonomousPeriodic. It also handles flipping the path depending on alliance color.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 268,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3555363,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 59796,
+                    "username": "Arrowmag",
+                    "name": "Joey Tidrow",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73854,
+                            "username": "eclipse5214",
+                            "name": "elijah lipscomb",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/cdc98d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "limelight"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Swerve Not turning when using Limelight tv variable",
+        "id": 460616,
+        "title": "Swerve Not turning when using Limelight tv variable",
+        "posts_count": 3,
+        "created_at": "2024-03-29T16:55:54.619Z",
+        "views": 152,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-31T02:23:20.088Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-not-turning-when-using-limelight-tv-variable",
+        "category_id": 75,
+        "word_count": 401,
+        "deleted_at": null,
+        "user_id": 60894,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_460616",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 60894,
+                    "username": "rackdev",
+                    "name": "Harrison",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62693,
+                    "username": "Adithya_Anand",
+                    "name": "Adithya Anand",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/adithya_anand/{size}/208753_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 60894,
+                "username": "rackdev",
+                "name": "Harrison",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/vickitine404/2024MainTestChassis-main/blob/main/src/main/java/frc/robot/commands/swerveTurn.java",
+                    "title": "2024MainTestChassis-main/src/main/java/frc/robot/commands/swerveTurn.java at main · vickitine404/2024MainTestChassis-main · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 60894,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

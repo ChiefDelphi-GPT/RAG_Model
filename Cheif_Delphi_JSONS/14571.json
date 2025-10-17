@@ -1,0 +1,802 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3032590,
+                    "name": "",
+                    "username": "iz_en_zi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/iz_en_zi/{size}/226207_2.png",
+                    "created_at": "2022-03-29T13:52:40.278Z",
+                    "cooked": "We are trying to run sequential command groups in our autonomous, and we have two autonomous routines (an older time based one located in Robot.Java and odometry based one located properly in getAutonomousCommand in the Robot Container). Regardless of the routine however, after the first command is run, all future driving of the robot during auto is jittery, inconsistent, and not as expected, with the Falcon motors not actuating consistently. Is there a reason for this, and a way to fix this? Or, if that does not work, Is there another way to do this without sequential command groups? Thanks. Attached below is our code.\n\nRapidReact.zip (34.0 MB)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-03-29T13:53:55.371Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 26,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 143.8,
+                    "yours": false,
+                    "topic_id": 407243,
+                    "topic_slug": "sequential-command-groups-not-running-drive-commands-properly-after-first-command",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "/uploads/short-url/1hgPbuqmb9gljMbX3E36yhK4Vdk.zip",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48541,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "now a sad alumni"
+                    },
+                    "post_url": "/t/sequential-command-groups-not-running-drive-commands-properly-after-first-command/407243/1",
+                    "custom_user_title": "now a sad alumni",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3032733,
+                    "name": "Gavin Matthews",
+                    "username": "bovlb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "created_at": "2022-03-29T16:16:20.144Z",
+                    "cooked": "Thanks for attaching source code, but just a note that you’ll get more responses if you post a Github link instead.\n\nI think your main problem is in DriveSubsystem.periodic :\n\nHere you’re forcing the drive motors to honor the joysticks every event loop, and the joysticks are therefore fighting the autonomous for control of the robot.  This causes the jitter.\n\nMove all the arcade drive code into the drive subsystem’s default command.  That way it won’t run while you’re running an autonomous drive command.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-03-30T13:24:18.552Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 74.6,
+                    "yours": false,
+                    "topic_id": 407243,
+                    "topic_slug": "sequential-command-groups-not-running-drive-commands-properly-after-first-command",
+                    "display_username": "Gavin Matthews",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38743,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming mentor, Team 2102, RI, CSA (he/him)"
+                    },
+                    "post_url": "/t/sequential-command-groups-not-running-drive-commands-properly-after-first-command/407243/2",
+                    "custom_user_title": "Programming mentor, Team 2102, RI, CSA (he/him)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3176350,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-03-29T16:16:25.269Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-29T16:16:25.269Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 10,
+                    "readers_count": 9,
+                    "score": 2.0,
+                    "yours": false,
+                    "topic_id": 407243,
+                    "topic_slug": "sequential-command-groups-not-running-drive-commands-properly-after-first-command",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/sequential-command-groups-not-running-drive-commands-properly-after-first-command/407243/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3032590,
+                3032733,
+                3176350
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1293
+            ],
+            [
+                3,
+                928
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "driveRobotRelative(ChassisSpeeds speeds) not working",
+                "id": 492388,
+                "title": "driveRobotRelative(ChassisSpeeds speeds) not working",
+                "slug": "driverobotrelative-chassisspeeds-speeds-not-working",
+                "posts_count": 11,
+                "reply_count": 7,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-02-20T00:04:19.351Z",
+                "last_posted_at": "2025-02-22T18:37:32.093Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T18:37:32.093Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Here is my code for driveRobotRelative(ChassisSpeeds speeds), which is required to run pathplanner. public void driveRobotRelative(ChassisSpeeds speeds) { System.out.println(speeds.vxMetersPerSecond…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 138,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3533650,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63024,
+                    "username": "Jacksjnfds",
+                    "name": "Jackson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/43a26b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63024,
+                            "username": "Jacksjnfds",
+                            "name": "Jackson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/43a26b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54537,
+                            "username": "loganbachman",
+                            "name": "Logan Bachman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/f6c823/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52340,
+                            "username": "basedsami",
+                            "name": "Sami Alameddine",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/basedsami/{size}/193319_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with CTRE Swerve Generation in 2025",
+                "id": 478991,
+                "title": "Help with CTRE Swerve Generation in 2025",
+                "slug": "help-with-ctre-swerve-generation-in-2025",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-05T17:24:53.315Z",
+                "last_posted_at": "2025-01-14T01:40:11.482Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T01:40:11.482Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Looks like the update just got processed. You should be able to restart the Microsoft Store to see the update. If for some reason it doesn’t work, try resetting the Microsoft Store by Windows Key + …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 1455,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3471834,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 61981,
+                    "username": "daltzsmith",
+                    "name": "Dalton",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61741,
+                            "username": "kr1699",
+                            "name": "Kevin ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kr1699/{size}/207533_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59820,
+                            "username": "armando_mm09",
+                            "name": "Armando Mac Beath 5887, Programming Mentor",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/armando_mm09/{size}/206909_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56004,
+                            "username": "BirdyBird",
+                            "name": "David",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/47e85d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is it possible to create robot-centric paths with PathPlanner?",
+                "id": 481261,
+                "title": "Is it possible to create robot-centric paths with PathPlanner?",
+                "slug": "is-it-possible-to-create-robot-centric-paths-with-pathplanner",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-12T20:52:17.097Z",
+                "last_posted_at": "2025-01-14T15:11:49.511Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T15:11:49.511Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m looking to create a way to switch which face of the reef the robot is located at completely autonomously, but I don’t want to make 12-18 separate paths. Is there a way to create a robot-centric pa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "question"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 257,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480302,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61051,
+                    "username": "centiwati",
+                    "name": "Elliott Goldberg",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/45deac/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61051,
+                            "username": "centiwati",
+                            "name": "Elliott Goldberg",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/45deac/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70335,
+                            "username": "AegisNova",
+                            "name": "Josh",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aegisnova/{size}/265035_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Team 5687 The Outliers 2024 Code Release",
+                "id": 478057,
+                "title": "Team 5687 The Outliers 2024 Code Release",
+                "slug": "team-5687-the-outliers-2024-code-release",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-03T09:30:54.634Z",
+                "last_posted_at": "2025-01-03T09:30:54.710Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T09:30:54.710Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Although we keep all of our code public all year-round, we’d like to share direct links to our 2024 season and off-season code. Crescendo robot Barry Off-season robot AnkleBiter For mo…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "release"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 134,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3467420,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 26824,
+                    "username": "BenBernard",
+                    "name": "Ben Bernard (He/Him)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/benbernard/{size}/8721_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 26824,
+                            "username": "BenBernard",
+                            "name": "Ben Bernard (He/Him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/benbernard/{size}/8721_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner Config Questions",
+                "id": 492711,
+                "title": "Pathplanner Config Questions",
+                "slug": "pathplanner-config-questions",
+                "posts_count": 15,
+                "reply_count": 12,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-02-22T15:57:49.867Z",
+                "last_posted_at": "2025-02-23T16:09:40.233Z",
+                "bumped": true,
+                "bumped_at": "2025-02-23T16:09:40.233Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I’m mostly a Pathplanner novice and have a few questions on setup and path In the robot config menu, I’m inputting the metrics for our robot and the calculated Max Linear Acc…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 168,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536381,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63723,
+                    "username": "PKopf",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/57b2e6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63723,
+                            "username": "PKopf",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/57b2e6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Sequential Command Groups not Running Drive Commands Properly After First Command",
+        "id": 407243,
+        "title": "Sequential Command Groups not Running Drive Commands Properly After First Command",
+        "posts_count": 3,
+        "created_at": "2022-03-29T13:52:40.179Z",
+        "views": 426,
+        "reply_count": 0,
+        "like_count": 4,
+        "last_posted_at": "2023-03-29T16:16:25.269Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "sequential-command-groups-not-running-drive-commands-properly-after-first-command",
+        "category_id": 30,
+        "word_count": 229,
+        "deleted_at": null,
+        "user_id": 48541,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_407243",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "bovlb",
+            "name": null,
+            "excerpt": "Thanks for attaching source code, but just a note that you’ll get more responses if you post a Github link instead. \nI think your main problem is in DriveSubsystem.periodic: \nsetDriveSpeed_Arcade(-RobotContainer.xbox.getLeftY(), RobotContainer.xbox.getRightX()*.75);\n\nHere you’re forcing the drive mo&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48541,
+                    "username": "iz_en_zi",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/iz_en_zi/{size}/226207_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 48541,
+                "username": "iz_en_zi",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/iz_en_zi/{size}/226207_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

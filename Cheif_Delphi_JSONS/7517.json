@@ -1,0 +1,929 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3313085,
+                    "name": "AfterTen",
+                    "username": "AfterTen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                    "created_at": "2024-02-19T19:52:41.230Z",
+                    "cooked": "Swerve drive - So, 8 SparkFlex running NEOs Different Mechanisms - 3 More SparkMax (NEO 550) and 2 SparkFlex (NEO) So 13 all together Running Advantage Kit for logging\n\nSo, every periodic loop all 8 SparkFlex on Swerve are getting sent .set(Volts) commands.\n\nOne of the SparkMax is running a positional PID on the sparkMax. Only sending a .setReference when the target changes\n\n2 Other SparkMax are just being set to specific voltages but I’m only sending a .set when the target voltage changes.\n\nThe SparkFlexs are running Velocity PIDs on the SparkFlex and only sending a .setReference when the target velocity changes.\n\nWhen code is deployed and disabled the DS CAN Bus utilization fluctuates wildly from 0-100% looking at it you’d think it was a random number.\n\nThe driver station gets a “ CAN ID X,X,X timeout waiting for status X.”\n\nWhere CAN ID is again a random assortment of the CAN IDs and status X is 0,1,or 2.\n\nI’ve set the Periodic Frame Rate on all the controllers for frames 3-7 to 60000ms. I don’t need the information in those records. Frame 0,1,2 and left at their default rates.\n\nDoing .gets on the controllers every periodic as part of Advantage kit. But .gets shouldn’t effect CAN traffic, right?\n\nWhat should I be looking at to stop these CAN errors, I suspect they are harming robot operation. We get strange things happening like sometimes some of the controllers don’t respond at all to commands but redeploy same code and they start working.\n\nToday one of the SparkFlex’s using a velocity PID seemed to only get reaching 30% of what the target was set to. But redeploy the same code and now the Flex worked as expected.\n\nJust seeing if someone has has similar experience and what are some things to try.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-19T19:52:41.230Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 39,
+                    "reads": 85,
+                    "readers_count": 84,
+                    "score": 217.0,
+                    "yours": false,
+                    "topic_id": 455329,
+                    "topic_slug": "sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x",
+                    "display_username": "AfterTen",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 27113,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3572 Wavelength - Programming Mentor"
+                    },
+                    "post_url": "/t/sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x/455329/1",
+                    "custom_user_title": "3572 Wavelength - Programming Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3313141,
+                    "name": "Joe Ross",
+                    "username": "Joe_Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                    "created_at": "2024-02-19T21:16:32.294Z",
+                    "cooked": "AfterTen:\n\nRunning Advantage Kit for logging\n\nAfterTen:\n\nWhen code is deployed and disabled the DS CAN Bus utilization fluctuates wildly from 0-100% looking at it you’d think it was a random number.\n\nAdvantageKit abnormal CAN spiking opened 08:59PM - 13 Feb 24 UTC Ne-k\n\nAdvantageKit abnormal CAN spiking opened 08:59PM - 13 Feb 24 UTC Ne-k\n\nopened 08:59PM - 13 Feb 24 UTC Ne-k\n\nopened 08:59PM - 13 Feb 24 UTC\n\nNe-k\n\nRecently we've noticed that our CAN usage on our robot would spike up to 100% us … age with no explanation. We've ran some tests with isolating just AdvantageKit on a new project, and found that with just AdvantageKit installed, whether if we enable logging or not inside our Robot.java file, the can would still have that abnormal spike. \n\nMore information to what I'm talking about can be found here on the [Chief post I made yesterday](https://www.chiefdelphi.com/t/advantagekit-spiking-our-can-utilization/454548/7?u=nek).\n\nRecently we've noticed that our CAN usage on our robot would spike up to 100% us … age with no explanation. We've ran some tests with isolating just AdvantageKit on a new project, and found that with just AdvantageKit installed, whether if we enable logging or not inside our Robot.java file, the can would still have that abnormal spike. \n\nMore information to what I'm talking about can be found here on the [Chief post I made yesterday](https://www.chiefdelphi.com/t/advantagekit-spiking-our-can-utilization/454548/7?u=nek).",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-19T21:16:32.294Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 63,
+                    "readers_count": 62,
+                    "score": 17.6,
+                    "yours": false,
+                    "topic_id": 455329,
+                    "topic_slug": "sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x",
+                    "display_username": "Joe Ross",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/AdvantageKit/issues/71",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AdvantageKit abnormal CAN spiking · Issue #71 · Mechanical-Advantage/AdvantageKit · GitHub",
+                            "clicks": 17
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 65,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x/455329/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3330812,
+                    "name": "AfterTen",
+                    "username": "AfterTen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                    "created_at": "2024-03-12T03:28:48.744Z",
+                    "cooked": "Updating Playing With Fusion library to 2024.03.09 fixed all my issues.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-12T03:28:48.744Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 35,
+                    "readers_count": 34,
+                    "score": 7.0,
+                    "yours": false,
+                    "topic_id": 455329,
+                    "topic_slug": "sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x",
+                    "display_username": "AfterTen",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 27113,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3572 Wavelength - Programming Mentor"
+                    },
+                    "post_url": "/t/sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x/455329/3",
+                    "custom_user_title": "3572 Wavelength - Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "call_me_hand",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3554785,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-12T03:29:25.069Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-12T03:29:25.069Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 455329,
+                    "topic_slug": "sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x/455329/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3313085,
+                3313141,
+                3330812,
+                3554785
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                600
+            ],
+            [
+                3,
+                579
+            ],
+            [
+                4,
+                214
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Can frame not received/too-stale",
+                "id": 479694,
+                "title": "Can frame not received/too-stale",
+                "slug": "can-frame-not-received-too-stale",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-07T02:08:42.400Z",
+                "last_posted_at": "2025-01-07T09:35:47.363Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T09:35:47.363Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, my team switched to using krakenX60’s this year for a swerve drivetrain, and whenever code is deployed, the can frame not received/too-stale is thrown. Does anyone have any ideas that could…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 203,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473430,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70577,
+                    "username": "Jotty",
+                    "name": "Ben Gottschalk",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/3ab097/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70577,
+                            "username": "Jotty",
+                            "name": "Ben Gottschalk",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/3ab097/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65870,
+                            "username": "meer.com",
+                            "name": "meer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/meer.com/{size}/224746_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57606,
+                            "username": "Tamy0",
+                            "name": "Tamer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/b77776/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51932,
+                            "username": "ashtondemmer",
+                            "name": "Ashton Demmer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ashtondemmer/{size}/230987_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Feelin&rsquo; Excited about our CAD!",
+                "id": 482015,
+                "title": "Feelin' Excited about our CAD!",
+                "slug": "feelin-excited-about-our-cad",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/7/5/7574efab576f2640fe9d7f879ca1211b868c0660_2_1024x1003.jpeg",
+                "created_at": "2025-01-16T03:02:22.798Z",
+                "last_posted_at": "2025-01-17T13:58:28.713Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T13:58:28.713Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hmmm… lookin’ mated… Shoutout Canberry Alarm and Penn for being big inspos for this years bot! 4925 feeling really good about this year, no fingers crossed! Hope everyone is having a fun build …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wip"
+                ],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 816,
+                "category_id": 37,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484158,
+                "topic_post_liked": false,
+                "topic_post_like_count": 9,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59601,
+                    "username": "C8p3r",
+                    "name": "Cooper McCourt",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/c8p3r/{size}/240704_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59601,
+                            "username": "C8p3r",
+                            "name": "Cooper McCourt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/c8p3r/{size}/240704_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60080,
+                            "username": "GalenSpooner",
+                            "name": "Galen Spooner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galenspooner/{size}/229943_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59182,
+                            "username": "TrevDay",
+                            "name": "Trevor Dayal (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trevday/{size}/268067_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to Connect Glass to Simulation",
+                "id": 491860,
+                "title": "How to Connect Glass to Simulation",
+                "slug": "how-to-connect-glass-to-simulation",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-15T20:56:37.818Z",
+                "last_posted_at": "2025-02-15T21:49:54.941Z",
+                "bumped": true,
+                "bumped_at": "2025-02-15T21:49:54.941Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "simulation",
+                    "glass"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 70,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528249,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70504,
+                            "username": "AutumnPlanet",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE CANdi Feedback Sensor",
+                "id": 492021,
+                "title": "CTRE CANdi Feedback Sensor",
+                "slug": "ctre-candi-feedback-sensor",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-17T14:42:55.391Z",
+                "last_posted_at": "2025-03-10T00:49:12.169Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T00:49:12.169Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "@bhall-ctre On our end effector, we have a rev through bore encoder wired as an absolute encoder into our CANdi. This CANdi input then is set as the feedback for our pivot motor. The end effector has …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "pid"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 371,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529996,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57204,
+                    "username": "Prince",
+                    "name": "Prince",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4007,
+                            "username": "richwong",
+                            "name": "Rich Wong",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/richwong/{size}/73363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44380,
+                            "username": "gdefender",
+                            "name": "Andy Gasser",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69993,
+                            "username": "RyanKostohryz",
+                            "name": "Ryan Kostohryz ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ec9cab/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Programming a 2004 robot controller in 2025",
+                "id": 478221,
+                "title": "Programming a 2004 robot controller in 2025",
+                "slug": "programming-a-2004-robot-controller-in-2025",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-04T05:41:39.528Z",
+                "last_posted_at": "2025-02-01T21:18:02.157Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T21:18:02.157Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It’d be - not impossible - to get it working but I discourage you from putting time and energy into doing so. You’d need a couple off the black cables and radio modules to get it running wirelessly. B…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2004",
+                    "ifi"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 533,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3498165,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 7232,
+                    "username": "garyk",
+                    "name": "garyk",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/garyk/{size}/113200_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 7232,
+                            "username": "garyk",
+                            "name": "garyk",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/garyk/{size}/113200_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "SparkMax and SparkFlex Errors &hellip;Timeout Waiting for Status X",
+        "id": 455329,
+        "title": "SparkMax and SparkFlex Errors ...Timeout Waiting for Status X",
+        "posts_count": 4,
+        "created_at": "2024-02-19T19:52:41.169Z",
+        "views": 319,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-12T03:29:25.069Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "sparkmax-and-sparkflex-errors-timeout-waiting-for-status-x",
+        "category_id": 9,
+        "word_count": 399,
+        "deleted_at": null,
+        "user_id": 27113,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_455329",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 3,
+            "username": "AfterTen",
+            "name": null,
+            "excerpt": "Updating Playing With Fusion library to 2024.03.09 fixed all my issues.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 27113,
+                    "username": "AfterTen",
+                    "name": "AfterTen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                }
+            ],
+            "created_by": {
+                "id": 27113,
+                "username": "AfterTen",
+                "name": "AfterTen",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Mechanical-Advantage/AdvantageKit/issues/71",
+                    "title": "AdvantageKit abnormal CAN spiking · Issue #71 · Mechanical-Advantage/AdvantageKit · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 65,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

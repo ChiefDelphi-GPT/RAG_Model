@@ -1,0 +1,1050 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3246641,
+                    "name": "Shawn",
+                    "username": "chonkrdoggr",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png",
+                    "created_at": "2023-10-28T22:21:25.354Z",
+                    "cooked": "So I have a GRIP pipeline that detects a cone, but how do I implement it into being able to center to the target and view the camera on shuffleboard? Any help is appreciated, thanks!\n\nHere is the pipeline code: ConeGripPipeline.txt (7.1 KB)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2023-10-28T22:21:25.354Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 41,
+                    "reads": 95,
+                    "readers_count": 94,
+                    "score": 224.0,
+                    "yours": false,
+                    "topic_id": 443295,
+                    "topic_slug": "how-to-use-grip-in-wpilib",
+                    "display_username": "Shawn",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "/uploads/short-url/uddHuuPogEzqNRyTnt5yq8aHb7H.txt",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57565,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-use-grip-in-wpilib/443295/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3246674,
+                    "name": "Shawn",
+                    "username": "chonkrdoggr",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png",
+                    "created_at": "2023-10-28T23:54:59.433Z",
+                    "cooked": "So, I’m following these instructions , but in Robot.java, the “filterContoursOutput()” has an error:\n\nvisionThread = new VisionThread(camera, new ConeGripPipeline(), pipeline -> {           if (!pipeline.filterContoursOutput().isEmpty()) {               Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));               synchronized (imgLock) {                   centerX = r.x + (r.width / 2);               }           }       });\n\nError msg: The method filterContoursOutput() is undefined for the type ConeGripPipelineJava(67108964)\n\nI read somewhere in chief delphi that if I add implements VisionPipeline in my pipeline, it should fix the error, but I already have the interface and the error still persists.\n\nHere is my code",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2023-10-28T23:54:59.433Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 82,
+                    "readers_count": 81,
+                    "score": 31.4,
+                    "yours": false,
+                    "topic_id": 443295,
+                    "topic_slug": "how-to-use-grip-in-wpilib",
+                    "display_username": "Shawn",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/vision-processing/grip/using-generated-code-in-a-robot-program.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Using Generated Code in a Robot Program — FIRST Robotics Competition documentation",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/ShawnZhuPro/2023-IAP-Turret/blob/main/2023-IAP-Turret/src/main/java/edu/wpi/first/vision/VisionPipeline.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57565,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-use-grip-in-wpilib/443295/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3246772,
+                    "name": null,
+                    "username": "veg",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "created_at": "2023-10-29T14:12:33.180Z",
+                    "cooked": "Your ConeGripPipeline class does not appear to define a method named “filterContoursOutput.” Did you perhaps mean to call “findContoursOutput” instead?",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2023-10-29T14:12:33.180Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 58,
+                    "readers_count": 57,
+                    "score": 36.6,
+                    "yours": false,
+                    "topic_id": 443295,
+                    "topic_slug": "how-to-use-grip-in-wpilib",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 57565,
+                        "username": "chonkrdoggr",
+                        "name": "Shawn",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48088,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-use-grip-in-wpilib/443295/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3246780,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2023-10-29T14:54:32.182Z",
+                    "cooked": "I’m sorry I have to run but I still might be of help. A quick look at your (lack of) code and you are missing the Grip pipeline. You have to export it from Grip and paste it into your robot program. Here’s an example of a pipeline and the complete code is nearby this file in the repository.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2023-10-29T14:54:32.182Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 45,
+                    "readers_count": 44,
+                    "score": 24.0,
+                    "yours": false,
+                    "topic_id": 443295,
+                    "topic_slug": "how-to-use-grip-in-wpilib",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/SirLanceABot/2022-Robot-Development/blob/main/src/main/java/frc/vision/GripPipeline.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 57565,
+                        "username": "chonkrdoggr",
+                        "name": "Shawn",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-use-grip-in-wpilib/443295/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3440655,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-10-28T14:55:21.222Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2024-10-28T14:55:21.222Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 3,
+                    "readers_count": 2,
+                    "score": 0.6,
+                    "yours": false,
+                    "topic_id": 443295,
+                    "topic_slug": "how-to-use-grip-in-wpilib",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/how-to-use-grip-in-wpilib/443295/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3246641,
+                3246674,
+                3246772,
+                3246780,
+                3440655
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                714
+            ],
+            [
+                3,
+                713
+            ],
+            [
+                5,
+                348
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How do I run WPIcal?",
+                "id": 477292,
+                "title": "How do I run WPIcal?",
+                "slug": "how-do-i-run-wpical",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-12-24T17:14:20.233Z",
+                "last_posted_at": "2024-12-24T17:36:18.048Z",
+                "bumped": true,
+                "bumped_at": "2024-12-24T17:36:18.048Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It’s not in a WPILib release yet, as it’s still in development and the PR is still being worked on.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "calibration"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 417,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463145,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59402,
+                            "username": "Hyperspace1710",
+                            "name": "Micah",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MAXmotion elevator tuning",
+                "id": 485544,
+                "title": "MAXmotion elevator tuning",
+                "slug": "maxmotion-elevator-tuning",
+                "posts_count": 20,
+                "reply_count": 17,
+                "highest_post_number": 20,
+                "image_url": null,
+                "created_at": "2025-02-07T13:16:36.435Z",
+                "last_posted_at": "2025-02-07T23:17:04.561Z",
+                "bumped": true,
+                "bumped_at": "2025-02-07T23:17:04.561Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can, but only for the kG term, which is equivalent to just passing a constant to the arbff parameter. The architecture here is not great and I’d just profile on the RIO.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 15,
+                "views": 684,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3505559,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 20,
+                "topic_post_user": {
+                    "id": 12381,
+                    "username": "Oblarg",
+                    "name": "Eli Barnett",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49147,
+                            "username": "CarvalhoJeo",
+                            "name": "Luca Carvalho",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Reef Vision: 4145",
+                "id": 482921,
+                "title": "Reef Vision: 4145",
+                "slug": "reef-vision-4145",
+                "posts_count": 19,
+                "reply_count": 12,
+                "highest_post_number": 19,
+                "image_url": null,
+                "created_at": "2025-01-21T20:21:08.780Z",
+                "last_posted_at": "2025-02-10T23:59:51.128Z",
+                "bumped": true,
+                "bumped_at": "2025-02-10T23:59:51.128Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Just a prototype for vision of the Reef using a YOLOv11 model, AprilTag detection, and some simple deconstruction. Features detection for coral and algae on the top three levels of the Reef, moving a…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 30,
+                "views": 1989,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489172,
+                "topic_post_liked": false,
+                "topic_post_like_count": 25,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62692,
+                    "username": "CarbonSmasher",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/carbonsmasher/{size}/255012_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62692,
+                            "username": "CarbonSmasher",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carbonsmasher/{size}/255012_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71662,
+                            "username": "cacteye",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ea5d25/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63359,
+                            "username": "predobrega",
+                            "name": "Pedro Braga",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/predobrega/{size}/211207_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 72046,
+                            "username": "Fooot",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fooot/{size}/247948_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SYSID Acceleration Calculation Failure",
+                "id": 483384,
+                "title": "SYSID Acceleration Calculation Failure",
+                "slug": "sysid-acceleration-calculation-failure",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/c/9c01a913a9c63946deccd8e0dfb55469efa2879e_2_1024x641.png",
+                "created_at": "2025-01-24T15:59:36.834Z",
+                "last_posted_at": "2025-01-25T13:32:37.674Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T13:32:37.674Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have been trying to run a SYSID analysis of our robot’s elevator. I ran all necessary tests (Dynamic and Quasistatic, both forward and reverse), and I’m getting this As you can see, the d…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "sysid",
+                    "advantagekit"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 142,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491648,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71736,
+                    "username": "Mariners",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8dc957/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71736,
+                            "username": "Mariners",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8dc957/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36833,
+                            "username": "chauser",
+                            "name": "Carl Hauser",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SparkMax Go to set position",
+                "id": 490924,
+                "title": "SparkMax Go to set position",
+                "slug": "sparkmax-go-to-set-position",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-09T20:57:28.243Z",
+                "last_posted_at": "2025-02-09T21:32:40.203Z",
+                "bumped": true,
+                "bumped_at": "2025-02-09T21:32:40.203Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "There’s a few things wrong here, but I’ll touch on the one that’s most likely causing the issue you asked about. You need to configure the closedLoopConteoller. I recommend looking into what PID con…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3521614,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68236,
+                            "username": "FloppyDks",
+                            "name": "Ray Flanagan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/2acd7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "opencv",
+            "grip"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "How to use GRIP in WPIlib",
+        "id": 443295,
+        "title": "How to use GRIP in WPIlib",
+        "posts_count": 5,
+        "created_at": "2023-10-28T22:21:25.289Z",
+        "views": 343,
+        "reply_count": 2,
+        "like_count": 2,
+        "last_posted_at": "2024-10-28T14:55:21.222Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-to-use-grip-in-wpilib",
+        "category_id": 30,
+        "word_count": 316,
+        "deleted_at": null,
+        "user_id": 57565,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_443295",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 3,
+            "username": "veg",
+            "name": null,
+            "excerpt": "Your ConeGripPipeline class does not appear to define a method named “filterContoursOutput.” Did you perhaps mean to call “findContoursOutput” instead? \n/**\n * This method is a generated getter for the output of a Find_Contours.\n * @return ArrayList&lt;MatOfPoint&gt; output from Find_Contours.\n */\npublic &hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 57565,
+                    "username": "chonkrdoggr",
+                    "name": "Shawn",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24594,
+                    "username": "SLAB-Mr.Thomas",
+                    "name": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48088,
+                    "username": "veg",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 57565,
+                "username": "chonkrdoggr",
+                "name": "Shawn",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/13edae/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/vision-processing/grip/using-generated-code-in-a-robot-program.html",
+                    "title": "Using Generated Code in a Robot Program — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 57565,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.com/ShawnZhuPro/2023-IAP-Turret/blob/main/2023-IAP-Turret/src/main/java/edu/wpi/first/vision/VisionPipeline.java",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 57565,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/SirLanceABot/2022-Robot-Development/blob/main/src/main/java/frc/vision/GripPipeline.java",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 24594,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

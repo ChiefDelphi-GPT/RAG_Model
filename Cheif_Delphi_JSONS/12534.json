@@ -1,0 +1,885 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3135474,
+                    "name": "Miles",
+                    "username": "trompmil24",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/48db29/{size}.png",
+                    "created_at": "2023-01-28T19:07:33.845Z",
+                    "cooked": "Hello, I was using a SwerveAutoBuilder to make a simple auto path in PathPlanner of just a strait line. When I enable it, goes in a diagonal line/curves away from where the path is supposed to end. I originally thought this was a PID issue so I was messing with those values but it didn’t seem like anything was changing. I feel like it would be a zeroing or resetting issue but I have no idea where I would add that. Here is my code, and I would greatly appreciate any help because I am lost.\n\nEdit: I changed the vY for the ChassisSpeeds in the swerve module state consumer to 0 which made it go in a strait line, but no matter what the path is, it will always either go up and right while turning depending on what the different arguments for that ChassisSpeeds are. For example, I tried changing the path to include a curve but it still went in the strait line since the VY for the ChassisSpeeds was still 0. I feel like this drive command is influencing the robot instead of the path.\n\nI think I just need to get the x, y, and rotational velocities for a certain time for line 125 in the Robot Container but I’m not sure how I would do that.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-01-28T22:32:56.606Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 246,
+                    "reads": 164,
+                    "readers_count": 163,
+                    "score": 1262.8,
+                    "yours": false,
+                    "topic_id": 424953,
+                    "topic_slug": "using-swerve-with-pathplanner",
+                    "display_username": "Miles",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 4,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/trompmil24/SwerveAutoCode",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - trompmil24/SwerveAutoCode",
+                            "clicks": 68
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56623,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/using-swerve-with-pathplanner/424953/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3139863,
+                    "name": "Miles",
+                    "username": "trompmil24",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/48db29/{size}.png",
+                    "created_at": "2023-02-05T02:28:21.606Z",
+                    "cooked": "Edit again: I’ve solved the problem by coming at it from a different approach. I just used lots of different classes/commands to tell my robot what to do.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-05T02:28:21.606Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 106,
+                    "readers_count": 105,
+                    "score": 106.2,
+                    "yours": false,
+                    "topic_id": 424953,
+                    "topic_slug": "using-swerve-with-pathplanner",
+                    "display_username": "Miles",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56623,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/using-swerve-with-pathplanner/424953/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3301870,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-02-05T02:28:35.104Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-05T02:28:35.104Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 11,
+                    "readers_count": 10,
+                    "score": 2.2,
+                    "yours": false,
+                    "topic_id": 424953,
+                    "topic_slug": "using-swerve-with-pathplanner",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/using-swerve-with-pathplanner/424953/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3135474,
+                3139863,
+                3301870
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                987
+            ],
+            [
+                2,
+                980
+            ],
+            [
+                3,
+                615
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "CAD Optimization",
+                "id": 476882,
+                "title": "CAD Optimization",
+                "slug": "cad-optimization",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-17T18:40:30.192Z",
+                "last_posted_at": "2024-12-17T20:17:41.751Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T20:17:41.751Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey! I was wondering if anybody has any tips for optimizing Cad in Onshape. Thanks!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 326,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460393,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69303,
+                    "username": "Calvin-Hobbes17",
+                    "name": "Calvin Selin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69303,
+                            "username": "Calvin-Hobbes17",
+                            "name": "Calvin Selin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60925,
+                            "username": "mpatel19",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mpatel19/{size}/201444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68269,
+                            "username": "GeraldTM",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geraldtm/{size}/246403_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52040,
+                            "username": "Sands",
+                            "name": "Ian Osborn",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "233 The Pink Team - Introducing “Vector” A Rollable Boat Hook Climber",
+                "id": 477202,
+                "title": "233 The Pink Team - Introducing “Vector” A Rollable Boat Hook Climber",
+                "slug": "233-the-pink-team-introducing-vector-a-rollable-boat-hook-climber",
+                "posts_count": 14,
+                "reply_count": 8,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-12-22T05:24:25.088Z",
+                "last_posted_at": "2025-01-05T06:59:20.815Z",
+                "bumped": true,
+                "bumped_at": "2025-01-05T06:59:20.815Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello All. Team 233 The Pink Team is proud to present “Vector”, our take of the rollable boat hook climber. During the off-season our mechanical student lead CADed this climber while working with m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "cad",
+                    "cadrelease",
+                    "climbing",
+                    "climber"
+                ],
+                "tags_descriptions": {},
+                "like_count": 44,
+                "views": 2582,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462423,
+                "topic_post_liked": false,
+                "topic_post_like_count": 21,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22936,
+                    "username": "Tristan_Shepard",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 22936,
+                            "username": "Tristan_Shepard",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7309,
+                            "username": "clydefrog88",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clydefrog88/{size}/150683_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4760,
+                            "username": "billbo911",
+                            "name": "billbo911",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/billbo911/{size}/110890_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53819,
+                            "username": "Zatack7",
+                            "name": "Zachary",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/zatack7/{size}/175437_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is It a Good Idea to Use Fiberglass for the Chassis?",
+                "id": 477598,
+                "title": "Is It a Good Idea to Use Fiberglass for the Chassis?",
+                "slug": "is-it-a-good-idea-to-use-fiberglass-for-the-chassis",
+                "posts_count": 51,
+                "reply_count": 41,
+                "highest_post_number": 52,
+                "image_url": null,
+                "created_at": "2024-12-30T12:05:40.806Z",
+                "last_posted_at": "2025-01-08T20:11:02.033Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T20:11:02.033Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As others have pointed out, the chassis is really not where you want experiment with new materials your first year. If you’re not using the chassis provided in the Kit of Parts, I would at least stron…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 177,
+                "views": 1911,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465215,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 24,
+                "topic_post_user": {
+                    "id": 6560,
+                    "username": "cbale2000",
+                    "name": "Chris Bale",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cbale2000/{size}/2142_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69346,
+                            "username": "aramiko2010",
+                            "name": "aram",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aramiko2010/{size}/237517_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Accepted Answer",
+                        "user": {
+                            "id": 6560,
+                            "username": "cbale2000",
+                            "name": "Chris Bale",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cbale2000/{size}/2142_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26760,
+                            "username": "troy_dietz",
+                            "name": "Troy Dietz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/troy_dietz/{size}/135768_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Combine AprilTag and Lidar for Robotpose",
+                "id": 481173,
+                "title": "Combine AprilTag and Lidar for Robotpose",
+                "slug": "combine-apriltag-and-lidar-for-robotpose",
+                "posts_count": 17,
+                "reply_count": 12,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-12T15:02:09.934Z",
+                "last_posted_at": "2025-01-14T18:40:54.797Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T18:40:54.797Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "AprilTag sensing is sensitive to Left/Right position. But distance from camera to the AprilTag is often not very sensitive. We are interested in adding a Lidar to measure distance from the robot to th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 963,
+                "category_id": 70,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479948,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 32451,
+                    "username": "EricRehder",
+                    "name": "EricRehder",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/7ab992/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 32451,
+                            "username": "EricRehder",
+                            "name": "EricRehder",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/7ab992/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 42126,
+                            "username": "Dylan1259",
+                            "name": "Dylan Powers",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dylan1259/{size}/161876_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24678,
+                            "username": "Justin_Buist",
+                            "name": "Justin Buist",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60663,
+                            "username": "Geoffrey8814",
+                            "name": "Geoffrey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geoffrey8814/{size}/262430_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 2669,
+                            "username": "Tom_Bottiglieri",
+                            "name": "Tom Bottiglieri",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_bottiglieri/{size}/110881_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "NavX Dependency closed till kickoff?",
+                "id": 476153,
+                "title": "NavX Dependency closed till kickoff?",
+                "slug": "navx-dependency-closed-till-kickoff",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-06T01:31:49.691Z",
+                "last_posted_at": "2024-12-07T07:06:45.311Z",
+                "bumped": true,
+                "bumped_at": "2024-12-07T07:06:45.311Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you’re on the 2025 beta, you can install it from the “Available Dependencies” section in the WPILib sidebar",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 342,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455555,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 57939,
+                    "username": "grahamsh",
+                    "name": "Graham Howard",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54022,
+                            "username": "Pizzatc",
+                            "name": "Pizzatc",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pizzatc/{size}/207342_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 57939,
+                            "username": "grahamsh",
+                            "name": "Graham Howard",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18342,
+                            "username": "jdaming",
+                            "name": "Jason Daming",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jdaming/{size}/137720_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "autonomous"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Using Swerve With PathPlanner",
+        "id": 424953,
+        "title": "Using Swerve With PathPlanner",
+        "posts_count": 3,
+        "created_at": "2023-01-28T19:07:33.749Z",
+        "views": 966,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-02-05T02:28:35.104Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "using-swerve-with-pathplanner",
+        "category_id": 9,
+        "word_count": 277,
+        "deleted_at": null,
+        "user_id": 56623,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_424953",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "trompmil24",
+            "name": null,
+            "excerpt": "Edit again: I’ve solved the problem by coming at it from a different approach. I just used lots of different classes/commands to tell my robot what to do.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 56623,
+                    "username": "trompmil24",
+                    "name": "Miles",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/48db29/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 56623,
+                "username": "trompmil24",
+                "name": "Miles",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/48db29/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/trompmil24/SwerveAutoCode",
+                    "title": "GitHub - trompmil24/SwerveAutoCode",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 68,
+                    "user_id": 56623,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

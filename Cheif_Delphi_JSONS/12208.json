@@ -1,0 +1,781 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3147313,
+                    "name": "Sam Mulvey",
+                    "username": "sam.mulvey747",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam.mulvey747/{size}/197506_2.png",
+                    "created_at": "2023-02-17T04:43:09.507Z",
+                    "cooked": "Hi everyone, my team is trying to write code to automatically align to the scoring location using on-the-fly WPILib trajectory generation using data from the limelight. We have had a lot of success so far with this, however the output trajectories we are getting are following what we feel is an suboptimal path. I am unable to currently post my full code so I apologize in advance, but in short we are currently using WPILib’s TrajectoryGenerator class with the constructor that takes in a starting Pose2d, a list of intermediate Translate2ds, and a final Pose2d. We have one intermediate waypoint that we use to make sure we come at the goal straight so we don’t crash into any obstacles.\n\nI tried to recreate the path we are currently generating at an example starting location in Path Planner, as well as the type of trajectory we would like to generate. Please see the images below:\n\nCurrent Trajectory being generated with routes going away from the goal first, then approaching the goal sideways:\n\nDesired path, where the wheels cut straight to the side and turn at the intermediate waypoint and go straight to the scoring location:\n\nI understand that to achieve this affect I am changing the “Heading” setting in Path Planner, but I do not know what I can do to achieve this in WPILib. I have experienced this before with WPIlib trajectories in a simple case seen below:\n\nI am sure I am just not understanding something simple, but I have not been able to understand how to fix this since we started working on swerve autonomous during the offseason. If anyone is able to give some advice or needs more information please let me know! Thanks!!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-17T04:43:09.507Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 18,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 106.6,
+                    "yours": false,
+                    "topic_id": 427147,
+                    "topic_slug": "trajectory-generation-with-tighter-curves",
+                    "display_username": "Sam Mulvey",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 35690,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/trajectory-generation-with-tighter-curves/427147/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3147314,
+                    "name": "Sam Mulvey",
+                    "username": "sam.mulvey747",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam.mulvey747/{size}/197506_2.png",
+                    "created_at": "2023-02-17T04:45:52.805Z",
+                    "cooked": "Upon posting this I think that “heading” is describing the direction that the swerve modules are facing. Even if that is true, I still do not know how to tell trajectory we need the heading to change faster.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-17T04:45:52.805Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 76,
+                    "readers_count": 75,
+                    "score": 30.2,
+                    "yours": false,
+                    "topic_id": 427147,
+                    "topic_slug": "trajectory-generation-with-tighter-curves",
+                    "display_username": "Sam Mulvey",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 35690,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/trajectory-generation-with-tighter-curves/427147/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3311553,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-02-17T04:46:15.009Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-17T04:46:15.009Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 427147,
+                    "topic_slug": "trajectory-generation-with-tighter-curves",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/trajectory-generation-with-tighter-curves/427147/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3147313,
+                3147314,
+                3311553
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                968
+            ],
+            [
+                3,
+                603
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Drive Problems",
+                "id": 475534,
+                "title": "Swerve Drive Problems",
+                "slug": "swerve-drive-problems",
+                "posts_count": 10,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-11-24T19:41:16.886Z",
+                "last_posted_at": "2024-12-04T21:06:50.497Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T21:06:50.497Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "so im using a new standart code for my swerve , my wiring is good , my id’s and offsets are good , when im driving it the robot drives good but when trying to rotate the 2 back wheels are working good…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 526,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451425,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61558,
+                    "username": "hamitHangel",
+                    "name": "timTsotsali",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/f9ae1b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61558,
+                            "username": "hamitHangel",
+                            "name": "timTsotsali",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/f9ae1b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68487,
+                            "username": "Stormbreaker",
+                            "name": "Mahi Madhan Kumar",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stormbreaker/{size}/268248_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 54750,
+                            "username": "Ledesma",
+                            "name": "Ramon Ledesma",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Issues with motor not outtaking corral",
+                "id": 491466,
+                "title": "Issues with motor not outtaking corral",
+                "slug": "issues-with-motor-not-outtaking-corral",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-13T01:19:31.167Z",
+                "last_posted_at": "2025-02-13T06:09:03.705Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T06:09:03.705Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are currently having issues with our corral intake mech when it’s supposed to outtake the corral. It just stalls and doesn’t come out. We’ve tested the exact some motor on the exact same mechanism …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525542,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64018,
+                    "username": "BobKan396",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/df705f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64018,
+                            "username": "BobKan396",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/df705f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Choreo only uses last 2 samples in trajectory",
+                "id": 481262,
+                "title": "Choreo only uses last 2 samples in trajectory",
+                "slug": "choreo-only-uses-last-2-samples-in-trajectory",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-12T20:54:43.676Z",
+                "last_posted_at": "2025-01-12T23:18:32.733Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T23:18:32.733Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using Choreo with YAGSL swerve. We created an auto to drive 4 m straight. The robot only uses the last 2 samples and does not move at all before finishing. We used the Choreo example code and Y…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 136,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480308,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62398,
+                    "username": "essanders",
+                    "name": "Ethan Sanders",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/essanders/{size}/208157_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62398,
+                            "username": "essanders",
+                            "name": "Ethan Sanders",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/essanders/{size}/208157_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "com.revrobotics.CANSparkMax not resolving",
+                "id": 483389,
+                "title": "com.revrobotics.CANSparkMax not resolving",
+                "slug": "com-revrobotics-cansparkmax-not-resolving",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/f/9fd3f86da43d2d2edc0b868dd38208262edb2b65_2_1024x576.png",
+                "created_at": "2025-01-24T16:18:33.817Z",
+                "last_posted_at": "2025-01-24T16:32:41.575Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T16:32:41.575Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "it says The import com.revrobotics.CANSparkMax cannot be resolvedJava(268435846) ive installed rev lib in the wpilib dependencies tab and yet it still doesnt work",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 318,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491665,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71740,
+                    "username": "kaey",
+                    "name": "kaey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71740,
+                            "username": "kaey",
+                            "name": "kaey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/8baadc/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29802,
+                            "username": "wits",
+                            "name": "Joe Witcpalek",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wits/{size}/110752_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Time Crunch need help: Elevator attempts to move to setpoint but isnt able to do so",
+                "id": 495759,
+                "title": "Time Crunch need help: Elevator attempts to move to setpoint but isnt able to do so",
+                "slug": "time-crunch-need-help-elevator-attempts-to-move-to-setpoint-but-isnt-able-to-do-so",
+                "posts_count": 36,
+                "reply_count": 29,
+                "highest_post_number": 36,
+                "image_url": null,
+                "created_at": "2025-03-16T11:14:58.669Z",
+                "last_posted_at": "2025-03-17T20:12:26.313Z",
+                "bumped": true,
+                "bumped_at": "2025-03-17T20:12:26.313Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "manually tuning our elevator got it working, thank you all",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "elevator"
+                ],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 435,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3558690,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 35,
+                "topic_post_user": {
+                    "id": 56270,
+                    "username": "v0ncent",
+                    "name": "Vincent Banks",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 56270,
+                            "username": "v0ncent",
+                            "name": "Vincent Banks",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20567,
+                            "username": "BBaltrusch",
+                            "name": "BBaltrusch",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/c89c15/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 16385,
+                            "username": "BillDunlap",
+                            "name": "BillDunlap",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/7ea924/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Trajectory Generation with Tighter Curves",
+        "id": 427147,
+        "title": "Trajectory Generation with Tighter Curves",
+        "posts_count": 3,
+        "created_at": "2023-02-17T04:43:09.449Z",
+        "views": 325,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-02-17T04:46:15.009Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "trajectory-generation-with-tighter-curves",
+        "category_id": 30,
+        "word_count": 364,
+        "deleted_at": null,
+        "user_id": 35690,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/1/41fe4529c49b9a706bb059af37a33e33510447f2.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_427147",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 456,
+                "height": 341,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/1/41fe4529c49b9a706bb059af37a33e33510447f2.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 35690,
+                    "username": "sam.mulvey747",
+                    "name": "Sam Mulvey",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam.mulvey747/{size}/197506_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 35690,
+                "username": "sam.mulvey747",
+                "name": "Sam Mulvey",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/sam.mulvey747/{size}/197506_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

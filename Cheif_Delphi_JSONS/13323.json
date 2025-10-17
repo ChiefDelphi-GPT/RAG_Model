@@ -1,0 +1,849 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3117013,
+                    "name": "Amicus1",
+                    "username": "Amicus1",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                    "created_at": "2023-01-06T00:31:46.817Z",
+                    "cooked": "Robot-2022 , our in-season competition code.\n\nRobot-2022 , our in-season competition code.\n\nRobot-2022-Rewrite , our off-season codebase for the same robot.\n\nRobot-2022-Rewrite , our off-season codebase for the same robot.\n\nSwerve-2022 , our testbase code for swerve.\n\nSwerve-2022 , our testbase code for swerve.\n\nSwerve-2023 , the 2023 WPILib port-in-progress of the above\n\nSwerve-2023 , the 2023 WPILib port-in-progress of the above\n\nCLAWDIA Features:\n\n4-NEO differential drivetrain\n\n4-NEO differential drivetrain\n\nAutomatic Sequencer\n\nAutomatic Sequencer\n\nVision-aimed Turret with ~270 degrees of motion\n\nVision-aimed Turret with ~270 degrees of motion\n\nShooter using vision-based interpolated speeds\n\nShooter using vision-based interpolated speeds\n\nManually driven climber with no falls across 40+ matches.\n\nManually driven climber with no falls across 40+ matches.\n\nTLDR: The first one became unmaintainable. Too many quick fixes piled on other quick fixes, lots of automation strung together in RobotContainer, etc. There’s still remnants of an attempt at shoot-on-the-fly as well, which required compromises in code structure that made it difficult to develop. With several new students joining for the offseason, we decided to save Robot-2022 as an example of what not to do, copy over the subsystems and hardware definitions, and rethink how we handled commands and actions.\n\nThis year we benefitted from 3476’s practice field to develop a reliable 4-ball auto that won the Innovation in Control award at Las Vegas Regional.\n\nThis season we tried using inline convenience commands and decorators to clean up our code. In the first iteration of the codebase, we constructed these inline commands in separate command factory classes for each subsystem ( example ). This was a bad idea in practice because it was effectively a more verbose constructor in RobotContainer and autonomous groups. and didn’t actually help organize the code.\n\nAfter significant feedback from WPILib developers, we switched to command factories in subsystems. Though initially we thought this blurred the separation between subsystems and commands, we found it helpful to think of it as the subsystem exposing only the actions it was capable of doing. Combined with the decorators, functional programming paradigms, and Trigger-based controller bindings, (and ignoring the climber controls, which were all manual), we ended up with a fairly clean RobotContainer bindings section .\n\nFor the most part, this worked really well. Auto routines were still a separate command factory class, and extended groups like that are still tricky to understand the flow. However, the code is in general very clear as to what each command does, because it’s wrapped behind the name of the factory method.\n\nIn the offseason, along with rewriting our competition code, we also developed code for our NEO Mk4 swerve base. The local STEM foundation that gave us a grant for the modules required that we provide a demo for their K-12 STEM night. We started with team 401’s 2021 codebase . Besides getting it driving, doing the demo, and experimenting a bit with autonomous movement, we haven’t done much with the swerve base yet, so there’s not many details to share. However, if we end up using it this season we’ll probably have a few tricks to show off .",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2023-01-06T00:31:46.817Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 64,
+                    "readers_count": 63,
+                    "score": 42.8,
+                    "yours": false,
+                    "topic_id": 420805,
+                    "topic_slug": "6995-nomad-2022-code-release-clawdia",
+                    "display_username": "Amicus1",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/frc6995/Swerve-2023",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc6995/Swerve-2023",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://github.com/frc6995/Robot-2022/tree/odometryPlayground",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc6995/Robot-2022 at odometryPlayground",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/frc6995/Swerve-2022/tree/pathplanner",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc6995/Swerve-2022 at pathplanner",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/team401/2021-Robot-Code/blob/master/src/main/java/frc/robot/subsystems/DriveSubsystem.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2021-Robot-Code/DriveSubsystem.java at master · team401/2021-Robot-Code · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/frc6995/Robot-2022-Rewrite/blob/2f80734172468d3f0aed04f8f8e4c00f6f6430a7/src/main/java/frc/robot/RobotContainer.java#L173",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Robot-2022-Rewrite/RobotContainer.java at 2f80734172468d3f0aed04f8f8e4c00f6f6430a7 · frc6995/Robot-2022-Rewrite · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/frc6995/Robot-2022-Rewrite",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc6995/Robot-2022-Rewrite",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://github.com/frc6995/Robot-2022/blob/odometryPlayground/src/main/java/frc/robot/commands/MidtakeCommandFactory.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Robot-2022/MidtakeCommandFactory.java at odometryPlayground · frc6995/Robot-2022 · GitHub",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 33946,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6995A/Choreo/Monologue"
+                    },
+                    "post_url": "/t/6995-nomad-2022-code-release-clawdia/420805/1",
+                    "custom_user_title": "6995A/Choreo/Monologue",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3273518,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-01-06T00:31:47.429Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 2,
+                    "post_type": 3,
+                    "posts_count": 2,
+                    "updated_at": "2024-01-06T00:31:47.429Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 3,
+                    "readers_count": 2,
+                    "score": 0.6,
+                    "yours": false,
+                    "topic_id": 420805,
+                    "topic_slug": "6995-nomad-2022-code-release-clawdia",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/6995-nomad-2022-code-release-clawdia/420805/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3117013,
+                3273518
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1010
+            ],
+            [
+                2,
+                645
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Need assistance with pathplanner for swerve drive",
+                "id": 473009,
+                "title": "Need assistance with pathplanner for swerve drive",
+                "slug": "need-assistance-with-pathplanner-for-swerve-drive",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-10-14T18:14:49.457Z",
+                "last_posted_at": "2024-10-17T23:25:47.032Z",
+                "bumped": true,
+                "bumped_at": "2024-10-17T23:25:47.032Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Have you tried YAGSL? It has PathPlanner built-in to the Example project?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "pathplanner",
+                    "auto"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 296,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3434697,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64441,
+                            "username": "Ethanctuttle",
+                            "name": "Ethan Tuttle",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ethanctuttle/{size}/216772_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Twist2d vs Transform2d for velocity compensation",
+                "id": 476386,
+                "title": "Twist2d vs Transform2d for velocity compensation",
+                "slug": "twist2d-vs-transform2d-for-velocity-compensation",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-12-10T08:49:48.499Z",
+                "last_posted_at": "2024-12-10T13:41:13.531Z",
+                "bumped": true,
+                "bumped_at": "2024-12-10T14:50:29.717Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys, I’m implementing a velocity compensation to our path following commands. This function predicts the future robot pose from its current pose and current velocity. I’ve heard from this post …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 200,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3457205,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What vision system do you use and why?",
+                "id": 476427,
+                "title": "What vision system do you use and why?",
+                "slug": "what-vision-system-do-you-use-and-why",
+                "posts_count": 13,
+                "reply_count": 3,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2024-12-10T19:24:33.263Z",
+                "last_posted_at": "2024-12-12T01:22:33.408Z",
+                "bumped": true,
+                "bumped_at": "2024-12-12T01:22:33.408Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello all, given the poll in the recent “why do people hate Limelight” thread, I thought id make a dedicated poll on the topic. If you are using something more custom/unique or just want to explain w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 888,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3457455,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53160,
+                    "username": "RomanTechPlus",
+                    "name": "Roman A.",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/romantechplus/{size}/214929_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53160,
+                            "username": "RomanTechPlus",
+                            "name": "Roman A.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/romantechplus/{size}/214929_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49892,
+                            "username": "nobody5690",
+                            "name": "Levi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nobody5690/{size}/203585_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4760,
+                            "username": "billbo911",
+                            "name": "billbo911",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/billbo911/{size}/110890_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YOLO11 in FRC",
+                "id": 476371,
+                "title": "YOLO11 in FRC",
+                "slug": "yolo11-in-frc",
+                "posts_count": 24,
+                "reply_count": 11,
+                "highest_post_number": 24,
+                "image_url": null,
+                "created_at": "2024-12-10T03:03:18.220Z",
+                "last_posted_at": "2025-03-02T19:09:06.583Z",
+                "bumped": true,
+                "bumped_at": "2025-03-02T19:09:06.583Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Here’s a Jupyter notebook to train YOLO11 models and convert them to RKNN so they can be used by coprocessors with Rockchips, it is intended to be used with an Orange Pi 5. This notebook is based on …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision",
+                    "frc503",
+                    "computervision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 36,
+                "views": 2125,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3457118,
+                "topic_post_liked": false,
+                "topic_post_like_count": 18,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69535,
+                    "username": "Vrishab_M",
+                    "name": "Vrishab Makam",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/ecae2f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69535,
+                            "username": "Vrishab_M",
+                            "name": "Vrishab Makam",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/ecae2f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63872,
+                            "username": "haarcz",
+                            "name": "Haluk A. I.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/haarcz/{size}/213605_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70357,
+                            "username": "Wyld-stallyns",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/b4bc9f/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL calculates our max ang. velocity to be 12000rad/s ?!",
+                "id": 491642,
+                "title": "YAGSL calculates our max ang. velocity to be 12000rad/s ?!",
+                "slug": "yagsl-calculates-our-max-ang-velocity-to-be-12000rad-s",
+                "posts_count": 9,
+                "reply_count": 7,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-14T02:08:39.174Z",
+                "last_posted_at": "2025-02-14T16:40:31.594Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T16:40:31.594Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yep that does seem more correct! I will push this change along with the next official release. For now it will be available as beta4. Unless you want to make a PR for it so i add credits to the fix to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "wpilib",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 286,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3527005,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 58460,
+                            "username": "andriibessarab",
+                            "name": "Andrii Bessarab",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andriibessarab/{size}/258546_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14984,
+                            "username": "Christopher149",
+                            "name": "Christopher149",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "6995 NOMAD 2022 Code Release: CLAWDIA",
+        "id": 420805,
+        "title": "6995 NOMAD 2022 Code Release: CLAWDIA",
+        "posts_count": 2,
+        "created_at": "2023-01-06T00:31:46.746Z",
+        "views": 301,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2024-01-06T00:31:47.429Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "6995-nomad-2022-code-release-clawdia",
+        "category_id": 30,
+        "word_count": 595,
+        "deleted_at": null,
+        "user_id": 33946,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_420805",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 33946,
+                    "username": "Amicus1",
+                    "name": "Amicus1",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 33946,
+                "username": "Amicus1",
+                "name": "Amicus1",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/frc6995/Swerve-2023",
+                    "title": "GitHub - frc6995/Swerve-2023",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/frc6995/Robot-2022/tree/odometryPlayground",
+                    "title": "GitHub - frc6995/Robot-2022 at odometryPlayground",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/frc6995/Swerve-2022/tree/pathplanner",
+                    "title": "GitHub - frc6995/Swerve-2022 at pathplanner",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/frc6995/Robot-2022-Rewrite/blob/2f80734172468d3f0aed04f8f8e4c00f6f6430a7/src/main/java/frc/robot/RobotContainer.java#L173",
+                    "title": "Robot-2022-Rewrite/RobotContainer.java at 2f80734172468d3f0aed04f8f8e4c00f6f6430a7 · frc6995/Robot-2022-Rewrite · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/team401/2021-Robot-Code/blob/master/src/main/java/frc/robot/subsystems/DriveSubsystem.java",
+                    "title": "2021-Robot-Code/DriveSubsystem.java at master · team401/2021-Robot-Code · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/frc6995/Robot-2022-Rewrite",
+                    "title": "GitHub - frc6995/Robot-2022-Rewrite",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 33946,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

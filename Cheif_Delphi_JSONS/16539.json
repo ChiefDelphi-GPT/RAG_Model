@@ -1,0 +1,1440 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2830030,
+                    "name": "Clayton Ramsey",
+                    "username": "ClayTownR",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/claytownr/{size}/158381_2.png",
+                    "created_at": "2020-03-29T16:56:47.416Z",
+                    "cooked": "2021 COTS Part Requests\n\nbut if people are interested I will write up a full-length tutorial.\n\nI got some positive feedback, so I’m writing up a design guide for pulleys. I’ll go over designing both HTD and GT2 pulleys in this tutorial.\n\nThe Math There is really only one equation which governs the underlying dimensions of any pulley, as written below: PD = \\frac{np}{\\pi} where PD is the pitch diameter (more on that later) of the pulley, n is the number of teeth in the pulley, and p is the pitch of the belt teeth. “Pitch” here refers to the distance between the tips of two teeth. In FRC , we typically have only two values for p : 3mm and 5mm.\n\nWhat is Pitch Diameter? Before we can talk about pitch diameters, first we need to talk about pitch lines. The pitch line of a belt is a theoretical curve which exists for any belt path, with the special property of being a constant length for a given belt, no matter how you bend it. For instance, if I had a 220mm pitch length belt, there would be some curve running along that belt which is exactly 220mm long. We typically assume that the pitch line of a belt is exactly on the middle of the non-toothed part of the belt. All pulleys have a pitch circle, which is the theoretical circle which is tangent to the pitch line of any belt engaged with it. The diameter of this pitch circle is the pitch diameter, which I will refer to sometimes as PD . Below is an image which helps to illustrate the idea of pitch curves, circles, and diameters:\n\nimage 2511×2373 1.48 MB\n\nimage 2511×2373 1.48 MB\n\nimage 2511×2373 1.48 MB\n\n(Note, the drawing refers to the pulley as a sprocket, which I don’t understand either). We can also use the pitch lines to space out center-center distances of pulley pairs exactly, as well as to lay out more complex belt paths with perfect tension. (If people are interested, I will write an addendum to this post on laying out how to do complex belt paths.)\n\nStep 1: The Circle As we move into CAD, I’ll note that I’m using SolidWorks for this tutorial. Any decent CAD program will work, but this is just the one I use. For this first example, we’re going to draw an HTD 5mm pulley. I want my pulley to be 50t, but you guys can make up whatever pulley numbers you want. and then plug in the numbers I want for my pulley. Using equations makes it dead easy to change these numbers in the future with minimal headaches. EQUATIONS LOCATION 326×765 24.6 KB When plugging in the numbers for my pulley, I also add the pitch diameter equation from above. EQUATIONS 5MM 907×94 2.47 KB To get started on actually drawing, we pick our favorite reference plane, and start a sketch. First we draw a cicle: BLANK CIRCLE 641×552 26.3 KB We then grab the dimension tool and constrain the diameter to be equal to PD . In SolidWorks, we do this by writing =“pd” in the dimension box. Now, all that’s left to do in this step is to extrude out the width of the pulley. All you have to do is do a Boss-Extrude and punch in the width of the pulley, and you’re golden. I picked 0.5\", but you can choose whatever you want based on the width of your belt. CYLINDER PD 594×635 36.7 KB\n\nEQUATIONS LOCATION 326×765 24.6 KB\n\nEQUATIONS LOCATION 326×765 24.6 KB\n\nEQUATIONS 5MM 907×94 2.47 KB\n\nEQUATIONS 5MM 907×94 2.47 KB\n\nBLANK CIRCLE 641×552 26.3 KB\n\nBLANK CIRCLE 641×552 26.3 KB\n\nCYLINDER PD 594×635 36.7 KB\n\nCYLINDER PD 594×635 36.7 KB\n\n(Side note: I recommend you select the “Mid Plane” option for the extrusion type. This means that the mid-plane of the pulley will be in line with the mid-line of the belt, which is hand for mating things in assemblies.)\n\nStep 2: Half a Tooth Now, we’re going to cut a single tooth out of the pulley. To do this, we’ll need to know more about the belt than just the pitch. I went to Google and found this drawing: For Step 2, we copy the shape of one half of a belt tooth. This means we have to draw the flat part between the teeth, the radius at the root of the belt tooth, and the large arc of the belt tooth. To start making the CAD, we start on a side face of the pulley and draw a single construction line running out vertically from the center, and then an arc centered at the middle of the pulley from the other end of the construction line going out an arbitrary length. TOOTH DRAWING START 448×681 7.98 KB The construction line will become the midline of one of the pulley teeth. Next, we draw out the two radii of the belt tooth: These two arcs should be tangent to each other, and the leftmost one should be tangent to the arc we drew earlier. We also draw out a second construction line from the center of the circle, and make it coincident with the endpoint of the rightmost arc and set the endpoint of that line to be the center of the rightmost arc. That rightmost arc is half of the shape of the belt tooth. Believe it or not, we’re now about halfway through designing this pulley.\n\nTOOTH DRAWING START 448×681 7.98 KB\n\nTOOTH DRAWING START 448×681 7.98 KB\n\nStep 3: Dimensions We can now fully define our sketch from Step 2. Referring back to the drawing, the root fillet of the belt tooth should be of radius 0.43mm, and the tooth itself should be of radius 1.49mm. Plugging in these dimensions:\n\nNote that I checked the “Dual Dimension” box to show the dimensions in [millimeters] as well as inches. Now all that’s left to do is dimension the radius. For this, we need to know the distance from the bottom of the belt tooth to the pitch line. To calculate this, we go back to our belt drawing and do some math. The distance from the tooth root to the pitch diameter is (full height of belt - tooth height of belt) / 2. For us, this is (3.80mm-2.06mm)/2 = 0.87mm. We also need to dimension the depth of the belt tooth, so we just dimension from the bottom of the belt tooth arc to the pitch circle to be 0.87mm + 2.06mm = 2.93mm. (To dimension to the tangency of the circle, you can Shift-click the edge while dimensioning.)\n\nLONGER HALF DIMENSIONED HTD 668×513 21.4 KB\n\nLONGER HALF DIMENSIONED HTD 668×513 21.4 KB\n\nLONGER HALF DIMENSIONED HTD 668×513 21.4 KB\n\nLastly, we need to just finish up defining the tooth profile. Since there are n teeth on the whole pulley, and 360 degrees in the circle, half a tooth has an angular size of \\frac{180}{n} . Accordingly, we dimension the angle between the two construction lines to be =180/“n”. Meanwhile, we complete the half-tooth by drawing an arc on the pitch line connecting the left side of the tooth to the right side of the tooth.\n\nTo finish the tooth, we do a sketch mirror of all the geometry around the belt tooth midline, and then cut that tooth out of the pulley.\n\nStep 4: Finishing Up The first thing to do is to do a circular pattern feature to duplicate the tooth cutout all the way around the circle. We do this by choosing the equal spacing option in Circular pattern, and setting the total angle to 360 degrees and the number of pattern elements to =“n”.\n\nCOMPLETE HTD PULLEY 746×686 56.5 KB\n\nCOMPLETE HTD PULLEY 746×686 56.5 KB\n\nCOMPLETE HTD PULLEY 746×686 56.5 KB\n\nThat’s it! You’re done! You can now add whatever flanges or bores you like. I’ll demonstrate how I might add a flange below: First, I draw out a circle centered on the middle of the pulley, and set the diameter to be =“pd”+.0625. There’s nothing special about this number; I just eyeballed it.\n\nFLANGE DIAMETER 891×686 50.1 KB\n\nFLANGE DIAMETER 891×686 50.1 KB\n\nFLANGE DIAMETER 891×686 50.1 KB\n\nI then extrude out the circle by .0625\", then mirror it around the mid plane of the pulley (Told you it would be useful!) HTD PULLEY WITH FLANGES 573×763 56.7 KB\n\nHTD PULLEY WITH FLANGES 573×763 56.7 KB\n\nHTD PULLEY WITH FLANGES 573×763 56.7 KB\n\nLastly I just cut out a 1/2\" hex bore for good measure.\n\nPULLEY WITH BORE 664×747 59 KB\n\nPULLEY WITH BORE 664×747 59 KB\n\nPULLEY WITH BORE 664×747 59 KB\n\nGT2 Pulleys\n\nThe process for a GT2 pulley is very similar to an HTD pulley, so I’ll skip steps 1 and 4. As always, we refer to the drawing:\n\nNote: since we’re using the 3mm GT2 belt, we want to look at the row labeled “3GT.”\n\nR1 and R3 are easy to pin down, but R2 is much harder. To locate it, R2 should be tangent to R1 and R3. The center is and offset along the pitch line by b, so we dimension an arc length along the pitch line, such that the arc begins on the midline of the belt tooth and ends in-line with the center of R2, to be equal to b.\n\nYou can then do the mirror, cut and finishing details just like an HTD pulley.\n\nI hope you all found this helpful, and managed to learn something interesting. As always, let me know if there are any mistakes I made, or things that weren’t immediately clear in this guide. I’m also more than happy to explain other, more advanced things you can do with belts, such as skipped-tooth pulleys and convoluted belt paths. If this gets positive feedback, I can also write up a guide on designing involute gears and sprockets, if that’s something you all want to see.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2020-03-29T16:56:47.416Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 29267,
+                    "reads": 871,
+                    "readers_count": 870,
+                    "score": 147369.2,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "Clayton Ramsey",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/3/43f5bded849d03989c5235b0c86daf966a573593.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/a/4a8c7b703da08ce306f9b43b913bfaf0dbd7e8f4.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/3/0305e6c4289493dcaab941441c547e87737845fb.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/f/2f0a2900ebac1960ffdc135af3def60dc19d1810.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/1/51202285d82f43424e2456b4cbb5db35b95e70f4.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/0/c0b4c5aec056cf3b75b93add62eaea568a00fe2c.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/1/91a948b513ad2ee2eab7fe0f29b6459c1e7cd0ce.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/4/1466bf28a7ad8511441b382991b9133063b8bca9.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/0/70a02014faa85f57867ee4651a21eab0c1584e9c.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/c/ccc7a22649fe04d5744eb8e49bc8fbe5e34cecd0.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/2021-cots-part-requests/382342/244",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "2021 COTS Part Requests",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/d/8d80e07c18ddebe147d88d4d1b00fd496f527707.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/htd-pulley-generator-solidworks/386850",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "HTD Pulley Generator SolidWorks",
+                            "clicks": 280
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/inventor-2021-pulley-generator/385626/5",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Inventor 2021 Pulley Generator",
+                            "clicks": 85
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/involute-gear-design-tutorial/387230",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Involute Gear Design Tutorial",
+                            "clicks": 40
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/2021-cots-part-requests/382342/252",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "2021 COTS Part Requests",
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/hdpe-machining/386146/13",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "HDPE machining",
+                            "clicks": 13
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/3d-printed-drivetrain-pulleys/389144/36",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "3D Printed Drivetrain Pulleys",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/sprocket-design-tutorial/387449",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Sprocket Design Tutorial",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/mkcad-htd-pulley-how-accurate-is-the-profile/412999/3",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "MKCAD HTD Pulley - how accurate is the profile?",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/infinity-timing-belt/412523/16",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Infinity Timing Belt?",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/team-254-presents-2024-vortex-technical-binder-code-q-a/472576/79",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Team 254 Presents: 2024 VORTEX - Technical Binder, Code, Q&A",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 51
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28741,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "100 Alum"
+                    },
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/1",
+                    "custom_user_title": "100 Alum",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 61
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 51,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2886257,
+                    "name": "Hakkı Onur Dördüncü ",
+                    "username": "Onur4",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/f1d935/{size}.png",
+                    "created_at": "2020-08-02T21:22:44.037Z",
+                    "cooked": "Hi, Thanks for this design tutorial. I made a generator based on your tutorial. Here is the link Can you make tutorials for designing belts? Thanks, Onur",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2020-08-02T21:22:44.037Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 132,
+                    "reads": 553,
+                    "readers_count": 552,
+                    "score": 805.6,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "Hakkı Onur Dördüncü ",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/htd-pulley-generator-solidworks/386850",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "HTD Pulley Generator SolidWorks",
+                            "clicks": 622
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 41006,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2886542,
+                    "name": "Clayton Ramsey",
+                    "username": "ClayTownR",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/claytownr/{size}/158381_2.png",
+                    "created_at": "2020-08-03T21:54:14.369Z",
+                    "cooked": "For this, I’m going to use the HTD profile, but the methodology for the GT2 profile is more or less the same.\n\nimage 1268×699 72.6 KB\n\nimage 1268×699 72.6 KB\n\nimage 1268×699 72.6 KB\n\nFirst, draw out the pitch circles (shown here as the construction lines in the middle), dimension their diameter, and add tangent lines between the two. Trim off the “inside” edges of the pitch circles. Next, offset bidirectionally from that pitch line to the width of the flat part of the belt. For an HTD 5mm belt, the flat part is 0.74mm, so we dimension each side to be \\frac{0.74}{2} or 0.37mm.\n\nUsing the path length dimension, set the length of the overall path on the pitch line to be equal to the length of the belt, or 5mm*n . image 983×572 47.7 KB Next we extrude this out into the width of our belt.\n\nimage 983×572 47.7 KB\n\nimage 983×572 47.7 KB\n\nimage 575×521 24.3 KB\n\nimage 575×521 24.3 KB\n\nimage 575×521 24.3 KB\n\nOn an HTD belt, the teeth are simply circles, so we just need to draw a circle and dimension it into the correct location, using more or less the same methods as before. I made the center of the tooth horizontal to the origin to save time.\n\nimage 985×551 53 KB\n\nimage 985×551 53 KB\n\nimage 985×551 53 KB\n\nWe now have a belt with a single tooth.\n\nimage 1037×630 125 KB\n\nimage 1037×630 125 KB\n\nimage 1037×630 125 KB\n\nMake a new sketch on the plane of your part, and convert the pitch line to be sketch geometry. Then use that sketch to drive a curve-driven pattern of your single tooth along it, with equal spacing selected and n as the number of teeth to use.\n\nimage 1313×749 102 KB\n\nimage 1313×749 102 KB\n\nimage 1313×749 102 KB\n\nLastly, use the FilletXpert tool to fillet all the inside edges according to the profile, in this case, with a radius of 0.43 mm.\n\nAs always, let me know if you have any questions.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2020-08-03T21:57:17.904Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 448,
+                    "reads": 557,
+                    "readers_count": 556,
+                    "score": 2471.4,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "Clayton Ramsey",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/2/02d2415ded1e72997578e546f50bcd37eb837bd6.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/e/de846eddc9c1efe12be25a4b08d9a980e82a018b.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/d/cd46bfe0fc0272f0549a4b2b433d5f793268e14e.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/c/ec50534c9a25b620ecc09350e81f470528ce6d79.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/0/603e8cc6dddd66be387adfdaeaf5ab7d4c00b9eb.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/c/3c15605322962fd9b7a80d2ff0dc98eeaf1a9a28.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 41006,
+                        "username": "Onur4",
+                        "name": "Hakkı Onur Dördüncü ",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/o/f1d935/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 8
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28741,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "100 Alum"
+                    },
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/3",
+                    "custom_user_title": "100 Alum",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 8
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 8,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2888739,
+                    "name": "Ian McTavish",
+                    "username": "Ian_McTavish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/b5a626/{size}.png",
+                    "created_at": "2020-08-11T00:25:38.606Z",
+                    "cooked": "Going to try this - thanks for a great resource!",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2020-08-11T00:25:38.606Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 37,
+                    "reads": 424,
+                    "readers_count": 423,
+                    "score": 299.8,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "Ian McTavish",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/lantern-gear-design-tutorial/394915",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Lantern Gear Design Tutorial",
+                            "clicks": 16
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17356,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/5",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2964638,
+                    "name": "Chadfrom7226",
+                    "username": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "created_at": "2021-08-09T05:39:48.439Z",
+                    "cooked": "Thanks! Very helpful!\n\nIt got confused when solidworks displayed radius, not diameter. Whoops",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-08-09T05:39:48.439Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 35,
+                    "reads": 339,
+                    "readers_count": 338,
+                    "score": 242.8,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "Chadfrom7226",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20021,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/6",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3076308,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-08-09T05:40:10.098Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 7,
+                    "post_type": 3,
+                    "posts_count": 6,
+                    "updated_at": "2022-08-09T05:40:10.098Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 82,
+                    "reads": 179,
+                    "readers_count": 178,
+                    "score": 445.8,
+                    "yours": false,
+                    "topic_id": 383204,
+                    "topic_slug": "timing-pulley-design-tutorial",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/timing-pulley-design-tutorial/383204/7",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2830030,
+                2886257,
+                2886542,
+                2888739,
+                2964638,
+                3076308
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                2023
+            ],
+            [
+                2,
+                1896
+            ],
+            [
+                3,
+                1895
+            ],
+            [
+                4,
+                1888
+            ],
+            [
+                5,
+                1525
+            ],
+            [
+                6,
+                1160
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "CADing belts and chains",
+                "id": 503476,
+                "title": "CADing belts and chains",
+                "slug": "cading-belts-and-chains",
+                "posts_count": 20,
+                "reply_count": 13,
+                "highest_post_number": 20,
+                "image_url": null,
+                "created_at": "2025-06-21T23:34:51.162Z",
+                "last_posted_at": "2025-07-12T19:59:25.690Z",
+                "bumped": true,
+                "bumped_at": "2025-07-12T19:59:25.690Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "looking through higher-level teams CAD and noticing all belts and chains are CADed, our team uses inventor but I’m not sure how I could go about it and or why I should go about it.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 46,
+                "views": 836,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3659565,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 76247,
+                    "username": "stormsj28",
+                    "name": "wyatt",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/a3d4f5/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 76247,
+                            "username": "stormsj28",
+                            "name": "wyatt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/a3d4f5/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61884,
+                            "username": "Johnsonjer",
+                            "name": "Jeremiah Johnson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/9d8465/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 75799,
+                            "username": "astirling",
+                            "name": "Andrew Stirling",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/astirling/{size}/263024_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19714,
+                            "username": "Nick.kremer",
+                            "name": "Nick.kremer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nick.kremer/{size}/174932_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46855,
+                            "username": "kds1967",
+                            "name": "Hailey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kds1967/{size}/221932_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Should FRC Students use GD&amp;T?",
+                "id": 503996,
+                "title": "Should FRC Students use GD&T?",
+                "slug": "should-frc-students-use-gd-t",
+                "posts_count": 17,
+                "reply_count": 8,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-07-06T16:29:49.912Z",
+                "last_posted_at": "2025-07-08T06:03:01.785Z",
+                "bumped": true,
+                "bumped_at": "2025-07-08T06:03:01.785Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Ask the machinist what information they need in addition to what you provided. Accept that as constructive feedback. Realize that anything you can do to get the part you want the first time, is not…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "drawing"
+                ],
+                "tags_descriptions": {},
+                "like_count": 137,
+                "views": 1668,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3675417,
+                "topic_post_liked": false,
+                "topic_post_like_count": 9,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 11,
+                "topic_post_user": {
+                    "id": 32540,
+                    "username": "Skuke",
+                    "name": "Skuke (aka: Payton)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skuke/{size}/10109_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 76080,
+                            "username": "hummingbird451",
+                            "name": "Evan B",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hummingbird451/{size}/266154_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 32540,
+                            "username": "Skuke",
+                            "name": "Skuke (aka: Payton)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skuke/{size}/10109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 41952,
+                            "username": "AdamF",
+                            "name": "Adam Fleming",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/adamf/{size}/234717_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22569,
+                            "username": "Torrance",
+                            "name": "Andrew Torrance",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/torrance/{size}/152754_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44621,
+                            "username": "Stanford_Orfila",
+                            "name": "Stanford Orfila",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stanford_orfila/{size}/254204_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Onshape Configurable VersaPlanetary Model (The best one though)",
+                "id": 483446,
+                "title": "Onshape Configurable VersaPlanetary Model (The best one though)",
+                "slug": "onshape-configurable-versaplanetary-model-the-best-one-though",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/a/1/a16cc5853468c7d4d870e145a595dc146d789950_2_1024x762.jpeg",
+                "created_at": "2025-01-24T22:27:27.106Z",
+                "last_posted_at": "2025-01-24T22:35:35.973Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T22:35:35.973Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey there! This was meant to be a part of FRCDesignLib, but the UI doesn’t (yet) support the new Onshape Configuration Visibility feature. The feature was extensively used for this model to pass all …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 185,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492005,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54735,
+                    "username": "Revision0",
+                    "name": "Kelly",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/revision0/{size}/232304_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54735,
+                            "username": "Revision0",
+                            "name": "Kelly",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/revision0/{size}/232304_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59620,
+                            "username": "clavin",
+                            "name": "Calvin Hou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clavin/{size}/211896_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Robot Ideas",
+                "id": 478527,
+                "title": "Robot Ideas",
+                "slug": "robot-ideas",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-04T20:58:46.168Z",
+                "last_posted_at": "2025-01-04T21:06:38.866Z",
+                "bumped": true,
+                "bumped_at": "2025-01-04T21:06:38.866Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, My name is Ethan and I am an Alumni of FRC Team 5806. Upon watching the game reveal I thought I would post some ideas that I had in order to hopefully get some feedback and maybe inspire some oth…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 509,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3469300,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63144,
+                    "username": "EpicGamer06",
+                    "name": "Ethan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/edb3f5/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63144,
+                            "username": "EpicGamer06",
+                            "name": "Ethan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/edb3f5/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What is the name of the white gears?",
+                "id": 504372,
+                "title": "What is the name of the white gears?",
+                "slug": "what-is-the-name-of-the-white-gears",
+                "posts_count": 15,
+                "reply_count": 7,
+                "highest_post_number": 15,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/4X/3/6/d/36d0f29b128ade125a8b73516a03d58dc4676dca.png",
+                "created_at": "2025-07-17T21:51:23.514Z",
+                "last_posted_at": "2025-07-19T02:32:26.370Z",
+                "bumped": true,
+                "bumped_at": "2025-07-19T02:32:26.370Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Help me with the right term. Crown gears are where the teeth stick up like little points from the face. Spur gears have the teeth on the outer edge. In the picture below the white gear is what I’m as…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 48,
+                "views": 1221,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3683071,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 8618,
+                    "username": "Foster",
+                    "name": "Foster",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/aca169/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 8618,
+                            "username": "Foster",
+                            "name": "Foster",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/aca169/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20709,
+                            "username": "bkahl",
+                            "name": "Bailey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bkahl/{size}/173222_2.png",
+                            "primary_group_name": "VEX",
+                            "flair_name": "VEX",
+                            "flair_url": "/uploads/default/original/3X/f/b/fbf8d6ace815b6285a91d1dedb54a63db4c60840.png",
+                            "flair_group_id": 56,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52597,
+                            "username": "Patrick3357",
+                            "name": "Patrick",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patrick3357/{size}/169915_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "tutorial"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Timing Pulley Design Tutorial",
+        "id": 383204,
+        "title": "Timing Pulley Design Tutorial",
+        "posts_count": 6,
+        "created_at": "2020-03-29T16:56:46.933Z",
+        "views": 36475,
+        "reply_count": 1,
+        "like_count": 63,
+        "last_posted_at": "2022-08-09T05:40:10.098Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "timing-pulley-design-tutorial",
+        "category_id": 68,
+        "word_count": 2054,
+        "deleted_at": null,
+        "user_id": 28741,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/d/8d80e07c18ddebe147d88d4d1b00fd496f527707_2_1024x967.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_383204",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 7,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 2511,
+                "height": 2373,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/d/8d80e07c18ddebe147d88d4d1b00fd496f527707.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 967,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/d/8d80e07c18ddebe147d88d4d1b00fd496f527707_2_1024x967.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 28741,
+                    "username": "ClayTownR",
+                    "name": "Clayton Ramsey",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/claytownr/{size}/158381_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 17356,
+                    "username": "Ian_McTavish",
+                    "name": "Ian McTavish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/b5a626/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 20021,
+                    "username": "Chadfrom7226",
+                    "name": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 41006,
+                    "username": "Onur4",
+                    "name": "Hakkı Onur Dördüncü ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/f1d935/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 28741,
+                "username": "ClayTownR",
+                "name": "Clayton Ramsey",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/claytownr/{size}/158381_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/htd-pulley-generator-solidworks/386850",
+                    "title": "HTD Pulley Generator SolidWorks",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 622,
+                    "user_id": 41006,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/htd-pulley-generator-solidworks/386850",
+                    "title": "HTD Pulley Generator SolidWorks",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 280,
+                    "user_id": 41006,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/inventor-2021-pulley-generator/385626/5",
+                    "title": "Inventor 2021 Pulley Generator",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 85,
+                    "user_id": 47381,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/involute-gear-design-tutorial/387230",
+                    "title": "Involute Gear Design Tutorial",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 40,
+                    "user_id": 28741,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/lantern-gear-design-tutorial/394915",
+                    "title": "Lantern Gear Design Tutorial",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 16,
+                    "user_id": 28741,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/2021-cots-part-requests/382342/252",
+                    "title": "2021 COTS Part Requests",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 14,
+                    "user_id": 28741,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/hdpe-machining/386146/13",
+                    "title": "HDPE machining",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 13,
+                    "user_id": 31007,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/3d-printed-drivetrain-pulleys/389144/36",
+                    "title": "3D Printed Drivetrain Pulleys",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 7,
+                    "user_id": 22221,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/sprocket-design-tutorial/387449",
+                    "title": "Sprocket Design Tutorial",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 7,
+                    "user_id": 28741,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/mkcad-htd-pulley-how-accurate-is-the-profile/412999/3",
+                    "title": "MKCAD HTD Pulley - how accurate is the profile?",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 5,
+                    "user_id": 22221,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/infinity-timing-belt/412523/16",
+                    "title": "Infinity Timing Belt?",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 2,
+                    "user_id": 9303,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/team-254-presents-2024-vortex-technical-binder-code-q-a/472576/79",
+                    "title": "Team 254 Presents: 2024 VORTEX - Technical Binder, Code, Q&A",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 1,
+                    "user_id": 9303,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

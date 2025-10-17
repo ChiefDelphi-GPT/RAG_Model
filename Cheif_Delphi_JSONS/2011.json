@@ -1,0 +1,870 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3700368,
+                    "name": "Murilo Miranda Santos",
+                    "username": "murilo404",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                    "created_at": "2025-08-03T19:23:32.800Z",
+                    "cooked": "Good morning everyone! My FRC team is planning to integrate photoVision into our robot to track its position in the arena, as well as detect robots along their trajectories in our autonomous system, implementing “reactive autonomous” or “intelligent autonomous.” Based on this, I want to ask:\n\n1: What were the main challenges in the process? 2: What were the main tools (libraries, resources) used? 3: How did you implement photovision? Using Orange PI 5?\n\nThank you in advance for your help!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-08-03T19:23:32.800Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 16,
+                    "reads": 181,
+                    "readers_count": 180,
+                    "score": 156.2,
+                    "yours": false,
+                    "topic_id": 504925,
+                    "topic_slug": "how-to-create-a-photovision",
+                    "display_username": "Murilo Miranda Santos",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69705,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/how-to-create-a-photovision/504925/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3700371,
+                    "name": "Nolan Barker",
+                    "username": "therekrab",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "created_at": "2025-08-03T19:59:23.531Z",
+                    "cooked": "Take a look at the Quick Start page of PV ’s docs. It goes through the entire process of setting up the system and calibrating your cameras (which is necessary for 3D stuff, such as detecting AprilTags’ transformation from the camera).\n\nAfter you’ve read through the Quick Start, I’d really recommend looking through the entire docs for PhotonVision. Every single article on the site will give you more information in some way and will better prepare you for using PV quickly on a real robot.\n\nmurilo404:\n\n1: What were the main challenges in the process?\n\nTo be honest, if you follow along with the documentation, you can get PhotonVision going pretty easily. We didn’t really have any integration issues, and as we increased the code’s complexity, we didn’t see any issues from PV ’s end.\n\nWith that being said, it’s important to make sure that you keep the processor cool. We manufactured a 3D printed case for the Orange Pi that included a small fan to keep it cool. IIRC we saw temperatures approaching 85C before this but now it’s closer to 50-60 degrees Celsius.\n\nmurilo404:\n\n2: What were the main tools (libraries, resources) used?\n\nPretty much just PhotonLib (PhotonVision’s library in code) is necessary to setup PV .\n\nmurilo404:\n\n3: How did you implement photovision? Using Orange PI 5?\n\nAssuming you’re talking about hardware, we ran an Orange Pi 5 and we saw good success. The only downside is that it only has one USB3.0 slot, which limited our resolutions seeing as we ran four cameras off a dongle connected to that slot.\n\nWe used ArduCam OV9281s for our cameras, which worked well. Make sure to read the docs about the ArduCam-specific configuration however if you choose to go this way. There’s great support built into PV for ArduCams and they’re easy to configure. We’ve had few issues with them, and their performance is great. We had four ArduCams connected to one Orange Pi 5 and each was running 320x240 at nearly 120 FPS… Definitely not a performance concern - the limiting factor against upping the resolution was the fact that we were maxing out USB speeds.\n\nmurilo404:\n\ndetect robots along their trajectories in our autonomous system\n\nWhat do you mean by this? If you mean tracking and identifying other robots, that’s not a feature of PV .",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-08-03T20:06:41.716Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 167,
+                    "readers_count": 166,
+                    "score": 108.4,
+                    "yours": false,
+                    "topic_id": 504925,
+                    "topic_slug": "how-to-create-a-photovision",
+                    "display_username": "Nolan Barker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.photonvision.org/en/v2025.3.2/docs/quick-start/index.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Quick Start - PhotonVision Docs",
+                            "clicks": 10
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65568,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Lead, Co-captain | 3414 Hackbots"
+                    },
+                    "post_url": "/t/how-to-create-a-photovision/504925/2",
+                    "custom_user_title": "Programming Lead, Co-captain | 3414 Hackbots",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3700401,
+                    "name": "Sam",
+                    "username": "Sam948",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                    "created_at": "2025-08-03T21:59:24.064Z",
+                    "cooked": "murilo404:\n\ndetect robots along their trajectories in our autonomous system, implementing “reactive autonomous” or “intelligent autonomous.”\n\nThere’s a couple ways to do this.\n\nYou could try using an object detection model that’s trained to look for robots, and try and figure out where the other robots on the field are from those results.\n\nIf you’re looking for a reactive autonomous, you could check to see if the pieces you’re planning to get are there, and if not, react accordingly.\n\nBoth of these are something you would have to implement user-side however, as all photonvision can do is give you results from whatever pipeline you might happen to be running. It can’t tell you where other robots are on the field, or whether a game piece is still in the same place. You have to do the processing on the results PV gives you to figure that out for yourself.\n\nIf you have any further questions, I’d encourage you to join the PV discord where there are people who would be more than happy to help you with getting PV set up. I also can’t echo therekrab’s point about reading the docs enough, as they contain everything you should need to get set up.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-08-03T21:59:24.064Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 84,
+                    "readers_count": 83,
+                    "score": 66.8,
+                    "yours": false,
+                    "topic_id": 504925,
+                    "topic_slug": "how-to-create-a-photovision",
+                    "display_username": "Sam",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://discord.gg/wYxTwym",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "PhotonVision",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63767,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8847A | PV"
+                    },
+                    "post_url": "/t/how-to-create-a-photovision/504925/3",
+                    "custom_user_title": "8847A | PV",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3700368,
+                3700371,
+                3700401
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                69
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How to use PhotonVision to auto align with april tag?",
+                "id": 494275,
+                "title": "How to use PhotonVision to auto align with april tag?",
+                "slug": "how-to-use-photonvision-to-auto-align-with-april-tag",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-05T00:24:49.466Z",
+                "last_posted_at": "2025-03-05T00:24:49.512Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T00:24:49.512Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How can I use PhotonVision to automatically align with the different poles on the reef to put coral on it?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 146,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3547763,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73941,
+                    "username": "FRC5518_Simon",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frc5518_simon/{size}/252891_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73941,
+                            "username": "FRC5518_Simon",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frc5518_simon/{size}/252891_2.png",
+                            "trust_level": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How much is too much?",
+                "id": 500749,
+                "title": "How much is too much?",
+                "slug": "how-much-is-too-much",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-04-28T15:44:46.511Z",
+                "last_posted_at": "2025-04-28T16:35:41.057Z",
+                "bumped": true,
+                "bumped_at": "2025-04-28T16:35:41.057Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are purchasing Orange Pi 5’s, but cant decide if we are going with 4gb or 8gb. There is no downside to getting more ram, but it is more money. is there any upside to having more RAM or does PV not …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 532,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3606176,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63063,
+                    "username": "Mochatitan",
+                    "name": "6894 Lead prog/driver",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63063,
+                            "username": "Mochatitan",
+                            "name": "6894 Lead prog/driver",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65624,
+                            "username": "10219Ryba",
+                            "name": "Carter Ryba",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52943,
+                            "username": "Jimmyy",
+                            "name": "Jimmy McCosker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jimmyy/{size}/199505_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Gracefull shutdown of Raspberry Pi",
+                "id": 473638,
+                "title": "Gracefull shutdown of Raspberry Pi",
+                "slug": "gracefull-shutdown-of-raspberry-pi",
+                "posts_count": 11,
+                "reply_count": 6,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-10-24T23:24:49.131Z",
+                "last_posted_at": "2024-10-25T15:55:38.102Z",
+                "bumped": true,
+                "bumped_at": "2024-10-25T15:55:38.102Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is there a way to explicitly shut down the Pi rather than a hard power off? The PhotoVision webinterface doesn’t have this feature, and SSH I can’t get past the login screen. Pi Ra…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 532,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438876,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56276,
+                    "username": "michjor",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56276,
+                            "username": "michjor",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Photonvision OV9281 Camera Calibration",
+                "id": 494087,
+                "title": "Photonvision OV9281 Camera Calibration",
+                "slug": "photonvision-ov9281-camera-calibration",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-03T21:54:51.153Z",
+                "last_posted_at": "2025-03-04T00:15:14.064Z",
+                "bumped": true,
+                "bumped_at": "2025-03-04T00:15:14.064Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I was wondering if any teams are using the the Arducam OV9281 camera for PhotonVision and would be willing to share their camera configurations. Any resolution will work. I’m happy to answer questions…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 219,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3546595,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56532,
+                    "username": "A_human",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/a_human/{size}/186621_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56532,
+                            "username": "A_human",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/a_human/{size}/186621_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44551,
+                            "username": "khillans",
+                            "name": "shawn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/khillans/{size}/211310_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63872,
+                            "username": "haarcz",
+                            "name": "Haluk A. I.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/haarcz/{size}/213605_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Orange Pi 5 Ultra for photonvision",
+                "id": 504186,
+                "title": "Orange Pi 5 Ultra for photonvision",
+                "slug": "orange-pi-5-ultra-for-photonvision",
+                "posts_count": 19,
+                "reply_count": 16,
+                "highest_post_number": 19,
+                "image_url": null,
+                "created_at": "2025-07-12T04:19:06.800Z",
+                "last_posted_at": "2025-07-13T17:40:48.372Z",
+                "bumped": true,
+                "bumped_at": "2025-07-13T17:40:48.372Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello. I’m a member of a Turkish FRC Team. While visiting the states, I ordered an Orange Pi 5 Plus 8gb model on amazon for our team this year. I got my hands on it just now, and I’ve been sent the Ul…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 37,
+                "views": 583,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3679938,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62279,
+                    "username": "EReeeN1208",
+                    "name": "Eren",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ereeen1208/{size}/229516_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62279,
+                            "username": "EReeeN1208",
+                            "name": "Eren",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ereeen1208/{size}/229516_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60214,
+                            "username": "spacey_sooty",
+                            "name": "Jade",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/spacey_sooty/{size}/256378_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48664,
+                            "username": "RicDV",
+                            "name": "Ric Ferrell Mentor for 5503 Tiger Trons",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ricdv/{size}/188502_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57939,
+                            "username": "grahamsh",
+                            "name": "Graham Howard",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 75810,
+                            "username": "Another_Person1",
+                            "name": "Matthew L",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a87d85/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "How to create a photovision",
+        "id": 504925,
+        "title": "How to create a photovision",
+        "posts_count": 3,
+        "created_at": "2025-08-03T19:23:32.730Z",
+        "views": 273,
+        "reply_count": 0,
+        "like_count": 10,
+        "last_posted_at": "2025-08-03T21:59:24.064Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-to-create-a-photovision",
+        "category_id": 87,
+        "word_count": 742,
+        "deleted_at": null,
+        "user_id": 69705,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_504925",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 63767,
+                    "username": "Sam948",
+                    "name": "Sam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 65568,
+                    "username": "therekrab",
+                    "name": "Nolan Barker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 69705,
+                "username": "murilo404",
+                "name": "Murilo Miranda Santos",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+            },
+            "last_poster": {
+                "id": 63767,
+                "username": "Sam948",
+                "name": "Sam",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.photonvision.org/en/v2025.3.2/docs/quick-start/index.html",
+                    "title": "Quick Start - PhotonVision Docs",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 65568,
+                    "domain": "docs.photonvision.org",
+                    "root_domain": "photonvision.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

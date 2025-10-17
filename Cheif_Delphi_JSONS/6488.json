@@ -1,0 +1,930 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3401577,
+                    "name": "Tuna Çakır",
+                    "username": "tunA",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png",
+                    "created_at": "2024-06-24T16:50:43.114Z",
+                    "cooked": "This year we decided to create a fairly detailed workflow of how a CAD should be done for our newcomer education process. I wanted to share this both to hopefully help people but more importantly to get feedback from more experienced CAD’ers out there. Any and every improvement is appreciated\n\n1. Master Sketch\n\nMaster Sketch is the first process in any 3D design. It is an outline of the significant components in the design, that solidifies their relative relations, such as their distance or movements.\n\nHow to draw a Master Sketch:\n\nUnderstand and determine the significant components in the design you will draw. Do not try to include every aspect. An example of an important component in an intake would be the rollers.\n\nDraw what you imagine. After determining the important components, draw them where you would imagine them being. This is to create a general understanding of the structure of your drawing.\n\nDetermine the priority of relations. Some parameters are a must to define, while some can be changed afterward. So create a list in mind to follow while giving dimensions to those important components you defined. For example, in an intake, the distance between an upper and a lower roller is a top priority because it determines the compression the rollers apply on the game piece (a note in this case)\n\nGive the relations following your priority list. Some of these parameters can not be changed, as in the example above, and some are open to be altered. Keep in mind that whenever you need to make a change.\n\nImportant Notes\n\nThink in 3D, draw in 2D. This is a skill that comes with practice, however it is essential to draw an optimal master sketch. Accounting the depth while drawing is a key element of a master sketch.\n\nCalculation-based drawings should be in construction mode. This is necessary because any excess crowd of lines will make the drawing lose its purpose and simplicity.\n\nAlways draw your predetermined factors (if there are any) Such as the chassis and a game piece or simply the ground itself.\n\nWhen you finish the drawing, make sure that everything is fully defined. Even if it is something that might change later, give it constraints.\n\nDon’t put relations between things that don’t make sense for the sake of making it defined. Always think about what component’s position affects the component you are defining. If random constraints are assigned, if a need to change comes (which it does), it will create errors or a lot of work to re-do.\n\n2. Krayon CAD\n\nKrayon CAD is like a master sketch in 3D. It models the basics of the entire robot and creates a deepened 3D understanding of how the finished product will come out and helps us understand possible errors that might occur in our design.\n\nHow to draw a Krayon CAD: The process of making a Krayon CAD pretty similar to a master sketch, so I will cut some things short.\n\nDetermine the outline of the parts/subsystems you want to make. Less is much, but enough detail should be present as well. Try to imagine them as simple shapes.\n\nDraw those pieces in a part studio, mostly guided by the master sketches.\n\nSince this is a non-complex assembly, mate all the parts as simple as possible and don’t put relations between things that don’t need.\n\nOR There is a much easier way to do it, and that is by using the Krayon Cad sample builds made by these guys: Announcing KrayonCAD: A Robot Planning Library for Onshape\n\nTo use this sample archive, use this Onshape doc ( Onshape ), and then whenever you want to create a Krayon CAD, Import→Other documents→Krayon CAD→ select whatever part you want from this doc.\n\nImportant Notes\n\nA Krayon CAD can be a single part, however it is very beneficial to put in that effort to create basic movement to understand the model better. However, not everything needs to be an individual moving part.\n\nA simple color code will go a long way in order to further simplify and clarify the overall design.\n\n3. Prototyping\n\nPrototyping is the process of testing the plans to solidify their concept and deduct core errors in any design. It is the first materialized concepts of the subsystems that are thought, and a great way to visualize the finished product.\n\nHow to prototype: Prototyping can be very diverse, so the steps below are not directly a sequential process, but more of a general direction to take.\n\nFor prototyping, perfection is the last thing you should seek for. Be as fast as possible and don’t care about the unorganized designs. Only try to prototype extremely variable parts, that mostly depend on the game piece for that season. So an example of a must-have prototype is for the question of how much should the game piece be compressed.\n\nThe key to prototyping is having spare parts ready. Having “L” corner connectors, spare wood blocks, wheels, 3D printed adjustable connectors etc. are crucial for efficient prototyping.\n\nPrototyping for aluminum plate parts is mostly done by wood, so the first step is to adjust the pieces in crayon CAD ready for a laser cut. For a prototype to be efficient, details such as bearing holes that need to be in a set position need to be opened. However, holes for screws for example can be opened spontaneously when the pieces arrive. The parts need to be ready in less than a day so that they can be sent and received from production as fast as possible.\n\nImportant notes:\n\nFor movement, try to use drills as much as possible. That means to have a way to hook a cordless drill to a 1/2\" Hex shaft. If a motor is necessary, use brushed motors such as CİMs to not need any programming\n\n4. Part Studio\n\nDesigning individual parts is the most tedious and time-consuming part of a CAD. These parts will be in your final robot and will be sent to production once done. This is when the subsystems you designed in a master sketch and Krayon CAD truly come to life.\n\nImportant notes for pre-drawing:\n\nOrganization is very important. Every subsystem should have its own group and in those groups part studios for pieces should be separated as well. An example of part studios in a shooter would be: Aluminum Plates, Shafts, Rollers and Wheels, Spacers, Gears and Sprockets.\n\nThe master sketch should be completely defined. Changes that come after a part has been drawn are inevitable, but will cause errors. So it is best to double-check both the master sketch and Krayon CAD to assure minimal changes later on.\n\nHow to draw a part: From start to finish, drawing a part requires multiple steps:\n\nFirstly, just like a master sketch, draw the outline of the part. The shape of the part should appear. If a significant instance, such as a bearing hole, is on the same face as your sketch, draw them as well.\n\nExtrude the sketch you draw. Most of the time, parts take only one extrude to become the shape desired if the sketch was on the correct plane. However, if it needs more than one extrude, repeat these two steps until the shape of the part is done.\n\nWhen the part takes its shape, you need to add every other adjustment that matters for functionality. This mostly means screw holes, but other examples can be a shaft hole, an indent to hold it in place somewhere, a zip-tie hole, etc.\n\nThen comes the pocketing. This process is necessary to reduce the weight of the parts that you create, so that the overall robot is not passing the weight limit. It can change depending on how the part is shaped: * If the part is flat (such as a gusset) the pocketing is pretty standard. GENERALLY: Make an 3.5mm offset around every screw/small hole and a 6mm offset around every bearing/big hole. Then make a 6mm offset around the outline of the part. Then draw 6mm lines inside the piece connecting the holes in the direction of the force applied to the piece. The only way to get good at this is the practice, fail, and repeat method. * If the part is not flat, there are a lot more variables to check. However, generally, try to find empty blocks of material in the piece and remove them in a way that force distribution doesn’t weaken. Leave 10mm (For 3D print parts) or 6mm (For metal parts) offsets in any place you remove.\n\nLastly comes the appearance/convenience adjustments. This mostly consists of filleting or chamfering the edges.\n\nImportant notes for drawing and post-drawing:\n\nAlways think of practicality while drawing. We will psychically assemble these parts, so try to keep the part as simple and practical as possible. Ex: Don’t put a screw hole in a place where an allen key can’t fit.\n\nBe open-minded. Sometimes a gusset might be loaded with more force than a regular gusset, in those cases don’t be afraid to make less pocketing or change the values of the offsets. There is no definitive way of drawing.\n\nAlways assign appearance and material at the end. Onshape has mass calculation, so every part must have its material assigned for us to know how much the robot weighs. As for the appearance, it is self-explanatory, we should be able to picture the robot when the assembly is done.\n\n5. Assembly\n\nAssembly is the final step of any drawing. From a small subsystem to the entire robot, when all the parts are drawn, assembly comes to show the final product.\n\nHow to make an assembly: Creating an assembly is fairly simple and straightforward, however, it requires a good understanding of all the mate features. The key to making this process easy is to be cautious.\n\nFirst import parts that act as the base of the assembly. Such as a side plate for an intake or profiles for an elevator.\n\nThen import and mate the parts that define the general shape of the assembly. These can be structural spacers, gussets etc.\n\nWhen the general structure of a system is complete, import and mate every other part. Preferably all the mates that have a degree of freedom come in this part.\n\nIf there are any relationships that need to be assigned, such as an elevator’s 2nd stage moving as the first stage moves, that would be the last step.\n\nImportant notes:\n\nIf it is a big assembly, such as the entire robot, make sure that it is divided into smaller sub-assemblies, ex: depending on their subsystems, and insert those subsystems into the main assembly at the end. This way, when something in those sub-assemblies changes, no error occurs and the main assembly will be easily updated.\n\nAs long as there is connection pieces that are drawn, use them so that the assembly will be as accurate as possible. Don’t mate two things that normally wouldn’t be related just to define them.\n\nTry to complete the mates that don’t have a degree of freedom first. This will decrease the chance of an error occurring.\n\nTo mate two parts with only 2 screw holes, use a revolute mate on one hole and a cylindrical mate on the other. With any other combination, there is a high chance that the assembly will be over-defined, leading to an error.\n\nThank you for reading!!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-06-24T16:52:11.928Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 157,
+                    "reads": 284,
+                    "readers_count": 283,
+                    "score": 1141.8,
+                    "yours": false,
+                    "topic_id": 467938,
+                    "topic_slug": "cad-workflow",
+                    "display_username": "Tuna Çakır",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/announcing-krayoncad-a-robot-planning-library-for-onshape/444484",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Announcing KrayonCAD: A Robot Planning Library for Onshape",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://cad.onshape.com/documents?nodeId=3&resourceType=filter&q=type:document%20name:%22KrayonCAD%22%20description:%22Official%22",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Onshape",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 20
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53325,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/cad-workflow/467938/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 20
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 20,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3402420,
+                    "name": null,
+                    "username": "2930notjorde",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/2930notjorde/{size}/246278_2.png",
+                    "created_at": "2024-06-26T16:53:46.296Z",
+                    "cooked": "You forgot the secret step 0: get everyone on the design team onboard with this workflow! Otherwise, you’ll run into conflicts eventually…\n\nEither way though, great write up and very similar to how we do it.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-06-26T16:55:35.609Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 151,
+                    "readers_count": 150,
+                    "score": 190.2,
+                    "yours": false,
+                    "topic_id": 467938,
+                    "topic_slug": "cad-workflow",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 10
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57739,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2930 Alumnus; Big Sky Robotics Ri3D Club President"
+                    },
+                    "post_url": "/t/cad-workflow/467938/2",
+                    "custom_user_title": "2930 Alumnus; Big Sky Robotics Ri3D Club President",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 9
+                        },
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 10,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3665490,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-06-26T16:54:46.050Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-06-26T16:54:46.050Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 6,
+                    "readers_count": 5,
+                    "score": 1.2,
+                    "yours": false,
+                    "topic_id": 467938,
+                    "topic_slug": "cad-workflow",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/cad-workflow/467938/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3401577,
+                3402420,
+                3665490
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                474
+            ],
+            [
+                2,
+                472
+            ],
+            [
+                3,
+                107
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "FRCTools for Fusion 360",
+                "id": 476857,
+                "title": "FRCTools for Fusion 360",
+                "slug": "frctools-for-fusion-360",
+                "posts_count": 19,
+                "reply_count": 5,
+                "highest_post_number": 19,
+                "image_url": null,
+                "created_at": "2024-12-17T06:41:46.236Z",
+                "last_posted_at": "2025-10-10T16:48:30.669Z",
+                "bumped": true,
+                "bumped_at": "2025-10-10T16:48:30.669Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello CD, My team uses Fusion 360 for our CAD and CAM needs. I decided it would be nice to have some simple tools like those available for OnShape to simplify robot design. I searched around and co…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "cad",
+                    "design",
+                    "fusion360",
+                    "fusion"
+                ],
+                "tags_descriptions": {},
+                "like_count": 32,
+                "views": 1551,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460220,
+                "topic_post_liked": false,
+                "topic_post_like_count": 18,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61178,
+                    "username": "tssmith",
+                    "name": "mentor",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/db5fbb/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61178,
+                            "username": "tssmith",
+                            "name": "mentor",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/db5fbb/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60080,
+                            "username": "GalenSpooner",
+                            "name": "Galen Spooner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galenspooner/{size}/229943_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26389,
+                            "username": "tkchan",
+                            "name": "tkchan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62889,
+                            "username": "Eaglegrant",
+                            "name": "Grant Spadafore",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 74601,
+                            "username": "Yoyo1000",
+                            "name": "Yotaro Kuwajima",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/yoyo1000/{size}/270100_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CAD Optimization",
+                "id": 476882,
+                "title": "CAD Optimization",
+                "slug": "cad-optimization",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-17T18:40:30.192Z",
+                "last_posted_at": "2024-12-17T20:17:41.751Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T20:17:41.751Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey! I was wondering if anybody has any tips for optimizing Cad in Onshape. Thanks!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 326,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460393,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69303,
+                    "username": "Calvin-Hobbes17",
+                    "name": "Calvin Selin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69303,
+                            "username": "Calvin-Hobbes17",
+                            "name": "Calvin Selin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60925,
+                            "username": "mpatel19",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mpatel19/{size}/201444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68269,
+                            "username": "GeraldTM",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geraldtm/{size}/246403_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52040,
+                            "username": "Sands",
+                            "name": "Ian Osborn",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "233 The Pink Team - Introducing Our Configurable Swerve Drive Base",
+                "id": 477121,
+                "title": "233 The Pink Team - Introducing Our Configurable Swerve Drive Base",
+                "slug": "233-the-pink-team-introducing-our-configurable-swerve-drive-base",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-20T17:11:58.343Z",
+                "last_posted_at": "2024-12-29T10:01:13.440Z",
+                "bumped": true,
+                "bumped_at": "2024-12-29T10:07:15.031Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "233 is proud to present our Onshape configurable swerve drive base 233_Drive_Base - Final - Released Version - 2024 | Main Drivebase ASM Over the offseason, 3 students and I created a configurab…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "drivetrain",
+                    "swervedrive",
+                    "onshape",
+                    "cadrelease",
+                    "release",
+                    "drivebase",
+                    "configurable",
+                    "configuration"
+                ],
+                "tags_descriptions": {},
+                "like_count": 28,
+                "views": 1130,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461965,
+                "topic_post_liked": false,
+                "topic_post_like_count": 10,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22936,
+                    "username": "Tristan_Shepard",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 22936,
+                            "username": "Tristan_Shepard",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51410,
+                            "username": "HarbringerOfAuroras",
+                            "name": "Maia",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/harbringerofauroras/{size}/165119_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58279,
+                            "username": "Legomonster33",
+                            "name": "Evan Sigl",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legomonster33/{size}/234529_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Favorite lightening designs?",
+                "id": 483120,
+                "title": "Favorite lightening designs?",
+                "slug": "favorite-lightening-designs",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2025-01-22T22:25:52.557Z",
+                "last_posted_at": "2025-01-23T07:14:19.218Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T07:14:19.218Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Thinner materials win over pocketing material out. It is also generally cheaper and faster… A lot of bearings out there can be bushings instead. 3d printing can be REALLY strong and lightweight.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 36,
+                "views": 636,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490266,
+                "topic_post_liked": false,
+                "topic_post_like_count": 12,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 19235,
+                    "username": "Skyehawk",
+                    "name": "Skye Leake",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71176,
+                            "username": "ncd",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/dbc845/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Accepted Answer",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53083,
+                            "username": "leo-les",
+                            "name": "Leo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/leo-les/{size}/172390_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve cover design ",
+                "id": 476628,
+                "title": "Swerve cover design ",
+                "slug": "swerve-cover-design",
+                "posts_count": 14,
+                "reply_count": 6,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-12-13T11:46:29.993Z",
+                "last_posted_at": "2024-12-18T19:31:08.390Z",
+                "bumped": true,
+                "bumped_at": "2024-12-18T19:31:08.390Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re a rookie team, and we’re looking for ideas on swerve module cover design. Though we found the attached design on the internet, we found a slight issue regarding the readiness of putting it on an…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 1956,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458796,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69602,
+                    "username": "chikomaru",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/ed8c4c/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69602,
+                            "username": "chikomaru",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ed8c4c/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52966,
+                            "username": "Eliot",
+                            "name": "Eliot Dunn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eliot/{size}/207280_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8103,
+                            "username": "Footie",
+                            "name": "Nick Foote",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/footie/{size}/218325_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64262,
+                            "username": "TJP1699",
+                            "name": "Tom Praisner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tjp1699/{size}/216696_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "CAD Workflow",
+        "id": 467938,
+        "title": "CAD Workflow",
+        "posts_count": 3,
+        "created_at": "2024-06-24T16:50:42.998Z",
+        "views": 696,
+        "reply_count": 0,
+        "like_count": 30,
+        "last_posted_at": "2025-06-26T16:54:46.050Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "cad-workflow",
+        "category_id": 68,
+        "word_count": 2013,
+        "deleted_at": null,
+        "user_id": 53325,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_467938",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 53325,
+                    "username": "tunA",
+                    "name": "Tuna Çakır",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 57739,
+                    "username": "2930notjorde",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/2930notjorde/{size}/246278_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 53325,
+                "username": "tunA",
+                "name": "Tuna Çakır",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/announcing-krayoncad-a-robot-planning-library-for-onshape/444484",
+                    "title": "Announcing KrayonCAD: A Robot Planning Library for Onshape",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 53325,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://cad.onshape.com/documents?nodeId=3&resourceType=filter&q=type:document%20name:%22KrayonCAD%22%20description:%22Official%22",
+                    "title": "Onshape",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 53325,
+                    "domain": "cad.onshape.com",
+                    "root_domain": "onshape.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,801 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3499037,
+                    "name": "Kyle Burman",
+                    "username": "Flatop",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                    "created_at": "2025-02-01T17:18:26.419Z",
+                    "cooked": "My team has been struggling for the past couple weeks after kickoff to get path planner working with our robot (MK4i swerve with Neo motors and thrifty bot encoder, NavX2 gyro mounted on the Rio). It is weird because there has been one spell last summer that it worked really well but I haven’t been able to replicate that and it is almost the same code as before. We wrote a path that just goes 1 meter straight really slow but it goes super fast and in a curve.  I have to stop it before it finishes moving because its going to hit something.\n\nVideo of it not working https://drive.google.com/file/d/1a5JKoEXQ9tCunHzCzdlcYHwbrTHYB1FE/view?usp=drive_link Code ( GitHub - Gemini4575/4575-2025-Robot-code ) Please help and ask any questions that you need to",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-01T17:34:31.039Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 22,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 124.0,
+                    "yours": false,
+                    "topic_id": 484644,
+                    "topic_slug": "pathplanner-is-being-weird",
+                    "display_username": "Kyle Burman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://drive.google.com/file/d/1a5JKoEXQ9tCunHzCzdlcYHwbrTHYB1FE/view?usp=drive_link",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "IMG_3467.MOV - Google Drive",
+                            "clicks": 13
+                        },
+                        {
+                            "url": "https://github.com/Gemini4575/4575-2025-Robot-code",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Gemini4575/4575-2025-Robot-code",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55182,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-is-being-weird/484644/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3499171,
+                    "name": "Troy Maurer",
+                    "username": "TMaurer4472",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                    "created_at": "2025-02-01T19:29:28.018Z",
+                    "cooked": "Hello, There are 3 things that I noticed that may cause the issue, but I am not entirely sure they are the root cause. 1: The straight path auto has “resetOdom” set to false instead of true. All of our autos have “resetOdom” set to true. 2: You do not have the most recent version of pathplannerLib (2025.2.2 as of writing this). You can update the version through the vendor dependencies tab in VSCode. 3: 16.5 for the AutoBuilder rotational P constant seems very high, it could be that it is too high and causing strange movement, it could also be normal. This is the one I am most unsure about. You could try the constant from the pathplanner documentation example (which is 5). I am not super confident either of those will fix the issue, but let me know if it does or doesn’t. If it doesn’t fix the issue, it would also be nice to know if the roboRIO is returning any warnings or errors related to the AutoBuilder as there can often be some issues with that.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-01T19:40:43.288Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 20.6,
+                    "yours": false,
+                    "topic_id": 484644,
+                    "topic_slug": "pathplanner-is-being-weird",
+                    "display_username": "Troy Maurer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71158,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/pathplanner-is-being-weird/484644/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3500046,
+                    "name": "Kyle Burman",
+                    "username": "Flatop",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                    "created_at": "2025-02-02T19:10:12.576Z",
+                    "cooked": "Thanks for the suggestion I will try them",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-02T19:10:12.576Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 35,
+                    "readers_count": 34,
+                    "score": 7.0,
+                    "yours": false,
+                    "topic_id": 484644,
+                    "topic_slug": "pathplanner-is-being-weird",
+                    "display_username": "Kyle Burman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 71158,
+                        "username": "TMaurer4472",
+                        "name": "Troy Maurer",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55182,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-is-being-weird/484644/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3499037,
+                3499171,
+                3500046
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                252
+            ],
+            [
+                3,
+                251
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Error",
+                "id": 476639,
+                "title": "Swerve Error",
+                "slug": "swerve-error",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2024-12-13T14:59:54.354Z",
+                "last_posted_at": "2024-12-13T14:59:54.395Z",
+                "bumped": true,
+                "bumped_at": "2024-12-13T16:11:29.851Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi. I was trying to adapt the new advantage kit 2025 rev code with cancoders as absolute encoders. i tried normal pid controllers for turn controller but i cant get it to work. here is the An…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 106,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458854,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help tracing a StackTrace",
+                "id": 491752,
+                "title": "Help tracing a StackTrace",
+                "slug": "help-tracing-a-stacktrace",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-14T22:58:51.763Z",
+                "last_posted_at": "2025-02-15T06:50:55.164Z",
+                "bumped": true,
+                "bumped_at": "2025-02-15T06:50:55.164Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Howdy. I’m a new coder from Team 8006 and am adjusting to both the 2025 code rework and transitioning to YAGSL. I have incorporated the Neo Motor YAGSL-Example code provided by the BroncBotz with mino…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "help"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 114,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3527529,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73467,
+                    "username": "Mundo",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/bc8723/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73467,
+                            "username": "Mundo",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/bc8723/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Advantage Kit Spark Template with CANcoders",
+                "id": 492788,
+                "title": "Advantage Kit Spark Template with CANcoders",
+                "slug": "advantage-kit-spark-template-with-cancoders",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-23T01:18:21.749Z",
+                "last_posted_at": "2025-03-07T06:51:39.080Z",
+                "bumped": true,
+                "bumped_at": "2025-03-07T06:51:39.080Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "There may still be multiple issues causing the problem, but one thing I notice is that the units are being mixed up when zeroing the Spark encoder here. getAbsolutePosition returns rotations by defaul…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "advantagekit"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 192,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3539327,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57581,
+                            "username": "AlligatorFan3",
+                            "name": "Frank",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f17d59/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Command Based Programming for Limelight",
+                "id": 479705,
+                "title": "Command Based Programming for Limelight",
+                "slug": "command-based-programming-for-limelight",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-07T02:32:20.731Z",
+                "last_posted_at": "2025-01-08T19:11:32.556Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T19:11:32.556Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It’s generally not necessary to use commands for actions that run every loop and/or don’t need exclusive control over hardware while running. Similarly, a software component that doesn’t need to be c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 423,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473584,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 33946,
+                    "username": "Amicus1",
+                    "name": "Amicus1",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69324,
+                            "username": "Pieyama_Pieman",
+                            "name": "Daniel McLaughlin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pieyama_pieman/{size}/242065_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56160,
+                            "username": "C3434",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with aligning to a pose with ctre swerve",
+                "id": 494697,
+                "title": "Help with aligning to a pose with ctre swerve",
+                "slug": "help-with-aligning-to-a-pose-with-ctre-swerve",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-08T02:07:21.368Z",
+                "last_posted_at": "2025-03-08T02:57:12.840Z",
+                "bumped": true,
+                "bumped_at": "2025-03-08T02:57:12.840Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We used 6328’s drive to pose command as a template for our own alignment and we got the logic to work pretty well while we were using the talon fx swerve template but when i switched to ctre swervege…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 159,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3550894,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51272,
+                    "username": "Wing",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/wing/{size}/175245_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51272,
+                            "username": "Wing",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wing/{size}/175245_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57470,
+                            "username": "kn4",
+                            "name": "Kabir",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "pathplanner"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Pathplanner is being weird",
+        "id": 484644,
+        "title": "Pathplanner is being weird",
+        "posts_count": 3,
+        "created_at": "2025-02-01T17:18:26.365Z",
+        "views": 140,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-02-02T19:10:12.576Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pathplanner-is-being-weird",
+        "category_id": 75,
+        "word_count": 342,
+        "deleted_at": null,
+        "user_id": 55182,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484644",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40347,
+            "execute_at": "2026-02-02T19:10:12.576Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55182,
+                    "username": "Flatop",
+                    "name": "Kyle Burman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 71158,
+                    "username": "TMaurer4472",
+                    "name": "Troy Maurer",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 55182,
+                "username": "Flatop",
+                "name": "Kyle Burman",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png"
+            },
+            "last_poster": {
+                "id": 55182,
+                "username": "Flatop",
+                "name": "Kyle Burman",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://drive.google.com/file/d/1a5JKoEXQ9tCunHzCzdlcYHwbrTHYB1FE/view?usp=drive_link",
+                    "title": "IMG_3467.MOV - Google Drive",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 55182,
+                    "domain": "drive.google.com",
+                    "root_domain": "google.com"
+                },
+                {
+                    "url": "https://github.com/Gemini4575/4575-2025-Robot-code",
+                    "title": "GitHub - Gemini4575/4575-2025-Robot-code",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55182,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

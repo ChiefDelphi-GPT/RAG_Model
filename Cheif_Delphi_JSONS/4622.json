@@ -1,0 +1,906 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3494021,
+                    "name": "Carson Miller",
+                    "username": "carsongmiller",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png",
+                    "created_at": "2025-01-27T20:58:23.281Z",
+                    "cooked": "Hi, my team has some Andy Mark Swerve Drives (With the REV motors) , and we’re having a little trouble with programming them.  We’re ENTIRELY new to FIRST , and so are pretty unfamiliar with most things regarding swerve drives and how to program them.  I personally work as a controls engineer, so I’m used to programming motors and drives, but without the ability to sit with the swerve drives for hours myself and play with them, this post is my attempt to try and shortcut some of the trial and error and get the drive system working quickly.\n\nEnough preamble, here’s what we’re seeing:\n\nOur motors have integrated encoders in them\n\nWe have all the spark max’s set up and are able to at last make the motors move via the robo rio, via an xbox controller\n\nWhen we press one of the joysticks to turn the wheels, the wheels move (very non-fluidly), but don’t move continuously if that makes sense.  Like if I press the stick to the right, the wheels may turn a half rev to the right and then stop. And same with the left.  And it’s not like all the wheels move in sync with one another.  It’s like they’re technically moving, but to my eyes, it looks very erratic\n\nIn the REV hardware client, I’m not able to see the real time values of any of the integrated encoders in the REV motors\n\nVia the robo rio, we’re able to print debug statements that do successfully read out the motors’ current positions, although I’m not sure if we’re reading the integrated encoders or the shaft-mounted encoders that sit between the two motors on the top of the drive assembly\n\nIn the REV hardware client, I can smoothly drive a single motor at a time using the percentage controls\n\nSo all of this put together, it seems like we’re missing something regarding programming the drives.  From what I’ve understood, there’s a software abstraction layer that will live between our control code and the motor drive code that requires us to think in terms of translations of the robot, rather than in terms of spinning individual motors.  But that’s about all I know.\n\nI apologize if this is woefully little info here–I’m a mentor for the team trying to wrap my head around the swerve drives so that I can try and pass it along!  Any advice that people can lend would be much appreciated!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-27T20:58:23.281Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 10,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 59.6,
+                    "yours": false,
+                    "topic_id": 483842,
+                    "topic_slug": "swerve-drive-motors-move-erratically",
+                    "display_username": "Carson Miller",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.andymark.com/products/mk4-swerve-modules",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SDS MK4 Swerve Modules - AndyMark, Inc",
+                            "clicks": 7
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71738,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-drive-motors-move-erratically/483842/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3494027,
+                    "name": "Gavin Matthews",
+                    "username": "bovlb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "created_at": "2025-01-27T21:03:45.558Z",
+                    "cooked": "You might want to start with the WPILIB SwerveBot example . Alternatively, you could look at REV’s MaxSwerve template or YAGSL ,",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-27T21:03:45.558Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 21.0,
+                    "yours": false,
+                    "topic_id": 483842,
+                    "topic_slug": "swerve-drive-motors-move-erratically",
+                    "display_username": "Gavin Matthews",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/swervebot/Robot.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "allwpilib/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/swervebot/Robot.java at main · wpilibsuite/allwpilib · GitHub",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - REVrobotics/MAXSwerve-Java-Template",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://docs.yagsl.com/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Welcome to Yet Another Swerve Document | YAGSL",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38743,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming mentor, Team 2102, RI, CSA (he/him)"
+                    },
+                    "post_url": "/t/swerve-drive-motors-move-erratically/483842/2",
+                    "custom_user_title": "Programming mentor, Team 2102, RI, CSA (he/him)",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3494056,
+                    "name": "Rylee L",
+                    "username": "RyleeL",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryleel/{size}/197248_2.png",
+                    "created_at": "2025-01-27T21:26:52.964Z",
+                    "cooked": "I second YAGSL ! you can learn more at docs.yagsl.com , and if you have questions, join the YAGSL Discord, theres tons of teams and mentors on there who can help",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-27T21:26:52.964Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 23,
+                    "readers_count": 22,
+                    "score": 19.6,
+                    "yours": false,
+                    "topic_id": 483842,
+                    "topic_slug": "swerve-drive-motors-move-erratically",
+                    "display_username": "Rylee L",
+                    "primary_group_name": "Swyft-Robotics",
+                    "flair_name": "Swyft-Robotics",
+                    "flair_url": "/uploads/default/original/3X/1/1/11d561f5bb3f02abd1014df6f9a83d9ec434d6d1.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 64,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "http://docs.yagsl.com",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Welcome to Yet Another Swerve Document | YAGSL",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 39879,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Director of Marketing, SWYFT Robotics"
+                    },
+                    "post_url": "/t/swerve-drive-motors-move-erratically/483842/3",
+                    "custom_user_title": "Director of Marketing, SWYFT Robotics",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3494021,
+                3494027,
+                3494056
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                257
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Code just deploy/initialize after computer identify LimeLights (startCompetition Issue)",
+                "id": 483028,
+                "title": "Code just deploy/initialize after computer identify LimeLights (startCompetition Issue)",
+                "slug": "code-just-deploy-initialize-after-computer-identify-limelights-startcompetition-issue",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-22T12:32:31.574Z",
+                "last_posted_at": "2025-01-22T13:26:34.984Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T13:26:34.984Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Basically, our code just deploy after the limelights came up, we’re trying to figure out what could we do to initialize them correctaly. We follow all the steps in this Best Practices | L…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight",
+                    "help",
+                    "code",
+                    "issue",
+                    "startup"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 66,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489654,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60032,
+                    "username": "Anhol0n",
+                    "name": "Rodrigo Anholon Novo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/anhol0n/{size}/245860_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60032,
+                            "username": "Anhol0n",
+                            "name": "Rodrigo Anholon Novo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/anhol0n/{size}/245860_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "New Team-Code Incompetence",
+                "id": 485468,
+                "title": "New Team-Code Incompetence",
+                "slug": "new-team-code-incompetence",
+                "posts_count": 15,
+                "reply_count": 13,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-02-06T22:08:06.611Z",
+                "last_posted_at": "2025-02-07T02:17:38.330Z",
+                "bumped": true,
+                "bumped_at": "2025-02-07T02:17:38.330Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Greetings from Team 9453, We are relatively new to robot programming and do not have formal experience in coding. Last year, we successfully utilized code provided by The Everybot. However, this year…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 553,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3504406,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71720,
+                    "username": "9453_MSH",
+                    "name": "Mason ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/9/7ea924/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71720,
+                            "username": "9453_MSH",
+                            "name": "Mason ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/9/7ea924/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18342,
+                            "username": "jdaming",
+                            "name": "Jason Daming",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jdaming/{size}/137720_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight pipeline types",
+                "id": 477297,
+                "title": "Limelight pipeline types",
+                "slug": "limelight-pipeline-types",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-24T18:26:59.769Z",
+                "last_posted_at": "2024-12-24T22:27:08.034Z",
+                "bumped": true,
+                "bumped_at": "2024-12-24T22:27:08.034Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So limelight has a getpipetype field in network tables that returns a string for the type of pipeline. Does anyone know what these string values are precisely. Like for color/retro, classifier, dete…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 218,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463155,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48345,
+                    "username": "narmstro",
+                    "name": "Nicholas Armstrong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 48345,
+                            "username": "narmstro",
+                            "name": "Nicholas Armstrong",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56221,
+                            "username": "Ishan1",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/439d5e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Moving Over SmartDashboard and Pathplanner Features from 2024 to 2025",
+                "id": 480189,
+                "title": "Moving Over SmartDashboard and Pathplanner Features from 2024 to 2025",
+                "slug": "moving-over-smartdashboard-and-pathplanner-features-from-2024-to-2025",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-08T18:52:34.024Z",
+                "last_posted_at": "2025-01-08T18:52:34.113Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T18:52:34.113Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi there! So now that there are all of the official releases for 2025 libraries, its time to move everything over that I worked on off-season. I know it isn’t supposed to be too easy, but I feel like …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 122,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475578,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63796,
+                    "username": "Declan0811",
+                    "name": "Declan Dunn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/declan0811/{size}/213245_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63796,
+                            "username": "Declan0811",
+                            "name": "Declan Dunn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/declan0811/{size}/213245_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve wheels oscillating (YAGSL 2025 issue)",
+                "id": 492930,
+                "title": "Swerve wheels oscillating (YAGSL 2025 issue)",
+                "slug": "swerve-wheels-oscillating-yagsl-2025-issue",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-02-24T12:43:19.322Z",
+                "last_posted_at": "2025-02-26T15:52:43.667Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T15:52:43.667Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using the MK4i modules, L3 gearing, NEO motors on SparkMAXes for both drive and turn, and Thrifty absolute encoders. We are programming with YAGSL 2025. We got a swerve drive working in the f…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 290,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537827,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 5678,
+                    "username": "Taylor",
+                    "name": "Mike Taylor (he/him)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/taylor/{size}/232955_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 5678,
+                            "username": "Taylor",
+                            "name": "Mike Taylor (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/taylor/{size}/232955_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29982,
+                            "username": "UnofficialForth",
+                            "name": "UnofficialForth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/unofficialforth/{size}/167902_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32089,
+                            "username": "BlueEpiphone",
+                            "name": "Curt Rozeboom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73827,
+                            "username": "kcwang",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/edb3f5/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve",
+            "programming",
+            "drive"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Swerve Drive Motors move Erratically",
+        "id": 483842,
+        "title": "Swerve Drive Motors move Erratically",
+        "posts_count": 3,
+        "created_at": "2025-01-27T20:58:23.112Z",
+        "views": 76,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-01-27T21:26:52.964Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-drive-motors-move-erratically",
+        "category_id": 30,
+        "word_count": 519,
+        "deleted_at": null,
+        "user_id": 71738,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_483842",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40081,
+            "execute_at": "2026-01-27T21:26:52.964Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 39879,
+                    "username": "RyleeL",
+                    "name": "Rylee L",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryleel/{size}/197248_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "Swyft-Robotics",
+                    "flair_name": "Swyft-Robotics",
+                    "flair_url": "/uploads/default/original/3X/1/1/11d561f5bb3f02abd1014df6f9a83d9ec434d6d1.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 64,
+                    "trust_level": 2
+                },
+                {
+                    "id": 71738,
+                    "username": "carsongmiller",
+                    "name": "Carson Miller",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 71738,
+                "username": "carsongmiller",
+                "name": "Carson Miller",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png"
+            },
+            "last_poster": {
+                "id": 39879,
+                "username": "RyleeL",
+                "name": "Rylee L",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/ryleel/{size}/197248_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.andymark.com/products/mk4-swerve-modules",
+                    "title": "SDS MK4 Swerve Modules - AndyMark, Inc",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 71738,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                },
+                {
+                    "url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/swervebot/Robot.java",
+                    "title": "allwpilib/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/swervebot/Robot.java at main · wpilibsuite/allwpilib · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 38743,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template",
+                    "title": "GitHub - REVrobotics/MAXSwerve-Java-Template",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 38743,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://docs.yagsl.com/",
+                    "title": "Welcome to Yet Another Swerve Document | YAGSL",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 38743,
+                    "domain": "docs.yagsl.com",
+                    "root_domain": "yagsl.com"
+                },
+                {
+                    "url": "http://docs.yagsl.com",
+                    "title": "Welcome to Yet Another Swerve Document | YAGSL",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 39879,
+                    "domain": "docs.yagsl.com",
+                    "root_domain": "yagsl.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

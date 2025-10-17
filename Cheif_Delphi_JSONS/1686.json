@@ -1,0 +1,1307 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3755487,
+                    "name": "",
+                    "username": "manso",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                    "created_at": "2025-10-04T22:20:46.084Z",
+                    "cooked": "As the title says, we have been experiencing power drain issues with our last season’s (2025 Reefscape) robot as we prepare for an upcoming offseason comp. When driving at full or close to full speeds, our battery voltage goes down to 9 or even 8 volts, and at speeds 50% or slower, it goes down to around 10V.\n\n( oddly enough however it never once browned out during our test drives (2-3 mins)).\n\nWe’ve tried just about everything we could think of, we replaced/tested our batteries, replaced our pdh, rewired our robot twice, re-greased the gears, changed the wheels, reinstalled firmware on our motors, swapped out breakers for new ones, etc. Which didn’t help a single bit. At this point in time we are 100 percent certain that this isn’t a mechanical/electrical issue.\n\nThe next logical step was to look for problems in our code, which besides for some changes to account for a different gear ratio on our elevator motor, was basically the same as it was least season.\n\nWe had changed our current limits, from 60 amps to 40 and even 20 amps!, with very little improvement (like maybe half a volt difference), we changed our peak forward/reverse voltage from 16 down to 11, changing PID steer/drive gains, we tried ClosedLoopRamps and OpenLoopRamps too, and we re-calibrated our encoders/motors, all of which did not help whatsoever.\n\nThe closest we had gotten to solving this problem was trying all of the above, and also using SlewRateFilters on our joystick input, but this made driving the robot feel awful, laggy, and janky, and battery usage still sat at 9-10V when driving.\n\nWe tried deleting 90 percent of our code, leaving just the swerve drive code, because we thought our other subsystem code could have the cause of the issue. But of course nothing changed.\n\nAt this point we’re stumped and we don’t know what to do, it’s frustrating because it feels like we’ve tried everything and yet nothing works, yet at the same time the robot was performing perfectly at our last competitions, and we haven’t changed it much.\n\nTuner Constants code (this is where current limits are)\n\nLine 296-346 of RobotContainer (our controls for driving)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T14:30:28.386Z",
+                    "reply_count": 2,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 17,
+                    "reads": 287,
+                    "readers_count": 286,
+                    "score": 167.4,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Team6593/Reefscape-Swerve/blob/14b4cd1982a83ce643bb34803dd89a679731d377/src/main/java/frc/robot/RobotContainer.java#L296",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reefscape-Swerve/src/main/java/frc/robot/RobotContainer.java at 14b4cd1982a83ce643bb34803dd89a679731d377 · Team6593/Reefscape-Swerve · GitHub",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://github.com/Team6593/Reefscape-Swerve/blob/septests/src/main/java/frc/robot/generated/TunerConstants.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reefscape-Swerve/src/main/java/frc/robot/generated/TunerConstants.java at septests · Team6593/Reefscape-Swerve · GitHub",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55649,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6593 Alumni/Programming Mentor"
+                    },
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/1",
+                    "custom_user_title": "6593 Alumni/Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "-1",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3755521,
+                    "name": "EricH",
+                    "username": "EricH",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                    "created_at": "2025-10-04T23:35:50.775Z",
+                    "cooked": "manso:\n\nAt this point in time we are 100 percent certain that this isn’t a mechanical/electrical issue.\n\nI’m not so sure.\n\n-Have you, at any point in time, swapped any one or all of your swerve motors, drive or steering?\n\nIf you have not, do it now, one motor at a time . If there is improvement, go over that motor and its mounting in great detail.\n\n-Have you, at any point in time, completely disassembled and reassembled your modules, double-checking their assembly against the instructions given by the manufacturer? Have someone that didn’t assemble them the first time do this, if you haven’t.\n\nI suspect that something–and it’s going to be something small–isn’t correct, and it’s most likely incorrect on all of your modules. Might be a backwards gear that has a small boss, might be some screws that are too tight or too long. It’s going to be something that’s easy to miss.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-04T23:35:50.775Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 252,
+                    "readers_count": 251,
+                    "score": 170.4,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "EricH",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 8
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 4212,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "#westandwithUkraine"
+                    },
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/2",
+                    "custom_user_title": "#westandwithUkraine",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 7
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 8,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3755534,
+                    "name": "Kabir",
+                    "username": "kn4",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                    "created_at": "2025-10-05T00:09:06.539Z",
+                    "cooked": "If you’re looking for problems in your code, you might as well go through the whole Phoenix Tuner X swerve generator process, following the instructions carefully, and checking to see whether your robot works with the newly generated project.\n\nSomething else that’s useful while debugging is running the robot held up on blocks such that the wheels are able to spin freely. Turn off the bot and make sure that you can easily rotate and spin the swerve wheels by hand. Then enable the robot and make sure all wheels spin with the correct direction and speed when you use the joystick.\n\nIf you want to test a motor for potential issues, make the rotor detached from everything (but keep the motor held in place so it doesn’t fly off) and run the motor at max speed; the free current and free speed should be similar to the specs listed on the website. Phoenix Tuner X also has a motor self-test button which might catch issues.\n\nUltimately, a voltage drop is caused by resistance, so a large amount of current is flowing somewhere (or a normal amount through something with a lot of resistance). You haven’t mentioned checking logs to try to find the actual cause of the voltage drop. Look at the driver station logs, they should contain data from your PDH on current. Also look at the CTRE hoot logs and look at individual swerve motors: check signals such as SupplyVoltage, SupplyCurrent, StatorCurrent, etc. to see if you can find anything. You can also just use the Phoenix live diagnostics (via Phoenix Tuner X or AdvantageScope (which is a bit nicer because you can graph multiple devices at once)).\n\n(These weren’t in any particular order just listing some thoughts)\n\nLater edit: I wanted to reemphasize the last paragraph; ultimately, you should try to find out the root cause of the issue before attempting to replace random things to fix it. Even though replacing random stuff sometimes works, you need to understand the problem if you want to be prepared for when it appears again and the same replacement fails to work. And looking at logs or signals is one way to help gain an understanding of a problem.\n\nAlso, is the voltage drop just temporary while accelerating, or still persistent while you move at a constant speed after acceleration? If it is only temporary, that is somewhat expected - motors need current to produce torque and accelerate.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T00:36:30.139Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 238,
+                    "readers_count": 237,
+                    "score": 152.6,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "Kabir",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 7
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57470,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2724 programmer"
+                    },
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/3",
+                    "custom_user_title": "2724 programmer",
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 4
+                        },
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 7,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3755622,
+                    "name": "paulonis",
+                    "username": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "created_at": "2025-10-05T02:35:39.002Z",
+                    "cooked": "I’m not sure the re-emphasis in the excellent post by @kn4 above to use data to diagnose your problem is enough, so I’m going to call it out in a separate reply.\n\nVoltage drop is caused by current or resistance (V=IR).  Use whatever logging you have to look at the total current draw of the robot and then the current draw of each channel of power distribution.  If you don’t have any logging in code and and need to use the driver station, there is a nice DS log viewer tutorial if you aren’t familiar with it.  Follow the trail of any channel currents that seem extra high.  If there are no extra-high currents, you should move to resistance.\n\nYour voltage drop should be very close to the total current draw times the internal resistance of the battery and a tiny bit for the wire.  You can find the internal resistance with a battery beak if you have one.  You can estimate the overall resistance by comparing voltage drop to current (R=V/I) where you have current spikes in your log.  Reasonable resistance is in the range of 0.02 ohms.  If you are getting a lot more resistance than that, you should be looking for loose or faulty connections or a wiring issue.\n\nI cannot recommend strongly enough to get in the habit of starting with data when troubleshooting.  You’ve expended an extraordinary amount of effort, but all based on guesses of what might be wrong, or just things you haven’t changed (out) yet.  Logging is getting easier to program and easier to analyze with newer software.  Use that to your advantage when trying to understand anything that isn’t right with your robot.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T02:35:39.002Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 190,
+                    "readers_count": 189,
+                    "score": 98.0,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "paulonis",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://firstmncsa.org/2019/02/15/the-driver-station-log-file-viewer/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "The Driver Station Log File Viewer | FirstMnCsa",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22261,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3755638,
+                    "name": "",
+                    "username": "TheComputer314",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thecomputer314/{size}/241453_2.png",
+                    "created_at": "2025-10-05T03:06:45.577Z",
+                    "cooked": "paulonis:\n\nI cannot recommend strongly enough to get in the habit of starting with data when troubleshooting. You’ve expended an extraordinary amount of effort, but all based on guesses of what might be wrong, or just things you haven’t changed (out) yet. Logging is getting easier to program and easier to analyze with newer software. Use that to your advantage when trying to understand anything that isn’t right with your robot.\n\nLogging everything and the kitchen sink is good practice even when not debugging, cause you never know when you would want some particular piece of data from a match. Epilogue which is built into WPILib serves as an excellent way to log data to both NetworkTables and .wpilog files for not much effort.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T03:06:45.577Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 155,
+                    "readers_count": 154,
+                    "score": 61.0,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62207,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "The one crazy dude on 167"
+                    },
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/5",
+                    "custom_user_title": "The one crazy dude on 167",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3755642,
+                    "name": "paulonis",
+                    "username": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "created_at": "2025-10-05T03:55:57.125Z",
+                    "cooked": "manso:\n\nWhen driving at full or close to full speeds, our battery voltage goes down to 9 or even 8 volts\n\nIt’s worth noting that you might not actually have a problem.  Teams that run high current limits and high gear ratios on their swerve modules get down to 9 volts all the time.  If your idle battery voltage is 12.6 volts, it would take 180 amps to drop the bus voltage to 9.0 if your battery internal resistance plus the average resistance of the robot wiring was 0.02 ohms.  180 amps is pretty easy to pull down with swerve drive motor current limits of 50 or 60 amps and gearing that gets you well into current limiting at full acceleration.\n\nAre you sure that the voltage drops you are currently seeing on your robot (or the recent ones before changing everything) are significantly greater than what was occurring during 2025 events?  9 volts when accelerating wide open can be easily explained.",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T03:55:57.125Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 134,
+                    "readers_count": 133,
+                    "score": 181.8,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "paulonis",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 10
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22261,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/6",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 6
+                        },
+                        {
+                            "id": "100",
+                            "type": "emoji",
+                            "count": 2
+                        },
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 10,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3755755,
+                    "name": "Rod",
+                    "username": "Weldingrod1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "created_at": "2025-10-05T16:02:54.980Z",
+                    "cooked": "My suggestions are:\n\nCharge the battery and give it a 100 amp old-school battery tester 10 second test.  A single bad cell in a battery will make it -terrrible-.  Unutterably terrible, but the Battery Beak will say “good to go!”  Totally worth owning one of these…  Some teams actually use them for a quick check for each match.  I’m thinking about doing the same!  I just added a state of charge meter to this thing.  The easy installation is to just put a SB50 on the cables.  Polarity doesn’t matter for this tester; the meter has a diode bridge (crazy, I know!). Using a 100A Crank Tester for FRC Batteries - #5 by Weldingrod1\n\nWith the robot off, rotate all four tires two full revolutions and turn all four steers two full revolutions.  Look for draggyness, clunky/periodic stuff, and differences in torque among the four wheels.  Start looking for problems on the draggiest one.\n\nLook at the current logs, both the whole robot ( FIRST ) and then the various swerve motors.  Total battery current around 180 Amps will pull your battery down like that (see above for well done discussion).  If you have turned down the current limits, then this isn’t likely to give you the smoking gun…\n\nAre your tires worn down?  Some teams tune their swerve to the point that it oscillates like mad when the tires are not touching.  I could imagine something where bald tires could lead to oscillations.  Oscillations pull LOTS of current without it being very visible.",
+                    "post_number": 7,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2025-10-05T16:02:54.980Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 90,
+                    "readers_count": 89,
+                    "score": 43.0,
+                    "yours": false,
+                    "topic_id": 506872,
+                    "topic_slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+                    "display_username": "Rod",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/using-a-100a-crank-tester-for-frc-batteries/503864/5",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Using a 100A Crank Tester for FRC Batteries",
+                            "clicks": 9
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46443,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why/506872/7",
+                    "custom_user_title": "Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3755487,
+                3755521,
+                3755534,
+                3755622,
+                3755638,
+                3755642,
+                3755755
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                7
+            ],
+            [
+                7,
+                6
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "9450 Tech Binder + CAD + Impact Release 2025",
+                "id": 506694,
+                "title": "9450 Tech Binder + CAD + Impact Release 2025",
+                "slug": "9450-tech-binder-cad-impact-release-2025",
+                "posts_count": 11,
+                "reply_count": 6,
+                "highest_post_number": 11,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/4X/3/0/c/30cea5183788b7855482a3398f69e17b4e726979.png",
+                "created_at": "2025-09-29T19:50:04.333Z",
+                "last_posted_at": "2025-10-02T04:43:44.976Z",
+                "bumped": true,
+                "bumped_at": "2025-10-02T04:43:44.976Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "A little late to the show here but better late than never! We have a season write up we are slowly getting across the finish line but wanted to drop the CAD and Code + documentation for everyone to l…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 37,
+                "views": 744,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3751799,
+                "topic_post_liked": false,
+                "topic_post_like_count": 25,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66602,
+                    "username": "VR9450",
+                    "name": "Tim Swartz ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/b4bc9f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66602,
+                            "username": "VR9450",
+                            "name": "Tim Swartz ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/b4bc9f/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18172,
+                            "username": "rponmalai",
+                            "name": "Ravi Ponmalai",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rponmalai/{size}/216860_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 77376,
+                            "username": "inky01925",
+                            "name": "Ryan K. | 9450",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/977dab/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60620,
+                            "username": "dmhl",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/41988e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70232,
+                            "username": "div2930",
+                            "name": "Alumni of team 2930",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/77aa72/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Mounting brushes for intakes",
+                "id": 481440,
+                "title": "Mounting brushes for intakes",
+                "slug": "mounting-brushes-for-intakes",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-13T19:50:01.629Z",
+                "last_posted_at": "2025-01-13T20:53:03.374Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T20:53:03.374Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I have seen many teams use brushes like these for their intakes (specifically in 2020 and 2022). How would one go about mounting these on a hex shaft. Thanks!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 197,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3481226,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64837,
+                    "username": "JAAMES",
+                    "name": "JAMES",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jaames/{size}/231436_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64837,
+                            "username": "JAAMES",
+                            "name": "JAMES",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jaames/{size}/231436_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56684,
+                            "username": "schaefbl",
+                            "name": "Brett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/schaefbl/{size}/238067_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2025 libraries on wpilibpi",
+                "id": 482799,
+                "title": "2025 libraries on wpilibpi",
+                "slug": "2025-libraries-on-wpilibpi",
+                "posts_count": 16,
+                "reply_count": 13,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-20T22:41:30.931Z",
+                "last_posted_at": "2025-01-24T23:02:39.581Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T23:02:39.581Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How do I install the 2025 libraries onto my raspberry pi? the latest release of wpilibpi seems to be a 2024 Releases · wpilibsuite/WPILibPi · GitHub I only really need it for the 2025 apriltag …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib",
+                    "pi",
+                    "coprocessor"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 489,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488529,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32094,
+                            "username": "CJ_Hill",
+                            "name": "CJ Hill",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cj_hill/{size}/142363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Old radio",
+                "id": 485187,
+                "title": "Old radio",
+                "slug": "old-radio",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/b/bb0cb2c019acfbc4bd6bf0d3ceeeade283253e4e.jpeg",
+                "created_at": "2025-02-04T21:02:11.409Z",
+                "last_posted_at": "2025-02-04T21:28:18.324Z",
+                "bumped": true,
+                "bumped_at": "2025-02-04T21:28:18.324Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our rules inspection team saw the last minute about the possible irregularity of the old radio OpenMesh OM5P. In that case, would using it be illegal in the current on season? the new version is not y…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "rules",
+                    "legality"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 158,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3502169,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58286,
+                    "username": "Feldix",
+                    "name": "Diego dos Santos Amaral ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/4af34b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58286,
+                            "username": "Feldix",
+                            "name": "Diego dos Santos Amaral ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/4af34b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56260,
+                            "username": "ajs2",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ajs2/{size}/200927_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PhotonVision won&rsquo;t update OrangePi",
+                "id": 481057,
+                "title": "PhotonVision won't update OrangePi",
+                "slug": "photonvision-wont-update-orangepi",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/c/8c9eb188cce49f2ede0fc21151a97b623ee30c9d_2_1024x494.png",
+                "created_at": "2025-01-11T22:24:10.958Z",
+                "last_posted_at": "2025-01-11T23:46:18.291Z",
+                "bumped": true,
+                "bumped_at": "2025-01-11T23:46:18.291Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am a programmer for the team 9149. Last summer our mentor wanted me to learn how to use PhotonVision with an OrangePi 5 pro. Now that the season has started I need to update it. I attempted to do s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 238,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479474,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70303,
+                    "username": "El_404",
+                    "name": "Evelyn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/el_404/{size}/241323_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70303,
+                            "username": "El_404",
+                            "name": "Evelyn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/el_404/{size}/241323_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55459,
+                            "username": "crschardt",
+                            "name": "Craig Schardt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve",
+            "battery",
+            "power"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Our Swerve drive is draining our batteries and we have no clue why",
+        "id": 506872,
+        "title": "Our Swerve drive is draining our batteries and we have no clue why",
+        "posts_count": 7,
+        "created_at": "2025-10-04T22:20:45.948Z",
+        "views": 467,
+        "reply_count": 0,
+        "like_count": 32,
+        "last_posted_at": "2025-10-05T16:02:54.980Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "our-swerve-drive-is-draining-our-batteries-and-we-have-no-clue-why",
+        "category_id": 9,
+        "word_count": 1877,
+        "deleted_at": null,
+        "user_id": 55649,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_506872",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 7,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 48756,
+            "execute_at": "2026-10-05T16:02:54.980Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 161,
+        "participant_count": 6,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 22261,
+                    "username": "paulonis",
+                    "name": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 4212,
+                    "username": "EricH",
+                    "name": "EricH",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 55649,
+                    "username": "manso",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57470,
+                    "username": "kn4",
+                    "name": "Kabir",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62207,
+                    "username": "TheComputer314",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thecomputer314/{size}/241453_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 55649,
+                "username": "manso",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png"
+            },
+            "last_poster": {
+                "id": 46443,
+                "username": "Weldingrod1",
+                "name": "Rod",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/using-a-100a-crank-tester-for-frc-batteries/503864/5",
+                    "title": "Using a 100A Crank Tester for FRC Batteries",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 46443,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/Team6593/Reefscape-Swerve/blob/14b4cd1982a83ce643bb34803dd89a679731d377/src/main/java/frc/robot/RobotContainer.java#L296",
+                    "title": "Reefscape-Swerve/src/main/java/frc/robot/RobotContainer.java at 14b4cd1982a83ce643bb34803dd89a679731d377 · Team6593/Reefscape-Swerve · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55649,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Team6593/Reefscape-Swerve/blob/septests/src/main/java/frc/robot/generated/TunerConstants.java",
+                    "title": "Reefscape-Swerve/src/main/java/frc/robot/generated/TunerConstants.java at septests · Team6593/Reefscape-Swerve · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55649,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://firstmncsa.org/2019/02/15/the-driver-station-log-file-viewer/",
+                    "title": "The Driver Station Log File Viewer | FirstMnCsa",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 22261,
+                    "domain": "firstmncsa.org",
+                    "root_domain": "firstmncsa.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

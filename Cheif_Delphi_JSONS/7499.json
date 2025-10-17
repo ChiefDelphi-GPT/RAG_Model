@@ -1,0 +1,825 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3329064,
+                    "name": "",
+                    "username": "asodhi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/c89c15/{size}.png",
+                    "created_at": "2024-03-10T16:03:16.297Z",
+                    "cooked": "Our arm is very heavy, around 15-20 lbs. We are using two large NEO motors on each side to lift it. We have to apply a small motor power depending on the angle to hold our arm in place.\n\nYesterday at the end of our meeting we finished coding our arm PID and tested it with intake and shoot. We are able to intake a note and lift the arm to the correct angle to shoot into the speaker, but when we start spinning our shooter motors and intake motor, our arm falls back down to its resting position. We are using two Falcon 500s for shooting and a single NEO 550 for intake.\n\nOur shooting process consists of two stages. We rev up our shooter wheels for 1.75 seconds to get them up to speed, then continue spinning shooter motors and start spinning our intake motor to feed the note into the shooter.\n\nThe arm tends to fall down sometime between when the motors are revving up and when we start spinning the intake.\n\nOn our driver station, we can see that the battery voltage spikes down when we begin shooting. I assume this is because we are spinning 7 motors at the same time. 4 for our arm (even though at low speeds), 2 for our shooter (max speed), and one for our intake.\n\nI am wondering if we could avoid spinning our shooter motors when feeding the note into them. If we rev up the shooter motors enough, we could feed the note in and still have enough power to shoot it.\n\nWe could also try only using one arm motor on each side to apply the small holding power, but I am wondering how this will differentiate since the holding power we calculated was for both motors. It is calculated by interpolating between holding values for different angles then multiplying that by the cosine of our arm angle (0 to 87 degrees).\n\nNot to mention, all of this is when we are not driving. We use 4 falcon motors for driving, so I wonder if we won’t even be able to keep our arm up when driving. What else could we do that allows us to do drive, hold our arm in place, and shoot/intake all at the same time?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-10T16:03:16.297Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 25,
+                    "reads": 75,
+                    "readers_count": 74,
+                    "score": 140.0,
+                    "yours": false,
+                    "topic_id": 458134,
+                    "topic_slug": "cannot-spin-arm-and-shooter-motors-at-the-same-time",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63278,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/cannot-spin-arm-and-shooter-motors-at-the-same-time/458134/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3331287,
+                    "name": "Andy Gasser",
+                    "username": "gdefender",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "created_at": "2024-03-12T17:37:19.502Z",
+                    "cooked": "I suggest you look at how much power you’re drawing with your motors. The way you describe it, it seems like you probably just don’t have enough current available. If that’s the case, the best solution is mechanical, find ways to reduce your power needs. In code, you can try increasing your ramp rates to smooth out the sudden current draw. You could also add or lower the current limits on the motor controllers, so they aren’t able to draw more power than you choose.\n\nIf you do have enough current, there could be a couple other causes. The first that comes to mind is voltage drop. Are you using voltage compensation , and if you are, maybe your nominal voltage value is too high. It took me a while to understand this, but assuming you’re using duty cycle to drive the motors (passing a value between -1 and 1 that is a “percentage” of output), this may need voltage compensation. For example, when the battery is providing 12-volts, 0.5 is 6-volts. However, when the battery is providing only 10-volts, 0.5 is 5-volts. SPARK Max has a voltage compensation feature that can be used. Essentially you tell it the nominal voltage value to use to calculate output from duty cycle. In the example above, if you enable voltage compensation at 10-volts, 0.5 always means 5-volts, regardless of the input voltage. In short, you probably want to enable voltage compensation on your arm motor with a safe nominal value, and then retune your PID . Or, you can drive the motor with setVoltage and keep the value within a safe range.\n\nThe other possibility that comes to mind would be a simple coding error where the command that holds the arm uses the same subsystem(s) as one of the other commands. This would cause the arm holding command to stop, and the arm would fall.\n\nFinally, you may want to reconsider your gear ratio on the arm or add counterweight (or springs), to try to get it closer to being able to hold its own weight. This would reduce the needed holding force. Higher gearing will slow the motion down though, so there can be tradeoffs.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-12T17:37:19.502Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 37,
+                    "readers_count": 36,
+                    "score": 17.4,
+                    "yours": false,
+                    "topic_id": 458134,
+                    "topic_slug": "cannot-spin-arm-and-shooter-motors-at-the-same-time",
+                    "display_username": "Andy Gasser",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://codedocs.revrobotics.com/java/com/revrobotics/cansparkbase#enableVoltageCompensation(double)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "CANSparkBase (FRC-REVLib API)",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44380,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7028 - Java Programming Mentor"
+                    },
+                    "post_url": "/t/cannot-spin-arm-and-shooter-motors-at-the-same-time/458134/2",
+                    "custom_user_title": "7028 - Java Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3555269,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-12T17:37:39.098Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-12T17:37:39.098Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 458134,
+                    "topic_slug": "cannot-spin-arm-and-shooter-motors-at-the-same-time",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/cannot-spin-arm-and-shooter-motors-at-the-same-time/458134/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3329064,
+                3331287,
+                3555269
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                580
+            ],
+            [
+                2,
+                578
+            ],
+            [
+                3,
+                213
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Limelight Field Map not uploading to 3a",
+                "id": 491457,
+                "title": "Limelight Field Map not uploading to 3a",
+                "slug": "limelight-field-map-not-uploading-to-3a",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/8/983f1f20a8af508373bb41b5c0ac1e96aeb96bd1_2_768x1024.jpeg",
+                "created_at": "2025-02-13T00:52:49.381Z",
+                "last_posted_at": "2025-02-13T03:00:54.478Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T03:00:54.478Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The map file won’t update the image that is shown on the field just the april tag locations. It looks like it did upload the tag locations as that looks like the reef/coral station/barge tag locations…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 124,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525607,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 11043,
+                    "username": "kgzak",
+                    "name": "kgzak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73407,
+                            "username": "Pranav_v",
+                            "name": "Pranav Vanparty",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/7c8e57/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 11043,
+                            "username": "kgzak",
+                            "name": "kgzak",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Revlib Memory Overlow",
+                "id": 482747,
+                "title": "Revlib Memory Overlow",
+                "slug": "revlib-memory-overlow",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-20T16:10:30.669Z",
+                "last_posted_at": "2025-01-21T02:45:30.280Z",
+                "bumped": true,
+                "bumped_at": "2025-01-21T02:45:30.280Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When connecting to a robot with missing sparkmaxes, revlib starts using an exceptional amount of memory, causing an overflow at 10-11 missing. This is an issue as my team likes to test individual piec…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 246,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488139,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67108,
+                    "username": "2PBHD",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/2/7feea3/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67108,
+                            "username": "2PBHD",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/2/7feea3/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "REV MAXMotion Question",
+                "id": 483905,
+                "title": "REV MAXMotion Question",
+                "slug": "rev-maxmotion-question",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-28T01:34:49.359Z",
+                "last_posted_at": "2025-01-28T03:09:41.448Z",
+                "bumped": true,
+                "bumped_at": "2025-01-28T03:09:41.448Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So before we actually have our elevator, I have been beginning to look into and code some simple parts of it. We PLAN on using our elevator to actually lift us (shallow cage) so we need some sort of g…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "programming",
+                    "rev",
+                    "elevator"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 220,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3494301,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65624,
+                    "username": "10219Ryba",
+                    "name": "Carter Ryba",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65624,
+                            "username": "10219Ryba",
+                            "name": "Carter Ryba",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56673,
+                            "username": "Martini159",
+                            "name": "Martin Nemaric",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/278dde/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Vision causing Archimedes Spin to Odometry",
+                "id": 473845,
+                "title": "Vision causing Archimedes Spin to Odometry",
+                "slug": "vision-causing-archimedes-spin-to-odometry",
+                "posts_count": 8,
+                "reply_count": 2,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/4/942416e8a2943b4d30ab1c562879867713588831.png",
+                "created_at": "2024-10-27T21:42:53.404Z",
+                "last_posted_at": "2024-10-28T19:04:14.855Z",
+                "bumped": true,
+                "bumped_at": "2024-10-28T19:04:14.855Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yes, this is the same behavior. Here’s where we describe the reason for This behavior is inherent in how the WPILib pose estimator works (not a bug in user code). We switched from using …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 17,
+                "views": 683,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440829,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59741,
+                            "username": "noto501",
+                            "name": "Kynam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/noto501/{size}/262198_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53126,
+                            "username": "pranavkt",
+                            "name": "Pranav",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pranavkt/{size}/179643_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61986,
+                            "username": "erichuang",
+                            "name": "Eric Huang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/eb8c5e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Phoenix Tuner X connection timeout",
+                "id": 491968,
+                "title": "Phoenix Tuner X connection timeout",
+                "slug": "phoenix-tuner-x-connection-timeout",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/e/3ef0d37d8c24b39ea7a3043a9b7dea18328b4d7a_2_1024x91.png",
+                "created_at": "2025-02-16T21:57:23.396Z",
+                "last_posted_at": "2025-02-16T21:57:53.750Z",
+                "bumped": true,
+                "bumped_at": "2025-02-16T21:57:53.750Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are having a problem where we cannot apply control requests through phoenix tuner. I can build code and deploy it, comms are good, but phoenix tuner says “connection timeout.” however I can also s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 39,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529069,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62175,
+                    "username": "sdas",
+                    "name": "Sreyan Das",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62175,
+                            "username": "sdas",
+                            "name": "Sreyan Das",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "electrical"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Cannot spin arm and shooter motors at the same time",
+        "id": 458134,
+        "title": "Cannot spin arm and shooter motors at the same time",
+        "posts_count": 3,
+        "created_at": "2024-03-10T16:03:16.236Z",
+        "views": 301,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-12T17:37:39.098Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "cannot-spin-arm-and-shooter-motors-at-the-same-time",
+        "category_id": 30,
+        "word_count": 793,
+        "deleted_at": null,
+        "user_id": 63278,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_458134",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "gdefender",
+            "name": null,
+            "excerpt": "I suggest you look at how much power you’re drawing with your motors. The way you describe it, it seems like you probably just don’t have enough current available. If that’s the case, the best solution is mechanical, find ways to reduce your power needs. In code, you can try increasing your ramp rat&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 44380,
+                    "username": "gdefender",
+                    "name": "Andy Gasser",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63278,
+                    "username": "asodhi",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/c89c15/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 63278,
+                "username": "asodhi",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/a/c89c15/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://codedocs.revrobotics.com/java/com/revrobotics/cansparkbase#enableVoltageCompensation(double)",
+                    "title": "CANSparkBase (FRC-REVLib API)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 44380,
+                    "domain": "codedocs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

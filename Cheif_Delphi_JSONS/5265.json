@@ -1,0 +1,804 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3474698,
+                    "name": "Myer",
+                    "username": "myer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                    "created_at": "2025-01-08T00:14:30.459Z",
+                    "cooked": "Our team is switching from a REV/ CTRE hybrid swerve to a fully CTRE swerve system, so we are using the Phoenix Tuner X generated swerve code. After we use the project generator, what are the next steps we should take to tune our constants? I see some SysId stuff included in the Tuner code but I am unsure how to use them. I have never used SysId before and don’t know exactly what “characterization” is. I hand-tuned my voltage feed forward last year when using REV by using the REV Hardware Manager and manually applying voltage to all 8 motors.\n\nCan someone walk me through the process of tuning my constants? The code I have right now is here: REEFSCAPE-2025/src/main at main · RambotsTeam1350/REEFSCAPE-2025 · GitHub",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-01-08T00:14:30.459Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 51,
+                    "reads": 97,
+                    "readers_count": 96,
+                    "score": 274.4,
+                    "yours": false,
+                    "topic_id": 480004,
+                    "topic_slug": "ctre-swerve-next-steps",
+                    "display_username": "Myer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/RambotsTeam1350/REEFSCAPE-2025/tree/main/src/main",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "REEFSCAPE-2025/src/main at main · RambotsTeam1350/REEFSCAPE-2025 · GitHub",
+                            "clicks": 7
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64553,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1350 | Mentor"
+                    },
+                    "post_url": "/t/ctre-swerve-next-steps/480004/1",
+                    "custom_user_title": "1350 | Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3474775,
+                    "name": "Ramon Ledesma",
+                    "username": "Ledesma",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                    "created_at": "2025-01-08T01:18:02.131Z",
+                    "cooked": "I’d like to direct you to this article for WPILib, which explains what SysId is, and what it is for, how it works. Then the Phoenix 6 documentation helps you around with what is generated, and how to use it.\n\nSysId is an application to analyze your data from recorded SysIdRoutines . It pretty much just does what you did by hand, but automatically from data that is recorded from the motors when they go through a SysIdRoutine.\n\nWhat is “System Identification?”: In Control Theory, system identification is the process of determining a mathematical model for the behavior of a system through statistical analysis of its inputs...\n\nSystem Identification, or commonly referred to as SysId, is the process of identifying the characteristics of a given system. This identification usually consists of: Mechanism testing- In FRC, two...\n\nFor the purpose of this documentation, we focus on the integration of Phoenix 6 and WPILib’s SysId API to characterize common mechanisms. Detailed documentation on the SysId routines can be found h...\n\nFeel free to ask anymore questions!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-01-08T01:18:02.131Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 74,
+                    "readers_count": 73,
+                    "score": 49.8,
+                    "yours": false,
+                    "topic_id": 480004,
+                    "topic_slug": "ctre-swerve-next-steps",
+                    "display_username": "Ramon Ledesma",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/index.html#sysid-integration",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SysId Integration",
+                            "clicks": 13
+                        },
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html#before-characterization",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Plumbing & Running SysId",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html#what-is-system-identification",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Introduction to System Identification — FIRST Robotics Competition documentation",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/RambotsTeam1350/REEFSCAPE-2025/blob/main/src/main/java/frc/robot/subsystems/drivetrain/CommandSwerveDrivetrainSubsystem.java#L51",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "REEFSCAPE-2025/src/main/java/frc/robot/subsystems/drivetrain/CommandSwerveDrivetrainSubsystem.java at main · RambotsTeam1350/REEFSCAPE-2025 · GitHub",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 54750,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/ctre-swerve-next-steps/480004/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3474698,
+                3474775
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                277
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "YAGSL swerve drive modules rotating randomly",
+                "id": 493128,
+                "title": "YAGSL swerve drive modules rotating randomly",
+                "slug": "yagsl-swerve-drive-modules-rotating-randomly",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-25T15:12:29.967Z",
+                "last_posted_at": "2025-02-25T15:12:30.010Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T15:12:30.010Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have the MK4N swerve module with the thrifty magnetic encoder and neos+ sparkmaxes. When we enable the robot, even without any joystick movement, the wheels start rotating randomly. Here is a video…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 32,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3539341,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73424,
+                    "username": "team8885",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e56c9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73424,
+                            "username": "team8885",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e56c9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Intermittent Input/Output Mismatch with SPARK Flex",
+                "id": 477176,
+                "title": "Intermittent Input/Output Mismatch with SPARK Flex",
+                "slug": "intermittent-input-output-mismatch-with-spark-flex",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/a/8/a86f883b21403025ef7aeb8e6108ca4fba799b3e_2_1024x357.png",
+                "created_at": "2024-12-21T19:07:13.042Z",
+                "last_posted_at": "2024-12-21T19:25:03.853Z",
+                "bumped": true,
+                "bumped_at": "2024-12-21T19:25:03.853Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, Team 2530 here. This past week, we started programming for our off-season prototype elevator, and it’s the first time we’ve ever used NEO Vortices and SPARK Flexes. Thanks to WPILIB simulation, we…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "pid",
+                    "elevator",
+                    "motor"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 151,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462285,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56729,
+                    "username": "Nifley",
+                    "name": "Finn B",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nifley/{size}/183092_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 56729,
+                            "username": "Nifley",
+                            "name": "Finn B",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nifley/{size}/183092_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "DCMotor to use for CTRE simulation",
+                "id": 477515,
+                "title": "DCMotor to use for CTRE simulation",
+                "slug": "dcmotor-to-use-for-ctre-simulation",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-29T02:03:05.154Z",
+                "last_posted_at": "2024-12-30T13:29:39.401Z",
+                "bumped": true,
+                "bumped_at": "2024-12-30T13:29:39.401Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For simulation in what context should I use an FOC version of DCMotor like DCMotor.getKrakenX60FOC(1) vs a non FOC like DCMotor.getKrakenX60(1). Here is my If I use voltage control, and se…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 323,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3464550,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48345,
+                    "username": "narmstro",
+                    "name": "Nicholas Armstrong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 48345,
+                            "username": "narmstro",
+                            "name": "Nicholas Armstrong",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/5e9695/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve module not aligning with others",
+                "id": 491290,
+                "title": "Swerve module not aligning with others",
+                "slug": "swerve-module-not-aligning-with-others",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-12T00:56:25.242Z",
+                "last_posted_at": "2025-02-12T06:06:07.604Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T06:12:54.696Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We recently had to replace a Neo on our swerve drive after an encoder wire broke, and now that module sometimes doesn’t align with the others. It is off by and inconsistent amount, and the encoder kno…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "yagsl",
+                    "swervemodule"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 121,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524265,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69694,
+                    "username": "NukeMinecart",
+                    "name": "Bradley Chumanov",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nukeminecart/{size}/238978_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69694,
+                            "username": "NukeMinecart",
+                            "name": "Bradley Chumanov",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nukeminecart/{size}/238978_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Programming and Tuning tools merge?",
+                "id": 498990,
+                "title": "Programming and Tuning tools merge?",
+                "slug": "programming-and-tuning-tools-merge",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-04-12T06:32:00.979Z",
+                "last_posted_at": "2025-04-12T15:15:07.261Z",
+                "bumped": true,
+                "bumped_at": "2025-04-12T15:15:07.261Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I wonder if there will be a single software that can take all jobs like dashboard programming and tuning and so on. Combining all staffs from wpilib and ctre right now.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 339,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3589755,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67359,
+                    "username": "LouisCai",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/df705f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67359,
+                            "username": "LouisCai",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/df705f/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "CTRE Swerve Next Steps",
+        "id": 480004,
+        "title": "CTRE Swerve Next Steps",
+        "posts_count": 2,
+        "created_at": "2025-01-08T00:14:30.395Z",
+        "views": 197,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-01-08T01:18:02.131Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "ctre-swerve-next-steps",
+        "category_id": 30,
+        "word_count": 293,
+        "deleted_at": null,
+        "user_id": 64553,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_480004",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 39039,
+            "execute_at": "2026-01-08T01:18:02.131Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 54750,
+                    "username": "Ledesma",
+                    "name": "Ramon Ledesma",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64553,
+                    "username": "myer",
+                    "name": "Myer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 64553,
+                "username": "myer",
+                "name": "Myer",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png"
+            },
+            "last_poster": {
+                "id": 54750,
+                "username": "Ledesma",
+                "name": "Ramon Ledesma",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/index.html#sysid-integration",
+                    "title": "SysId Integration",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 54750,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://github.com/RambotsTeam1350/REEFSCAPE-2025/tree/main/src/main",
+                    "title": "REEFSCAPE-2025/src/main at main · RambotsTeam1350/REEFSCAPE-2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 64553,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html#what-is-system-identification",
+                    "title": "Introduction to System Identification — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 54750,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html#before-characterization",
+                    "title": "Plumbing & Running SysId",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 54750,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://github.com/RambotsTeam1350/REEFSCAPE-2025/blob/main/src/main/java/frc/robot/subsystems/drivetrain/CommandSwerveDrivetrainSubsystem.java#L51",
+                    "title": "REEFSCAPE-2025/src/main/java/frc/robot/subsystems/drivetrain/CommandSwerveDrivetrainSubsystem.java at main · RambotsTeam1350/REEFSCAPE-2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 54750,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

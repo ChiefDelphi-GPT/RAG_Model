@@ -1,0 +1,898 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3495203,
+                    "name": "",
+                    "username": "TheANT",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png",
+                    "created_at": "2025-01-28T23:31:59.372Z",
+                    "cooked": "I am currently working on field localization. I have been following this amazing comment on another thread. I have been setting up the Meta Tag 2 with the limelight. I wanted to know:\n\nIf I am doing this correctly (or if there is a more efficent way)\n\nHow to use this feature on multiple limelights to get a more accurate position. (possibly by averaging all the limelight Pose2d values)\n\nOur code is here . Please use the TeleopMove branch because the main branch is outdated right now.\n\nAll help is appricated.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-28T23:31:59.372Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 34,
+                    "reads": 138,
+                    "readers_count": 137,
+                    "score": 197.6,
+                    "yours": false,
+                    "topic_id": 484051,
+                    "topic_slug": "field-localization-with-multiple-cameras",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/how-to-do-field-localization/477513/10",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "How to do field localization",
+                            "clicks": 30
+                        },
+                        {
+                            "url": "https://github.com/frc3179/2025-Reefscape/tree/TeleopMove",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc3179/2025-Reefscape at TeleopMove",
+                            "clicks": 10
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59968,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/field-localization-with-multiple-cameras/484051/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3495283,
+                    "name": "",
+                    "username": "ThatChair",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatchair/{size}/199567_2.png",
+                    "created_at": "2025-01-29T01:49:08.752Z",
+                    "cooked": "Please note I am not well-versed with WPILib’s Odometry/Pose Estimators and command-based robots\n\nIt seems like you guys are using Odometry and a PoseEstimator. According to the docs here and here , it’s suggested you just use a SwerveDrivePoseEstimator (or one of the others if you aren’t using swerve), which should have the functionality of both Odometry and PoseEstimator.\n\nIn terms of fusing the data for multiple Limelights, you can simply call addVisionUpdate() for every result you have with a different standard deviation. Since I’m not familiar with command-based, hopefully someone else knows the best way to actually get that data from the limelights. For my team, which doesn’t use the command based framework, I created a custom Camera class, which could handle both Limelight and PhotonVision. You could just make a Limelight class, and have a list of Limelights in your TrackingSubsystem, and you’d loop over each to set the orientation, get the pose, and add it to the SwerveDrivePoseEstimator.\n\nHopefully that somewhat answered your questions, but if you have more feel free to ask.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-29T01:49:08.752Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 10,
+                    "reads": 99,
+                    "readers_count": 98,
+                    "score": 74.8,
+                    "yours": false,
+                    "topic_id": 484051,
+                    "topic_slug": "field-localization-with-multiple-cameras",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html#addVisionMeasurement(edu.wpi.first.math.geometry.Pose2d,double,edu.wpi.first.math.Matrix)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "PoseEstimator (WPILib API 2025.2.1)",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SwerveDrivePoseEstimator (WPILib API 2025.2.1)",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/kinematics/Odometry.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Odometry (WPILib API 2025.2.1)",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "PoseEstimator (WPILib API 2025.2.1)",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60372,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2471 Software co-lead"
+                    },
+                    "post_url": "/t/field-localization-with-multiple-cameras/484051/2",
+                    "custom_user_title": "2471 Software co-lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3495294,
+                    "name": "",
+                    "username": "TheANT",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png",
+                    "created_at": "2025-01-29T02:04:09.535Z",
+                    "cooked": "ThatChair:\n\nhat data from\n\nOur team does know how to get the value from the limelights and how to use it in command based programming. (At least well enough. Probally not the most effecient.) Your responce awnsered all our questions.\n\nThank you",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-29T02:04:09.535Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 79,
+                    "readers_count": 78,
+                    "score": 35.8,
+                    "yours": false,
+                    "topic_id": 484051,
+                    "topic_slug": "field-localization-with-multiple-cameras",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59968,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/field-localization-with-multiple-cameras/484051/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3495203,
+                3495283,
+                3495294
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                256
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "QFRCDashboard 2025 Beta - a Shuffleboard alternative",
+                "id": 473639,
+                "title": "QFRCDashboard 2025 Beta - a Shuffleboard alternative",
+                "slug": "qfrcdashboard-2025-beta-a-shuffleboard-alternative",
+                "posts_count": 12,
+                "reply_count": 4,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/f/9fa5b44264dfcc835210acef02c54c0bbe1a1848.png",
+                "created_at": "2024-10-24T23:30:02.656Z",
+                "last_posted_at": "2024-12-27T08:04:07.764Z",
+                "bumped": true,
+                "bumped_at": "2024-12-27T08:04:07.764Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "QFRCDashboard is ready for 2025 beta testing! In case you’re unfamiliar, QFRCDashboard is a driver dashboard as an alternative (improvement) to Shuffleboard/SmartDashboard. Compared to Shuffleboard, Q…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "dashboard"
+                ],
+                "tags_descriptions": {},
+                "like_count": 38,
+                "views": 897,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438880,
+                "topic_post_liked": false,
+                "topic_post_like_count": 16,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 50684,
+                    "username": "crueter",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57374,
+                            "username": "Gold87",
+                            "name": "Nadav",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gold87/{size}/191382_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner implementation with CTRE generated code",
+                "id": 492786,
+                "title": "Pathplanner implementation with CTRE generated code",
+                "slug": "pathplanner-implementation-with-ctre-generated-code",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-23T01:12:51.304Z",
+                "last_posted_at": "2025-02-23T21:48:54.095Z",
+                "bumped": true,
+                "bumped_at": "2025-02-23T21:48:54.095Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, we are stuck with setting up pathplanner, here is where we are in implementing it. We have generated code for our swerve with tuner x, made sure to add all of the CTRE pathplanner implementation l…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 165,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536835,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70556,
+                    "username": "oozlfunt",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/ac8455/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 70556,
+                            "username": "oozlfunt",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/ac8455/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Motors make weird noise with AdvantageKit, but not with Phoenix Tuner X",
+                "id": 477757,
+                "title": "Motors make weird noise with AdvantageKit, but not with Phoenix Tuner X",
+                "slug": "motors-make-weird-noise-with-advantagekit-but-not-with-phoenix-tuner-x",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-12-31T17:47:54.431Z",
+                "last_posted_at": "2024-12-31T18:01:55.263Z",
+                "bumped": true,
+                "bumped_at": "2024-12-31T18:01:55.263Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It sounds to me like this is probably a tuning issue with the drive velocity control loop. You should be able to see oscillation in the measured velocity or applied output when looking at the log file…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 159,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465757,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 39509,
+                            "username": "Sean_Z",
+                            "name": "Sean Zhen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sean_z/{size}/194067_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Migrating YAGSL 2024 to 2025 Issue",
+                "id": 484219,
+                "title": "Migrating YAGSL 2024 to 2025 Issue",
+                "slug": "migrating-yagsl-2024-to-2025-issue",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-30T01:34:31.091Z",
+                "last_posted_at": "2025-02-01T23:09:23.805Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T23:09:23.805Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Thank you for the replies. We thankfully fixed our swerve, and the issues we think we had were importing old config files into the new 2025 project, not calculating the angle factor for the physicalp…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "frc",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 114,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499431,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 71861,
+                    "username": "Rich3",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/e99b99/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 71861,
+                            "username": "Rich3",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e99b99/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51771,
+                            "username": "jsjohn2000",
+                            "name": "Jason Johnson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a88e57/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "The paths I put in the Pathplanner folder are not coming up",
+                "id": 494336,
+                "title": "The paths I put in the Pathplanner folder are not coming up",
+                "slug": "the-paths-i-put-in-the-pathplanner-folder-are-not-coming-up",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-05T13:36:16.588Z",
+                "last_posted_at": "2025-03-05T23:31:17.547Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T23:31:17.547Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I threw the paths I drew on another computer to the computer in the workshop and pasted them where they should be in the code. However, they do not appear in the Pathplanner application at the moment.…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 69,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548145,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71113,
+                    "username": "Yavuz_Cetin",
+                    "name": "Ömer Faruk Uçar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/y/ac91a4/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71113,
+                            "username": "Yavuz_Cetin",
+                            "name": "Ömer Faruk Uçar",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/y/ac91a4/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59787,
+                            "username": "sanker",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/c5a1d2/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "vision",
+            "localization"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Field Localization with multiple cameras",
+        "id": 484051,
+        "title": "Field Localization with multiple cameras",
+        "posts_count": 3,
+        "created_at": "2025-01-28T23:31:59.272Z",
+        "views": 222,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-01-29T02:04:09.535Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "field-localization-with-multiple-cameras",
+        "category_id": 30,
+        "word_count": 418,
+        "deleted_at": null,
+        "user_id": 59968,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484051",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40146,
+            "execute_at": "2026-01-29T02:04:09.535Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "ThatChair",
+            "name": null,
+            "excerpt": "Please note I am not well-versed with WPILib’s Odometry/Pose Estimators and command-based robots \nIt seems like you guys are using Odometry and a PoseEstimator. According to the docs <a href=\"https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/kinematics/Odometry.html\" rel=\"noopener nofollow ugc\">here</a> and <a href=\"https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html\" rel=\"noopener nofollow ugc\">here</a>, it’s suggested you just use a <a href=\"https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html\" rel=\"noopener nofollow ugc\">SwerveDrivePoseEstimator</a> (or one of the others if you aren’t using swerv&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 59968,
+                    "username": "TheANT",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 60372,
+                    "username": "ThatChair",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatchair/{size}/199567_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 59968,
+                "username": "TheANT",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png"
+            },
+            "last_poster": {
+                "id": 59968,
+                "username": "TheANT",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/how-to-do-field-localization/477513/10",
+                    "title": "How to do field localization",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 30,
+                    "user_id": 59968,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/frc3179/2025-Reefscape/tree/TeleopMove",
+                    "title": "GitHub - frc3179/2025-Reefscape at TeleopMove",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 59968,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html#addVisionMeasurement(edu.wpi.first.math.geometry.Pose2d,double,edu.wpi.first.math.Matrix)",
+                    "title": "PoseEstimator (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 60372,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html",
+                    "title": "SwerveDrivePoseEstimator (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 60372,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/kinematics/Odometry.html",
+                    "title": "Odometry (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 60372,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html",
+                    "title": "PoseEstimator (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 60372,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

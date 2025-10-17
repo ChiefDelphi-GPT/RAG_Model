@@ -1,0 +1,988 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3581279,
+                    "name": "Ben Visness",
+                    "username": "bvisness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bvisness/{size}/5442_2.png",
+                    "created_at": "2025-04-06T12:15:29.452Z",
+                    "cooked": "Just wanted to report a problem that we encountered at our most recent competition. We were driving with a new laptop and the Driver Station program frequently refused to connect even though the bot was up, code was running, and programs like Elastic were able to connect by direct IP. However, the issue was intermittent, and it would always eventually connect, so we didn’t think much of it.\n\nUnfortunately this caused repeated delays on the field, as every time we put it out there, the same delay happened. We luckily never missed a match because of it, but we could have. Because the issue appeared to be resolved after a manual RIO reboot on the field, the FTA told us it was likely a problem with our code, but our logs later proved otherwise.\n\nUltimately the problem turned out to be McAfee Total Protection, and in particular its Advanced Firewall. As far as I can tell, this product hooks into DNS resolution and checks domains against some cloud database of theirs. In an environment like FRC , where our computer is not connected to the internet, it seems like it simply hangs all DNS resolution and then just times out after a few minutes (an absurdly long time) and allows the connection. This means that connections via mDNS can be arbitrarily delayed, but connections to the static IP are fine.\n\nAnyway, this is yet another reason to purge McAfee from any computer you see.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-06T12:15:29.452Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 22,
+                    "reads": 231,
+                    "readers_count": 230,
+                    "score": 186.2,
+                    "yours": false,
+                    "topic_id": 498123,
+                    "topic_slug": "mcafee-advanced-firewall-prevents-driver-station-from-connecting",
+                    "display_username": "Ben Visness",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16155,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 2175 Lead Mentor"
+                    },
+                    "post_url": "/t/mcafee-advanced-firewall-prevents-driver-station-from-connecting/498123/1",
+                    "custom_user_title": "FRC 2175 Lead Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3581287,
+                    "name": "FrankJ",
+                    "username": "FrankJ",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                    "created_at": "2025-04-06T12:45:48.304Z",
+                    "cooked": "Is your firewall enabled? Is one of the basic troubleshooting questions for DS connection issues. There is a best practice paper for drive station computers floating around. I will try to find it. It includes turning off windows updates, installing the minimum number of apps. So your computer doesn’t try to run updates when it sees an Ethernet connection\n\nAs much as I dislike McAffee- this is a firewall trying to be a firewall, not so much a McAffee-issue",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-06T12:45:48.304Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 200,
+                    "readers_count": 199,
+                    "score": 120.0,
+                    "yours": false,
+                    "topic_id": 498123,
+                    "topic_slug": "mcafee-advanced-firewall-prevents-driver-station-from-connecting",
+                    "display_username": "FrankJ",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 15944,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2974 Robot Mentor"
+                    },
+                    "post_url": "/t/mcafee-advanced-firewall-prevents-driver-station-from-connecting/498123/2",
+                    "custom_user_title": "2974 Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3581327,
+                    "name": "",
+                    "username": "pigrammer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                    "created_at": "2025-04-06T14:36:17.276Z",
+                    "cooked": "FrankJ:\n\nIs your firewall enabled? Is one of the basic troubleshooting questions for DS connection issues. There is a best practice paper for drive station computers floating around. I will try to find it. It includes turning off windows updates, installing the minimum number of apps.\n\nThis document was created by Steve Peterson, with contributions from Juan Chong, James Cole-Henry, Rick Kosbab, Greg McKaskle, Chris Picone, Chris Roadfeldt, Joe Ross, and Ryan Sjostrand. The origi...\n\nAmong other things, it says:\n\nRemove any 3rd party antivirus or antimalware software. Instead, use Windows Defender on Windows 10 or 11. Since you’re only connecting to the internet for Windows and FRC software updating, the risk is low. Only install software on your driver station that’s needed for driving. Your goal here is to eliminate variables that might interfere with proper operation. Remove any unneeded preinstalled software (“bloatware”) that came with the machine. Don’t use the laptop as your Steam machine for gaming back at the hotel the night before the event. Many teams go as far as having a separate programming laptop.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-06T14:36:17.276Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 2,
+                    "reads": 142,
+                    "readers_count": 141,
+                    "score": 38.4,
+                    "yours": false,
+                    "topic_id": 498123,
+                    "topic_slug": "mcafee-advanced-firewall-prevents-driver-station-from-connecting",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/driverstation/driver-station-best-practices.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Driver Station Best Practices — FIRST Robotics Competition documentation",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64857,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "246 Software Lead"
+                    },
+                    "post_url": "/t/mcafee-advanced-firewall-prevents-driver-station-from-connecting/498123/3",
+                    "custom_user_title": "246 Software Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3581334,
+                    "name": "RockRGI",
+                    "username": "RockRGI",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rockrgi/{size}/251644_2.png",
+                    "created_at": "2025-04-06T14:54:10.258Z",
+                    "cooked": "Best practice is to have a drive base computer that only is used as a drive station. No firewalls and keep it air gapped.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-06T14:54:10.258Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 99,
+                    "readers_count": 98,
+                    "score": 34.8,
+                    "yours": false,
+                    "topic_id": 498123,
+                    "topic_slug": "mcafee-advanced-firewall-prevents-driver-station-from-connecting",
+                    "display_username": "RockRGI",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 27915,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/mcafee-advanced-firewall-prevents-driver-station-from-connecting/498123/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3581279,
+                3581287,
+                3581327,
+                3581334
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                188
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "More than 4 USB Inputs on Driver Station",
+                "id": 493043,
+                "title": "More than 4 USB Inputs on Driver Station",
+                "slug": "more-than-4-usb-inputs-on-driver-station",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-24T22:49:26.052Z",
+                "last_posted_at": "2025-03-01T00:40:51.476Z",
+                "bumped": true,
+                "bumped_at": "2025-03-01T00:40:51.476Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I found this on the National Instruments website about the driver station, so it looks like there’s a max of 4 devices for driver station",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 383,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543888,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 55669,
+                    "username": "Raysine",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/e495f1/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 55669,
+                            "username": "Raysine",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e495f1/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Reef Tag Moved maybe? Mitigation Suggestions?",
+                "id": 495825,
+                "title": "Reef Tag Moved maybe? Mitigation Suggestions?",
+                "slug": "reef-tag-moved-maybe-mitigation-suggestions",
+                "posts_count": 10,
+                "reply_count": 4,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-03-16T22:32:46.561Z",
+                "last_posted_at": "2025-03-17T00:11:21.836Z",
+                "bumped": true,
+                "bumped_at": "2025-03-17T00:11:21.836Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have a great auton (PathPlanner+Limelight) but failed identically the last 3 matches (but we did win them). We suspect our favorite Reef AprilTag was smacked and moved somehow. Any ideas of how to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 414,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3558686,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24594,
+                    "username": "SLAB-Mr.Thomas",
+                    "name": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 5699,
+                            "username": "Roger",
+                            "name": "Roger",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14421,
+                            "username": "plnyyanks",
+                            "name": "Phil Lopreiato",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/plnyyanks/{size}/65235_2.png",
+                            "flair_name": "The-Blue-Alliance",
+                            "flair_url": "/uploads/default/original/3X/0/2/02b18ea7720fea44e77469bb5261acf1c7045a6e.png",
+                            "flair_group_id": 67,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "FRC Autonomous robot during teleop",
+                "id": 475670,
+                "title": "FRC Autonomous robot during teleop",
+                "slug": "frc-autonomous-robot-during-teleop",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-11-27T13:35:10.719Z",
+                "last_posted_at": "2024-11-27T13:35:54.241Z",
+                "bumped": true,
+                "bumped_at": "2024-11-27T13:35:54.241Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I remember to see a video of a wonderful robot that were totally autonomous during TeleOp period, they were able to choose the path robot was gonna use BUT I CAN’T FIND THIS VIDEO AGAIN ANYWHERE, I’VE…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "autonomous"
+                ],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 274,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3452256,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62008,
+                    "username": "Ryan9049",
+                    "name": "Ryan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/ed655f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62008,
+                            "username": "Ryan9049",
+                            "name": "Ryan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ed655f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 17669,
+                            "username": "BrennanB",
+                            "name": "Brennan Bibic",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/brennanb/{size}/265044_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2xVH-109 stopped working",
+                "id": 491653,
+                "title": "2xVH-109 stopped working",
+                "slug": "2xvh-109-stopped-working",
+                "posts_count": 32,
+                "reply_count": 23,
+                "highest_post_number": 33,
+                "image_url": null,
+                "created_at": "2025-02-14T06:12:48.165Z",
+                "last_posted_at": "2025-02-26T01:30:16.079Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T01:30:16.079Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In the past 2 hours, our two radios stopped working. Both were configured as robot client, with 2.4GHz. One just stopped interacting virtually, meaning the correct lights were on (1,3,5 solid, 2 bli…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "radio"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 757,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526841,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53351,
+                    "username": "LaviRZ",
+                    "name": "Lavi Arzi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6398,
+                            "username": "kiettyyyy",
+                            "name": "Kiet Chau",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kiettyyyy/{size}/194009_2.png",
+                            "flair_name": "Vivid-Hosting",
+                            "flair_url": "/uploads/default/original/3X/5/0/50d2e846f0add7aa9489092abe0f436644dde98d.png",
+                            "flair_group_id": 62,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35450,
+                            "username": "Blmcart",
+                            "name": "Blake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/blmcart/{size}/192628_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using a TI 84 Plus CE calculator as a robot controller",
+                "id": 496936,
+                "title": "Using a TI 84 Plus CE calculator as a robot controller",
+                "slug": "using-a-ti-84-plus-ce-calculator-as-a-robot-controller",
+                "posts_count": 11,
+                "reply_count": 3,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-03-26T01:45:04.973Z",
+                "last_posted_at": "2025-05-23T03:36:26.769Z",
+                "bumped": true,
+                "bumped_at": "2025-05-23T03:36:26.769Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Ah I remember back in the day with the TI-84+ SE, but all of our USB related stuff was z80 assembly! The section you care about is 8.9 in the game manual, and the TI-84+ CE doesn’t violate any of tho…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "controller",
+                    "calculator",
+                    "input"
+                ],
+                "tags_descriptions": {},
+                "like_count": 76,
+                "views": 1841,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3568718,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 60515,
+                    "username": "jnesselr",
+                    "name": "Justin Nesselrotte",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jnesselr/{size}/199903_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70836,
+                            "username": "Joshanson527",
+                            "name": "Josh",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joshanson527/{size}/242531_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Accepted Answer",
+                        "user": {
+                            "id": 60515,
+                            "username": "jnesselr",
+                            "name": "Justin Nesselrotte",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jnesselr/{size}/199903_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49699,
+                            "username": "IanSzalai",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ianszalai/{size}/210636_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 75839,
+                            "username": "Roxxybotics",
+                            "name": "Roxxy S",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/cdc98d/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "McAfee “Advanced” Firewall prevents Driver Station from connecting",
+        "id": 498123,
+        "title": "McAfee “Advanced” Firewall prevents Driver Station from connecting",
+        "posts_count": 4,
+        "created_at": "2025-04-06T12:15:29.404Z",
+        "views": 323,
+        "reply_count": 1,
+        "like_count": 8,
+        "last_posted_at": "2025-04-06T14:54:10.258Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "mcafee-advanced-firewall-prevents-driver-station-from-connecting",
+        "category_id": 72,
+        "word_count": 523,
+        "deleted_at": null,
+        "user_id": 16155,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_498123",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46428,
+            "execute_at": "2026-04-06T14:54:10.258Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 15944,
+                    "username": "FrankJ",
+                    "name": "FrankJ",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16155,
+                    "username": "bvisness",
+                    "name": "Ben Visness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bvisness/{size}/5442_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 27915,
+                    "username": "RockRGI",
+                    "name": "RockRGI",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rockrgi/{size}/251644_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64857,
+                    "username": "pigrammer",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 3
+                }
+            ],
+            "created_by": {
+                "id": 16155,
+                "username": "bvisness",
+                "name": "Ben Visness",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/bvisness/{size}/5442_2.png"
+            },
+            "last_poster": {
+                "id": 27915,
+                "username": "RockRGI",
+                "name": "RockRGI",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/rockrgi/{size}/251644_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/driverstation/driver-station-best-practices.html",
+                    "title": "Driver Station Best Practices — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 64857,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

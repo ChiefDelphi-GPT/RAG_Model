@@ -1,0 +1,1123 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2962997,
+                    "name": "Burak Demirelli",
+                    "username": "burakdemirelli",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/burakdemirelli/{size}/235383_2.png",
+                    "created_at": "2021-07-26T19:16:45.157Z",
+                    "cooked": "Hi everyone, We are trying to figure out how to generate and use trajectories that benefit from the holonomic possibilities of a swerve drive. As far as I have researched, I either couldn’t wrap my head around undocumented code or could not find a lot of generators.\n\nThe only one I saw that was documented well and I was able to get running was the Swerve Path Planner from team 6831 A05annex .\n\nSo, I was wondering if there is any way to use the output JSON file from this generator with the WPILib Trajectory class. I have examined 6831’s code, but as far as I’ve seen, they haven’t implemented the PID controllers for each module. Any further guidance is appreciated. (This generator apparently uses \"an implementation of Kochanek-Bartels Spline \" which I am not sure if WPILib supports)\n\nIf there are any other ways, generators or things that I could use, read or watch to benefit from the holonomic features would be very helpful.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-07-26T19:16:45.157Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 57,
+                    "reads": 120,
+                    "readers_count": 119,
+                    "score": 324.0,
+                    "yours": false,
+                    "topic_id": 395225,
+                    "topic_slug": "integrating-custom-path-generators-with-wpilib-swervecontroller",
+                    "display_username": "Burak Demirelli",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/A05annex/SwervePathPlanning",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - A05annex/SwervePathPlanning: An interactive visual path planning tool for swerve drive robots.",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://en.wikipedia.org/wiki/Kochanek%E2%80%93Bartels_spline",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Kochanek–Bartels spline - Wikipedia",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 42811,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/integrating-custom-path-generators-with-wpilib-swervecontroller/395225/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2962999,
+                    "name": "Chris Gerth",
+                    "username": "gerthworm",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "created_at": "2021-07-26T19:31:42.234Z",
+                    "cooked": "Here’s one example that I’d worked out in simulation a little while back:\n\nThe Holonomic drive controller\n\nWhere other classes inject commands\n\nThe core idea:\n\nSome trajectory generator emits a series of Trajectory.State objects, which represent a reasonable sequence of motions the robot could mechanically accomplish. If you can get 6831’s tool to emit a .json file describing a ~20ms-sampled description of the path, there’s a good chance it could be parsed into a sequence of Trajectory.State 's\n\nTrajectory.State 's are compared to the current robot estimated Pose/state. The Holonomic Drive Controller emits a chassis speeds to correct for errors between desired/estimated.\n\nNew desired module states are calculated from the chassis speeds command .\n\nFWIW # 1 - WPILib’s built in trajectory generation worked pretty well.\n\nFWIW # 2 - This is all simulation, not yet tried on any real hardware. Currently seeking real hardware.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-07-26T19:36:43.735Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 11,
+                    "reads": 114,
+                    "readers_count": 113,
+                    "score": 167.8,
+                    "yours": false,
+                    "topic_id": 395225,
+                    "topic_slug": "integrating-custom-path-generators-with-wpilib-swervecontroller",
+                    "display_username": "Chris Gerth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/master/src/main/java/frc/robot/Autonomous/Modes/Events/AutoEventDriveFig8.java#L30",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "TestSwervePlantModel/AutoEventDriveFig8.java at master · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                            "clicks": 11
+                        },
+                        {
+                            "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L31",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L59",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L74",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/trajectory/Trajectory.State.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Trajectory.State (WPILib API 2020.3.2-60-g3011ebe)",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L60",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/holonomic.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Holonomic Drive Controller — FIRST Robotics Competition documentation",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/tag/2",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/tag/1",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24617,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/integrating-custom-path-generators-with-wpilib-swervecontroller/395225/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2963090,
+                    "name": "James",
+                    "username": "otherguy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/otherguy/{size}/180121_2.png",
+                    "created_at": "2021-07-27T08:34:32.263Z",
+                    "cooked": "I happened to notice this evening that 2767s code for IR was released. This class may be of interest to you: infiniterecharge/PathDriveCommand.java at master · strykeforce/infiniterecharge · GitHub\n\nI haven’t digested this fully myself, but flagged it as something to look at in the future.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-07-27T08:57:30.514Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 104.0,
+                    "yours": false,
+                    "topic_id": 395225,
+                    "topic_slug": "integrating-custom-path-generators-with-wpilib-swervecontroller",
+                    "display_username": "James",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/strykeforce/infiniterecharge/blob/master/src/main/java/frc/robot/commands/auto/PathDriveCommand.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "infiniterecharge/PathDriveCommand.java at master · strykeforce/infiniterecharge · GitHub",
+                            "clicks": 32
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 13843,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "sparkE"
+                    },
+                    "post_url": "/t/integrating-custom-path-generators-with-wpilib-swervecontroller/395225/3",
+                    "custom_user_title": "sparkE",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3074744,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-07-27T08:35:21.606Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2022-07-27T08:35:21.606Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 11,
+                    "readers_count": 10,
+                    "score": 7.2,
+                    "yours": false,
+                    "topic_id": 395225,
+                    "topic_slug": "integrating-custom-path-generators-with-wpilib-swervecontroller",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/integrating-custom-path-generators-with-wpilib-swervecontroller/395225/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2962997,
+                2962999,
+                2963090,
+                3074744
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1538
+            ],
+            [
+                4,
+                1173
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Unblocking Vendordeps",
+                "id": 474442,
+                "title": "Unblocking Vendordeps",
+                "slug": "unblocking-vendordeps",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-11-06T17:54:55.012Z",
+                "last_posted_at": "2024-11-06T23:54:20.059Z",
+                "bumped": true,
+                "bumped_at": "2024-11-06T23:54:20.059Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team has recently managed to get the WPIlib download unblocked on school computers. However, installing vendordeps is still blocked by the firewall. What do we need to tell our schools IT to unbloc…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 491,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444360,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54656,
+                    "username": "PatMcN",
+                    "name": "Patrick McNaughton",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54656,
+                            "username": "PatMcN",
+                            "name": "Patrick McNaughton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 27012,
+                            "username": "bdaroz",
+                            "name": "Brian Rozmierski",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bdaroz/{size}/128636_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Path planner FRC",
+                "id": 481039,
+                "title": "Path planner FRC",
+                "slug": "path-planner-frc",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-11T20:59:03.742Z",
+                "last_posted_at": "2025-01-11T21:48:31.864Z",
+                "bumped": true,
+                "bumped_at": "2025-01-11T21:48:31.864Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The path planner timer is not working, is anyone else experiencing this?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 146,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479415,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56506,
+                    "username": "Juan",
+                    "name": "Juan Alves",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/juan/{size}/182289_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56506,
+                            "username": "Juan",
+                            "name": "Juan Alves",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/juan/{size}/182289_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Shuffleboard inputs no longer working",
+                "id": 482144,
+                "title": "Shuffleboard inputs no longer working",
+                "slug": "shuffleboard-inputs-no-longer-working",
+                "posts_count": 11,
+                "reply_count": 3,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-16T21:36:54.274Z",
+                "last_posted_at": "2025-02-18T17:18:38.992Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T17:18:38.992Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Has anyone had any problem with inputting data with shuffleboard recently? We have a simple program which runs a motor. It’s controlled by buttons and user entry on Shuffleboard. We have buttons to …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "shuffleboard"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 483,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484982,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 26700,
+                    "username": "crazycats",
+                    "name": "Debbie Bernier",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/4af34b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 26700,
+                            "username": "crazycats",
+                            "name": "Debbie Bernier",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/4af34b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36869,
+                            "username": "tomjwinter",
+                            "name": "Tom Winter",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tomjwinter/{size}/110664_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Wheels Stutter when Using setControl()",
+                "id": 491180,
+                "title": "Wheels Stutter when Using setControl()",
+                "slug": "wheels-stutter-when-using-setcontrol",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/e/3/e39ef110062eab0dd163af47c87eb447e19f067b_2_1024x577.png",
+                "created_at": "2025-02-11T15:10:15.888Z",
+                "last_posted_at": "2025-02-11T16:38:38.916Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T16:38:38.916Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When I use setControl() instead of applyRequest() the wheels stutter, this doesn’t happen when I use applyRequest()",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 73,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523382,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60894,
+                    "username": "rackdev",
+                    "name": "Harrison",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60894,
+                            "username": "rackdev",
+                            "name": "Harrison",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57470,
+                            "username": "kn4",
+                            "name": "Kabir",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How do you guys make your elevators so insanely smooth?",
+                "id": 494492,
+                "title": "How do you guys make your elevators so insanely smooth?",
+                "slug": "how-do-you-guys-make-your-elevators-so-insanely-smooth",
+                "posts_count": 6,
+                "reply_count": 0,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-03-06T15:44:30.522Z",
+                "last_posted_at": "2025-03-06T16:42:18.935Z",
+                "bumped": true,
+                "bumped_at": "2025-03-06T16:42:18.935Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Less of a plea for help (but I will gladly welcome advice) and more what do teams specifically do to get their elevator to travel between setpoints so smoothly? Obviously there’s PID tuning…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 695,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3549365,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65766,
+                    "username": "emmettds",
+                    "name": "Emmett Sisson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65766,
+                            "username": "emmettds",
+                            "name": "Emmett Sisson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57616,
+                            "username": "Kabinet",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kabinet/{size}/244566_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12266,
+                            "username": "John_Bottenberg",
+                            "name": "John Bottenberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john_bottenberg/{size}/224569_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7841,
+                            "username": "Tom_Line",
+                            "name": "Tom Line",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44525,
+                            "username": "AMcMaster",
+                            "name": "Aidan McMaster",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/cab0a1/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Integrating Custom Path Generators with WPILib SwerveController",
+        "id": 395225,
+        "title": "Integrating Custom Path Generators with WPILib SwerveController",
+        "posts_count": 4,
+        "created_at": "2021-07-26T19:16:44.866Z",
+        "views": 697,
+        "reply_count": 0,
+        "like_count": 7,
+        "last_posted_at": "2022-07-27T08:35:21.606Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "integrating-custom-path-generators-with-wpilib-swervecontroller",
+        "category_id": 30,
+        "word_count": 520,
+        "deleted_at": null,
+        "user_id": 42811,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_395225",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 13843,
+                    "username": "otherguy",
+                    "name": "James",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/otherguy/{size}/180121_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24617,
+                    "username": "gerthworm",
+                    "name": "Chris Gerth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 42811,
+                    "username": "burakdemirelli",
+                    "name": "Burak Demirelli",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/burakdemirelli/{size}/235383_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 42811,
+                "username": "burakdemirelli",
+                "name": "Burak Demirelli",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/burakdemirelli/{size}/235383_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/strykeforce/infiniterecharge/blob/master/src/main/java/frc/robot/commands/auto/PathDriveCommand.java",
+                    "title": "infiniterecharge/PathDriveCommand.java at master · strykeforce/infiniterecharge · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 32,
+                    "user_id": 13843,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/master/src/main/java/frc/robot/Autonomous/Modes/Events/AutoEventDriveFig8.java#L30",
+                    "title": "TestSwervePlantModel/AutoEventDriveFig8.java at master · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L31",
+                    "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/A05annex/SwervePathPlanning",
+                    "title": "GitHub - A05annex/SwervePathPlanning: An interactive visual path planning tool for swerve drive robots.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 42811,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L59",
+                    "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://en.wikipedia.org/wiki/Kochanek%E2%80%93Bartels_spline",
+                    "title": "Kochanek–Bartels spline - Wikipedia",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 42811,
+                    "domain": "en.wikipedia.org",
+                    "root_domain": "wikipedia.org"
+                },
+                {
+                    "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L74",
+                    "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/trajectory/Trajectory.State.html",
+                    "title": "Trajectory.State (WPILib API 2020.3.2-60-g3011ebe)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 24617,
+                    "domain": "first.wpi.edu",
+                    "root_domain": "wpi.edu"
+                },
+                {
+                    "url": "https://github.com/RobotCasserole1736/TestSwervePlantModel/blob/554ed1aea055a8a7761e83d043aaa6746ae1b7ae/src/main/java/frc/robot/Drivetrain/DrivetrainControl.java#L60",
+                    "title": "TestSwervePlantModel/DrivetrainControl.java at 554ed1aea055a8a7761e83d043aaa6746ae1b7ae · RobotCasserole1736/TestSwervePlantModel · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/holonomic.html",
+                    "title": "Holonomic Drive Controller — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 24617,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

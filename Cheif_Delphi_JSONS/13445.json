@@ -1,0 +1,798 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3110678,
+                    "name": "Evan Kruger",
+                    "username": "flightpath24",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/flightpath24/{size}/168117_2.png",
+                    "created_at": "2022-12-14T20:05:02.506Z",
+                    "cooked": "We’ve been working to debug our autonomous code for a while now. We’ve had to deal with numerous issues and have finally gotten it down to this one. Our robot starts in the center of the path outline (as expected), then moves to follow the edge. This issue has occurred with in-code trajectories, Pathweaver, and Pathplanner. We use the Wpilib RamseteCommand and JSON path files. We have also attempted to use Pathplannerlib’s PPRamseteCommand.\n\nHere is a video example: Auto Test 12/13/22 - YouTube\n\nAnd here is a copy of the code we are testing with: pathweaver-code/frc_slice/src/main at main · flightpath24/pathweaver-code · GitHub",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-12-14T20:05:02.506Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 64,
+                    "readers_count": 63,
+                    "score": 57.8,
+                    "yours": false,
+                    "topic_id": 419710,
+                    "topic_slug": "robot-follows-path-incorrectly-with-pathweaver",
+                    "display_username": "Evan Kruger",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://youtu.be/Woy2wMOHN1Y",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Auto Test 12/13/22 - YouTube",
+                            "clicks": 17
+                        },
+                        {
+                            "url": "https://github.com/flightpath24/pathweaver-code/tree/main/frc_slice/src/main",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "pathweaver-code/frc_slice/src/main at main · flightpath24/pathweaver-code · GitHub",
+                            "clicks": 7
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51945,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8738A | xRC | MoSim"
+                    },
+                    "post_url": "/t/robot-follows-path-incorrectly-with-pathweaver/419710/1",
+                    "custom_user_title": "8738A | xRC | MoSim",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3110702,
+                    "name": "Gavin Matthews",
+                    "username": "bovlb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "created_at": "2022-12-14T20:57:03.701Z",
+                    "cooked": "It looks like you’re not able to turn aggressively enough to keep on the path.\n\nYou might want to log the voltages being sent to Drivetrain.tankDriveVolts() .  If they’re being saturated, then the robot will have trouble turning, although that seems unlikely given your speed constraint.\n\nLooking at Drivetrain.updateOdometry() , I see a couple of odd things.  You’re doubling the velocity and the position, but I can’t tell if that’s been taken account of in the conversion factors.  You’re also calling getPosition on each encoder twice, which may be returning different answers.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-12-14T20:57:03.701Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 51,
+                    "readers_count": 50,
+                    "score": 25.2,
+                    "yours": false,
+                    "topic_id": 419710,
+                    "topic_slug": "robot-follows-path-incorrectly-with-pathweaver",
+                    "display_username": "Gavin Matthews",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38743,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming mentor, Team 2102, RI, CSA (he/him)"
+                    },
+                    "post_url": "/t/robot-follows-path-incorrectly-with-pathweaver/419710/2",
+                    "custom_user_title": "Programming mentor, Team 2102, RI, CSA (he/him)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3265218,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-12-14T20:57:23.476Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2023-12-14T20:57:23.476Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 419710,
+                    "topic_slug": "robot-follows-path-incorrectly-with-pathweaver",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/robot-follows-path-incorrectly-with-pathweaver/419710/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3110678,
+                3110702,
+                3265218
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1032
+            ],
+            [
+                3,
+                667
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Button Box Programming and Reefscape",
+                "id": 492340,
+                "title": "Button Box Programming and Reefscape",
+                "slug": "button-box-programming-and-reefscape",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-19T18:03:51.091Z",
+                "last_posted_at": "2025-02-19T18:43:28.565Z",
+                "bumped": true,
+                "bumped_at": "2025-02-19T18:43:28.565Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "While I know similar discussion have been done in the past (and please post links to those here as well). I would like to understand the ‘best practices’ for programming a large number of gamepad but…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 215,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3533193,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 14482,
+                    "username": "feverittm",
+                    "name": "Floyd Moore",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/feverittm/{size}/4928_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 14482,
+                            "username": "feverittm",
+                            "name": "Floyd Moore",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/feverittm/{size}/4928_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Modules Jittering",
+                "id": 483617,
+                "title": "Swerve Modules Jittering",
+                "slug": "swerve-modules-jittering",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-25T20:45:54.250Z",
+                "last_posted_at": "2025-01-25T21:16:15.852Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T21:16:15.852Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Whenever I enable my swerve code, 2 of the modules will rotate some and then start jittering. It is specifically the front left and back right modules. I have already tried inverting them, and changin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 87,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492610,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60806,
+                    "username": "R_B",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60806,
+                            "username": "R_B",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 70574,
+                            "username": "Tatertotman",
+                            "name": "Tate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Adding Vision to YAGSL Swerve",
+                "id": 484843,
+                "title": "Adding Vision to YAGSL Swerve",
+                "slug": "adding-vision-to-yagsl-swerve",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-02-02T22:23:58.087Z",
+                "last_posted_at": "2025-02-19T15:38:21.888Z",
+                "bumped": true,
+                "bumped_at": "2025-02-19T15:38:21.888Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is new to pathplanner and is hoping to use vision to make out auto scoring and autonomous more accurate. We have 2 OV9281 cameras connected to an Orange Pi 5 Pro. How do we relate the locatio…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 402,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3500214,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Azimuth Tuning / Configuration Issues",
+                "id": 482655,
+                "title": "YAGSL Azimuth Tuning / Configuration Issues",
+                "slug": "yagsl-azimuth-tuning-configuration-issues",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-19T17:13:28.986Z",
+                "last_posted_at": "2025-01-20T21:50:20.408Z",
+                "bumped": true,
+                "bumped_at": "2025-01-20T21:50:20.408Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m having trouble updating my team’s robot to the 2025 version of YAGSL. When driving “forward”, the “angle” of the wheel modules does not match the desired angle. Some modules will be off by …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 137,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3487494,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62319,
+                    "username": "JoeFizzy",
+                    "name": "Greg",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/958977/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62319,
+                            "username": "JoeFizzy",
+                            "name": "Greg",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/958977/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elevator erro",
+                "id": 492363,
+                "title": "Elevator erro",
+                "slug": "elevator-erro",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-19T21:36:13.399Z",
+                "last_posted_at": "2025-02-19T22:18:38.857Z",
+                "bumped": true,
+                "bumped_at": "2025-02-19T22:18:38.857Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "goodnight! My frc team is having problems using the elevator. When we activate the pre-defined positions, the elevator stops until it reaches the position, never going straight. Does anyone know what …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 81,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3533519,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "autonomous"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Robot follows path incorrectly with Pathweaver",
+        "id": 419710,
+        "title": "Robot follows path incorrectly with Pathweaver",
+        "posts_count": 3,
+        "created_at": "2022-12-14T20:05:02.445Z",
+        "views": 325,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2023-12-14T20:57:23.476Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "robot-follows-path-incorrectly-with-pathweaver",
+        "category_id": 75,
+        "word_count": 224,
+        "deleted_at": null,
+        "user_id": 51945,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_419710",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51945,
+                    "username": "flightpath24",
+                    "name": "Evan Kruger",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/flightpath24/{size}/168117_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 51945,
+                "username": "flightpath24",
+                "name": "Evan Kruger",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/flightpath24/{size}/168117_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://youtu.be/Woy2wMOHN1Y",
+                    "title": "Auto Test 12/13/22 - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 51945,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://github.com/flightpath24/pathweaver-code/tree/main/frc_slice/src/main",
+                    "title": "pathweaver-code/frc_slice/src/main at main · flightpath24/pathweaver-code · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 51945,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

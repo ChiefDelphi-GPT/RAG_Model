@@ -1,0 +1,711 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3562507,
+                    "name": "",
+                    "username": "Programming5130",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/4da419/{size}.png",
+                    "created_at": "2025-03-20T00:51:10.227Z",
+                    "cooked": "Hello we are currently scrambling trying to fix this error after we were running our practice field and coral fell and struck our electrical plate, primarily our Robo Rio. after this hit the driver station started sending errors about CAN IDs not being found and we began to try to search for any unplugged connections. We were unable to find any wiring errors so we then checked the following,\n\nreset robot reset driver station reset programming laptop reset Robo RIO Re-wired where CAN Bus begins and terminates Checked REV Hardware Client Completely swapped Robo RIO\n\nWhere we are confused this that our REV Hardware client reports no issues, we also are still able to run some parts of the robot, with the only functions not running is our swerve drive and our elevator. We run a Pigeon 2 gyroscope and the Phoenix tuner is able to connect however the Pigeon does not appear\n\nI have attached screenshots of our Driver Station, REV Hardware Client, and our Phoenix turner. Any help you could give us would be greatly appreciated. We also leave tomorrow afternoon for our second event in Charleston so we are hoping as a last ditch effort we could get some help there. Phoenix tuner 1599×854 26.6 KB Rev Hardware Client 1599×854 149 KB\n\nPhoenix tuner 1599×854 26.6 KB\n\nPhoenix tuner 1599×854 26.6 KB\n\nRev Hardware Client 1599×854 149 KB\n\nRev Hardware Client 1599×854 149 KB\n\nDS Console 1076×835 30.8 KB\n\nDS Console 1076×835 30.8 KB\n\nDS Console 1076×835 30.8 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-20T00:51:10.227Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 51.8,
+                    "yours": false,
+                    "topic_id": 496281,
+                    "topic_slug": "frc-5130-can-id-error-in-driver-station-but-no-error-in-rev-hardware-client",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57662,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/frc-5130-can-id-error-in-driver-station-but-no-error-in-rev-hardware-client/496281/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3562515,
+                    "name": "Ben Edwards",
+                    "username": "beedward",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/beedward/{size}/111315_2.png",
+                    "created_at": "2025-03-20T01:04:03.416Z",
+                    "cooked": "With what you’ve done already, I would check to see if the CAN bus is shorted to the frame somewhere, or if one of the CAN lines is open.  I would disconnect the RIO end temporarily and use a multimeter to measure between the two lines and between each line and the frame.  Between the lines should be 120 ohms without the RIO connected, and from each line to frame should be near infinite. If only one of CANH or CANL is open somewhere the bus will kinda sorta work but most messages won’t get through.  Ditto if it’s shorted to the frame. Good luck!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-20T01:04:03.416Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 19,
+                    "readers_count": 18,
+                    "score": 18.8,
+                    "yours": false,
+                    "topic_id": 496281,
+                    "topic_slug": "frc-5130-can-id-error-in-driver-station-but-no-error-in-rev-hardware-client",
+                    "display_username": "Ben Edwards",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37435,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "EE mentor"
+                    },
+                    "post_url": "/t/frc-5130-can-id-error-in-driver-station-but-no-error-in-rev-hardware-client/496281/2",
+                    "custom_user_title": "EE mentor",
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3562507,
+                3562515
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                206
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Modules driving out of control",
+                "id": 474561,
+                "title": "Swerve Modules driving out of control",
+                "slug": "swerve-modules-driving-out-of-control",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/6/d609d6fb740c551f839667994573618b13847a57_2_1024x394.png",
+                "created_at": "2024-11-08T19:51:29.821Z",
+                "last_posted_at": "2024-11-09T09:50:43.927Z",
+                "bumped": true,
+                "bumped_at": "2024-11-09T09:50:43.927Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Problem Sometimes on enable (most of the time but not every time), the swerve modules would go really fast in a certain direction. This problem resolves itself on a power cycle (redeploying code does…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 309,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445120,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58215,
+                    "username": "Kaicheng",
+                    "name": "Kaicheng Ouyang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/c77e96/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58215,
+                            "username": "Kaicheng",
+                            "name": "Kaicheng Ouyang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/c77e96/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Autonomous Jittery issues",
+                "id": 484686,
+                "title": "Autonomous Jittery issues",
+                "slug": "autonomous-jittery-issues",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-01T19:38:59.226Z",
+                "last_posted_at": "2025-02-01T19:47:49.176Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T19:47:49.176Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, I’m a member of Webb robotics 1466 and we’ve been tuning our PID for a couple days and the teleop has been working just fine, but our autos ha…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 59,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499178,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68986,
+                    "username": "OwensLaptop",
+                    "name": "Owen Tharp",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/838e76/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68986,
+                            "username": "OwensLaptop",
+                            "name": "Owen Tharp",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/838e76/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71158,
+                            "username": "TMaurer4472",
+                            "name": "Troy Maurer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Why wont our swerve drive get aline properly",
+                "id": 474773,
+                "title": "Why wont our swerve drive get aline properly",
+                "slug": "why-wont-our-swerve-drive-get-aline-properly",
+                "posts_count": 34,
+                "reply_count": 28,
+                "highest_post_number": 34,
+                "image_url": null,
+                "created_at": "2024-11-12T21:00:21.906Z",
+                "last_posted_at": "2024-11-16T19:47:37.790Z",
+                "bumped": true,
+                "bumped_at": "2024-11-16T19:47:37.790Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I dont know how to show code but everything else works except our wheels and now they wont aline properly half work half dont and then they all break vide…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 19,
+                "views": 762,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3446801,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66719,
+                    "username": "SourVenomz",
+                    "name": "Michael",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/4da419/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66719,
+                            "username": "SourVenomz",
+                            "name": "Michael",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/4da419/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66342,
+                            "username": "Rickytime60",
+                            "name": "Nicholas Robinson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/c68b51/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50093,
+                            "username": "Mike_FRC_56",
+                            "name": "Mike",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_frc_56/{size}/178961_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 49593,
+                            "username": "Konnor",
+                            "name": "Konnor/RetroBuzz | 5517AM",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/konnor/{size}/246214_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL SparkMax bug",
+                "id": 493178,
+                "title": "YAGSL SparkMax bug",
+                "slug": "yagsl-sparkmax-bug",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-25T20:06:41.006Z",
+                "last_posted_at": "2025-02-25T20:43:40.931Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T20:43:40.931Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I am coding swerve via YAGSL and no matter what value I enter in the SparkMaxi ID of the “frontleft angle” motor, when I start the robot simulation, I get an error that 2 of this ID are defined…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 62,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3540046,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70504,
+                    "username": "AutumnPlanet",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70504,
+                            "username": "AutumnPlanet",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Sparkmax max motion leader follow question",
+                "id": 493692,
+                "title": "Sparkmax max motion leader follow question",
+                "slug": "sparkmax-max-motion-leader-follow-question",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-01T01:08:41.844Z",
+                "last_posted_at": "2025-03-01T02:54:42.206Z",
+                "bumped": true,
+                "bumped_at": "2025-03-01T02:54:42.206Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Once you set the follower, you need only control the leader.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 77,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543929,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 28240,
+                    "username": "icemannie",
+                    "name": "icemannie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 37230,
+                            "username": "SimonSays",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "frc",
+            "2025",
+            "reefscape",
+            "firstsouthcarolina",
+            "southcarolina"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "FRC-5130 Can ID error in driver station but no error in REV Hardware Client",
+        "id": 496281,
+        "title": "FRC-5130 Can ID error in driver station but no error in REV Hardware Client",
+        "posts_count": 2,
+        "created_at": "2025-03-20T00:51:10.150Z",
+        "views": 53,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-20T01:04:03.416Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "frc-5130-can-id-error-in-driver-station-but-no-error-in-rev-hardware-client",
+        "category_id": 30,
+        "word_count": 332,
+        "deleted_at": null,
+        "user_id": 57662,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/b/6/b6b5c198cc2535548a3bcf62c1597a82e13b374d_2_1024x546.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_496281",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45812,
+            "execute_at": "2026-03-20T01:04:03.416Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1599,
+                "height": 854,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/6/b6b5c198cc2535548a3bcf62c1597a82e13b374d.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 546,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/b/6/b6b5c198cc2535548a3bcf62c1597a82e13b374d_2_1024x546.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 37435,
+                    "username": "beedward",
+                    "name": "Ben Edwards",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/beedward/{size}/111315_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57662,
+                    "username": "Programming5130",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/4da419/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 57662,
+                "username": "Programming5130",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/p/4da419/{size}.png"
+            },
+            "last_poster": {
+                "id": 37435,
+                "username": "beedward",
+                "name": "Ben Edwards",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/beedward/{size}/111315_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

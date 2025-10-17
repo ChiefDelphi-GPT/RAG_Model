@@ -1,0 +1,845 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3261941,
+                    "name": "",
+                    "username": "BadAtProgramming",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/858c86/{size}.png",
+                    "created_at": "2023-12-08T01:46:06.230Z",
+                    "cooked": "Hello! My team is trying to set up photonvision for position data in a Java CommandRobot. Adding a PhotonCamera has seemed to work fine:\n\nPhotonCamera camera = new PhotonCamera(“pvcam”);\n\n(the camera is named pvcam in the web interface)\n\nBut adding a GetLatestResult() to the periodic or a button causes a lot of errors. The issue seems to be the startCompetition() method. The code builds, but after it is deployed and before it is enabled, the error causes the roboRIO to lose robot code (I think. DriverStation says there is no robot code). Here are the errors that come up in red in VSCode: Unhandled exception: java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10 Error at org.photonvision.common.dataflow.structures.Packet.decodeShort(Packet.java:214): Unhandled exception: java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10\n\n…\n\nThe startCompetition() method (or methods called by it) should have handled the exception above.\n\nAnd here’s the full stack trace: Unhandled exception: java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10\n\nError at org.photonvision.common.dataflow.structures.Packet.decodeShort(Packet.java:214): Unhandled exception: java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10\n\nThe robot program quit unexpectedly. This is usually due to a code error.\n\nThe above stacktrace can help determine where the error occurred.\n\nSee Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nat org.photonvision.common.dataflow.structures.Packet.decodeShort(Packet.java:214)\n\nat org.photonvision.targeting.MultiTargetPNPResults.createFromPacket(MultiTargetPNPResults.java:44)\n\nat org.photonvision.targeting.PhotonPipelineResult.createFromPacket(PhotonPipelineResult.java:162)\n\nat org.photonvision.PhotonCamera.getLatestResult(PhotonCamera.java:198)\n\nat frc.robot.Robot.robotPeriodic(Robot.java:48)\n\nat edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:356)\n\nat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:130)\n\nat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:343)\n\nat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:436)\n\nat frc.robot.Main.main(Main.java:23)\n\nWarning at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:358): The robot program quit unexpectedly. This is usually due to a code error.\n\nThe above stacktrace can help determine where the error occurred.\n\nSee Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nThe startCompetition() method (or methods called by it) should have handled the exception above.\n\nError at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:365): The startCompetition() method (or methods called by it) should have handled the exception above.\n\npure virtual method called\n\nterminate called without an active exception",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-12-08T01:46:06.230Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 166,
+                    "reads": 76,
+                    "readers_count": 75,
+                    "score": 845.2,
+                    "yours": false,
+                    "topic_id": 445558,
+                    "topic_slug": "photonvision-getlatestresult-not-working",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://wpilib.org/stacktrace",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reading Stacktraces — FIRST Robotics Competition documentation",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57381,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/photonvision-getlatestresult-not-working/445558/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3261951,
+                    "name": "Nolan",
+                    "username": "Quake",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/quake/{size}/236072_2.png",
+                    "created_at": "2023-12-08T02:16:20.304Z",
+                    "cooked": "Looks like you have a mismatch between your PhotonVision and Photonlib versions. Keep in mind the online url used in VSCode to install the photonlib json uses the latest version, which means it currently pulls version v2024.1.1-beta-3.2 . If you want to use an older photonlib version, you can change the instances of \"version\" in the json file to the desired release-- for the last 2023 version, this is \"v2023.4.2\" .",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-12-08T02:16:20.304Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 15.6,
+                    "yours": false,
+                    "topic_id": 445558,
+                    "topic_slug": "photonvision-getlatestresult-not-working",
+                    "display_username": "Nolan",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37917,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4512AM"
+                    },
+                    "post_url": "/t/photonvision-getlatestresult-not-working/445558/2",
+                    "custom_user_title": "4512AM",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3456043,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-12-07T02:17:22.081Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-12-07T02:17:22.081Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 4,
+                    "readers_count": 3,
+                    "score": 0.8,
+                    "yours": false,
+                    "topic_id": 445558,
+                    "topic_slug": "photonvision-getlatestresult-not-working",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/photonvision-getlatestresult-not-working/445558/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3261941,
+                3261951,
+                3456043
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                674
+            ],
+            [
+                3,
+                309
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Issues with Infrared Sensor Integration on Shuffleboard",
+                "id": 475453,
+                "title": "Issues with Infrared Sensor Integration on Shuffleboard",
+                "slug": "issues-with-infrared-sensor-integration-on-shuffleboard",
+                "posts_count": 18,
+                "reply_count": 11,
+                "highest_post_number": 18,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/3/2341f1633f52fbbfc2d838729a828570be4bf3b5.jpeg",
+                "created_at": "2024-11-22T21:53:57.960Z",
+                "last_posted_at": "2024-11-27T01:51:56.892Z",
+                "bumped": true,
+                "bumped_at": "2024-11-27T01:51:56.892Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, my team and I are working on programming an infrared sensor, like the one in the photo. However, we’re facing a the sensor’s LED lights up when it detects something, but it…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "electronics",
+                    "sensors",
+                    "infrared"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 340,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3450979,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67627,
+                    "username": "rafafrois",
+                    "name": "Rafael Frois",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rafafrois/{size}/258796_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67627,
+                            "username": "rafafrois",
+                            "name": "Rafael Frois",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rafafrois/{size}/258796_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66859,
+                            "username": "Keller",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/keller/{size}/259062_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Team 2102 Apriltag Tools",
+                "id": 477720,
+                "title": "Team 2102 Apriltag Tools",
+                "slug": "team-2102-apriltag-tools",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-12-31T02:00:38.156Z",
+                "last_posted_at": "2024-12-31T03:41:22.479Z",
+                "bumped": true,
+                "bumped_at": "2024-12-31T03:41:22.479Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The following is a link to the Apriltags software that we used for the 2024 competition",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 352,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465558,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22026,
+                    "username": "JohnGaby",
+                    "name": "JohnGaby",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/eada6e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 22026,
+                            "username": "JohnGaby",
+                            "name": "JohnGaby",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/eada6e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Apriltag detection and ROS2 Robot for Reefscape FRC season",
+                "id": 480872,
+                "title": "Apriltag detection and ROS2 Robot for Reefscape FRC season",
+                "slug": "apriltag-detection-and-ros2-robot-for-reefscape-frc-season",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-01-11T06:22:44.192Z",
+                "last_posted_at": "2025-02-08T21:42:05.995Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T21:42:05.995Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is my first season as Mentor for team 2478. I would appreciate any feedback/help how to best implement apriltag and object detection to our robot using an OrangePi 5 Plus(or RPi4/5) and an Arduca…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025"
+                ],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 671,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3478948,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69255,
+                    "username": "Jadedragon",
+                    "name": "Pih Lung Pang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/ee59a6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69255,
+                            "username": "Jadedragon",
+                            "name": "Pih Lung Pang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/ee59a6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56095,
+                            "username": "Rowanbladex",
+                            "name": "Zac Ogburn",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10805,
+                            "username": "topgun",
+                            "name": "topgun",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 35208,
+                            "username": "bathtubed",
+                            "name": "Eric Ward",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL/Swerve Drive programming help",
+                "id": 482239,
+                "title": "YAGSL/Swerve Drive programming help",
+                "slug": "yagsl-swerve-drive-programming-help",
+                "posts_count": 15,
+                "reply_count": 10,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-01-17T04:07:26.357Z",
+                "last_posted_at": "2025-02-20T18:17:39.253Z",
+                "bumped": true,
+                "bumped_at": "2025-02-20T18:17:39.253Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is likely a PID issue. Lower your P until it’s stable but still snappy. This likely means your motors aren’t properly inverted, ensure you set the azimuth motors to be inverted. You’re fine to c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "programming",
+                    "help"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 299,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485403,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 50684,
+                    "username": "crueter",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 50904,
+                            "username": "Heckboy",
+                            "name": "Cody B.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/da6949/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50699,
+                            "username": "Programming4907",
+                            "name": "Scott W",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/programming4907/{size}/168313_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE Swerve Ramp Rate Help",
+                "id": 484408,
+                "title": "CTRE Swerve Ramp Rate Help",
+                "slug": "ctre-swerve-ramp-rate-help",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-31T01:42:52.191Z",
+                "last_posted_at": "2025-01-31T01:54:14.691Z",
+                "bumped": true,
+                "bumped_at": "2025-01-31T01:54:14.691Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re used to using yagsl and this year we have an all CTRE swerve drivetrain and are trying to use the CTRE swerve with pathplanner example and getting the TunerConstants file through CTRE Swerve Gen…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 205,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3497356,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66685,
+                    "username": "RoboNerds5089",
+                    "name": "5089 Robonerds",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66685,
+                            "username": "RoboNerds5089",
+                            "name": "5089 Robonerds",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "photonvision"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Photonvision getLatestResult() not working",
+        "id": 445558,
+        "title": "Photonvision getLatestResult() not working",
+        "posts_count": 3,
+        "created_at": "2023-12-08T01:46:06.165Z",
+        "views": 428,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2024-12-07T02:17:22.081Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "photonvision-getlatestresult-not-working",
+        "category_id": 30,
+        "word_count": 508,
+        "deleted_at": null,
+        "user_id": 57381,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_445558",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 37917,
+                    "username": "Quake",
+                    "name": "Nolan",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/quake/{size}/236072_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57381,
+                    "username": "BadAtProgramming",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/858c86/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 57381,
+                "username": "BadAtProgramming",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/858c86/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://wpilib.org/stacktrace",
+                    "title": "Reading Stacktraces — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 57381,
+                    "domain": "wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

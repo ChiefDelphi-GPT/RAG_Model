@@ -1,0 +1,1127 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2970604,
+                    "name": "Jayson Meribe",
+                    "username": "Jayson12000",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/f05b48/{size}.png",
+                    "created_at": "2021-10-05T02:16:55.189Z",
+                    "cooked": "What I am trying to do I have a motor that rotates a platform via a belt and pulley. On this rotating platform there is a magnet. There is also a second platform that has two magnet–one for right one for left. Once the magnet attached to the rotating platform is within proximity of the sensor attached to a non-moving platform I want it to be unable to go further in the direction it was going and only be able to go in the opposite direction until it hits a second sensor that is 180 degrees from the first. I then want it stop at that sensor and only be able to go in the opposite direction and so on.\n\nCurrent Behavior The magnet start in between the right and left sensor goes left and stops correctly. I then move it to the right  until it hits the sensor and it stop correctly. I then move it again to the left until it within proximity of the left sensor it stop correctly but it won’t allow me to move it back right again. The same thing happens on the right side if I had happen to move it right.\n\nI also noticed that on the second touch of a single sensor the DIO returns null, which is really weird.\n\nPlease help. I have no idea why I’m getting the behavior that I am  getting.\n\nThe sensor I’m using\n\nNormally open (N/O) / normally closed (N/C) magnet switch ideal for doors, windows, lift gates, garages, gates, truck beds, etc.\n\n$8.95\n\nHere is the github link to the whole project\n\nContribute to Team-4361/ModularChasis2021 development by creating an account on GitHub.\n\nRelevant code: //Declaration DigitalInput rightLimit, leftLimit; Boolean rightBumperReleased = false; Boolean leftBumperReleased = false;\n\nBoolean leftLimitReached = false; Boolean rightLimitReached =false;",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-10-05T10:57:56.599Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 59,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 311.6,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "Jayson Meribe",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.amazon.com/Megatronix-Magnetic-Switch-Sensor-Normally/dp/B0010F0086",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 12
+                        },
+                        {
+                            "url": "https://github.com/Team-4361/ModularChasis2021",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48494,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2970610,
+                    "name": "Mykah",
+                    "username": "ExploitSage",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/exploitsage/{size}/179189_2.png",
+                    "created_at": "2021-10-05T05:07:42.916Z",
+                    "cooked": "Word of wisdom, when you’re having an issue you can’t explain, there is no such thing as irrelevant code. I highly recommend learning a bit about git and https://github.com/ so you can upload your entire robot project there (or other such sites like gitlab or bitbucket). This helps us help you debug your code. Plus using Git helps you track the changes to your code over time, and when used effectively can be invaluable for those instances where a change breaks something and you can’t seem to “undo” it. As long as you committed your code in git before you made those changes, you can always revert to that last committed code.\n\nAs for the code you posted, I’m having a very hard time following it, your boolean variables seem to denote the opposite of what their names imply. Ie you set LimitReached to true when you just checked that you hadn’t reached the limit and you set BumperReleased to true when you just checked that you are actively pressing the bumper. This makes it very hard to keep the code flow straight during analysis.\n\nThough provided I have worked it out correctly, I don’t see any obvious issues in the code snippet provided, other than that I’m fairly certain it could be greatly simplified (see below). Based on your issues (the DigitalInput objects becoming null) it sounds like a scope issue, but I can’t be certain of that without the entire code. I also wonder if perhaps your switches are wired incorrectly? If you wired them such as they may cause a short circuit when triggered, that may be able to cause some weird issue with the RIO (though this is a totally left-field guess).\n\nFor the wiring, generally you wire the input to the “COM” terminal of the switch, then 5v and gnd to either of the NO and NC terminals depending on desired state. You can also take advantage of the RoboRIO’s built-in Pull-Up resistors which will pull the input high if no voltage srouce/sink is connected to the input, then you don’t need to worry about wiring the 5v, you just need to connect gnd to either NO or NC, again based on your desired operation when you want the RIO to read true vs false.\n\nHere is an example of how I believe you could simplify your code. First, I reduced the number of variables. If you only want the motor to run when the motor is being held, you shouldn’t care about tracking when it was released, and you can check the state of the limit switches at any time. So what you really want to track is “when can I move right vs left”. So I created two boolean variables for just that, leftLock and rightLock. These two should always be the opposite of each other since, according to your explanation, you wanted to only allow one direction of movement at a time until the limit is reached. Though we start with both false, since you state at the beginning you want to be able to go in either direction to start.\n\nSo with the variables reduced, we know that the primary trigger for them are the limit switches. So if we each each switch, we can adjust the locks appropriately, without involving our controller buttons or our outputs. Just checking our limit switches and adjusting our variables.\n\nThen, with our current “limit state” known between our two variables, we can check if we are pressing the corresponding controller input to move in that direction, while also checking if we are allowed to move in that direction based on the lock variables. I also added code here to set the opposing lock variable if we decide on a direction so we can’t arbitrarily switch back and forth at the beginning, once a direction is picked, you are stuck with it until you reach the limit for that direction. But that could easily be removed without issue if desired.\n\nThen finally, if neither moving condition is met (either because we aren’t pressing the button, or the direction we are pressing for is currently locked) we stop the motor.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-10-05T05:07:42.916Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 62,
+                    "readers_count": 61,
+                    "score": 62.4,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "Mykah",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16897,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "She/Her 🏳️‍⚧️ | 9153 | Programming and Electrical Mentor"
+                    },
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/2",
+                    "custom_user_title": "She/Her 🏳️‍⚧️ | 9153 | Programming and Electrical Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2970618,
+                    "name": "Anand Rajamani",
+                    "username": "asid61",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "created_at": "2021-10-05T05:45:59.160Z",
+                    "cooked": "One small thing: if you’re using most FRC-legal motor controllers, you can wire the reed switch as a limit switch to them. That will automatically stop the motor from going further once it hits the switch.\n\nIf you are using a RoboRIO and CAN, you can then get the state of the limit switches (reed switches, in this case) to perform any additional behaviors like reversing direction.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-10-05T05:45:59.160Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 55.4,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "Anand Rajamani",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 21715,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2970624,
+                    "name": "Allen Nuttle",
+                    "username": "nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "created_at": "2021-10-05T10:23:52.826Z",
+                    "cooked": "For the electrical hookup, the “com” connection on the sensor should go to a “⏚” (GND) pin on the roboRIO digital input.  You can connect either “NC” or “NO” on the sensor (not both, leave the other disconnected) to the “S” pin on the digital input.  You should not connect anything to the “5V” pin on the digital input.  See here .\n\nUsing the “NC” connection on the sensor is best practice, as it means that if a wire comes loose, it is the same as the sensor picking up the magnet and indicating that things should stop.  In this case, the digital input will read false when the magnet is activating the sensor (or, again, if a wire comes loose).  If not, it will read true.\n\nTest mode is a good way to make sure the electrical connections are right, and that the digital input is reading as you expect.  You can also use prints in the code or, better, send the raw digital input reading through network tables (to a dashboard).\n\nThis is a case where less code is probably a sign you have things right.  The point about connecting the limit switch directly to the motor controller is a pretty major one, and the general advice on the code (above) is also good.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-10-05T10:23:52.826Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 47,
+                    "readers_count": 46,
+                    "score": 34.4,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "Allen Nuttle",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/hardware/sensors/digital-inputs-hardware.html#connecting-a-simple-switch-to-a-dio-port",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Digital Inputs - Hardware — FIRST Robotics Competition documentation",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 14283,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2970635,
+                    "name": "Rod",
+                    "username": "Weldingrod1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "created_at": "2021-10-05T12:37:05.058Z",
+                    "cooked": "A tip on reed switches: they have a lot of hysteresis.  You may need to back away quite a bit in order to do the classic run in fast, switch, back out, run in slow, switch. Also, with really strong magnets this behavior is worse!",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2021-10-05T12:37:05.058Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 36,
+                    "readers_count": 35,
+                    "score": 27.2,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "Rod",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46443,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/5",
+                    "custom_user_title": "Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3086819,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-10-05T12:37:18.883Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 6,
+                    "post_type": 3,
+                    "posts_count": 6,
+                    "updated_at": "2022-10-05T12:37:18.883Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 396379,
+                    "topic_slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch/396379/6",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2970604,
+                2970610,
+                2970618,
+                2970624,
+                2970635,
+                3086819
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1468
+            ],
+            [
+                6,
+                1103
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Elevator Rigging Problem",
+                "id": 485180,
+                "title": "Elevator Rigging Problem",
+                "slug": "elevator-rigging-problem",
+                "posts_count": 18,
+                "reply_count": 13,
+                "highest_post_number": 19,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/c/fc0d5bc6d2f888d848cc562b2e7f2d45ce050112_2_691x1024.png",
+                "created_at": "2025-02-04T20:18:05.760Z",
+                "last_posted_at": "2025-02-25T06:20:19.848Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T06:20:19.848Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We just assembled our elevator and while we were testing it we found out that our policord system became loose as the elevator moved upwards and tightened as it moved down. below is a video ( sorry fo…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 27,
+                "views": 1088,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3502109,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71354,
+                            "username": "Lyinlyon",
+                            "name": "James Lyon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63023,
+                            "username": "egemkercek",
+                            "name": "Egem",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/ec9cab/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7123,
+                            "username": "Mike_Schreiber",
+                            "name": "Mike Schreiber",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_schreiber/{size}/200098_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 79,
+                            "username": "Paul_Copioli",
+                            "name": "Paul Copioli",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/paul_copioli/{size}/67689_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Weird Pigeon2 issue",
+                "id": 493287,
+                "title": "Weird Pigeon2 issue",
+                "slug": "weird-pigeon2-issue",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-26T04:19:51.467Z",
+                "last_posted_at": "2025-02-26T13:45:05.198Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T13:45:05.198Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We spent about an hour today chasing a phantom Pigeon 2 drift issue. When robot is on the cart, and we turn the cart, we see a huge drift that happen pretty frequently. Some 90 degree turns of the ca…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 90,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3540755,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 50762,
+                    "username": "atsekhan",
+                    "name": "Alex Tsekhansky",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/0ea827/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 50762,
+                            "username": "atsekhan",
+                            "name": "Alex Tsekhansky",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/0ea827/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH-109 2 Radio Setup Issues",
+                "id": 483821,
+                "title": "VH-109 2 Radio Setup Issues",
+                "slug": "vh-109-2-radio-setup-issues",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/0/d08e862e2bb5aabb0ddd47d304e992c9f998a9db_2_1024x102.png",
+                "created_at": "2025-01-27T18:47:25.847Z",
+                "last_posted_at": "2025-01-27T21:17:59.555Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T21:17:59.555Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have followed the instructions on vivid hosting docs for the two radio setup. One of them is configured as the access point, with ssid suffix “AP” and with the password “password”. The other is co…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 263,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493886,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 41225,
+                    "username": "emrecandabak",
+                    "name": "Emre Candabakoğlu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/838e76/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 41225,
+                            "username": "emrecandabak",
+                            "name": "Emre Candabakoğlu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4448,
+                            "username": "Jon_Jack",
+                            "name": "Jon Jack",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jon_jack/{size}/181321_2.png",
+                            "flair_name": "Vivid-Hosting",
+                            "flair_url": "/uploads/default/original/3X/5/0/50d2e846f0add7aa9489092abe0f436644dde98d.png",
+                            "flair_group_id": 62,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How do I Fix AdvantageKit in a 2025 Robot Project?",
+                "id": 478802,
+                "title": "How do I Fix AdvantageKit in a 2025 Robot Project?",
+                "slug": "how-do-i-fix-advantagekit-in-a-2025-robot-project",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-05T03:25:16.063Z",
+                "last_posted_at": "2025-01-18T21:41:02.962Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T21:41:02.962Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You are correct, the 2025 AdvantageKit is not yet released.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 230,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3470292,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 64857,
+                    "username": "pigrammer",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62962,
+                            "username": "Paraduks",
+                            "name": "Sam",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ea5d25/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 64857,
+                            "username": "pigrammer",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59105,
+                            "username": "HeadHunter4621",
+                            "name": "Kona",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/headhunter4621/{size}/251852_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve recommendations",
+                "id": 495610,
+                "title": "Swerve recommendations",
+                "slug": "swerve-recommendations",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-14T22:53:04.763Z",
+                "last_posted_at": "2025-03-15T00:48:46.511Z",
+                "bumped": true,
+                "bumped_at": "2025-03-15T00:48:46.511Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, this year was our rookie year and we used tank drive in the regional and next year we are thinking of switching to swerve. We are looking for a model recommendation for Swerve, so far other tea…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "swervedrive"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 167,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557323,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74121,
+                    "username": "AlperenGunes",
+                    "name": "Alperen Güneş",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/f0a364/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74121,
+                            "username": "AlperenGunes",
+                            "name": "Alperen Güneş",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f0a364/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 12760,
+                            "username": "Knufire",
+                            "name": "Rahul Yarlagadda",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/knufire/{size}/67820_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "sensors",
+            "digital"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Why am I getting weird behavior with Megatronix MGT Magnetic Reed Switch",
+        "id": 396379,
+        "title": "Why am I getting weird behavior with Megatronix MGT Magnetic Reed Switch",
+        "posts_count": 6,
+        "created_at": "2021-10-05T02:16:54.901Z",
+        "views": 578,
+        "reply_count": 0,
+        "like_count": 7,
+        "last_posted_at": "2022-10-05T12:37:18.883Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "why-am-i-getting-weird-behavior-with-megatronix-mgt-magnetic-reed-switch",
+        "category_id": 9,
+        "word_count": 1576,
+        "deleted_at": null,
+        "user_id": 48494,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_396379",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 5,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 14283,
+                    "username": "nuttle",
+                    "name": "Allen Nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16897,
+                    "username": "ExploitSage",
+                    "name": "Mykah",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/exploitsage/{size}/179189_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 21715,
+                    "username": "asid61",
+                    "name": "Anand Rajamani",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48494,
+                    "username": "Jayson12000",
+                    "name": "Jayson Meribe",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/f05b48/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 48494,
+                "username": "Jayson12000",
+                "name": "Jayson Meribe",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/f05b48/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.amazon.com/Megatronix-Magnetic-Switch-Sensor-Normally/dp/B0010F0086",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 12,
+                    "user_id": 48494,
+                    "domain": "www.amazon.com",
+                    "root_domain": "amazon.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/hardware/sensors/digital-inputs-hardware.html#connecting-a-simple-switch-to-a-dio-port",
+                    "title": "Digital Inputs - Hardware — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 14283,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.com/Team-4361/ModularChasis2021",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 48494,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,1428 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2965573,
+                    "name": "Harper Elizabeth Nalley",
+                    "username": "Harper.Nalley.4915",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/harper.nalley.4915/{size}/145349_2.png",
+                    "created_at": "2021-08-18T10:33:09.808Z",
+                    "cooked": "11 4000×2250 3.56 MB\n\n11 4000×2250 3.56 MB\n\n11 4000×2250 3.56 MB\n\nHey everyone! I designed this about 9 months ago and then forgot to release it. This is Illapa, a robot designed for the 2020 season that focuses on shooting, climbing, and going through the trench run.\n\nCAD Download Link HERE\n\nBasic Design Priorities & Where This all Came From The basic idea for this design came from me proving myself wrong. Back in March 2020 I said that it was not realistically possible to do an S-indexer based robot with a turreted 6\" flywheel shooter that could also do the trench run without compromising the number of balls carried. The priorities were as follows:\n\nNecessary\n\nCarry 5 balls\n\nTurreted 6\" flywheel shooter\n\nShooter hood adjust\n\nTrench Run (max height: 26.5\")\n\nAll level climber\n\nWant\n\nNear 360 deg shooter\n\nShifting Gearbox\n\nMeh\n\nWheel of Fortune mech\n\nSideways movement on climber\n\nNah\n\nTriple Climb\n\nC H A S S I S Illapa-Chassis 4000×2250 2.15 MB\n\nIllapa-Chassis 4000×2250 2.15 MB\n\nIllapa-Chassis 4000×2250 2.15 MB\n\nThe chassis uses my custom guidelines with a 2\" wide wheel well, tube and channel construction, and chain in tube power train. The powertrain uses 6 x 6\" aluminum rim, blue nitrile tread wheels with a .125\" drop centre. The drive gearboxes are dual speed each driven by two Falcon 500s. The gears have a normal driving high speed and a pushing specific low speed.\n\nimage 812×496 15.5 KB\n\nimage 812×496 15.5 KB\n\nimage 812×496 15.5 KB\n\nIllapa-Gearbox 4000×2250 1.68 MB\n\nIllapa-Gearbox 4000×2250 1.68 MB\n\nIllapa-Gearbox 4000×2250 1.68 MB\n\nI N T A K E Illapa-Intake-Down 4000×2250 1.21 MB Illapa-Intake-Up 4000×2250 1.68 MB\n\nIllapa-Intake-Down 4000×2250 1.21 MB\n\nIllapa-Intake-Down 4000×2250 1.21 MB\n\nIllapa-Intake-Up 4000×2250 1.68 MB\n\nIllapa-Intake-Up 4000×2250 1.68 MB\n\nThe intake was a lot of fun to design because fitting it into the frame perimeter was not the easiest task and it looks cool (I love using those orange belts. However, since it did have to be fit into a very confined space, it isn’t the most efficient size-wise due to the maximum extention limit and the fact that the hinge isn’t on the same plane as the belts meaning it swings out slightly as it is extended and retracted. The reason for the onmi wheels is simple: they allow the ball to slide horizontally as it transitions from the belting to the wheels. The intake puts about 1\" of compression on the ball in the middle and about .5\" on the outermost parts of the belting Finally, it is powered by a single NEO 550 through a collection of belts and bevel gears.\n\nI N D E X E R Illapa-Indexer-1 4000×2250 2.36 MB\n\nIllapa-Indexer-1 4000×2250 2.36 MB\n\nIllapa-Indexer-1 4000×2250 2.36 MB\n\nWarning, this part has maths so, to my fellow gays, I… I’m sorry. So, the 2020 balls love to jam together if they roll relative to one another which means you want them to not do that. So, I measured the distance the balls needed to travel and decided it should be able to shoot 5 balls in 1 second. With a straight chute, this would be simple; just set the distance per second the ball needs to travel as the distance per second for the belts and done. But, this has three curves making it slightly annoying. For curves, you convert the distance per second to radians per second for that curve. The central wheel is easy, but the outer belts take a little extra work. Basically, take the beautiful MS Paint diagram below:\n\nPretend that the outer belts are just another wheel to get the tangential velocity, then use the tangential velocity to convert the RPM of the big imagined wheel into the tangential velocity of the belt pullies. I had a formula to get the final answer quickly, but I don’t remember what it was and I don’t want to go back to my parents house to look through my notebooks to find it (my apartment has like, no room for storage). Because there are two different diameters of curve in the indexer, there have to be very specific timings on the belts and central wheels, hence the web of belts and gears on both sides of the indexer structure. The indexer is powered by two Neo 550s, one for the outer belts and one for the inner wheels.\n\nIllapa-Indexer-4 4000×2250 2.85 MB\n\nIllapa-Indexer-4 4000×2250 2.85 MB\n\nIllapa-Indexer-4 4000×2250 2.85 MB\n\nS H O O T E R Illapa-Shooter-1 4000×2250 1.62 MB\n\nIllapa-Shooter-1 4000×2250 1.62 MB\n\nIllapa-Shooter-1 4000×2250 1.62 MB\n\nThe Shooter is an iteration upon the one I designed while on FRC team 4915 for the 2020 season (comparison pictured below). This is an iteration in two categories:\n\nPractical Changes\n\nRedesigned turret assembly\n\nRedesigned inner and outer hood\n\nRedesigned hood servo assembly\n\nFor Fun Changes that are Not Reasonable for a Real Robot\n\nMain structure made from one sheet of .125\" aluminum (so please don’t tell me this is isn’t realistic because getting the bearing holes to line up would be very difficult, I know, but this is CAD)\n\nShooter Comparison 6362×4165 8.4 MB\n\nShooter Comparison 6362×4165 8.4 MB\n\nShooter Comparison 6362×4165 8.4 MB\n\nThe things I kept the same were ones that worked well during the 2020 season.\n\nOnyx 3D Printed turret bearing ( here )\n\n4\" wide roller made from the Vex 6\" Traction Wheel . This worked well because it is a heavy wheel where the vast majority of its weight is far from the centre\n\nSingle motor drive. We never had any issues rapid firing with a single motor, so why change that especially if I were using a more powerful motor\n\nSo now, the differences. I think the most important change was the way the hood adjust was powered. Originally we used a pair of servos direct driving at the pivot. While this worked, it was not robust and any stresses outside of shooting balls would strip the servo. For the redesign I used an onyx 3D printed custom rack and pinion  setup with two racks powered by a single servo. This is not only more robust because it lowers the leverage arm length, but it also simplifies the design by removing a servo. Furthermore, this allows the servo to run off of the 5V rail on the VRM (I know it’s defunct, but I don’t know how the new REV system works yet. Been too busy to find out) rather than the REV Servo Power Module off of the PDP. The next big change was with the ball path. Below is a diagram that shows the ball paths with another amazing piece of MS Paint artwork:\n\nBall Paths 3222×716 29.8 KB\n\nBall Paths 3222×716 29.8 KB\n\nBall Paths 3222×716 29.8 KB\n\nBoth have a 60 deg firing elevation max, however the new ball path not only gives the ball longer contact with the roller, it also allows the adjustable hood to be longer. The original has a 30 deg outer hood where the new one has 45 deg of adjustability.\n\nIllapa-Shooter-4 4000×2250 1.21 MB\n\nIllapa-Shooter-4 4000×2250 1.21 MB\n\nIllapa-Shooter-4 4000×2250 1.21 MB\n\nFinally, the turret setup. On the original, the inner race was attached to the shooter meaning the motor had to also be on the shooter, thus necessitating a base plate on the shooter which adds height and weight (albeit not much, the old shooter used one made out of 6mm aircraft plywood; a good material that I would strongly recommend teams get a sheet of for use). The new shooter is attached to the outer race meaning the motor can be moved onto the robot. Also, this bears mentioning; while the old shooter only had a 180 deg maximum turn and this one has 360, that was a constraint imposed by the design of the 2020 robot.\n\nI wanted to mention also that while the new shooter doesnt have a vision camera on it in the CAD, thats because I was too lazy to put it on. It would go above the three crossbars rather than below their analog on the old design.\n\nC L I M B E R Illapa-Climber-1 4000×2250 1.26 MB\n\nIllapa-Climber-1 4000×2250 1.26 MB\n\nIllapa-Climber-1 4000×2250 1.26 MB\n\nThe final subsystem is the climber. To extend, the intake has to go down to allow the arms to go vertical. The intake then gets retracted as the pnumatic pin brakes release and the motors allow the climber arms to extend powered by constant force springs. When the arms hook onto the bar, the winches pull the robot up and then the pin brakes reengage. The climber arms are long enough to reach well above the highest level the climbing bar can go to.\n\nIllapa-Climber-2 4000×2250 2.05 MB Illapa-Climber-3 4000×2250 1.56 MB Illapa-Climber-4 4000×2250 179 KB\n\nIllapa-Climber-2 4000×2250 2.05 MB\n\nIllapa-Climber-2 4000×2250 2.05 MB\n\nIllapa-Climber-3 4000×2250 1.56 MB\n\nIllapa-Climber-3 4000×2250 1.56 MB\n\nIllapa-Climber-4 4000×2250 179 KB\n\nIllapa-Climber-4 4000×2250 179 KB\n\nE L E C T R O N I C S  /  P N U M A T I C S Illapa-EP-1 4000×2250 1.69 MB\n\nIllapa-EP-1 4000×2250 1.69 MB\n\nIllapa-EP-1 4000×2250 1.69 MB\n\nI’m not cadding the wires, did that once on a different robot (that I still have to release) pictured below\n\nHermes-EP-1 4000×2200 2.26 MB\n\nHermes-EP-1 4000×2200 2.26 MB\n\nHermes-EP-1 4000×2200 2.26 MB\n\nThere’s your CADded wires fix. Not gonna do it again… okay I probably will, I just don’t want to do it this time. The only thing of note about this robot’s electronics/pnumatics is that all four tanks are at 120psi in case something goes wrong with the compressor. Also, the high side uses black tubing and the working side uses white.\n\nIllapa-EP-6 4000×2250 2.55 MB Illapa-EP-3 4000×2250 1.55 MB Illapa-EP-5 4000×2250 1.26 MB Illapa-EP-4 4000×2250 2.99 MB\n\nIllapa-EP-6 4000×2250 2.55 MB\n\nIllapa-EP-6 4000×2250 2.55 MB\n\nIllapa-EP-3 4000×2250 1.55 MB\n\nIllapa-EP-3 4000×2250 1.55 MB\n\nIllapa-EP-5 4000×2250 1.26 MB\n\nIllapa-EP-5 4000×2250 1.26 MB\n\nIllapa-EP-4 4000×2250 2.99 MB\n\nIllapa-EP-4 4000×2250 2.99 MB\n\nR E N D E R S 1 4000×2250 912 KB 2 4000×2250 6.45 MB 3 4000×2250 3.72 MB 4 4000×2250 3.26 MB 5 4000×2250 3.48 MB 6 4000×2250 6.89 MB 7 4000×2250 6.1 MB 8 4000×2250 2.85 MB 9 4000×2250 2.94 MB 10 4000×2250 4.79 MB Illapa-Climber-5 4000×2250 1.75 MB Illapa-Shooter-3 4000×2250 1.25 MB Illapa-Indexer-2 4000×2250 3.21 MB\n\n1 4000×2250 912 KB\n\n1 4000×2250 912 KB\n\n2 4000×2250 6.45 MB\n\n2 4000×2250 6.45 MB\n\n3 4000×2250 3.72 MB\n\n3 4000×2250 3.72 MB\n\n4 4000×2250 3.26 MB\n\n4 4000×2250 3.26 MB\n\n5 4000×2250 3.48 MB\n\n5 4000×2250 3.48 MB\n\n6 4000×2250 6.89 MB\n\n6 4000×2250 6.89 MB\n\n7 4000×2250 6.1 MB\n\n7 4000×2250 6.1 MB\n\n8 4000×2250 2.85 MB\n\n8 4000×2250 2.85 MB\n\n9 4000×2250 2.94 MB\n\n9 4000×2250 2.94 MB\n\n10 4000×2250 4.79 MB\n\n10 4000×2250 4.79 MB\n\nIllapa-Climber-5 4000×2250 1.75 MB\n\nIllapa-Climber-5 4000×2250 1.75 MB\n\nIllapa-Shooter-3 4000×2250 1.25 MB\n\nIllapa-Shooter-3 4000×2250 1.25 MB\n\nIllapa-Indexer-2 4000×2250 3.21 MB\n\nIllapa-Indexer-2 4000×2250 3.21 MB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-18T10:44:56.009Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 83,
+                    "reads": 361,
+                    "readers_count": 360,
+                    "score": 1207.2,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Harper Elizabeth Nalley",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://workbench.grabcad.com/workbench/projects/gcbxCqzQGYARMdsxFWiM5URJsm9heNENHMwA19q91C90g8#/space/gcYn2CwUMlhgI7XgvVIj5XYfxg9Vy1guvB3_9WgWb5QVMW",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 38
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/3d-printed-lazy-susan/383049",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "3D Printed Lazy Susan",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://www.vexrobotics.com/traction-wheels.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Traction Wheels & Tread - VEX Robotics",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/1/51f675809bb6d177005fba22681bcd94a3c9e9e8.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/b/3ba3a87615f3f8d1e76959ce6a2e654578ee4e38.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/e/be2bb1a41d72700e7afaae007c75e9dde819d45d.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/1/013673d7b7cac51c93dee6268a7d611b170c5dae.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/a/0af4510c1054d58d8634b4ed59d8f2bf0de70538.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/6/e66db444bad7f0c96294f7deed0fc2eee94a70f0.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/2/32726cfdf2ae954fca555102fc09187dc89a37f7.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/c/0c3af571209365badede14d8cb4fa1be2bd3e9c1.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/7/67abb48045866af482e8593b8199a7d44499755a.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/d/1dc575ee76f9b8226206e11a2f5f9881df8dc502.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/4/c4b882119027124874504b1d7d948e2745f92e61.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/a/bab5c93402c926e0368a44f86319468fe4ba5aaa.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/f/bfb819aae2b9e7f1d97834b7c1529a30d71763b6.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/a/1a9715e4670bd87716678cd20eef9db4f0f1ddd5.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/8/38148db1f7a893a6496152bf395887220787af73.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/d/6d526c0150f37c67a8ec8148af054b8cb651ec35.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/6/f643900e7d46120be2ea855811d447f4352b5974.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-11-1144/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Servo Power Module - REV Robotics",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/8/78c217767f098664dc6487b63519f2806361ffdd.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/d/7de1d5c4a0dea8bd88ddd8f11d75c2a57efa6f24.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/a/5a817963ef60b29a82b8c8a1c174da7755420950.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/2/b24da82357041c9b5cd7b1ecd120eea86a0962e1.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/3/d3ea9f9628f47145b4a8ea6c00eaba97377cc55e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/3/334dd8e0ee12f99b4232c6e7aa2921471f81a2cf.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/9/797da63c0b8e0fd4a60b3d40216f7e9689b6fae4.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/e/4e7ad56aaa93b102f0446bf835ac94a3df2a645f.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/d/bd724a7525570101e719f8316eff2153dce7716a.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/b/4bfc745ad3e6530bc0b54bc651b8e39016c31e78.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/1/a156260583c67505fc52d86605e71513eff9b439.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/5/c58f42d669bca548e8f7d18c6f7239c32c4dbb11.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/d/1d99e10c88121baec7e30647fbbe1e2ceff111cb.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/d/bdf86d6d85ec4bacf27c67100ac6f4ea7c5f978a.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/9/399c6bfd3f149fce881e7322b77834ea5807f776.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/9/591752b074e02e0aef254b44c348ae5c25748222.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/4/348de69ef82470078a6f364ad02de3bcbf6bc4be.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/6/36b8efeb29cc970679ebd3bd39b2d9c5fd9eb968.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 46
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46757,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "CAD & Design Lead"
+                    },
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/1",
+                    "custom_user_title": "CAD & Design Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 46
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 46,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2965588,
+                    "name": "Rod",
+                    "username": "Weldingrod1",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "created_at": "2021-08-18T14:21:57.650Z",
+                    "cooked": "That is an amazing amount of work and a beautiful model!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-18T14:21:57.650Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 248,
+                    "readers_count": 247,
+                    "score": 104.6,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Rod",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 46443,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/2",
+                    "custom_user_title": "Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2965608,
+                    "name": "Andy Baker",
+                    "username": "Andy_Baker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/andy_baker/{size}/66341_2.png",
+                    "created_at": "2021-08-18T16:24:45.641Z",
+                    "cooked": "Wow! This is an excellent piece of work, Harper. This CAD can be a cornerstone of an impressive portfolio. I’ve not seen too many complete models with pneumatic tubes included. To me, many of the CAD pics are art.\n\nAndy B.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-18T16:24:45.641Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 236,
+                    "readers_count": 235,
+                    "score": 392.2,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Andy Baker",
+                    "primary_group_name": "AndyMark",
+                    "flair_name": "AndyMark",
+                    "flair_url": "/uploads/default/original/3X/7/2/72db24f824a25ae17c6413b3d02a345e47f060a9.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 59,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 18
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17,
+                    "hidden": false,
+                    "trust_level": 3,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 18
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 18,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2965640,
+                    "name": "Chadfrom7226",
+                    "username": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "created_at": "2021-08-18T20:25:00.687Z",
+                    "cooked": "Wow… I’m completely jealous of your CAD skill",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-18T20:25:00.687Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 194,
+                    "readers_count": 193,
+                    "score": 73.8,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Chadfrom7226",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20021,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2965656,
+                    "name": "Ian McTavish",
+                    "username": "Ian_McTavish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/b5a626/{size}.png",
+                    "created_at": "2021-08-18T21:54:07.382Z",
+                    "cooked": "Kudos. You did a fantastic job on this design and I appreciate all your explanations. Please keep sharing!",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-18T21:54:07.382Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 178,
+                    "readers_count": 177,
+                    "score": 55.6,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Ian McTavish",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17356,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/5",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 2965676,
+                    "name": "Mark Ghebrial",
+                    "username": "MarkGhebrial",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/markghebrial/{size}/154083_2.png",
+                    "created_at": "2021-08-19T01:46:24.585Z",
+                    "cooked": "This robot needs to be built irl",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 7,
+                    "updated_at": "2021-08-19T01:46:24.585Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 159,
+                    "readers_count": 158,
+                    "score": 66.8,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "Mark Ghebrial",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48253,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Alumnus of Team 3309, the Friarbots"
+                    },
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/6",
+                    "custom_user_title": "Alumnus of Team 3309, the Friarbots",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3077823,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-08-19T01:46:33.196Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 7,
+                    "post_type": 3,
+                    "posts_count": 7,
+                    "updated_at": "2022-08-19T01:46:33.196Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 8,
+                    "readers_count": 7,
+                    "score": 16.6,
+                    "yours": false,
+                    "topic_id": 395609,
+                    "topic_slug": "personal-design-2020-robot-illapa",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/personal-design-2020-robot-illapa/395609/7",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2965573,
+                2965588,
+                2965608,
+                2965640,
+                2965656,
+                2965676,
+                3077823
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1516
+            ],
+            [
+                4,
+                1515
+            ],
+            [
+                7,
+                1150
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Fusion 360 CAD Workshop",
+                "id": 502668,
+                "title": "Fusion 360 CAD Workshop",
+                "slug": "fusion-360-cad-workshop",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-06-01T15:18:10.266Z",
+                "last_posted_at": "2025-06-04T01:26:46.129Z",
+                "bumped": true,
+                "bumped_at": "2025-06-04T01:26:46.129Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello Chief Delphi, Our CAD mentor, Keith, has spent a lot of hours putting together a workshop to teach Fusion 360. Originally, he delivered the workshop in person but has re-recorded it with the ai…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 233,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3642225,
+                "topic_post_liked": false,
+                "topic_post_like_count": 9,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63309,
+                    "username": "EMU4729",
+                    "name": "EMU Robotics - Team 4729",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/emu4729/{size}/211002_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63309,
+                            "username": "EMU4729",
+                            "name": "EMU Robotics - Team 4729",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/emu4729/{size}/211002_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 75868,
+                            "username": "TomT",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tomt/{size}/263451_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "FRC 2137 - 2024 Robot Treble CAD Release",
+                "id": 477692,
+                "title": "FRC 2137 - 2024 Robot Treble CAD Release",
+                "slug": "frc-2137-2024-robot-treble-cad-release",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2024-12-30T20:20:53.141Z",
+                "last_posted_at": "2024-12-30T20:20:53.196Z",
+                "bumped": true,
+                "bumped_at": "2024-12-30T20:20:53.196Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "On behalf of TEAM 2137 - The Oxford RoboCats - here is the link to our 2024 robot …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 138,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465402,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 41781,
+                    "username": "Ian2137",
+                    "name": "Ian Houston",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 41781,
+                            "username": "Ian2137",
+                            "name": "Ian Houston",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/e19b73/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "FRCDesign.org - Preseason Updates",
+                "id": 474976,
+                "title": "FRCDesign.org - Preseason Updates",
+                "slug": "frcdesign-org-preseason-updates",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-11-15T21:18:14.100Z",
+                "last_posted_at": "2024-12-17T06:50:20.275Z",
+                "bumped": true,
+                "bumped_at": "2024-12-17T06:50:20.275Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "New Website Updates! It’s been a while since our last update, but we’ve been working hard with updates to improve several aspects of the website. “Focusing on Improvement” Page An important part of l…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 116,
+                "views": 1347,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3448125,
+                "topic_post_liked": false,
+                "topic_post_like_count": 72,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 43066,
+                    "username": "howlongismyname",
+                    "name": "david",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/howlongismyname/{size}/134767_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 43066,
+                            "username": "howlongismyname",
+                            "name": "david",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/howlongismyname/{size}/134767_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64034,
+                            "username": "Bailey8546",
+                            "name": "Bailey Coulter",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bailey8546/{size}/216649_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26721,
+                            "username": "juju_beans",
+                            "name": "Jonathan Mi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/juju_beans/{size}/8698_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61767,
+                            "username": "Curtis",
+                            "name": "Curtis Lim",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/curtis/{size}/228679_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Hii we want to add to the the next dis system that will remove alge someone have system that can remove alge that can be build in 5 dayes",
+                "id": 493962,
+                "title": "Hii we want to add to the the next dis system that will remove alge someone have system that can remove alge that can be build in 5 dayes",
+                "slug": "hii-we-want-to-add-to-the-the-next-dis-system-that-will-remove-alge-someone-have-system-that-can-remove-alge-that-can-be-build-in-5-dayes",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-03-03T06:52:43.110Z",
+                "last_posted_at": "2025-03-03T13:53:33.739Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T13:53:33.739Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "hii we want to add to the the next dis system that will remove alge someone have system that can remove alge that can be build in 5 dayes",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 419,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3545616,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67048,
+                    "username": "yorai2212",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/y/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67048,
+                            "username": "yorai2212",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/y/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4212,
+                            "username": "EricH",
+                            "name": "EricH",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66582,
+                            "username": "EEMAN",
+                            "name": "Elliott Kaye",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eeman/{size}/243839_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2010-2015 Field CAD",
+                "id": 502833,
+                "title": "2010-2015 Field CAD",
+                "slug": "2010-2015-field-cad",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-06-05T06:10:49.846Z",
+                "last_posted_at": "2025-06-05T07:54:07.989Z",
+                "bumped": true,
+                "bumped_at": "2025-06-05T07:54:07.989Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Does anybody have any of the field CAD models from 2010-2015? I have been able to find 2014 here but my search for the rest of these has come up completely dry aside from dead links. As far as I can t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 298,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3646330,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57479,
+                    "username": "CooperSurma",
+                    "name": "Cooper Surma",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/coopersurma/{size}/232004_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57479,
+                            "username": "CooperSurma",
+                            "name": "Cooper Surma",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/coopersurma/{size}/232004_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26026,
+                            "username": "rstockton429",
+                            "name": "Ryan Stockton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rstockton429/{size}/179783_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "2020",
+            "cadrelease"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Personal Design 2020 Robot - Illapa",
+        "id": 395609,
+        "title": "Personal Design 2020 Robot - Illapa",
+        "posts_count": 7,
+        "created_at": "2021-08-18T10:33:09.481Z",
+        "views": 1666,
+        "reply_count": 0,
+        "like_count": 72,
+        "last_posted_at": "2022-08-19T01:46:33.196Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "personal-design-2020-robot-illapa",
+        "category_id": 68,
+        "word_count": 1780,
+        "deleted_at": null,
+        "user_id": 46757,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/1/51f675809bb6d177005fba22681bcd94a3c9e9e8_2_1024x576.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_395609",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 7,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 6,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 4000,
+                "height": 2250,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/1/51f675809bb6d177005fba22681bcd94a3c9e9e8.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 576,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/1/51f675809bb6d177005fba22681bcd94a3c9e9e8_2_1024x576.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": "/uploads/default/original/3X/5/1/51f675809bb6d177005fba22681bcd94a3c9e9e8.png",
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 17,
+                    "username": "Andy_Baker",
+                    "name": "Andy Baker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/andy_baker/{size}/66341_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "AndyMark",
+                    "flair_name": "AndyMark",
+                    "flair_url": "/uploads/default/original/3X/7/2/72db24f824a25ae17c6413b3d02a345e47f060a9.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 59,
+                    "trust_level": 3
+                },
+                {
+                    "id": 17356,
+                    "username": "Ian_McTavish",
+                    "name": "Ian McTavish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/b5a626/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 20021,
+                    "username": "Chadfrom7226",
+                    "name": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 46757,
+                    "username": "Harper.Nalley.4915",
+                    "name": "Harper Elizabeth Nalley",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/harper.nalley.4915/{size}/145349_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48253,
+                    "username": "MarkGhebrial",
+                    "name": "Mark Ghebrial",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/markghebrial/{size}/154083_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 46757,
+                "username": "Harper.Nalley.4915",
+                "name": "Harper Elizabeth Nalley",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/harper.nalley.4915/{size}/145349_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://workbench.grabcad.com/workbench/projects/gcbxCqzQGYARMdsxFWiM5URJsm9heNENHMwA19q91C90g8#/space/gcYn2CwUMlhgI7XgvVIj5XYfxg9Vy1guvB3_9WgWb5QVMW",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 38,
+                    "user_id": 46757,
+                    "domain": "workbench.grabcad.com",
+                    "root_domain": "grabcad.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/3d-printed-lazy-susan/383049",
+                    "title": "3D Printed Lazy Susan",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 46757,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.vexrobotics.com/traction-wheels.html",
+                    "title": "Traction Wheels & Tread - VEX Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 46757,
+                    "domain": "www.vexrobotics.com",
+                    "root_domain": "vexrobotics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

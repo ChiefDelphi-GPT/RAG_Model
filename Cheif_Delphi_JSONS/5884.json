@@ -1,0 +1,858 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3440790,
+                    "name": "Noam Amar",
+                    "username": "NoamAmar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/43a26b/{size}.png",
+                    "created_at": "2024-10-28T17:43:36.272Z",
+                    "cooked": "The goal here is to have a predictive model to check the “health” of subsystems by analyzing logs. this will potentially help with checking for mechanical problems more efficiently.\n\nusing pytorch I train an mlp (multi layer perceptron) on features such as system velocity, system position, and supply voltage, with an output (label) of acceleration of the system for example. with this we can compare the real acceleration and prediction, and tell weather or not the system is ok.\n\nI made it so you can choose the input and output variables to analyze from the wpilogs given, and can also choose the layer sizes of the model.\n\nScreenshot 2024-10-28 at 2.59.14 PM 804×872 59.8 KB\n\nScreenshot 2024-10-28 at 2.59.14 PM 804×872 59.8 KB\n\nScreenshot 2024-10-28 at 2.59.14 PM 804×872 59.8 KB\n\nby clicking calculate we train the model\n\nScreenshot 2024-10-28 at 3.04.37 PM 1618×1260 484 KB\n\nScreenshot 2024-10-28 at 3.04.37 PM 1618×1260 484 KB\n\nScreenshot 2024-10-28 at 3.04.37 PM 1618×1260 484 KB\n\nthen we can test any wpilogs from the toTest folder\n\ntest outcomes: “healthy system”: R^2 Score: 0.7926 “broken system (by limiting supply current to quite low)”: R^2 Score: -0.5637 “even more broken (limiting supply current more)”: R^2 Score: -0.8172\n\nIm interested to see if anyone has ideas for this and to hear thoughts\n\nGitLab.com\n\nyou will need to manuallu put wpi logs into the corrent folders for now",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-10-28T17:43:36.272Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 114,
+                    "readers_count": 113,
+                    "score": 67.8,
+                    "yours": false,
+                    "topic_id": 473908,
+                    "topic_slug": "experimental-subsystem-health-checker-mlp",
+                    "display_username": "Noam Amar",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://gitlab.com/Noammr/anomaliz",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Noam Amar / anomaliz · GitLab",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 61206,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/experimental-subsystem-health-checker-mlp/473908/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3440812,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2024-10-28T18:35:11.157Z",
+                    "cooked": "I have no idea if I’d actually use this, but I’m certainly intrigued!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-10-28T18:35:11.157Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 31.6,
+                    "yours": false,
+                    "topic_id": 473908,
+                    "topic_slug": "experimental-subsystem-health-checker-mlp",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/experimental-subsystem-health-checker-mlp/473908/2",
+                    "custom_user_title": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3440813,
+                    "name": "Andrew Schreiber",
+                    "username": "Andrew_Schreiber",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew_schreiber/{size}/209563_2.png",
+                    "created_at": "2024-10-28T18:38:28.354Z",
+                    "cooked": "NoamAmar:\n\nIm interested to see if anyone has ideas for this and to hear thoughts\n\nI’d recommend comparing it to something as simple as static threshold checking or by computing some sort running average and if you exceed it then alert.\n\nNot that this isn’t cool, but I always like the compare things to the simplest possible implementation.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-10-28T18:38:28.354Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 2,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 41.0,
+                    "yours": false,
+                    "topic_id": 473908,
+                    "topic_slug": "experimental-subsystem-health-checker-mlp",
+                    "display_username": "Andrew Schreiber",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 4297,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "I'm Retired"
+                    },
+                    "post_url": "/t/experimental-subsystem-health-checker-mlp/473908/3",
+                    "custom_user_title": "I'm Retired",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3440790,
+                3440812,
+                3440813
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                348
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Limelight IP Problem",
+                "id": 503383,
+                "title": "Limelight IP Problem",
+                "slug": "limelight-ip-problem",
+                "posts_count": 4,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/2/f/e/2febab36279fd5650b26f9239dee9f6f8657601d_2_1024x548.png",
+                "created_at": "2025-06-19T18:18:05.889Z",
+                "last_posted_at": "2025-08-05T01:07:51.122Z",
+                "bumped": true,
+                "bumped_at": "2025-08-05T01:07:51.122Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I connected everything without any problems, there is no problem with pdh roborio etc. but I am getting such a warning in limelight hardware manager, what could be the reason? Because of this, …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 234,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3658073,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 76171,
+                    "username": "drk_yilmaz",
+                    "name": "Doruk Yılmaz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/7ba0ec/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 76171,
+                            "username": "drk_yilmaz",
+                            "name": "Doruk Yılmaz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/7ba0ec/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to set conversion factor from rotor angular position/velocity to wheel tangential linear position/velocity for TalonFX",
+                "id": 477360,
+                "title": "How to set conversion factor from rotor angular position/velocity to wheel tangential linear position/velocity for TalonFX",
+                "slug": "how-to-set-conversion-factor-from-rotor-angular-position-velocity-to-wheel-tangential-linear-position-velocity-for-talonfx",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-26T15:16:35.911Z",
+                "last_posted_at": "2025-01-11T22:47:24.736Z",
+                "bumped": true,
+                "bumped_at": "2025-01-11T22:47:24.736Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I would like to have a conversion factor that I can use with the TalonFX such that I can convert the Angle/AngularVelocity objects into Distance/LinearVelocity objects to use for odometry. I’m not sur…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 253,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463585,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24613,
+                    "username": "viggy96",
+                    "name": "viggy96",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Old FRC Radio Configuration Utility",
+                "id": 481763,
+                "title": "Old FRC Radio Configuration Utility",
+                "slug": "old-frc-radio-configuration-utility",
+                "posts_count": 13,
+                "reply_count": 10,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-01-14T22:51:21.210Z",
+                "last_posted_at": "2025-02-03T22:25:35.449Z",
+                "bumped": true,
+                "bumped_at": "2025-02-03T22:25:35.449Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Good evening! We know that we must switch to the new radios this year. However, we would like to keep the old radios for our testing platforms instead of upgrading all the radios that we would need. …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 678,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3482696,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56026,
+                    "username": "Orange1",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/orange1/{size}/211432_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56026,
+                            "username": "Orange1",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/orange1/{size}/211432_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Odomtry with Limelight",
+                "id": 472861,
+                "title": "Odomtry with Limelight",
+                "slug": "odomtry-with-limelight",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-10-12T11:45:18.815Z",
+                "last_posted_at": "2024-10-12T12:11:18.264Z",
+                "bumped": true,
+                "bumped_at": "2024-10-12T12:11:18.264Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I know how use odometry with LL 3, but only for the ApriTag on Crescendo, but after the championship, my team designated a new challenge for construct a new robot, so on this challenge the AprilTag ha…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 219,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3433925,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62483,
+                    "username": "oGuizim",
+                    "name": "Guilherme",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/e9bcb4/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62483,
+                            "username": "oGuizim",
+                            "name": "Guilherme",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/e9bcb4/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Team 2910 Code Release 2025",
+                "id": 503697,
+                "title": "Team 2910 Code Release 2025",
+                "slug": "team-2910-code-release-2025",
+                "posts_count": 47,
+                "reply_count": 36,
+                "highest_post_number": 48,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/c/4/7/c4708c45a81ab3ba086db35f850ce2ff9a1c7dbc_2_768x1024.jpeg",
+                "created_at": "2025-06-27T18:47:29.691Z",
+                "last_posted_at": "2025-08-15T01:04:25.284Z",
+                "bumped": true,
+                "bumped_at": "2025-08-15T01:04:25.284Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Team 2910 is proud to release the code for our 2025 robot! Let us know if you have any questions.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 263,
+                "views": 5609,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3666647,
+                "topic_post_liked": false,
+                "topic_post_like_count": 80,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 52083,
+                    "username": "Sudhir",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sudhir/{size}/262534_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 52083,
+                            "username": "Sudhir",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sudhir/{size}/262534_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68308,
+                            "username": "Grumpy_Bud",
+                            "name": "Owen Tharp",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28019,
+                            "username": "s-neff",
+                            "name": "s-neff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55942,
+                            "username": "01101000_01101001",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/0/85e7bf/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Experimental Subsystem health checker mlp",
+        "id": 473908,
+        "title": "Experimental Subsystem health checker mlp",
+        "posts_count": 3,
+        "created_at": "2024-10-28T17:43:36.223Z",
+        "views": 161,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2024-10-28T18:38:28.354Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "experimental-subsystem-health-checker-mlp",
+        "category_id": 30,
+        "word_count": 300,
+        "deleted_at": null,
+        "user_id": 61206,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/3/5388a8c3130f8d147fc0c843e8674f31acf77759.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_473908",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 37538,
+            "execute_at": "2025-10-28T18:38:28.354Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 804,
+                "height": 872,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/3/5388a8c3130f8d147fc0c843e8674f31acf77759.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 4297,
+                    "username": "Andrew_Schreiber",
+                    "name": "Andrew Schreiber",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew_schreiber/{size}/209563_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 61206,
+                    "username": "NoamAmar",
+                    "name": "Noam Amar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/43a26b/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 61206,
+                "username": "NoamAmar",
+                "name": "Noam Amar",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/n/43a26b/{size}.png"
+            },
+            "last_poster": {
+                "id": 4297,
+                "username": "Andrew_Schreiber",
+                "name": "Andrew Schreiber",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew_schreiber/{size}/209563_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://gitlab.com/Noammr/anomaliz",
+                    "title": "Noam Amar / anomaliz · GitLab",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 61206,
+                    "domain": "gitlab.com",
+                    "root_domain": "gitlab.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

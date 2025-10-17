@@ -1,0 +1,769 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3532226,
+                    "name": null,
+                    "username": "7dblackhole",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/7dblackhole/{size}/200189_2.png",
+                    "created_at": "2025-02-19T01:25:46.519Z",
+                    "cooked": "Based on this code from Mechanical Advantage and this accompanying post, we have tried to implement trig-based pose estimation using the 3d distance supplied by limelight. Because only one tag is visible, megatag2 becomes increasingly ambiguous as we get further away from the tag, strafing to the left or right as we move straight back. While the distance of a solver retains accuracy, this strafing results in the straight-line displacement to fall short. Using the code below, we are able to match the megatag2 pose while removing the ambiguous perpendicular drift. Negating the tync value* in the first Rotation3d allows us to also gain the correct offset to compensate for the parallel distance (ex. We are 0.18m off with a 4m displacement, negating tync gives us an 0.18m offset). However, this offset is toward the tag instead of away from it, resulting in twice the positional error instead of removing it. Our main problem is that after double and triple checking all of our robot to camera offsets, altering every piece of the math in every way we can think of, and checking all of the robot to camera offsets again, the offset is either zero (when tync is multiplied by -1), the correct value in the wrong direction (when tync is multiplied by 1), or some value in between (when any other multiple is applied). Because ty is an angle, with the two poles of the circle defined by the translation it rotates seemingly lying on 0 and the offset in the incorrect direction, there seems to be no good way to move the offset in the right direction.\n\n*making it positive (it’s already negative)\n\nhttps://github.com/Team4028/2025-Reefscape/blob/alpha/src/main/java/frc/robot/subsystems/limelight/Limelight.java#L116-L136\n\nHere is a video of AdvantageScope 3d field demonstrating the skew we are experiencing and the offset of tync being positive which compensates in the wrong direction edit.mp4 - Google Drive Solid Robot is Odometry/Pose Estimator (updated by trig pose with {0.1, 0.1} xy devs) Purple Ghost is trig pose Yellow Ghost is megatag2\n\nSolid Robot is Odometry/Pose Estimator (updated by trig pose with {0.1, 0.1} xy devs)\n\nPurple Ghost is trig pose\n\nYellow Ghost is megatag2\n\nWe are using a single limelight 4 with a helio accelerator (which HAS improved our performance) and a pristine-condition tag id 7 at the correct height we are using the imu in mode 1 to seed and mode 2 during enabled teleop. We are setting the mode periodically as recommended and it works correctly\n\nwe are using the imu in mode 1 to seed and mode 2 during enabled teleop. We are setting the mode periodically as recommended and it works correctly\n\nWe are using AdvantageKit with Mechanical Advantage’s swerve template for TalonFX swerve and TunerConstants from Phoenix Tuner X’s swerve generator, we have characterized the drivetrain",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 1,
+                    "updated_at": "2025-02-19T01:25:46.519Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 20,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 144.0,
+                    "yours": false,
+                    "topic_id": 492262,
+                    "topic_slug": "problems-with-limelight-trig-based-solver-fed-pose-estimation",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/RobotCode2025Public/blob/main/src/main/java/org/littletonrobotics/frc2025/RobotState.java#L183-L249",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "RobotCode2025Public/src/main/java/org/littletonrobotics/frc2025/RobotState.java at main · Mechanical-Advantage/RobotCode2025Public · GitHub",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://drive.google.com/file/d/1E3JyyWOxbqfUTvMjWu2mfTtzv6bvpBfP/view?usp=sharing",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "edit.mp4 - Google Drive",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2025-build-thread/477314/85",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "FRC 6328 Mechanical Advantage 2025 Build Thread",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/Team4028/2025-Reefscape/blob/alpha/src/main/java/frc/robot/subsystems/limelight/Limelight.java#L116-L136",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "The 7th spacial dimension "
+                    },
+                    "post_url": "/t/problems-with-limelight-trig-based-solver-fed-pose-estimation/492262/1",
+                    "custom_user_title": "The 7th spacial dimension ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                }
+            ],
+            "stream": [
+                3532226
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                235
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Java Swerve Code Help/Assistance",
+                "id": 484441,
+                "title": "Java Swerve Code Help/Assistance",
+                "slug": "java-swerve-code-help-assistance",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-31T06:06:38.685Z",
+                "last_posted_at": "2025-01-31T15:47:51.385Z",
+                "bumped": true,
+                "bumped_at": "2025-01-31T15:47:51.385Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m looking for some help with writing new robot code for the 2025 season. If theres any way for someone to at least give us a starting point, that would be great. Spark Flex motor co…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3497633,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 72002,
+                    "username": "crose958",
+                    "name": "Christian",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/b4bc9f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 72002,
+                            "username": "crose958",
+                            "name": "Christian",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/b4bc9f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SocketCAN CTRE CAN FD Settings?",
+                "id": 474353,
+                "title": "SocketCAN CTRE CAN FD Settings?",
+                "slug": "socketcan-ctre-can-fd-settings",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-11-05T05:07:30.793Z",
+                "last_posted_at": "2024-11-05T20:40:40.867Z",
+                "bumped": true,
+                "bumped_at": "2024-11-05T20:40:40.867Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What are all of the socketCAN settings required to communicate with CTRE CAN FD devices? We are using a waveshare 2 channel CAN FD hat and we are unable to read CAN FD frames from any device on the b…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 488,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3443808,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 33098,
+                    "username": "crh_redbird1",
+                    "name": "Cole Hunt",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crh_redbird1/{size}/237120_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 33098,
+                            "username": "crh_redbird1",
+                            "name": "Cole Hunt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crh_redbird1/{size}/237120_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39370,
+                            "username": "Vasista",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/ccd318/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28666,
+                            "username": "Coalman321",
+                            "name": "Coalman321",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/b4bc9f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 17085,
+                            "username": "James_Kuszmaul",
+                            "name": "James Kuszmaul",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driver station joysticks only appear for 1 windows user",
+                "id": 475402,
+                "title": "Driver station joysticks only appear for 1 windows user",
+                "slug": "driver-station-joysticks-only-appear-for-1-windows-user",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-11-22T01:25:36.046Z",
+                "last_posted_at": "2024-11-25T10:47:16.373Z",
+                "bumped": true,
+                "bumped_at": "2024-11-25T10:47:16.373Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have several shared laptops for our programmers and each programmer has their own local windows account on one of the computers. This helps prevent people from modifying other’s code, making admini…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 136,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3450652,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 28614,
+                    "username": "legoguy1000",
+                    "name": "Alex",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve troubles",
+                "id": 483227,
+                "title": "Swerve troubles",
+                "slug": "swerve-troubles",
+                "posts_count": 28,
+                "reply_count": 23,
+                "highest_post_number": 29,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/7/d/7de9fe186d197ac5f96e4232f1beaa3efbbaf27f_2_1024x576.gif",
+                "created_at": "2025-01-23T16:51:34.230Z",
+                "last_posted_at": "2025-01-30T16:57:58.466Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T16:57:58.466Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I’m a new programmer in FRC, and I created my first swerve (maxSwerve) code with YAGSL example. I have some troubles with rotating. I checked encoders with REV Hardware Client physically, and w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 517,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490765,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69420,
+                    "username": "chereshenka",
+                    "name": "Angelina",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chereshenka/{size}/264148_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69420,
+                            "username": "chereshenka",
+                            "name": "Angelina",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chereshenka/{size}/264148_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19820,
+                            "username": "ArchdukeTim",
+                            "name": "Tim Winters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 23008,
+                            "username": "ErikSLee",
+                            "name": "ErikSLee",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erikslee/{size}/157434_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What&rsquo;s the point of using Limelight 3G anymore?",
+                "id": 491996,
+                "title": "What's the point of using Limelight 3G anymore?",
+                "slug": "whats-the-point-of-using-limelight-3g-anymore",
+                "posts_count": 6,
+                "reply_count": 0,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-17T03:28:57.101Z",
+                "last_posted_at": "2025-02-17T17:18:44.003Z",
+                "bumped": true,
+                "bumped_at": "2025-02-17T17:18:44.003Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As the title suggests, why would teams still opt for the Limelight 3G (aside from financial reasons) when newer and more capable alternatives exist? The following reason I’m saying this is …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 772,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529623,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61815,
+                    "username": "Mohammed",
+                    "name": "Mohammed",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61815,
+                            "username": "Mohammed",
+                            "name": "Mohammed",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25373,
+                            "username": "Lexeo",
+                            "name": "Lexeo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56643,
+                            "username": "aveeser",
+                            "name": "4391 Programming Mentor",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/3da27b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68926,
+                            "username": "lodgednickel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lodgednickel/{size}/238849_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 33850,
+                            "username": "mjansen4857",
+                            "name": "Michael Jansen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mjansen4857/{size}/201972_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "programming",
+            "limelight",
+            "vision"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Problems with limelight trig based solver-fed pose estimation",
+        "id": 492262,
+        "title": "Problems with limelight trig based solver-fed pose estimation",
+        "posts_count": 1,
+        "created_at": "2025-02-19T01:25:46.461Z",
+        "views": 162,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-02-19T01:25:46.519Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "problems-with-limelight-trig-based-solver-fed-pose-estimation",
+        "category_id": 30,
+        "word_count": 585,
+        "deleted_at": null,
+        "user_id": 60594,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_492262",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 1,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44227,
+            "execute_at": "2026-02-19T01:25:46.519Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 60594,
+                    "username": "7dblackhole",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/7dblackhole/{size}/200189_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 60594,
+                "username": "7dblackhole",
+                "name": null,
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/7dblackhole/{size}/200189_2.png"
+            },
+            "last_poster": {
+                "id": 60594,
+                "username": "7dblackhole",
+                "name": null,
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/7dblackhole/{size}/200189_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Mechanical-Advantage/RobotCode2025Public/blob/main/src/main/java/org/littletonrobotics/frc2025/RobotState.java#L183-L249",
+                    "title": "RobotCode2025Public/src/main/java/org/littletonrobotics/frc2025/RobotState.java at main · Mechanical-Advantage/RobotCode2025Public · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 60594,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://drive.google.com/file/d/1E3JyyWOxbqfUTvMjWu2mfTtzv6bvpBfP/view?usp=sharing",
+                    "title": "edit.mp4 - Google Drive",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 60594,
+                    "domain": "drive.google.com",
+                    "root_domain": "google.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2025-build-thread/477314/85",
+                    "title": "FRC 6328 Mechanical Advantage 2025 Build Thread",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 60594,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/Team4028/2025-Reefscape/blob/alpha/src/main/java/frc/robot/subsystems/limelight/Limelight.java#L116-L136",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 60594,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

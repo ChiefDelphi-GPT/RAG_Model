@@ -1,0 +1,705 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3441399,
+                    "name": "",
+                    "username": "KfirNeuman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                    "created_at": "2024-10-29T21:49:36.083Z",
+                    "cooked": "Hi, I was looking into simulating elevator subsystems via the ElevatorSim class. Looking into it seems that the class is only able to simulate vertical subsystems as it assumes that the acceleration from gravity is always 9.8.\n\nif (m_simulateGravity) { xdot = xdot.plus(VecBuilder.fill(0, -9.8)); }\n\nMy first thought for fixing this is to multiply 9.8 by the cosine of the elevators angle to figure out the real acceleration of the system. Would this work?\n\nif (m_simulateGravity) { xdot = xdot.plus(VecBuilder.fill(0, -9.8 * Math.cos(elevatorAngleRads))); }",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2024-10-29T21:49:46.144Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 13,
+                    "reads": 225,
+                    "readers_count": 224,
+                    "score": 125.0,
+                    "yours": false,
+                    "topic_id": 474000,
+                    "topic_slug": "simulating-elevator-at-an-angle",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62573,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3075 Code Lead"
+                    },
+                    "post_url": "/t/simulating-elevator-at-an-angle/474000/1",
+                    "custom_user_title": "3075 Code Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3441406,
+                    "name": "Anand Rajamani",
+                    "username": "asid61",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "created_at": "2024-10-29T22:12:58.038Z",
+                    "cooked": "I can’t think of a reason why that wouldn’t work, but I’m not too familiar with the rest of the sim classes. Multiplying by cosine of angle is the same way that arm kG works.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2024-10-29T22:13:42.728Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 197,
+                    "readers_count": 196,
+                    "score": 54.4,
+                    "yours": false,
+                    "topic_id": 474000,
+                    "topic_slug": "simulating-elevator-at-an-angle",
+                    "display_username": "Anand Rajamani",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 21715,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/simulating-elevator-at-an-angle/474000/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3441399,
+                3441406
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                347
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Sparkmax soft limit messes with motor speed",
+                "id": 474395,
+                "title": "Sparkmax soft limit messes with motor speed",
+                "slug": "sparkmax-soft-limit-messes-with-motor-speed",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2024-11-05T23:26:53.794Z",
+                "last_posted_at": "2024-11-05T23:26:53.840Z",
+                "bumped": true,
+                "bumped_at": "2024-11-05T23:26:53.840Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am newish to programming and I am working on old code base. I wanted to implement some soft limits. They have code to do it but it was disabled when I first looked at it. I have stripped the code to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 95,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444096,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65569,
+                    "username": "Billy.P",
+                    "name": "Billy",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/9fc29f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 65569,
+                            "username": "Billy.P",
+                            "name": "Billy",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/9fc29f/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to compensate for pose latency?",
+                "id": 476127,
+                "title": "How to compensate for pose latency?",
+                "slug": "how-to-compensate-for-pose-latency",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2024-12-05T21:19:06.512Z",
+                "last_posted_at": "2024-12-06T01:48:51.808Z",
+                "bumped": true,
+                "bumped_at": "2024-12-06T01:48:51.808Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "A much simpler approach would be to subtract the chassis velocity from the current pose. // Assume there is a 50 ms latency final double cameraAverageLatencySeconds = 50.0 / 1000.0; // Obtain robot…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "vision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 267,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455533,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using sysID to tune arm",
+                "id": 481116,
+                "title": "Using sysID to tune arm",
+                "slug": "using-sysid-to-tune-arm",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-12T03:47:25.124Z",
+                "last_posted_at": "2025-01-13T01:17:20.697Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T01:17:20.697Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! me and my team are trying out sysID this year in hopes of achieving more accurate feed forward values when tuning our arm. Prior to this we just applied a voltage until it overcame gravity to …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 423,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479723,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 49222,
+                    "username": "Upcoming",
+                    "name": "Johnathon",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/u/a5b964/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49222,
+                            "username": "Upcoming",
+                            "name": "Johnathon",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/u/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE Swerve generator or our own code?",
+                "id": 474872,
+                "title": "CTRE Swerve generator or our own code?",
+                "slug": "ctre-swerve-generator-or-our-own-code",
+                "posts_count": 14,
+                "reply_count": 8,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-11-14T14:29:55.778Z",
+                "last_posted_at": "2025-04-30T02:39:15.982Z",
+                "bumped": true,
+                "bumped_at": "2025-04-30T02:39:15.982Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Recently my team got a bunch of new CTRE products and we are faced with the options of writing our own code or using the swerve generator in phoenix tuner. What are the pros and cons of each and which…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 30,
+                "views": 787,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3447468,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64593,
+                    "username": "HiFregi",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hifregi/{size}/226382_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64593,
+                            "username": "HiFregi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hifregi/{size}/226382_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68768,
+                            "username": "shandel",
+                            "name": "Sean Handel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/shandel/{size}/235551_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60663,
+                            "username": "Geoffrey8814",
+                            "name": "Geoffrey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geoffrey8814/{size}/262430_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL problem",
+                "id": 483512,
+                "title": "YAGSL problem",
+                "slug": "yagsl-problem",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-01-25T13:05:08.956Z",
+                "last_posted_at": "2025-01-25T15:50:00.080Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T15:50:00.080Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, this year we are using mk4i L2 and neo engines, but when we rotate the robot around itself and move it forward, the robot slips. What could be the reason for this? Our robot does not have a pro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 124,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492290,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60651,
+                    "username": "enishangck",
+                    "name": "Enishan Eren Gücük ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60651,
+                            "username": "enishangck",
+                            "name": "Enishan Eren Gücük ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Simulating elevator at an angle",
+        "id": 474000,
+        "title": "Simulating elevator at an angle",
+        "posts_count": 2,
+        "created_at": "2024-10-29T21:49:36.034Z",
+        "views": 312,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2024-10-29T22:12:58.038Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "simulating-elevator-at-an-angle",
+        "category_id": 30,
+        "word_count": 129,
+        "deleted_at": null,
+        "user_id": 62573,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_474000",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 37558,
+            "execute_at": "2025-10-29T22:12:58.038Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 21715,
+                    "username": "asid61",
+                    "name": "Anand Rajamani",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62573,
+                    "username": "KfirNeuman",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 62573,
+                "username": "KfirNeuman",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png"
+            },
+            "last_poster": {
+                "id": 21715,
+                "username": "asid61",
+                "name": "Anand Rajamani",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

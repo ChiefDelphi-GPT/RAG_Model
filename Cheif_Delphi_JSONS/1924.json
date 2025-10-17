@@ -1,0 +1,1152 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3723268,
+                    "name": "William Babbitt",
+                    "username": "Wabbitt",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/e480ec/{size}.png",
+                    "created_at": "2025-08-25T22:11:00.572Z",
+                    "cooked": "I am a programming mentor for a team who is trying to refine their swerve code in the off season. They have ran swerve the last two years, the first year on time-based programming and then last year they switched to command-based. Both times they have written their swerve code from scratch, and although it has worked somewhat, there have been a lot of issues. They are now trying to rewrite last year’s bot using the WPI kinematics and odometry libraries.\n\nThey have this project/branch as a WIP and it seems close to working. As it stands now, the bot is able to translate (left-right, forward-backward) correctly with optimizations. However, when they try to spin the bot the wheels are out of sync.\n\nAll four wheels go to a 45 degree, but the front two wheels are spinning backwards. I am confused what could be causing this since we are not doing anything “special” for handing translation vs rotation swerve module states and it is functioning during translation. The fact that the wheels go to a 45 properly implies that the joystick feedback is being properly converted to inputs for the modules.\n\nIMG_4783 1920×1089 106 KB\n\nIMG_4783 1920×1089 106 KB\n\nIMG_4783 1920×1089 106 KB\n\nAny advice on how to approach debugging this?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-25T22:11:00.572Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 130,
+                    "readers_count": 129,
+                    "score": 101.0,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "William Babbitt",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Gearhounds/George-2025/tree/Swerve-Rewrite",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Gearhounds/George-2025 at Swerve-Rewrite",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 73613,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3723331,
+                    "name": "Justin Buist",
+                    "username": "Justin_Buist",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                    "created_at": "2025-08-25T23:00:57.836Z",
+                    "cooked": "For debugging I find AdvantageScope handy. There’s a module in there that will visualize your desired and measured rotation, speed, and direction for each swerve module. You have to pump the data out to NT to get it to read it, but once you’ve got it figured out I find it quite handy.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-25T23:00:57.836Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 113,
+                    "readers_count": 112,
+                    "score": 42.6,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "Justin Buist",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24678,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3723589,
+                    "name": "",
+                    "username": "mstatistics",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mstatistics/{size}/267172_2.png",
+                    "created_at": "2025-08-26T02:08:15.275Z",
+                    "cooked": "I agree that using Advantage Scope is likely the next step. Specifically, using this should help you with debugging. I would recommend using the code snippet on that page to see the commanded states and them another copy for the actual states, discovered from the encoders of the modules. If that doesn’t lead you to a solution, sending a log file or video would be helpful.\n\nI looked at your code in simulation, and all swerve states looks to be applied correctly to me. I might have seen the issue once, but i couldn’t reproduce it. I did have to mess with the controller a bit for it to work with my setup. Maybe add a deadband ? I use a deadband with normal gaming controller joysticks, not sure what you’re using.\n\nEverything looked correct using your getState() function in the swerve module. I didn’t have as much time as i would have liked to investigate the logic in each module, but it looked good in the subsystem.\n\nAfter this bug gets figured out, i would love to share some other tips to improve your codebase",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-26T02:08:15.275Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 96,
+                    "readers_count": 95,
+                    "score": 49.2,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.advantagescope.org/tab-reference/swerve",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "🦀 Swerve | AdvantageScope",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/MathUtil.html#applyDeadband(double,double)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "MathUtil (WPILib API 2025.3.2)",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62510,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5892 Programming Lead"
+                    },
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/3",
+                    "custom_user_title": "5892 Programming Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3723831,
+                    "name": "Curt Rozeboom",
+                    "username": "BlueEpiphone",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                    "created_at": "2025-08-26T14:58:20.131Z",
+                    "cooked": "Double-check that you zeroed your absolute encoders with all the wheels in the same orientation (usually bevel-gear to the left). Check that you get positive drive encoder output when you spin the wheels in the forward direction. Then check that you get positive absolute encoder output when rotating the modules left. Check the driving. Possible that you will need to invert your absolute encoder output. Looking at your two versions of the modules, in the New ones you don’t set any inversions (which is fine), but in the older one you hardcoded the absolute encoder inversions to true. This kind of procedure usually fixes this kind of behavior for me.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-26T14:58:20.131Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 58,
+                    "readers_count": 57,
+                    "score": 26.6,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "Curt Rozeboom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 32089,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5010 Programming Mentor"
+                    },
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/4",
+                    "custom_user_title": "5010 Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3723848,
+                    "name": "Skye Leake",
+                    "username": "Skyehawk",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "created_at": "2025-08-26T15:32:35.429Z",
+                    "cooked": "@Wabbitt\n\nDouble and triple check that the module IDs you have assigned are indeed on the correct physical corners of the robot. This is classic “front left module in code is acually front right on the frame“ (or something similar) behaviour.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-26T15:33:39.478Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 54,
+                    "readers_count": 53,
+                    "score": 45.8,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "Skye Leake",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 19235,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Pretengineer"
+                    },
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/5",
+                    "custom_user_title": "Pretengineer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3723867,
+                    "name": "David B",
+                    "username": "David_IsMe",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/david_isme/{size}/196853_2.png",
+                    "created_at": "2025-08-26T15:48:59.470Z",
+                    "cooked": "I have fallen victim of not knowing left from right too many times…",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-08-26T15:48:59.470Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 5,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 45,
+                    "readers_count": 44,
+                    "score": 39.0,
+                    "yours": false,
+                    "topic_id": 505670,
+                    "topic_slug": "swerve-running-half-backwards-when-rotating",
+                    "display_username": "David B",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 19235,
+                        "username": "Skyehawk",
+                        "name": "Skye Leake",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 39555,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "David, Mentor FRC 6004/4795"
+                    },
+                    "post_url": "/t/swerve-running-half-backwards-when-rotating/505670/6",
+                    "custom_user_title": "David, Mentor FRC 6004/4795",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3723268,
+                3723331,
+                3723589,
+                3723831,
+                3723848,
+                3723867
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                47
+            ],
+            [
+                4,
+                46
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "When is it appropriate to build a turret?",
+                "id": 504235,
+                "title": "When is it appropriate to build a turret?",
+                "slug": "when-is-it-appropriate-to-build-a-turret",
+                "posts_count": 58,
+                "reply_count": 37,
+                "highest_post_number": 63,
+                "image_url": null,
+                "created_at": "2025-07-14T13:52:00.441Z",
+                "last_posted_at": "2025-09-04T18:20:31.986Z",
+                "bumped": true,
+                "bumped_at": "2025-09-04T18:20:31.986Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone! Reefscape is my first season in FRC, and as I’ve been looking back at previous games—especially the shooting ones—I’ve always found turrets to be one of the most powerful and fascinating…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 314,
+                "views": 5306,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3681076,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 75842,
+                    "username": "PaulChen",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/paulchen/{size}/265038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 75842,
+                            "username": "PaulChen",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/paulchen/{size}/265038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Accepted Answer",
+                        "user": {
+                            "id": 71469,
+                            "username": "Ainesh",
+                            "name": "Ainesh Yarlagadda",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ainesh/{size}/266351_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52870,
+                            "username": "FinIce",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/finice/{size}/270519_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Time to apply voltage/duty cycle? Neo Vortex and Neo 1.1",
+                "id": 492810,
+                "title": "Time to apply voltage/duty cycle? Neo Vortex and Neo 1.1",
+                "slug": "time-to-apply-voltage-duty-cycle-neo-vortex-and-neo-1-1",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/6/46376e8fc6652bc4d4d8b78084b5a0fe83ed4eac.png",
+                "created_at": "2025-02-23T02:48:13.957Z",
+                "last_posted_at": "2025-02-23T05:19:03.835Z",
+                "bumped": true,
+                "bumped_at": "2025-02-23T05:19:03.835Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is running into what we believe is a significant issue, and so I am wondering if we simply have a misunderstanding of how motors work. The issue It is taking a relatively significant amount …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 143,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536908,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56141,
+                    "username": "tubularturtle8",
+                    "name": "Noah Simon",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56141,
+                            "username": "tubularturtle8",
+                            "name": "Noah Simon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57470,
+                            "username": "kn4",
+                            "name": "Kabir",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "FRC 6800 Valor 2024 Robot Flatline CAD Release",
+                "id": 477631,
+                "title": "FRC 6800 Valor 2024 Robot Flatline CAD Release",
+                "slug": "frc-6800-valor-2024-robot-flatline-cad-release",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-12-30T18:30:43.620Z",
+                "last_posted_at": "2025-01-03T23:08:26.967Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T23:08:26.967Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "On behalf of Valor 6800, here is the link to our 2024 robot, Flatline. This is the 3rd iteration of the robot that competed at the Texas state championship and Worlds. Version 3 of the robot was dire…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "2024",
+                    "onshape",
+                    "teamwcp"
+                ],
+                "tags_descriptions": {},
+                "like_count": 37,
+                "views": 858,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465294,
+                "topic_post_liked": false,
+                "topic_post_like_count": 29,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 12507,
+                    "username": "nik_olsen",
+                    "name": "Nik Olsen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nik_olsen/{size}/66190_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 12507,
+                            "username": "nik_olsen",
+                            "name": "Nik Olsen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nik_olsen/{size}/66190_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59182,
+                            "username": "TrevDay",
+                            "name": "Trevor Dayal (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trevday/{size}/268067_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65778,
+                            "username": "fruits_and_pebbles",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fruits_and_pebbles/{size}/251524_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Modules Jittering",
+                "id": 483617,
+                "title": "Swerve Modules Jittering",
+                "slug": "swerve-modules-jittering",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-25T20:45:54.250Z",
+                "last_posted_at": "2025-01-25T21:16:15.852Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T21:16:15.852Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Whenever I enable my swerve code, 2 of the modules will rotate some and then start jittering. It is specifically the front left and back right modules. I have already tried inverting them, and changin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 87,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492610,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60806,
+                    "username": "R_B",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60806,
+                            "username": "R_B",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 70574,
+                            "username": "Tatertotman",
+                            "name": "Tate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to use Signal Logger/SysID",
+                "id": 481069,
+                "title": "How to use Signal Logger/SysID",
+                "slug": "how-to-use-signal-logger-sysid",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-11T23:04:34.254Z",
+                "last_posted_at": "2025-01-12T02:51:19.004Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T02:51:19.004Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! This is the programming team for FRC team 9059 speaking. After building our swerve drive base and using Phoenix Tuner X’s swerve project generator, we are now trying to tune our PID gains. We…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 286,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479512,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56608,
+                    "username": "COLTech9059",
+                    "name": "COLTech Robotics",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/87869e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56608,
+                            "username": "COLTech9059",
+                            "name": "COLTech Robotics",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/87869e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Swerve running half backwards when rotating",
+        "id": 505670,
+        "title": "Swerve running half backwards when rotating",
+        "posts_count": 6,
+        "created_at": "2025-08-25T22:11:00.458Z",
+        "views": 216,
+        "reply_count": 1,
+        "like_count": 11,
+        "last_posted_at": "2025-08-26T15:48:59.470Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-running-half-backwards-when-rotating",
+        "category_id": 9,
+        "word_count": 655,
+        "deleted_at": null,
+        "user_id": 73613,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/b/3/d/b3d0dbd54d14372544644e4c40e9824ec019b034_2_1024x580.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_505670",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 48294,
+            "execute_at": "2026-08-26T15:48:59.470Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 6,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1920,
+                "height": 1089,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/4X/b/3/d/b3d0dbd54d14372544644e4c40e9824ec019b034.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 580,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/b/3/d/b3d0dbd54d14372544644e4c40e9824ec019b034_2_1024x580.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 19235,
+                    "username": "Skyehawk",
+                    "name": "Skye Leake",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 24678,
+                    "username": "Justin_Buist",
+                    "name": "Justin Buist",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 32089,
+                    "username": "BlueEpiphone",
+                    "name": "Curt Rozeboom",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 39555,
+                    "username": "David_IsMe",
+                    "name": "David B",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/david_isme/{size}/196853_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62510,
+                    "username": "mstatistics",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mstatistics/{size}/267172_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 73613,
+                    "username": "Wabbitt",
+                    "name": "William Babbitt",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/e480ec/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 73613,
+                "username": "Wabbitt",
+                "name": "William Babbitt",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/w/e480ec/{size}.png"
+            },
+            "last_poster": {
+                "id": 39555,
+                "username": "David_IsMe",
+                "name": "David B",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/david_isme/{size}/196853_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Gearhounds/George-2025/tree/Swerve-Rewrite",
+                    "title": "GitHub - Gearhounds/George-2025 at Swerve-Rewrite",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 73613,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://docs.advantagescope.org/tab-reference/swerve",
+                    "title": "🦀 Swerve | AdvantageScope",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 62510,
+                    "domain": "docs.advantagescope.org",
+                    "root_domain": "advantagescope.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

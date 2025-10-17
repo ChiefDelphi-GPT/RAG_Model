@@ -1,0 +1,1041 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3713115,
+                    "name": "Vincent Banks",
+                    "username": "v0ncent",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                    "created_at": "2025-08-13T19:46:09.678Z",
+                    "cooked": "I am running into an issue where we are infinitely boot looping due to running out of memory. we have two different stack traces that happen, one when the robot first runs when powered on, and then one that persists after the initial one: initial stack trace:\n\npersisting stack trace:\n\nI will say this started happening after we wired in two orange pi 5s and are running two arducams OV9281s on one, and a singular arducam OV9281 on the other.\n\nAll of our orange pis are running photonvision.\n\nWe can fix the error by commenting out the following vision subsystem lines:\n\n(can be found here: 2025RobotCode/src/main/java/frc/robot/RobotContainer.java at main · 7849-Davinci-s-Creation/2025RobotCode · GitHub )\n\nbut I will say, upon initializing a copy of another subsystem instead of our vision subsystem the error persisted like I was initializing the vision subsystem.\n\nwe attempted to add a swap file (32 gb micro sd card in usb sd card reader) but the error seems to persists but I am not sure if it was fully set up properly.\n\nI will provide our vision subsystem code to see if you can see any apparant memory leaks:\n\nI am a bit lost now so any ideas you have will be very helpful. Thank you!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-08-13T19:46:09.678Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 115,
+                    "readers_count": 114,
+                    "score": 53.0,
+                    "yours": false,
+                    "topic_id": 505259,
+                    "topic_slug": "running-out-of-memory-and-boot-looping",
+                    "display_username": "Vincent Banks",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/7849-Davinci-s-Creation/2025RobotCode/blob/main/src/main/java/frc/robot/RobotContainer.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2025RobotCode/src/main/java/frc/robot/RobotContainer.java at main · 7849-Davinci-s-Creation/2025RobotCode · GitHub",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56270,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/running-out-of-memory-and-boot-looping/505259/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3713116,
+                    "name": "Jim Sokoloff",
+                    "username": "sokoloff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                    "created_at": "2025-08-13T19:55:48.845Z",
+                    "cooked": "Rio 1 or 2?\n\nWe had memory issues end of last season and are just going to bite the bullet and buy the 2, even though it’s the last year for them.\n\nTurning off the webserver and following WPI guidance is indicated: Java Garbage Collection — FIRST Robotics Competition documentation",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-08-13T19:55:48.845Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 88,
+                    "readers_count": 87,
+                    "score": 52.6,
+                    "yours": false,
+                    "topic_id": 505259,
+                    "topic_slug": "running-out-of-memory-and-boot-looping",
+                    "display_username": "Jim Sokoloff",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/basic-programming/java-gc.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Java Garbage Collection — FIRST Robotics Competition documentation",
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 66298,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "97 Mentor"
+                    },
+                    "post_url": "/t/running-out-of-memory-and-boot-looping/505259/2",
+                    "custom_user_title": "97 Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3713117,
+                    "name": "Vincent Banks",
+                    "username": "v0ncent",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                    "created_at": "2025-08-13T19:56:14.379Z",
+                    "cooked": "we have the rio 1",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-08-13T19:56:14.379Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 22.4,
+                    "yours": false,
+                    "topic_id": 505259,
+                    "topic_slug": "running-out-of-memory-and-boot-looping",
+                    "display_username": "Vincent Banks",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 66298,
+                        "username": "sokoloff",
+                        "name": "Jim Sokoloff",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56270,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/running-out-of-memory-and-boot-looping/505259/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3713132,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2025-08-13T20:09:26.612Z",
+                    "cooked": "Yeah, a rio 1 (especially with advantagekit, heavy libraries, etc) is just not adequate anymore.  The options listed in the wpilib docs page linked above are generally just a bandaid, but are often enough to get things working for now.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-08-13T20:09:26.612Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 22.4,
+                    "yours": false,
+                    "topic_id": 505259,
+                    "topic_slug": "running-out-of-memory-and-boot-looping",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 56270,
+                        "username": "v0ncent",
+                        "name": "Vincent Banks",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/running-out-of-memory-and-boot-looping/505259/4",
+                    "custom_user_title": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3713136,
+                    "name": "Vincent Banks",
+                    "username": "v0ncent",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                    "created_at": "2025-08-13T20:10:04.320Z",
+                    "cooked": "disabling the webserver seems to have fixed our issue. Thank you all!",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-08-13T20:10:04.320Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 82,
+                    "readers_count": 81,
+                    "score": 36.4,
+                    "yours": false,
+                    "topic_id": 505259,
+                    "topic_slug": "running-out-of-memory-and-boot-looping",
+                    "display_username": "Vincent Banks",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 9105,
+                        "username": "Fletch1373",
+                        "name": "Fletch",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56270,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/running-out-of-memory-and-boot-looping/505259/5",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3713115,
+                3713116,
+                3713117,
+                3713132,
+                3713136
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                59
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "WPiLiib SimpleMotorFeedForward bug?",
+                "id": 474469,
+                "title": "WPiLiib SimpleMotorFeedForward bug?",
+                "slug": "wpiliib-simplemotorfeedforward-bug",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-11-07T06:06:33.211Z",
+                "last_posted_at": "2024-11-08T22:11:54.015Z",
+                "bumped": true,
+                "bumped_at": "2024-11-08T22:11:54.015Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you add a print statement in between the two lines, you’ll get the correct result for each one, instead of the same result for both. The reason for this is that SimpleMotorFeedForward keeps an int…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 347,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444599,
+                "topic_post_liked": false,
+                "topic_post_like_count": 7,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63979,
+                            "username": "the_local_panda",
+                            "name": "yair",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/8e8cbc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57809,
+                            "username": "levyishai",
+                            "name": "Yishai Levy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Drive PID Tuning and Encoder Values (aka HELP)",
+                "id": 476959,
+                "title": "Swerve Drive PID Tuning and Encoder Values (aka HELP)",
+                "slug": "swerve-drive-pid-tuning-and-encoder-values-aka-help",
+                "posts_count": 10,
+                "reply_count": 4,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-12-18T16:59:26.117Z",
+                "last_posted_at": "2024-12-19T17:21:55.230Z",
+                "bumped": true,
+                "bumped_at": "2024-12-19T17:30:17.861Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello people of delphi, Once again returning for assistance with our swerve robot. Since last time, we have changed up our code (shoutout to FRC Team 3161 for our base code) and made some signifigant…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 436,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460890,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64493,
+                    "username": "Mads_0927",
+                    "name": "Mads <3",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64493,
+                            "username": "Mads_0927",
+                            "name": "Mads <3",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AdvantageKit 2025: Log Replay, Streamlined",
+                "id": 476019,
+                "title": "AdvantageKit 2025: Log Replay, Streamlined",
+                "slug": "advantagekit-2025-log-replay-streamlined",
+                "posts_count": 104,
+                "reply_count": 69,
+                "highest_post_number": 107,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/a/fa7fc5d3b503fdfdbf5e2b6eb4010206bfcfac5c_2_1024x186.png",
+                "created_at": "2024-12-04T19:21:32.601Z",
+                "last_posted_at": "2025-09-27T16:46:35.287Z",
+                "bumped": true,
+                "bumped_at": "2025-09-27T16:46:35.287Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "▶ What is AdvantageKit? We began our journey with AdvantageKit and log replay in 2021, and we’ve been excited to watch the community response over the past 3 years. AdvantageKit was used by 335 teams …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "frc6328"
+                ],
+                "tags_descriptions": {},
+                "like_count": 164,
+                "views": 7066,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454695,
+                "topic_post_liked": false,
+                "topic_post_like_count": 45,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65870,
+                            "username": "meer.com",
+                            "name": "meer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/meer.com/{size}/224746_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57453,
+                            "username": "Robotgobrrrr",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/robotgobrrrr/{size}/238076_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57809,
+                            "username": "levyishai",
+                            "name": "Yishai Levy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL swerve jitters to heading setpoint",
+                "id": 480967,
+                "title": "YAGSL swerve jitters to heading setpoint",
+                "slug": "yagsl-swerve-jitters-to-heading-setpoint",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-11T17:54:34.250Z",
+                "last_posted_at": "2025-01-11T22:02:47.339Z",
+                "bumped": true,
+                "bumped_at": "2025-01-11T22:02:47.339Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is having problems with out swerve jittering to the heading setpoint. It moves in the correct direction, but even if it is not at the setpoint, it jitters. We only have a P value. The states …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 89,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479241,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62398,
+                    "username": "essanders",
+                    "name": "Ethan Sanders",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/essanders/{size}/208157_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62398,
+                            "username": "essanders",
+                            "name": "Ethan Sanders",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/essanders/{size}/208157_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Tips on tuning YAGSL",
+                "id": 482976,
+                "title": "Tips on tuning YAGSL",
+                "slug": "tips-on-tuning-yagsl",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-22T01:36:13.201Z",
+                "last_posted_at": "2025-01-22T02:57:05.761Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T02:57:05.761Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys me and my team have been attempting to setup Yagsl but we are having issues and are wondering where we’re going wrong. Currently when we turn on the bot the wheels turn for a bit and then it …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 86,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489443,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57591,
+                    "username": "thaMan",
+                    "name": "Tharun",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e5b9ba/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57591,
+                            "username": "thaMan",
+                            "name": "Tharun",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e5b9ba/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "running out of memory and boot looping",
+        "id": 505259,
+        "title": "running out of memory and boot looping",
+        "posts_count": 5,
+        "created_at": "2025-08-13T19:46:09.573Z",
+        "views": 165,
+        "reply_count": 3,
+        "like_count": 3,
+        "last_posted_at": "2025-08-13T20:10:04.320Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "running-out-of-memory-and-boot-looping",
+        "category_id": 30,
+        "word_count": 2865,
+        "deleted_at": null,
+        "user_id": 56270,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_505259",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 48193,
+            "execute_at": "2026-08-13T20:10:04.320Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "sokoloff",
+            "name": null,
+            "excerpt": "Rio 1 or 2? \nWe had memory issues end of last season and are just going to bite the bullet and buy the 2, even though it’s the last year for them. \nTurning off the webserver and following WPI guidance is indicated: <a href=\"https://docs.wpilib.org/en/stable/docs/software/basic-programming/java-gc.html\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Java Garbage Collection — FIRST Robotics Competition documentation</a>",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 56270,
+                    "username": "v0ncent",
+                    "name": "Vincent Banks",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 66298,
+                    "username": "sokoloff",
+                    "name": "Jim Sokoloff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 56270,
+                "username": "v0ncent",
+                "name": "Vincent Banks",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png"
+            },
+            "last_poster": {
+                "id": 56270,
+                "username": "v0ncent",
+                "name": "Vincent Banks",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/7849-Davinci-s-Creation/2025RobotCode/blob/main/src/main/java/frc/robot/RobotContainer.java",
+                    "title": "2025RobotCode/src/main/java/frc/robot/RobotContainer.java at main · 7849-Davinci-s-Creation/2025RobotCode · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 56270,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/basic-programming/java-gc.html",
+                    "title": "Java Garbage Collection — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 66298,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

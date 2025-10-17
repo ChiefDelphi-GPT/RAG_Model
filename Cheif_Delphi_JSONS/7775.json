@@ -1,0 +1,843 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3322396,
+                    "name": "Tom Line",
+                    "username": "Tom_Line",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                    "created_at": "2024-03-03T03:56:27.360Z",
+                    "cooked": "So, we are having an interesting issue. When we are operating in auto or teleop our arm motions perform as expected.  We are using Krakens with motion magic.\n\nWhen we disable, if we move the arm and then re-enable, it doesn’t move.  I would expect it to servo back to last position, and it doesn’t.\n\nIf we disable, move the arm, re-enable, and then do any set command for position, the arm will rotate full speed in a seemingly random direction.\n\nIf anyone would like to take a look our code is here:\n\nCode for Team 1718's 2024 Robot, Nessie. Contribute to frc1718/2024-BuildSeason-1718 development by creating an account on GitHub.\n\nIs this something I’m just not understanding about motion magic?  I would expect it to return to last position on enable.\n\nI thought perhaps if we did a set duty cycle command in disabled stop motion magic, but the same weirdness happens.\n\nThe unexpected full speed beyond a value we can even command (we have software limits) has broken the arm, and I would love to figure it out.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-03T09:34:30.037Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 114,
+                    "readers_count": 113,
+                    "score": 62.8,
+                    "yours": false,
+                    "topic_id": 457013,
+                    "topic_slug": "java-unexpected-motion-after-disable",
+                    "display_username": "Tom Line",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/frc1718/2024-BuildSeason-1718",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc1718/2024-BuildSeason-1718: Code for Team 1718's 2024 Robot, Nessie.",
+                            "clicks": 12
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 7841,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 1498"
+                    },
+                    "post_url": "/t/java-unexpected-motion-after-disable/457013/1",
+                    "custom_user_title": "Team 1498",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3322841,
+                    "name": "Waz",
+                    "username": "Waz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/7cd45c/{size}.png",
+                    "created_at": "2024-03-03T23:46:38.267Z",
+                    "cooked": "Would your Kraken happen to be on the 24.3.0.2 firmware version? There was a known bug in that version that could cause something like your runaway arm issue. We ran into it on our climber (a Falcon 500). See the details here ( Phoenix Changelog | CrossTheRoadElectronics ) in the “Known Issues 2024/02/27” entry.\n\nAs for the other issue, that sounds like a proper safe outcome and not a bug.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-03T23:46:38.267Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 54,
+                    "readers_count": 53,
+                    "score": 25.8,
+                    "yours": false,
+                    "topic_id": 457013,
+                    "topic_slug": "java-unexpected-motion-after-disable",
+                    "display_username": "Waz",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://api.ctr-electronics.com/changelog.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Phoenix Changelog | CrossTheRoadElectronics",
+                            "clicks": 11
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20488,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/java-unexpected-motion-after-disable/457013/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3546692,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-03T23:46:58.075Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-03T23:46:58.075Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 5.2,
+                    "yours": false,
+                    "topic_id": 457013,
+                    "topic_slug": "java-unexpected-motion-after-disable",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/java-unexpected-motion-after-disable/457013/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3322396,
+                3322841,
+                3546692
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                588
+            ],
+            [
+                2,
+                587
+            ],
+            [
+                3,
+                222
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "REV NEO Motor Coding With Built In Encoder",
+                "id": 493005,
+                "title": "REV NEO Motor Coding With Built In Encoder",
+                "slug": "rev-neo-motor-coding-with-built-in-encoder",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-24T20:33:42.435Z",
+                "last_posted_at": "2025-02-24T20:49:50.689Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T20:49:50.689Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey, I’m essentially new to programming, having done it on and off but my town decided to make it’s very first robotics team in history and needed me to help them code. I’ve been learning day by day o…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 221,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3538587,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73552,
+                    "username": "MikiA30",
+                    "name": "Mikiyas Asmamaw",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73552,
+                            "username": "MikiA30",
+                            "name": "Mikiyas Asmamaw",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/59ef9b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58667,
+                            "username": "KrystianB",
+                            "name": "Krystian Booker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/krystianb/{size}/192101_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Disable Limit Switch on REV Spark Flex",
+                "id": 484278,
+                "title": "Disable Limit Switch on REV Spark Flex",
+                "slug": "disable-limit-switch-on-rev-spark-flex",
+                "posts_count": 11,
+                "reply_count": 5,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-30T13:18:35.168Z",
+                "last_posted_at": "2025-02-05T14:56:32.638Z",
+                "bumped": true,
+                "bumped_at": "2025-02-05T14:56:32.638Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Looking for some coding help - In short - We want to run a motor (REV Vortex with REV Spark Flex) forward while a button is pressed until a forward limit switch is trigged (Adafruit beam break sensor…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 437,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496552,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 17898,
+                    "username": "burde1jb",
+                    "name": "burde1jb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/burde1jb/{size}/270229_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 17898,
+                            "username": "burde1jb",
+                            "name": "burde1jb",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/burde1jb/{size}/270229_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to Zero NEO Encoder 2025",
+                "id": 485684,
+                "title": "How to Zero NEO Encoder 2025",
+                "slug": "how-to-zero-neo-encoder-2025",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-08T16:52:00.024Z",
+                "last_posted_at": "2025-02-08T18:03:11.531Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T18:03:11.531Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi! Our team is still learning how to use Revlib 2025. We have a limit switch on the bottom of our elevator, and we want to use this to reset the internal encoder to 0 to improve accuracy. We couldn’t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 158,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3505983,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71158,
+                            "username": "TMaurer4472",
+                            "name": "Troy Maurer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Command Scheduler Behavior",
+                "id": 492830,
+                "title": "Command Scheduler Behavior",
+                "slug": "command-scheduler-behavior",
+                "posts_count": 18,
+                "reply_count": 14,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-02-23T14:51:03.765Z",
+                "last_posted_at": "2025-02-25T04:02:36.122Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T04:02:36.122Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is trying to schedule and cancel commands, but the problem is most of the time the command is left over and called again if we choose a similar functioning, but different button. If we press …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 319,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537128,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71814,
+                            "username": "jayticku",
+                            "name": "Jay Ticku",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/71e660/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73780,
+                            "username": "Fsgoose",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "XboxController Joystick Runs Command",
+                "id": 493576,
+                "title": "XboxController Joystick Runs Command",
+                "slug": "xboxcontroller-joystick-runs-command",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-28T03:47:56.334Z",
+                "last_posted_at": "2025-02-28T04:23:54.027Z",
+                "bumped": true,
+                "bumped_at": "2025-02-28T04:23:54.027Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m trying to make our elevator move up and down using the left joystick (positive Y values to go up and negative for down), but I’m unsure how to link the command to the controller. I’ve tried using…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 79,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543184,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68236,
+                    "username": "FloppyDks",
+                    "name": "Ray Flanagan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/2acd7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68236,
+                            "username": "FloppyDks",
+                            "name": "Ray Flanagan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/2acd7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59944,
+                            "username": "AquaticGoose",
+                            "name": "Anoop",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f04885/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69472,
+                            "username": "sink",
+                            "name": "allison zhang",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sink/{size}/237947_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "JAVA: Unexpected Motion After Disable",
+        "id": 457013,
+        "title": "JAVA: Unexpected Motion After Disable",
+        "posts_count": 3,
+        "created_at": "2024-03-03T03:56:27.306Z",
+        "views": 274,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-03T23:46:58.075Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "java-unexpected-motion-after-disable",
+        "category_id": 75,
+        "word_count": 267,
+        "deleted_at": null,
+        "user_id": 7841,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_457013",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 7841,
+                    "username": "Tom_Line",
+                    "name": "Tom Line",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 20488,
+                    "username": "Waz",
+                    "name": "Waz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/7cd45c/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 7841,
+                "username": "Tom_Line",
+                "name": "Tom Line",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/frc1718/2024-BuildSeason-1718",
+                    "title": "GitHub - frc1718/2024-BuildSeason-1718: Code for Team 1718's 2024 Robot, Nessie.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 12,
+                    "user_id": 7841,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://api.ctr-electronics.com/changelog.html",
+                    "title": "Phoenix Changelog | CrossTheRoadElectronics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 20488,
+                    "domain": "api.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

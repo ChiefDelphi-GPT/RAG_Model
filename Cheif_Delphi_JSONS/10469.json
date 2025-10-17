@@ -1,0 +1,1780 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3093793,
+                    "name": "Lexeo",
+                    "username": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "created_at": "2022-11-02T23:32:40.151Z",
+                    "cooked": "I’ve hinted at this project in a couple other other threads and there were a few teams interested. Thought it would be fun to share our work.\n\nLast year we ran a CANcoder on our swerve module. It worked well (no issues) but it added another 4 devices to our CAN bus, and required a 12V input. That adds a lot of wires to the robot, and we felt that there was room for improvement.\n\nWhile digging into the features of the SparkMax, we found there was a seemingly underutilized feature where there was a 0-3.3V input and a 3.3V power output. This seemed really convenient since the Spark Maxes are always mounted near our Neos. The problem is there were no 3.3V analog output absolute encoders on the market (kinda).\n\nWe also had a student interested in PCB design and a mentor excited to teach it. This seemed like a really neat project to take on.\n\nLink to design\n\nimg_20221006_191838689 4000×3000 382 KB\n\nimg_20221006_191838689 4000×3000 382 KB\n\nimg_20221006_191838689 4000×3000 382 KB\n\nThe idea here is that 3 wires can be soldered on (with some strain relief built in) and then connectors can be added to the wire. We like using Molex SL connectors. We have also been working on a custom Spark Max breakout board (will release once we are 100% happy with the design).\n\nAll said and done, we have a Spark Max breakout board that is held on by M3 screws to our Spark Max Mount. Then only 3 wires go to the Spark Max. You can see the clean solution below.\n\nimg_20221006_191614685 3000×4000 264 KB\n\nimg_20221006_191614685 3000×4000 264 KB\n\nimg_20221006_191614685 3000×4000 264 KB\n\nAs far as testing…we have made 1 that works, and mounted it to our spare swerve module. We haven’t run it on the robot yet (mostly due to our programmers having other priorities). It works great on the bench though, and we are fairly confident it will work fine on the robot.\n\nAs an added bonus, the total cost of 1 complete encoder (assuming we don’t mess up with the soldering) is $6.07. Still requires the CTRE case, so total it is $12.06 with the case and magnet.\n\nIf a team likes this concept, but custom PCBs are too much, there is a way to do something similar with COTS parts. The Rev Spark Max Breakout allows for a 0-5V analog input. The TTB Encoder should be able to interface with it. This still requires a little soldering, but far less than a custom PCB. We considered this solution (even tested it out a bit). Our solution we think is a little bit cleaner over all, but took a lot more time.\n\nFeel free to reach out with any questions.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-11-02T23:32:40.151Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 103,
+                    "reads": 482,
+                    "readers_count": 481,
+                    "score": 986.4,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Lexeo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://oshpark.com/shared_projects/wqbXYLuk",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "OSH Park ~",
+                            "clicks": 29
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-11-1278/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SPARK MAX Data Port Breakout Board - REV Robotics",
+                            "clicks": 19
+                        },
+                        {
+                            "url": "https://www.thethriftybot.com/bearings/Thrifty-Absolute-Magnetic-Encoder-p421607500",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 18
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/1/61af80272c96efdf2dd74b76edb0c7d6709dc79e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/6/26f371c981bc5d3dcbd74465e51c1aee26e04abb.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/best-easiest-way-to-connect-wire-and-program-thrifty-absolute-magnetic-encoder-to-rev-spark-max-motor-controller/439040/8",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Best (easiest) way to connect (wire and program) Thrifty Absolute Magnetic Encoder to REV SPARK MAX Motor Controller?",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-4272-maverick-robotics-2024-build-thread/446149/3",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "FRC 4272 Maverick Robotics - 2024 Build Thread",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/falcon-500-availability/413640/160",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Falcon 500 Availability",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/competition-motor-usage/417074/20",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Competition Motor Usage",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/team-4272-2023-robot-la-cucaracha/429714",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Team 4272 2023 Robot: La Cucaracha",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 25
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25373,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 4272 Lead Mentor and Head Robot Mentor"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/1",
+                    "custom_user_title": "Team 4272 Lead Mentor and Head Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 25
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 25,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3108501,
+                    "name": "Lexeo",
+                    "username": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "created_at": "2022-12-08T04:05:19.986Z",
+                    "cooked": "Well. Time to show-off/open-source the rest of our designs. Very proud of our students - All this open sourcing took a lot longer than usual\n\nSpark Max Breakout and Mount\n\nThis is our solution to make the SPARK MAX easier for us to use, and hopefully more reliable. Inspired by the REV Mount , this is intended to allow easier interfacing with the data port. We also added zip-tie mounts for the encoder and can plug to add more mechanical retention. It has the same bolt pattern as the REV Mount. The model can be found on Printables.\n\nThis is designed to interface with our custom Spark MAX Breakout PCB . This gives us 3 sensor inputs on the Spark MAX. We get to use the:\n\n0-3.3V analog input (3 pin Molex SL)\n\nLimit switch input (4 pin Molex SL)\n\nAlternative Encoder (5 pin Molex SL)\n\nOur team already standardizes to Molex SL connectors, so this makes it really easy to add sensors to our SPARK MAX. Because we usually mount the motor controller near the motor. This means we have a ton of points on our robot to attach as sensor and get that data on the CAN bus. Because the PCB mounts with M3 bolts, we think this is going to be a very reliable connection on our robot. The latest version of this board hasn’t been tested quite yet, but we have some on order.\n\nMXP Breakout\n\nOur team generally makes a custom MXB board for our roboRIO with a perf-board every year. We want all low-power connectors to be MolexSL connectors, which is why we do this. We decided we wanted to be extra-fancy this season and design a more professional looking setup with more options . We added a place to put an LED on each of our digital inputs so we have a quick visual on what’s going on. We also made sure each pin was select-able between 3.3V and 5V with a 0 ohm resistor. This was probably our most advanced PCB of the season, and it turned out pretty impressive. We are excited to use this for 2023. Note: we haven’t built a prototype of this board, partly because it is expensive, and partly because we ran out of time. We are doing many checks and are fairly confident it will work, but haven’t gotten to test it. Plan to place our order on kickoff to be compliant with the rules.\n\nimage 1058×931 220 KB\n\nimage 1058×931 220 KB\n\nimage 1058×931 220 KB\n\nMolexSL Power Breakout\n\nOur final, and simplest board, is a simple power breakout (using Molex SL connectors). We have had several situations where we need to break out 5V power to a few different sensors. This seems like a nice solution here. Haven’t tested this one either, but it’s simple enough we feel pretty good about it.\n\nAll of the KICAD files for everything are on our team Github . Feel free to reach out with questions.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-08T13:30:11.309Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 36,
+                    "reads": 363,
+                    "readers_count": 362,
+                    "score": 447.6,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Lexeo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://oshpark.com/shared_projects/rc9jxpbW",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "OSH Park ~",
+                            "clicks": 16
+                        },
+                        {
+                            "url": "https://www.printables.com/model/334910-4272-spark-max-mount",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Printables",
+                            "clicks": 15
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-45-2468-pk2/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SPARK MAX Mounting Bracket - 2 Pack - REV Robotics",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://oshpark.com/shared_projects/UdTpGZkh",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "OSH Park ~",
+                            "clicks": 9
+                        },
+                        {
+                            "url": "https://oshpark.com/shared_projects/UJhsq3IE",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "OSH Park ~",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/maverick-boiler-robotics-team-4272",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Maverick Robotics Team 4272 · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/6/265742c9b588b4561898971c87771e212fd8103f.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/sparkmax-encoder-connector-protection/419408/13",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "SparkMax encoder connector protection",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/team-4272-2023-robot-la-cucaracha/429714",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Team 4272 2023 Robot: La Cucaracha",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 13
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25373,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 4272 Lead Mentor and Head Robot Mentor"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/2",
+                    "custom_user_title": "Team 4272 Lead Mentor and Head Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 13
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 13,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3108505,
+                    "name": "Anthony.Uri",
+                    "username": "Robosquatch76",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/robosquatch76/{size}/221366_2.png",
+                    "created_at": "2022-12-08T05:09:42.207Z",
+                    "cooked": "While I am by no means an EE, I am a hobbyist that has dabled into this realm and understand the learning curve and effort it takes to get there. Thank being said, well done to the students and those that helped them make this a full reality. Congrats!",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-08T05:09:42.207Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 287,
+                    "readers_count": 286,
+                    "score": 107.4,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Anthony.Uri",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17969,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Anthony | FRC 2075"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/3",
+                    "custom_user_title": "Anthony | FRC 2075",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3109067,
+                    "name": "Lexeo",
+                    "username": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "created_at": "2022-12-09T13:27:43.520Z",
+                    "cooked": "We made an update on the encoder based on Rev’s news saying the Spark MAX would be able to do Position PID on an absolute PWM input.\n\nThe AS5600 encoder chip we are using the ability to output PWM, but that requires configuring it with the i2C port. We added test points to our board to make it easy to program, and now can configure it with the programmer in this kit. You could also do this with an Arduino, but the GUI with this programmer makes things easy. The programmer works great with the included dev board, and also seems to work on other products on the market that use the AS5600.\n\nThis should give is a really nice position feedback on our SDS modules, and it keeps the wiring nice and clean.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-09T13:28:19.153Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 240,
+                    "readers_count": 239,
+                    "score": 168.0,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Lexeo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://ams.com/en/as5600evalkit",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AS5600EvalKit | ams",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://oshpark.com/shared_projects/q8PjEEM5",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "OSH Park ~",
+                            "clicks": 9
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25373,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 4272 Lead Mentor and Head Robot Mentor"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/4",
+                    "custom_user_title": "Team 4272 Lead Mentor and Head Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3109103,
+                    "name": "Allen Nuttle",
+                    "username": "nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "created_at": "2022-12-09T16:03:57.756Z",
+                    "cooked": "I wonder if anyone has tried using this (from Amazon)?",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-09T16:03:57.756Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 204,
+                    "readers_count": 203,
+                    "score": 50.8,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Allen Nuttle",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.amazon.com/Oumefar-Absolute-Encoder-Machine-Equipment/dp/B08NCLY2PV",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 25
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 14283,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3109104,
+                    "name": "Lexeo",
+                    "username": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "created_at": "2022-12-09T16:07:03.551Z",
+                    "cooked": "Same chip. Good chance it will work fine.\n\nI bought some of these to mess around with a bit now that I have the programmer.",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-09T16:07:03.551Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 5,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 199,
+                    "readers_count": 198,
+                    "score": 79.8,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Lexeo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.amazon.com/Alinan-Magnetic-Precision-Induction-Measurement/dp/B09QYC916Q/ref=asc_df_B09QYC916Q/?tag=hyprod-20&linkCode=df0&hvadid=598470968086&hvpos=&hvnetw=g&hvrand=11913857822551287469&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=1017161&hvtargid=pla-1676979712711&psc=1",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 10
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 14283,
+                        "username": "nuttle",
+                        "name": "Allen Nuttle",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25373,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 4272 Lead Mentor and Head Robot Mentor"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/6",
+                    "custom_user_title": "Team 4272 Lead Mentor and Head Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3109122,
+                    "name": "Anand Rajamani",
+                    "username": "asid61",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "created_at": "2022-12-09T16:52:17.586Z",
+                    "cooked": "Not that the AS5600 does not do 0-100% PWM, it’s more like 1-99%. You have to check the datasheet to see the exact waveform.\n\nAlso, those breakout boards will need R1 and possibly R4 removed. R4 puts it in programming mode with no output, and R1 puts it in 3.3V mode.",
+                    "post_number": 7,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-09T16:54:38.563Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 186,
+                    "readers_count": 185,
+                    "score": 62.2,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Anand Rajamani",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 25373,
+                        "username": "Lexeo",
+                        "name": "Lexeo",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 21715,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/7",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3109128,
+                    "name": "Lexeo",
+                    "username": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "created_at": "2022-12-09T17:05:09.179Z",
+                    "cooked": "asid61:\n\nNot that the AS5600 does not do 0-100% PWM , it’s more like 1-99%. You have to check the datasheet to see the exact waveform.\n\nWe’ll have to wait and see if that is acceptable with the new REV firmware. Don’t have enough details about it yet, other than it exclusively requires PWM input.\n\nasid61:\n\nAlso, those breakout boards will need R1 and possibly R4 removed. R4 puts it in programming mode with no output, and R1 puts it in 3.3V mode.\n\nWe’ve been running everything in 3.3V mode so far (and that is also how our encoder is configured).\n\nBased on the warning message here , im hesitant to try anything with 5V on those pins. Yeah…it will work, but it seems too easy to damage the Spark MAX.\n\nimage 759×122 14.5 KB\n\nimage 759×122 14.5 KB\n\nimage 759×122 14.5 KB",
+                    "post_number": 8,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2022-12-09T17:05:34.941Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 7,
+                    "quote_count": 1,
+                    "incoming_link_count": 2,
+                    "reads": 184,
+                    "readers_count": 183,
+                    "score": 66.8,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "Lexeo",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.revrobotics.com/sparkmax/operating-modes/alternate-encoder-mode",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Alternate Encoder Mode - SPARK MAX",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/0/f026160deb91b5c514ddbbab8ac837751b86b6b3.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25373,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 4272 Lead Mentor and Head Robot Mentor"
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/8",
+                    "custom_user_title": "Team 4272 Lead Mentor and Head Robot Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3224584,
+                    "name": "s-neff",
+                    "username": "s-neff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                    "created_at": "2023-08-12T03:37:13.295Z",
+                    "cooked": "…given the inconsistency reported in getting the configuration saved to the sparkmax, definitely going to heed the warning and stick to 3.3v. Thank you!",
+                    "post_number": 9,
+                    "post_type": 1,
+                    "posts_count": 10,
+                    "updated_at": "2023-08-12T03:37:13.295Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 8,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 122,
+                    "readers_count": 121,
+                    "score": 39.4,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "s-neff",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 25373,
+                        "username": "Lexeo",
+                        "name": "Lexeo",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28019,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/9",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3414723,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-08-12T14:41:03.116Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 10,
+                    "post_type": 3,
+                    "posts_count": 10,
+                    "updated_at": "2024-08-12T14:41:03.116Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 9,
+                    "readers_count": 8,
+                    "score": 1.8,
+                    "yours": false,
+                    "topic_id": 416906,
+                    "topic_slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually/416906/10",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3093793,
+                3108501,
+                3108505,
+                3109067,
+                3109103,
+                3109104,
+                3109122,
+                3109128,
+                3224584,
+                3414723
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1074
+            ],
+            [
+                2,
+                1039
+            ],
+            [
+                4,
+                1038
+            ],
+            [
+                5,
+                1037
+            ],
+            [
+                9,
+                792
+            ],
+            [
+                10,
+                425
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Programming Vivid radio after event",
+                "id": 496401,
+                "title": "Programming Vivid radio after event",
+                "slug": "programming-vivid-radio-after-event",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-21T01:12:33.663Z",
+                "last_posted_at": "2025-03-21T01:31:45.593Z",
+                "bumped": true,
+                "bumped_at": "2025-03-21T01:31:45.593Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In the past we were in the habit of reflashing the firmware on the OpenMesh radios after events but that does not appear to be necessary with the Vivid radios. We were able to tether and connect to 10…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 137,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3563687,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 27328,
+                    "username": "JohnRRRR",
+                    "name": "JohnRRRR",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/94ad74/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 27328,
+                            "username": "JohnRRRR",
+                            "name": "JohnRRRR",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/94ad74/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Laptop not recognizing Roborio despite other laptops being able to",
+                "id": 482355,
+                "title": "Laptop not recognizing Roborio despite other laptops being able to",
+                "slug": "laptop-not-recognizing-roborio-despite-other-laptops-being-able-to",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-17T22:22:05.036Z",
+                "last_posted_at": "2025-01-18T02:55:36.803Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T02:55:36.803Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Task :discoverroborio Discovering Target roborio admin @ Failed resolution. RuntimeException Unknown Host admin @ Failed resolution. Reason…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 72,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486096,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71467,
+                    "username": "cruxlite",
+                    "name": "crux",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71467,
+                            "username": "cruxlite",
+                            "name": "crux",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ecd19e/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Struggling with REV Products",
+                "id": 482435,
+                "title": "Struggling with REV Products",
+                "slug": "struggling-with-rev-products",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/f/ffe1f34e594b6d971fb84b217b02994f213565cd_2_1024x768.jpeg",
+                "created_at": "2025-01-18T07:19:08.872Z",
+                "last_posted_at": "2025-01-18T13:29:48.951Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T13:29:48.951Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi we have a current problem with rev items we want to assign new can id of the spark max devices but the spark max are not shown on rev hardware client besides of that we have an ongoing problem with…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 487,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486480,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54297,
+                    "username": "Kalimbus",
+                    "name": "Hüseyin Arda Çavdar",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kalimbus/{size}/255996_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54297,
+                            "username": "Kalimbus",
+                            "name": "Hüseyin Arda Çavdar",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kalimbus/{size}/255996_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14045,
+                            "username": "Domtech",
+                            "name": "Domtech",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/domtech/{size}/138487_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7841,
+                            "username": "Tom_Line",
+                            "name": "Tom Line",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56437,
+                            "username": "CColeman",
+                            "name": "Christopher Coleman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ccoleman/{size}/259753_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Battery Crimp Tool Advice",
+                "id": 483659,
+                "title": "Battery Crimp Tool Advice",
+                "slug": "battery-crimp-tool-advice",
+                "posts_count": 15,
+                "reply_count": 9,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-01-26T03:10:11.532Z",
+                "last_posted_at": "2025-02-19T22:41:00.810Z",
+                "bumped": true,
+                "bumped_at": "2025-02-19T22:41:00.810Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi! We’re a second-year rookie- looking to move from buying the standard AndyMark pre-crimped cables (am-0009 or am-4483) to buying our own connectors and cables so that we can avoid the ~$20 extra co…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "battery",
+                    "crimping"
+                ],
+                "tags_descriptions": {},
+                "like_count": 14,
+                "views": 530,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492829,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63685,
+                    "username": "w1zxrd",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/w1zxrd/{size}/246745_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63685,
+                            "username": "w1zxrd",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/w1zxrd/{size}/246745_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19820,
+                            "username": "ArchdukeTim",
+                            "name": "Tim Winters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1082,
+                            "username": "sanddrag",
+                            "name": "sanddrag",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/c68b51/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 41730,
+                            "username": "AVHon",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avhon/{size}/130071_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Vivid Radio Updating: Type Error: Failed to Fetch",
+                "id": 496883,
+                "title": "Vivid Radio Updating: Type Error: Failed to Fetch",
+                "slug": "vivid-radio-updating-type-error-failed-to-fetch",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-25T17:44:32.668Z",
+                "last_posted_at": "2025-03-25T20:33:29.124Z",
+                "bumped": true,
+                "bumped_at": "2025-03-25T20:33:29.124Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey Y’all, I’ve been trying to update a Vivid Hosting Radio through the configuration page, and when I try to update it, I get Type Failed to Fetch. Does anyone know what the cause of that migh…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 152,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3568233,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48541,
+                    "username": "iz_en_zi",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/iz_en_zi/{size}/226207_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 48541,
+                            "username": "iz_en_zi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/iz_en_zi/{size}/226207_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "4272 Shaft Encoder (And maybe a few other PCB designs eventually)",
+        "id": 416906,
+        "title": "4272 Shaft Encoder (And maybe a few other PCB designs eventually)",
+        "posts_count": 10,
+        "created_at": "2022-11-02T23:32:40.091Z",
+        "views": 2469,
+        "reply_count": 4,
+        "like_count": 49,
+        "last_posted_at": "2024-08-12T14:41:03.116Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "4272-shaft-encoder-and-maybe-a-few-other-pcb-designs-eventually",
+        "category_id": 32,
+        "word_count": 1582,
+        "deleted_at": null,
+        "user_id": 25373,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/2/6/26f371c981bc5d3dcbd74465e51c1aee26e04abb_2_1024x768.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_416906",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 10,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 5,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 4000,
+                "height": 3000,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/6/26f371c981bc5d3dcbd74465e51c1aee26e04abb.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 768,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/2/6/26f371c981bc5d3dcbd74465e51c1aee26e04abb_2_1024x768.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 25373,
+                    "username": "Lexeo",
+                    "name": "Lexeo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png",
+                    "post_count": 5,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 14283,
+                    "username": "nuttle",
+                    "name": "Allen Nuttle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 17969,
+                    "username": "Robosquatch76",
+                    "name": "Anthony.Uri",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/robosquatch76/{size}/221366_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 21715,
+                    "username": "asid61",
+                    "name": "Anand Rajamani",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 28019,
+                    "username": "s-neff",
+                    "name": "s-neff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 25373,
+                "username": "Lexeo",
+                "name": "Lexeo",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/lexeo/{size}/160041_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://oshpark.com/shared_projects/wqbXYLuk",
+                    "title": "OSH Park ~",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 29,
+                    "user_id": 25373,
+                    "domain": "oshpark.com",
+                    "root_domain": "oshpark.com"
+                },
+                {
+                    "url": "https://www.amazon.com/Oumefar-Absolute-Encoder-Machine-Equipment/dp/B08NCLY2PV",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 25,
+                    "user_id": 14283,
+                    "domain": "www.amazon.com",
+                    "root_domain": "amazon.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-11-1278/",
+                    "title": "SPARK MAX Data Port Breakout Board - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 19,
+                    "user_id": 25373,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.thethriftybot.com/bearings/Thrifty-Absolute-Magnetic-Encoder-p421607500",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 18,
+                    "user_id": 25373,
+                    "domain": "www.thethriftybot.com",
+                    "root_domain": "thethriftybot.com"
+                },
+                {
+                    "url": "https://oshpark.com/shared_projects/rc9jxpbW",
+                    "title": "OSH Park ~",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 16,
+                    "user_id": 25373,
+                    "domain": "oshpark.com",
+                    "root_domain": "oshpark.com"
+                },
+                {
+                    "url": "https://www.printables.com/model/334910-4272-spark-max-mount",
+                    "title": "Printables",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 15,
+                    "user_id": 25373,
+                    "domain": "www.printables.com",
+                    "root_domain": "printables.com"
+                },
+                {
+                    "url": "https://www.amazon.com/Alinan-Magnetic-Precision-Induction-Measurement/dp/B09QYC916Q/ref=asc_df_B09QYC916Q/?tag=hyprod-20&linkCode=df0&hvadid=598470968086&hvpos=&hvnetw=g&hvrand=11913857822551287469&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=1017161&hvtargid=pla-1676979712711&psc=1",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 25373,
+                    "domain": "www.amazon.com",
+                    "root_domain": "amazon.com"
+                },
+                {
+                    "url": "https://ams.com/en/as5600evalkit",
+                    "title": "AS5600EvalKit | ams",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 25373,
+                    "domain": "ams.com",
+                    "root_domain": "ams.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-45-2468-pk2/",
+                    "title": "SPARK MAX Mounting Bracket - 2 Pack - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 25373,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://oshpark.com/shared_projects/q8PjEEM5",
+                    "title": "OSH Park ~",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 25373,
+                    "domain": "oshpark.com",
+                    "root_domain": "oshpark.com"
+                },
+                {
+                    "url": "https://oshpark.com/shared_projects/UdTpGZkh",
+                    "title": "OSH Park ~",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 25373,
+                    "domain": "oshpark.com",
+                    "root_domain": "oshpark.com"
+                },
+                {
+                    "url": "https://docs.revrobotics.com/sparkmax/operating-modes/alternate-encoder-mode",
+                    "title": "Alternate Encoder Mode - SPARK MAX",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 25373,
+                    "domain": "docs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://oshpark.com/shared_projects/UJhsq3IE",
+                    "title": "OSH Park ~",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 25373,
+                    "domain": "oshpark.com",
+                    "root_domain": "oshpark.com"
+                },
+                {
+                    "url": "https://github.com/maverick-boiler-robotics-team-4272",
+                    "title": "Maverick Robotics Team 4272 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 25373,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/sparkmax-encoder-connector-protection/419408/13",
+                    "title": "SparkMax encoder connector protection",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 1,
+                    "user_id": 25373,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/best-easiest-way-to-connect-wire-and-program-thrifty-absolute-magnetic-encoder-to-rev-spark-max-motor-controller/439040/8",
+                    "title": "Best (easiest) way to connect (wire and program) Thrifty Absolute Magnetic Encoder to REV SPARK MAX Motor Controller?",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 1,
+                    "user_id": 25373,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

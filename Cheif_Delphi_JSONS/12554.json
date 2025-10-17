@@ -1,0 +1,1381 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3139362,
+                    "name": "david",
+                    "username": "howlongismyname",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/howlongismyname/{size}/134767_2.png",
+                    "created_at": "2023-02-04T01:40:04.885Z",
+                    "cooked": "This Doc is private\n\nGoogle Doc with Edits for feedback and comments\n\nMany teams are trying arms for this season, and it can sometimes get confusing with all the considerations and parts you need to make a well-designed arm. I’ve noticed some attempts at copying 7461’s arm, and there are some things I didn’t take note of that might be useful when designing your own. Hopefully, this guide isn’t too late in the season. Feel free to ask questions or message me if you need help. This guide might have some errors as I’m still learning as a designer. Please correct this post!\n\nThis writeup was mostly based on the design process and learnings of designing 7461’s 2023 robot. Check out the build thread here! FRC 7461 Sushi Squad 2023 Build Thread\n\nAlthough it is a bit late, hopefully, you learn something new and can fix any errors you had in your arm designs.\n\nGood arm design is important as it facilitates avoiding the most common failures, allowing your team to focus on the other parts of the design while allowing for easy control of the game pieces. There are many ways to set up an arm or wrist, and factors may change depending on your team’s resources, but hopefully, this guide aids you in the process.\n\nHere is also some example cad to look at while you read through the guide.\n\nSign in to Onshape, the #1 fastest growing CAD system in the world with over 4 million users.\n\nhttps://cdn.discordapp.com/attachments/918283282884485150/1066485909211598898/IMG_1396.mov\n\nGO TO BOTTOM FOR ORDER LIST\n\nTo design a good arm, there are a few necessary things.\n\nA strong superstructure with a design that accounts for all the expected loads\n\nA strong superstructure with a design that accounts for all the expected loads\n\nA low backlash, rigid power transmission method that won’t break\n\nA low backlash, rigid power transmission method that won’t break\n\nA solid support structure that allows the arm to move freely without overconstraining it.\n\nA solid support structure that allows the arm to move freely without overconstraining it.\n\nA means of accurately measuring the rotation of the arm\n\nA means of accurately measuring the rotation of the arm\n\n“Good” design practices surround the arm to ensure that the arm can function adequately. For example, manipulator design or center of mass allocation.\n\n“Good” design practices surround the arm to ensure that the arm can function adequately. For example, manipulator design or center of mass allocation.\n\nA means of easily maintaining the arm or switching if breakages happen.\n\nA means of easily maintaining the arm or switching if breakages happen.\n\nAll of these requirements aren’t too difficult to fulfill, but it is important to take note as its easy to overlook.\n\nBefore you design your arm, you need to have a structure that supports the arm, usually known as your superstructure. Your superstructure is important as it carries and supports the entire weight of your arm and all the associated forces.\n\nAn example of a superstructure.\n\nThis supports your arm, so it’s essential to make it sufficiently rigid and strong so that your arm behaves predictably and withstands impact loading. Primarily, you have the front and back loads and the sideways loads on your superstructure, though the most important is the back and front loads.\n\nFront and back loads of an arm, see how the cross beam helps support the main support beams. You can also put the beams in front instead of the back of the arm for support.\n\nNote that the horizontal loads are much less, so you don’t need as much support. As you widen your superstructure, you need to worry less about these loads. In the pictured image above, some features to help stiffen the structure will significantly help. As the structure gets wider, you get more loads on your axle, but you don’t have to stiffen the structure as much, and vice versa.\n\nTo construct the superstructure, I recommend a box tube and gusset setup, or a tie rod setup for the loads, with the box tube and gusset being a lot easier.\n\nNote that this is on an elevator but has the same structural principles. This setup uses carbon fiber rods, but you can easily do the same with a hex shaft and 10-32 tie rods. (links to both here)\n\nAdditionally, you want your superstructure to be pretty light, as the heavier it gets higher up on the robot, the harder it is to drive. As a result, I recommend using the thin-wall tube. MAXtube grid pattern light works great here as it has an excellent strength-to-weight ratio.\n\nA common pitfall is having your primary support tubes too far from each other, which can cause your axle to bend. You generally want to get it as close to your arm as possible while giving enough clearance. For a ballpark number, 6-7 inches is generally a good balance, and 5 inches is possible if you put in enough effort and are a good designer.\n\nThere aren’t any numbers behind these numbers, based mostly on vibes, as frc dynamic loads are hard to calculate. The reason for going above 5 inches is that it’s very hard to package everything in that tight of a space, and anything above 8 tends to get sketchy in terms of the bending force on your dead axle (you can probably get away with max spline if you need to have your structure be that wide.\n\nYou need something to pivot your arm on as you do an arm. Typically, this is done through a dead axle setup, which is a fixed axle that the arm rides on, then power is transferred directly to the arm. It’s vital to have a strong axle, as there is a ton of loads due to the arm, especially if you run into things.\n\nHow do you get a strong axel? You can design a stronger axle while keeping the weight low by primarily increasing the diameter of your axle. The primary thing you want to be concerned about is the second moment of area https://en.wikipedia.org/wiki/List_of_second_moments_of_area . Honestly, I don’t know much about the exact details. Still, generally bigger diameter axle = stronger in the bending and torsional loads, which are the primary loads important for this arm application. Having material inside your axle doesn’t impact the second moment of the area much as increasing the radius. Here’s the second moment of areas for a few standard axle parts in the lz axis, which is the main one for arms.\n\n1/2 inch Hex shaft: 0.095 7/8 round tube 1/16 thin-wall: 0.23 Maxspline: 0.5 (?) (it’s a bit rough to calculate when it isn’t a circle) (someone plz correct)\n\nYou can check the FEA in this CD thread below.\n\nREV Robotics is proud to Introduce REV ION! General Forum\n\nGenerally speaking, a big tube = good.\n\nTypically, as your dead axle size increases, it’s harder to run a live axel setup, and torque through the axle and the forces are much more concentrated. As a result, a dead axle is a lot simpler for arms. A dead axle is important as it is fixed and doesn’t move, while the actual arm moves around it, meaning that no torque is transferred through the axle, compared to a traditionally live axle, in which the axle transfers torque to the arm. So that brings the question, how do you pivot and transfer power to your arm robustly and consistently?\n\nNow you have a dead axle, your superstructure, and your arm. You need to design your arm and a means of transferring power to your arm. There are a lot of different materials for designing your arm, but the short answer is you should probably use 2x1 or 1/16 2x2. Some teams may also use carbon fiber rods, but box tubing is a lot easier, and I recommend it. Generally speaking, you want to increase the diameter of your arm via tube while keeping the weight as low as possible, especially at the end of the arm, as with a high lever, the force of anything on the end will be magnified. Finally, you want to extend your arm a bit on the other side for mounting purposes and to decrease the force going through the power transmission.\n\nSo how does the arm pivot on a dead axle? Usually, you can just use a bronze bushing that’s on the arm. That’s kind of it.\n\nThe holes on either side of the box tubing need to be concentric. This can be done correctly by using a drill press to go through both sides or hacked together by doing YYY.\n\nSo you now have an arm, a means of pivoting, and a superstructure. How do you power it? Arms can be powered via a chain, belt, cable, or gears, but the strongest and most ideal way of powering your arm is via chain and sprocket. The main reason is that it is a lot easier to make a high-strength chain run, while it’s tough to make a high-strength belt or gear setup without excellent manufacturing tolerances. Chain is also very well-proven, with teams like 330 running the setup and successfully running it.\n\n35 and 25 chains can both be used. We prefer a single 35-chain run, but you can also use two 25-chain runs to power your arm. A large chain reduction is recommended from a small sprocket to a huge sprocket, as it reduces the torque output of the gearbox you are using (most likely a planetary gearbox), as well as insulates/protects your gearbox from harsh shock loads from crashing your arm. In 7461’s alpha bot cad, you can see a maxplanetary run being driven to a 12-tooth sprocket, which then goes into a giant 54-tooth sprocket that powers the arm. Note that in real life, the MP stages are directly attached to the 12T shaft.\n\nTo keep the chain tensioned, I recommend putting your gearbox as low to the ground as possible for CG reasons and ensuring that you have enough length to put a chain tensioner. Both spartan and turnbuckles are fine for this application, assuming you don’t do anything wild. Spartan tensions are a pain to install, so turnbuckles are better for arm applications.\n\nTo tension a turnbuckle, I recommend tensioning by hand until it’s tight, avoiding hand tools, then, once tight, threading the nuts to hold the turnbuckle in place.\n\nAs seen in some of 7461’s past posts, you can break your turnbuckles if you either crash your arm or over-tension the turnbuckle (using a wrench), so please avoid breaking your tensioners. A spartan tensioner is probably much more reliable for this situation, but turnbuckles are much more manageable.\n\nAdditionally, you want to use 1/4-20 bolts near the edge of your sprocket to mount directly to your arm, with the dead axle not being mounted to your arm. otherwise, the bolts sheer your box tube, or the torque transfer ends up near the center of the axle, which is neither good.\n\nAs seen in this sketchy diagram. you want to increase L2 as much as possible, as it decreases the amount of F2 force. On the other hand, having a very long lever will cause F1 to be massive, which is also a problem.\n\nQuality control is important for arms, especially when it comes to controlling the arm. You want every single part to be robust and consistent so that you can replicate the same results consistently. The primary thing is your encoder setup and arm tensioning (which tensioning was mentioned above).\n\nAnother thing that will make ease of control easy for your arm will be avoiding flipping the arm’s direction from one side to another, as it keeps the backlash (the amount of wiggle when the motor is fixed) on one side of your arm, making life easy.\n\nWhile modern brushless motors have integrated encoders, having a dedicated absolute encoder is a much more robust solution, as it allows you to record the rotation of the arm directly. This encoder should be geared 1:1 with the rotation of the arm and have no backlash. (Thank you Parker)\n\nA CANcoder or REV through bore encoder would be ideal. I like using the REV through bore encoders as of now (2023), but as new encoders and electronics get introduced to the FRC market, do whatever is recommended.\n\nYou can’t directly record the arm axle’s rotation with a dead axle. As a result, you need to transfer motion to a separate off-axis encoder, which is then recorded by an encoder. A simple solution to this is bolting a large pulley to the arm, bringing it to another pulley with a loosened CC (-0.1in CC is good), then using a bearing tensioner system. This avoids many of the lineup and assembly tolerance issues you might have with gears and ensures you have an accurate reading of the arm’s current position.\n\nGearing calculations are critical here as you need to make sure that your motors can move your arm the way you want it while not being too slow. If you gear too fast, your motors might struggle to turn the arm (make sure you current limit!), and if it’s too slow, it might be easy to control… but it’s slow.\n\nReCalc - a collaboration focused mechanical design calculator.\n\nStart by obtaining the fixed things you know from your robot design, arm mass, arm center of mass, and what motors you use. Cim class brushless motors are recommended (neo or falcon), as they can withstand a lot more abuse and don’t smoke up as quickly as other motors, as well as reducing the amount of gearing necessary to rotate the arm.\n\nPut it through the calculator, and play around with the gearing until you get the fastest speed possible to raise your arm that doesn’t trip your breakers or smoke your motors, then add a bit more torque for the safety factor.\n\nIf your time to destination is still too slow, add another motor or decrease the weight of your arm. Rinse and repeat until you get something good.\n\nSome general ballpark recommendations for values: Use two cim class motors. Neos or falcons work great here, and overkill is better than smoking motors or moving slowly. Set the current limit to 40 amps, but depending on how aggressive you want to be, you can increase or decrease this current limit\n\nFeedback on this section, please!\n\nAim for 160:1 - 200:1 with 2 BLDC cim class motors with 35 chain in the last stage; it’ll probably work in 95 percent of situations. Adjust if it feels too slow or too fast. Check recalc\n\nTry to keep your arm under 20 lbs\n\nThis allows you to have significant torque for most FRC applications you throw at the arm and makes it easy to control.\n\nIt’s very easy to increase the weight of your arm, and if it becomes too heavy, it may become difficult to drive with your motors or program. What counterbalancing allows you to do is effectively “reduce” the weight of your arm, typically using some form of spring or gas shock, which allows for a large quality of life improvement for your programming team, as well as decreases the loads on your arm, especially if you need to hold your arm up for extended periods. This allows you to put a lot more mass onto your arm, add fancy mechanisms without the worry of the motors being unable to handle it, and simplify the programming process.\n\nAlthough counterbalancing seems very useful, you still have some slight issues, one being that the inertia of your arm remains, so your arm will have to be slower.\n\nAdditionally, as the standard is typically gas shocks, you will have a fixed and limited arm speed dependent on the gas spring, so insanely fast arm speeds aren’t possible.\n\nAs a result, you typically want to avoid using counterbalance or gas springs if you only need to lift your arm extremely quickly for short periods (a few seconds at most), without holding the arm up for long, and have competent programmers for programming the arm, and have an arm light enough to compensate. Even so, you can always over-gear to compensate for the increased mass.\n\nSo why use gas springs over other types of counterbalancing? Gas shocks have a few strengths that make it a clear pick in FRC . Compression springs are very dangerous, and you have to store over 50 lbs. of force in the springs to counterbalance the arm. Gas springs operate a bit slower, meaning there is less surprise factor, and they are more predictable and easier to control and build with. Additionally, compared to other forms of counterbalancing, gas springs are a lot easier to package with their smaller frame. Due to how they operate, they can be easily represented in sketches similar to traditional pneumatics, making them easy to design for and model. Finally, they are easy to mount, and you can easily buy the properly specced gas shock for your application, making them a lot easier to approach than other options, as you can easily integrate them into an existing arm design.\n\nWhen designing for gas springs, you primarily want to follow a few rules and considerations.\n\nYou want first to ensure that you are using an under-specced gas spring, ideally under the actual mass of the arm that needs to be counterbalanced, as the arm is lifted by the gas spring is not very good, as it brings your backlash no longer on one side, meaning that the control is much more difficult. Aiming for 60-75 percent is good. For example, the 7461 beta arm required an 83 lb spring with a 3-inch radius and a 25-inch center of mass. As a result, we would use a 50-pound spring.\n\nYou also want to design it so that your gas spring is fully extended when your arm is at max extension. On the assembly side, this allows you to build the arm/mount the arm with the gas spring in a neutral state, meaning that you don’t have to be compressing a 50-pound spring to assemble your arm, which is very difficult.\n\nAdditionally, you want to place your gas spring mount in line with the horizontal axis of your arm, as well as to be somewhat close to the axis, as you don’t need too much mechanical advantage, and being closer to the center of the pivot means you need less length of gas spring to do the full rotation.\n\nFinally, you want the down mounting of your gas spring to be directly under the axis of rotation, as it will allow for proper compensation of the force of gravity, which changes as the arm rotates.\n\nBesides your arm design, you should consider some general design rules while designing around your arm.\n\nAs mentioned earlier, the force at the end of your arm is magnified via a lever, and a lighter arm makes it much easier to control for your programmers. Because of this, you should spend a lot of effort to minimize the weight at the end of the arm.\n\nAs mentioned earlier, the force at the end of your arm is magnified via a lever, and a lighter arm makes it much easier to control for your programmers. Because of this, you should spend a lot of effort to minimize the weight at the end of the arm.\n\nArm clearance is important as it’s easy to hit things with your arm, especially other parts of your robot. I recommend drawing a circle in your master sketch to represent the points of contact in your arm so you can design around it.\n\nArm clearance is important as it’s easy to hit things with your arm, especially other parts of your robot. I recommend drawing a circle in your master sketch to represent the points of contact in your arm so you can design around it.\n\nTypically you’ll encounter a few different issues when designing for arm clearance. Either:\n\nYour arm can’t reach the ground and ground intake without an extra degree of freedom -You should probably change your strategy or add the degree of freedom. Otherwise, add a mechanism to pass it on to your\n\nYour arm hits your pass-off mechanisms You added pass-off mechanisms, so you don’t need to add an extra dof, but now your arm hits it. You need to play with the geometry until it fits or put it on the side where the arm doesn’t swing.\n\nYou added pass-off mechanisms, so you don’t need to add an extra dof, but now your arm hits it. You need to play with the geometry until it fits or put it on the side where the arm doesn’t swing.\n\nYour arm doesn’t reach your intended destination Play around with the positioning, worst case. You add an extra .5-1 degree of freedom.\n\nPlay around with the positioning, worst case. You add an extra .5-1 degree of freedom.\n\nYou can solve many of these issues by playing in your master sketch and geometry, which will generally be different for each team and set of constraints.\n\nThank you, onshape dark mode (onshape broke)\n\nConsolidated Shopping list:\n\nDead Axel Setup: 7/8 OD 1/16 or 1/8 thickness 6061 round tubing\n\n7/8 bronze bushings McMaster-Carr 1 inch long McMaster-Carr 0.5 inch long\n\nTube connecting nuts for 7/8 od:\n\nMcMaster-Carr is the complete source for your plant with over 595,000 products. 98% of products ordered ship from stock and deliver same or next day.\n\nPower transmission\n\n35 Chain\n\nAndymark 35 Series bearing bore plate sprockets, 52 or over Andymark or WCP 35 series steel sprockets, under 14 tooth\n\n8 different offerings of our 35 Series Plate Sprockets. These are perfect for meshing with roller chain and finally getting that-thing-that-you-need-to-spin moving!\n\nThese aluminum sprockets work perfectly with any of our 6 hole hubs and mesh with...\n\n#35 Sprockets – WestCoast Products WCP -0758\n\nMaxtube max pattern or 1/16 6061 2x2 extrusion (requires omio or precise machining, could make a jig (?)\n\nREV Robotics designs, builds and manufactures robotics parts and components used by students for learning about science, technology, engineering, and math (STEM). Our parts are commonly used within the FIRST Robotics Competition and the FIRST Tech...\n\nPrice: USD 4\n\n3dp Filament MAXPlanetary (mps are better)/Sport Gearbox Can also use rev through bore gearbox with sports\n\nREV Robotics designs, builds and manufactures robotics parts and components used by students for learning about science, technology, engineering, and math (STEM). Our parts are commonly used within the FIRST Robotics Competition and the FIRST Tech...\n\nPrice: USD 120\n\nThe 57 Sport is a competition tested high-performance line of planetary gearboxes from AndyMark and BaneBots. The 57 Sport features numerous improvements over previous planetary gearboxes used on FIRST Robotics Competition robots.\n\nThe cold-formed...\n\nMaxspline\n\nREV Robotics designs, builds and manufactures robotics parts and components used by students for learning about science, technology, engineering, and math (STEM). Our parts are commonly used within the FIRST Robotics Competition and the FIRST Tech...\n\nPrice: USD 20\n\nStepped bushing: https://www.revrobotics.com/rev-21-2396/ Tube Nuts for ¾ Dead Axle Tube (right threaded): https://www.revrobotics.com/Tube-Nuts-for-3/4in-Dead-Axle-Tube/ ¾ Dead Axle Tube\n\nREV Robotics designs, builds and manufactures robotics parts and components used by students for learning about science, technology, engineering, and math (STEM). Our parts are commonly used within the FIRST Robotics Competition and the FIRST Tech...\n\nPrice: USD 14",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-04T01:40:04.885Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9310,
+                    "reads": 1045,
+                    "readers_count": 1044,
+                    "score": 47424.0,
+                    "yours": false,
+                    "topic_id": 425684,
+                    "topic_slug": "a-guide-to-designing-robust-robot-arms",
+                    "display_username": "david",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.google.com/document/d/1tM4ZC7u8cGZXgVHug5JB-oERwegBZtpu1gSVdkMn4v8/edit?usp=sharing",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "A Guide to Designing Robust Robot Arms - Google Docs",
+                            "clicks": 1475
+                        },
+                        {
+                            "url": "https://cad.onshape.com/documents/600851d5150414db73c07924/w/a24d0ca4c5c669fc43a9a267/e/427ea0fee1edb40f63446c15?renderMode=0&leftPanel=false&uiState=63dccaee38dad766557a9201",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Onshape",
+                            "clicks": 196
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-7461-sushi-squad-2023-build-thread/421793",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "FRC 7461 Sushi Squad 2023 Build Thread",
+                            "clicks": 175
+                        },
+                        {
+                            "url": "https://www.reca.lc/arm",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ReCalc",
+                            "clicks": 81
+                        },
+                        {
+                            "url": "https://en.wikipedia.org/wiki/List_of_second_moments_of_area",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "List of second moments of area - Wikipedia",
+                            "clicks": 42
+                        },
+                        {
+                            "url": "https://www.mcmaster.com/6338K585/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "McMaster-Carr",
+                            "clicks": 33
+                        },
+                        {
+                            "url": "https://www.andymark.com/products/35-series-bearing-bore-plate-sprockets?via=Z2lkOi8vYW5keW1hcmsvV29ya2FyZWE6OkNhdGFsb2c6OkNhdGVnb3J5LzViZDM0MzA1NjFhMTBkMjkzZjk2NDMyMA",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 27
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-21-2510/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Dead Axle Tube - 3/4in - 36in - REV Robotics",
+                            "clicks": 25
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-21-2520/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "MAXSpline Shaft - 47in - REV Robotics",
+                            "clicks": 21
+                        },
+                        {
+                            "url": "https://www.mcmaster.com/94290A520/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "McMaster-Carr",
+                            "clicks": 21
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-21-2396/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Stepped Bushing - 3/4in ID - REV Robotics",
+                            "clicks": 19
+                        },
+                        {
+                            "url": "https://www.andymark.com/products/57-sport-options",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 17
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-21-2100/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "MAXPlanetary System Kit - REV Robotics",
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/Tube-Nuts-for-3/4in-Dead-Axle-Tube/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Tube Nuts for 3/4in Dead Axle Tube - REV Robotics",
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/MAXTube/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "MAXTube - REV Robotics",
+                            "clicks": 11
+                        },
+                        {
+                            "url": "https://www.mcmaster.com/6338k584/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "McMaster-Carr",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://wcproducts.com/products/35-sprockets",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "#35 Sprockets – WestCoast Products",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/rev-robotics-is-proud-to-introduce-rev-ion/409457/117",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "REV Robotics is proud to Introduce REV ION!",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://cdn.discordapp.com/attachments/918283282884485150/1066485909211598898/IMG_1396.mov",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-7461-sushi-squad-2023-build-thread/421793/99",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "FRC 7461 Sushi Squad 2023 Build Thread",
+                            "clicks": 11
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/what-is-a-dead-axle-in-frc/441370/5",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "What is a dead axle in FRC",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/sun-gear-was-destroyed-how-do-i-rotate-a-heavy-arm-from-a-motor-gearboxes/427139/11",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Sun gear was destroyed - How do I rotate a heavy arm from a motor/gearboxes?",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/aluminium-tubing-for-frc-arms/440625/18",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Aluminium tubing for frc arms",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/a-competitive-l1-swerve-robot-which-the-only-manufacturing-resource-is-a-hacksaw/439329/23",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "A competitive l1 swerve robot which the only manufacturing resource is a hacksaw",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/180-1-max-planetary-60-1-belt-3-1/450055/5",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "180:1 (max Planetary 60:1 + belt 3:1)",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/5119-open-alliance-build-thread/419226/19",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "5119 Open alliance build thread",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-7461-sushi-squad-2023-build-thread/421793/149",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "FRC 7461 Sushi Squad 2023 Build Thread",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 44
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 43066,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "alum | i run frcdesign.org"
+                    },
+                    "post_url": "/t/a-guide-to-designing-robust-robot-arms/425684/1",
+                    "custom_user_title": "alum | i run frcdesign.org",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 42
+                        },
+                        {
+                            "id": "100",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "call_me_hand",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 44,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3139396,
+                    "name": "Bryce Hanson",
+                    "username": "BryceHanson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/brycehanson/{size}/159972_2.png",
+                    "created_at": "2023-02-04T02:29:54.920Z",
+                    "cooked": "Filing this next to an answer about FRC elevators.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-04T02:31:06.655Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 17,
+                    "reads": 574,
+                    "readers_count": 573,
+                    "score": 244.8,
+                    "yours": false,
+                    "topic_id": 425684,
+                    "topic_slug": "a-guide-to-designing-robust-robot-arms",
+                    "display_username": "Bryce Hanson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/an-answer-about-frc-elevators/395688",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "An Answer About Frc Elevators",
+                            "clicks": 217
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 31172,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "125M/7525M | MC/GA "
+                    },
+                    "post_url": "/t/a-guide-to-designing-robust-robot-arms/425684/2",
+                    "custom_user_title": "125M/7525M | MC/GA ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3301380,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-02-04T02:30:12.002Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-04T02:30:12.002Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 17,
+                    "reads": 198,
+                    "readers_count": 197,
+                    "score": 124.6,
+                    "yours": false,
+                    "topic_id": 425684,
+                    "topic_slug": "a-guide-to-designing-robust-robot-arms",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/physics-behind-a-good-arm/461350/3",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Physics behind a good arm",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/a-guide-to-designing-robust-robot-arms/425684/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3139362,
+                3139396,
+                3301380
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                981
+            ],
+            [
+                3,
+                616
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Favorite CHRP files?",
+                "id": 506371,
+                "title": "Favorite CHRP files?",
+                "slug": "favorite-chrp-files",
+                "posts_count": 5,
+                "reply_count": 0,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-09-17T13:51:14.957Z",
+                "last_posted_at": "2025-09-17T14:58:32.950Z",
+                "bumped": true,
+                "bumped_at": "2025-09-17T14:58:32.950Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For those who don’t know, you can convert MIDI files into CHRP files that talon fx motors can play. I was playing with it this summer, and learned how annoying it was to find MIDI files that sounded g…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 166,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3741165,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74592,
+                    "username": "flamekeeper",
+                    "name": "Brody Anderson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/flamekeeper/{size}/267435_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74592,
+                            "username": "flamekeeper",
+                            "name": "Brody Anderson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/flamekeeper/{size}/267435_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10484,
+                            "username": "cmwilson13",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmwilson13/{size}/3628_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 6560,
+                            "username": "cbale2000",
+                            "name": "Chris Bale",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cbale2000/{size}/2142_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Anyone get WPICal to work?",
+                "id": 494663,
+                "title": "Anyone get WPICal to work?",
+                "slug": "anyone-get-wpical-to-work",
+                "posts_count": 11,
+                "reply_count": 7,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-03-07T19:40:24.122Z",
+                "last_posted_at": "2025-05-24T17:55:12.437Z",
+                "bumped": true,
+                "bumped_at": "2025-05-24T17:55:12.437Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Has anyone got WPICal to work? We are trying to use it to figure out the location of the Apriltags in our practice space, and the results are so far, umm, terrible. I am using my cell phone to captu…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib",
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 719,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3550634,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 25118,
+                    "username": "prensing",
+                    "name": "Paul Rensing",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50609,
+                            "username": "jonahsnider",
+                            "name": "Jonah Snider",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahsnider/{size}/203397_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 67450,
+                            "username": "YUANZL",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/y/50afbb/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 6998,
+                            "username": "rich.varone",
+                            "name": "Rich Jr",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rich.varone/{size}/167373_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Toughness of the actual game piece",
+                "id": 482250,
+                "title": "Toughness of the actual game piece",
+                "slug": "toughness-of-the-actual-game-piece",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-17T06:35:05.081Z",
+                "last_posted_at": "2025-01-18T12:46:22.605Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T13:37:50.672Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is anyone have a video of how hard it is to squeeze the right game piece compared to the shell shaped if you have an intake that is about the size of coral with compliant wheels. Haven’t received my p…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 726,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485463,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53962,
+                    "username": "Lfehr",
+                    "name": "Landon",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/47e85d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53962,
+                            "username": "Lfehr",
+                            "name": "Landon",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/47e85d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57904,
+                            "username": "stephen.ostermiller",
+                            "name": "Stephen Ostermiller",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stephen.ostermiller/{size}/188076_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53736,
+                            "username": "JoshuaJ1710",
+                            "name": "Joshua",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joshuaj1710/{size}/206763_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is it worth switching to YAGLS when our team has our own Swerve code?",
+                "id": 484092,
+                "title": "Is it worth switching to YAGLS when our team has our own Swerve code?",
+                "slug": "is-it-worth-switching-to-yagls-when-our-team-has-our-own-swerve-code",
+                "posts_count": 15,
+                "reply_count": 7,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-01-29T05:38:53.043Z",
+                "last_posted_at": "2025-01-30T03:04:16.632Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T03:04:16.632Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone, I am a student in what I would consider an “intermediate” team, and am now the main programmer for the team. Our team has been writing our own swerve drive code just using the features W…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 715,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495467,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61618,
+                    "username": "Michael888",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61618,
+                            "username": "Michael888",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46476,
+                            "username": "AMysterium",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/amysterium/{size}/167374_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Update values via shuffleboard",
+                "id": 491456,
+                "title": "Update values via shuffleboard",
+                "slug": "update-values-via-shuffleboard",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-13T00:46:40.963Z",
+                "last_posted_at": "2025-02-15T11:03:15.860Z",
+                "bumped": true,
+                "bumped_at": "2025-02-15T11:03:15.860Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "we’ve been trying to get values inputted via shuffleboard to actually cause an update to the values but nothing we’ve tried works anyone have any ideas how to do this?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 103,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525511,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65129,
+                    "username": "Roasted",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/roasted/{size}/219996_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65129,
+                            "username": "Roasted",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/roasted/{size}/219996_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61815,
+                            "username": "Mohammed",
+                            "name": "Mohammed",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "arm",
+            "2023",
+            "whitepaper",
+            "frc7461"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "A Guide to Designing Robust Robot Arms",
+        "id": 425684,
+        "title": "A Guide to Designing Robust Robot Arms",
+        "posts_count": 3,
+        "created_at": "2023-02-04T01:40:04.778Z",
+        "views": 12289,
+        "reply_count": 0,
+        "like_count": 47,
+        "last_posted_at": "2024-02-04T02:30:12.002Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "a-guide-to-designing-robust-robot-arms",
+        "category_id": 9,
+        "word_count": 3879,
+        "deleted_at": null,
+        "user_id": 43066,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_425684",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 31172,
+                    "username": "BryceHanson",
+                    "name": "Bryce Hanson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/brycehanson/{size}/159972_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 43066,
+                    "username": "howlongismyname",
+                    "name": "david",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/howlongismyname/{size}/134767_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 43066,
+                "username": "howlongismyname",
+                "name": "david",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/howlongismyname/{size}/134767_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.google.com/document/d/1tM4ZC7u8cGZXgVHug5JB-oERwegBZtpu1gSVdkMn4v8/edit?usp=sharing",
+                    "title": "A Guide to Designing Robust Robot Arms - Google Docs",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1475,
+                    "user_id": 43066,
+                    "domain": "docs.google.com",
+                    "root_domain": "google.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/an-answer-about-frc-elevators/395688",
+                    "title": "An Answer About Frc Elevators",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 217,
+                    "user_id": 31172,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://cad.onshape.com/documents/600851d5150414db73c07924/w/a24d0ca4c5c669fc43a9a267/e/427ea0fee1edb40f63446c15?renderMode=0&leftPanel=false&uiState=63dccaee38dad766557a9201",
+                    "title": "Onshape",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 196,
+                    "user_id": 43066,
+                    "domain": "cad.onshape.com",
+                    "root_domain": "onshape.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/frc-7461-sushi-squad-2023-build-thread/421793",
+                    "title": "FRC 7461 Sushi Squad 2023 Build Thread",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 175,
+                    "user_id": 43066,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.reca.lc/arm",
+                    "title": "ReCalc",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 81,
+                    "user_id": 43066,
+                    "domain": "www.reca.lc",
+                    "root_domain": "reca.lc"
+                },
+                {
+                    "url": "https://en.wikipedia.org/wiki/List_of_second_moments_of_area",
+                    "title": "List of second moments of area - Wikipedia",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 42,
+                    "user_id": 43066,
+                    "domain": "en.wikipedia.org",
+                    "root_domain": "wikipedia.org"
+                },
+                {
+                    "url": "https://www.mcmaster.com/6338K585/",
+                    "title": "McMaster-Carr",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 33,
+                    "user_id": 43066,
+                    "domain": "www.mcmaster.com",
+                    "root_domain": "mcmaster.com"
+                },
+                {
+                    "url": "https://www.andymark.com/products/35-series-bearing-bore-plate-sprockets?via=Z2lkOi8vYW5keW1hcmsvV29ya2FyZWE6OkNhdGFsb2c6OkNhdGVnb3J5LzViZDM0MzA1NjFhMTBkMjkzZjk2NDMyMA",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 27,
+                    "user_id": 43066,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-21-2510/",
+                    "title": "Dead Axle Tube - 3/4in - 36in - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 25,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.mcmaster.com/94290A520/",
+                    "title": "McMaster-Carr",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 21,
+                    "user_id": 43066,
+                    "domain": "www.mcmaster.com",
+                    "root_domain": "mcmaster.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-21-2520/",
+                    "title": "MAXSpline Shaft - 47in - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 21,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-21-2396/",
+                    "title": "Stepped Bushing - 3/4in ID - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 19,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.andymark.com/products/57-sport-options",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 43066,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/Tube-Nuts-for-3/4in-Dead-Axle-Tube/",
+                    "title": "Tube Nuts for 3/4in Dead Axle Tube - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-21-2100/",
+                    "title": "MAXPlanetary System Kit - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/MAXTube/",
+                    "title": "MAXTube - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 43066,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/frc-7461-sushi-squad-2023-build-thread/421793/99",
+                    "title": "FRC 7461 Sushi Squad 2023 Build Thread",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 11,
+                    "user_id": 43066,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.mcmaster.com/6338k584/",
+                    "title": "McMaster-Carr",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 43066,
+                    "domain": "www.mcmaster.com",
+                    "root_domain": "mcmaster.com"
+                },
+                {
+                    "url": "https://wcproducts.com/products/35-sprockets",
+                    "title": "#35 Sprockets – WestCoast Products",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 43066,
+                    "domain": "wcproducts.com",
+                    "root_domain": "wcproducts.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/what-is-a-dead-axle-in-frc/441370/5",
+                    "title": "What is a dead axle in FRC",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 8,
+                    "user_id": 31172,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/sun-gear-was-destroyed-how-do-i-rotate-a-heavy-arm-from-a-motor-gearboxes/427139/11",
+                    "title": "Sun gear was destroyed - How do I rotate a heavy arm from a motor/gearboxes?",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 6,
+                    "user_id": 43066,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/aluminium-tubing-for-frc-arms/440625/18",
+                    "title": "Aluminium tubing for frc arms",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 4,
+                    "user_id": 43066,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/a-competitive-l1-swerve-robot-which-the-only-manufacturing-resource-is-a-hacksaw/439329/23",
+                    "title": "A competitive l1 swerve robot which the only manufacturing resource is a hacksaw",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 2,
+                    "user_id": 43066,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/180-1-max-planetary-60-1-belt-3-1/450055/5",
+                    "title": "180:1 (max Planetary 60:1 + belt 3:1)",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 2,
+                    "user_id": 53784,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

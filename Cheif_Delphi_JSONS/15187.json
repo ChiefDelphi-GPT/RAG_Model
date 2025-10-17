@@ -1,0 +1,1064 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3013179,
+                    "name": "Byron Sharman",
+                    "username": "byronsharman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/byronsharman/{size}/160884_2.png",
+                    "created_at": "2022-02-26T05:52:31.431Z",
+                    "cooked": "I haven’t seen this question asked since 2012, so I thought it would be worth another inquiry. I have personally found inserting 18 AWG wire into Dupont housings to be quite difficult and 16 AWG to be nearly impossible because of the insulation thickness; I don’t know if that’s the nuances of the sizes or a consequence of our team lacking members with prior experience in electronics. Looking at the rules, I’m not sure exactly where the RSL fits into Table 9-4. Would 20 or 22 AWG be FRC legal? My current guess is that the RSL counts as a “SIGNAL LEVEL” circuit.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-26T05:52:31.431Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 571,
+                    "reads": 234,
+                    "readers_count": 233,
+                    "score": 2901.8,
+                    "yours": false,
+                    "topic_id": 404008,
+                    "topic_slug": "minimum-rsl-wire-gauge",
+                    "display_username": "Byron Sharman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49451,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/minimum-rsl-wire-gauge/404008/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3013185,
+                    "name": "EricH",
+                    "username": "EricH",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                    "created_at": "2022-02-26T06:13:08.199Z",
+                    "cooked": "I’m going to go with “keep reading”. This one took me a bit.\n\nR709 covers wiring the RSL, and its blue box links to How to Wire an FRC Robot — FIRST Robotics Competition documentation . Which, if you scroll down, says to use 18 AWG. Drat.\n\nTable 9-4, Signal Level circuitry: “(i.e. circuits which draw ≤1A continuous and have a source incapable of delivering >1A, including but not limited to roboRIO non-PWM outputs ,”, 28 AWG minimum.\n\nHmm… and the spec sheet for the RSL says it’s a 12VDC 60mA continuous draw.\n\nOf course, 28 AWG being the minimum you could always bump up to say it’s on a <=10A Fuse protected circuit (which it is, RoboRIO uses 10A) and that’ll give you 22AWG.\n\nSo, long story short: 22AWG gives you two rules you’re safe under, anything smaller leaves you with 1. 20 AWG is just extra safety compared to 22 AWG.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-26T06:13:08.199Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 16,
+                    "reads": 230,
+                    "readers_count": 229,
+                    "score": 141.0,
+                    "yours": false,
+                    "topic_id": 404008,
+                    "topic_slug": "minimum-rsl-wire-gauge",
+                    "display_username": "EricH",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-1/how-to-wire-a-robot.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "How to Wire an FRC Robot — FIRST Robotics Competition documentation",
+                            "clicks": 34
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 4212,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "#westandwithUkraine"
+                    },
+                    "post_url": "/t/minimum-rsl-wire-gauge/404008/2",
+                    "custom_user_title": "#westandwithUkraine",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3013334,
+                    "name": "Al Skierkiewicz  Learn Something New, Every Day!",
+                    "username": "Al_Skierkiewicz",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/al_skierkiewicz/{size}/110877_2.png",
+                    "created_at": "2022-02-26T17:29:28.136Z",
+                    "cooked": "There is no wire size limit in the robot rules for RSL.  The connector on the Roborio is  the same spacing as the PWM connectors but it is a two pin connector.  It is easy to modify a premade PWM connector to wire the RSL.  The connector at the RSL is meant for # 18 or smaller so # 22 is perfectly fine.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-26T17:29:28.136Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 142,
+                    "readers_count": 141,
+                    "score": 78.4,
+                    "yours": false,
+                    "topic_id": 404008,
+                    "topic_slug": "minimum-rsl-wire-gauge",
+                    "display_username": "Al Skierkiewicz  Learn Something New, Every Day!",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/tag/18",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/tag/22",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 121,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Chief Robot Inspector   Learn Something New, Ever Day!"
+                    },
+                    "post_url": "/t/minimum-rsl-wire-gauge/404008/3",
+                    "custom_user_title": "Chief Robot Inspector   Learn Something New, Ever Day!",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3013446,
+                    "name": "Jim Forbes",
+                    "username": "MrForbes",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrforbes/{size}/165505_2.png",
+                    "created_at": "2022-02-26T20:42:20.850Z",
+                    "cooked": "We wired ours today with what is most likely 22 AWG (it’s a red/black cable with 0.1\" spacing ends on it, that came in the REV cable kit) . Just like we’ve done for years.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-26T20:42:20.850Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 99,
+                    "readers_count": 98,
+                    "score": 24.8,
+                    "yours": false,
+                    "topic_id": 404008,
+                    "topic_slug": "minimum-rsl-wire-gauge",
+                    "display_username": "Jim Forbes",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 121,
+                        "username": "Al_Skierkiewicz",
+                        "name": "Al Skierkiewicz  Learn Something New, Every Day!",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/al_skierkiewicz/{size}/110877_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 6260,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Jim Forbes 1726 Mechanical Mentor"
+                    },
+                    "post_url": "/t/minimum-rsl-wire-gauge/404008/4",
+                    "custom_user_title": "Jim Forbes 1726 Mechanical Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3153244,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-02-26T20:43:13.757Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2023-02-26T20:43:13.757Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 24,
+                    "readers_count": 23,
+                    "score": 14.8,
+                    "yours": false,
+                    "topic_id": 404008,
+                    "topic_slug": "minimum-rsl-wire-gauge",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/minimum-rsl-wire-gauge/404008/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3013179,
+                3013185,
+                3013334,
+                3013446,
+                3153244
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1324
+            ],
+            [
+                3,
+                1323
+            ],
+            [
+                5,
+                958
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Wire Gauge Rule of Thumb",
+                "id": 476277,
+                "title": "Wire Gauge Rule of Thumb",
+                "slug": "wire-gauge-rule-of-thumb",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-12-08T15:36:03.040Z",
+                "last_posted_at": "2024-12-09T00:05:47.540Z",
+                "bumped": true,
+                "bumped_at": "2024-12-09T00:05:47.540Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Recently I used 18 gauge wire wagoed to a neo, and apparently I should have used 14 or some other gauge. My question is how do I tell what wire guage to use, and for what components or voltages. Thank…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "electrical"
+                ],
+                "tags_descriptions": {},
+                "like_count": 48,
+                "views": 1717,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3456442,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68759,
+                    "username": "DumbChurchill",
+                    "name": "Ryan Du",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/9f8e36/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68759,
+                            "username": "DumbChurchill",
+                            "name": "Ryan Du",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/9f8e36/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Wiring Break Beam Sensor to SparkMAX?",
+                "id": 485316,
+                "title": "Wiring Break Beam Sensor to SparkMAX?",
+                "slug": "wiring-break-beam-sensor-to-sparkmax",
+                "posts_count": 17,
+                "reply_count": 11,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-02-05T18:37:04.883Z",
+                "last_posted_at": "2025-02-06T22:33:57.458Z",
+                "bumped": true,
+                "bumped_at": "2025-02-06T22:33:57.458Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team has the Adafruit 5mm break beam sensor and the REV Data Port Breakout Board. I’ve seen some threads on CD about connecting it, but I’m still confused. How do I solder the break beam sensor to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 368,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3503150,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14045,
+                            "username": "Domtech",
+                            "name": "Domtech",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/domtech/{size}/138487_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 5123,
+                            "username": "Phalanx",
+                            "name": "Phalanx",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/phalanx/{size}/1645_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Wiring with a Mini Power Module and a VRM",
+                "id": 482038,
+                "title": "Wiring with a Mini Power Module and a VRM",
+                "slug": "wiring-with-a-mini-power-module-and-a-vrm",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-16T10:01:19.562Z",
+                "last_posted_at": "2025-01-16T20:46:53.044Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T20:52:16.744Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey there. We’ve tried many ways to power our electrical in former seasons. We unfortunately came across many problems. We’ve seen less teams using the VRM and more teams using PDH ports or Mini Power…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "electrical"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 400,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484334,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60521,
+                    "username": "poaygul",
+                    "name": "Poyraz Aygül",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/poaygul/{size}/235100_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60521,
+                            "username": "poaygul",
+                            "name": "Poyraz Aygül",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/poaygul/{size}/235100_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14045,
+                            "username": "Domtech",
+                            "name": "Domtech",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/domtech/{size}/138487_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Need help with MAXSwerve",
+                "id": 483308,
+                "title": "Need help with MAXSwerve",
+                "slug": "need-help-with-maxswerve",
+                "posts_count": 11,
+                "reply_count": 5,
+                "highest_post_number": 11,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/0/d0c065bd5fb23efd29f3a386bc68354d19b1a268_2_768x1024.jpeg",
+                "created_at": "2025-01-24T00:23:23.491Z",
+                "last_posted_at": "2025-01-24T20:52:00.810Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T20:52:00.810Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "TyJac42 is correct. Sorry for the confusion. The Neo 550 connects to this port using the cable built into the Neo 550: The absolute encoder from your picture plugs into a Absolute Encoder …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "revrobotics",
+                    "maxswerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 254,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491748,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 20008,
+                    "username": "SndMndBdy",
+                    "name": "SndMndBdy",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 20008,
+                            "username": "SndMndBdy",
+                            "name": "SndMndBdy",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/13edae/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53544,
+                            "username": "TyJac42",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tyjac42/{size}/230279_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Can wire connectors cause short in can bus?",
+                "id": 494842,
+                "title": "Can wire connectors cause short in can bus?",
+                "slug": "can-wire-connectors-cause-short-in-can-bus",
+                "posts_count": 10,
+                "reply_count": 6,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-03-09T11:00:25.394Z",
+                "last_posted_at": "2025-03-10T15:38:59.986Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T15:38:59.986Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, so my team and I are currently using grey connectors for some of the CAN bus wires. Some of these wires had to be cut and spliced together because they weren’t long enough, and they are now shorti…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 303,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3551786,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62768,
+                    "username": "Brayden135",
+                    "name": "Brayden DeGraff",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/e0b2c6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62768,
+                            "username": "Brayden135",
+                            "name": "Brayden DeGraff",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/e0b2c6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15467,
+                            "username": "philso",
+                            "name": "philso",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 20861,
+                            "username": "evanperryg",
+                            "name": "evanperryg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/evanperryg/{size}/259696_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Minimum RSL wire gauge",
+        "id": 404008,
+        "title": "Minimum RSL wire gauge",
+        "posts_count": 5,
+        "created_at": "2022-02-26T05:52:31.306Z",
+        "views": 1283,
+        "reply_count": 1,
+        "like_count": 2,
+        "last_posted_at": "2023-02-26T20:43:13.757Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "minimum-rsl-wire-gauge",
+        "category_id": 32,
+        "word_count": 390,
+        "deleted_at": null,
+        "user_id": 49451,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_404008",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 121,
+                    "username": "Al_Skierkiewicz",
+                    "name": "Al Skierkiewicz  Learn Something New, Every Day!",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/al_skierkiewicz/{size}/110877_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 4212,
+                    "username": "EricH",
+                    "name": "EricH",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 6260,
+                    "username": "MrForbes",
+                    "name": "Jim Forbes",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrforbes/{size}/165505_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 49451,
+                    "username": "byronsharman",
+                    "name": "Byron Sharman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/byronsharman/{size}/160884_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 49451,
+                "username": "byronsharman",
+                "name": "Byron Sharman",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/byronsharman/{size}/160884_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-1/how-to-wire-a-robot.html",
+                    "title": "How to Wire an FRC Robot — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 34,
+                    "user_id": 4212,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

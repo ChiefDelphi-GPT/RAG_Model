@@ -1,0 +1,811 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3199868,
+                    "name": "Brayden DeGraff",
+                    "username": "brayden",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/58956e/{size}.png",
+                    "created_at": "2023-04-26T20:36:44.058Z",
+                    "cooked": "here is the error: The method setInverted(boolean) in the type MotorControllerGroup is not applicable for the arguments (TalonFXInvertType)Java(67108979)\n\nhere is my code: // Copyright (c) FIRST and other WPILib contributors. // Open Source Software; you can modify and/or share it under the terms of // the WPILib BSD license file in the root directory of this project.\n\npackage frc.robot;\n\nimport edu.wpi.first.wpilibj.Joystick; import edu.wpi.first.wpilibj.TimedRobot;\n\nimport com.ctre.phoenix.motorcontrol.NeutralMode; import com.ctre.phoenix.motorcontrol.TalonFXInvertType; import com.ctre.phoenix.motorcontrol.can.TalonFX; import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;\n\nimport edu.wpi.first.wpilibj.motorcontrol.MotorController; import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;\n\npublic class Robot extends TimedRobot {\n\nWPI_TalonFX motorRight1 = new WPI_TalonFX(9); WPI_TalonFX motorRight2 = new WPI_TalonFX(5); WPI_TalonFX motorRight3 = new WPI_TalonFX(10); MotorControllerGroup groupRight = new MotorControllerGroup(motorRight1, motorRight2, motorRight3);\n\nWPI_TalonFX motorLeft1 = new WPI_TalonFX(2); WPI_TalonFX motorLeft2 = new WPI_TalonFX(3); WPI_TalonFX motorLeft3 = new WPI_TalonFX(4); MotorControllerGroup groupLeft = new MotorControllerGroup(motorLeft1, motorLeft2, motorLeft3);\n\n//Controller Joystick gamePad = new Joystick(0); Joystick joystick = new Joystick(1);\n\n@Override public void robotInit() { //Inverted setting groupRight.setInverted(TalonFXInvertType.CounterClockwise); groupLeft.setInverted(TalonFXInvertType.Clockwise);\n\n}\n\n@Override public void teleopPeriodic() { // Drive control - Arcade Drive double moveSpeed = -gamePad.getRawAxis(1); // inverted for proper control direction double turnSpeed = gamePad.getRawAxis(4);\n\n}\n\n@Override public void disabledInit() { groupLeft.stopMotor(); groupRight.stopMotor(); } }",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-04-26T20:36:44.058Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 18,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 96.8,
+                    "yours": false,
+                    "topic_id": 436016,
+                    "topic_slug": "i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted",
+                    "display_username": "Brayden DeGraff",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56064,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted/436016/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3199875,
+                    "name": "",
+                    "username": "wanderingcarrot",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/35a633/{size}.png",
+                    "created_at": "2023-04-26T20:46:46.582Z",
+                    "cooked": "It’s not a true/false value - the error is telling you you’re looking for a value from the TalonFXInvertType class (kForward/kReverse, probably)",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-04-26T20:46:46.582Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 22,
+                    "readers_count": 21,
+                    "score": 4.4,
+                    "yours": false,
+                    "topic_id": 436016,
+                    "topic_slug": "i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53361,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming"
+                    },
+                    "post_url": "/t/i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted/436016/2",
+                    "custom_user_title": "Programming",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3373759,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-04-25T20:47:37.359Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-04-25T20:47:37.359Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 436016,
+                    "topic_slug": "i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted/436016/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3199868,
+                3199875,
+                3373759
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                899
+            ],
+            [
+                3,
+                534
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "PCB for Swerve Module, Struggling to Understand a Bit of Everything",
+                "id": 504133,
+                "title": "PCB for Swerve Module, Struggling to Understand a Bit of Everything",
+                "slug": "pcb-for-swerve-module-struggling-to-understand-a-bit-of-everything",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/3/6/2/3622214cfa8c966ace9a68c9828ef02edf6ce18d_2_1024x992.png",
+                "created_at": "2025-07-10T18:01:29.957Z",
+                "last_posted_at": "2025-07-10T23:03:29.767Z",
+                "bumped": true,
+                "bumped_at": "2025-07-10T23:03:29.767Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "On the RJ45, 3-4 is not a twisted pair on Ethernet cable. 1-2, 3-6, 4-5, and 7-8 are, so use one of those for CAN. ( my you’re splitting a pair for DC power. That isn’t as bad. If you don’t …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 327,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3678379,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 66298,
+                    "username": "sokoloff",
+                    "name": "Jim Sokoloff",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64351,
+                            "username": "GronkBaby",
+                            "name": "Emil",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Path Planner Starting Position",
+                "id": 502503,
+                "title": "Path Planner Starting Position",
+                "slug": "path-planner-starting-position",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-05-28T20:54:56.446Z",
+                "last_posted_at": "2025-05-30T02:12:32.542Z",
+                "bumped": true,
+                "bumped_at": "2025-05-30T02:12:32.542Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, We are using FRC PathPlanner for an upcoming offseason event, and I am experimenting with the app. I’m curious what would happen if the robot wasn’t placed in the exact spot that is defined as…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "code"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 246,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3638849,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67648,
+                    "username": "TCG_2984",
+                    "name": "Declan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/9d8465/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67648,
+                            "username": "TCG_2984",
+                            "name": "Declan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/9d8465/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65568,
+                            "username": "therekrab",
+                            "name": "Nolan Barker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68396,
+                            "username": "irresistiable",
+                            "name": "Mete Karadeniz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/f19dbf/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using sysID to tune arm",
+                "id": 481116,
+                "title": "Using sysID to tune arm",
+                "slug": "using-sysid-to-tune-arm",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-12T03:47:25.124Z",
+                "last_posted_at": "2025-01-13T01:17:20.697Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T01:17:20.697Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! me and my team are trying out sysID this year in hopes of achieving more accurate feed forward values when tuning our arm. Prior to this we just applied a voltage until it overcame gravity to …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 423,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479723,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 49222,
+                    "username": "Upcoming",
+                    "name": "Johnathon",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/u/a5b964/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49222,
+                            "username": "Upcoming",
+                            "name": "Johnathon",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/u/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Setup a NT table client on a vision server in windows",
+                "id": 482271,
+                "title": "Setup a NT table client on a vision server in windows",
+                "slug": "setup-a-nt-table-client-on-a-vision-server-in-windows",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/5/35f093d9489e0a7df1b62ddfff878d6f06ead3a0.png",
+                "created_at": "2025-01-17T13:53:39.714Z",
+                "last_posted_at": "2025-02-12T18:18:19.110Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T18:18:19.110Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Here is an updated project. The functionality is the same. I cleaned up the VIs and added documentation to them (Ctrl-H). I also added the enable logging VI so the NT WPI logging function can be…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 190,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525106,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 12,
+                "topic_post_user": {
+                    "id": 26698,
+                    "username": "JSIMPSO",
+                    "name": "Jim simpson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e9a140/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24395,
+                            "username": "aeastet",
+                            "name": "aeastet",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aeastet/{size}/113453_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 26698,
+                            "username": "JSIMPSO",
+                            "name": "Jim simpson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e9a140/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71990,
+                            "username": "LiarMcLiarPants",
+                            "name": "Bill",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/liarmcliarpants/{size}/247645_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Joystick complaints in sim (robotpy)",
+                "id": 481264,
+                "title": "Joystick complaints in sim (robotpy)",
+                "slug": "joystick-complaints-in-sim-robotpy",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-12T20:59:47.736Z",
+                "last_posted_at": "2025-01-12T23:27:44.996Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T23:27:44.996Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "python"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 129,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480419,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 32094,
+                            "username": "CJ_Hill",
+                            "name": "CJ Hill",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cj_hill/{size}/142363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "programming"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "I ran into a error with groupRight.setInverted and groupLeft.setInverted",
+        "id": 436016,
+        "title": "I ran into a error with groupRight.setInverted and groupLeft.setInverted",
+        "posts_count": 3,
+        "created_at": "2023-04-26T20:36:43.962Z",
+        "views": 246,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2024-04-25T20:47:37.359Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "i-ran-into-a-error-with-groupright-setinverted-and-groupleft-setinverted",
+        "category_id": 9,
+        "word_count": 355,
+        "deleted_at": null,
+        "user_id": 56064,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_436016",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 53361,
+                    "username": "wanderingcarrot",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/35a633/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 56064,
+                    "username": "brayden",
+                    "name": "Brayden DeGraff",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/58956e/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 56064,
+                "username": "brayden",
+                "name": "Brayden DeGraff",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/58956e/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

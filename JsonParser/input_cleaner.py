@@ -15,7 +15,7 @@ except ImportError:
     raise
 
 DEBUG = True
-MAC = False
+MAC = True
 SSH = False
 LINUX = False
 PRINT_MUCH = True

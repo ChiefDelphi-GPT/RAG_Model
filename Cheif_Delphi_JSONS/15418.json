@@ -1,0 +1,793 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3007506,
+                    "name": "Carl Hauser",
+                    "username": "chauser",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                    "created_at": "2022-02-14T17:52:23.050Z",
+                    "cooked": "The fact that reset operations on encoders connected to the roboRIO via CANbus can take a significant amount of time before their effect can be observed has arisen in a couple of recent threads. For example: Problems running the WPILib RamseteCommand example and Driverstation ERROR: Output not updated often enough .\n\nI decided to follow the suggested approach of wrapping the encoder class with something that never does actual resets on the encoders but instead records the current reading when the reset happens and subsequently subtracts that from later readings.\n\nThis seems like it ought to be simple, but when you throw in the need to support simulation as well it starts to get complicated, because you can no longer easily use the vendors’ sim classes to update the simulated encoders.\n\nI’m not too happy with the result but I think it will work – I’ve only been able to test it in simulation so far, but the non-simulation case is still a straightforward implementation of the simple idea which gives me some confidence in its correctness. What bothers me most about this implementation is that it does not support the rich features of the vendor’s interface. It does exactly what our team needs and no more.\n\nIf it is truly important to have reset work instantly (and I think it probably is to avoid confusing trajectory-following controllers at the starts of paths) it would be much better if this feature could be systematically implemented by the vendors in their libraries.\n\nAll that said here is the implementation I came up with for the TalonFX/Falcon500.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2022-02-14T17:52:23.050Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 24,
+                    "reads": 63,
+                    "readers_count": 62,
+                    "score": 147.6,
+                    "yours": false,
+                    "topic_id": 402989,
+                    "topic_slug": "solving-encoder-reset-delay-for-canbus-connected-encoders",
+                    "display_username": "Carl Hauser",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/driverstation-error-output-not-updated-often-enough/402156",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Driverstation ERROR: Output not updated often enough",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/problems-running-the-wpilib-ramsetecommand-example/402944",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Problems running the WPILib RamseteCommand example",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/sparkmax-encoder-reset/403620/4",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "SparkMAX Encoder Reset",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 36833,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/solving-encoder-reset-delay-for-canbus-connected-encoders/402989/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3145341,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-02-14T17:53:11.916Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 2,
+                    "post_type": 3,
+                    "posts_count": 2,
+                    "updated_at": "2023-02-14T17:53:11.916Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 9,
+                    "readers_count": 8,
+                    "score": 1.8,
+                    "yours": false,
+                    "topic_id": 402989,
+                    "topic_slug": "solving-encoder-reset-delay-for-canbus-connected-encoders",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/solving-encoder-reset-delay-for-canbus-connected-encoders/402989/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3007506,
+                3145341
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1335
+            ],
+            [
+                2,
+                970
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Smartdashboard being deprecated",
+                "id": 484691,
+                "title": "Smartdashboard being deprecated",
+                "slug": "smartdashboard-being-deprecated",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-01T19:52:00.623Z",
+                "last_posted_at": "2025-02-21T12:54:32.848Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T12:54:32.848Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The plan is to replace the SmartDashboard class with a general purpose Telemetry class with similar “flavor” in terms of ease-of-use (so not a straight rename, but with the aim of it being just as use…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 298,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499243,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57486,
+                            "username": "jgarder",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a183cd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60214,
+                            "username": "spacey_sooty",
+                            "name": "Jade",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/spacey_sooty/{size}/256378_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50591,
+                            "username": "BMLSS",
+                            "name": "Bill Bagshaw",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VIVID Hosting Radio as a 6G hotspot",
+                "id": 476615,
+                "title": "VIVID Hosting Radio as a 6G hotspot",
+                "slug": "vivid-hosting-radio-as-a-6g-hotspot",
+                "posts_count": 15,
+                "reply_count": 10,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2024-12-13T01:41:39.814Z",
+                "last_posted_at": "2024-12-13T16:09:49.394Z",
+                "bumped": true,
+                "bumped_at": "2024-12-13T16:09:49.394Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello again, My team recently got more of the VIVID Hosting Radios and I configured one to be an access point (At least I’m pretty sure I did) and by configuring I mean I updated the firmware. Now I’…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 22,
+                "views": 597,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458703,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68819,
+                    "username": "Wespiseb",
+                    "name": "Ben W.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/f08c70/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68819,
+                            "username": "Wespiseb",
+                            "name": "Ben W.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/f08c70/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 67339,
+                            "username": "httpmaster",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/ebca7d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55016,
+                            "username": "person4268",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Drive Problems",
+                "id": 475534,
+                "title": "Swerve Drive Problems",
+                "slug": "swerve-drive-problems",
+                "posts_count": 10,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-11-24T19:41:16.886Z",
+                "last_posted_at": "2024-12-04T21:06:50.497Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T21:06:50.497Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "so im using a new standart code for my swerve , my wiring is good , my id’s and offsets are good , when im driving it the robot drives good but when trying to rotate the 2 back wheels are working good…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 526,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451425,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61558,
+                    "username": "hamitHangel",
+                    "name": "timTsotsali",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/f9ae1b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61558,
+                            "username": "hamitHangel",
+                            "name": "timTsotsali",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/f9ae1b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68487,
+                            "username": "Stormbreaker",
+                            "name": "Mahi Madhan Kumar",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stormbreaker/{size}/268248_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 54750,
+                            "username": "Ledesma",
+                            "name": "Ramon Ledesma",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elevator relative speed",
+                "id": 482861,
+                "title": "Elevator relative speed",
+                "slug": "elevator-relative-speed",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-21T11:54:53.255Z",
+                "last_posted_at": "2025-01-21T13:05:35.911Z",
+                "bumped": true,
+                "bumped_at": "2025-01-21T13:05:35.911Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are adapting feedforward for our elevator code, but the speed at which it goes up varies between climbs, and its descent is very fast, I don’t know how to solve it, can someone help us?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 211,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488821,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60531,
+                    "username": "NKRY_FRC",
+                    "name": "Krypton #9487",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nkry_frc/{size}/206723_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60531,
+                            "username": "NKRY_FRC",
+                            "name": "Krypton #9487",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nkry_frc/{size}/206723_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59215,
+                            "username": "JoaoArthur",
+                            "name": "Arthur",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joaoarthur/{size}/245332_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Issues with motor not outtaking corral",
+                "id": 491466,
+                "title": "Issues with motor not outtaking corral",
+                "slug": "issues-with-motor-not-outtaking-corral",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-13T01:19:31.167Z",
+                "last_posted_at": "2025-02-13T06:09:03.705Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T06:09:03.705Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are currently having issues with our corral intake mech when it’s supposed to outtake the corral. It just stalls and doesn’t come out. We’ve tested the exact some motor on the exact same mechanism …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525542,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64018,
+                    "username": "BobKan396",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/df705f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64018,
+                            "username": "BobKan396",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/df705f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Solving encoder reset delay for CANbus-connected encoders",
+        "id": 402989,
+        "title": "Solving encoder reset delay for CANbus-connected encoders",
+        "posts_count": 2,
+        "created_at": "2022-02-14T17:52:22.907Z",
+        "views": 496,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2023-02-14T17:53:11.916Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "solving-encoder-reset-delay-for-canbus-connected-encoders",
+        "category_id": 30,
+        "word_count": 483,
+        "deleted_at": null,
+        "user_id": 36833,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_402989",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 36833,
+                    "username": "chauser",
+                    "name": "Carl Hauser",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 36833,
+                "username": "chauser",
+                "name": "Carl Hauser",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/driverstation-error-output-not-updated-often-enough/402156",
+                    "title": "Driverstation ERROR: Output not updated often enough",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 36833,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/problems-running-the-wpilib-ramsetecommand-example/402944",
+                    "title": "Problems running the WPILib RamseteCommand example",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 36833,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/sparkmax-encoder-reset/403620/4",
+                    "title": "SparkMAX Encoder Reset",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 2,
+                    "user_id": 36833,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

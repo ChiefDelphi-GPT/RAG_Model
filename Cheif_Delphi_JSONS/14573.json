@@ -1,0 +1,1128 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3031591,
+                    "name": "Sam Whitaker",
+                    "username": "AstroUnit001",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/astrounit001/{size}/168109_2.png",
+                    "created_at": "2022-03-28T05:47:58.625Z",
+                    "cooked": "Hi there, I’m from Team 3405 in Salem, Utah and our team is trying to implement PathWeaver-generated paths into our autonomous routines this year. This is my first year programming the robot and based on my current knowledge of our team’s history we have only tried to use PathWeaver once before in 2019 and didn’t experience much success. (In essence, we could run some paths but the paths were never run accurately.) I’m not sure I understand the process of “Reading in” a path JSON file yet, so I tried to follow the WPILib Trajectory Tutorial using their linked example to import a JSON file. (NOTE: I was able to get the example s-curve trajectory to successfully run on our robot beforehand)\n\nThe code I have compiles and builds successfully, but runs into a “TrajectoryGenerationException” when I try and run the program in Autonomous mode.\n\nHere’s a picture of the path I’m trying to run in case it’s needed: Screenshot 2022-03-27 230944 1670×1040 990 KB\n\nScreenshot 2022-03-27 230944 1670×1040 990 KB\n\nScreenshot 2022-03-27 230944 1670×1040 990 KB\n\nHere’s a copy of the getAutonomousCommand Command in RobotContainer.java: public Command getAutonomousCommand() {\n\n}\n\nAnd here’s a screenshot of the RioLog: Screenshot 2022-03-27 231555 1078×760 46.9 KB\n\nScreenshot 2022-03-27 231555 1078×760 46.9 KB\n\nScreenshot 2022-03-27 231555 1078×760 46.9 KB\n\nAny tips or help would be appreciated! Thank you, and good luck to you all this year!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2022-03-28T05:47:58.625Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 47,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 246.2,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "Sam Whitaker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/pathplanning/trajectory-tutorial/creating-following-trajectory.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Step 4: Creating and Following a Trajectory — FIRST Robotics Competition documentation",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/b/6b34d09e7721362de94a952cade08d48d050733e.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/6/e61d148eb710d259e1a23968fe733b2ddf2fc7c7.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 52179,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3031595,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2022-03-28T06:02:58.838Z",
+                    "cooked": "That error is from generating exampleTrajectory , not from reading the pathweaver json.  Doesn’t look like you’re using exampleTrajectory anywhere, so you can just delete that.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2022-03-28T21:08:16.655Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 46,
+                    "readers_count": 45,
+                    "score": 94.2,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/2",
+                    "custom_user_title": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3031769,
+                    "name": "Sam Whitaker",
+                    "username": "AstroUnit001",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/astrounit001/{size}/168109_2.png",
+                    "created_at": "2022-03-28T14:54:52.709Z",
+                    "cooked": "Thank you for the quick response! By deleting that line, I get a “suggestion” saying the TrajectoryConfig line is unused. Don’t I need this to generate the trajectory, or is the JSON already a generated trajectory? (I guess it would make sense if it is, considering what PathWeaver outputs)",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2022-03-28T14:54:52.709Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 42,
+                    "readers_count": 41,
+                    "score": 13.4,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "Sam Whitaker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 52179,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3031862,
+                    "name": "",
+                    "username": "FRC6302",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frc6302/{size}/165591_2.png",
+                    "created_at": "2022-03-28T15:46:00.314Z",
+                    "cooked": "AstroUnit001:\n\nor is the JSON already a generated trajectory?\n\nYeah it is",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2022-03-28T15:46:00.314Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 39,
+                    "readers_count": 38,
+                    "score": 27.8,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48779,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Sam - Programming Lead"
+                    },
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/4",
+                    "custom_user_title": "Sam - Programming Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3031998,
+                    "name": "Sam Whitaker",
+                    "username": "AstroUnit001",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/astrounit001/{size}/168109_2.png",
+                    "created_at": "2022-03-28T17:55:26.117Z",
+                    "cooked": "Cool, thank you! I don’t have access to the Robot right now but as soon as I do I will test this out.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2022-03-28T17:55:26.117Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 33,
+                    "readers_count": 32,
+                    "score": 11.6,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "Sam Whitaker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 52179,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3175658,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-03-28T21:05:02.577Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 7,
+                    "post_type": 3,
+                    "posts_count": 6,
+                    "updated_at": "2023-03-28T21:05:02.577Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 4,
+                    "readers_count": 3,
+                    "score": 0.8,
+                    "yours": false,
+                    "topic_id": 407082,
+                    "topic_slug": "trajectorygenerationexception-problem",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/trajectorygenerationexception-problem/407082/7",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3031591,
+                3031595,
+                3031769,
+                3031862,
+                3031998,
+                3175658
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1294
+            ],
+            [
+                5,
+                1293
+            ],
+            [
+                6,
+                928
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "In Need of Working YAGSL Swerve Code",
+                "id": 492104,
+                "title": "In Need of Working YAGSL Swerve Code",
+                "slug": "in-need-of-working-yagsl-swerve-code",
+                "posts_count": 16,
+                "reply_count": 12,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-02-18T00:48:18.951Z",
+                "last_posted_at": "2025-02-21T00:47:10.361Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T00:47:10.361Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey all, We have done our best to get YAGSL working, but we’ve failed. Put about 150 hours into it the last month and a half. Read the documentation probably 15 times, completed the flow chart and ei…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 245,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3530830,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68869,
+                    "username": "HawkbotsMentor",
+                    "name": "Henry",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68869,
+                            "username": "HawkbotsMentor",
+                            "name": "Henry",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50904,
+                            "username": "Heckboy",
+                            "name": "Cody B.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/da6949/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Path Planner Issues",
+                "id": 493221,
+                "title": "YAGSL Path Planner Issues",
+                "slug": "yagsl-path-planner-issues",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-25T22:09:55.303Z",
+                "last_posted_at": "2025-02-26T21:05:53.167Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T21:05:53.167Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m attempting to use path planner with the YAGSL swerve. They have a video on this that I followed, however, when I go to run it in the sim or on the robot, it does not run or even register that ther…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 61,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3540354,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73811,
+                    "username": "Clousify",
+                    "name": "Clifton Fairman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/clousify/{size}/252298_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73811,
+                            "username": "Clousify",
+                            "name": "Clifton Fairman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clousify/{size}/252298_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How would I begin to make a robot automatically do an action when it leaves specified coordinates or &ldquo;zones&rdquo; on the field?",
+                "id": 473941,
+                "title": "How would I begin to make a robot automatically do an action when it leaves specified coordinates or \"zones\" on the field?",
+                "slug": "how-would-i-begin-to-make-a-robot-automatically-do-an-action-when-it-leaves-specified-coordinates-or-zones-on-the-field",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-10-29T01:19:08.504Z",
+                "last_posted_at": "2024-11-01T11:50:50.949Z",
+                "bumped": true,
+                "bumped_at": "2024-11-01T12:15:49.527Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For example, let’s say the setting is Crescendo and I have a robot with a turret for a shooter. I want the robot to continuously angle the turret toward the speaker as soon as I enter the red alliance…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 550,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3441032,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65606,
+                    "username": "pinkfloyd145",
+                    "name": "Ben Malito",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65606,
+                            "username": "pinkfloyd145",
+                            "name": "Ben Malito",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54366,
+                            "username": "tecnicraze",
+                            "name": "Noah Stricker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tecnicraze/{size}/235517_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 32089,
+                            "username": "BlueEpiphone",
+                            "name": "Curt Rozeboom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Park Function",
+                "id": 483622,
+                "title": "Swerve Park Function",
+                "slug": "swerve-park-function",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-25T21:08:21.408Z",
+                "last_posted_at": "2025-01-25T22:49:01.583Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T22:49:01.583Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My programming team is working on a park function in our drive code for stabilization against defenders. We plan on setting all drive motors to zero and all the rotation motors set to 45 degrees. Ever…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 170,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492628,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70574,
+                    "username": "Tatertotman",
+                    "name": "Tate",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70574,
+                            "username": "Tatertotman",
+                            "name": "Tate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59165,
+                            "username": "Skeller",
+                            "name": "4573 Lead Mentor & Drive Coach ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/8e7dd6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Trouble with losing robot code during enable, stacktrace",
+                "id": 497411,
+                "title": "Trouble with losing robot code during enable, stacktrace",
+                "slug": "trouble-with-losing-robot-code-during-enable-stacktrace",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-03-30T15:47:32.821Z",
+                "last_posted_at": "2025-04-18T14:23:31.311Z",
+                "bumped": true,
+                "bumped_at": "2025-04-18T14:23:31.311Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our FRC team (3843) is having an intermittent error that stops our robot code in the middle of enable, disabling it automatically. This happens occasionally during our test driving runs. We can’t seem…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 296,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3573808,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22201,
+                    "username": "bharrison6",
+                    "name": "bharrison6",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/ecae2f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 22201,
+                            "username": "bharrison6",
+                            "name": "bharrison6",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/ecae2f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16385,
+                            "username": "BillDunlap",
+                            "name": "BillDunlap",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/7ea924/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57180,
+                            "username": "ninjadrknss",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ninjadrknss/{size}/247388_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65606,
+                            "username": "pinkfloyd145",
+                            "name": "Ben Malito",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "java",
+            "2022",
+            "sysid"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "TrajectoryGenerationException problem",
+        "id": 407082,
+        "title": "TrajectoryGenerationException problem",
+        "posts_count": 6,
+        "created_at": "2022-03-28T05:47:58.428Z",
+        "views": 545,
+        "reply_count": 2,
+        "like_count": 4,
+        "last_posted_at": "2023-03-28T21:05:02.577Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "trajectorygenerationexception-problem",
+        "category_id": 75,
+        "word_count": 596,
+        "deleted_at": null,
+        "user_id": 52179,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/6/b/6b34d09e7721362de94a952cade08d48d050733e_2_1024x637.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_407082",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 7,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1670,
+                "height": 1040,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/b/6b34d09e7721362de94a952cade08d48d050733e.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 637,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/6/b/6b34d09e7721362de94a952cade08d48d050733e_2_1024x637.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Fletch1373",
+            "name": null,
+            "excerpt": "That error is from generating exampleTrajectory, not from reading the pathweaver json.  Doesn’t look like you’re using exampleTrajectory anywhere, so you can just delete that.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 52179,
+                    "username": "AstroUnit001",
+                    "name": "Sam Whitaker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/astrounit001/{size}/168109_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48779,
+                    "username": "FRC6302",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frc6302/{size}/165591_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 52179,
+                "username": "AstroUnit001",
+                "name": "Sam Whitaker",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/astrounit001/{size}/168109_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/pathplanning/trajectory-tutorial/creating-following-trajectory.html",
+                    "title": "Step 4: Creating and Following a Trajectory — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 52179,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

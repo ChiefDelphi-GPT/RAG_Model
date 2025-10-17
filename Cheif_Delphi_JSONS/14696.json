@@ -1,0 +1,1101 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3027675,
+                    "name": "",
+                    "username": "BobSaidHi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/ac91a4/{size}.png",
+                    "created_at": "2022-03-22T09:57:32.824Z",
+                    "cooked": "Hello, My team is having trouble with our robot’s CAN bus, and I was wondering if anyone has any ideas on how to troubleshoot it.\n\nSee bottom for summary\n\nPrevious Issues:\n\nOn one of our practice bots, the PDP was wired directly to the roboRIO, but the PDP claimed it did not have CAN communication (red lights).\n\nSome of our PDPs seem to randomly get a sticky fault (Orange lights), with an ID of 0 (…0x0)\n\nPreviously Working State\n\nCAN bus: NI roboRIO > cut up female PWM cable > 4 Spark MAXes (drive-train) > cut up male PWM cable > PDP > long CAN wire w/ no connectors (bare wires) > 2 Victor SPXes (Intake/outtake) > 1 Spark MAX (flywheel) Related Question: Does it matter which gender is on which end of the CAN bus?\n\nBoth this code and the code later testing was done with worked well enough.\n\nCurrent Issues and Troubleshooting:\n\nI tried to add an old, previously unused Victor SPX at the start of the CAN bus.  It indicated no CAN communication (alternating blinking red lights).  However, the daisy  chain pass-through still worked.\n\nI tried it with a different Victor SPX, same result\n\nI tried again, placing an older Talon SRX after the 4 Spark Maxes and before the PDP, same result\n\nI moved the Victor SPX to the end of the CAN bus, after the PDP with the still enabled terminating resister, and it started working.  I was able to update it in Phoenix Tuner.\n\nI decided to leave the controller on the end, and to do that I soldered cut up PWM connectors onto a long  CAN cable (figured it would be good to have the twisted pair wire). Related Question: How much effect does the twisted pairing have on the CAN bus and performance?\n\nAt some point, I had switched some of the cut up PWM cables for CAN wires with soldered Molex connectors (from the 2022 KOP).  They seemed compatible, but would not quite fit in the retention clips we had (I think the insulation got messed up and then got in the way).\n\n[PENDING RE-TEST] The drive-train Spark MAXes started blinking magenta at some point (No signal).  Except at least one of them would sometimes switch to a faint, rapid yellow strobe (Which isn’t a thing).  However, connecting to one over USB with the Rev Hardware Client allowed me to see the entire bus (at that point just the roboRIO and 1 Spark MAX). I also just realized that I can’t remember if the driver station console was logging errors about the drive-train Spark MAXes.  Looking at the most recent 1/8 of my most recent DS log, it seems that it was not, although they were missing at one point earlier.  I will retest the drive-train tomorrow.\n\nAt some point I had the CAN bus wired into the roboRIO backwards, but I fixed it and still experienced issues.\n\nThe PDP status lights were green (CAN link) when only connected to other motor controllers\n\nThe PDP worked correctly (green status lights / CAN link) when wired directly into the roboRIO with CAN wire that had not connectors (bare wire).\n\nI verified that I was unable to see the missing devices in Phoenix Tuner several times.\n\nThings I have not tried yet and other considerations:\n\nRe-imaging the roboRIO\n\nThe robot had this code on it.  I remember getting error messages in the console about the unplugged shooter Spark MAX, but I can’t remember if the drive-train Spark MAXes were actually causing errors or not.  I have not actually tried driving the robot to triple check that it’s not working.\n\nI have not tried placing the PDP closest to the roboRIO\n\nI have not disabled the PDP terminating resistor and installed my own at the end of the CAN bus. Related Question: How much of an effect does this have?  Last year, my team put the PDP first with the terminating resistor enabled and it was fine. (except possibly high bus usage, I can’t remember).\n\nMain Questions Summary:\n\nWhy won’t CTRE motor controllers work when placed before the PDP?\n\nI need to verify whether or not the drive-train is working because everything except the easy to confuse status lights points to it working.\n\nDoes anyone have any general CAN bus troubleshooting advice?\n\nRelated Questions Summary:\n\nDoes it matter which gender is on which end of the CAN bus?\n\nHow much effect does the twisted pairing have on the CAN bus and performance?\n\nHow much of an effect does this have? Last year, my team put the PDP first with the terminating resistor enabled and it was fine (except possibly high bus usage, I can’t remember).\n\nI will check more things after school and update this post accordingly.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-03-22T10:01:41.521Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 909,
+                    "reads": 229,
+                    "readers_count": 228,
+                    "score": 4585.8,
+                    "yours": false,
+                    "topic_id": 406443,
+                    "topic_slug": "troubleshooting-can-bus",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/frc6506/FRC-Code-2022/tree/e4dbfea11de812c33d46498546c274cee7438dc4",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://github.com/frc6506/FRC-Code-2022/tree/simpleAutoShoot",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 45273,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/troubleshooting-can-bus/406443/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3027688,
+                    "name": "Tom Line",
+                    "username": "Tom_Line",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                    "created_at": "2022-03-22T11:31:12.303Z",
+                    "cooked": "You need to use wires that are twisted together to reduce electrical noise.  Hobby servo wires are usually not twisted together.\n\nYou need to use wires that are twisted together to reduce electrical noise.  Hobby servo wires are usually not twisted together.\n\nThe termination of the chain needs to go at the end.\n\nThe termination of the chain needs to go at the end.\n\nI don’t know what you mean by ‘gender’ on the can bus.  Yellow always needs to go to yellow, green always needs to go to green, they can never be connected together except by the termination resistor at the end.\n\nI don’t know what you mean by ‘gender’ on the can bus.  Yellow always needs to go to yellow, green always needs to go to green, they can never be connected together except by the termination resistor at the end.\n\nRequirements for can bus wiring aren’t merely suggestions.  If you want a can bus network that works reliably you need to follow them.\n\nRequirements for can bus wiring aren’t merely suggestions.  If you want a can bus network that works reliably you need to follow them.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-03-22T11:31:12.303Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 12,
+                    "reads": 180,
+                    "readers_count": 179,
+                    "score": 101.0,
+                    "yours": false,
+                    "topic_id": 406443,
+                    "topic_slug": "troubleshooting-can-bus",
+                    "display_username": "Tom Line",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 7841,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team 1498"
+                    },
+                    "post_url": "/t/troubleshooting-can-bus/406443/2",
+                    "custom_user_title": "Team 1498",
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3027694,
+                    "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "username": "ngreen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                    "created_at": "2022-03-22T11:54:28.459Z",
+                    "cooked": "Tom_Line:\n\nI don’t know what you mean by ‘gender’ on the can bus. Yellow always needs to go to yellow, green always needs to go to green, they can never be connected together except by the termination resistor at the end.\n\nNo, it doesn’t matter if the pwm connectors go from male to female or female to male.  Just have to be good connections and follow the green/yellow convention.  If you can get some CAN extension cables that is even better than trying to use PWM cables.  If you can’t, you can peel apart the PWM wires and twist the pairs.\n\nGenerally, the troubleshooting advice is to always start with a good connection between the RoboRIO and PDP (check that the terminator resistor jumper is set).  Then you can add devices in between those two individually (or start with all the devices and subtract) until you find the device that isn’t working.\n\nWith Spark Maxes, be careful that you either have newer CAN wires (with the extra loops) or that it is fully inserted.  Unlike other controllers, the like wires aren’t soldered to a junction .",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-03-22T11:55:30.460Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 24,
+                    "reads": 171,
+                    "readers_count": 170,
+                    "score": 169.2,
+                    "yours": false,
+                    "topic_id": 406443,
+                    "topic_slug": "troubleshooting-can-bus",
+                    "display_username": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.revrobotics.com/rev-11-1880/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SPARK MAX CAN Cable V2 - 2 Pack - REV Robotics",
+                            "clicks": 18
+                        },
+                        {
+                            "url": "https://imgur.com/DOa5G8a",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/rev-21-2052/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "36\" CAN Extension Cable - 5 Pack - REV Robotics",
+                            "clicks": 14
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 2695,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/troubleshooting-can-bus/406443/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3028442,
+                    "name": "This isn't a game. Think about the repercussions.",
+                    "username": "DonRotolo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/donrotolo/{size}/177200_2.png",
+                    "created_at": "2022-03-23T01:10:22.170Z",
+                    "cooked": "Gender is irrelevant Twisting is important Termination resistors are really important and are always at both ends of the bus.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-03-23T01:10:22.170Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 124,
+                    "readers_count": 123,
+                    "score": 79.8,
+                    "yours": false,
+                    "topic_id": 406443,
+                    "topic_slug": "troubleshooting-can-bus",
+                    "display_username": "This isn't a game. Think about the repercussions.",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 4207,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "No Longer Registered"
+                    },
+                    "post_url": "/t/troubleshooting-can-bus/406443/4",
+                    "custom_user_title": "No Longer Registered",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3170921,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-03-23T01:10:32.331Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2023-03-23T01:10:32.331Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 54.6,
+                    "yours": false,
+                    "topic_id": 406443,
+                    "topic_slug": "troubleshooting-can-bus",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/troubleshooting-can-bus/406443/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3027675,
+                3027688,
+                3027694,
+                3028442,
+                3170921
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1300
+            ],
+            [
+                4,
+                1299
+            ],
+            [
+                5,
+                934
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Custom CAN sensor - some good progress",
+                "id": 501764,
+                "title": "Custom CAN sensor - some good progress",
+                "slug": "custom-can-sensor-some-good-progress",
+                "posts_count": 33,
+                "reply_count": 12,
+                "highest_post_number": 33,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/0/3/2/03270296fdc16716e3d7b4dd1574122011ef2f1c_2_1024x767.jpeg",
+                "created_at": "2025-05-15T01:29:57.474Z",
+                "last_posted_at": "2025-07-14T01:08:46.941Z",
+                "bumped": true,
+                "bumped_at": "2025-07-14T01:17:52.290Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For the past few days I tried to make some CAN sensor using Arduino + mcp2515 and had some good result. There were many past attempt on CD to make custom CAN stuff but none of them had enough document…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 70,
+                "views": 2497,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3624866,
+                "topic_post_liked": false,
+                "topic_post_like_count": 23,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66330,
+                    "username": "NathanZhou",
+                    "name": "Nathan Zhou",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33937,
+                            "username": "NatsirtD",
+                            "name": "NatsirtD",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/natsirtd/{size}/82211_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54372,
+                            "username": "krylez",
+                            "name": "Riley Brewer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/krylez/{size}/176730_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29846,
+                            "username": "Ryan_Blue",
+                            "name": "Ryan Blue",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_blue/{size}/174016_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Vivid-Hosting VH-109 Radio - Network Assistant Tool",
+                "id": 481350,
+                "title": "Vivid-Hosting VH-109 Radio - Network Assistant Tool",
+                "slug": "vivid-hosting-vh-109-radio-network-assistant-tool",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-13T08:16:03.920Z",
+                "last_posted_at": "2025-01-14T02:26:07.039Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T02:26:07.039Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi folks! After spending some time here on CD and listening to teams deal with user experience issues on the VH-109 radio, it was decided that we needed to create a utility to assist teams in configu…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "radio",
+                    "vh-109"
+                ],
+                "tags_descriptions": {},
+                "like_count": 51,
+                "views": 784,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480800,
+                "topic_post_liked": false,
+                "topic_post_like_count": 38,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 6398,
+                    "username": "kiettyyyy",
+                    "name": "Kiet Chau",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kiettyyyy/{size}/194009_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 6398,
+                            "username": "kiettyyyy",
+                            "name": "Kiet Chau",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kiettyyyy/{size}/194009_2.png",
+                            "flair_name": "Vivid-Hosting",
+                            "flair_url": "/uploads/default/original/3X/5/0/50d2e846f0add7aa9489092abe0f436644dde98d.png",
+                            "flair_group_id": 62,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Expansion Hub",
+                "id": 473457,
+                "title": "Expansion Hub",
+                "slug": "expansion-hub",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-10-22T20:02:38.101Z",
+                "last_posted_at": "2024-10-24T16:41:09.243Z",
+                "bumped": true,
+                "bumped_at": "2024-10-24T16:41:09.243Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our FTC team is having difficulty getting our Expansion Hub to stay green, it seems no matter what we do, we either get a solid blue light, or a blinking orange/amber light. Could the strength of the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 453,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3437848,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68608,
+                    "username": "KI10963",
+                    "name": "Tish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/e95f7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68608,
+                            "username": "KI10963",
+                            "name": "Tish",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/e95f7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53912,
+                            "username": "Nigelientje",
+                            "name": "Nigel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nigelientje/{size}/209408_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight Camera Feeds Not Detected in ShuffleBoard CameraServer but works in code and limelight ip address website",
+                "id": 496019,
+                "title": "Limelight Camera Feeds Not Detected in ShuffleBoard CameraServer but works in code and limelight ip address website",
+                "slug": "limelight-camera-feeds-not-detected-in-shuffleboard-cameraserver-but-works-in-code-and-limelight-ip-address-website",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-18T05:21:19.538Z",
+                "last_posted_at": "2025-03-18T06:12:46.891Z",
+                "bumped": true,
+                "bumped_at": "2025-03-18T06:12:46.891Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re having an issue where our Limelights are fully functional in code and accessible via their web interfaces (IP addresses) and Limelight Finder, but they do not appear in the CameraServer section …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 54,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3560252,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74331,
+                    "username": "amazinghawkman",
+                    "name": "Drew Robertson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74331,
+                            "username": "amazinghawkman",
+                            "name": "Drew Robertson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/8baadc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "KnightKrawler&rsquo;s 2025 SystemCore Alpha Testing Blog",
+                "id": 503689,
+                "title": "KnightKrawler's 2025 SystemCore Alpha Testing Blog",
+                "slug": "knightkrawlers-2025-systemcore-alpha-testing-blog",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-06-27T02:35:37.984Z",
+                "last_posted_at": "2025-07-22T22:08:55.209Z",
+                "bumped": true,
+                "bumped_at": "2025-07-22T22:08:55.209Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Team 2052 KnightKrawler is excited to be part of the Alpha testing group for the future robot controller SystemCore! This thread will be where we record our progress and experiences. We will also be c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 54,
+                "views": 1110,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3666130,
+                "topic_post_liked": false,
+                "topic_post_like_count": 18,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64300,
+                    "username": "calebfynewever",
+                    "name": "Caleb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calebfynewever/{size}/259669_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64300,
+                            "username": "calebfynewever",
+                            "name": "Caleb",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calebfynewever/{size}/259669_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18481,
+                            "username": "MrRoboSteve",
+                            "name": "MrRoboSteve",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrrobosteve/{size}/10920_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23205,
+                            "username": "Tyler_S",
+                            "name": "Tyler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tyler_s/{size}/186371_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60114,
+                            "username": "Kevin_Nguyen",
+                            "name": "Kevin Nguyen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kevin_nguyen/{size}/266901_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24506,
+                            "username": "s3529",
+                            "name": "Robertson Robotics",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s3529/{size}/121055_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "ctre",
+            "sparkmax",
+            "electronics",
+            "electrical",
+            "can",
+            "talonsrx",
+            "victor",
+            "pdp",
+            "controlsystem"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Troubleshooting CAN bus",
+        "id": 406443,
+        "title": "Troubleshooting CAN bus",
+        "posts_count": 5,
+        "created_at": "2022-03-22T09:57:32.653Z",
+        "views": 1760,
+        "reply_count": 1,
+        "like_count": 4,
+        "last_posted_at": "2023-03-23T01:10:32.331Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "troubleshooting-can-bus",
+        "category_id": 72,
+        "word_count": 1184,
+        "deleted_at": null,
+        "user_id": 45273,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_406443",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 2695,
+                    "username": "ngreen",
+                    "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 4207,
+                    "username": "DonRotolo",
+                    "name": "This isn't a game. Think about the repercussions.",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/donrotolo/{size}/177200_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 7841,
+                    "username": "Tom_Line",
+                    "name": "Tom Line",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 45273,
+                    "username": "BobSaidHi",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/ac91a4/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 45273,
+                "username": "BobSaidHi",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/ac91a4/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.revrobotics.com/rev-11-1880/",
+                    "title": "SPARK MAX CAN Cable V2 - 2 Pack - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 18,
+                    "user_id": 2695,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://imgur.com/DOa5G8a",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 2695,
+                    "domain": "imgur.com",
+                    "root_domain": "imgur.com"
+                },
+                {
+                    "url": "https://www.revrobotics.com/rev-21-2052/",
+                    "title": "36\" CAN Extension Cable - 5 Pack - REV Robotics",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 2695,
+                    "domain": "www.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://github.com/frc6506/FRC-Code-2022/tree/e4dbfea11de812c33d46498546c274cee7438dc4",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 45273,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/frc6506/FRC-Code-2022/tree/simpleAutoShoot",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 45273,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,1136 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3651464,
+                    "name": "Goktug Yildiz",
+                    "username": "goktugyldz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/bc79bd/{size}.png",
+                    "created_at": "2025-06-12T06:45:13.051Z",
+                    "cooked": "I want to learn how to code a swerve drive but the documentation of wpilib I don’t find it that useful how can I learn to code a swerve drive without any library?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T06:45:13.051Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 187,
+                    "readers_count": 186,
+                    "score": 87.4,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "Goktug Yildiz",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60182,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/about-swerve-drive-coding/503078/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3651472,
+                    "name": "Jeffrey Davis",
+                    "username": "Practicality",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                    "created_at": "2025-06-12T07:29:23.783Z",
+                    "cooked": "Well the wpilib has a lot of things to simplify the process but I can give you broad overview of the procedure/challenges you need to solve to make this happen.\n\nCommunicate with all your hardware. You need to be able to read a heading on your gyro, reset your gyro, read a heading on each steering encoder and set a speed or power on each steering motor and each drive motor.\n\nKeep track of each swerve modules’ direction and speed.\n\nTranslate back and forth between the 4 module direction/speeds and the direction/speed of the robot (including rotation)\n\nTranslate back and forth between driver input (joystick or controller directions) and a relative chassis speed and then use that and what you did in step 3 to give commands to each module and ultimately each motor.\n\nSteps 1 and 2 are pretty easy if you use an absolute encoder. All you need to do is set each module so 0 is straight forward (or set an offset to make 0 be forward) and then you can use the encoder value to find each wheel angle.\n\nSteps 3 and 4 have prebuilt classes in wpilib that do this for you. If you don’t want to use anyone else’s classes you’re going to need to learn some trigonometry. It’s not super complicated, you’re just translating angles and speeds (AKA vectors) but I think reinventing the wheel here isn’t going to be much benefit. I would recommend at least reading/understanding what the wpi classes are doing before attempting my own version.\n\nThat’s pretty much it. There’s a lot of details for tuning motor speeds and feedforward values and such, but that’s really a seperate topic and you can go as deep or as shallow in that topic as you want. You can make a perfectly good swerve drive by just applying % power to you drive motors (and turn motors) based on the intended vectors you find.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T07:29:23.783Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 186,
+                    "readers_count": 185,
+                    "score": 87.2,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "Jeffrey Davis",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62548,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/about-swerve-drive-coding/503078/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3651479,
+                    "name": "Itay Kaufman",
+                    "username": "ItayKauf",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/itaykauf/{size}/264000_2.png",
+                    "created_at": "2025-06-12T09:27:39.010Z",
+                    "cooked": "@YHerm @levyishai",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T09:27:39.010Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 136,
+                    "readers_count": 135,
+                    "score": 77.2,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "Itay Kaufman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60124,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4590 GreenBlitz Team Captain "
+                    },
+                    "post_url": "/t/about-swerve-drive-coding/503078/3",
+                    "custom_user_title": "4590 GreenBlitz Team Captain ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3651489,
+                    "name": "Scott W",
+                    "username": "Programming4907",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/programming4907/{size}/168313_2.png",
+                    "created_at": "2025-06-12T11:33:10.162Z",
+                    "cooked": "I wrote this over Christmas break in 2019, so it’s a bit dated.  But we used it to train our senior programming students on how to write a swerve drive system from scratch in 2020 and 2022.\n\n4907 ThunderStamps Swerve Drive.pdf (1.2 MB)\n\nModern implementations like YAGSL and CTRE ’s swerve generator use a lot of built-in functions inside of WPILib, but the above document was written before those tools were widely available.  It does everything from scratch.\n\nIf nothing else, it gives you a good foundation of how all the math works.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T11:46:01.002Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 124,
+                    "readers_count": 123,
+                    "score": 74.8,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "Scott W",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "/uploads/short-url/85tFd2Ce0QFyEad9cZ3KGjjqwuf.pdf",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50699,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/about-swerve-drive-coding/503078/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3651551,
+                    "name": "",
+                    "username": "nstrike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "created_at": "2025-06-12T13:48:22.548Z",
+                    "cooked": "I wrote this guide a while ago that explains it\n\nHow does Swerve Drive work?\n\nWhat is a Swerve Module?",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T13:48:22.548Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 104,
+                    "readers_count": 103,
+                    "score": 80.8,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.yagsl.com/fundamentals/swerve-drive",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Swerve Drive | YAGSL",
+                            "clicks": 15
+                        },
+                        {
+                            "url": "https://docs.yagsl.com/fundamentals/swerve-modules",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Swerve Modules | YAGSL",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51887,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "YAGSL & YASS Creator "
+                    },
+                    "post_url": "/t/about-swerve-drive-coding/503078/5",
+                    "custom_user_title": "YAGSL & YASS Creator ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3651661,
+                    "name": "",
+                    "username": "AvocadoPeel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                    "created_at": "2025-06-12T16:44:33.991Z",
+                    "cooked": "I’m still a huge fan of the 0 to autonomous channel on youtube, they have some great guides: https://youtube.com/@0toauto?si=WPFyl-7XPM-WVhgL",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2025-06-12T16:44:33.991Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 77,
+                    "readers_count": 76,
+                    "score": 30.4,
+                    "yours": false,
+                    "topic_id": 503078,
+                    "topic_slug": "about-swerve-drive-coding",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://youtube.com/@0toauto?si=WPFyl-7XPM-WVhgL",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 61239,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/about-swerve-drive-coding/503078/6",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3651464,
+                3651472,
+                3651479,
+                3651489,
+                3651551,
+                3651661
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                122
+            ],
+            [
+                4,
+                121
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Advantage Kit vision template error on limelight 3",
+                "id": 493964,
+                "title": "Advantage Kit vision template error on limelight 3",
+                "slug": "advantage-kit-vision-template-error-on-limelight-3",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-03T07:45:32.244Z",
+                "last_posted_at": "2025-03-03T07:45:32.289Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T07:45:32.289Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, we have been getting array list out of bounds error when trying to use our vision code, heres the link to our GitHub - kuzeyatay/2025- Team 9247 Reefscape robot code . also heres…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 41,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3545636,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driver station Connected, but roboRIO target not found in imaging tool",
+                "id": 477924,
+                "title": "Driver station Connected, but roboRIO target not found in imaging tool",
+                "slug": "driver-station-connected-but-roborio-target-not-found-in-imaging-tool",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/4/f/4fb51ee7e616325052ab9dfad40ed24d879a2e2f_2_1024x317.png",
+                "created_at": "2025-01-02T09:25:53.639Z",
+                "last_posted_at": "2025-01-03T00:33:13.592Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T00:33:13.592Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "@Fletch1373 @Akash_Rastogi Thanks for answering! It turns out that I’ve disable the RIO webserver to save memory After re-enabling the webserver, I am able to find the RIO in the imaging tool.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 190,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3467161,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8002,
+                            "username": "Akash_Rastogi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/akash_rastogi/{size}/169937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Aligning to the reef with pure vision(not with pose data)",
+                "id": 493871,
+                "title": "Aligning to the reef with pure vision(not with pose data)",
+                "slug": "aligning-to-the-reef-with-pure-vision-not-with-pose-data",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-02T20:33:05.885Z",
+                "last_posted_at": "2025-03-02T20:59:33.390Z",
+                "bumped": true,
+                "bumped_at": "2025-03-02T20:59:33.390Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, i was wondering if there was any example code in Advantage Kit structure for auto aligning to an aprril tag. Thanks!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 154,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3545033,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 70725,
+                            "username": "bobsfriend12",
+                            "name": "Caleb Herring",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bobsfriend12/{size}/242284_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "İmaging robot cant find roborio",
+                "id": 483364,
+                "title": "İmaging robot cant find roborio",
+                "slug": "imaging-robot-cant-find-roborio",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/6/96936533c8cc05855640b28bbe9e458551557e6c_2_1024x460.jpeg",
+                "created_at": "2025-01-24T10:37:37.482Z",
+                "last_posted_at": "2025-01-24T12:01:35.520Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T12:01:35.520Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 73,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491502,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71059,
+                    "username": "Ogi",
+                    "name": "oğuzalp ozdemir",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/35a633/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71059,
+                            "username": "Ogi",
+                            "name": "oğuzalp ozdemir",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/35a633/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55757,
+                            "username": "EricTheOtterBot",
+                            "name": "Eric Swanson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erictheotterbot/{size}/180465_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problems with Onshape (Please Help)",
+                "id": 482532,
+                "title": "Problems with Onshape (Please Help)",
+                "slug": "problems-with-onshape-please-help",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-01-18T19:50:15.230Z",
+                "last_posted_at": "2025-01-18T21:46:41.159Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T21:46:41.159Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team having a problem with Onshape where assemblies won’t load and the same person is appearing in an assembly multiple times. We have about 7 people working together to CAD different mechanisms, …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 33,
+                "views": 366,
+                "category_id": 81,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486827,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66211,
+                    "username": "Suppdog222",
+                    "name": "Will C",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/suppdog222/{size}/256515_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66211,
+                            "username": "Suppdog222",
+                            "name": "Will C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/suppdog222/{size}/256515_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63097,
+                            "username": "theovandermarck",
+                            "name": "Theo VanderMarck",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/f05b48/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51263,
+                            "username": "SilasR",
+                            "name": "Silas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/silasr/{size}/185275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58399,
+                            "username": "Mangos",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mangos/{size}/208435_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67818,
+                            "username": "Riklik1984",
+                            "name": "Eklavya Agrawal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/riklik1984/{size}/244911_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "About Swerve Drive Coding",
+        "id": 503078,
+        "title": "About Swerve Drive Coding",
+        "posts_count": 6,
+        "created_at": "2025-06-12T06:45:12.973Z",
+        "views": 305,
+        "reply_count": 0,
+        "like_count": 15,
+        "last_posted_at": "2025-06-12T16:44:33.991Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "about-swerve-drive-coding",
+        "category_id": 9,
+        "word_count": 526,
+        "deleted_at": null,
+        "user_id": 60182,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_503078",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 47659,
+            "execute_at": "2026-06-12T16:44:33.991Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 6,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 4,
+            "username": "Programming4907",
+            "name": null,
+            "excerpt": "I wrote this over Christmas break in 2019, so it’s a bit dated.  But we used it to train our senior programming students on how to write a swerve drive system from scratch in 2020 and 2022. \n<a class=\"attachment\" href=\"/uploads/short-url/85tFd2Ce0QFyEad9cZ3KGjjqwuf.pdf\">4907 ThunderStamps Swerve Drive.pdf</a> (1.2 MB) \nModern implementations like YAGSL and CTRE’s swerve generator u&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 50699,
+                    "username": "Programming4907",
+                    "name": "Scott W",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/programming4907/{size}/168313_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 60124,
+                    "username": "ItayKauf",
+                    "name": "Itay Kaufman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/itaykauf/{size}/264000_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 60182,
+                    "username": "goktugyldz",
+                    "name": "Goktug Yildiz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/bc79bd/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 61239,
+                    "username": "AvocadoPeel",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62548,
+                    "username": "Practicality",
+                    "name": "Jeffrey Davis",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 60182,
+                "username": "goktugyldz",
+                "name": "Goktug Yildiz",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/g/bc79bd/{size}.png"
+            },
+            "last_poster": {
+                "id": 61239,
+                "username": "AvocadoPeel",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.yagsl.com/fundamentals/swerve-drive",
+                    "title": "Swerve Drive | YAGSL",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 15,
+                    "user_id": 51887,
+                    "domain": "docs.yagsl.com",
+                    "root_domain": "yagsl.com"
+                },
+                {
+                    "url": "https://youtube.com/@0toauto?si=WPFyl-7XPM-WVhgL",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 61239,
+                    "domain": "youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://docs.yagsl.com/fundamentals/swerve-modules",
+                    "title": "Swerve Modules | YAGSL",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 51887,
+                    "domain": "docs.yagsl.com",
+                    "root_domain": "yagsl.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

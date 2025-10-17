@@ -1,0 +1,814 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3269691,
+                    "name": "",
+                    "username": "jacob_mazelin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png",
+                    "created_at": "2023-12-28T01:56:09.624Z",
+                    "cooked": "Hello! In the YAGSL Docs , the instructions say to create a swerve drive object. Do we put this in the Swerve Drive class, and where specifically? Or is this done automatically through the JSON files? Thank you!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-12-28T01:56:09.624Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 95,
+                    "reads": 76,
+                    "readers_count": 75,
+                    "score": 505.2,
+                    "yours": false,
+                    "topic_id": 446952,
+                    "topic_slug": "yagsl-creating-swerve-drive-object-java",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/BroncBotz3481/YAGSL/wiki",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Home · BroncBotz3481/YAGSL Wiki · GitHub",
+                            "clicks": 8
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 57331,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5675 Team Captain"
+                    },
+                    "post_url": "/t/yagsl-creating-swerve-drive-object-java/446952/1",
+                    "custom_user_title": "5675 Team Captain",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3269703,
+                    "name": "",
+                    "username": "nstrike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "created_at": "2023-12-28T02:54:06.700Z",
+                    "cooked": "The way i recommend is this.\n\n/**\n\n* Initialize {@link SwerveDrive} with the directory provided.\n\n*\n\n* @param directory Directory of swerve drive config files.\n\n*/\n\npublic SwerveSubsystem(File directory)\n\n{\n\n// Angle conversion factor is 360 / (GEAR RATIO * ENCODER RESOLUTION)\n\n//  In this case the gear ratio is 12.8 motor revolutions per wheel rotation.\n\n//  The encoder resolution per motor revolution is 1 per motor revolution.\n\ndouble angleConversionFactor = SwerveMath.calculateDegreesPerSteeringRotation(12.8, 1);\n\n// Motor conversion factor is (PI * WHEEL DIAMETER IN METERS) / (GEAR RATIO * ENCODER RESOLUTION).\n\n//  In this case the wheel diameter is 4 inches, which must be converted to meters to get meters/second.\n\n//  The gear ratio is 6.75 motor revolutions per wheel rotation.\n\n//  The encoder resolution per motor revolution is 1 per motor revolution.\n\ndouble driveConversionFactor = SwerveMath.calculateMetersPerRotation(Units.inchesToMeters(4), 6.75, 1);\n\nSystem.out.println(\"\\\"conversionFactor\\\": {\");\n\nSystem.out.println(\"\\t\\\"angle\\\": \" + angleConversionFactor + \",\");\n\nSystem.out.println(\"\\t\\\"drive\\\": \" + driveConversionFactor);\n\nSystem.out.println(\"}\");",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-12-28T02:54:06.700Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 13,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 78.8,
+                    "yours": false,
+                    "topic_id": 446952,
+                    "topic_slug": "yagsl-creating-swerve-drive-object-java",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/BroncBotz3481/YAGSL-Example/blob/main/src%2Fmain%2Fjava%2Ffrc%2Frobot%2Fsubsystems%2Fswervedrive%2FSwerveSubsystem.java#L51-L84",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "YAGSL-Example/src/main/java/frc/robot/subsystems/swervedrive/SwerveSubsystem.java at main · BroncBotz3481/YAGSL-Example · GitHub",
+                            "clicks": 34
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51887,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "YAGSL & YASS Creator "
+                    },
+                    "post_url": "/t/yagsl-creating-swerve-drive-object-java/446952/2",
+                    "custom_user_title": "YAGSL & YASS Creator ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3463752,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-12-27T02:54:40.067Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-12-27T02:54:40.067Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 5,
+                    "readers_count": 4,
+                    "score": 6.0,
+                    "yours": false,
+                    "topic_id": 446952,
+                    "topic_slug": "yagsl-creating-swerve-drive-object-java",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/yagsl-creating-swerve-drive-object-java/446952/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3269691,
+                3269703,
+                3463752
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                654
+            ],
+            [
+                3,
+                289
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Modules driving out of control",
+                "id": 474561,
+                "title": "Swerve Modules driving out of control",
+                "slug": "swerve-modules-driving-out-of-control",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/6/d609d6fb740c551f839667994573618b13847a57_2_1024x394.png",
+                "created_at": "2024-11-08T19:51:29.821Z",
+                "last_posted_at": "2024-11-09T09:50:43.927Z",
+                "bumped": true,
+                "bumped_at": "2024-11-09T09:50:43.927Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Problem Sometimes on enable (most of the time but not every time), the swerve modules would go really fast in a certain direction. This problem resolves itself on a power cycle (redeploying code does…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 309,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445120,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58215,
+                    "username": "Kaicheng",
+                    "name": "Kaicheng Ouyang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/c77e96/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58215,
+                            "username": "Kaicheng",
+                            "name": "Kaicheng Ouyang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/c77e96/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Mk4i Swerve W/ NEOS, SparkMaxes, CANCoders in Python",
+                "id": 480053,
+                "title": "Mk4i Swerve W/ NEOS, SparkMaxes, CANCoders in Python",
+                "slug": "mk4i-swerve-w-neos-sparkmaxes-cancoders-in-python",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-08T02:27:34.170Z",
+                "last_posted_at": "2025-01-08T02:48:06.180Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T02:48:06.180Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is still, frustratingly, stuck with our swerve bot. We bought the Mk4i swerve last year, made a couple posts about it, and eventually had to put off the coding due to season restraints. It …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 95,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474879,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61745,
+                    "username": "liteduty6758",
+                    "name": "Scott Bartz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/e495f1/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61745,
+                            "username": "liteduty6758",
+                            "name": "Scott Bartz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/e495f1/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66385,
+                            "username": "Ryanforce",
+                            "name": "Ryan Radtke",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryanforce/{size}/228665_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "REV Spark Max Migration to 2025",
+                "id": 479555,
+                "title": "REV Spark Max Migration to 2025",
+                "slug": "rev-spark-max-migration-to-2025",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-06T21:16:55.328Z",
+                "last_posted_at": "2025-01-16T19:34:57.937Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T19:34:57.937Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello Again Delphi! Since the new season has started, the long process of migrating everything over to 2025 has begun. As of now, we have correctly migrated everything over to versions of 2025 except…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 2268,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3472982,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64493,
+                    "username": "Mads_0927",
+                    "name": "Mads <3",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64493,
+                            "username": "Mads_0927",
+                            "name": "Mads <3",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 27113,
+                            "username": "AfterTen",
+                            "name": "AfterTen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49261,
+                            "username": "jan",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jan/{size}/158811_2.png",
+                            "primary_group_name": "REV",
+                            "flair_name": "REV",
+                            "flair_url": "/uploads/default/original/3X/d/b/db93216ec14c273ae2ca04aa396186c0461d0620.png",
+                            "flair_bg_color": "F05A28",
+                            "flair_group_id": 55,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13461,
+                            "username": "mikets",
+                            "name": "mikets",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mikets/{size}/4625_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner RobotConfig And AutoBuilder not working",
+                "id": 484288,
+                "title": "Pathplanner RobotConfig And AutoBuilder not working",
+                "slug": "pathplanner-robotconfig-and-autobuilder-not-working",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-30T15:10:00.673Z",
+                "last_posted_at": "2025-01-30T19:15:13.731Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T19:15:13.731Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Wait a minute, sorry I didn’t read what the picture said properly. It is an unhandled exception which means you need to “handle” it. Pathplanner documentation has an example of how one might do so. I …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 244,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496948,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 56380,
+                    "username": "ebear11",
+                    "name": "Elijah Beard",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/439d5e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60285,
+                            "username": "vuure",
+                            "name": "Naroglu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/8dc957/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 56380,
+                            "username": "ebear11",
+                            "name": "Elijah Beard",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/439d5e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33411,
+                            "username": "Ophbalance",
+                            "name": "Ophbalance",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ophbalance/{size}/110686_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Can someone share their code on how they configure their SPARK Max controller on Java?",
+                "id": 494410,
+                "title": "Can someone share their code on how they configure their SPARK Max controller on Java?",
+                "slug": "can-someone-share-their-code-on-how-they-configure-their-spark-max-controller-on-java",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/b/4/b49483806b7e48149f86c779a01f064314e72d83_2_768x1024.jpeg",
+                "created_at": "2025-03-05T23:01:09.279Z",
+                "last_posted_at": "2025-03-05T23:15:46.640Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T23:15:46.640Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is having problems on our SPARK MAx Configuration code and deploying the code keeps telling us there’s an error in that part. Can someone check is there anything wrong with the configuration…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "sparkmax"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 75,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548739,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61276,
+                    "username": "d2i-23",
+                    "name": "Clement Chung",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/54ee81/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61276,
+                            "username": "d2i-23",
+                            "name": "Clement Chung",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/54ee81/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56673,
+                            "username": "Martini159",
+                            "name": "Martin Nemaric",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/278dde/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "YAGSL Creating Swerve Drive Object (Java)",
+        "id": 446952,
+        "title": "YAGSL Creating Swerve Drive Object (Java)",
+        "posts_count": 3,
+        "created_at": "2023-12-28T01:56:09.575Z",
+        "views": 257,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-12-27T02:54:40.067Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "yagsl-creating-swerve-drive-object-java",
+        "category_id": 30,
+        "word_count": 85,
+        "deleted_at": null,
+        "user_id": 57331,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_446952",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 57331,
+                    "username": "jacob_mazelin",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 57331,
+                "username": "jacob_mazelin",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/BroncBotz3481/YAGSL-Example/blob/main/src%2Fmain%2Fjava%2Ffrc%2Frobot%2Fsubsystems%2Fswervedrive%2FSwerveSubsystem.java#L51-L84",
+                    "title": "YAGSL-Example/src/main/java/frc/robot/subsystems/swervedrive/SwerveSubsystem.java at main · BroncBotz3481/YAGSL-Example · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 34,
+                    "user_id": 51887,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/BroncBotz3481/YAGSL/wiki",
+                    "title": "Home · BroncBotz3481/YAGSL Wiki · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 57331,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,1129 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3336936,
+                    "name": "edarzins",
+                    "username": "edarzins",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/f05b48/{size}.png",
+                    "created_at": "2024-03-19T13:49:33.875Z",
+                    "cooked": "I have a question regarding PhotonVision setup, specifically the robotToCamera transform. We’re using two PV cameras (one on left side, one on right side) and one Limelight on the center front. The PV cameras are giving us incorrect pose data (as much as a meter off, and not consistent with each other). The pose results from the Limelight are correct and consistent. I suspect there’s something wrong with the robotToCamera transforms for the PV cameras, so I’m hoping that someone can verify that we’re doing that correctly or discover our error.\n\nThese are the positions of the cameras, assuming that the +x axis is pointed out the front of the robot, +y axis is to the left, and +z is up. Origin is at the center of the robot and z=0 is the floor.\n\nLeft PV Camera: 0.151, 0.319, 0.578 (meters) Right PV Camera: 0.151, -0.319, 0.578 (meters)\n\nThe left camera is pointed directly out the left side (along the +y axis), with an upward tilt of 10 degrees. The right camera is pointed directly out the right side (along the -y axis), with an upward tilt of 10 degrees.\n\nUsing these coordinates and rotations, these are the robotToCamera transforms we created:\n\nstatic const auto LEFT_CAMERA_A_TF = frc::Transform3d{0.151_m, 0.319_m, 0.578_m, frc::Rotation3d(0_deg, -10_deg, 90_deg)}; static const auto RIGHT_CAMERA_A_TF = frc::Transform3d{0.151_m, -0.319_m, 0.578_m, frc::Rotation3d(0_deg, -10_deg, -90_deg)};\n\nThoughts? Thanks for your help!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-19T13:49:33.875Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 575,
+                    "reads": 165,
+                    "readers_count": 164,
+                    "score": 2928.0,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "edarzins",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25993,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Coach, Team 2240"
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/1",
+                    "custom_user_title": "Coach, Team 2240",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3336951,
+                    "name": "Chris Gerth",
+                    "username": "gerthworm",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "created_at": "2024-03-19T14:11:07.539Z",
+                    "cooked": "Hmmmm good question. Quickly looking at the numbers, I can’t say for certain I see something obviously wrong, but agreed the symptom doesn’t feel right.\n\nOne thing we do to debug this - AdvantageScope (ships with wpilib) has an awesome 3d field viewer , and can display 3d poses/transforms/translations.\n\nRobotCasserole2024/drivetrain/poseEstimation/drivetrainPoseTelemetry.py at main · RobotCasserole1736/RobotCasserole2024 · GitHub is an example of how we publish our camera poses (relative to the robot’s pose) - this was an awesome visual tool for verifying that software was assuming the camera location correctly.\n\nAgain, don’t feel too bad - these 3d geometry things are nearly impossible for me to debug in code, I need a visualization to think through where I messed things up.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-19T14:11:07.539Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 13,
+                    "reads": 145,
+                    "readers_count": 144,
+                    "score": 129.0,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "Chris Gerth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/RobotCasserole1736/RobotCasserole2024/blob/main/drivetrain/poseEstimation/drivetrainPoseTelemetry.py#L22",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "RobotCasserole2024/drivetrain/poseEstimation/drivetrainPoseTelemetry.py at main · RobotCasserole1736/RobotCasserole2024 · GitHub",
+                            "clicks": 46
+                        },
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/AdvantageScope/blob/main/docs/tabs/3D-FIELD.md",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AdvantageScope/docs/tabs/3D-FIELD.md at main · Mechanical-Advantage/AdvantageScope · GitHub",
+                            "clicks": 27
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24617,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3337489,
+                    "name": "Curt Rozeboom",
+                    "username": "BlueEpiphone",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                    "created_at": "2024-03-19T19:37:17.813Z",
+                    "cooked": "OK, something we did in our code, which I got from 6328 was to apply the rotations separately, not as a single rotation3d. There’s a function called rotateBy you can use. So do frc::Rotation3d(0,-10,0).rotateby(0,0,+/-90);\n\nIf you’re confused and tilting your head to the side at this, you maybe modeling your camera’s pose There’s more than 1 way for the camera to end up positioned -10 degrees pitched back. If it is rotated +/-90 and then pitched -10, it will resemble a confused dog tilting its head to the side and not calculate the way you want. But, if you pitch back first, then rotate 90, you should end up with the correct orientation. I could be wrong, but try it and see. Can’t hurt.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-19T19:37:17.813Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 126,
+                    "readers_count": 125,
+                    "score": 70.2,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "Curt Rozeboom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 32089,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5010 Programming Mentor"
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/3",
+                    "custom_user_title": "5010 Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3337510,
+                    "name": "gcschmit",
+                    "username": "gcschmit",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png",
+                    "created_at": "2024-03-19T19:51:09.032Z",
+                    "cooked": "I assume the C++ API handles units for you, but we’ve had issues when we’ve passed a value in degrees when the Java constructor expects a value in radians.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-19T19:51:09.032Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 107,
+                    "readers_count": 106,
+                    "score": 26.4,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "gcschmit",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 15922,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 3061 Lead Mentor"
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/4",
+                    "custom_user_title": "FRC 3061 Lead Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3338250,
+                    "name": "edarzins",
+                    "username": "edarzins",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/f05b48/{size}.png",
+                    "created_at": "2024-03-20T14:15:30.105Z",
+                    "cooked": "Thanks for the tip! Displaying the pose and transform in AdvantageScope verified that it is correct.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-20T14:15:30.105Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 96,
+                    "readers_count": 95,
+                    "score": 39.2,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "edarzins",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 24617,
+                        "username": "gerthworm",
+                        "name": "Chris Gerth",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25993,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Coach, Team 2240"
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/5",
+                    "custom_user_title": "Coach, Team 2240",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3339822,
+                    "name": "Rishivarshil Nelakurti",
+                    "username": "itwasntjustaphasemom",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/ec9cab/{size}.png",
+                    "created_at": "2024-03-21T18:29:32.218Z",
+                    "cooked": "Doesn’t Photonvision already handle the order of rotations by default when supplying the transform3D?",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-03-21T18:29:32.218Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 21.6,
+                    "yours": false,
+                    "topic_id": 459246,
+                    "topic_slug": "photonvision-setup-specifically-the-robottocamera-transform",
+                    "display_username": "Rishivarshil Nelakurti",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 32089,
+                        "username": "BlueEpiphone",
+                        "name": "Curt Rozeboom",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55550,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 4611 Alumni"
+                    },
+                    "post_url": "/t/photonvision-setup-specifically-the-robottocamera-transform/459246/6",
+                    "custom_user_title": "FRC 4611 Alumni",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3336936,
+                3336951,
+                3337489,
+                3337510,
+                3338250,
+                3339822
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                571
+            ],
+            [
+                5,
+                570
+            ],
+            [
+                6,
+                569
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "PhotonVision Pipeline switching slow and unstable",
+                "id": 492731,
+                "title": "PhotonVision Pipeline switching slow and unstable",
+                "slug": "photonvision-pipeline-switching-slow-and-unstable",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-22T18:39:04.210Z",
+                "last_posted_at": "2025-02-22T18:39:04.279Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T18:39:04.279Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re using the PhotonVision for both object detection and AprilTags. We switch pipelines between each camera so that each camera can detect both objects and AprilTags. However, the pipeline switchin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 43,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536549,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70236,
+                    "username": "bibimbap",
+                    "name": "Brian C.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/43a26b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 70236,
+                            "username": "bibimbap",
+                            "name": "Brian C.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/43a26b/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Optimal Camera Placement for REEFSCAPE",
+                "id": 482755,
+                "title": "Optimal Camera Placement for REEFSCAPE",
+                "slug": "optimal-camera-placement-for-reefscape",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-20T17:55:41.067Z",
+                "last_posted_at": "2025-01-20T18:49:57.404Z",
+                "bumped": true,
+                "bumped_at": "2025-01-20T19:01:39.001Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is setting up PV with two cameras this year and I was wondering what people think is the best camera placement on the robot. I was thinking of doing one in front and one in the back because of…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 943,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488207,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51417,
+                    "username": "CuteRedpandas",
+                    "name": "Jared Van Horn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35208,
+                            "username": "bathtubed",
+                            "name": "Eric Ward",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59177,
+                            "username": "Gavin0",
+                            "name": "Gavin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gavin0/{size}/193252_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Photovision OV2311 Camera Lost When Calibrating",
+                "id": 483133,
+                "title": "Photovision OV2311 Camera Lost When Calibrating",
+                "slug": "photovision-ov2311-camera-lost-when-calibrating",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-22T23:10:52.287Z",
+                "last_posted_at": "2025-03-09T16:11:26.107Z",
+                "bumped": true,
+                "bumped_at": "2025-03-09T16:11:26.107Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re trying to set up an Arducam OV2311 on Photonvision with an OrangePi coprocessor. The camera works fine when we restart photonvision, but when we try to calibrate it or change the resolution, th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 389,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490272,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71663,
+                    "username": "iparsons",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/65b543/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71663,
+                            "username": "iparsons",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/65b543/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55459,
+                            "username": "crschardt",
+                            "name": "Craig Schardt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35092,
+                            "username": "Juniormunk",
+                            "name": "Cameron (Advanced Programmer)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/juniormunk/{size}/126866_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62391,
+                            "username": "Zaheelee",
+                            "name": "Jessie Adkins",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/z/3e96dc/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Issues getting PhotonVision installed on an Orange Pi 5",
+                "id": 473643,
+                "title": "Issues getting PhotonVision installed on an Orange Pi 5",
+                "slug": "issues-getting-photonvision-installed-on-an-orange-pi-5",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/9/f9873b89304e6ef1d36053819896a97da2cf87dc_2_1024x768.jpeg",
+                "created_at": "2024-10-25T00:20:39.241Z",
+                "last_posted_at": "2024-11-06T12:43:00.694Z",
+                "bumped": true,
+                "bumped_at": "2024-11-06T12:43:25.818Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team has been working on experimenting with an Orange Pi for vision on our robot. We’ve ordered an Orange Pi 5 Pro but we’re struggling on getting PhotonVision to boot. We were able to get the Pi t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 296,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438895,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68675,
+                    "username": "nfoert",
+                    "name": "nfoert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nfoert/{size}/235138_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68675,
+                            "username": "nfoert",
+                            "name": "nfoert",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nfoert/{size}/235138_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55420,
+                            "username": "fedorlspp26",
+                            "name": "Fedor Leonov",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fedorlspp26/{size}/240103_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How can we make vision system&rsquo;s measurements more accurate?",
+                "id": 494589,
+                "title": "How can we make vision system's measurements more accurate?",
+                "slug": "how-can-we-make-vision-systems-measurements-more-accurate",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-07T01:10:01.503Z",
+                "last_posted_at": "2025-03-08T12:16:05.639Z",
+                "bumped": true,
+                "bumped_at": "2025-03-08T12:16:05.639Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We currently have a vision system with four ArducCams (OV9281), and two OrangePis (OrangePi 5 Plus), with two ArduCams connected to each. Then, we have a Limelight 3G, which has PhotonVision installed…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision",
+                    "camera",
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 296,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3550053,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69146,
+                    "username": "rishabtirupathi",
+                    "name": "Rishab Tirupathi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69146,
+                            "username": "rishabtirupathi",
+                            "name": "Rishab Tirupathi",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56532,
+                            "username": "A_human",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/a_human/{size}/186621_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14283,
+                            "username": "nuttle",
+                            "name": "Allen Nuttle",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "PhotonVision setup, specifically the robotToCamera transform",
+        "id": 459246,
+        "title": "PhotonVision setup, specifically the robotToCamera transform",
+        "posts_count": 6,
+        "created_at": "2024-03-19T13:49:33.798Z",
+        "views": 723,
+        "reply_count": 2,
+        "like_count": 7,
+        "last_posted_at": "2024-03-21T18:29:32.218Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "photonvision-setup-specifically-the-robottocamera-transform",
+        "category_id": 87,
+        "word_count": 590,
+        "deleted_at": null,
+        "user_id": 25993,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_459246",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 5,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 25993,
+                    "username": "edarzins",
+                    "name": "edarzins",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/f05b48/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 15922,
+                    "username": "gcschmit",
+                    "name": "gcschmit",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24617,
+                    "username": "gerthworm",
+                    "name": "Chris Gerth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 32089,
+                    "username": "BlueEpiphone",
+                    "name": "Curt Rozeboom",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 55550,
+                    "username": "itwasntjustaphasemom",
+                    "name": "Rishivarshil Nelakurti",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/ec9cab/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 25993,
+                "username": "edarzins",
+                "name": "edarzins",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/f05b48/{size}.png"
+            },
+            "last_poster": {
+                "id": 55550,
+                "username": "itwasntjustaphasemom",
+                "name": "Rishivarshil Nelakurti",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/i/ec9cab/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/RobotCasserole1736/RobotCasserole2024/blob/main/drivetrain/poseEstimation/drivetrainPoseTelemetry.py#L22",
+                    "title": "RobotCasserole2024/drivetrain/poseEstimation/drivetrainPoseTelemetry.py at main · RobotCasserole1736/RobotCasserole2024 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 46,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Mechanical-Advantage/AdvantageScope/blob/main/docs/tabs/3D-FIELD.md",
+                    "title": "AdvantageScope/docs/tabs/3D-FIELD.md at main · Mechanical-Advantage/AdvantageScope · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 27,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

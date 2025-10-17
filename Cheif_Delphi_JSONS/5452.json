@@ -1,0 +1,842 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3463133,
+                    "name": "Micah",
+                    "username": "Hyperspace1710",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                    "created_at": "2024-12-24T17:14:20.297Z",
+                    "cooked": "I’m currently trying to use WPIcal to create a custom AprilTag field setup and I’m not sure how to set it up. I’ve tried following the instructions on how to run WPIcal from source, but I have no experience managing C++ extensions and I keep getting errors. My latest error is with configuring the cmake project, as whenever I run cmake -S . -B build -G \"Visual Studio 17 2022\" -T ClangCl -A x64 -DVCPKG_ROOT=<path/to/vcpkg> I get errors saying “ Could not find toolchain file: <path/to/vcpkg>/scripts/buildsystems/vcpkg.cmake ”. Does anyone know how to install WPIcal from source? Or better yet, is there a way to install a WPILib beta with WPIcal as a built-in Tool?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2024-12-24T17:14:20.297Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 219,
+                    "reads": 213,
+                    "readers_count": 212,
+                    "score": 1152.6,
+                    "yours": false,
+                    "topic_id": 477292,
+                    "topic_slug": "how-do-i-run-wpical",
+                    "display_username": "Micah",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59402,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1710 Alum"
+                    },
+                    "post_url": "/t/how-do-i-run-wpical/477292/1",
+                    "custom_user_title": "1710 Alum",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3463145,
+                    "name": "Peter Johnson",
+                    "username": "Peter_Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "created_at": "2024-12-24T17:36:18.048Z",
+                    "cooked": "It’s not in a WPILib release yet, as it’s still in development and the PR is still being worked on.\n\nWPIcal: Field Calibration Tool wpilibsuite:main ← ElliotScher:main opened 01:24PM - 02 Aug 24 UTC ElliotScher +30172 -2\n\nWPIcal: Field Calibration Tool wpilibsuite:main ← ElliotScher:main opened 01:24PM - 02 Aug 24 UTC ElliotScher +30172 -2\n\nwpilibsuite:main ← ElliotScher:main\n\nopened 01:24PM - 02 Aug 24 UTC ElliotScher +30172 -2\n\nopened 01:24PM - 02 Aug 24 UTC\n\nElliotScher\n\n+30172 -2\n\n# WPIcal\n\nWPIcal is a tool used to “calibrate” or empirically measure the posi … tion and orientation of the Apriltags on FRC fields. This tool was inspired by team 1538, The Holy Cows, who created a command-line tool to perform this field calibration: https://github.com/TheHolyCows/cowlibration-field. WPIcal aims to streamline field calibration by combining the needed camera calibration with the field calibration process into a user-friendly application.\n\n## Overview\nWPIcal performs camera calibration using a video of either a ChArUco board (using OpenCV calibration) or a chessboard (using MRcal). Users can also upload their own camera intrinsics JSON if they so choose. The tool then measures the positions of the Apriltags on the field relative to each other. By selecting a tag to “pin” or use the default position for, WPIcal will create a field map, in which the other tags on the field will be moved to their measured positions relative to the pinned tag.\n\n## Proposal\nIntegrating this tool into WPILib will ensure that all teams have access to a good calibration technique for:\n* Field calibration at events\n* Calibration of practice fields (which are very often imperfect)\n* Apriltag \"sanity check\" for FTAs (tag position readout is provided with both position and rotation deltas)\n\n## Dependencies\nWPIcal uses some dependencies that will need to be added to WPILib:\n- [x] [mrcal-java](https://github.com/PhotonVision/mrcal-java) is a wrapper for the mrcal library\n  - [x] [mrcal](https://github.com/dkogan/mrcal) is a robust camera calibration library\n  - [x] [libdogleg](https://github.com/dkogan/libdogleg) is a optimization library that mrcal depends on (there may be license issues with this library)\n  - [x] [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse?tab=License-1-ov-file#readme) (this library is not explicitly used by WPIcal but is a dependency of mrcal-java)\n- [x] [Ceres](http://ceres-solver.org/) is a numerical optimization library used to solve for the locations of each apriltag\n\n## Tasks\nWPIcal still has a couple of things that need to happen before it is ready:\n- [x] Possible rename. WPIcal was the working title and suggestions are always appreciated!\n- [x] Tool icon\n- [x] Tool documentation\n\nworking version of WPIcal: https://github.com/ElliotScher/wpical\n\n# WPIcal\n\nWPIcal is a tool used to “calibrate” or empirically measure the posi … tion and orientation of the Apriltags on FRC fields. This tool was inspired by team 1538, The Holy Cows, who created a command-line tool to perform this field calibration: https://github.com/TheHolyCows/cowlibration-field. WPIcal aims to streamline field calibration by combining the needed camera calibration with the field calibration process into a user-friendly application.\n\n## Overview\nWPIcal performs camera calibration using a video of either a ChArUco board (using OpenCV calibration) or a chessboard (using MRcal). Users can also upload their own camera intrinsics JSON if they so choose. The tool then measures the positions of the Apriltags on the field relative to each other. By selecting a tag to “pin” or use the default position for, WPIcal will create a field map, in which the other tags on the field will be moved to their measured positions relative to the pinned tag.\n\n## Proposal\nIntegrating this tool into WPILib will ensure that all teams have access to a good calibration technique for:\n* Field calibration at events\n* Calibration of practice fields (which are very often imperfect)\n* Apriltag \"sanity check\" for FTAs (tag position readout is provided with both position and rotation deltas)\n\n## Dependencies\nWPIcal uses some dependencies that will need to be added to WPILib:\n- [x] [mrcal-java](https://github.com/PhotonVision/mrcal-java) is a wrapper for the mrcal library\n  - [x] [mrcal](https://github.com/dkogan/mrcal) is a robust camera calibration library\n  - [x] [libdogleg](https://github.com/dkogan/libdogleg) is a optimization library that mrcal depends on (there may be license issues with this library)\n  - [x] [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse?tab=License-1-ov-file#readme) (this library is not explicitly used by WPIcal but is a dependency of mrcal-java)\n- [x] [Ceres](http://ceres-solver.org/) is a numerical optimization library used to solve for the locations of each apriltag\n\n## Tasks\nWPIcal still has a couple of things that need to happen before it is ready:\n- [x] Possible rename. WPIcal was the working title and suggestions are always appreciated!\n- [x] Tool icon\n- [x] Tool documentation\n\nworking version of WPIcal: https://github.com/ElliotScher/wpical",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2024-12-24T17:36:18.048Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 196,
+                    "readers_count": 195,
+                    "score": 189.2,
+                    "yours": false,
+                    "topic_id": 477292,
+                    "topic_slug": "how-do-i-run-wpical",
+                    "display_username": "Peter Johnson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/wpilibsuite/allwpilib/pull/6915",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "WPIcal: Field Calibration Tool by ElliotScher · Pull Request #6915 · wpilibsuite/allwpilib · GitHub",
+                            "clicks": 76
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 13575,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Volunteer WPILib Developer, CSA"
+                    },
+                    "post_url": "/t/how-do-i-run-wpical/477292/2",
+                    "custom_user_title": "Volunteer WPILib Developer, CSA",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        },
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3463133,
+                3463145
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                291
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Limelight 3 &amp; Google Coral w/ Note Detection + Autocollect",
+                "id": 477143,
+                "title": "Limelight 3 & Google Coral w/ Note Detection + Autocollect",
+                "slug": "limelight-3-google-coral-w-note-detection-autocollect",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-12-20T22:56:52.987Z",
+                "last_posted_at": "2024-12-21T00:30:14.939Z",
+                "bumped": true,
+                "bumped_at": "2024-12-21T00:36:45.452Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! Our team has recently been running tests using the Limelight 3, with Google Coral for note detection. We’ve been trying to make it move towards the note when a button is pressed (basically lik…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 433,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462104,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68624,
+                    "username": "mai09",
+                    "name": "Mai",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mai09/{size}/237282_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68624,
+                            "username": "mai09",
+                            "name": "Mai",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mai09/{size}/237282_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67896,
+                            "username": "Nanastasoff",
+                            "name": "Nick Anastasoff",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/53a042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Can&rsquo;t Convert .hoot Log to .wpilog",
+                "id": 480278,
+                "title": "Can't Convert .hoot Log to .wpilog",
+                "slug": "cant-convert-hoot-log-to-wpilog",
+                "posts_count": 22,
+                "reply_count": 19,
+                "highest_post_number": 22,
+                "image_url": null,
+                "created_at": "2025-01-08T22:57:08.243Z",
+                "last_posted_at": "2025-01-12T20:25:49.096Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T20:25:49.096Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Heya. Sorry this seems to be happening. To help us debug the root cause of this further, I’m going to have you go through some steps to share the local cache of the tools index that Tuner is using. G…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 373,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3476063,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 18,
+                "topic_post_user": {
+                    "id": 61981,
+                    "username": "daltzsmith",
+                    "name": "Dalton",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55818,
+                            "username": "Crafter",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/77aa72/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55757,
+                            "username": "EricTheOtterBot",
+                            "name": "Eric Swanson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erictheotterbot/{size}/180465_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "[Poll] Constant Naming Conventions",
+                "id": 483736,
+                "title": "[Poll] Constant Naming Conventions",
+                "slug": "poll-constant-naming-conventions",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-26T22:41:09.093Z",
+                "last_posted_at": "2025-01-27T04:11:28.553Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T04:11:28.553Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As I was creating my team’s Constants.java for this season, I was split on the naming conventions we should use for the constants. Whenever I program outside of FRC, I always use UPPERCASE_SNAKE_CASE,…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "programming",
+                    "poll"
+                ],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 642,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493296,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71822,
+                    "username": "LordOfFrogs",
+                    "name": "Tori Dell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lordoffrogs/{size}/246752_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71822,
+                            "username": "LordOfFrogs",
+                            "name": "Tori Dell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lordoffrogs/{size}/246752_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71483,
+                            "username": "Aaron_Zheng",
+                            "name": "Aaron Zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aaron_zheng/{size}/245699_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Roborio imaging tool not see the roborio 1",
+                "id": 477214,
+                "title": "Roborio imaging tool not see the roborio 1",
+                "slug": "roborio-imaging-tool-not-see-the-roborio-1",
+                "posts_count": 16,
+                "reply_count": 10,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2024-12-22T16:04:39.792Z",
+                "last_posted_at": "2024-12-24T09:45:07.703Z",
+                "bumped": true,
+                "bumped_at": "2024-12-24T09:45:07.703Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "hi we have a problem with our imaging tool, we have a roborio 1, that we’re trying to reformat, however, the imaging tool does not see the roborio. we are connected to the roborio via USB cable, like…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "roborio",
+                    "image"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 343,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462482,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 29450,
+                    "username": "G3_6740",
+                    "name": "G3 6740",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/3d9bf3/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 29450,
+                            "username": "G3_6740",
+                            "name": "G3 6740",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/3d9bf3/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26389,
+                            "username": "tkchan",
+                            "name": "tkchan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36169,
+                            "username": "Hollisms",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hollisms/{size}/110925_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36833,
+                            "username": "chauser",
+                            "name": "Carl Hauser",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/a587f6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63284,
+                            "username": "KunEfe",
+                            "name": "Efe Kayal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kunefe/{size}/256647_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Advice about Swerve software",
+                "id": 495925,
+                "title": "Advice about Swerve software",
+                "slug": "advice-about-swerve-software",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-03-17T18:24:15.142Z",
+                "last_posted_at": "2025-03-17T20:33:12.866Z",
+                "bumped": true,
+                "bumped_at": "2025-03-17T20:33:12.866Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Greetings. This year we participated in the regional competition with our own swerve library. And in this library, we were moving directly using the absolute position data of the cancoder in the opera…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 161,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559526,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66157,
+                    "username": "merenkirkas",
+                    "name": "Mehmet Eren KIRKAŞ",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/merenkirkas/{size}/254837_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66157,
+                            "username": "merenkirkas",
+                            "name": "Mehmet Eren KIRKAŞ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/merenkirkas/{size}/254837_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 27113,
+                            "username": "AfterTen",
+                            "name": "AfterTen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "vision",
+            "calibration"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "How do I run WPIcal?",
+        "id": 477292,
+        "title": "How do I run WPIcal?",
+        "posts_count": 2,
+        "created_at": "2024-12-24T17:14:20.233Z",
+        "views": 417,
+        "reply_count": 0,
+        "like_count": 6,
+        "last_posted_at": "2024-12-24T17:36:18.048Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-do-i-run-wpical",
+        "category_id": 30,
+        "word_count": 153,
+        "deleted_at": null,
+        "user_id": 59402,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_477292",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 38431,
+            "execute_at": "2025-12-24T17:36:18.048Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Peter_Johnson",
+            "name": null,
+            "excerpt": "It’s not in a WPILib release yet, as it’s still in development and the PR is still being worked on.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 59402,
+                    "username": "Hyperspace1710",
+                    "name": "Micah",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 59402,
+                "username": "Hyperspace1710",
+                "name": "Micah",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png"
+            },
+            "last_poster": {
+                "id": 13575,
+                "username": "Peter_Johnson",
+                "name": "Peter Johnson",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/wpilibsuite/allwpilib/pull/6915",
+                    "title": "WPIcal: Field Calibration Tool by ElliotScher · Pull Request #6915 · wpilibsuite/allwpilib · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 76,
+                    "user_id": 13575,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

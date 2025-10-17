@@ -1,0 +1,1119 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3464203,
+                    "name": "Matthew Milunic",
+                    "username": "mathum",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                    "created_at": "2024-12-28T04:12:19.837Z",
+                    "cooked": "My team has been working on using the SwerveSetpointGenerator from Pathplanner to calculate the maximum acceleration we can have our drivetrain accelerate at without hitting current limits or having our wheels slip.\n\nI was pondering the physics behind the acceleration calculators, and I noted that at least the Pathplanner calculator assumes the mass of the robot is equally distributed across all four modules. While the robot is not moving this would be true if the COM of the robot is centered compared to the modules, but it would not be true if the COM was off center, or if the COM was not exactly on the floor and the robot was accelerating.\n\nWhile the net possible acceleration ends up remaining constant with these variations, there is usually more weight going through certain modules than other modules, and since static friction is proportional to the normal force going through a module, this means that the modules weight is taken off of produce a lower proportion of the force necessary, and the modules that more force goes through produce a larger proportion of the necessary force to accelerate.\n\nThe SwerveSetpointGenerator does not take this into account, which would cause modules with less normal force to slip and modules with more normal force to not be providing as much force as they could, leading to underacceleration.\n\nHas anyone found a way to compensate for this imbalance? I have been thinking about it and am yet to find a simple solution. I do have one that I think would work but it seems overly complicated and I would love to know if someone else has a good solution before I go through the whole process of working out the kinks with my solution.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-28T04:12:19.837Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 34,
+                    "reads": 222,
+                    "readers_count": 221,
+                    "score": 239.4,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "Matthew Milunic",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59542,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Bug Writer"
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/1",
+                    "custom_user_title": "Lead Bug Writer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3464681,
+                    "name": "sam liu",
+                    "username": "catrix",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                    "created_at": "2024-12-29T15:20:06.821Z",
+                    "cooked": "I’ve thought about it when I was working on the physics of maple-sim.\n\nGiven:\n\nthe acceleration of the robot\n\nthe module’s distance from the robot center\n\nthe height of the robot’s COM\n\nIt should be easy to find the normal force on each module.\n\nYou might want to find someone who takes image 1208×451 33.1 KB\n\nimage 1208×451 33.1 KB\n\nimage 1208×451 33.1 KB\n\nGood luck!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-29T15:20:06.821Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 145,
+                    "readers_count": 144,
+                    "score": 39.0,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "sam liu",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60033,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "CE Student @ UWaterloo | 5516 Alum "
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/2",
+                    "custom_user_title": "CE Student @ UWaterloo | 5516 Alum ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3464736,
+                    "name": "Matthew Milunic",
+                    "username": "mathum",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                    "created_at": "2024-12-29T18:50:07.996Z",
+                    "cooked": "Funny enough I actually did take that class last year, so I kinda see what you’re talking about. It isn’t too hard to calculate the normals on each module, and then you could theoretically reapportion the force each module is providing based on that weight.\n\nThe issue here comes in when you have a large portion of your normals on only one side of your robot, say the left side, perhaps because you were taking a circular maneuver where you stay at the same speed but you accelerate to the right. If you also are told to accelerate tangentially to your velocity, you could run into an issue where it would be impossible to accelerate above a certain acceleration without imparting torque on the robot (since all your force would be coming from only the left side of your robot).\n\nLMK if this makes sense or if I did a really bad job explaining this issue.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-29T18:50:47.261Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 111,
+                    "readers_count": 110,
+                    "score": 47.2,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "Matthew Milunic",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 60033,
+                        "username": "catrix",
+                        "name": "sam liu",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59542,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Bug Writer"
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/3",
+                    "custom_user_title": "Lead Bug Writer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3464853,
+                    "name": "sam liu",
+                    "username": "catrix",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                    "created_at": "2024-12-29T23:36:03.952Z",
+                    "cooked": "It makes sense to me. But note that a user-specified acceleration constrain is always there to prevent such situation.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-29T23:36:03.952Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 82,
+                    "readers_count": 81,
+                    "score": 21.4,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "sam liu",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 59542,
+                        "username": "mathum",
+                        "name": "Matthew Milunic",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60033,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "CE Student @ UWaterloo | 5516 Alum "
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/4",
+                    "custom_user_title": "CE Student @ UWaterloo | 5516 Alum ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3464855,
+                    "name": "Matthew Milunic",
+                    "username": "mathum",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                    "created_at": "2024-12-29T23:38:53.566Z",
+                    "cooked": "I guess that would be one solution, just limiting acceleration so you never get to a point where finding a suitable solution is infeasible. This is really only an issue if you have a pretty high COM or one that is very off center, so optimally you would just build a robot with a low and centered COM to avoid these issues lol.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-29T23:38:53.566Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 31.0,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "Matthew Milunic",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 60033,
+                        "username": "catrix",
+                        "name": "sam liu",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59542,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Bug Writer"
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/5",
+                    "custom_user_title": "Lead Bug Writer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3465418,
+                    "name": "Matthew Milunic",
+                    "username": "mathum",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                    "created_at": "2024-12-30T20:43:29.944Z",
+                    "cooked": "In theory, this is solvable using Second Order Cone Programming, but I think it might be excessively computationally intensive to be able to run on a RoboRIO.\n\nHere’s the wikipedia on SOCP if you’re interested:\n\nA second-order cone program (SOCP) is a convex optimization problem of the form\n where the problem parameters are \n  \n    \n      \n        f\n        ∈\n        \n          \n            R\n          \n          \n            n\n          \n        \n        ,\n         \n        \n          A\n          \n            i\n          \n        \n        ∈\n        \n          \n            R\n          \n          \n            \n              \n                n\n                \n                  i\n                \n         ...\n\nLinear Programming almost gets you there, but it fails because modules will slip if the norm of the forces on them is too high, so it isn’t a linear constraint. You end up with a constraint of the 2-norm of the forces.\n\nHere’s an article on linear programming if you’re interested in that as well:\n\nLinear programming (LP), also called linear optimization, is a method to achieve the best outcome (such as maximum profit or lowest cost) in a mathematical model whose requirements and objective are represented by linear relationships. Linear programming is a special case of mathematical programming (also known as mathematical optimization).\n More formally, linear programming is a technique for the optimization of a linear objective function, subject to linear equality and linear inequality const...",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-12-30T20:43:29.944Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 43,
+                    "readers_count": 42,
+                    "score": 8.6,
+                    "yours": false,
+                    "topic_id": 477447,
+                    "topic_slug": "swerve-setpoint-question",
+                    "display_username": "Matthew Milunic",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://en.m.wikipedia.org/wiki/Second-order_cone_programming",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Second-order cone programming - Wikipedia",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://en.m.wikipedia.org/wiki/Linear_programming",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Linear programming - Wikipedia",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59542,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Bug Writer"
+                    },
+                    "post_url": "/t/swerve-setpoint-question/477447/6",
+                    "custom_user_title": "Lead Bug Writer",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3464203,
+                3464681,
+                3464736,
+                3464853,
+                3464855,
+                3465418
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                288
+            ],
+            [
+                2,
+                286
+            ],
+            [
+                6,
+                285
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Kalman Filter Question",
+                "id": 477269,
+                "title": "Kalman Filter Question",
+                "slug": "kalman-filter-question",
+                "posts_count": 18,
+                "reply_count": 15,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2024-12-23T21:21:52.390Z",
+                "last_posted_at": "2024-12-24T20:30:17.949Z",
+                "bumped": true,
+                "bumped_at": "2024-12-24T20:30:17.949Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When using a Kalman Filter like for combining your odometry measurements from your wheels with your pose estimates from your vision measurements, does the filter take into account how long it has been…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 935,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462932,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59542,
+                    "username": "mathum",
+                    "name": "Matthew Milunic",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18348,
+                            "username": "Lidor51",
+                            "name": "Lidor Kaplan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lidor51/{size}/65522_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 35208,
+                            "username": "bathtubed",
+                            "name": "Eric Ward",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What are your Programming pet peeves",
+                "id": 492214,
+                "title": "What are your Programming pet peeves",
+                "slug": "what-are-your-programming-pet-peeves",
+                "posts_count": 206,
+                "reply_count": 146,
+                "highest_post_number": 209,
+                "image_url": null,
+                "created_at": "2025-02-18T20:57:49.798Z",
+                "last_posted_at": "2025-09-17T17:55:11.076Z",
+                "bumped": true,
+                "bumped_at": "2025-09-17T17:55:43.238Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "(Not sure if this is the right category) Inspired by this What are your programming pet peeves? This could be about how your teamates write code, or something in wpilib or external vendor li…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1070,
+                "views": 6724,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531908,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55649,
+                    "username": "manso",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55649,
+                            "username": "manso",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57904,
+                            "username": "stephen.ostermiller",
+                            "name": "Stephen Ostermiller",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stephen.ostermiller/{size}/188076_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48578,
+                            "username": "Wesley",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wesley/{size}/155134_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73462,
+                            "username": "Tricks1228",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tricks1228/{size}/258883_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Programming a 2004 robot controller in 2025",
+                "id": 478221,
+                "title": "Programming a 2004 robot controller in 2025",
+                "slug": "programming-a-2004-robot-controller-in-2025",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-04T05:41:39.528Z",
+                "last_posted_at": "2025-02-01T21:18:02.157Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T21:18:02.157Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It’d be - not impossible - to get it working but I discourage you from putting time and energy into doing so. You’d need a couple off the black cables and radio modules to get it running wirelessly. B…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2004",
+                    "ifi"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 533,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3498165,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 7232,
+                    "username": "garyk",
+                    "name": "garyk",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/garyk/{size}/113200_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 7232,
+                            "username": "garyk",
+                            "name": "garyk",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/garyk/{size}/113200_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Help - Motors need kickstart to drive",
+                "id": 494335,
+                "title": "Swerve Help - Motors need kickstart to drive",
+                "slug": "swerve-help-motors-need-kickstart-to-drive",
+                "posts_count": 7,
+                "reply_count": 1,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-03-05T13:07:23.886Z",
+                "last_posted_at": "2025-03-05T17:18:13.854Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T17:18:13.854Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi all, First off, I’m not a programmer and only know a little about the wiring. But our students don’t really browse CD and we are in need of some insight. We are running MAX Swerve for the first t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 165,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548126,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 17731,
+                    "username": "c.shu",
+                    "name": "Cole Shumaker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/c.shu/{size}/136963_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 17731,
+                            "username": "c.shu",
+                            "name": "Cole Shumaker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/c.shu/{size}/136963_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65822,
+                            "username": "ConnorMasini",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ac8455/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70335,
+                            "username": "AegisNova",
+                            "name": "Josh",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aegisnova/{size}/265035_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56055,
+                            "username": "lol",
+                            "name": "Adam",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/5daacb/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PathPlanner And Swerve Foward and Backwards",
+                "id": 494496,
+                "title": "PathPlanner And Swerve Foward and Backwards",
+                "slug": "pathplanner-and-swerve-foward-and-backwards",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-06T16:33:30.388Z",
+                "last_posted_at": "2025-03-06T17:05:01.781Z",
+                "bumped": true,
+                "bumped_at": "2025-03-06T17:49:43.716Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! I am new to path planener and swerve but for some reason our code drives PathPlanner in the opposite direction it should be going. Along with our Swerve it doesn’t change foward for what way it…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 66,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3549402,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67491,
+                    "username": "Rossj2245",
+                    "name": "Jack Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rossj2245/{size}/231414_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67491,
+                            "username": "Rossj2245",
+                            "name": "Jack Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rossj2245/{size}/231414_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55065,
+                            "username": "Xactlysharp",
+                            "name": "Anderson Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/xactlysharp/{size}/186572_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Swerve Setpoint Question",
+        "id": 477447,
+        "title": "Swerve Setpoint Question",
+        "posts_count": 6,
+        "created_at": "2024-12-28T04:12:19.791Z",
+        "views": 417,
+        "reply_count": 3,
+        "like_count": 4,
+        "last_posted_at": "2024-12-30T20:43:29.944Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-setpoint-question",
+        "category_id": 30,
+        "word_count": 704,
+        "deleted_at": null,
+        "user_id": 59542,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_477447",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 38480,
+            "execute_at": "2025-12-30T20:43:29.944Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 59542,
+                    "username": "mathum",
+                    "name": "Matthew Milunic",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                    "post_count": 4,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 59542,
+                "username": "mathum",
+                "name": "Matthew Milunic",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+            },
+            "last_poster": {
+                "id": 59542,
+                "username": "mathum",
+                "name": "Matthew Milunic",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://en.m.wikipedia.org/wiki/Second-order_cone_programming",
+                    "title": "Second-order cone programming - Wikipedia",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 59542,
+                    "domain": "en.m.wikipedia.org",
+                    "root_domain": "wikipedia.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

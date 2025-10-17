@@ -1,0 +1,980 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3658835,
+                    "name": "Adam Aptowitz",
+                    "username": "adama12",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/e8c25b/{size}.png",
+                    "created_at": "2025-06-20T22:13:15.418Z",
+                    "cooked": "Hello! I have an elevator that uses a CANCoder to determine position and velocity. During competition, the elevator seems to jerk up and down during motion. Looking at the log files from the match (Archimedes Qual 97), it seems like the data from the CANcoder doesn’t update for about 0.5 seconds.\n\nWe are using a profiled PID controller, specifically a trapezoidal profile. When the data finally updates, the elevator is above the setpoint. The robot applies -33 volts to bring the elevator back down. Then, since the elevator is below the setpoint, it tries to bring the elevator back up in quick succession. This results in the elevator violently jerking up and down.\n\nWhy does the CANcoder stop reading values? Could it be a loop overrun or an issue with the encoder itself? I’ve attached the relevant log file below, as well as a link to our GitHub repo.\n\nakit_25-04-18_12-28-18_archimedes_q97.zip (10.6 MB) https://github.com/steelhawks/Reefscape2025",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-06-20T22:14:17.341Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 99,
+                    "readers_count": 98,
+                    "score": 64.8,
+                    "yours": false,
+                    "topic_id": 503435,
+                    "topic_slug": "cancoder-values-not-updating",
+                    "display_username": "Adam Aptowitz",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/steelhawks/Reefscape2025",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - steelhawks/Reefscape2025: Our code for the Reefscape 2025 season.",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "/uploads/short-url/mE8JL86P3ogyL1IIuooZnCItXrO.zip",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 61992,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/cancoder-values-not-updating/503435/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3658836,
+                    "name": "Benjamin Hall",
+                    "username": "bhall-ctre",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "created_at": "2025-06-20T22:16:21.975Z",
+                    "cooked": "You’re raising your main thread priority to the RT max of 99, which is likely starving other threads.\n\nAuto Init Overrun Programming\n\nI would also recommend updating your Phoenix 6 vendordep to the latest (25.4.0) to pick up some bug fixes.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-06-20T22:19:39.550Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 92,
+                    "readers_count": 91,
+                    "score": 53.4,
+                    "yours": false,
+                    "topic_id": 503435,
+                    "topic_slug": "cancoder-values-not-updating",
+                    "display_username": "Benjamin Hall",
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 57,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/steelhawks/Reefscape2025/blob/cc6f4869ad5282b19e938ff26376f28fce6c406e/src/main/java/org/steelhawks/Robot.java#L178-L182",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reefscape2025/src/main/java/org/steelhawks/Robot.java at cc6f4869ad5282b19e938ff26376f28fce6c406e · steelhawks/Reefscape2025 · GitHub",
+                            "clicks": 16
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/auto-init-overrun/494848/39",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Auto Init Overrun",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/cant-figure-out-whats-causing-this-loop-overrun/503680/4",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Can't figure out what's causing this loop overrun",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48146,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Software Engineering Intern at CTR Electronics"
+                    },
+                    "post_url": "/t/cancoder-values-not-updating/503435/2",
+                    "custom_user_title": "Software Engineering Intern at CTR Electronics",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3659226,
+                    "name": "Owen Tharp",
+                    "username": "Grumpy_Bud",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png",
+                    "created_at": "2025-06-21T13:29:28.521Z",
+                    "cooked": "I would say the thread setting is the most important thing. It makes a very small difference in performance and if you are already reaching high lag before applying that it amplifies it significantly. If the main thread takes all 20ms, then things like CAN or NT can’t update every cycle. AdvantageKit documents this under the TalonFX swerve template docs, if you are curious.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-06-21T13:29:28.521Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 50,
+                    "readers_count": 49,
+                    "score": 25.0,
+                    "yours": false,
+                    "topic_id": 503435,
+                    "topic_slug": "cancoder-values-not-updating",
+                    "display_username": "Owen Tharp",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 48146,
+                        "username": "bhall-ctre",
+                        "name": "Benjamin Hall",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 68308,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/cancoder-values-not-updating/503435/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3658835,
+                3658836,
+                3659226
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                113
+            ],
+            [
+                3,
+                112
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Dynamic acceleration limits - how do you implement them?",
+                "id": 491287,
+                "title": "Dynamic acceleration limits - how do you implement them?",
+                "slug": "dynamic-acceleration-limits-how-do-you-implement-them",
+                "posts_count": 7,
+                "reply_count": 1,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-12T00:39:38.248Z",
+                "last_posted_at": "2025-02-14T00:53:38.114Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T00:53:38.114Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "To avoid tipping, if necessary, I hope to use a dynamic acceleration limit on the robot’s drivetrain. It would probably just set the acceleration limit to some function of the elevator’s height. Curr…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "drivetrain",
+                    "tipped"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 522,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524250,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36169,
+                            "username": "Hollisms",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hollisms/{size}/110925_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What&rsquo;s your function of a &lsquo;subsystem.java&rsquo;?",
+                "id": 475478,
+                "title": "What's your function of a 'subsystem.java'?",
+                "slug": "whats-your-function-of-a-subsystem-java",
+                "posts_count": 28,
+                "reply_count": 19,
+                "highest_post_number": 28,
+                "image_url": null,
+                "created_at": "2024-11-23T12:32:56.238Z",
+                "last_posted_at": "2024-11-25T21:54:33.422Z",
+                "bumped": true,
+                "bumped_at": "2024-11-25T21:54:33.422Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi guys. I’ve been working on some programming guides for our team recently. We used to have just one programmer and it wasn’t a big problem to program however he/she liked but now we have some people…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 39,
+                "views": 738,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451148,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60282,
+                    "username": "enc0unt3r",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/enc0unt3r/{size}/202939_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60282,
+                            "username": "enc0unt3r",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/enc0unt3r/{size}/202939_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using PathPlanner DriveFeedforward on SparkMAX or SparkFlex",
+                "id": 475957,
+                "title": "Using PathPlanner DriveFeedforward on SparkMAX or SparkFlex",
+                "slug": "using-pathplanner-drivefeedforward-on-sparkmax-or-sparkflex",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-03T22:55:35.990Z",
+                "last_posted_at": "2024-12-04T06:08:22.752Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T06:08:22.752Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 172,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454500,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60663,
+                            "username": "Geoffrey8814",
+                            "name": "Geoffrey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geoffrey8814/{size}/262430_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve drive not reaching the final destination",
+                "id": 475298,
+                "title": "Swerve drive not reaching the final destination",
+                "slug": "swerve-drive-not-reaching-the-final-destination",
+                "posts_count": 17,
+                "reply_count": 11,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2024-11-20T20:52:15.148Z",
+                "last_posted_at": "2024-11-25T06:35:30.516Z",
+                "bumped": true,
+                "bumped_at": "2024-11-25T06:35:30.516Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Thanks for all the help got it working! Now, I’ve ran into two different issues, first is how do I change over to using “autos” instead of “paths”? And when the robot gets to the final position it ov…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner",
+                    "swervedrive",
+                    "mk4i"
+                ],
+                "tags_descriptions": {},
+                "like_count": 21,
+                "views": 460,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451562,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 17,
+                "topic_post_user": {
+                    "id": 69027,
+                    "username": "Joshua09",
+                    "name": "Joshua Scott",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joshua09/{size}/256070_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 69027,
+                            "username": "Joshua09",
+                            "name": "Joshua Scott",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joshua09/{size}/256070_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62742,
+                            "username": "not_a_robot",
+                            "name": "Mike Smith",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE CANdi Feedback Sensor",
+                "id": 492021,
+                "title": "CTRE CANdi Feedback Sensor",
+                "slug": "ctre-candi-feedback-sensor",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-17T14:42:55.391Z",
+                "last_posted_at": "2025-03-10T00:49:12.169Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T00:49:12.169Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "@bhall-ctre On our end effector, we have a rev through bore encoder wired as an absolute encoder into our CANdi. This CANdi input then is set as the feedback for our pivot motor. The end effector has …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "pid"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 371,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529996,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57204,
+                    "username": "Prince",
+                    "name": "Prince",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4007,
+                            "username": "richwong",
+                            "name": "Rich Wong",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/richwong/{size}/73363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44380,
+                            "username": "gdefender",
+                            "name": "Andy Gasser",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69993,
+                            "username": "RyanKostohryz",
+                            "name": "Ryan Kostohryz ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ec9cab/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "can"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "CANcoder values not updating",
+        "id": 503435,
+        "title": "CANcoder values not updating",
+        "posts_count": 3,
+        "created_at": "2025-06-20T22:13:15.346Z",
+        "views": 186,
+        "reply_count": 1,
+        "like_count": 3,
+        "last_posted_at": "2025-06-21T13:29:28.521Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "cancoder-values-not-updating",
+        "category_id": 30,
+        "word_count": 309,
+        "deleted_at": null,
+        "user_id": 61992,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_503435",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 47756,
+            "execute_at": "2026-06-21T13:29:28.521Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 57,
+                    "trust_level": 2
+                },
+                {
+                    "id": 61992,
+                    "username": "adama12",
+                    "name": "Adam Aptowitz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/e8c25b/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 68308,
+                    "username": "Grumpy_Bud",
+                    "name": "Owen Tharp",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 61992,
+                "username": "adama12",
+                "name": "Adam Aptowitz",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/a/e8c25b/{size}.png"
+            },
+            "last_poster": {
+                "id": 68308,
+                "username": "Grumpy_Bud",
+                "name": "Owen Tharp",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/steelhawks/Reefscape2025/blob/cc6f4869ad5282b19e938ff26376f28fce6c406e/src/main/java/org/steelhawks/Robot.java#L178-L182",
+                    "title": "Reefscape2025/src/main/java/org/steelhawks/Robot.java at cc6f4869ad5282b19e938ff26376f28fce6c406e · steelhawks/Reefscape2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 16,
+                    "user_id": 48146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/steelhawks/Reefscape2025",
+                    "title": "GitHub - steelhawks/Reefscape2025: Our code for the Reefscape 2025 season.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 61992,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

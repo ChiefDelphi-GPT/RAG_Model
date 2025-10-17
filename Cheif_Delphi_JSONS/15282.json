@@ -1,0 +1,992 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3010729,
+                    "name": "Taylor McCorkill",
+                    "username": "taylor.mccorkill",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png",
+                    "created_at": "2022-02-21T05:08:04.374Z",
+                    "cooked": "Hello FIRST community,\n\nI’m a programming mentor for FIRST Team 5804. This is the teams first year using swerve drive and it’s been a great learning experience so far. We’re using MK3’s and got things driving using the SwerveDriveSpecialties swerve-template as a starting point. Now we are trying to implement PathPlanning for autonomous and are having some challenges.\n\nWe are using PathPlanner 2.0 to generate our Trajectory and the PPSwerveControllerCommand to make the robot drive the path. We have had some success with this so far - the robot drives the general shape of the paths generated, but isn’t being consistent on the distance traveled. Some runs it will be spot on, others won’t go far enough or will go too far, and sometimes it drifts, sometimes it doesn’t (all with the same code starting from the same starting spot). Has anyone experienced this before or have any tips for making path planning autonomous more consistent?\n\nWe have been tweaking the PID values for the xController, yController, and thetaController, but it has largely been trial and error to get those values. Right now we are only using the P value and have had the most luck using the same value for the x and y controller, but I feel like we are still missing something. How do other teams determine what their PID values should be for each of the PID controllers used by the PPSwerveControllerCommand or the SwerveControllerCommand? Any help or feedback on our approach would be appreciated!\n\nOur codebase is still under heavy development but here is our code for reference. The test code for autonomous is found in the getAutonomousCommand() method in the RobotContainer.\n\nThank you for any info you can provide!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-21T05:08:04.374Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 112,
+                    "reads": 191,
+                    "readers_count": 190,
+                    "score": 613.2,
+                    "yours": false,
+                    "topic_id": 403549,
+                    "topic_slug": "autonomous-consistency-with-swerve-drive",
+                    "display_username": "Taylor McCorkill",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/5804/rapidReact2022Alpha",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 28
+                        },
+                        {
+                            "url": "https://github.com/SwerveDriveSpecialties/swerve-template",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 14
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51530,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/autonomous-consistency-with-swerve-drive/403549/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3010736,
+                    "name": "",
+                    "username": "Ashray.g",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ashray.g/{size}/194161_2.png",
+                    "created_at": "2022-02-21T05:42:12.449Z",
+                    "cooked": "So we are doing pretty much the same thing and the eureka moment is when we added these lines: Screen Shot 2022-02-20 at 9.40.41 PM 1208×232 51 KB\n\nScreen Shot 2022-02-20 at 9.40.41 PM 1208×232 51 KB\n\nScreen Shot 2022-02-20 at 9.40.41 PM 1208×232 51 KB\n\nHope this helped!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-21T05:43:28.435Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 167,
+                    "readers_count": 166,
+                    "score": 83.4,
+                    "yours": false,
+                    "topic_id": 403549,
+                    "topic_slug": "autonomous-consistency-with-swerve-drive",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/2/f2dd07f4427f8dfb4c45735eb197370daea63fc4.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49561,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "retired"
+                    },
+                    "post_url": "/t/autonomous-consistency-with-swerve-drive/403549/2",
+                    "custom_user_title": "retired",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3011050,
+                    "name": "Taylor McCorkill",
+                    "username": "taylor.mccorkill",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png",
+                    "created_at": "2022-02-22T00:31:34.799Z",
+                    "cooked": "Eureka! That was it! We weren’t updating our odometry correctly. Once we added this in things fell into place. Thank you so much for your help and speedy response! You saved us a bunch of time and we have working path following now.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-22T00:31:34.799Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 127,
+                    "readers_count": 126,
+                    "score": 60.4,
+                    "yours": false,
+                    "topic_id": 403549,
+                    "topic_slug": "autonomous-consistency-with-swerve-drive",
+                    "display_username": "Taylor McCorkill",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 49561,
+                        "username": "Ashray.g",
+                        "name": "",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/ashray.g/{size}/194161_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51530,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/autonomous-consistency-with-swerve-drive/403549/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3011127,
+                    "name": "",
+                    "username": "Ashray.g",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ashray.g/{size}/194161_2.png",
+                    "created_at": "2022-02-22T03:46:48.128Z",
+                    "cooked": "Np! Good luck at your comps",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-02-22T03:46:48.128Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 101,
+                    "readers_count": 100,
+                    "score": 25.2,
+                    "yours": false,
+                    "topic_id": 403549,
+                    "topic_slug": "autonomous-consistency-with-swerve-drive",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 51530,
+                        "username": "taylor.mccorkill",
+                        "name": "Taylor McCorkill",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49561,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "retired"
+                    },
+                    "post_url": "/t/autonomous-consistency-with-swerve-drive/403549/4",
+                    "custom_user_title": "retired",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3150331,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-02-22T03:47:19.231Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2023-02-22T03:47:19.231Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 8,
+                    "readers_count": 7,
+                    "score": 1.6,
+                    "yours": false,
+                    "topic_id": 403549,
+                    "topic_slug": "autonomous-consistency-with-swerve-drive",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/autonomous-consistency-with-swerve-drive/403549/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3010729,
+                3010736,
+                3011050,
+                3011127,
+                3150331
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1329
+            ],
+            [
+                3,
+                1328
+            ],
+            [
+                5,
+                963
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How can i deploy this code",
+                "id": 481612,
+                "title": "How can i deploy this code",
+                "slug": "how-can-i-deploy-this-code",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/c/9ca557d041fbfaca806b9e6a1e54c26b51954421_2_1024x460.jpeg",
+                "created_at": "2025-01-14T09:52:51.172Z",
+                "last_posted_at": "2025-01-14T10:54:47.273Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T10:54:47.273Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 156,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3481888,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71059,
+                    "username": "Ogi",
+                    "name": "oğuzalp ozdemir",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/35a633/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71059,
+                            "username": "Ogi",
+                            "name": "oğuzalp ozdemir",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/35a633/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "setFF() in java revlib",
+                "id": 481990,
+                "title": "setFF() in java revlib",
+                "slug": "setff-in-java-revlib",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-16T00:05:40.363Z",
+                "last_posted_at": "2025-01-16T03:05:46.038Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T03:05:46.038Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is my first year working on code and have run into some errors converting some 2024 java code to 2025. I’m not sure what the setFF() method does or what the updated versions are called. I’ve look…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "rev"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 78,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483961,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71369,
+                    "username": "Jakeb",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19adc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71369,
+                            "username": "Jakeb",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Imported code errors in pathplanner help",
+                "id": 483112,
+                "title": "Imported code errors in pathplanner help",
+                "slug": "imported-code-errors-in-pathplanner-help",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-22T22:09:07.011Z",
+                "last_posted_at": "2025-01-23T23:08:52.944Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T23:14:46.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are new to Java, and for sure swerve. We had some help with a Java swerve set of code in December. We then tried to import the code to the new VS and have loads of errors. We believe we’ve updated …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 93,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490202,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 44909,
+                    "username": "mhuck",
+                    "name": "Mike Huck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 44909,
+                            "username": "mhuck",
+                            "name": "Mike Huck",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71483,
+                            "username": "Aaron_Zheng",
+                            "name": "Aaron Zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aaron_zheng/{size}/245699_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Tuning CTRE swerve PID",
+                "id": 491154,
+                "title": "Tuning CTRE swerve PID",
+                "slug": "tuning-ctre-swerve-pid",
+                "posts_count": 11,
+                "reply_count": 9,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-02-11T11:40:26.000Z",
+                "last_posted_at": "2025-02-11T23:09:19.781Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T23:09:19.781Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How do we go about tuning are swerve drive we are using the Ctre auto generator code I think I know how to actually tune it but what do we need to get to or application do we need to be able to tune i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 625,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523178,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57952,
+                    "username": "thegravitor",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57952,
+                            "username": "thegravitor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71822,
+                            "username": "LordOfFrogs",
+                            "name": "Tori Dell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lordoffrogs/{size}/246752_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14045,
+                            "username": "Domtech",
+                            "name": "Domtech",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/domtech/{size}/138487_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Need more data for SysID",
+                "id": 475208,
+                "title": "Need more data for SysID",
+                "slug": "need-more-data-for-sysid",
+                "posts_count": 8,
+                "reply_count": 6,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/6/7/675043b24904c50c9dbce4101c360b238e621541_2_1024x598.png",
+                "created_at": "2024-11-19T21:47:04.532Z",
+                "last_posted_at": "2025-01-26T17:12:00.048Z",
+                "bumped": true,
+                "bumped_at": "2025-01-26T17:12:00.048Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Getting this infamous error on SYSID, when inputting data into data selector. We found the issue to be not enough data being populated within the enabled timeframe, as seen in this WP…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 365,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3449553,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59998,
+                    "username": "NeonGems",
+                    "name": "Ishaan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59998,
+                            "username": "NeonGems",
+                            "name": "Ishaan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16846,
+                            "username": "calcmogul",
+                            "name": "Tyler Veness",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63731,
+                            "username": "romi_roams",
+                            "name": "Matt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/779978/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Autonomous Consistency with Swerve Drive",
+        "id": 403549,
+        "title": "Autonomous Consistency with Swerve Drive",
+        "posts_count": 5,
+        "created_at": "2022-02-21T05:08:04.232Z",
+        "views": 922,
+        "reply_count": 2,
+        "like_count": 5,
+        "last_posted_at": "2023-02-22T03:47:19.231Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "autonomous-consistency-with-swerve-drive",
+        "category_id": 75,
+        "word_count": 408,
+        "deleted_at": null,
+        "user_id": 51530,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_403549",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 49561,
+                    "username": "Ashray.g",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ashray.g/{size}/194161_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51530,
+                    "username": "taylor.mccorkill",
+                    "name": "Taylor McCorkill",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 51530,
+                "username": "taylor.mccorkill",
+                "name": "Taylor McCorkill",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/73ab20/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/5804/rapidReact2022Alpha",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 28,
+                    "user_id": 51530,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/SwerveDriveSpecialties/swerve-template",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 51530,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

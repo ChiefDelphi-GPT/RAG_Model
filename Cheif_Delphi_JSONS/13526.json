@@ -1,0 +1,946 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3104646,
+                    "name": "UnofficialForth",
+                    "username": "UnofficialForth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/unofficialforth/{size}/167902_2.png",
+                    "created_at": "2022-11-28T17:36:43.146Z",
+                    "cooked": "I am currently working on a project that uses 3 VictorSP motor controllers controlled by an Arduino. In the documentation (screen shot below), it says that neutral PWM signal is applied, the motors resist rotation. In my case, that would be 90. If I instead send the motor controller a PWM signal close to neutral, say, 91 or 92, (approximately equivalent to motorController.set(0.01)), will break mode still short the motor leads and cause the breaking effect? image 741×169 30.9 KB\n\nimage 741×169 30.9 KB\n\nimage 741×169 30.9 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-11-28T17:36:43.146Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 33,
+                    "reads": 93,
+                    "readers_count": 92,
+                    "score": 198.6,
+                    "yours": false,
+                    "topic_id": 418783,
+                    "topic_slug": "victorsp-brake-mode-for-pwm-signal-that-arent-neutral",
+                    "display_username": "UnofficialForth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/9/e9607401c67bafe58afcf8c66da66ffec81c9ee2.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 29982,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC Team 4272  Mentor | World's FLL Emcee"
+                    },
+                    "post_url": "/t/victorsp-brake-mode-for-pwm-signal-that-arent-neutral/418783/1",
+                    "custom_user_title": "FRC Team 4272  Mentor | World's FLL Emcee",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3104657,
+                    "name": "Peter Johnson",
+                    "username": "Peter_Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "created_at": "2022-11-28T18:10:51.340Z",
+                    "cooked": "There is a small center deadband in terms of PWM timing.  I’m not sure if it’s documented in the datasheet, but for the Victor SP, WPILib uses 1.48 ms to 1.52 ms (vs the “true” center of 1.5 ms and full range of 0.997 ms to 2.004 ms) as the deadband.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-11-28T18:12:00.229Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 71,
+                    "readers_count": 70,
+                    "score": 29.2,
+                    "yours": false,
+                    "topic_id": 418783,
+                    "topic_slug": "victorsp-brake-mode-for-pwm-signal-that-arent-neutral",
+                    "display_username": "Peter Johnson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 13575,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Volunteer WPILib Developer, CSA"
+                    },
+                    "post_url": "/t/victorsp-brake-mode-for-pwm-signal-that-arent-neutral/418783/2",
+                    "custom_user_title": "Volunteer WPILib Developer, CSA",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3104658,
+                    "name": "Gus Michel II",
+                    "username": "GeeTwo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/geetwo/{size}/120962_2.png",
+                    "created_at": "2022-11-28T18:11:12.369Z",
+                    "cooked": "There is a “deadband” where the coast/brake takes effect.  On the Victor SP, this deadband is fixed at 4%.   On the SPX, it is programmable don to 0.1% via the Phoenix tuner.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-11-28T18:22:04.852Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 34.0,
+                    "yours": false,
+                    "topic_id": 418783,
+                    "topic_slug": "victorsp-brake-mode-for-pwm-signal-that-arent-neutral",
+                    "display_username": "Gus Michel II",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22335,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Somebody Else ⬛🟫🟥🟧🟨🟩🟦🟪▒▒⬜\t"
+                    },
+                    "post_url": "/t/victorsp-brake-mode-for-pwm-signal-that-arent-neutral/418783/3",
+                    "custom_user_title": "Somebody Else ⬛🟫🟥🟧🟨🟩🟦🟪▒▒⬜\t",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3257784,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-11-28T18:11:41.205Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2023-11-28T18:11:41.205Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 418783,
+                    "topic_slug": "victorsp-brake-mode-for-pwm-signal-that-arent-neutral",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/victorsp-brake-mode-for-pwm-signal-that-arent-neutral/418783/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3104646,
+                3104657,
+                3104658,
+                3257784
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1048
+            ],
+            [
+                4,
+                683
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How to get current draw from VictorSPX",
+                "id": 496555,
+                "title": "How to get current draw from VictorSPX",
+                "slug": "how-to-get-current-draw-from-victorspx",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-23T00:14:00.168Z",
+                "last_posted_at": "2025-03-23T20:56:16.558Z",
+                "bumped": true,
+                "bumped_at": "2025-03-23T20:56:16.558Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m fairly certain that a VictorSPX doesn’t have a current sensor",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 141,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3565675,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51921,
+                            "username": "SammyPants",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sammypants/{size}/188763_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2025 WPILib Feedback",
+                "id": 500529,
+                "title": "2025 WPILib Feedback",
+                "slug": "2025-wpilib-feedback",
+                "posts_count": 110,
+                "reply_count": 88,
+                "highest_post_number": 112,
+                "image_url": null,
+                "created_at": "2025-04-25T17:59:36.330Z",
+                "last_posted_at": "2025-10-04T12:50:44.696Z",
+                "bumped": true,
+                "bumped_at": "2025-10-04T12:50:44.696Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As we have the last few years (prior year 2024, 2023, 2022), the WPILib team is seeking feedback on the improvements and changes made to WPILib in 2025. This can be about the library itself, …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 305,
+                "views": 4449,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3603885,
+                "topic_post_liked": false,
+                "topic_post_like_count": 24,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10385,
+                            "username": "kreeve",
+                            "name": "Kyle Reeve",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kreeve/{size}/187015_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL turning help",
+                "id": 492148,
+                "title": "YAGSL turning help",
+                "slug": "yagsl-turning-help",
+                "posts_count": 15,
+                "reply_count": 12,
+                "highest_post_number": 16,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/0/30da77d7976caf338356d26762b770f06d6f0be3_2_1024x679.jpeg",
+                "created_at": "2025-02-18T09:29:42.042Z",
+                "last_posted_at": "2025-02-18T17:42:41.722Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T17:42:41.722Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "we’re having some issues with setting up swerve with yagsl. we’ve put in all the offsets and i know the readings are correct, however when we push the joystick it tries to set the raw encoder value to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 119,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531300,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67349,
+                    "username": "z4379x",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/z/9dc877/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67349,
+                            "username": "z4379x",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/z/9dc877/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58460,
+                            "username": "andriibessarab",
+                            "name": "Andrii Bessarab",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andriibessarab/{size}/258546_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AprilTagFieldLayout",
+                "id": 480891,
+                "title": "AprilTagFieldLayout",
+                "slug": "apriltagfieldlayout",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-11T13:41:49.862Z",
+                "last_posted_at": "2025-01-12T17:10:21.666Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T17:10:21.666Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "WPILib has the new april tag map, or i need to download the new map, if i need, how can i import the new layout to use with my LL?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 528,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479030,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62483,
+                    "username": "oGuizim",
+                    "name": "Guilherme",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/e9bcb4/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62483,
+                            "username": "oGuizim",
+                            "name": "Guilherme",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/e9bcb4/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24441,
+                            "username": "KH987",
+                            "name": "Kevin Hjelstrom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kh987/{size}/182255_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "cOPRs &amp; Machine Learning for Match Predictions",
+                "id": 502570,
+                "title": "cOPRs & Machine Learning for Match Predictions",
+                "slug": "coprs-machine-learning-for-match-predictions",
+                "posts_count": 9,
+                "reply_count": 3,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-05-30T02:11:32.605Z",
+                "last_posted_at": "2025-05-30T21:53:56.217Z",
+                "bumped": true,
+                "bumped_at": "2025-05-30T21:53:56.217Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you’re comfortable dipping into R, I maintain a package for myself and my students with a function that computes the (c)OPR progression over the course of an event. Take a look at …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "scouting"
+                ],
+                "tags_descriptions": {},
+                "like_count": 18,
+                "views": 586,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3640905,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 7,
+                "topic_post_user": {
+                    "id": 22782,
+                    "username": "GKrotkov",
+                    "name": "Gabriel Krotkov (he/him)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gkrotkov/{size}/234099_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 75973,
+                            "username": "cafougner",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/76d3ee/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 22782,
+                            "username": "GKrotkov",
+                            "name": "Gabriel Krotkov (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gkrotkov/{size}/234099_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 7439,
+                            "username": "Eugene_Fang",
+                            "name": "Eugene Fang",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eugene_fang/{size}/65109_2.png",
+                            "flair_name": "The-Blue-Alliance",
+                            "flair_url": "/uploads/default/original/3X/0/2/02b18ea7720fea44e77469bb5261acf1c7045a6e.png",
+                            "flair_group_id": 67,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "VictorSP brake mode for PWM signal that aren&rsquo;t neutral",
+        "id": 418783,
+        "title": "VictorSP brake mode for PWM signal that aren't neutral",
+        "posts_count": 4,
+        "created_at": "2022-11-28T17:36:43.089Z",
+        "views": 545,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2023-11-28T18:11:41.205Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "victorsp-brake-mode-for-pwm-signal-that-arent-neutral",
+        "category_id": 30,
+        "word_count": 193,
+        "deleted_at": null,
+        "user_id": 29982,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/9/e9607401c67bafe58afcf8c66da66ffec81c9ee2.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_418783",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 741,
+                "height": 169,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/9/e9607401c67bafe58afcf8c66da66ffec81c9ee2.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 22335,
+                    "username": "GeeTwo",
+                    "name": "Gus Michel II",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/geetwo/{size}/120962_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 29982,
+                    "username": "UnofficialForth",
+                    "name": "UnofficialForth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/unofficialforth/{size}/167902_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 29982,
+                "username": "UnofficialForth",
+                "name": "UnofficialForth",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/unofficialforth/{size}/167902_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

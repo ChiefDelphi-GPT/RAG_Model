@@ -1,0 +1,1107 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3373343,
+                    "name": "Martin Pirringer",
+                    "username": "mpirringer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png",
+                    "created_at": "2024-04-25T15:46:59.558Z",
+                    "cooked": "Hi all. Seems like the future of some local teams is in question and also I - as I like FRC and FTC - and as I am retired and have time - I have decided to become involved in sharing more of my crazyness. Which will happen mostly through my grabcad account. First question should I post only after things work and what works or as I go along in which case you would also see some “fails”.\n\nWell here is my current project. I found that there was some room for improvement on some of my printing and also some of my results differ from some others. So I decided already (before this season) to be more scientific. Now my first attempt an quantifying tensile strength was a fail. I bought a 300kg/660lb hanging scale, and made a contraption consisting out of a 3/8 in bolt and nut stretching a 50mm2 cross section (5x10mm) dog bone and after a few tries the nut and bolt stripped their thread and the dog bone survived (at about 250lb  on the scale thereabouts.). So also reading the scale was a bit sub optimal so I decided to build something better and power it with a CIM motor . So the task spec (as I want to pull some other things apart too) are to put the equivalent of about 500-600 lb onto a test piece in multiple configs.\n\nSo as I printed a compound planetary a while ago (128:1) and learned a bit namely it needing more (a lot?) of rollers on the stage 2 ring as that is the output too. I figured I go that way and see if V2 of a similar setup has the desired performance. Here is a video of the initial prototype This attempt will have a reduction on the planetary of 210ish to 1 and with a 41:19 bevel imput bring it close to 450:1. I like the bevel input as its tried and working ond you can easily have more than one motor as input.\n\nPXL_20240418_0433417741 1920×2550 385 KB This is the center Ring gear with 2 124 tooth HTD 5 pulleys - 30mm wide (I got 30mm wide open Belt) Ring one will sit partially in the pulley and be the static part of the setup. And it has rollers (bearings) that run in the track inside the pulley to support it and take the load (down pressure) oft the planets etc so they can do their work freely PXL_20240420_1312583551 1920×1446 135 KB Sun2 (output) and 4 P2 with assembly/alignment tool PXL_20240420_1430149751 1920×1446 240 KB mounted in the split output ring R2 which is bolted together so assembly of the herringbone gears is possible. Nuts and bolts are sunk in so they don’t get into “trouble” Nuts are press fit as the nut holders are designed and printed at a taper of about 1-3 deg depending on circumstances. You can see the races for the bearing “wheels” to give support PXL_20240420_1521519881 1920×1446 270 KB Ring 1 is split and so one half is on the left and one on the right you can see the bearing “wheels” which are a tight fit so there is no “wiggle” As the first stage is split the imput (S1) halves will be connected with  1/2 in square shaft (square works better than hex with 3dp) through the S2 which will ride on a set of bearings with adapters on it. So allowing the assy to be driven from either side and both sides. PXL_20240421_1951555511 1920×2550 293 KB The first planet inserted in a fit test. There are 90mm M5 Machine screws (4 per planet set) doing the holding together thing. The axles for the planets are either M8 of 5/16 bolts 7 in or metric equivalent long. 5/16 is close enough to 8mm and much easier for me to get so in this case I am using 5/16s.\n\nPXL_20240418_0433417741 1920×2550 385 KB\n\nPXL_20240418_0433417741 1920×2550 385 KB\n\nPXL_20240420_1312583551 1920×1446 135 KB\n\nPXL_20240420_1312583551 1920×1446 135 KB\n\nPXL_20240420_1430149751 1920×1446 240 KB\n\nPXL_20240420_1430149751 1920×1446 240 KB\n\nPXL_20240420_1521519881 1920×1446 270 KB\n\nPXL_20240420_1521519881 1920×1446 270 KB\n\nPXL_20240421_1951555511 1920×2550 293 KB\n\nPXL_20240421_1951555511 1920×2550 293 KB\n\nI slid this project in before others I already started cause I feel it to be important to get the best printing strenght issue resolved first. So at least from my initial tests it appeared that 2 perimeters with 100% infill seems to give better layer adhesion that a zillion perimeters that do not make any infill necessary. So that and other issues are to be prooven and worked out.\n\nThe motor(s) will be CIMs and controlled by BTS7960 controllers as they are inexpensive and have current feedback and I hope that the current feedback will be reliable enough to measure the torque needed to give a proper meaningfull result and potentially some encoders too to measure elongation. Whole thing will be controlled by either an arduino or ESP32 IDK yet and powered by either a battery or I have a 60 12 V PSU sitting in a drawer I used before for testing tooth strength on gears. (IDK for sure how strong the teeth are from that test as it was inconclusive but I know that on 19 tooth gear meshing with a 30 tooth gear a module of 1.5 and herring bone gear of 20mm - both halves) will sustainably lift 280 lb for hours until the cim motors get too hot. Inconclusive as IDK at what point it would fail 290? 1000? IDK.\n\nSo here some specs. Bevel Stage: 41: 19 on a base module of 1.75 with a 20 mm long pinion. All other gears are 1.5mm module with a 1.2mm addendum 14.5 pressure angle 30 deg helix 30mm for both halves of the herringbone gear. So at an absolute minimum 3 teeth per gear are engaged at every moment as they are involute in shape so roll in and don’t slam in. The first stage is 23T sun 29T planets (4) and 81T ring. The P1 halves are connected to the P2 gears so there is a solid link between P1 and P2. Meaning for each rev of planet carier Ty1 Planet carrier Ty2 makes 1 reva and for each rev of planet P1 planet P2 also makes a rev The center stage/output stage is S2=22T P2(x4) = 30T R2 = 82 T So meaning (rounded) for each 210ish turns of S1 R2 makes 1 rev. In this design r2 will never do a full revolution as we are looking at a 2-5in travel of the sledge that does the tearing apart of the test pieces or eventually breaking. So meaning S1 will do less than 20 revs per test cycle.\n\nWell that at least is the theory. Question is will it work? After that I go back to my other projects like the ball drive and probably some more investigation into the use of composits like forged Carbon fiber/glass fiber with 3dp Molds or laying fiberglass on top of 3d prints to get some final parts maybe a whole frame. We will see.\n\nComments/suggestions/critique are welcome.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-04-25T15:46:59.558Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 355,
+                    "readers_count": 354,
+                    "score": 241.0,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "Martin Pirringer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/0/8022b06780b76199d6437ee4c86631264189d646.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/0/107c8004e0719e8613663e10a8afd856d062f77f.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/f/cf29c6a23ed4abe55af41b07a9cb133985e9bef3.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/0/50a6eaf955cc6ee309dd197e360b070050cb6a66.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/0/30ebcad15d47cba3572574c1a1f9d719262b8855.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 9
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24690,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor "
+                    },
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/1",
+                    "custom_user_title": "Mentor ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 9
+                        },
+                        {
+                            "id": "open_mouth",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 10,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3373427,
+                    "name": "Dan",
+                    "username": "theworkshope",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theworkshope/{size}/194375_2.png",
+                    "created_at": "2024-04-25T16:53:07.191Z",
+                    "cooked": "Another summer and we’re again on a similar journey .\n\nI just also completed a 3dp herringbone planetary reduction. Assembly is interesting due to the interferences, but works very nicely even without external plates/carriers. I ended up with nylon gears, but ABS was working pretty well too.\n\nRight now I have a frame made from 3dp beams and carbon fiber tubes. The construction seems to take rivets well, so no glues or epoxies needed. The prints (can be done in single print, but glued here) are 18 in long. The tubes 24 in. PXL_20240422_193357832 1920×1598 439 KB\n\nPXL_20240422_193357832 1920×1598 439 KB\n\nPXL_20240422_193357832 1920×1598 439 KB\n\nThis may be an assembly method that works well for your frame?",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-04-25T16:56:08.036Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 254,
+                    "readers_count": 253,
+                    "score": 70.8,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "Dan",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/4/b4c117fb135a0dfbef58ba670001e9bc2a1bf51c.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53412,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3373482,
+                    "name": "Martin Pirringer",
+                    "username": "mpirringer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png",
+                    "created_at": "2024-04-25T17:24:27.266Z",
+                    "cooked": "I am working in something like that direction. Even though I want to minimize 3dp due to the time it takes and the focus is on reusability. Now the frame I printed with 9713 this year  took close to 20 kg. So even with multiple printers almost a week having them run 24/7. And now its mainly to look at. It worked well and I used aluminum and steel reinforcements instead of CF tubes. I investigated using online printing services to make the parts “legal” but even though they kinda are the total cost of the frame would be well over 5k if you have a service print it (ours was under 200 as we got petg for $8/kg) . So I experimented with some laying Fiberglass and 3dp some molds you can use a piece of plywood covered in non stick tape or wax paper (non stick to resin) and put some 3DP pieces to shape the frame pieces in it as molds (and IDK if a mold is legal to use as its not going to be a part of the bot) and you can use some 1708 and in some places woven roving and soak it in resin and let it dry/cure overnight and then you got a frame and you can reuse the mold/layout helper pieces. And you can 3dp (not done yet) molds for some forged (compression molded) CF with Epoxy which too is done in minutes with an overnight or so curing time. And you can include anything from T nuts to inserts etc in predetermined places and you probably can do a frame in <$200 cloth and resin weighing a few pounds. kinda like you’d do a surf board or a canoe. And if you lay out the molds smart (working on) you can reconfigure your frame for different seasons.\n\nNow my health is the biggest break on how much I can do (there is a reason I am retired) so things take much longer than I’d like to. Rn I purchased a shed and am waiting fir that and then have to get it equipped (at my speed). The first frame rn (in my head and computer) will be octagonal. For the reason that yes in worst case you can stick a tank drive in it but the 7 in circular holes can take the balls if the ball drive works as that will drive in an xdrive config or some omnis in x drive if the balls dont work. Plus there are some other potential positives of an octagonal frame.\n\nSo shooting for flexibility, low cost (as I am on fixed income). I got some Fiberglass rods that i intend to strategicly place (kinda like your CF rods) and I can fiberglass over them.\n\nAs for gears I don’t like ABS that much. It definitely needs lube under load and - even though not as bad as PLA it tends to create dust (grind itself). Best material is nylon. Easiest gears is PETG and HIPS. PETG is stronger. HIPS ABS Nylon to some degree can warp and a warped gear is not that useful. Have not had any PETG warp yet. One drawback of petg is it melts slower so it prints slower on a fast printer than ABS or HIPS. Nylon needs to print slower too. Now you could also use delrin but that offgases formaldehide and you got to deal with that. For that reason I dont like printing delrin. (and others) So for now PETG is my go to as it gives good performance for low cost",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-04-25T17:24:27.266Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 220,
+                    "readers_count": 219,
+                    "score": 49.0,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "Martin Pirringer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 53412,
+                        "username": "theworkshope",
+                        "name": "Dan",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/theworkshope/{size}/194375_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24690,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor "
+                    },
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/3",
+                    "custom_user_title": "Mentor ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3373588,
+                    "name": "Dan",
+                    "username": "theworkshope",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theworkshope/{size}/194375_2.png",
+                    "created_at": "2024-04-25T18:19:17.764Z",
+                    "cooked": "Don’t know of any reason a off-robot mold would not be allowed. The rules are a lot more permissive regarding bom and costs these days. I trust you have seen the recent Easy Composites video on YouTube? They revisited their compression molding video from a while back, with some nice updates.\n\nI have started printing in PETG more, but not nearly the kgs you’ve used over the years! Liking it so far.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-04-25T18:19:17.764Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 163,
+                    "readers_count": 162,
+                    "score": 37.6,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "Dan",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 24690,
+                        "username": "mpirringer",
+                        "name": "Martin Pirringer",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53412,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3374038,
+                    "name": "Martin Pirringer",
+                    "username": "mpirringer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png",
+                    "created_at": "2024-04-26T01:03:59.965Z",
+                    "cooked": "Yes I watched those and many others. I like building stuff but I hate wasting material. So a lot of research always to minimize fails. If you have any questions always (and anyone) feel free to ask publicly or DM. I just fell into a “trap” with PETG. I bought a K1 Max and printed some PETG way to fast. It wasnt an issue on my old bed slingers that printed at 40 to 60mm/sec and the K1 does 5 to 6 times that. And PETG does not melt that fast. So about 100-140 mm/sec is the max and it makes a huge difference in layer adhesion. And unfortunately not all PETG are created equal. And then - make sure its dry. I dry before printing and that too makes a huge difference.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2024-04-26T01:03:59.965Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 118,
+                    "readers_count": 117,
+                    "score": 23.6,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "Martin Pirringer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 53412,
+                        "username": "theworkshope",
+                        "name": "Dan",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/theworkshope/{size}/194375_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24690,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor "
+                    },
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/5",
+                    "custom_user_title": "Mentor ",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3604245,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-04-26T01:04:28.161Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 6,
+                    "post_type": 3,
+                    "posts_count": 6,
+                    "updated_at": "2025-04-26T01:04:28.161Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 3,
+                    "readers_count": 2,
+                    "score": 0.6,
+                    "yours": false,
+                    "topic_id": 464512,
+                    "topic_slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/heavy-duty-multistage-planetary-and-other-crazy-stuff/464512/6",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3373343,
+                3373427,
+                3373482,
+                3373588,
+                3374038,
+                3604245
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                534
+            ],
+            [
+                6,
+                169
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Anyone working with topology optimization?",
+                "id": 505767,
+                "title": "Anyone working with topology optimization?",
+                "slug": "anyone-working-with-topology-optimization",
+                "posts_count": 6,
+                "reply_count": 0,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-08-29T18:18:55.617Z",
+                "last_posted_at": "2025-08-30T14:32:06.047Z",
+                "bumped": true,
+                "bumped_at": "2025-08-30T14:32:06.047Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m just getting started on it and I wanted to see if anyone here was doing anything similar. Thanks so much Joe",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "fea",
+                    "topology-optimization"
+                ],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 401,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3725752,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 76912,
+                    "username": "imavirgo",
+                    "name": "Joseph Stavitsky ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/4da419/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 76912,
+                            "username": "imavirgo",
+                            "name": "Joseph Stavitsky ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/4da419/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11940,
+                            "username": "ehochstein",
+                            "name": "ehochstein",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ehochstein/{size}/193090_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6998,
+                            "username": "rich.varone",
+                            "name": "Rich Jr",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rich.varone/{size}/167373_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Gear Ratios for different mechanisms",
+                "id": 500797,
+                "title": "Gear Ratios for different mechanisms",
+                "slug": "gear-ratios-for-different-mechanisms",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-04-28T22:51:58.105Z",
+                "last_posted_at": "2025-04-28T23:31:09.486Z",
+                "bumped": true,
+                "bumped_at": "2025-04-28T23:31:09.486Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team has this year used a completely overkill gear ratio on several mechanisms, such as our pivot and climber. We were wondering what gear ratios you guys normally use on different mechanisms. An…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "gearbox",
+                    "design"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 289,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3606573,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69303,
+                    "username": "Calvin-Hobbes17",
+                    "name": "Calvin Selin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69303,
+                            "username": "Calvin-Hobbes17",
+                            "name": "Calvin Selin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calvin-hobbes17/{size}/237325_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 73728,
+                            "username": "ConnorG",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/65b543/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36434,
+                            "username": "olsonkarlp",
+                            "name": "Karl Olson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/b9bd4f/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 4212,
+                            "username": "EricH",
+                            "name": "EricH",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Sysid pid tuning help",
+                "id": 484933,
+                "title": "Sysid pid tuning help",
+                "slug": "sysid-pid-tuning-help",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-03T18:02:11.488Z",
+                "last_posted_at": "2025-02-04T21:39:06.530Z",
+                "bumped": true,
+                "bumped_at": "2025-02-04T21:39:06.530Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team this year will do sysid tuning for our rev maxswerve in the following way - (note that we haven’t tested it yet so it might not work but still): you will want to do 3 tests - a test for strai…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 192,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3502212,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 71857,
+                    "username": "TheBatman",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71352,
+                            "username": "10303ctecrobotics",
+                            "name": "Ridge Tolliver",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/1/67e7ee/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 71857,
+                            "username": "TheBatman",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MAX Swerve setup assistance with YAGSL",
+                "id": 483333,
+                "title": "MAX Swerve setup assistance with YAGSL",
+                "slug": "max-swerve-setup-assistance-with-yagsl",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-24T02:05:44.354Z",
+                "last_posted_at": "2025-01-24T17:43:32.979Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T17:43:32.979Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys I had a few questions about setting up YAGSL on MAX Swerve and was wondering if anyone could help. We have so far spent 2 weeks and whenever we run our code on advantage scope or own bot all …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 146,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491310,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57591,
+                    "username": "thaMan",
+                    "name": "Tharun",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e5b9ba/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57591,
+                            "username": "thaMan",
+                            "name": "Tharun",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e5b9ba/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60925,
+                            "username": "mpatel19",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mpatel19/{size}/201444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "RevLib imports being weird",
+                "id": 491322,
+                "title": "RevLib imports being weird",
+                "slug": "revlib-imports-being-weird",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/7/8727761e9fece8945856935065fb0bc22ea8dc01_2_1024x592.png",
+                "created_at": "2025-02-12T03:26:39.219Z",
+                "last_posted_at": "2025-02-13T05:04:33.391Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T05:04:33.391Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! I was coding my robot (java), and imported my com.revrobotics. Earlier today, when I was at with my team on their computers, it worked fine. However, once I went home to work on it, it keeps sa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 145,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524436,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73369,
+                    "username": "Kade",
+                    "name": "Kade Dressing",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/c57346/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73369,
+                            "username": "Kade",
+                            "name": "Kade Dressing",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/c57346/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63003,
+                            "username": "teddyshi",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e0b2c6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Heavy duty multistage planetary and other crazy stuff",
+        "id": 464512,
+        "title": "Heavy duty multistage planetary and other crazy stuff",
+        "posts_count": 6,
+        "created_at": "2024-04-25T15:46:59.492Z",
+        "views": 665,
+        "reply_count": 3,
+        "like_count": 11,
+        "last_posted_at": "2025-04-26T01:04:28.161Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "heavy-duty-multistage-planetary-and-other-crazy-stuff",
+        "category_id": 9,
+        "word_count": 2116,
+        "deleted_at": null,
+        "user_id": 24690,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/5/256818388056e756274aa99ba93f018579055099.gif",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_464512",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 6,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 115,
+                "height": 204,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/5/256818388056e756274aa99ba93f018579055099.gif"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24690,
+                    "username": "mpirringer",
+                    "name": "Martin Pirringer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 53412,
+                    "username": "theworkshope",
+                    "name": "Dan",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/theworkshope/{size}/194375_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 24690,
+                "username": "mpirringer",
+                "name": "Martin Pirringer",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mpirringer/{size}/124489_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

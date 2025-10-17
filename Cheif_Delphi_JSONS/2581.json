@@ -1,0 +1,885 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3570622,
+                    "name": "Ertu",
+                    "username": "FRC_Member_apex",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png",
+                    "created_at": "2025-03-27T22:47:25.389Z",
+                    "cooked": "Are these values good for swerve?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-27T22:47:25.389Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 12,
+                    "reads": 143,
+                    "readers_count": 142,
+                    "score": 88.6,
+                    "yours": false,
+                    "topic_id": 497161,
+                    "topic_slug": "pid-values-for-swerve",
+                    "display_username": "Ertu",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 74317,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/pid-values-for-swerve/497161/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3570638,
+                    "name": "Chris Gerth",
+                    "username": "gerthworm",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "created_at": "2025-03-27T23:00:12.806Z",
+                    "cooked": "Hard to answer without units on y, information about which error is being measured, and time and units on x.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-27T23:00:12.806Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 138,
+                    "readers_count": 137,
+                    "score": 42.6,
+                    "yours": false,
+                    "topic_id": 497161,
+                    "topic_slug": "pid-values-for-swerve",
+                    "display_username": "Chris Gerth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24617,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pid-values-for-swerve/497161/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3590504,
+                    "name": "Nolan Barker",
+                    "username": "therekrab",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "created_at": "2025-04-13T04:03:26.592Z",
+                    "cooked": "It’s difficult to answer your specific question because of the limited detail of the snapshot, but I can do my best to tell you how to tell yourself, and in the future.\n\nFor swerve, you can actually get really good PID values by using WPILib’s SysID tool. You can find documentation here , but I don’t think it is particularly excellent for swerve, so I’ll explain how my team handles swerve PID .\n\nFrom the screenshot you provided, it looks like you’re using PhoenixTuner X to capture data, which tells me that you are using CTRE motors. If you’re using the CTRE generated swerve project (which you definitely should be imo), SysID is really simple. Take a look at CTRE ’s documenation on SysID, which is quite good. For swerve characterization, there’s a SwerveRequest specifically for PID tuning. Then, you can use Phoenix Tuner’s Log Extractor to pull the logs, then convert them to wpilogs in the same tool. Finally, load up all of the test data in WPILib’s SysID Tool, and pull data for each motor. Make sure to select the appropriate units. From there, you use those values that you got (just take an average over each motor) and plug them in into the generated TunerConstants file produced by CTRE ’s Swerve Builder.\n\nThis approach is faster and automates the process of tuning PID gains.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-13T04:03:26.592Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 81,
+                    "readers_count": 80,
+                    "score": 21.2,
+                    "yours": false,
+                    "topic_id": 497161,
+                    "topic_slug": "pid-values-for-swerve",
+                    "display_username": "Nolan Barker",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Introduction to System Identification — FIRST Robotics Competition documentation",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Plumbing & Running SysId",
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65568,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming Lead, Co-captain | 3414 Hackbots"
+                    },
+                    "post_url": "/t/pid-values-for-swerve/497161/3",
+                    "custom_user_title": "Programming Lead, Co-captain | 3414 Hackbots",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3570622,
+                3570638,
+                3590504
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                198
+            ],
+            [
+                3,
+                182
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "NavX Dependency closed till kickoff?",
+                "id": 476153,
+                "title": "NavX Dependency closed till kickoff?",
+                "slug": "navx-dependency-closed-till-kickoff",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-06T01:31:49.691Z",
+                "last_posted_at": "2024-12-07T07:06:45.311Z",
+                "bumped": true,
+                "bumped_at": "2024-12-07T07:06:45.311Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you’re on the 2025 beta, you can install it from the “Available Dependencies” section in the WPILib sidebar",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 342,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455555,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 57939,
+                    "username": "grahamsh",
+                    "name": "Graham Howard",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54022,
+                            "username": "Pizzatc",
+                            "name": "Pizzatc",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pizzatc/{size}/207342_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 57939,
+                            "username": "grahamsh",
+                            "name": "Graham Howard",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18342,
+                            "username": "jdaming",
+                            "name": "Jason Daming",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jdaming/{size}/137720_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight detects april tag in stream, but does not detect april tag in variables",
+                "id": 480566,
+                "title": "Limelight detects april tag in stream, but does not detect april tag in variables",
+                "slug": "limelight-detects-april-tag-in-stream-but-does-not-detect-april-tag-in-variables",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-09T22:54:42.524Z",
+                "last_posted_at": "2025-01-10T11:55:53.420Z",
+                "bumped": true,
+                "bumped_at": "2025-01-10T11:55:53.420Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The april tags gets highlighted and displays its IDs, but doesn’t change the variables or the visualizer at all. I haven’t updated the any program or the Limelight itself since 2024. Does anyone kno…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 124,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477365,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63024,
+                    "username": "Jacksjnfds",
+                    "name": "Jackson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/43a26b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63024,
+                            "username": "Jacksjnfds",
+                            "name": "Jackson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/43a26b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Robot restarts itself",
+                "id": 483179,
+                "title": "Robot restarts itself",
+                "slug": "robot-restarts-itself",
+                "posts_count": 21,
+                "reply_count": 13,
+                "highest_post_number": 21,
+                "image_url": null,
+                "created_at": "2025-01-23T06:29:48.097Z",
+                "last_posted_at": "2025-01-27T01:06:00.066Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T01:06:00.066Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have already found the problem, first of all thank you very much for all your support, it turns out that it was a false contact that was generated in the switch when the robot was moving. If you ha…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 527,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492946,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 17,
+                "topic_post_user": {
+                    "id": 63260,
+                    "username": "Jorge_L",
+                    "name": "Jorge Lopez",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jorge_l/{size}/246655_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 63260,
+                            "username": "Jorge_L",
+                            "name": "Jorge Lopez",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jorge_l/{size}/246655_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48664,
+                            "username": "RicDV",
+                            "name": "Ric Ferrell Mentor for 5503 Tiger Trons",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ricdv/{size}/188502_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63918,
+                            "username": "Salazarv24",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/90db22/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner Pathfind to Pose Problem",
+                "id": 484242,
+                "title": "Pathplanner Pathfind to Pose Problem",
+                "slug": "pathplanner-pathfind-to-pose-problem",
+                "posts_count": 14,
+                "reply_count": 12,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2025-01-30T03:20:58.282Z",
+                "last_posted_at": "2025-02-09T15:16:13.018Z",
+                "bumped": true,
+                "bumped_at": "2025-02-09T15:16:13.018Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! We are trying to use Pathplanner’s PathfindtoPose command, but we’re running into multiple problems. I know there is a solution for each problem, but I’m having a hard time figuring out what th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 818,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496341,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57331,
+                    "username": "jacob_mazelin",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57331,
+                            "username": "jacob_mazelin",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jacob_mazelin/{size}/213574_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63723,
+                            "username": "PKopf",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/57b2e6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71854,
+                            "username": "NotJames",
+                            "name": "James Barnes",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/notjames/{size}/246860_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Finding max velocity &amp; acceleration values for swerve",
+                "id": 475192,
+                "title": "Finding max velocity & acceleration values for swerve",
+                "slug": "finding-max-velocity-acceleration-values-for-swerve",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/3/8311def6cbb0e7a4fdde8ee48cffe9e62e7855ae_2_768x1024.jpeg",
+                "created_at": "2024-11-19T18:11:01.577Z",
+                "last_posted_at": "2024-11-20T13:37:02.926Z",
+                "bumped": true,
+                "bumped_at": "2024-11-20T13:37:02.926Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello ! Our programming team gave us missions for before the season officially starts. My mission is related to our swerve, finding its max velocity and acceleration. I thought of trying to calibrate …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 244,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3449402,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67224,
+                    "username": "NotSoGodlyBoi",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/3bc359/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67224,
+                            "username": "NotSoGodlyBoi",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/3bc359/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55016,
+                            "username": "person4268",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve",
+            "frc",
+            "programming"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "PID values for swerve",
+        "id": 497161,
+        "title": "PID values for swerve",
+        "posts_count": 3,
+        "created_at": "2025-03-27T22:47:25.305Z",
+        "views": 255,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-04-13T04:03:26.592Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pid-values-for-swerve",
+        "category_id": 30,
+        "word_count": 303,
+        "deleted_at": null,
+        "user_id": 74317,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/4X/2/8/b/28b96b4cbe7a585363076b63bc2c8c16c35a62b8.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_497161",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46127,
+            "execute_at": "2026-04-13T04:03:26.592Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 491,
+                "height": 425,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/4X/2/8/b/28b96b4cbe7a585363076b63bc2c8c16c35a62b8.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24617,
+                    "username": "gerthworm",
+                    "name": "Chris Gerth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 65568,
+                    "username": "therekrab",
+                    "name": "Nolan Barker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 74317,
+                    "username": "FRC_Member_apex",
+                    "name": "Ertu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 74317,
+                "username": "FRC_Member_apex",
+                "name": "Ertu",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png"
+            },
+            "last_poster": {
+                "id": 65568,
+                "username": "therekrab",
+                "name": "Nolan Barker",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/therekrab/{size}/248500_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html",
+                    "title": "Introduction to System Identification — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 65568,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html",
+                    "title": "Plumbing & Running SysId",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 65568,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

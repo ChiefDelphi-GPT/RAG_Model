@@ -1,0 +1,755 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3499825,
+                    "name": "Sreyan Das",
+                    "username": "sdas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png",
+                    "created_at": "2025-02-02T13:33:38.398Z",
+                    "cooked": "Hello,\n\nWe are trying to use sysID to characterize our elevator this year. We are starting simple with a single motor and developed a basic class which is called as the autonomous command. I looked at the WPILib documentation and CTRE ’s pages on integration with SysId and I couldn’t find a comprehensive discussion of how logging is supposed to be done. I pretty much just copied what their code says, but in terms of getting the “position”, “velocity”, “acceleration” values to show up in the SignalLogger or whatever performs the log during a sysid test, I am unsure what to do. Here is our code.\n\nThis is what I looked at:\n\nFor the purpose of this documentation, we focus on the integration of Phoenix 6 and WPILib’s SysId API to characterize common mechanisms. Detailed documentation on the SysId routines can be found h...\n\nIt tells us to open the CTRE Phoenix Tuner X and look at logs, but when I do that, and open the log folder, nothing is shown. Instead, we used DataLogTool and downloaded the WPILIB robot log. When we open the log in SysID, there is no recorded values for “position”, “velocity”, “acceleration”. All we see is the “state” string, which generates empty drag-and-drop values.\n\n(Example from WPILib documentation) - only the sysid test state shows up in our log.\n\nSo, is there a problem with our code, or method of downloading and viewing the log? Could anyone else share how they perform a SysId characterization and get a useful log file? I would really appreciate any help on this issue.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-02T13:33:38.398Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 112,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 574.0,
+                    "yours": false,
+                    "topic_id": 484777,
+                    "topic_slug": "trouble-getting-sysid-logs",
+                    "display_username": "Sreyan Das",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/2024/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Plumbing & Running SysId",
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62175,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Administrator + Prog Lead"
+                    },
+                    "post_url": "/t/trouble-getting-sysid-logs/484777/1",
+                    "custom_user_title": "Administrator + Prog Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3499834,
+                    "name": "Sreyan Das",
+                    "username": "sdas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png",
+                    "created_at": "2025-02-02T14:04:02.566Z",
+                    "cooked": "Hmm… I think we just need to call SignalLogger.start()\n\nDoes anyone know if passing in SignalLogger to the logging portion of the sysid routine automatically do this?",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-02T14:04:02.566Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 50,
+                    "readers_count": 49,
+                    "score": 15.0,
+                    "yours": false,
+                    "topic_id": 484777,
+                    "topic_slug": "trouble-getting-sysid-logs",
+                    "display_username": "Sreyan Das",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62175,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Administrator + Prog Lead"
+                    },
+                    "post_url": "/t/trouble-getting-sysid-logs/484777/2",
+                    "custom_user_title": "Administrator + Prog Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3499825,
+                3499834
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                251
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "On the fly path planner short distances",
+                "id": 493857,
+                "title": "On the fly path planner short distances",
+                "slug": "on-the-fly-path-planner-short-distances",
+                "posts_count": 16,
+                "reply_count": 13,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-03-02T16:07:30.338Z",
+                "last_posted_at": "2025-03-03T05:44:00.766Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T05:44:00.766Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey! Yesterday while running on the fly path planning with PathPlanner we were running into issues where it wasn’t working perfectly at small distances or sometimes at all - but only sometimes like 2/…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 612,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3544894,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65426,
+                    "username": "RoyalKnight",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/ce7236/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65426,
+                            "username": "RoyalKnight",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71857,
+                            "username": "TheBatman",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thebatman/{size}/255139_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24678,
+                            "username": "Justin_Buist",
+                            "name": "Justin Buist",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Button box",
+                "id": 485017,
+                "title": "Button box",
+                "slug": "button-box",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-04T00:50:58.553Z",
+                "last_posted_at": "2025-02-04T02:26:48.605Z",
+                "bumped": true,
+                "bumped_at": "2025-02-04T02:26:48.605Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is an Arduino board or an ESP32 allowed to make a button box, connected via USB to the PC, is there any restriction for this?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 295,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3501256,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64053,
+                    "username": "Matheus",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64053,
+                            "username": "Matheus",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56400,
+                            "username": "Fact",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/a183cd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 49921,
+                            "username": "2020",
+                            "name": "Sylvain D.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/2020/{size}/167345_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AddressableLED doesn&rsquo;t work",
+                "id": 491546,
+                "title": "AddressableLED doesn't work",
+                "slug": "addressableled-doesnt-work",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-13T16:34:53.374Z",
+                "last_posted_at": "2025-02-14T12:03:02.620Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T12:03:02.620Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "our led strip does not work we are using WS2812B. its connected to our pwm port on the RoboRIO we checked with a multimeter that it recives electricity. this is our code",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 167,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526138,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70649,
+                    "username": "g3software",
+                    "name": "g3software",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/e8c25b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70649,
+                            "username": "g3software",
+                            "name": "g3software",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/e8c25b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15467,
+                            "username": "philso",
+                            "name": "philso",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Spark Max Soft Limit with Absolute Encoder",
+                "id": 482300,
+                "title": "Spark Max Soft Limit with Absolute Encoder",
+                "slug": "spark-max-soft-limit-with-absolute-encoder",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-17T17:12:03.810Z",
+                "last_posted_at": "2025-01-17T17:12:03.888Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T17:12:03.888Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is there a way to select the absolute encoder connected to the spark max data port as the encoder to use for the spark max soft limits?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "sparkmax",
+                    "rev"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 64,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485751,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57242,
+                    "username": "Joseph_Amador",
+                    "name": "Joseph Gonzalo Amador",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/919ad9/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57242,
+                            "username": "Joseph_Amador",
+                            "name": "Joseph Gonzalo Amador",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/919ad9/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Apriltag Localization with pathplanner",
+                "id": 496103,
+                "title": "Apriltag Localization with pathplanner",
+                "slug": "apriltag-localization-with-pathplanner",
+                "posts_count": 13,
+                "reply_count": 10,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-03-18T19:10:57.777Z",
+                "last_posted_at": "2025-03-23T08:11:48.436Z",
+                "bumped": true,
+                "bumped_at": "2025-03-23T08:11:48.436Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This past weekend I was at an FRC competition and I saw many teams that were using button boards where if they pressed a single button it would bring their robot to the place they picked on the reef o…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "pathplanner",
+                    "apriltags",
+                    "localization"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 388,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3560932,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74317,
+                    "username": "FRC_Member_apex",
+                    "name": "Ertu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74317,
+                            "username": "FRC_Member_apex",
+                            "name": "Ertu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 74436,
+                            "username": "TheCrackerSnacker",
+                            "name": "Matthew Flanegan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thecrackersnacker/{size}/255683_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Trouble Getting SysId Logs",
+        "id": 484777,
+        "title": "Trouble Getting SysId Logs",
+        "posts_count": 2,
+        "created_at": "2025-02-02T13:33:38.344Z",
+        "views": 169,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-02T14:04:02.566Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "trouble-getting-sysid-logs",
+        "category_id": 30,
+        "word_count": 479,
+        "deleted_at": null,
+        "user_id": 62175,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/1/f1a37995cce70072a9a82c73889cedbf1e62d4cf.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484777",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40387,
+            "execute_at": "2026-02-02T14:04:02.566Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 492,
+                "height": 381,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/1/f1a37995cce70072a9a82c73889cedbf1e62d4cf.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "sdas",
+            "name": null,
+            "excerpt": "Hmm… I think we just need to call SignalLogger.start() \nDoes anyone know if passing in SignalLogger to the logging portion of the sysid routine automatically do this?",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 62175,
+                    "username": "sdas",
+                    "name": "Sreyan Das",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 62175,
+                "username": "sdas",
+                "name": "Sreyan Das",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png"
+            },
+            "last_poster": {
+                "id": 62175,
+                "username": "sdas",
+                "name": "Sreyan Das",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/2024/docs/api-reference/wpilib-integration/sysid-integration/plumbing-and-running-sysid.html",
+                    "title": "Plumbing & Running SysId",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 62175,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

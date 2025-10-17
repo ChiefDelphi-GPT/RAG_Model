@@ -1,0 +1,956 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3353881,
+                    "name": "Om Agarwal",
+                    "username": "OmA",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/977dab/{size}.png",
+                    "created_at": "2024-04-07T11:23:02.669Z",
+                    "cooked": "Hi All! Greetings from London\n\nWe’ve been working over the past few days on our vision system. It currently consists of three cameras.\n\nA Laser Cam - A Telepohoto OV9281 (Camera 3 / Laser in code)\n\nA Front Cam - A OV2311 (Camera 1 in Code)\n\nA Back Cam - A OV2311 (Camera 2 in Code)\n\nThe laser cam and the back cam share a Orange Pi, the front cam has it’s own Orange Pi.\n\nThey are mounted as follows\n\nimage 1200×1600 259 KB (Left Camera is Telephoto, Right Camera is the regular) (Ignore the loose cable, needed it for quick access)\n\nimage 1200×1600 259 KB\n\nimage 1200×1600 259 KB\n\nWe are running PhotonVision version v2024.2.5.\n\nThe code estimates the pose of each camera independently, and then uses a filter with calculated confidence values and odometry to estimate it’s final pose.\n\nIt was working fine over the course of the week, but yesterday we started having issues with the front cam, it was consistently ~30-50cm off on the camera specific pose estimate. Here’s an example:\n\nimage 1600×1200 178 KB Real Life Robot, Tags were measured using a laser measuring tool and are toleranced within 2mm. White lines near the black and white laptop are the wing note markers, are also measured and toleranced.\n\nimage 1600×1200 178 KB\n\nimage 1600×1200 178 KB\n\nNo subject screenshot Apr 6 (1) 701×458 81.2 KB No subject screenshot Apr 6 991×475 87.4 KB\n\nNo subject screenshot Apr 6 (1) 701×458 81.2 KB\n\nNo subject screenshot Apr 6 (1) 701×458 81.2 KB\n\nNo subject screenshot Apr 6 991×475 87.4 KB\n\nNo subject screenshot Apr 6 991×475 87.4 KB\n\nThese are the poses estimated by the two cameras. We are using PhotonPoseEstimator to generate these poses. These poses are being published here in our code to advantage kit.\n\nThe laser cam pose is close to perfect (yellow), but the front cam is clearly off (green).\n\nWe first took a look at our cameras. We recalibrated our camera, cleaned it, and refocused the lens, it did not help with the issue. We then took a look at the photon vision dashboard to find out more.\n\nNo subject screenshot Apr 6 (4) 1916×1037 346 KB No subject screenshot Apr 6 (3) 1879×1048 169 KB\n\nNo subject screenshot Apr 6 (4) 1916×1037 346 KB\n\nNo subject screenshot Apr 6 (4) 1916×1037 346 KB\n\nNo subject screenshot Apr 6 (3) 1879×1048 169 KB\n\nNo subject screenshot Apr 6 (3) 1879×1048 169 KB\n\nThese are screenshots I took of the two forward facing cameras. (Top = Regular, Bottom = Laser). The estimated X distance both tags is the same for both cameras. I also checked using a laser measuring tool and got the same value (around 4m).\n\nOur error looked similar to this post PhotonVision pose estimator no longer accurate after angling cameras , so we checked the code, but we couldn’t figure out what. We define the offsets in this file, and since both cameras are next to each other the offsets are near identical.\n\nWe’re a bit lost on what’s going on. I also checked the tags in PhotonVision the values for ID 7 and they line up. I also checked the distance to best target in advantage scope and it also was 4m for both laser and regular cam.\n\nThis issue also occurs at closer distances, but the laser cam can’t see that close, so this distance was the best for debugging. For example, when we were up against the subwoofer, the robot was halfway into the subwoofer.\n\nSo we aren’t quite sure what is causing the discrepancy between the distance measured in PhotonVision and our estimated pose, but all these values are coming straight from the PhotonPoseEstimator class, so we aren’t quite sure what’s happening. In addition, the vision system was working fine the previous day, and no changes were made before this issue started occurring.\n\nHere are some more screenshots: No subject screenshot Apr 6 (9) 1517×942 116 KB No subject screenshot Apr 6 (8) 1258×1001 61.4 KB\n\nNo subject screenshot Apr 6 (9) 1517×942 116 KB\n\nNo subject screenshot Apr 6 (9) 1517×942 116 KB\n\nNo subject screenshot Apr 6 (8) 1258×1001 61.4 KB\n\nNo subject screenshot Apr 6 (8) 1258×1001 61.4 KB\n\nI’m happy to provide any other screenshots. The full code base is here: GitHub - FRC1884/season2024 at testing-1884 .",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-07T11:38:10.783Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 204,
+                    "reads": 134,
+                    "readers_count": 133,
+                    "score": 1061.8,
+                    "yours": false,
+                    "topic_id": 461535,
+                    "topic_slug": "photon-vision-estimating-pose-incorrectly",
+                    "display_username": "Om Agarwal",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/photonvision-pose-estimator-no-longer-accurate-after-angling-cameras/457818",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "PhotonVision pose estimator no longer accurate after angling cameras",
+                            "clicks": 15
+                        },
+                        {
+                            "url": "https://github.com/FRC1884/season2024/tree/testing-1884",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - FRC1884/season2024 at testing-1884",
+                            "clicks": 10
+                        },
+                        {
+                            "url": "https://github.com/FRC1884/season2024/blob/a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6/src/main/java/frc/robot/Robot.java#L100C1-L101C1",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "season2024/src/main/java/frc/robot/Robot.java at a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6 · FRC1884/season2024 · GitHub",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://github.com/FRC1884/season2024/blob/a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6/src/main/java/frc/robot/RobotMap.java#L249",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "season2024/src/main/java/frc/robot/RobotMap.java at a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6 · FRC1884/season2024 · GitHub",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/a/0a357f1d0a7a281e1cc7b9bc9f1f8719012c5a70.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/d/4d89c8948410a3f25b2b9c6b631c384f50ee52d5.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/8/f8929c8ca701e94f259b77b2c00beb2f18164b3e.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/c/bcc4129b9b749d12913ca76b79db685658cd7f91.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/3/c3b6c0dc959cfca2a08b746785814232f1f9d4f5.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/1/f16594fa6be1e80ceeba62d2f228214eade520bb.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/a/da562fce778ed866d3f2971b5ecc8b182d3b0c04.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/a/5aae95f1daee74b6a4722d697a55e6206517a189.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51761,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "🇬🇧 1797 | Technical Director"
+                    },
+                    "post_url": "/t/photon-vision-estimating-pose-incorrectly/461535/1",
+                    "custom_user_title": "🇬🇧 1797 | Technical Director",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3353885,
+                    "name": "Matt",
+                    "username": "thatmattguy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                    "created_at": "2024-04-07T11:49:32.774Z",
+                    "cooked": "Hello! Having two cameras side by side is actually pretty great for eliminating confounding factors. I’m really thrown by the fact that you said your accuracy just decided to change one day though lol. A couple of ideas\n\nturn on “Always Do Single-Target Estimation” under output. This will calculate your camera to individual target pose using solvePNP, instead of based on the field to robot multi-tag pose\n\nsimilar to the above, what happens to the pose if you can only see one tag?\n\nis it at all possible that the field changed shape or was bumped?\n\nare you graphing your estimated 2d or 3d pose in advantage scope? If 2d, how does 3d look? There’s some extra info we might be able to gain\n\nI know you said it was working and then it wasn’t, so for that reason I’m hesitant to blame camera calibration.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-07T11:49:32.774Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 113,
+                    "readers_count": 112,
+                    "score": 32.6,
+                    "yours": false,
+                    "topic_id": 461535,
+                    "topic_slug": "photon-vision-estimating-pose-incorrectly",
+                    "display_username": "Matt",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37738,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/photon-vision-estimating-pose-incorrectly/461535/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3353896,
+                    "name": "Om Agarwal",
+                    "username": "OmA",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/977dab/{size}.png",
+                    "created_at": "2024-04-07T12:08:00.893Z",
+                    "cooked": "Hi thanks for the response,\n\nWe’ve tried hiding a tag, and the pose is still inaccurate for the front cam\n\nThe field was redone for the purposes of attempting to fix this issue, it’s present on our setup on the red alliance too. I also assume that this issue would be present for the other camera too if it was the field\n\nWe’re graphing 2D pose, I can take a look at 3D pose soon, that might be interesting\n\nIs it concerning that both cameras have different field-to-camera values for the multi-tag? Also, is there a reason not to use multitag pose estimation?\n\nThanks for the help! We’ll try plotting the 3D values for the time being",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-07T12:08:00.893Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 111,
+                    "readers_count": 110,
+                    "score": 22.2,
+                    "yours": false,
+                    "topic_id": 461535,
+                    "topic_slug": "photon-vision-estimating-pose-incorrectly",
+                    "display_username": "Om Agarwal",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 37738,
+                        "username": "thatmattguy",
+                        "name": "Matt",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51761,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "🇬🇧 1797 | Technical Director"
+                    },
+                    "post_url": "/t/photon-vision-estimating-pose-incorrectly/461535/3",
+                    "custom_user_title": "🇬🇧 1797 | Technical Director",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3353898,
+                    "name": "Matt",
+                    "username": "thatmattguy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                    "created_at": "2024-04-07T12:15:54.104Z",
+                    "cooked": "If you can only see one tag, photon should fall back to doing regular pose estimation (just camera->tag, and no multitag). So if you’re still seeing big differences in 3D pose with just one tag visible, that to me would indicate calibration differences. Does the amount of discrepancy change as the right yaws in place, and how does it change with distance to the tag?",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-07T12:16:16.624Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 98,
+                    "readers_count": 97,
+                    "score": 39.6,
+                    "yours": false,
+                    "topic_id": 461535,
+                    "topic_slug": "photon-vision-estimating-pose-incorrectly",
+                    "display_username": "Matt",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37738,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/photon-vision-estimating-pose-incorrectly/461535/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3353881,
+                3353885,
+                3353896,
+                3353898
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                553
+            ],
+            [
+                3,
+                552
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "RobotToCamera setup",
+                "id": 493814,
+                "title": "RobotToCamera setup",
+                "slug": "robottocamera-setup",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/1/f1e4c2b23b9c4301547060289d8410da70ba80de.jpeg",
+                "created_at": "2025-03-02T02:35:19.849Z",
+                "last_posted_at": "2025-03-02T03:28:17.440Z",
+                "bumped": true,
+                "bumped_at": "2025-03-02T03:28:17.440Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello all, We were having issues today with our Arducam OV9281 running PhotonVision for pose estimation on our robot. We were unsure of the coordinate system until we noticed the marked axis on the P…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "camera"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 247,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3544596,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59548,
+                    "username": "Intelyc",
+                    "name": "Diego Salcedo",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/intelyc/{size}/195375_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 59548,
+                            "username": "Intelyc",
+                            "name": "Diego Salcedo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/intelyc/{size}/195375_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63443,
+                            "username": "glolichen07",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/glolichen07/{size}/258867_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PhotonVision Issue",
+                "id": 481209,
+                "title": "PhotonVision Issue",
+                "slug": "photonvision-issue",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/c/5c6b8136ea816de4f636cf0bfec3e0c035c39b34.png",
+                "created_at": "2025-01-12T18:03:40.291Z",
+                "last_posted_at": "2025-01-13T12:58:20.804Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T12:58:20.804Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Just for reference we have the Orange Pi5pro and a OV9281 camera. We are curretly unable to use the 3d mode with these componets, is this becuase they are too bad for using 3d mode or is there somethi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 268,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480095,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55182,
+                    "username": "Flatop",
+                    "name": "Kyle Burman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 55182,
+                            "username": "Flatop",
+                            "name": "Kyle Burman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Issue using Arducam with Orange Pi (Photonvision)",
+                "id": 479224,
+                "title": "Issue using Arducam with Orange Pi (Photonvision)",
+                "slug": "issue-using-arducam-with-orange-pi-photonvision",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-06T00:21:56.231Z",
+                "last_posted_at": "2025-01-06T01:08:10.299Z",
+                "bumped": true,
+                "bumped_at": "2025-01-06T01:08:10.299Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For this build season our team bought 2 new global shutter cameras, specifically two of the Arducam UC-844, and a new Orange Pi to better work with April Tags in the new Reefscape game (hopefully for …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 363,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3471698,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69118,
+                    "username": "Jason81",
+                    "name": "Jason",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69118,
+                            "username": "Jason81",
+                            "name": "Jason",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55459,
+                            "username": "crschardt",
+                            "name": "Craig Schardt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35092,
+                            "username": "Juniormunk",
+                            "name": "Cameron (Advanced Programmer)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/juniormunk/{size}/126866_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Issue with photonvision(using ov9281",
+                "id": 491670,
+                "title": "Issue with photonvision(using ov9281",
+                "slug": "issue-with-photonvision-using-ov9281",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-14T11:47:23.950Z",
+                "last_posted_at": "2025-02-14T11:47:24.003Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T11:47:24.003Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "we have a problem with photo vision(using ov9281),we can’t select the April tag that we want,it will select the smallest id we see",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 63,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526906,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64354,
+                    "username": "Ethan0120",
+                    "name": "Ethan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/977dab/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64354,
+                            "username": "Ethan0120",
+                            "name": "Ethan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/977dab/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Odomety with PhotonVision: What are some good practices for best results?",
+                "id": 495909,
+                "title": "Odomety with PhotonVision: What are some good practices for best results?",
+                "slug": "odomety-with-photonvision-what-are-some-good-practices-for-best-results",
+                "posts_count": 5,
+                "reply_count": 0,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-17T16:45:32.382Z",
+                "last_posted_at": "2025-03-24T16:12:35.327Z",
+                "bumped": true,
+                "bumped_at": "2025-03-24T16:12:35.327Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’ve always been impressed with some teams auto routines - 1690’s crescendo auto, 27’s reefscape auto, the list goes on - and have always wanted to replicate their success and accuracy. This is my te…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 317,
+                "category_id": 87,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559372,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71586,
+                    "username": "123pdrinter",
+                    "name": "Collyn Diamond",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/123pdrinter/{size}/248529_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71586,
+                            "username": "123pdrinter",
+                            "name": "Collyn Diamond",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/123pdrinter/{size}/248529_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64095,
+                            "username": "Tetsu",
+                            "name": "Tetsuya Cox",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/41988e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12688,
+                            "username": "JohnFogarty",
+                            "name": "John Fogarty",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/johnfogarty/{size}/267052_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58266,
+                            "username": "Omer_Prag",
+                            "name": "Omer Prag",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/omer_prag/{size}/216472_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Photon Vision Estimating Pose Incorrectly",
+        "id": 461535,
+        "title": "Photon Vision Estimating Pose Incorrectly",
+        "posts_count": 4,
+        "created_at": "2024-04-07T11:23:02.599Z",
+        "views": 468,
+        "reply_count": 1,
+        "like_count": 1,
+        "last_posted_at": "2024-04-07T12:15:54.104Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "photon-vision-estimating-pose-incorrectly",
+        "category_id": 87,
+        "word_count": 1030,
+        "deleted_at": null,
+        "user_id": 51761,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/a/5aae95f1daee74b6a4722d697a55e6206517a189_2_768x1024.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_461535",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1200,
+                "height": 1600,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/a/5aae95f1daee74b6a4722d697a55e6206517a189.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 768,
+                "height": 1024,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/a/5aae95f1daee74b6a4722d697a55e6206517a189_2_768x1024.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 37738,
+                    "username": "thatmattguy",
+                    "name": "Matt",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51761,
+                    "username": "OmA",
+                    "name": "Om Agarwal",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/977dab/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 51761,
+                "username": "OmA",
+                "name": "Om Agarwal",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/o/977dab/{size}.png"
+            },
+            "last_poster": {
+                "id": 37738,
+                "username": "thatmattguy",
+                "name": "Matt",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.chiefdelphi.com/t/photonvision-pose-estimator-no-longer-accurate-after-angling-cameras/457818",
+                    "title": "PhotonVision pose estimator no longer accurate after angling cameras",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 15,
+                    "user_id": 51761,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/FRC1884/season2024/tree/testing-1884",
+                    "title": "GitHub - FRC1884/season2024 at testing-1884",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 10,
+                    "user_id": 51761,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/FRC1884/season2024/blob/a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6/src/main/java/frc/robot/Robot.java#L100C1-L101C1",
+                    "title": "season2024/src/main/java/frc/robot/Robot.java at a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6 · FRC1884/season2024 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 51761,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/FRC1884/season2024/blob/a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6/src/main/java/frc/robot/RobotMap.java#L249",
+                    "title": "season2024/src/main/java/frc/robot/RobotMap.java at a6282697d1d9f3cc5d9e0d9c203dc1e28daa55a6 · FRC1884/season2024 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 51761,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

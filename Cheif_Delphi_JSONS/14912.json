@@ -1,0 +1,842 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3020784,
+                    "name": "Bruno Osio",
+                    "username": "Brunoo1103",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/dc4da7/{size}.png",
+                    "created_at": "2022-03-10T21:18:27.132Z",
+                    "cooked": "Hey, I’m using Limelight 2 and made all stuff to use Aim and Range command to aim in Upper Hub, like, calibrating the crosshair to X and Y positions. First, I tested just Aim Target and worked fine, after it, I tested Range Target and also worked (I used the examples of Limelight Documentation, but I changed the programming to Java).\n\nWhen I created the java code for Aim and Range Target (I got it in limelight documentation), the code to range did not work as expected, since the robot did not move to the right distance. The Aim part is working sometimes because the robot moves the drivetrain more than it needed.\n\nIm programming the limelight on “limelight” branch\n\nAim and Range class: https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/robot/commands/drivetrain/AimAndRangeTarget.java\n\nOther classes that uses limelight are in folder commands > drivetrain\n\nLimelight Container class: https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/core/components/Limelight.java",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-03-10T21:19:29.217Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 151,
+                    "reads": 93,
+                    "readers_count": 92,
+                    "score": 773.6,
+                    "yours": false,
+                    "topic_id": 405319,
+                    "topic_slug": "cant-aim-and-range-target-limelight",
+                    "display_username": "Bruno Osio",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/robot/commands/drivetrain/AimAndRangeTarget.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 35
+                        },
+                        {
+                            "url": "https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/core/components/Limelight.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48706,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1772 | Dean's List Winner"
+                    },
+                    "post_url": "/t/cant-aim-and-range-target-limelight/405319/1",
+                    "custom_user_title": "1772 | Dean's List Winner",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3020912,
+                    "name": "Corey Applegate",
+                    "username": "Corey_Applegate",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/corey_applegate/{size}/250858_2.png",
+                    "created_at": "2022-03-11T01:31:48.140Z",
+                    "cooked": "Where do you create the instance of your LimeLight object?\n\nI’m not a clear expert or master of Java programming but I will get the conversation started. Anyhow with the current Command Based model using dependency injection I believe you should create the LimeLight object and pass the whole object or the DoubleSuppliers into the commands that require access.\n\nYour welcome to take a look at our sample here https://github.com/GraniteCityGearheads3244/JavaLimeLightSample This sample is the old Command Model and we created the LimeLight object in the DriveTrain Subsystem similar to any motor or other device that might be assoiated. I currently do not do this that way. Instead I create the LimeLight object with my joystick in the robot container and pass it through the command constructor to any commands that require it.\n\nOur 2021 code does it this way https://github.com/GraniteCityGearheads3244/2021RobotCode\n\nHow to use our LImeLight library is to copy the [oi/limelightvision/limelight/frc] folder to your project in the same Java folder.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-03-11T01:31:48.140Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 10,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 61.2,
+                    "yours": false,
+                    "topic_id": 405319,
+                    "topic_slug": "cant-aim-and-range-target-limelight",
+                    "display_username": "Corey Applegate",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/GraniteCityGearheads3244/JavaLimeLightSample",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 24
+                        },
+                        {
+                            "url": "https://github.com/GraniteCityGearheads3244/2021RobotCode",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 13
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25454,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "#4607 Engineering Mentor, MN CSA"
+                    },
+                    "post_url": "/t/cant-aim-and-range-target-limelight/405319/2",
+                    "custom_user_title": "#4607 Engineering Mentor, MN CSA",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3162027,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-03-11T01:32:37.993Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-11T01:32:37.993Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 7,
+                    "readers_count": 6,
+                    "score": 1.4,
+                    "yours": false,
+                    "topic_id": 405319,
+                    "topic_slug": "cant-aim-and-range-target-limelight",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/cant-aim-and-range-target-limelight/405319/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3020784,
+                3020912,
+                3162027
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1311
+            ],
+            [
+                3,
+                946
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Whenever I set my static ip for limelight 4, it will not update",
+                "id": 493544,
+                "title": "Whenever I set my static ip for limelight 4, it will not update",
+                "slug": "whenever-i-set-my-static-ip-for-limelight-4-it-will-not-update",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-27T21:53:05.082Z",
+                "last_posted_at": "2025-02-27T21:53:05.144Z",
+                "bumped": true,
+                "bumped_at": "2025-02-27T21:53:05.144Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Whenever I set my Static ip for my limelight 4, It does not update after I power-cycle like the docs tell me to. My pipelines and team number update, but my ip address does not. I tried using automati…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 43,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3542945,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71317,
+                    "username": "Doubledogdare",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/c89c15/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71317,
+                            "username": "Doubledogdare",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/c89c15/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Template Code Firmware Version Too Old",
+                "id": 477096,
+                "title": "Swerve Template Code Firmware Version Too Old",
+                "slug": "swerve-template-code-firmware-version-too-old",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2024-12-20T10:39:36.435Z",
+                "last_posted_at": "2024-12-20T18:24:54.408Z",
+                "bumped": true,
+                "bumped_at": "2024-12-20T18:24:54.408Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You’re probably using the latest firmware (25.0.3.0), which requires the beta-4 vendordep. During beta, we frequently back-break between releases, so you must ensure both your firmware and your vendor…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "advantagekit",
+                    "phoenix-6"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 190,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461950,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 7,
+                "topic_post_user": {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53237,
+                            "username": "cantogr07",
+                            "name": "Can Toğran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54656,
+                            "username": "PatMcN",
+                            "name": "Patrick McNaughton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "IDs: 8, Received parameter invalid error parameter id 113",
+                "id": 481477,
+                "title": "IDs: 8, Received parameter invalid error parameter id 113",
+                "slug": "ids-8-received-parameter-invalid-error-parameter-id-113",
+                "posts_count": 11,
+                "reply_count": 7,
+                "highest_post_number": 11,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/8/a818282c48cee8a32d37ea98d9a7ce2ef0959986.png",
+                "created_at": "2025-01-13T21:33:42.920Z",
+                "last_posted_at": "2025-01-15T21:29:59.195Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T21:29:59.195Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I would just remove the buildAutoChooser for now. The reason its failing is bc it doesnt have any auto’s created or AutoBuilder.config (the entire point of SwerveSubsystem.setupPathPlanner) called",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "2025",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 248,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483784,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 11,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71225,
+                            "username": "MasterOogway",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/a4c791/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20008,
+                            "username": "SndMndBdy",
+                            "name": "SndMndBdy",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/13edae/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to do autonomous right?",
+                "id": 478012,
+                "title": "How to do autonomous right?",
+                "slug": "how-to-do-autonomous-right",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-02T23:43:38.662Z",
+                "last_posted_at": "2025-01-03T00:58:56.131Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T00:58:56.131Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So over the past twoish years (summer of 2023 and all of 2024) I’ve been trying to figure out how to make effective autos that work 99.9% of the time and have been struggling greatly. Basically, I’ve…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "2024"
+                ],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 463,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3467132,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51921,
+                    "username": "SammyPants",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sammypants/{size}/188763_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51921,
+                            "username": "SammyPants",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sammypants/{size}/188763_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59165,
+                            "username": "Skeller",
+                            "name": "4573 Lead Mentor & Drive Coach ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/8e7dd6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elastic / Monolgue not working",
+                "id": 496962,
+                "title": "Elastic / Monolgue not working",
+                "slug": "elastic-monolgue-not-working",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/3/a/f/3af919e8adb440a933aa953ecb731bfa14ef8c31_2_1024x768.jpeg",
+                "created_at": "2025-03-26T12:10:24.909Z",
+                "last_posted_at": "2025-03-26T12:29:07.310Z",
+                "bumped": true,
+                "bumped_at": "2025-03-26T12:29:07.310Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey, We use monologue and SmartDashboard to put data in our elastic, when we connect to our robot via a cable/access point the data is presented fine. When we connect to the FMS, the data isn’t prese…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 82,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3568899,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63521,
+                    "username": "Yehuda",
+                    "name": "Yehudan Rothstein",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/yehuda/{size}/265645_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63521,
+                            "username": "Yehuda",
+                            "name": "Yehudan Rothstein",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/yehuda/{size}/265645_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Can&rsquo;t Aim and Range Target Limelight",
+        "id": 405319,
+        "title": "Can't Aim and Range Target Limelight",
+        "posts_count": 3,
+        "created_at": "2022-03-10T21:18:26.983Z",
+        "views": 584,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2023-03-11T01:32:37.993Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "cant-aim-and-range-target-limelight",
+        "category_id": 30,
+        "word_count": 360,
+        "deleted_at": null,
+        "user_id": 48706,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_405319",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 25454,
+                    "username": "Corey_Applegate",
+                    "name": "Corey Applegate",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/corey_applegate/{size}/250858_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48706,
+                    "username": "Brunoo1103",
+                    "name": "Bruno Osio",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/dc4da7/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 48706,
+                "username": "Brunoo1103",
+                "name": "Bruno Osio",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/b/dc4da7/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/robot/commands/drivetrain/AimAndRangeTarget.java",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 35,
+                    "user_id": 48706,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/GraniteCityGearheads3244/JavaLimeLightSample",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 24,
+                    "user_id": 25454,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/GraniteCityGearheads3244/2021RobotCode",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 25454,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Team1772/frc-2022/blob/limelight/src/main/java/frc/core/components/Limelight.java",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 48706,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

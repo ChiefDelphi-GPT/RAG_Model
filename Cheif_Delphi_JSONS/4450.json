@@ -1,0 +1,758 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3499178,
+                    "name": "Owen Tharp",
+                    "username": "OwensLaptop",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/838e76/{size}.png",
+                    "created_at": "2025-02-01T19:38:59.277Z",
+                    "cooked": "https://youtube.com/shorts/NIDlXWkC3Bo?feature=share\n\nHi, I’m a member of Webb robotics 1466 and we’ve been tuning our PID for a couple days and the teleop has been working just fine, but our autos have been all over the place. They’ve been jittery with slow/inconsistent speeds. Our specifications for the robot is it’s 74 kg with max velocity of 2 M/S and max angular velocity of 540 degrees/S. Max accel  2 M/S^2 and max angular accel at 360 deg/S^2; Wheel radius of 0.048 M and 5.450 True max drive speed; We also use Kraken X60 motors  (Listed Just in case its a silly oversight). We also use PathPlanner. Our specific PID tunes for auto translation is (P: 1.5, I: 0.06, D: 0.45) and rotation (P: 5, I: 0.03, D: 0.4). If anyone knows anything about what the issue might be or what we might be missing, it’d be much appreciated if you’d let us know.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-01T19:38:59.277Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 35,
+                    "readers_count": 34,
+                    "score": 52.0,
+                    "yours": false,
+                    "topic_id": 484686,
+                    "topic_slug": "autonomous-jittery-issues",
+                    "display_username": "Owen Tharp",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://youtube.com/shorts/NIDlXWkC3Bo?feature=share",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 68986,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/autonomous-jittery-issues/484686/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3499195,
+                    "name": "Troy Maurer",
+                    "username": "TMaurer4472",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                    "created_at": "2025-02-01T19:47:49.176Z",
+                    "cooked": "Hello, I assume you are using pathplanner? 74 kilograms is 163.142 pounds, and I assume your robot does not weigh that much, so change that constant to better reflect the weight of your robot and see if that fixes it. It could also be that whatever way you get the robot position for the Autobuilder has a high level of noise. An example would be if you are getting robot position from a vision based system (AprilTags). Try making sure that any position gathering position does not have a high level of noise.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-01T19:47:49.176Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 31,
+                    "readers_count": 30,
+                    "score": 16.2,
+                    "yours": false,
+                    "topic_id": 484686,
+                    "topic_slug": "autonomous-jittery-issues",
+                    "display_username": "Troy Maurer",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71158,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/autonomous-jittery-issues/484686/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3499178,
+                3499195
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                252
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Multitag Position Estimate across cameras",
+                "id": 476300,
+                "title": "Multitag Position Estimate across cameras",
+                "slug": "multitag-position-estimate-across-cameras",
+                "posts_count": 14,
+                "reply_count": 8,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-12-08T23:00:18.378Z",
+                "last_posted_at": "2024-12-09T15:21:12.360Z",
+                "bumped": true,
+                "bumped_at": "2024-12-09T15:21:12.360Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Has anyone experimented with solving for multi tag pose estimates across multiple cameras? I was just thinking that if seeing two AprilTags with one camera would lead to a large accuracy boost, would …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 809,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3456552,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59542,
+                    "username": "mathum",
+                    "name": "Matthew Milunic",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59244,
+                            "username": "spearson23",
+                            "name": "Steven Pearson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "[Poll] Constant Naming Conventions",
+                "id": 483736,
+                "title": "[Poll] Constant Naming Conventions",
+                "slug": "poll-constant-naming-conventions",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-26T22:41:09.093Z",
+                "last_posted_at": "2025-01-27T04:11:28.553Z",
+                "bumped": true,
+                "bumped_at": "2025-01-27T04:11:28.553Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "As I was creating my team’s Constants.java for this season, I was split on the naming conventions we should use for the constants. Whenever I program outside of FRC, I always use UPPERCASE_SNAKE_CASE,…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "programming",
+                    "poll"
+                ],
+                "tags_descriptions": {},
+                "like_count": 13,
+                "views": 642,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493296,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71822,
+                    "username": "LordOfFrogs",
+                    "name": "Tori Dell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lordoffrogs/{size}/246752_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71822,
+                            "username": "LordOfFrogs",
+                            "name": "Tori Dell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lordoffrogs/{size}/246752_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71483,
+                            "username": "Aaron_Zheng",
+                            "name": "Aaron Zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aaron_zheng/{size}/245699_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Phoenix Tuner X connection timeout",
+                "id": 491968,
+                "title": "Phoenix Tuner X connection timeout",
+                "slug": "phoenix-tuner-x-connection-timeout",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/e/3ef0d37d8c24b39ea7a3043a9b7dea18328b4d7a_2_1024x91.png",
+                "created_at": "2025-02-16T21:57:23.396Z",
+                "last_posted_at": "2025-02-16T21:57:53.750Z",
+                "bumped": true,
+                "bumped_at": "2025-02-16T21:57:53.750Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are having a problem where we cannot apply control requests through phoenix tuner. I can build code and deploy it, comms are good, but phoenix tuner says “connection timeout.” however I can also s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 39,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529069,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62175,
+                    "username": "sdas",
+                    "name": "Sreyan Das",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62175,
+                            "username": "sdas",
+                            "name": "Sreyan Das",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sdas/{size}/267974_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PID",
+                "id": 493797,
+                "title": "PID",
+                "slug": "pid",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-02T00:35:07.290Z",
+                "last_posted_at": "2025-03-02T01:11:08.485Z",
+                "bumped": true,
+                "bumped_at": "2025-03-02T01:11:08.485Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I’m new to programming, I’m trying to use a PIDController within my elevator code but I’m not able to manage the speeds since for movement I use the calculation from my elevator’s encoder to th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 136,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3544513,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73940,
+                    "username": "Noah01",
+                    "name": "Noah",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/b38774/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73940,
+                            "username": "Noah01",
+                            "name": "Noah",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/b38774/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55039,
+                            "username": "AndriesCMfgA",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/3ab097/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61741,
+                            "username": "kr1699",
+                            "name": "Kevin ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kr1699/{size}/207533_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner followPath during Teleop: Can&rsquo;t get starting pose to not be zero",
+                "id": 494303,
+                "title": "Pathplanner followPath during Teleop: Can't get starting pose to not be zero",
+                "slug": "pathplanner-followpath-during-teleop-cant-get-starting-pose-to-not-be-zero",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-05T03:00:43.459Z",
+                "last_posted_at": "2025-03-05T13:11:48.904Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T13:11:48.904Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is how we solved it - using commands.defer()",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 156,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548095,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 65426,
+                    "username": "RoyalKnight",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/ce7236/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 55757,
+                            "username": "EricTheOtterBot",
+                            "name": "Eric Swanson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erictheotterbot/{size}/180465_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65426,
+                            "username": "RoyalKnight",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70336,
+                            "username": "MertSuntur",
+                            "name": "Mert Suntur",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e8c25b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70422,
+                            "username": "JonahJoannahJay",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/7ab992/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Autonomous Jittery issues",
+        "id": 484686,
+        "title": "Autonomous Jittery issues",
+        "posts_count": 2,
+        "created_at": "2025-02-01T19:38:59.226Z",
+        "views": 59,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-01T19:47:49.176Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "autonomous-jittery-issues",
+        "category_id": 30,
+        "word_count": 278,
+        "deleted_at": null,
+        "user_id": 68986,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484686",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40360,
+            "execute_at": "2026-02-01T19:47:49.176Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 68986,
+                    "username": "OwensLaptop",
+                    "name": "Owen Tharp",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/838e76/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 71158,
+                    "username": "TMaurer4472",
+                    "name": "Troy Maurer",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 68986,
+                "username": "OwensLaptop",
+                "name": "Owen Tharp",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/o/838e76/{size}.png"
+            },
+            "last_poster": {
+                "id": 71158,
+                "username": "TMaurer4472",
+                "name": "Troy Maurer",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://youtube.com/shorts/NIDlXWkC3Bo?feature=share",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 68986,
+                    "domain": "youtube.com",
+                    "root_domain": "youtube.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

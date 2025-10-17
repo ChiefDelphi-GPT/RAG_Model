@@ -1,0 +1,862 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3295720,
+                    "name": "Mehmet",
+                    "username": "Mehmetly00",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/c6cbf5/{size}.png",
+                    "created_at": "2024-01-27T11:57:01.434Z",
+                    "cooked": "So as you can see in the video the drive motors are moving but the turning motors are not rotating when I use the right joysticks x-axis(instead of turning I think the drive motors are moving) GitHub - Legenderyguy/G-Force-Robot-Code at master Robot Code here is our robot code. (Im using BaseTalonFX library btw)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-01-27T13:05:25.047Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 135,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 692.4,
+                    "yours": false,
+                    "topic_id": 452236,
+                    "topic_slug": "swerve-drive-turning-wheels-not-moving",
+                    "display_username": "Mehmet",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Legenderyguy/G-Force-Robot-Code/tree/master",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Legenderyguy/G-Force-Robot-Code at master",
+                            "clicks": 13
+                        },
+                        {
+                            "url": "https://www.youtube.com/watch?v=Fl5LNIJKExk",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56960,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/swerve-drive-turning-wheels-not-moving/452236/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3295907,
+                    "name": "Marcus Kauffman",
+                    "username": "mkauffman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/9d8465/{size}.png",
+                    "created_at": "2024-01-27T19:14:22.983Z",
+                    "cooked": "It doesn’t look like you are setting PID values–I believe the default values are all zero, which would cause the modules not to rotate\n\nYou can set the PID values either in code as per the Spark Max code example:\n\nm_pidController.setP(kP);\n\nm_pidController.setI(kI);\n\nm_pidController.setD(kD);\n\nm_pidController.setIZone(kIz);\n\nm_pidController.setFF(kFF);\n\nm_pidController.setOutputRange(kMinOutput, kMaxOutput);\n\nCTRE has a nice guide on how to PID tune:\n\nPrimer on Closed-loop: Talon SRX and Victor SPX supports a variety of closed-loop modes including position closed-loop, velocity closed-loop, Motion Profiling, and Motion Magic. Talon SRX additiona...\n\nHope this helps!",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-01-27T19:14:22.983Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 61,
+                    "readers_count": 60,
+                    "score": 82.2,
+                    "yours": false,
+                    "topic_id": 452236,
+                    "topic_slug": "swerve-drive-turning-wheels-not-moving",
+                    "display_username": "Marcus Kauffman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://v5.docs.ctr-electronics.com/en/stable/ch16_ClosedLoop.html#calculating-velocity-feed-forward-gain-kf",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Motor Controller Closed Loop — Phoenix documentation",
+                            "clicks": 9
+                        },
+                        {
+                            "url": "https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/Java/Position%20Closed%20Loop%20Control/src/main/java/frc/robot/Robot.java#L57-L62",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SPARK-MAX-Examples/Java/Position Closed Loop Control/src/main/java/frc/robot/Robot.java at master · REVrobotics/SPARK-MAX-Examples · GitHub",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55750,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2141 & 21579. Many hats"
+                    },
+                    "post_url": "/t/swerve-drive-turning-wheels-not-moving/452236/2",
+                    "custom_user_title": "2141 & 21579. Many hats",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3493188,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-01-26T19:14:35.208Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-01-26T19:14:35.208Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 3,
+                    "readers_count": 2,
+                    "score": 0.6,
+                    "yours": false,
+                    "topic_id": 452236,
+                    "topic_slug": "swerve-drive-turning-wheels-not-moving",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/swerve-drive-turning-wheels-not-moving/452236/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3295720,
+                3295907,
+                3493188
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                624
+            ],
+            [
+                2,
+                623
+            ],
+            [
+                3,
+                258
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "RevLib imports being weird",
+                "id": 491322,
+                "title": "RevLib imports being weird",
+                "slug": "revlib-imports-being-weird",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/7/8727761e9fece8945856935065fb0bc22ea8dc01_2_1024x592.png",
+                "created_at": "2025-02-12T03:26:39.219Z",
+                "last_posted_at": "2025-02-13T05:04:33.391Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T05:04:33.391Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! I was coding my robot (java), and imported my com.revrobotics. Earlier today, when I was at with my team on their computers, it worked fine. However, once I went home to work on it, it keeps sa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 145,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524436,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73369,
+                    "username": "Kade",
+                    "name": "Kade Dressing",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/c57346/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73369,
+                            "username": "Kade",
+                            "name": "Kade Dressing",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/c57346/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63003,
+                            "username": "teddyshi",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e0b2c6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "4020 2024 Code Release",
+                "id": 477900,
+                "title": "4020 2024 Code Release",
+                "slug": "4020-2024-code-release",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-02T03:23:28.849Z",
+                "last_posted_at": "2025-01-02T11:09:48.874Z",
+                "bumped": true,
+                "bumped_at": "2025-01-02T11:09:48.874Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Making 4020’s 2024 competition code and 2024 off-season development code publicly available.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 139,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3466548,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69909,
+                    "username": "malan",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/958977/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69909,
+                            "username": "malan",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/958977/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25791,
+                            "username": "pryland",
+                            "name": "pryland",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pryland/{size}/131208_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Dynamic acceleration limits - how do you implement them?",
+                "id": 491287,
+                "title": "Dynamic acceleration limits - how do you implement them?",
+                "slug": "dynamic-acceleration-limits-how-do-you-implement-them",
+                "posts_count": 7,
+                "reply_count": 1,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-12T00:39:38.248Z",
+                "last_posted_at": "2025-02-14T00:53:38.114Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T00:53:38.114Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "To avoid tipping, if necessary, I hope to use a dynamic acceleration limit on the robot’s drivetrain. It would probably just set the acceleration limit to some function of the elevator’s height. Curr…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "drivetrain",
+                    "tipped"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 522,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524250,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 36169,
+                            "username": "Hollisms",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hollisms/{size}/110925_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Feedforward calculations using WPILIB updates",
+                "id": 480558,
+                "title": "Feedforward calculations using WPILIB updates",
+                "slug": "feedforward-calculations-using-wpilib-updates",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/2/923183fa6aac508f5e9d120527c2117b65a18ca8_2_1024x290.png",
+                "created_at": "2025-01-09T22:25:13.411Z",
+                "last_posted_at": "2025-01-09T23:12:04.818Z",
+                "bumped": true,
+                "bumped_at": "2025-01-09T23:15:09.879Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Use ElevatorFeedforward.calculateWithVelocities(double currentVelocity, double nextVelocity) with a motion profile. package frc.robot; import edu.wpi.first.math.controller.PIDController; import edu…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 212,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477390,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 16846,
+                    "username": "calcmogul",
+                    "name": "Tyler Veness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49222,
+                            "username": "Upcoming",
+                            "name": "Johnathon",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/u/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 16846,
+                            "username": "calcmogul",
+                            "name": "Tyler Veness",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Cannot connect to Photon Client on Port 5800",
+                "id": 491548,
+                "title": "Cannot connect to Photon Client on Port 5800",
+                "slug": "cannot-connect-to-photon-client-on-port-5800",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-13T16:59:41.323Z",
+                "last_posted_at": "2025-02-13T18:24:23.877Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T18:24:23.877Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello all, We were trying to connect to the PhotonVision client on the port 5800 but the connection kept getting a timeout. We are using a 2025 Photon-imaged Limelight 2+ with a TPLink Ethernet switc…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 65,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526158,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53237,
+                    "username": "cantogr07",
+                    "name": "Can Toğran",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53237,
+                            "username": "cantogr07",
+                            "name": "Can Toğran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "regional",
+            "whoami"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Swerve Drive Turning Wheels not moving",
+        "id": 452236,
+        "title": "Swerve Drive Turning Wheels not moving",
+        "posts_count": 3,
+        "created_at": "2024-01-27T11:57:01.369Z",
+        "views": 331,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-01-26T19:14:35.208Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "swerve-drive-turning-wheels-not-moving",
+        "category_id": 30,
+        "word_count": 188,
+        "deleted_at": null,
+        "user_id": 56960,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_452236",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55750,
+                    "username": "mkauffman",
+                    "name": "Marcus Kauffman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/9d8465/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 56960,
+                    "username": "Mehmetly00",
+                    "name": "Mehmet",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/c6cbf5/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 56960,
+                "username": "Mehmetly00",
+                "name": "Mehmet",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/c6cbf5/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Legenderyguy/G-Force-Robot-Code/tree/master",
+                    "title": "GitHub - Legenderyguy/G-Force-Robot-Code at master",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 56960,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://v5.docs.ctr-electronics.com/en/stable/ch16_ClosedLoop.html#calculating-velocity-feed-forward-gain-kf",
+                    "title": "Motor Controller Closed Loop — Phoenix documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 55750,
+                    "domain": "v5.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/Java/Position%20Closed%20Loop%20Control/src/main/java/frc/robot/Robot.java#L57-L62",
+                    "title": "SPARK-MAX-Examples/Java/Position Closed Loop Control/src/main/java/frc/robot/Robot.java at master · REVrobotics/SPARK-MAX-Examples · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 55750,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

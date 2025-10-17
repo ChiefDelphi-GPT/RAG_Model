@@ -1,0 +1,942 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3310850,
+                    "name": "Itay Naumann",
+                    "username": "Naumann",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/naumann/{size}/225470_2.png",
+                    "created_at": "2024-02-16T10:39:57.694Z",
+                    "cooked": "Since we’ve upgraded to Phoenix 6 at the beginning of this season, three TalonFX controlled motors (two Kraken60Xs and one Falcon500) have been exhibiting abnormal (wrong) behavior.\n\nThese motors operated normally for about a week. However, we observed a concerning trend where, while following their commands, they began to overheat rapidly (reaching approximately 82 degrees Celsius within 1.5 minutes of driving) and were drawing significantly more current than usual. Notably, they were consistently hotter than other motors in use.\n\nMechanically, everything appears normal. After swapping out the motors, our system seems to be functioning correctly.\n\nAs can be seen and heard in the videos below, when blinking the motor through the Phoenix Tuner X the motor makes an atypical sound and moves although it isn’t supposed to.\n\n(Both sides of the motor at the same time)\n\nThe Falcon served as a Follower for shooter wheels, while the Krakens were new drive motors on different Swerve modules that had not been used previously. All three motors were operating in Velocity control mode, with the Krakens having a supply current limit of 60 amperes and the Falcon 30 amperes supply with a 220 amperes triggerThreshhold.\n\nIn this graph you can see the reported supply current difference between the faulted Kraken (the darker blue) and the rest of the drive Krakens on our swerve, without using FOC :\n\nIMG-20240216-WA0002 1411×774 108 KB\n\nIMG-20240216-WA0002 1411×774 108 KB\n\nIMG-20240216-WA0002 1411×774 108 KB\n\n​Even during short test drives, the faulty motor consistently ran significantly hotter than the others.\n\nThis issue is unprecedented for us, and we are concerned about its frequency and magnitude. The sole modification made to the control system was the upgrade to Phoenix 6 (and Phoenix 6 Pro). Despite attempts to address the problem, such as running the Krakens with and without FOC , the outcome remains unchanged.\n\nHas any team experienced anything similar to that? Do you have a clue to why it had happened?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-16T10:39:57.694Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 144,
+                    "reads": 175,
+                    "readers_count": 174,
+                    "score": 770.0,
+                    "yours": false,
+                    "topic_id": 454989,
+                    "topic_slug": "urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration",
+                    "display_username": "Itay Naumann",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/b/8b4bc7cf2e37f4f18c9fa9affa590443041cab01.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 58868,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1690 Software Lead"
+                    },
+                    "post_url": "/t/urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration/454989/1",
+                    "custom_user_title": "1690 Software Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3311002,
+                    "name": "Itay Naumann",
+                    "username": "Naumann",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/naumann/{size}/225470_2.png",
+                    "created_at": "2024-02-16T16:30:02.462Z",
+                    "cooked": "We’ve got a quick replay from CTRE and they suggested to add a bit of ramp. We will check as soon as we can and we will report if it helped once we do it.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-16T16:30:02.462Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 111,
+                    "readers_count": 110,
+                    "score": 52.2,
+                    "yours": false,
+                    "topic_id": 454989,
+                    "topic_slug": "urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration",
+                    "display_username": "Itay Naumann",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 58868,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "1690 Software Lead"
+                    },
+                    "post_url": "/t/urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration/454989/2",
+                    "custom_user_title": "1690 Software Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3311020,
+                    "name": "MT",
+                    "username": "Frugez",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frugez/{size}/269193_2.png",
+                    "created_at": "2024-02-16T16:40:36.033Z",
+                    "cooked": "Hello! The exact same thing appeared to have happened to us. We have krakens on drive and falcon 500s on rotate with mk4i swerve. One of the krakens would get noticable hotter and would randomly turn off (Im guessing to protect itself ). We swapped that one kraken and the issue has not resurfaced, I have not contacted any type of support yet.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-16T16:40:36.033Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 104,
+                    "readers_count": 103,
+                    "score": 40.8,
+                    "yours": false,
+                    "topic_id": 454989,
+                    "topic_slug": "urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration",
+                    "display_username": "MT",
+                    "primary_group_name": "Swyft-Robotics",
+                    "flair_name": "Swyft-Robotics",
+                    "flair_url": "/uploads/default/original/3X/1/1/11d561f5bb3f02abd1014df6f9a83d9ec434d6d1.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 64,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53189,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor "
+                    },
+                    "post_url": "/t/urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration/454989/3",
+                    "custom_user_title": "Mentor ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3527964,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-15T16:41:01.137Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-02-15T16:41:01.137Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 7,
+                    "readers_count": 6,
+                    "score": 1.4,
+                    "yours": false,
+                    "topic_id": 454989,
+                    "topic_slug": "urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration/454989/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3310850,
+                3311002,
+                3311020,
+                3527964
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                604
+            ],
+            [
+                2,
+                603
+            ],
+            [
+                4,
+                238
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "What is the thought behind the NEO Vortex?",
+                "id": 472877,
+                "title": "What is the thought behind the NEO Vortex?",
+                "slug": "what-is-the-thought-behind-the-neo-vortex",
+                "posts_count": 28,
+                "reply_count": 17,
+                "highest_post_number": 28,
+                "image_url": null,
+                "created_at": "2024-10-12T16:59:45.123Z",
+                "last_posted_at": "2024-10-15T17:46:35.088Z",
+                "bumped": true,
+                "bumped_at": "2024-10-15T23:18:01.135Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "On paper, given the published numbers by various sources (REV themselves, CTRE, Recalc) the NEO v1.1 seems to be superior in different metrics such as kT (Nm/A) and efficiency, and even producing more…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 51,
+                "views": 2498,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3433994,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24613,
+                    "username": "viggy96",
+                    "name": "viggy96",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18343,
+                            "username": "Orion.DeYoe",
+                            "name": "Orion DeYoe",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/orion.deyoe/{size}/171961_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60836,
+                            "username": "dak000",
+                            "name": "David Kravets",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/ccd318/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MAXSwerve Neo550 issues",
+                "id": 474135,
+                "title": "MAXSwerve Neo550 issues",
+                "slug": "maxswerve-neo550-issues",
+                "posts_count": 14,
+                "reply_count": 10,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-10-31T21:40:21.174Z",
+                "last_posted_at": "2025-01-08T18:45:25.985Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T18:45:25.985Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Tighten the 2 screws that you can’t get to when it’s installed on the module just until it starts to spread apart then install it onto the module and compressed the stack with your hand and install th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 508,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3442374,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 25951,
+                    "username": "Technologyman00",
+                    "name": "Technologyman00",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/technologyman00/{size}/178178_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63796,
+                            "username": "Declan0811",
+                            "name": "Declan Dunn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/declan0811/{size}/213245_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 25951,
+                            "username": "Technologyman00",
+                            "name": "Technologyman00",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/technologyman00/{size}/178178_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26389,
+                            "username": "tkchan",
+                            "name": "tkchan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64336,
+                            "username": "Virendrasinh",
+                            "name": "Virendrasinh Vaghela",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virendrasinh/{size}/235834_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X44 VS Falcon 500 for Swerve Turn Motor",
+                "id": 473730,
+                "title": "Kraken X44 VS Falcon 500 for Swerve Turn Motor",
+                "slug": "kraken-x44-vs-falcon-500-for-swerve-turn-motor",
+                "posts_count": 37,
+                "reply_count": 26,
+                "highest_post_number": 37,
+                "image_url": null,
+                "created_at": "2024-10-25T18:50:13.462Z",
+                "last_posted_at": "2024-12-03T18:02:06.161Z",
+                "bumped": true,
+                "bumped_at": "2024-12-03T18:02:06.161Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I know quite a few teams(mine included) with the SDS swerve modules use Kraken X60s for drive motors and Falcon 500s as turn motors, so I figured it would be good to create a thread dedicated to how t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 204,
+                "views": 3278,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3439504,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64591,
+                    "username": "Tritium",
+                    "name": "Ari Davidson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tritium/{size}/234971_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64591,
+                            "username": "Tritium",
+                            "name": "Ari Davidson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tritium/{size}/234971_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55310,
+                            "username": "trixydevs",
+                            "name": "Liam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trixydevs/{size}/179397_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53198,
+                            "username": "Thor5090",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thor5090/{size}/226064_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X60 Reparability",
+                "id": 475934,
+                "title": "Kraken X60 Reparability",
+                "slug": "kraken-x60-reparability",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-12-03T17:37:23.263Z",
+                "last_posted_at": "2024-12-04T01:41:04.799Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T01:41:04.799Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is considering switching from the NEO V1.1 to the Kraken X60 for the next season. We’re interested in the Kraken X60s’ repairability. Are these motors repairable in case of burnout or other i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 27,
+                "views": 952,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454183,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56762,
+                    "username": "adiprajapati",
+                    "name": "Adi Prajapati",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/adiprajapati/{size}/237675_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56762,
+                            "username": "adiprajapati",
+                            "name": "Adi Prajapati",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/adiprajapati/{size}/237675_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59620,
+                            "username": "clavin",
+                            "name": "Calvin Hou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clavin/{size}/211896_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24506,
+                            "username": "s3529",
+                            "name": "Robertson Robotics",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s3529/{size}/121055_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using Motors in path planner",
+                "id": 483034,
+                "title": "Using Motors in path planner",
+                "slug": "using-motors-in-path-planner",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-22T13:57:00.200Z",
+                "last_posted_at": "2025-01-22T13:58:02.366Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T13:58:02.366Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "we decided to use pathplanner for autonomus,but we dont know how to use our motors such as turnıng the elevator motor while robot moves ın path planner autonomus.How can ı drive motors like elevator m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 86,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489724,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71491,
+                    "username": "FRC-ITOBOT",
+                    "name": "Yahya Burak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frc-itobot/{size}/248565_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71491,
+                            "username": "FRC-ITOBOT",
+                            "name": "Yahya Burak",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frc-itobot/{size}/248565_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Urget: Issues with TalonFX Controlled Motors Post-Phoenix 6 migration",
+        "id": 454989,
+        "title": "Urget: Issues with TalonFX Controlled Motors Post-Phoenix 6 migration",
+        "posts_count": 4,
+        "created_at": "2024-02-16T10:39:57.622Z",
+        "views": 584,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-02-15T16:41:01.137Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "urget-issues-with-talonfx-controlled-motors-post-phoenix-6-migration",
+        "category_id": 31,
+        "word_count": 460,
+        "deleted_at": null,
+        "user_id": 58868,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/1/41907a5904fa047e0ca089fe5dfb0aa5c6d102d7.gif",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_454989",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 480,
+                "height": 544,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/1/41907a5904fa047e0ca089fe5dfb0aa5c6d102d7.gif"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Naumann",
+            "name": null,
+            "excerpt": "We’ve got a quick replay from CTRE and they suggested to add a bit of ramp. \nWe will check as soon as we can and we will report if it helped once we do it.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 58868,
+                    "username": "Naumann",
+                    "name": "Itay Naumann",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/naumann/{size}/225470_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 53189,
+                    "username": "Frugez",
+                    "name": "MT",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/frugez/{size}/269193_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "Swyft-Robotics",
+                    "flair_name": "Swyft-Robotics",
+                    "flair_url": "/uploads/default/original/3X/1/1/11d561f5bb3f02abd1014df6f9a83d9ec434d6d1.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 64,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 58868,
+                "username": "Naumann",
+                "name": "Itay Naumann",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/naumann/{size}/225470_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,923 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3095070,
+                    "name": "",
+                    "username": "cwm9",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/898d66/{size}.png",
+                    "created_at": "2022-11-07T19:57:09.395Z",
+                    "cooked": "I’m a fairly new mentor trying to educate myself about FTC pathfinding.  If I have any errors or omissions, please let me know!  After researching this topic this is my current understanding of the the available pathfollowing options:\n\nRAMSETE is an abbreviation for “Robotica Articolata e Mobile per i SErvizi e le TEcnologie”, a book that contained an article entitled, “Control of Wheeled Mobile Robots: An Experimental Overview” that described an algorithm that is now referred to as “the RAMSETE Algorithm,” and, DEPENDING ON THE IMPLEMENTATION, it CAN be (but doesn’t have to be) compatible with holonomic drives.  It can handle acceleration and velocity constraints.\n\nRAMSETE is an abbreviation for “Robotica Articolata e Mobile per i SErvizi e le TEcnologie”, a book that contained an article entitled, “Control of Wheeled Mobile Robots: An Experimental Overview” that described an algorithm that is now referred to as “the RAMSETE Algorithm,” and, DEPENDING ON THE IMPLEMENTATION, it CAN be (but doesn’t have to be) compatible with holonomic drives.  It can handle acceleration and velocity constraints.\n\nPure Pursuit is a separate algorithm that has nothing to do with RAMSETE and is not capable of taking advantage of holonomic drives.  It does not handle acceleration or velocity constraints and it can only attempt to match the actual path of the robot to some future point in the trajectory via steering.  The algorithm handles sharp turns poorly.\n\nPure Pursuit is a separate algorithm that has nothing to do with RAMSETE and is not capable of taking advantage of holonomic drives.  It does not handle acceleration or velocity constraints and it can only attempt to match the actual path of the robot to some future point in the trajectory via steering.  The algorithm handles sharp turns poorly.\n\nBoth of these algorithms appear to be what I am calling “path/trajectory followers”.   Neither algorithm has anything to do with generating paths/trajectories (paths do not have velocity/acceleration constraints, while trajectories do), and as far as I can tell both algorithms could theoretically (and sometimes do) operate on the same path/trajectory objects.\n\nBoth of these algorithms appear to be what I am calling “path/trajectory followers”.   Neither algorithm has anything to do with generating paths/trajectories (paths do not have velocity/acceleration constraints, while trajectories do), and as far as I can tell both algorithms could theoretically (and sometimes do) operate on the same path/trajectory objects.\n\nOnly FTC Lib offers Pure Pursuit, while both FTClib and WPIlib offer a RAMSETE algorithm — HOWEVER, these implementations of the RAMSETE algorithm in this library do NOT support holonomic drives!  A holonomic algorithm if offered, however it is PID based (thus, linear rather than nonlinear and presumably inferior to RAMSETE) and I did not research it much. ( “Because the Ramsete controller is a controller for non-holonomic robots […] the adjusted speeds object has a vy of zero.” Ramsete Controller — FIRST Robotics Competition documentation (wpilib.org) ).\n\nOnly FTC Lib offers Pure Pursuit, while both FTClib and WPIlib offer a RAMSETE algorithm — HOWEVER, these implementations of the RAMSETE algorithm in this library do NOT support holonomic drives!  A holonomic algorithm if offered, however it is PID based (thus, linear rather than nonlinear and presumably inferior to RAMSETE) and I did not research it much. ( “Because the Ramsete controller is a controller for non-holonomic robots […] the adjusted speeds object has a vy of zero.” Ramsete Controller — FIRST Robotics Competition documentation (wpilib.org) ).\n\nRoadRunner only offers a holonomic implmentation of RAMSETE.\n\nRoadRunner only offers a holonomic implmentation of RAMSETE.\n\nWPILib offers a Windows GUI program called “PathWeaver” that can be used to visualize paths (trajectories?) that could be possibly used by either Pure Pursuit or RAMSETE, except I’m not sure if PathWeaver also handles acceleration and velocity constraints, so the output might not immediately be compatible with Pure Pursuit.  With manipulation, it may be possible to use the output with the RoadRunner implementation of RAMSETE.\n\nWPILib offers a Windows GUI program called “PathWeaver” that can be used to visualize paths (trajectories?) that could be possibly used by either Pure Pursuit or RAMSETE, except I’m not sure if PathWeaver also handles acceleration and velocity constraints, so the output might not immediately be compatible with Pure Pursuit.  With manipulation, it may be possible to use the output with the RoadRunner implementation of RAMSETE.\n\nFTC/WPI Lib both offer API-based trajectory generation by combining multiple clamped cubic spline trajectory segments into a single trajectory object.\n\nFTC/WPI Lib both offer API-based trajectory generation by combining multiple clamped cubic spline trajectory segments into a single trajectory object.\n\nFTC/WPI Lib both offer a complex constraint system that permits localized constraints on multiple acceleration and velocity parameters (both robot and wheel-specific).\n\nFTC/WPI Lib both offer a complex constraint system that permits localized constraints on multiple acceleration and velocity parameters (both robot and wheel-specific).\n\nFTC/WPI Lib both offer a basic trajectory manipulation library to shift and re-orient existing trajectories.\n\nFTC/WPI Lib both offer a basic trajectory manipulation library to shift and re-orient existing trajectories.\n\nRoad Runner offers a similar multiple-path to single-trajectory system, where each segment is made up of either a spline or a straight-line segment.  (Effectively, they have identical capabilities.)\n\nRoad Runner offers a similar multiple-path to single-trajectory system, where each segment is made up of either a spline or a straight-line segment.  (Effectively, they have identical capabilities.)\n\nRoad Runner additionally offers turns, which FTCLib and WPILib do not.  (This appears to be a minor difference: FTC Lib/WPI Lib could execute a trajectory, then turn separately, then execute another trajectory.)\n\nRoad Runner additionally offers turns, which FTCLib and WPILib do not.  (This appears to be a minor difference: FTC Lib/WPI Lib could execute a trajectory, then turn separately, then execute another trajectory.)\n\nRoad Runner offers the ability to reverse a trajectory.  I could not tell if WPI/FTC lib offers the same ability or if this ability can even reasonably be implemented.  (Perhaps by including a separate path that is the reverse of the first, then swapping the paths while retaining the current pose information?)\n\nRoad Runner offers the ability to reverse a trajectory.  I could not tell if WPI/FTC lib offers the same ability or if this ability can even reasonably be implemented.  (Perhaps by including a separate path that is the reverse of the first, then swapping the paths while retaining the current pose information?)\n\nRoad Runner offers “markers”, a system that signals the rest of the robot to perform an travel-unrelated action when partially through the trajectory.   I could not tell if WPI/FTC lib offers a similar ability, but again, this appears to be a minor difference as the marker system is ultimately merely timer-based.\n\nRoad Runner offers “markers”, a system that signals the rest of the robot to perform an travel-unrelated action when partially through the trajectory.   I could not tell if WPI/FTC lib offers a similar ability, but again, this appears to be a minor difference as the marker system is ultimately merely timer-based.\n\nRoad Runner also has a constraint system, but it works differently.  It’s unclear exactly how its constraint system works to me, but I believe constraints are added as steps in a trajectory, rather than regions in space as is done in FTC/WPI Lib.\n\nRoad Runner also has a constraint system, but it works differently.  It’s unclear exactly how its constraint system works to me, but I believe constraints are added as steps in a trajectory, rather than regions in space as is done in FTC/WPI Lib.\n\nOverall, it would appear that WPI/FTC Libraries are very similar to RoadRunner when it comes to trajectory following, except that the WPI/FTC implementation is intended for non-holonomic drives while the RoadRunner implementation is intended for holonomic drives.\n\nThere are additional features unrelated to path following available in FTC/WPI lib, but I see no reason why you couldn’t use both libraries if you wish to use these extra features but also have a holonomic drive.\n\nThanks.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-11-07T21:30:06.791Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1326,
+                    "reads": 246,
+                    "readers_count": 245,
+                    "score": 6694.2,
+                    "yours": false,
+                    "topic_id": 417094,
+                    "topic_slug": "feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 15,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/ramsete.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Ramsete Controller — FIRST Robotics Competition documentation",
+                            "clicks": 12
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50849,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete/417094/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3096855,
+                    "name": "Eli Barnett",
+                    "username": "Oblarg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                    "created_at": "2022-11-11T03:48:05.105Z",
+                    "cooked": "I’ve never heard of a holonomic implementation of the RAMSETE algorithm, and I’m not sure what problem it would be trying to solve.\n\nTypically the need for something more complex than proportional feedback (such as RAMSETE) comes from the (rather substantial) constraints of nonholonomic motion - because a unicycle drive cannot move sideways, it has no way of correcting lateral error independent of forward/backward motion.  Thus, controlling the lateral error of a path requires some cleverness.\n\nA holonomic drive does not suffer this problem, and so can run a simpler algorithm with success.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-11-11T03:48:05.105Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 158,
+                    "readers_count": 157,
+                    "score": 146.6,
+                    "yours": false,
+                    "topic_id": 417094,
+                    "topic_slug": "feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete",
+                    "display_username": "Eli Barnett",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 12381,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Robot apartments! invisible suburbs! skeleton treasuries!"
+                    },
+                    "post_url": "/t/feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete/417094/2",
+                    "custom_user_title": "Robot apartments! invisible suburbs! skeleton treasuries!",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3252028,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-11-11T03:49:04.826Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2023-11-11T03:49:04.826Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 24,
+                    "readers_count": 23,
+                    "score": 34.8,
+                    "yours": false,
+                    "topic_id": 417094,
+                    "topic_slug": "feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete/417094/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3095070,
+                3096855,
+                3252028
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1069
+            ],
+            [
+                2,
+                1066
+            ],
+            [
+                3,
+                701
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "VH-109 Radio Set Up",
+                "id": 491202,
+                "title": "VH-109 Radio Set Up",
+                "slug": "vh-109-radio-set-up",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-11T17:08:49.971Z",
+                "last_posted_at": "2025-10-04T23:23:52.962Z",
+                "bumped": true,
+                "bumped_at": "2025-10-04T23:23:52.962Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello. I am just curious as to how many teams are running power into the RIO port on the VH-109 radio using a VH-117 Poe wall adapter versus just running power from the PDP or PDH. Is there a signific…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "radio",
+                    "power",
+                    "vh-109"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 221,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523591,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51279,
+                    "username": "MarcoX",
+                    "name": "Marco Mendez",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e8c25b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51279,
+                            "username": "MarcoX",
+                            "name": "Marco Mendez",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e8c25b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71936,
+                            "username": "BrookeF",
+                            "name": "Brooke Flynn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/brookef/{size}/251883_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Lotsa broken connectors on a roboRIO, replacements",
+                "id": 496201,
+                "title": "Lotsa broken connectors on a roboRIO, replacements",
+                "slug": "lotsa-broken-connectors-on-a-roborio-replacements",
+                "posts_count": 14,
+                "reply_count": 9,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2025-03-19T14:26:48.483Z",
+                "last_posted_at": "2025-07-23T02:29:52.545Z",
+                "bumped": true,
+                "bumped_at": "2025-07-23T02:29:52.545Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have a 8 year old roboRIO that had a very bad day, the CAN Weidmuller and the dual USB A ports are both busted. One of our mentors has the capabilities to repair it. We were going to do a little hu…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 14,
+                "views": 528,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3561683,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 15648,
+                    "username": "fovea1959",
+                    "name": "fovea1959",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 15648,
+                            "username": "fovea1959",
+                            "name": "fovea1959",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28067,
+                            "username": "JBENJI",
+                            "name": "JBENJI",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c6cbf5/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7334,
+                            "username": "usbcd36",
+                            "name": "usbcd36",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/usbcd36/{size}/2444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 15467,
+                            "username": "philso",
+                            "name": "philso",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH-109 bad connection to laptop over ethernet",
+                "id": 480195,
+                "title": "VH-109 bad connection to laptop over ethernet",
+                "slug": "vh-109-bad-connection-to-laptop-over-ethernet",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-08T19:08:56.194Z",
+                "last_posted_at": "2025-01-08T23:58:31.743Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T23:58:31.743Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You mention ethernet cable, which port are you plugging the computer into on the on the radio? And do you turn off your other network adapters like internal wifi? Just spittballing that windows migh…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "radio"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 195,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475979,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 63541,
+                    "username": "Jwal",
+                    "name": "Joseph Walters",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68826,
+                            "username": "0_gottogo_0",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/0_gottogo_0/{size}/235858_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH-109 Robot Radio Issue With Conecting and Configuring",
+                "id": 474565,
+                "title": "VH-109 Robot Radio Issue With Conecting and Configuring",
+                "slug": "vh-109-robot-radio-issue-with-conecting-and-configuring",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/9/598d597e2561e0c9fc340c96a7a35a0c49b04795_2_1024x166.jpeg",
+                "created_at": "2024-11-08T21:15:21.137Z",
+                "last_posted_at": "2024-11-15T02:35:32.519Z",
+                "bumped": true,
+                "bumped_at": "2024-11-15T02:50:14.020Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This error message keeps popping up while trying to update the firmware but to reset the bridge you must update the firmware and to update the firmware you must reset the bridge (to my understanding).…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 428,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445152,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68967,
+                    "username": "SuperAwesomeSoup",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/superawesomesoup/{size}/236296_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68967,
+                            "username": "SuperAwesomeSoup",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/superawesomesoup/{size}/236296_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14984,
+                            "username": "Christopher149",
+                            "name": "Christopher149",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51409,
+                            "username": "kindagood",
+                            "name": "Aaron",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kindagood/{size}/257968_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH-109 Thermal Failures — Heatsink Recommendation?",
+                "id": 505004,
+                "title": "VH-109 Thermal Failures — Heatsink Recommendation?",
+                "slug": "vh-109-thermal-failures-heatsink-recommendation",
+                "posts_count": 16,
+                "reply_count": 4,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-08-06T00:16:05.778Z",
+                "last_posted_at": "2025-08-22T17:45:18.722Z",
+                "bumped": true,
+                "bumped_at": "2025-08-22T17:45:18.722Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Over the summer we’ve been running robot demos for our local community. These demos are running the robot for longer periods of time than a typical match, usually about 10 minutes on, then 5-10 minut…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vh-109",
+                    "heat"
+                ],
+                "tags_descriptions": {},
+                "like_count": 42,
+                "views": 947,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3703400,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 6078,
+                    "username": "seg9585",
+                    "name": "seg9585",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/seg9585/{size}/1974_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 6078,
+                            "username": "seg9585",
+                            "name": "seg9585",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/seg9585/{size}/1974_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26389,
+                            "username": "tkchan",
+                            "name": "tkchan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61593,
+                            "username": "PigTwo",
+                            "name": "Elin Kim",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/d2c977/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 29073,
+                            "username": "BenjaminRowe",
+                            "name": "Benjamin Rowe",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/benjaminrowe/{size}/9307_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "frc",
+            "drivetrain",
+            "ftc",
+            "autonomous",
+            "pathplanning",
+            "pathfinding",
+            "pathweaver",
+            "driving",
+            "steering"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "[feedback requested] My understanding of the differences between the various pathfinding options (Pure Pursuit vs WPI/FTC Lib RAMSETE vs RoadRunner RAMSETE)",
+        "id": 417094,
+        "title": "[feedback requested] My understanding of the differences between the various pathfinding options (Pure Pursuit vs WPI/FTC Lib RAMSETE vs RoadRunner RAMSETE)",
+        "posts_count": 3,
+        "created_at": "2022-11-07T19:57:09.318Z",
+        "views": 2404,
+        "reply_count": 0,
+        "like_count": 4,
+        "last_posted_at": "2023-11-11T03:49:04.826Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "feedback-requested-my-understanding-of-the-differences-between-the-various-pathfinding-options-pure-pursuit-vs-wpi-ftc-lib-ramsete-vs-roadrunner-ramsete",
+        "category_id": 72,
+        "word_count": 879,
+        "deleted_at": null,
+        "user_id": 50849,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_417094",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 12381,
+                    "username": "Oblarg",
+                    "name": "Eli Barnett",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 50849,
+                    "username": "cwm9",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/898d66/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 50849,
+                "username": "cwm9",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/898d66/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/ramsete.html",
+                    "title": "Ramsete Controller — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 12,
+                    "user_id": 50849,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

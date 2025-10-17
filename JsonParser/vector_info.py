@@ -15,7 +15,7 @@ import uuid
 import re
 from html import unescape
 
-MAC = False
+MAC = True
 LINUX = False
 DEBUG = True
 SCORE_CLIPPING = 1000
@@ -36,7 +36,7 @@ def setup_device_and_model_cpu():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
-        dtype=torch_dtype,
+        torch_dtype=torch_dtype,
         trust_remote_code=True
     ).to(device)
     model.eval()
@@ -78,7 +78,7 @@ def setup_device_and_model():
         # Load model with error handling
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
-            dtype=torch_dtype,
+            torch_dtype=torch_dtype,
             trust_remote_code=True,
             device_map="auto" if device.startswith("cuda") else None  # Automatic GPU mapping
         )
@@ -95,7 +95,7 @@ def setup_device_and_model():
         
         # Test GPU memory usage if using CUDA
         if device.startswith("cuda"):
-            torch.cuda.empty_cache()  # Clear cache
+            torch.cuda.empty_cache
             memory_allocated = torch.cuda.memory_allocated(0) / 1e9
             memory_cached = torch.cuda.memory_reserved(0) / 1e9
             print(f"GPU Memory - Allocated: {memory_allocated:.2f} GB, Cached: {memory_cached:.2f} GB")
@@ -140,6 +140,10 @@ def extractFeatures(data):
                 int(post["created_at"].split("T")[0].split("-")[2])))
             recencyScore = np.exp(-1.0 * (difference) / RECENCY_DECAY)
             confidenceScore = sqrt(post["readers_count"])
+            
+            # FIX: Set the global question variable
+            question = post["cooked"]
+            
             q_a = ([post["cooked"], post["topic_slug"]], 
                    sqrt(min(recencyScore * confidenceScore * sqrt(post["score"]) * (post["trust_level"]+MIN_TRUST_LEVEL), Q_A_CLIPPINNG)), 
                    post["id"])
@@ -341,14 +345,14 @@ def add_to_vector_databse(data_dict):
     )
     id = str(uuid.uuid4())
     existing_collections = [c.name for c in client.get_collections().collections]
-    if "chief-delphi-gpt" not in existing_collections:
+    if "Cheif-Delphi-GPT" not in existing_collections:
         client.create_collection(
-            collection_name="chief-delphi-gpt",
+            collection_name="Cheif-Delphi-GPT",
             vectors_config=VectorParams(size=1024, distance=Distance.COSINE)
         )
     new_point = PointStruct(id=id, vector=data_dict["vector"], payload=data_dict["metadata"])
     operation_info = client.upsert(
-        collection_name="chief-delphi-gpt",
+        collection_name="Cheif-Delphi-GPT",
         wait=True,
         points=[new_point],
     )
@@ -362,6 +366,8 @@ def main(args):
     if MAC or LINUX:
         with open(inputFileName, 'r') as inputFile:
             data = json.load(inputFile)
+        print(f"DEBUG: Type of data: {type(data)}")
+        print(f"DEBUG: First 200 chars: {str(data)[:200]}")
     else:
         with open(inputFileName, 'r', encoding='utf-8') as inputFile:
             data = json.load(inputFile)
@@ -370,8 +376,12 @@ def main(args):
     data_dict = vector_creation(data)
     add_to_vector_databse(data_dict)
     print(data_dict)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="JSON Parser")
     parser.add_argument('files', type=str, nargs='+', help='Input Clened JSON')
     args = parser.parse_args()
     main(args)
+
+    

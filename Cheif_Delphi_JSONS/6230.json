@@ -1,0 +1,868 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3420527,
+                    "name": "Oded Benjamini ",
+                    "username": "Feenchboi15",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/3ec8ea/{size}.png",
+                    "created_at": "2024-09-04T10:18:21.848Z",
+                    "cooked": "My team is looking into simulating our entire robot using advantage scope, and I am the one who is in charge of the project. I managed to get the drivetrain working almost perfectly, but I am having a really hard time moving around articulated parts using the code(they move when I change their position/rotation values in the config file), and I feel like the WPI and advantage scope docs are lacking a lot of info specifically on this topic. Is there any docs/ppts teams have created that can help me understand better? Or even working code that I can reverse engineer?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-09-04T10:18:21.848Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 116,
+                    "readers_count": 115,
+                    "score": 113.2,
+                    "yours": false,
+                    "topic_id": 470679,
+                    "topic_slug": "looking-for-simulation-documentation",
+                    "display_username": "Oded Benjamini ",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62572,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/looking-for-simulation-documentation/470679/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3420574,
+                    "name": "",
+                    "username": "person4268",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "created_at": "2024-09-04T13:21:04.936Z",
+                    "cooked": "I’d personally first look to getting a few things going first:\n\nA WPILib based mechanism simulation first, so you have values to feed advantagescope for visualization. AScope is ultimately nothing more than a tool that’ll displays the values you give it, it has no inherent simulation capabilities. You can also visualize with a Mechanism2D for this. For our arm, we used SingleJointedArmSim and more or less just fed it our voltage controls and used its’ angle in our Arm class. You might want to separate out the simulation bits, but we chose not to. For every other motor on the robot (that pretty much just spun at a certain speed until something happened), we used FlywheelSim . You can more or less just give the WPILib simulation classes your feedforward constants from sysid and your gear ratio and they more or less just work.\n\nFor our arm, we used SingleJointedArmSim and more or less just fed it our voltage controls and used its’ angle in our Arm class. You might want to separate out the simulation bits, but we chose not to.\n\nFor every other motor on the robot (that pretty much just spun at a certain speed until something happened), we used FlywheelSim .\n\nYou can more or less just give the WPILib simulation classes your feedforward constants from sysid and your gear ratio and they more or less just work.\n\nOnce you have that going, and you have an AdvantageScope robot model, you just need to publish an array of Transform3ds that defines the position of each of the moving (non-drivetrain) components of your robot. In our case , it was just our arm. (Positioning the note when it was inside the robot proved challenging, so maybe ignore that code, though. And the other 90% of the class is actually for visualizing a fairly complex Mechanism2D). Do note that the offset you specify in the config is ignored the second you start using the ComponentPoses array (those are meant to just be defaults so the robot looks reasonable when you don’t have ComponentPoses setup), so you need to include the offset in your code too. I’d like to also note that we never did get the arm rotating with the correct axis of rotation, so if you have something that rotates you’re going to have to play around a lot with getting that working.\n\nOur robot model is available here.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-09-04T13:21:04.936Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 82,
+                    "readers_count": 81,
+                    "score": 61.4,
+                    "yours": false,
+                    "topic_id": 470679,
+                    "topic_slug": "looking-for-simulation-documentation",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/arm/Arm.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024Robot/src/main/java/frc/robot/subsystems/arm/Arm.java at worlds · the-gearheads/2024Robot · GitHub",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://drive.google.com/file/d/1CUMb2JYpQ7VIrowQiLBr56HtaIINcbQN/view",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Robot_2024RobotNew_V3.zip - Google Drive",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/FlywheelMotor.java#L76",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024Robot/src/main/java/frc/robot/subsystems/FlywheelMotor.java at worlds · the-gearheads/2024Robot · GitHub",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/MechanismViz.java#L108-L129",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024Robot/src/main/java/frc/robot/subsystems/MechanismViz.java at worlds · the-gearheads/2024Robot · GitHub",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55016,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/looking-for-simulation-documentation/470679/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3730894,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-09-04T13:21:12.344Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-09-04T13:21:12.344Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 470679,
+                    "topic_slug": "looking-for-simulation-documentation",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/looking-for-simulation-documentation/470679/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3420527,
+                3420574,
+                3730894
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                403
+            ],
+            [
+                2,
+                402
+            ],
+            [
+                3,
+                37
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Target offset in Photonvision",
+                "id": 485463,
+                "title": "Target offset in Photonvision",
+                "slug": "target-offset-in-photonvision",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-06T21:27:32.584Z",
+                "last_posted_at": "2025-02-23T20:29:28.996Z",
+                "bumped": true,
+                "bumped_at": "2025-02-23T20:29:28.996Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m aware, but that’s mostly for 3D pose estimation. I was more referring to changing the principal pixel offset. Anyway, since it doesn’t look like this is possible or at least east, we are just moun…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight",
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 204,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537402,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 63443,
+                    "username": "glolichen07",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/glolichen07/{size}/258867_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63443,
+                            "username": "glolichen07",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/glolichen07/{size}/258867_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64292,
+                            "username": "anon74528069",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/46a35a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Orange pi photon vision problem",
+                "id": 492433,
+                "title": "Orange pi photon vision problem",
+                "slug": "orange-pi-photon-vision-problem",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-20T15:04:17.172Z",
+                "last_posted_at": "2025-02-21T07:22:50.060Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T07:22:50.060Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using an Orange Pi, and we’ve encountered an issue multiple times where it suddenly stops communicating with us. The sequence of events is as The Orange Pi works fine for a day or tw…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 170,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3534114,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63061,
+                    "username": "The_big_Melon",
+                    "name": "Eilon nave huppert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/the_big_melon/{size}/236259_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63061,
+                            "username": "The_big_Melon",
+                            "name": "Eilon nave huppert",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/the_big_melon/{size}/236259_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23134,
+                            "username": "Drakxii",
+                            "name": "Drakxii",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/4da419/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68816,
+                            "username": "Jackie",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/f07891/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Drive desyncing during use",
+                "id": 484525,
+                "title": "Swerve Drive desyncing during use",
+                "slug": "swerve-drive-desyncing-during-use",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-31T22:47:25.076Z",
+                "last_posted_at": "2025-02-03T22:27:09.626Z",
+                "bumped": true,
+                "bumped_at": "2025-02-03T22:27:09.626Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You may not have glued your magnet incorrectly",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "swervedrive"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 84,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3498484,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 56608,
+                            "username": "COLTech9059",
+                            "name": "COLTech Robotics",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/87869e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Fatal Python error: Segmentation fault when using Register Telemetry in Phoenix 6 Swerve Drive API",
+                "id": 483721,
+                "title": "Fatal Python error: Segmentation fault when using Register Telemetry in Phoenix 6 Swerve Drive API",
+                "slug": "fatal-python-error-segmentation-fault-when-using-register-telemetry-in-phoenix-6-swerve-drive-api",
+                "posts_count": 8,
+                "reply_count": 3,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-26T19:40:41.349Z",
+                "last_posted_at": "2025-03-03T20:54:49.906Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T20:54:49.906Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In order to send the current pose of the robot to the Field2d widget in Shuffleboard, my team wants to use the register_telemetry function in the Phoenix6 Swerve Drive API, as shown in the example in …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swervedrive",
+                    "phoenix-6"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 188,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493202,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71814,
+                    "username": "jayticku",
+                    "name": "Jay Ticku",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/71e660/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71814,
+                            "username": "jayticku",
+                            "name": "Jay Ticku",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/71e660/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64924,
+                            "username": "mfisher31",
+                            "name": "Michael Fisher",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/35a633/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve drive not functioning with YAGSL",
+                "id": 495523,
+                "title": "Swerve drive not functioning with YAGSL",
+                "slug": "swerve-drive-not-functioning-with-yagsl",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-14T01:44:48.875Z",
+                "last_posted_at": "2025-03-14T12:23:05.477Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T12:23:05.477Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is our first year of programming swerve drive, and we’ve been using the YAGSL documentation and example code. We currently have 3 big The offset of the modules seems to reset every time…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "programming",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 74,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3556700,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57707,
+                    "username": "walnut",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/ea5d25/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57707,
+                            "username": "walnut",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/ea5d25/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Looking for simulation documentation",
+        "id": 470679,
+        "title": "Looking for simulation documentation",
+        "posts_count": 3,
+        "created_at": "2024-09-04T10:18:21.775Z",
+        "views": 193,
+        "reply_count": 0,
+        "like_count": 5,
+        "last_posted_at": "2025-09-04T13:21:12.344Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "looking-for-simulation-documentation",
+        "category_id": 30,
+        "word_count": 499,
+        "deleted_at": null,
+        "user_id": 62572,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_470679",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55016,
+                    "username": "person4268",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62572,
+                    "username": "Feenchboi15",
+                    "name": "Oded Benjamini ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/3ec8ea/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 62572,
+                "username": "Feenchboi15",
+                "name": "Oded Benjamini ",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/f/3ec8ea/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/arm/Arm.java",
+                    "title": "2024Robot/src/main/java/frc/robot/subsystems/arm/Arm.java at worlds · the-gearheads/2024Robot · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 55016,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://drive.google.com/file/d/1CUMb2JYpQ7VIrowQiLBr56HtaIINcbQN/view",
+                    "title": "Robot_2024RobotNew_V3.zip - Google Drive",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 55016,
+                    "domain": "drive.google.com",
+                    "root_domain": "google.com"
+                },
+                {
+                    "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/FlywheelMotor.java#L76",
+                    "title": "2024Robot/src/main/java/frc/robot/subsystems/FlywheelMotor.java at worlds · the-gearheads/2024Robot · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 55016,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/the-gearheads/2024Robot/blob/worlds/src/main/java/frc/robot/subsystems/MechanismViz.java#L108-L129",
+                    "title": "2024Robot/src/main/java/frc/robot/subsystems/MechanismViz.java at worlds · the-gearheads/2024Robot · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55016,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

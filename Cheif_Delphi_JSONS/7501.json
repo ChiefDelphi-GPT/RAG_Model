@@ -1,0 +1,809 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3329417,
+                    "name": "Mike Smith",
+                    "username": "not_a_robot",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png",
+                    "created_at": "2024-03-10T23:28:47.253Z",
+                    "cooked": "Hello. Team 554 here. We are experiencing an issue/bug in Pathplanner where when the end of a path is reached, the swerve modules (Turning Motors) start spinning randomly at end of path. We need some help fixing this!\n\nIssue in More Detail: When the end of path is reached, and we are executing a Named Command, Wait Command, or another path, the Swerve Modules are rotating at a random rate. The turning motors are spinning with zero velocity on the drive motors. The waypoints between paths are linked together. Autobuilder being used to create the auto command. We expect that when the path ends, no wheel movement would occur before the next path begins or when running a named command or wait command with no motion, but this is not what is happening. We are seeing other local teams experiencing the same issue, so I’m not sure if anyone else out there has found a fix for this issue. Some chiefdelphi forums talk about adding a stop modules command at the end of a path, but that doesnt logically make sense. Any help would be great as this motion is causing our shots to be missed. Thanks so much for the help!\n\nYouTube Link of Module Spinning:\n\nScreenshot of Pathplanner: Screenshot 2024-03-10 190344 1917×1017 102 KB\n\nScreenshot 2024-03-10 190344 1917×1017 102 KB\n\nScreenshot 2024-03-10 190344 1917×1017 102 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-10T23:30:40.636Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 100,
+                    "reads": 51,
+                    "readers_count": 50,
+                    "score": 510.2,
+                    "yours": false,
+                    "topic_id": 458174,
+                    "topic_slug": "pathplanner-2024-help-needed-modules-spinning-at-end-of-path",
+                    "display_username": "Mike Smith",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=DzKFGiGQfsg",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/9/99789cdf15652bd6c9f261b5849ae00800831221.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62742,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/pathplanner-2024-help-needed-modules-spinning-at-end-of-path/458174/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3331246,
+                    "name": "Andy Gasser",
+                    "username": "gdefender",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "created_at": "2024-03-12T17:01:50.213Z",
+                    "cooked": "You might want to check the heading on your end points. Here’s an example where I was able to make a little weird jiggle at the end of a path. In path 1, the heading is on the wrong side, so the path jiggles at the end:\n\nWhen this is combined with another path in a auto, you can see it has a little “bounce” right at that point.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-12T17:01:50.213Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 6.0,
+                    "yours": false,
+                    "topic_id": 458174,
+                    "topic_slug": "pathplanner-2024-help-needed-modules-spinning-at-end-of-path",
+                    "display_username": "Andy Gasser",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44380,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7028 - Java Programming Mentor"
+                    },
+                    "post_url": "/t/pathplanner-2024-help-needed-modules-spinning-at-end-of-path/458174/2",
+                    "custom_user_title": "7028 - Java Programming Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3555229,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-12T17:02:48.095Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-12T17:02:48.095Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 5,
+                    "readers_count": 4,
+                    "score": 1.0,
+                    "yours": false,
+                    "topic_id": 458174,
+                    "topic_slug": "pathplanner-2024-help-needed-modules-spinning-at-end-of-path",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/pathplanner-2024-help-needed-modules-spinning-at-end-of-path/458174/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3329417,
+                3331246,
+                3555229
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                580
+            ],
+            [
+                2,
+                578
+            ],
+            [
+                3,
+                213
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Autonomous Elevator Slamming into Hardstop",
+                "id": 495579,
+                "title": "Autonomous Elevator Slamming into Hardstop",
+                "slug": "autonomous-elevator-slamming-into-hardstop",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-14T17:30:59.409Z",
+                "last_posted_at": "2025-03-18T15:25:46.199Z",
+                "bumped": true,
+                "bumped_at": "2025-03-18T15:25:46.199Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We figured out the issue; it was a loop overrun which meant that the PID controller wasn’t getting the error. We were able to put a quick fix on this by adding a 0.5 second wait at the beginning of au…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "autonomous"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 274,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3560638,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 69335,
+                    "username": "jsingh",
+                    "name": "Jugad S.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/c37758/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 69335,
+                            "username": "jsingh",
+                            "name": "Jugad S.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c37758/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59177,
+                            "username": "Gavin0",
+                            "name": "Gavin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gavin0/{size}/193252_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL problem",
+                "id": 483512,
+                "title": "YAGSL problem",
+                "slug": "yagsl-problem",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-01-25T13:05:08.956Z",
+                "last_posted_at": "2025-01-25T15:50:00.080Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T15:50:00.080Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, this year we are using mk4i L2 and neo engines, but when we rotate the robot around itself and move it forward, the robot slips. What could be the reason for this? Our robot does not have a pro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 124,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492290,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60651,
+                    "username": "enishangck",
+                    "name": "Enishan Eren Gücük ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60651,
+                            "username": "enishangck",
+                            "name": "Enishan Eren Gücük ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "TalonFX follower command causing motors to fight each other",
+                "id": 483711,
+                "title": "TalonFX follower command causing motors to fight each other",
+                "slug": "talonfx-follower-command-causing-motors-to-fight-each-other",
+                "posts_count": 17,
+                "reply_count": 12,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-26T18:18:38.425Z",
+                "last_posted_at": "2025-02-16T17:57:23.522Z",
+                "bumped": true,
+                "bumped_at": "2025-02-16T17:57:23.522Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re currently testing a belt-driven continuous elevator that uses 2 Kraken X60s and are experiencing a problem when we use m_elevatorRight.setControl(new Follower(m_elevatorLeft.getDeviceID(), true)…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner",
+                    "roborio",
+                    "memory"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 673,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493140,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59402,
+                    "username": "Hyperspace1710",
+                    "name": "Micah",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59402,
+                            "username": "Hyperspace1710",
+                            "name": "Micah",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9953,
+                            "username": "kylelanman",
+                            "name": "kylelanman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kylelanman/{size}/3427_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14283,
+                            "username": "nuttle",
+                            "name": "Allen Nuttle",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nuttle/{size}/124105_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Set position error",
+                "id": 494598,
+                "title": "Set position error",
+                "slug": "set-position-error",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-07T02:24:55.734Z",
+                "last_posted_at": "2025-03-07T17:41:52.015Z",
+                "bumped": true,
+                "bumped_at": "2025-03-07T17:41:52.015Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I am trying to do a set position using encoder values to get my intake to go a certain position. when I pressed the button, it did not go anywhere. I was wondering if this could be due to pid …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 89,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3550110,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73314,
+                    "username": "rnazeem",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/9fc29f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73314,
+                            "username": "rnazeem",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/9fc29f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What filters should I apply to get an accurate reading from Megatag 1 and 2",
+                "id": 496817,
+                "title": "What filters should I apply to get an accurate reading from Megatag 1 and 2",
+                "slug": "what-filters-should-i-apply-to-get-an-accurate-reading-from-megatag-1-and-2",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-03-25T00:30:02.635Z",
+                "last_posted_at": "2025-03-26T13:12:09.931Z",
+                "bumped": true,
+                "bumped_at": "2025-03-26T13:12:09.931Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, Im trying to figure out what the recommendations are to make megatags 1 and 2 give accurate readings. From what distance on should tags be ignored? i’d appreciate any other advice related to t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "regional",
+                    "apriltags"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 270,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3567579,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74615,
+                    "username": "JacoboNassar",
+                    "name": "Jacobo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/958977/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74615,
+                            "username": "JacoboNassar",
+                            "name": "Jacobo",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/958977/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63182,
+                            "username": "Akshaj_K",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/71c47a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 68490,
+                            "username": "wbzjt666",
+                            "name": "wbzjt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/6de8d8/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "swerve",
+            "pathplanner",
+            "sds"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Pathplanner 2024 Help Needed - Modules Spinning At End of Path",
+        "id": 458174,
+        "title": "Pathplanner 2024 Help Needed - Modules Spinning At End of Path",
+        "posts_count": 3,
+        "created_at": "2024-03-10T23:28:47.187Z",
+        "views": 258,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-03-12T17:02:48.095Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pathplanner-2024-help-needed-modules-spinning-at-end-of-path",
+        "category_id": 30,
+        "word_count": 325,
+        "deleted_at": null,
+        "user_id": 62742,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/9/99789cdf15652bd6c9f261b5849ae00800831221_2_1024x543.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_458174",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1917,
+                "height": 1017,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/9/99789cdf15652bd6c9f261b5849ae00800831221.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 543,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/9/99789cdf15652bd6c9f261b5849ae00800831221_2_1024x543.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 44380,
+                    "username": "gdefender",
+                    "name": "Andy Gasser",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 62742,
+                    "username": "not_a_robot",
+                    "name": "Mike Smith",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 62742,
+                "username": "not_a_robot",
+                "name": "Mike Smith",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/n/dec6dc/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

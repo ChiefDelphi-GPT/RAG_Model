@@ -1,0 +1,803 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3535314,
+                    "name": "Anthony.Uri",
+                    "username": "Robosquatch76",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/robosquatch76/{size}/221366_2.png",
+                    "created_at": "2025-02-21T15:44:40.072Z",
+                    "cooked": "We have seen a number of teams do field calibration using a stand-alone computer/camera setup. We are interested to understand:\n\nWhat type of calibration is being done using those setups?\n\nDo you still use the robot to calibrate?\n\nWhat are the benefits and challenges with taking this approach?\n\nIf anyone could help answer those questions it would be greatly appreciated.\n\nOur goal is the utilize the WPIcal function ( WPIcal — FIRST Robotics Competition documentation ) more this year to reduce the field-to-field noise we’ve seen, and ideally without the need for the entire robot on the field to accomplish this.\n\nThanks in advance for any support!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-21T15:44:40.072Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 85,
+                    "reads": 135,
+                    "readers_count": 134,
+                    "score": 482.0,
+                    "yours": false,
+                    "topic_id": 492583,
+                    "topic_slug": "standalone-field-calibration-setup",
+                    "display_username": "Anthony.Uri",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/wpical/index.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "WPIcal — FIRST Robotics Competition documentation",
+                            "clicks": 11
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17969,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Anthony | FRC 2075"
+                    },
+                    "post_url": "/t/standalone-field-calibration-setup/492583/1",
+                    "custom_user_title": "Anthony | FRC 2075",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3536503,
+                    "name": "Elliot Scher",
+                    "username": "Gandagorn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                    "created_at": "2025-02-22T18:17:35.243Z",
+                    "cooked": "Robosquatch76:\n\nfield calibration using a stand-alone computer/camera setup.\n\nThese types of calibration setups are meant to find the relative positions of apriltags on the field. This can be useful for certain vision system implementations which rely on solving for the position of the robot using multiple tags. ( LL ’s Megatag1/2 and PV ’s MultiTag-PNP) This is what WPIcal does.\n\nWhile WPIcal can help in finding small errors in apriltag placement, it isn’t very useful without implementing good filters to make sure the robot is using the apriltags appropriately. Team 6328 discusses that here: FRC 6328 Mechanical Advantage 2024 Build Thread - #264 by jonahb55\n\nAnother thing to note is that it is important to verify the results of your WPIcal field calibration with a tape measure to make sure the results are correct.\n\nRobosquatch76:\n\nideally without the need for the entire robot on the field to accomplish this.\n\nUnfortunately, WPIcal is not a replacement for on-field robot calibration, due to the need to adjust camera exposure and other such settings based on your event’s lighting. It is also important to make sure your robot’s pose estimate is correct based on where it is on the field during the calibration period. This can save a lot of time when debugging problems at events if you can rule out your pose estimate being incorrect.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-22T18:19:09.142Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 6,
+                    "reads": 74,
+                    "readers_count": 73,
+                    "score": 59.8,
+                    "yours": false,
+                    "topic_id": 492583,
+                    "topic_slug": "standalone-field-calibration-setup",
+                    "display_username": "Elliot Scher",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2024-build-thread/442736/264",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "FRC 6328 Mechanical Advantage 2024 Build Thread",
+                            "clicks": 11
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49423,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2815A (19-23) | 190M (23...)"
+                    },
+                    "post_url": "/t/standalone-field-calibration-setup/492583/2",
+                    "custom_user_title": "2815A (19-23) | 190M (23...)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3535314,
+                3536503
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                232
+            ],
+            [
+                2,
+                231
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Coral Intake detection",
+                "id": 491597,
+                "title": "Coral Intake detection",
+                "slug": "coral-intake-detection",
+                "posts_count": 7,
+                "reply_count": 0,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-13T21:23:49.574Z",
+                "last_posted_at": "2025-02-14T17:55:32.361Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T17:55:32.361Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How do you detect if a coral is in your robot? It looks like it’s pretty important both for driver assist and due to the fact that you can load from the coral stations during auto. Just curious about …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 515,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526467,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71354,
+                    "username": "Lyinlyon",
+                    "name": "James Lyon",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71354,
+                            "username": "Lyinlyon",
+                            "name": "James Lyon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68646,
+                            "username": "fijithebird",
+                            "name": "Eddie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/d78d45/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71256,
+                            "username": "MattD13",
+                            "name": "Matt Dicks",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/f19dbf/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55669,
+                            "username": "Raysine",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e495f1/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13827,
+                            "username": "chadr03",
+                            "name": "2582",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadr03/{size}/195529_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Neo Gear",
+                "id": 476942,
+                "title": "Neo Gear",
+                "slug": "neo-gear",
+                "posts_count": 11,
+                "reply_count": 8,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-12-18T13:52:04.850Z",
+                "last_posted_at": "2024-12-18T16:51:01.655Z",
+                "bumped": true,
+                "bumped_at": "2024-12-18T16:51:01.655Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Assuming there is a keyway in the gear, you must use a key. If the gear is to be press fit, you must remove the cover (V1.0) or put a set screw in the back of the motor (V1.1) or you will damage the m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 346,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460843,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 10,
+                "topic_post_user": {
+                    "id": 52597,
+                    "username": "Patrick3357",
+                    "name": "Patrick",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/patrick3357/{size}/169915_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60651,
+                            "username": "enishangck",
+                            "name": "Enishan Eren Gücük ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 52597,
+                            "username": "Patrick3357",
+                            "name": "Patrick",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patrick3357/{size}/169915_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28649,
+                            "username": "CEF",
+                            "name": "CEF",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/35a633/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64837,
+                            "username": "JAAMES",
+                            "name": "JAMES",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jaames/{size}/231436_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problem with swerve(yagsl) orientation",
+                "id": 480537,
+                "title": "Problem with swerve(yagsl) orientation",
+                "slug": "problem-with-swerve-yagsl-orientation",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-09T21:05:03.080Z",
+                "last_posted_at": "2025-01-10T21:03:00.934Z",
+                "bumped": true,
+                "bumped_at": "2025-01-10T21:03:00.934Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, recently our team is using swerve for the first time and we are having a small problem, our swerve is giving a drift, as if it were a whip, and when we invert the orientation of our pi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477220,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64053,
+                    "username": "Matheus",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64053,
+                            "username": "Matheus",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Imported code errors in pathplanner help",
+                "id": 483112,
+                "title": "Imported code errors in pathplanner help",
+                "slug": "imported-code-errors-in-pathplanner-help",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-22T22:09:07.011Z",
+                "last_posted_at": "2025-01-23T23:08:52.944Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T23:14:46.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are new to Java, and for sure swerve. We had some help with a Java swerve set of code in December. We then tried to import the code to the new VS and have loads of errors. We believe we’ve updated …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 93,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490202,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 44909,
+                    "username": "mhuck",
+                    "name": "Mike Huck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 44909,
+                            "username": "mhuck",
+                            "name": "Mike Huck",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71483,
+                            "username": "Aaron_Zheng",
+                            "name": "Aaron Zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aaron_zheng/{size}/245699_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Teleop programming forward movement",
+                "id": 482745,
+                "title": "Teleop programming forward movement",
+                "slug": "teleop-programming-forward-movement",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-20T15:47:45.552Z",
+                "last_posted_at": "2025-03-14T19:44:36.868Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T19:44:36.868Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello I am a new programmer with no programming experience wants to learn how I can program a robot to move forward in Java",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 185,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488130,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71577,
+                    "username": "Whatisthie",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/8491ac/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71577,
+                            "username": "Whatisthie",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/8491ac/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71153,
+                            "username": "CalebRyon",
+                            "name": "Caleb Ryon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calebryon/{size}/255718_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19841,
+                            "username": "Javaru",
+                            "name": "Javaru",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/javaru/{size}/6589_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Standalone Field Calibration Setup",
+        "id": 492583,
+        "title": "Standalone Field Calibration Setup",
+        "posts_count": 2,
+        "created_at": "2025-02-21T15:44:40.021Z",
+        "views": 242,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2025-02-22T18:17:35.243Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "standalone-field-calibration-setup",
+        "category_id": 9,
+        "word_count": 364,
+        "deleted_at": null,
+        "user_id": 17969,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_492583",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44336,
+            "execute_at": "2026-02-22T18:17:35.243Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 17969,
+                    "username": "Robosquatch76",
+                    "name": "Anthony.Uri",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/robosquatch76/{size}/221366_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 49423,
+                    "username": "Gandagorn",
+                    "name": "Elliot Scher",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 17969,
+                "username": "Robosquatch76",
+                "name": "Anthony.Uri",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/robosquatch76/{size}/221366_2.png"
+            },
+            "last_poster": {
+                "id": 49423,
+                "username": "Gandagorn",
+                "name": "Elliot Scher",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/wpical/index.html",
+                    "title": "WPIcal — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 17969,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2024-build-thread/442736/264",
+                    "title": "FRC 6328 Mechanical Advantage 2024 Build Thread",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 49423,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

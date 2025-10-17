@@ -1,0 +1,841 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3545034,
+                    "name": "",
+                    "username": "robojack",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/49beb7/{size}.png",
+                    "created_at": "2025-03-02T20:34:14.478Z",
+                    "cooked": "I’ve been trying to use two buttons to change maxspeed on a robot so we can have finer control in approaching an object.   I looked at using a button as a toggle to change the speed but it would require keeping track of what the current speed state.  In reading on here it seemed like the consensus was that it would be simpler to use two buttons to change it back and forth.   I have an old robot here to experiment with and I was able to change the speed back and forth without trouble using joystick buttons.  When I take my computer and code to test on last year’s machine, it won’t work.   I also use the buttons to change a boolean box on the Elastic Dashboard to show green for high speed and red for low speed and that also works on the machine here at the house but not on our last year’s machine.\n\nI’m using the same code on the same computer in both places.  The only difference is I’m using a roboRIO 1 here and a roboRIO-2 there.   I was under the impression that they should run the same code in all cases.  Both are 2025_v2.0.\n\nHere’s the code for half speed\n\nm_driverController.button(2) .onChange( new InstantCommand(()->m_robotDrive.setMaxOutput(.5))) .onChange( new InstantCommand(()->SmartDashboard.putBoolean(“Speed Button”, false)));\n\nand the full speed\n\nm_driverController.button(3) .onChange( new InstantCommand(()->SmartDashboard.putBoolean(“Speed Button”, true))) .onChange( new InstantCommand(()->m_robotDrive.setMaxOutput(1.0)));\n\nI’ve also tried .toggleOnTrue with the same results.\n\nIf there’s a better way, I’ll try it but the part that bothers me the most is that it doesn’t work across machines\n\nThanks for any ideas and or suggestions of alternate methods",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-02T20:34:14.478Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 106,
+                    "readers_count": 105,
+                    "score": 46.2,
+                    "yours": false,
+                    "topic_id": 493872,
+                    "topic_slug": "difference-in-button-action-between-two-robots",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60576,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/difference-in-button-action-between-two-robots/493872/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3545124,
+                    "name": "Alex",
+                    "username": "legoguy1000",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                    "created_at": "2025-03-02T21:43:50.968Z",
+                    "cooked": "Can u clarify what is working and what isn’t? We done something similar just not with a button. We use a trigger to change our max speed when our elevator or climber is out FRC2025/src/main/java/frc/robot/RobotContainer.java at main · Frc5572/FRC2025 · GitHub .",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-02T21:43:50.968Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 61,
+                    "readers_count": 60,
+                    "score": 12.2,
+                    "yours": false,
+                    "topic_id": 493872,
+                    "topic_slug": "difference-in-button-action-between-two-robots",
+                    "display_username": "Alex",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Frc5572/FRC2025/blob/main/src%2Fmain%2Fjava%2Ffrc%2Frobot%2FRobotContainer.java#L285",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "FRC2025/src/main/java/frc/robot/RobotContainer.java at main · Frc5572/FRC2025 · GitHub",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28614,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor & Alumnus"
+                    },
+                    "post_url": "/t/difference-in-button-action-between-two-robots/493872/2",
+                    "custom_user_title": "Mentor & Alumnus",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3545755,
+                    "name": "",
+                    "username": "robojack",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/49beb7/{size}.png",
+                    "created_at": "2025-03-03T13:22:05.498Z",
+                    "cooked": "The difference is that on one roboRIO/robot configuration (RIO1) the code works just fine.  On the second one with a RIO2 the buttons don’t work correctly.  It seems that the first time you hit the slow button it slows the robot but you can’t switch it back but it’s hard to tell when it happens and how to reset it.  I don’t have as much access to the RIO2 as the other one and we’re using it for other testing and training so my time is limited.  I’ll get access to it today and will try to get more details on exactly when it switches to slow and why it won’t switch back.\n\nThanks for the suggestion.  I’ll have to look harder at your code to see if I can adapt it in some way",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-03T13:22:05.498Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 6.8,
+                    "yours": false,
+                    "topic_id": 493872,
+                    "topic_slug": "difference-in-button-action-between-two-robots",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60576,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/difference-in-button-action-between-two-robots/493872/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3545034,
+                3545124,
+                3545755
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                223
+            ],
+            [
+                3,
+                222
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Neo swerve angle motor problem",
+                "id": 481391,
+                "title": "Neo swerve angle motor problem",
+                "slug": "neo-swerve-angle-motor-problem",
+                "posts_count": 9,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-13T15:26:30.557Z",
+                "last_posted_at": "2025-01-15T12:43:40.434Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T12:58:24.873Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "hi im enishan this year we are using YAGSL 2025 Neo swerve drive code with MK4i L2 modules but we have a problem. Our 3 angle motors turn fast and getting slowly what could be a reason",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 219,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480949,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60651,
+                    "username": "enishangck",
+                    "name": "Enishan Eren Gücük ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60651,
+                            "username": "enishangck",
+                            "name": "Enishan Eren Gücük ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using motor current to detect gamepiece",
+                "id": 483373,
+                "title": "Using motor current to detect gamepiece",
+                "slug": "using-motor-current-to-detect-gamepiece",
+                "posts_count": 6,
+                "reply_count": 0,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-24T14:23:19.674Z",
+                "last_posted_at": "2025-01-24T15:39:23.446Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T15:39:23.446Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, our team is considering game piece detection when the coral or algae enters our intake. Have any of you had good experience with measuring current and using that to tell the robot if it …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 304,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491566,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38557,
+                            "username": "Bmongar",
+                            "name": "Brad",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20003,
+                            "username": "joemost",
+                            "name": "joemost",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joemost/{size}/11114_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63494,
+                            "username": "Natalie5431",
+                            "name": "Natalie Daleo",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/91b2a8/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "TalonFX not setting speed",
+                "id": 491092,
+                "title": "TalonFX not setting speed",
+                "slug": "talonfx-not-setting-speed",
+                "posts_count": 13,
+                "reply_count": 10,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-02-10T22:22:15.413Z",
+                "last_posted_at": "2025-02-11T02:57:48.496Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T02:57:48.496Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Well that seems to be the reason, when creating a TalonFX object that is connected to a CANivore you also have to set the name of the CANivore that its connected to; public TalonFX motor = new TalonF…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "talon",
+                    "everybot",
+                    "speed"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 158,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3522848,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 12,
+                "topic_post_user": {
+                    "id": 61815,
+                    "username": "Mohammed",
+                    "name": "Mohammed",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63024,
+                            "username": "Jacksjnfds",
+                            "name": "Jackson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/43a26b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61815,
+                            "username": "Mohammed",
+                            "name": "Mohammed",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56803,
+                            "username": "Nimble",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65624,
+                            "username": "10219Ryba",
+                            "name": "Carter Ryba",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Sparkmax max motion leader follow question",
+                "id": 493692,
+                "title": "Sparkmax max motion leader follow question",
+                "slug": "sparkmax-max-motion-leader-follow-question",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-01T01:08:41.844Z",
+                "last_posted_at": "2025-03-01T02:54:42.206Z",
+                "bumped": true,
+                "bumped_at": "2025-03-01T02:54:42.206Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Once you set the follower, you need only control the leader.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 77,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543929,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 28240,
+                    "username": "icemannie",
+                    "name": "icemannie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 37230,
+                            "username": "SimonSays",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Teams who chose to use or not to use questnav. Why or why not",
+                "id": 494882,
+                "title": "Teams who chose to use or not to use questnav. Why or why not",
+                "slug": "teams-who-chose-to-use-or-not-to-use-questnav-why-or-why-not",
+                "posts_count": 29,
+                "reply_count": 10,
+                "highest_post_number": 29,
+                "image_url": null,
+                "created_at": "2025-03-09T21:45:51.564Z",
+                "last_posted_at": "2025-03-26T03:10:54.790Z",
+                "bumped": true,
+                "bumped_at": "2025-03-26T03:10:54.790Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Title says it all. I’m just an alum who is curious since questnav seems to bring a lot of great benefits but I don’t see a lot of teams using it outside of my old team and ninjaneers.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 53,
+                "views": 1505,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3552172,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62239,
+                    "username": "dragonblade316",
+                    "name": "Teddy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/dragonblade316/{size}/211424_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62239,
+                            "username": "dragonblade316",
+                            "name": "Teddy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dragonblade316/{size}/211424_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12688,
+                            "username": "JohnFogarty",
+                            "name": "John Fogarty",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/johnfogarty/{size}/267052_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69000,
+                            "username": "PixL",
+                            "name": "Chase Eid",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pixl/{size}/250824_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23786,
+                            "username": "EKM_319",
+                            "name": "Eric (319)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ekm_319/{size}/230932_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Difference in button action between two robots",
+        "id": 493872,
+        "title": "Difference in button action between two robots",
+        "posts_count": 3,
+        "created_at": "2025-03-02T20:34:14.418Z",
+        "views": 161,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-03-03T13:22:05.498Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "difference-in-button-action-between-two-robots",
+        "category_id": 30,
+        "word_count": 494,
+        "deleted_at": null,
+        "user_id": 60576,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_493872",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44876,
+            "execute_at": "2026-03-03T13:22:05.498Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 60576,
+                    "username": "robojack",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/49beb7/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 28614,
+                    "username": "legoguy1000",
+                    "name": "Alex",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 60576,
+                "username": "robojack",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/r/49beb7/{size}.png"
+            },
+            "last_poster": {
+                "id": 60576,
+                "username": "robojack",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/r/49beb7/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Frc5572/FRC2025/blob/main/src%2Fmain%2Fjava%2Ffrc%2Frobot%2FRobotContainer.java#L285",
+                    "title": "FRC2025/src/main/java/frc/robot/RobotContainer.java at main · Frc5572/FRC2025 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 28614,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

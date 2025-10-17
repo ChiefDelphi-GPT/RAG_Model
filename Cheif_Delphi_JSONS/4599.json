@@ -1,0 +1,690 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3494862,
+                    "name": "Allen",
+                    "username": "san4d",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png",
+                    "created_at": "2025-01-28T17:36:39.830Z",
+                    "cooked": "I’m trying to test a simple PathPlanner command that moves the robot forward 4m. While I see logs showing our drivetrain is running the command and that new target speeds are being produced, I don’t see the drivetrain’s position updating.\n\nI’m a new mentor working on a team that’s growing its Java experience. We’re able to run the robot in auto mode but it follows a curved path, instead of a straight line. While I don’t see the curve when I run the simulation (Glass + PathPlanner telemetry), I do see the robot stop short of the 4m. To help structure the calibration, I’d like break things down into three problem areas:\n\nPure software (ex. we’re not feeding the right subsystems the right information)\n\nPure hardware (ex. something is off with alignment or wiring)\n\nCalibration, which I see as the point of integration.\n\nI see having a simple JUinit suite that we can runs simple paths (ex. straight line, back and forth, circle) and asserts an expected displacement tolerance as a useful way to find “pure software” bugs and see improvements in the calibration as we are able to bring the tolerances down.\n\nI’d appreciate feedback on this approach/mindset.\n\nYou can checkout my POC in this branch , but the basics are as follows:\n\nA few things I noticed based on the logs:\n\nThe auto command is scheduled properly and run by the drivetrain\n\ncommand.isFinished() always returns false, but the END log in finallyDo prints\n\nThe drive appears to be in simulation mode, though I never explicitly set it\n\nThe command does run and I see logs that should the expected target velocity\n\nWe’re on 2025.2.1 and we are using Pheonix 6’s generated TunerSwerveDrivetrain as our drivetrain base.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 1,
+                    "updated_at": "2025-01-28T17:36:39.830Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 41,
+                    "readers_count": 40,
+                    "score": 98.2,
+                    "yours": false,
+                    "topic_id": 483991,
+                    "topic_slug": "testing-calibration-regressions-using-pathplanner",
+                    "display_username": "Allen",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/frc4087/SwerveDriveBase2025/pull/15",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "WIP: PathPlanning Test POC by san4d · Pull Request #15 · frc4087/SwerveDriveBase2025 · GitHub",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71901,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/testing-calibration-regressions-using-pathplanner/483991/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                }
+            ],
+            "stream": [
+                3494862
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                256
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Getting ChoreoLib build error in build.gradle on some computers, but not others",
+                "id": 484213,
+                "title": "Getting ChoreoLib build error in build.gradle on some computers, but not others",
+                "slug": "getting-choreolib-build-error-in-build-gradle-on-some-computers-but-not-others",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-30T01:08:56.927Z",
+                "last_posted_at": "2025-01-30T02:22:14.101Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T02:22:14.101Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It looks like ur network is intercepting and blocking the connection to their repository. Our school does the same, also pathplanner and maple sim which are GitHub.io domains. We ended up self hosting…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "help"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 72,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496257,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 28614,
+                    "username": "legoguy1000",
+                    "name": "Alex",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71613,
+                            "username": "nexnot",
+                            "name": "Nathaniel",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/58f4c7/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How would you make leds work with an intake",
+                "id": 473735,
+                "title": "How would you make leds work with an intake",
+                "slug": "how-would-you-make-leds-work-with-an-intake",
+                "posts_count": 15,
+                "reply_count": 13,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2024-10-25T19:00:06.664Z",
+                "last_posted_at": "2024-11-05T02:16:48.562Z",
+                "bumped": true,
+                "bumped_at": "2024-11-05T02:16:48.562Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Can you share the relevant code (post it on here)? Also, see the parallel command documentation Command Compositions — FIRST Robotics Competition documentation In general, you want to have both…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 665,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3439613,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 63147,
+                    "username": "Swerve",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/swerve/{size}/210309_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68704,
+                            "username": "txrnqt",
+                            "name": "jace",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a9a28c/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63147,
+                            "username": "Swerve",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/swerve/{size}/210309_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57747,
+                            "username": "MSU2000",
+                            "name": "Ardiano Works",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/msu2000/{size}/190139_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Slowmode for Swerve Drive",
+                "id": 483543,
+                "title": "Slowmode for Swerve Drive",
+                "slug": "slowmode-for-swerve-drive",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-25T16:20:29.138Z",
+                "last_posted_at": "2025-02-12T22:18:48.795Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T22:18:48.795Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, our frc team has recently got a swerve drive where we used the ctr phoenix tuner x in order to make the basic code. We were wondering where and how do we add a slowmode code to the gen…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 417,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492374,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71784,
+                    "username": "VoltageVikings6620",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/7ba0ec/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71784,
+                            "username": "VoltageVikings6620",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/7ba0ec/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69367,
+                            "username": "VihaanC",
+                            "name": "Vihaan C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/vihaanc/{size}/237555_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63537,
+                            "username": "mhelve46",
+                            "name": "Miles",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/b3f665/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71098,
+                            "username": "Andrew123ast",
+                            "name": "Andrew Todd",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew123ast/{size}/243883_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "setFF() in java revlib",
+                "id": 481990,
+                "title": "setFF() in java revlib",
+                "slug": "setff-in-java-revlib",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-16T00:05:40.363Z",
+                "last_posted_at": "2025-01-16T03:05:46.038Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T03:05:46.038Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is my first year working on code and have run into some errors converting some 2024 java code to 2025. I’m not sure what the setFF() method does or what the updated versions are called. I’ve look…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "rev"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 78,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483961,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71369,
+                    "username": "Jakeb",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19adc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71369,
+                            "username": "Jakeb",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "In Need of Working YAGSL Swerve Code",
+                "id": 492104,
+                "title": "In Need of Working YAGSL Swerve Code",
+                "slug": "in-need-of-working-yagsl-swerve-code",
+                "posts_count": 16,
+                "reply_count": 12,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-02-18T00:48:18.951Z",
+                "last_posted_at": "2025-02-21T00:47:10.361Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T00:47:10.361Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey all, We have done our best to get YAGSL working, but we’ve failed. Put about 150 hours into it the last month and a half. Read the documentation probably 15 times, completed the flow chart and ei…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 245,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3530830,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68869,
+                    "username": "HawkbotsMentor",
+                    "name": "Henry",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68869,
+                            "username": "HawkbotsMentor",
+                            "name": "Henry",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50904,
+                            "username": "Heckboy",
+                            "name": "Cody B.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/da6949/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Testing Calibration Regressions Using PathPlanner",
+        "id": 483991,
+        "title": "Testing Calibration Regressions Using PathPlanner",
+        "posts_count": 1,
+        "created_at": "2025-01-28T17:36:39.759Z",
+        "views": 73,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-01-28T17:36:39.830Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "testing-calibration-regressions-using-pathplanner",
+        "category_id": 75,
+        "word_count": 419,
+        "deleted_at": null,
+        "user_id": 71901,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_483991",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 1,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40127,
+            "execute_at": "2026-01-28T17:36:39.830Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 71901,
+                    "username": "san4d",
+                    "name": "Allen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 71901,
+                "username": "san4d",
+                "name": "Allen",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png"
+            },
+            "last_poster": {
+                "id": 71901,
+                "username": "san4d",
+                "name": "Allen",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,962 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3175236,
+                    "name": "Ofek Harel",
+                    "username": "OfekHarel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ofekharel/{size}/134749_2.png",
+                    "created_at": "2023-03-28T15:03:32.992Z",
+                    "cooked": "Hey, I was wondering what teams had in mind for custom implementation over the WPI simulator? How did you implement? As an add-on to WPI or completely instead? How did you managed to keep a clean approach with the combination of sim-algo with the actual robot code flow?\n\nAs i see it the WPI simulator alone does not give the coverage that we would like to receive from a simulator",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-03-28T15:03:32.992Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 110,
+                    "reads": 158,
+                    "readers_count": 157,
+                    "score": 581.6,
+                    "yours": false,
+                    "topic_id": 432112,
+                    "topic_slug": "custom-made-robot-simulator",
+                    "display_username": "Ofek Harel",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 40752,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3339 Software Lead Mentor"
+                    },
+                    "post_url": "/t/custom-made-robot-simulator/432112/1",
+                    "custom_user_title": "3339 Software Lead Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3175242,
+                    "name": "",
+                    "username": "nstrike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "created_at": "2023-03-28T15:05:57.585Z",
+                    "cooked": "Advantage Scope, I have no idea how to use it but it is possible",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-03-28T15:05:57.585Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 165,
+                    "readers_count": 164,
+                    "score": 68.0,
+                    "yours": false,
+                    "topic_id": 432112,
+                    "topic_slug": "custom-made-robot-simulator",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51887,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "YAGSL & YASS Creator "
+                    },
+                    "post_url": "/t/custom-made-robot-simulator/432112/2",
+                    "custom_user_title": "YAGSL & YASS Creator ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3175272,
+                    "name": "Jonah Bonner",
+                    "username": "jonahb55",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                    "created_at": "2023-03-28T15:29:51.504Z",
+                    "cooked": "6328 has developed a couple of tools that may be of some interest to you. They don’t need to be used together; these are independent tools that are each designed to work without the other.\n\nAdvantageScope is a visualization tool, which works both for log data and live telemetry (such as connecting to simulated robot code). It has a 3D view that supports custom robot models and articulated mechanisms, but it doesn’t run any physics simulations itself. The idea is that the robot code has the architecture to support simulation (like running physics models and switching between the real robot and sim), then reports data over NetworkTables for AdvantageScope to visualize. The robot code can use vanilla WPILib for that or a custom approach.\n\nAdvantageKit is our logging framework, which is largely built around isolating IO interaction in each subsystem into an interface. This makes it easy to support many IO implementations, like multiple “real” hardware implementations, a physics sim implementation, or a “no implementation” version that replays data from a log file. There’s more explanation of how that works in the post I linked below and in the documentation . Also worth noting that AdvantageKit isn’t required to run with this IO structure; we started using IO interfaces for simulation before AdvantageKit existed. However, this is definitely a more advanced structure that isn’t suitable for many teams . I’d certainly advise against starting with AdvantageKit/IO layers mid-season because it requires rewriting a large portion of the subsystem code.\n\nFRC 6328 Mechanical Advantage 2022 Build Thread Open Alliance\n\nI’m happy to answer any questions about this if you’d like more details about anything.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-03-28T15:30:39.253Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 49,
+                    "reads": 144,
+                    "readers_count": 143,
+                    "score": 348.8,
+                    "yours": false,
+                    "topic_id": 432112,
+                    "topic_slug": "custom-made-robot-simulator",
+                    "display_username": "Jonah Bonner",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/AdvantageScope",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Mechanical-Advantage/AdvantageScope: Robot telemetry application",
+                            "clicks": 28
+                        },
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/AdvantageKit",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Mechanical-Advantage/AdvantageKit: Monorepo for robot framework and tools",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/AdvantageKit/blob/main/docs/CODE-STRUCTURE.md",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AdvantageKit/CODE-STRUCTURE.md at main · Mechanical-Advantage/AdvantageKit · GitHub",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/frc-6328-mechanical-advantage-2022-build-thread/398645/109",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "FRC 6328 Mechanical Advantage 2022 Build Thread",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44471,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6328M/WPILib"
+                    },
+                    "post_url": "/t/custom-made-robot-simulator/432112/3",
+                    "custom_user_title": "6328M/WPILib",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3345281,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-03-27T15:30:31.881Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-27T15:30:31.881Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 15,
+                    "readers_count": 14,
+                    "score": 8.0,
+                    "yours": false,
+                    "topic_id": 432112,
+                    "topic_slug": "custom-made-robot-simulator",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/custom-made-robot-simulator/432112/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3175236,
+                3175242,
+                3175272,
+                3345281
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                928
+            ],
+            [
+                4,
+                563
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Reusing commands in multiple command groups",
+                "id": 476430,
+                "title": "Reusing commands in multiple command groups",
+                "slug": "reusing-commands-in-multiple-command-groups",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-12-10T20:18:29.128Z",
+                "last_posted_at": "2024-12-11T03:04:02.903Z",
+                "bumped": true,
+                "bumped_at": "2024-12-11T03:04:02.903Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Write a factory function!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 199,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3457493,
+                "topic_post_liked": false,
+                "topic_post_like_count": 11,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 12381,
+                    "username": "Oblarg",
+                    "name": "Eli Barnett",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 37016,
+                            "username": "rjbell4",
+                            "name": "Bob Bell",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/8c91f0/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53417,
+                            "username": "HenryLeC",
+                            "name": "Henry LeCompte",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/7bcc69/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Single Swerve Drive Motor is Not Functioning",
+                "id": 481675,
+                "title": "Single Swerve Drive Motor is Not Functioning",
+                "slug": "single-swerve-drive-motor-is-not-functioning",
+                "posts_count": 13,
+                "reply_count": 8,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-01-14T17:17:10.688Z",
+                "last_posted_at": "2025-01-17T16:37:25.993Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T16:37:25.993Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team has recently updated our libraries from 2024 and migrated to PhoenixV6. After the migration, one of our modules on our swerve drive isn’t working as intended, specifically the angle motor (CA…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 164,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3482245,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65051,
+                    "username": "gcaswell",
+                    "name": "Gage Caswell",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/34f0e0/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 65051,
+                            "username": "gcaswell",
+                            "name": "Gage Caswell",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/34f0e0/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Weird issue with Yagsl tuning",
+                "id": 484152,
+                "title": "Weird issue with Yagsl tuning",
+                "slug": "weird-issue-with-yagsl-tuning",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/1/315d3a1d2e45a8c42b19da307a107a26b5cb46c3_2_1024x576.jpeg",
+                "created_at": "2025-01-29T20:26:01.266Z",
+                "last_posted_at": "2025-02-06T16:29:54.840Z",
+                "bumped": true,
+                "bumped_at": "2025-02-06T16:29:54.840Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are trying to tune a sds mk 4 using yagsl but are getting something really weird when trying to tune. The desired states do not seem to match the motion the joystick is sending. They also flip betw…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 81,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495920,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64493,
+                    "username": "Mads_0927",
+                    "name": "Mads <3",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64493,
+                            "username": "Mads_0927",
+                            "name": "Mads <3",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mads_0927/{size}/237453_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 15680,
+                            "username": "Peter_Cudmore",
+                            "name": "Peter Cudmore",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ac91a4/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight Field Map not uploading to 3a",
+                "id": 491457,
+                "title": "Limelight Field Map not uploading to 3a",
+                "slug": "limelight-field-map-not-uploading-to-3a",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/8/983f1f20a8af508373bb41b5c0ac1e96aeb96bd1_2_768x1024.jpeg",
+                "created_at": "2025-02-13T00:52:49.381Z",
+                "last_posted_at": "2025-02-13T03:00:54.478Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T03:00:54.478Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The map file won’t update the image that is shown on the field just the april tag locations. It looks like it did upload the tag locations as that looks like the reef/coral station/barge tag locations…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 124,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525607,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 11043,
+                    "username": "kgzak",
+                    "name": "kgzak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73407,
+                            "username": "Pranav_v",
+                            "name": "Pranav Vanparty",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/7c8e57/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 11043,
+                            "username": "kgzak",
+                            "name": "kgzak",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Error when finding limelight after flashing, &ldquo;A Javascript error occurred in the main process&rdquo;",
+                "id": 475594,
+                "title": "Error when finding limelight after flashing, \"A Javascript error occurred in the main process\"",
+                "slug": "error-when-finding-limelight-after-flashing-a-javascript-error-occurred-in-the-main-process",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/7/37173433d89a4aaa22c008d3f937dc610eb088cb_2_1024x725.png",
+                "created_at": "2024-11-25T21:19:07.762Z",
+                "last_posted_at": "2024-11-26T18:11:48.108Z",
+                "bumped": true,
+                "bumped_at": "2024-11-26T20:13:34.914Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Good afternoon. After flashing a limelight, I wanted to set it up with the Limelight Hardware Manager. However, when doing so, I got told that the connection was closing. So, I went to the limelight…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 163,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451780,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69300,
+                    "username": "devNafi",
+                    "name": "Nafi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/devnafi/{size}/251778_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69300,
+                            "username": "devNafi",
+                            "name": "Nafi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/devnafi/{size}/251778_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68487,
+                            "username": "Stormbreaker",
+                            "name": "Mahi Madhan Kumar",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stormbreaker/{size}/268248_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 17110,
+                            "username": "Brandon_Hjelstrom",
+                            "name": "Brandon_Hjelstrom",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/6a8cbe/{size}.png",
+                            "primary_group_name": "Limelight",
+                            "flair_name": "Limelight",
+                            "flair_url": "/uploads/default/original/3X/1/e/1e94f21b87a41e6da386d6191b529acb3f383240.png",
+                            "flair_group_id": 68,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "simulation",
+            "wpi"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Custom made robot simulator?",
+        "id": 432112,
+        "title": "Custom made robot simulator?",
+        "posts_count": 4,
+        "created_at": "2023-03-28T15:03:32.929Z",
+        "views": 772,
+        "reply_count": 0,
+        "like_count": 5,
+        "last_posted_at": "2024-03-27T15:30:31.881Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "custom-made-robot-simulator",
+        "category_id": 30,
+        "word_count": 415,
+        "deleted_at": null,
+        "user_id": 40752,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_432112",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 40752,
+                    "username": "OfekHarel",
+                    "name": "Ofek Harel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ofekharel/{size}/134749_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 44471,
+                    "username": "jonahb55",
+                    "name": "Jonah Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 40752,
+                "username": "OfekHarel",
+                "name": "Ofek Harel",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/ofekharel/{size}/134749_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Mechanical-Advantage/AdvantageScope",
+                    "title": "GitHub - Mechanical-Advantage/AdvantageScope: Robot telemetry application",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 28,
+                    "user_id": 44471,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Mechanical-Advantage/AdvantageKit",
+                    "title": "GitHub - Mechanical-Advantage/AdvantageKit: Monorepo for robot framework and tools",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 44471,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Mechanical-Advantage/AdvantageKit/blob/main/docs/CODE-STRUCTURE.md",
+                    "title": "AdvantageKit/CODE-STRUCTURE.md at main · Mechanical-Advantage/AdvantageKit · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 44471,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

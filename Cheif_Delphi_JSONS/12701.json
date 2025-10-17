@@ -1,0 +1,973 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3135356,
+                    "name": "Jonathan L.",
+                    "username": "Jonathan_L",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonathan_l/{size}/6473_2.png",
+                    "created_at": "2023-01-28T13:17:53.502Z",
+                    "cooked": "I think I found some places in the SPARK MAX documentation that seem self contradictory. I’m wondering which parts are true but also hoping this will lead to improving the docs.\n\nWhen I hover over the com.revrobotics.SparkMaxPIDController.setReference(double value, ControlType ctrl, int pidSlot, double arbFeedforward, ArbFFUnits arbFFUnits) method to see its documentation, I read the following.\n\narbFeedforward A value from which is represented in voltage applied to the motor after the result of the specified control mode. The units for the parameter is Volts. This value is set after the control mode, but before any current limits or ramp rates.\n\nThe diagram from the SPARK MAX documentation shows the Arbitrary FeedForward voltage being applied after the limits.\n\nThe diagram from the SPARK MAX documentation shows the Arbitrary FeedForward voltage being applied after the limits.\n\nIt says that the units is volts but the next parameter is defines units.\n\nIt says that the units is volts but the next parameter is defines units.\n\nWhen set to percentage units is it a +1 to -1 value or an actual +100% to -100% value?\n\nWhen set to percentage units is it a +1 to -1 value or an actual +100% to -100% value?\n\nI see a deprecated warning on this function and can’t figure out how to call the method it is referencing so maybe fixing that would help?\n\nThanks in advance.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-28T13:17:53.502Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 307,
+                    "reads": 163,
+                    "readers_count": 162,
+                    "score": 1572.6,
+                    "yours": false,
+                    "topic_id": 424915,
+                    "topic_slug": "some-contrary-spark-max-closed-loop-control-documentation",
+                    "display_username": "Jonathan L.",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.revrobotics.com/sparkmax/operating-modes/closed-loop-control",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Closed Loop Control - SPARK MAX",
+                            "clicks": 21
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 19457,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/some-contrary-spark-max-closed-loop-control-documentation/424915/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3135518,
+                    "name": "Gavin Matthews",
+                    "username": "bovlb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "created_at": "2023-01-28T20:16:08.895Z",
+                    "cooked": "Jonathan_L:\n\nI see a deprecated warning on this function and can’t figure out how to call the method\n\nIf you go to the Java documentation , you’ll see that the versions that use com.revrobotics.ControlType are deprecated in favour of those that use com.revrobotics.CANSparkMax.ControlType .  It’s just a rename, so to change to the non-deprecated version, you need to change from ControlType to CANSparkMax.ControlType .  This should not be causing you any problem.\n\nJonathan_L:\n\nThe diagram from the SPARK MAX documentation shows the Arbitrary FeedForward voltage being applied after the limits.\n\nI agree that the diagram and accompanying text indicate that the arbitrary feedforward voltage is applied “after all calculations are done” but the method documentation suggests otherwise.  (The C++ method documentation is similar.)\n\nJonathan_L:\n\nIt says that the units is volts but the next parameter is defines units.\n\nI also agree that the method documentation is misleading when it says that the units of the arbitrary feedforward is volts when there is a version of the method that accepts a units parameter.  I take this to be referring to the default unit when no unit is specified, and it was incorrectly copied into the documentation of the method that permits a unit.  (This is slightly clearer in C++, which has default parameter values.)\n\nJonathan_L:\n\nWhen set to percentage units is it a +1 to -1 value or an actual +100% to -100% value?\n\nPercent implies it should go to 100, but I strongly suspect it goes to 1.  I have seen a lot of APIs that say “percent” but mean “fraction of one”, especially in America.  I don’t know why this specific terminological sloppiness is so common.  Maybe there isn’t a good name for the interval [-1,+1].\n\nSo far as I’m aware, Rev don’t publish their source code anywhere (like Github) where you could submit a change request. My suggestion would be to contact them directly .  You might like to propose specific changes.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-28T20:29:09.666Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 5,
+                    "reads": 116,
+                    "readers_count": 115,
+                    "score": 68.2,
+                    "yours": false,
+                    "topic_id": 424915,
+                    "topic_slug": "some-contrary-spark-max-closed-loop-control-documentation",
+                    "display_username": "Gavin Matthews",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkmaxpidcontroller#setReference(double,com.revrobotics.CANSparkMax.ControlType)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SparkMaxPIDController (FRC-REVLib API)",
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://codedocs.revrobotics.com/cpp/classrev_1_1_spark_max_p_i_d_controller.html#a7e55d409e456d441d5a82ba8c0e234e2",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "REVLib - C++: rev::SparkMaxPIDController Class Reference",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.revrobotics.com/contact-us/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Contact Us",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38743,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming mentor, Team 2102, RI, CSA (he/him)"
+                    },
+                    "post_url": "/t/some-contrary-spark-max-closed-loop-control-documentation/424915/2",
+                    "custom_user_title": "Programming mentor, Team 2102, RI, CSA (he/him)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3135538,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2023-01-28T20:48:20.932Z",
+                    "cooked": "bovlb:\n\nSo far as I’m aware, Rev don’t publish their source code anywhere (like Github) where you could submit a change request. My suggestion would be to contact them directly . You might like to propose specific changes.\n\nContacting their support is a perfectly valid approach, but I’d like to add that they also have this Trello board for publicly tracking changes related to the SparkMax firmware and APIs.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-28T20:48:20.932Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 4,
+                    "reads": 74,
+                    "readers_count": 73,
+                    "score": 34.8,
+                    "yours": false,
+                    "topic_id": 424915,
+                    "topic_slug": "some-contrary-spark-max-closed-loop-control-documentation",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://trello.com/b/DOsaf6hW/spark-max-software-roadmap",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Trello",
+                            "clicks": 13
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/some-contrary-spark-max-closed-loop-control-documentation/424915/3",
+                    "custom_user_title": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3296594,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-01-28T20:49:12.287Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-01-28T20:49:12.287Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 17,
+                    "readers_count": 16,
+                    "score": 8.4,
+                    "yours": false,
+                    "topic_id": 424915,
+                    "topic_slug": "some-contrary-spark-max-closed-loop-control-documentation",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/some-contrary-spark-max-closed-loop-control-documentation/424915/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3135356,
+                3135518,
+                3135538,
+                3296594
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                988
+            ],
+            [
+                2,
+                987
+            ],
+            [
+                4,
+                622
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How to flash LL4 (Where is config button)",
+                "id": 497857,
+                "title": "How to flash LL4 (Where is config button)",
+                "slug": "how-to-flash-ll4-where-is-config-button",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-04-02T20:00:08.875Z",
+                "last_posted_at": "2025-04-02T23:50:56.632Z",
+                "bumped": true,
+                "bumped_at": "2025-04-02T23:50:56.632Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It is inside the hole next to the status light circled in this photo",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 257,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3578336,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 61038,
+                    "username": "ck2928",
+                    "name": "Cecilia",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/c5a1d2/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64166,
+                            "username": "Arnaud_Girard",
+                            "name": "Arnaud Girard",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/db5fbb/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61038,
+                            "username": "ck2928",
+                            "name": "Cecilia",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/c5a1d2/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63182,
+                            "username": "Akshaj_K",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/71c47a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 11043,
+                            "username": "kgzak",
+                            "name": "kgzak",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Wcp through bore encoders reporting negative values",
+                "id": 497891,
+                "title": "Wcp through bore encoders reporting negative values",
+                "slug": "wcp-through-bore-encoders-reporting-negative-values",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-04-03T04:12:38.105Z",
+                "last_posted_at": "2025-04-03T19:43:41.497Z",
+                "bumped": true,
+                "bumped_at": "2025-04-03T19:43:41.497Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "we have a through bore encoder on our climber and when we power on the robot at its lowest position the values are positive. But when it’s up during startup the values are negative? Why is this happen…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wcp"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 394,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3578984,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57204,
+                    "username": "Prince",
+                    "name": "Prince",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20861,
+                            "username": "evanperryg",
+                            "name": "evanperryg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/evanperryg/{size}/259696_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62207,
+                            "username": "TheComputer314",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thecomputer314/{size}/241453_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "HAL Incompatible State",
+                "id": 482928,
+                "title": "HAL Incompatible State",
+                "slug": "hal-incompatible-state",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-01-21T20:57:22.970Z",
+                "last_posted_at": "2025-01-22T20:20:21.466Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T20:20:21.466Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! We have had an issue where one of our SparkMAXs is not receiving a signal to turn. Everything has been replaced and updated, the only error we have received is as ERROR 1015 …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 168,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489211,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65051,
+                    "username": "gcaswell",
+                    "name": "Gage Caswell",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/34f0e0/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65051,
+                            "username": "gcaswell",
+                            "name": "Gage Caswell",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/34f0e0/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Lag Issue with PathPlanner",
+                "id": 492933,
+                "title": "Lag Issue with PathPlanner",
+                "slug": "lag-issue-with-pathplanner",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/0/801f3486ac48c9d10c58094231d8b5b2924a9bc9_2_1024x433.png",
+                "created_at": "2025-02-24T13:03:58.328Z",
+                "last_posted_at": "2025-02-24T13:03:58.380Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T13:09:17.808Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi. We are a rookie team trying to use PathPlanner. Somehow, we encountered a severe problem with robot lag. I tried my best to find out where is wrong and simplify the code structure, but the lag is…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 61,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537841,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69619,
+                    "username": "Y.Sean",
+                    "name": "Team 10034 Programmer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/y.sean/{size}/252033_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69619,
+                            "username": "Y.Sean",
+                            "name": "Team 10034 Programmer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/y.sean/{size}/252033_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "WPILib Commands V3 - Imperative function bodies with coroutines",
+                "id": 500699,
+                "title": "WPILib Commands V3 - Imperative function bodies with coroutines",
+                "slug": "wpilib-commands-v3-imperative-function-bodies-with-coroutines",
+                "posts_count": 99,
+                "reply_count": 78,
+                "highest_post_number": 99,
+                "image_url": null,
+                "created_at": "2025-04-28T01:12:38.579Z",
+                "last_posted_at": "2025-08-28T23:53:53.164Z",
+                "bumped": true,
+                "bumped_at": "2025-08-28T23:53:53.164Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Heads this is coming for 2027, since it requires JVM features unavailable for the roboRIO. It’s still a work in progress, but the API is mostly solidified at this point. Comments and feedback are…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 485,
+                "views": 3981,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3605444,
+                "topic_post_liked": false,
+                "topic_post_like_count": 55,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 25916,
+                    "username": "SamCarlberg",
+                    "name": "Sam Carlberg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 25916,
+                            "username": "SamCarlberg",
+                            "name": "Sam Carlberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50699,
+                            "username": "Programming4907",
+                            "name": "Scott W",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/programming4907/{size}/168313_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56324,
+                            "username": "Daniel1464",
+                            "name": "Daniel C.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/6bbea6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 36169,
+                            "username": "Hollisms",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hollisms/{size}/110925_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "sparkmax",
+            "pid"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Some Contrary SPARK MAX Closed Loop Control Documentation",
+        "id": 424915,
+        "title": "Some Contrary SPARK MAX Closed Loop Control Documentation",
+        "posts_count": 4,
+        "created_at": "2023-01-28T13:17:53.436Z",
+        "views": 739,
+        "reply_count": 1,
+        "like_count": 1,
+        "last_posted_at": "2024-01-28T20:49:12.287Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "some-contrary-spark-max-closed-loop-control-documentation",
+        "category_id": 30,
+        "word_count": 703,
+        "deleted_at": null,
+        "user_id": 19457,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_424915",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 19457,
+                    "username": "Jonathan_L",
+                    "name": "Jonathan L.",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jonathan_l/{size}/6473_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 19457,
+                "username": "Jonathan_L",
+                "name": "Jonathan L.",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/jonathan_l/{size}/6473_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.revrobotics.com/sparkmax/operating-modes/closed-loop-control",
+                    "title": "Closed Loop Control - SPARK MAX",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 21,
+                    "user_id": 19457,
+                    "domain": "docs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkmaxpidcontroller#setReference(double,com.revrobotics.CANSparkMax.ControlType)",
+                    "title": "SparkMaxPIDController (FRC-REVLib API)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 38743,
+                    "domain": "codedocs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://trello.com/b/DOsaf6hW/spark-max-software-roadmap",
+                    "title": "Trello",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 9105,
+                    "domain": "trello.com",
+                    "root_domain": "trello.com"
+                },
+                {
+                    "url": "https://codedocs.revrobotics.com/cpp/classrev_1_1_spark_max_p_i_d_controller.html#a7e55d409e456d441d5a82ba8c0e234e2",
+                    "title": "REVLib - C++: rev::SparkMaxPIDController Class Reference",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 38743,
+                    "domain": "codedocs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

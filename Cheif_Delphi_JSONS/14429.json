@@ -1,0 +1,1043 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3039656,
+                    "name": "Omri Almog",
+                    "username": "Omri058",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/a88e57/{size}.png",
+                    "created_at": "2022-04-08T10:38:06.789Z",
+                    "cooked": "Except for the limelight, we have 2 cameras on our robot, both of which are connected to a Raspberry Pi. One of the cameras is an RPI camera, and it works just fine, without any delay or any other issue. The other camera is connected to the raspberry via USB, and it’s a bit problematic. I didn’t manage to find the exact model, but it’s very similar to this one . Initially, because the camera has a high resolution, the stream had a very low FPS. We solved this problem by resizing the image using OpenCV’s resize function. Despite that, we have another problem: the stream has a delay of about half a second, which isn’t ideal when driving at high speeds. We don’t want to connect the camera directly to the RoboRIO because it can affect our code’s run time. Does anyone know how to solve this issue or what causes it?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-04-08T10:38:06.789Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1347,
+                    "reads": 91,
+                    "readers_count": 90,
+                    "score": 6748.2,
+                    "yours": false,
+                    "topic_id": 408224,
+                    "topic_slug": "usb-camera-to-raspberry-pi-delay",
+                    "display_username": "Omri Almog",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.arducam.com/product/arducam-1080p-low-light-wdr-usb-camera-module-for-computer-2mp-1-2-8-cmos-imx291-100-degree-wide-angle-mini-uvc-spy-webcam-board-with-microphone-3-3ft-1m-cable-for-windows-linux-mac-os/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Arducam 1080P Low Light WDR USB Camera Module for Computer, 2MP 1/2.8” CMOS IMX291 100 Degree Wide Angle Mini UVC Webcam Board with Microphone - Arducam",
+                            "clicks": 23
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 47445,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 1690 Programming lead"
+                    },
+                    "post_url": "/t/usb-camera-to-raspberry-pi-delay/408224/1",
+                    "custom_user_title": "FRC 1690 Programming lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3039775,
+                    "name": "Peter Johnson",
+                    "username": "Peter_Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "created_at": "2022-04-08T15:44:38.836Z",
+                    "cooked": "Half a second is quite a long delay.  Let’s look at the processing chain…\n\nCamera sensor (e.g. capture & readout)\n\nCamera compression to JPEG (if video mode is MJPEG)\n\nUSB transmission of camera data\n\nSoftware JPEG decompression (if video mode is MJPEG)\n\nSoftware image resize\n\nSoftware JPEG compression\n\nNetwork transmission\n\nIf the camera has a lower resolution video mode (if you’re using WPILib’s CameraServer libraries, you can get a list of video modes via the camera server webpage), it will help multiple steps in this chain (2, 3, 4, 5, and depending on the camera’s internal design, maybe even 1).  Also, if the lower resolution fits you in bandwidth constraints, you can completely eliminate steps 4-6.\n\nSometimes changing the video mode to YUYV instead of MJPEG can help–you eliminate 2 and 4, but 3 becomes higher cost.\n\nFor USB webcams, 1 can often be a major driver as many are optimized for image quality over latency.  Tweaking camera settings such as auto-exposure and going to a fixed setting can substantially help latency.  Again, if you’re using the CameraServer libraries, these can be tweaked via the webpage, and once you find settings that work, you can set those settings in code.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-04-08T15:50:04.841Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 17,
+                    "reads": 73,
+                    "readers_count": 72,
+                    "score": 134.6,
+                    "yours": false,
+                    "topic_id": 408224,
+                    "topic_slug": "usb-camera-to-raspberry-pi-delay",
+                    "display_username": "Peter Johnson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 13575,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Volunteer WPILib Developer, CSA"
+                    },
+                    "post_url": "/t/usb-camera-to-raspberry-pi-delay/408224/2",
+                    "custom_user_title": "Volunteer WPILib Developer, CSA",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3039890,
+                    "name": "Omri Almog",
+                    "username": "Omri058",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/a88e57/{size}.png",
+                    "created_at": "2022-04-08T18:31:53.122Z",
+                    "cooked": "We tried lowering the resolution via the webpage, but for some reason it also cuts the image. Besides, thanks for the tip, we will try to change the parameters like you said to decrease the latency.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-04-08T18:31:53.122Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 45.6,
+                    "yours": false,
+                    "topic_id": 408224,
+                    "topic_slug": "usb-camera-to-raspberry-pi-delay",
+                    "display_username": "Omri Almog",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 13575,
+                        "username": "Peter_Johnson",
+                        "name": "Peter Johnson",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 47445,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 1690 Programming lead"
+                    },
+                    "post_url": "/t/usb-camera-to-raspberry-pi-delay/408224/3",
+                    "custom_user_title": "FRC 1690 Programming lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3039902,
+                    "name": "tchatow",
+                    "username": "tchatow",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e495f1/{size}.png",
+                    "created_at": "2022-04-08T18:40:48.851Z",
+                    "cooked": "Note that USB cameras will always have more latency since they must encode the image over the usb protocol and have it decoded in software. With a mipi camera the signal is received in near real time by the Pi’s video chip which leads to very good latency.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2022-04-08T18:40:48.851Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 34.6,
+                    "yours": false,
+                    "topic_id": 408224,
+                    "topic_slug": "usb-camera-to-raspberry-pi-delay",
+                    "display_username": "tchatow",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 47445,
+                        "username": "Omri058",
+                        "name": "Omri Almog",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/o/a88e57/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 32788,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/usb-camera-to-raspberry-pi-delay/408224/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3183339,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-04-08T18:41:17.026Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2023-04-08T18:41:17.026Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 11,
+                    "readers_count": 10,
+                    "score": 32.2,
+                    "yours": false,
+                    "topic_id": 408224,
+                    "topic_slug": "usb-camera-to-raspberry-pi-delay",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/usb-camera-to-raspberry-pi-delay/408224/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3039656,
+                3039775,
+                3039890,
+                3039902,
+                3183339
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1283
+            ],
+            [
+                3,
+                1282
+            ],
+            [
+                5,
+                917
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "[HELP ONSHAPE] As a student on team FRC 694 StuyPulse, I accidentally deleted my entire team",
+                "id": 501921,
+                "title": "[HELP ONSHAPE] As a student on team FRC 694 StuyPulse, I accidentally deleted my entire team",
+                "slug": "help-onshape-as-a-student-on-team-frc-694-stuypulse-i-accidentally-deleted-my-entire-team",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-05-17T03:22:26.869Z",
+                "last_posted_at": "2025-05-20T15:53:01.977Z",
+                "bumped": true,
+                "bumped_at": "2025-05-20T15:53:01.977Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I am a student from FRC team 694 StuyPulse. As surprising as it may seem, I accidentally deleted our entire team from Onshape, causing all of our documents to scatter among past members. We h…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "cad",
+                    "onshape"
+                ],
+                "tags_descriptions": {},
+                "like_count": 205,
+                "views": 2290,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3627110,
+                "topic_post_liked": false,
+                "topic_post_like_count": 26,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62041,
+                    "username": "RachelKim",
+                    "name": "694 Director of Design/Electronics/Awards | 23513 Mechanical/Electrical Lead",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/8e8cbc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 62041,
+                            "username": "RachelKim",
+                            "name": "694 Director of Design/Electronics/Awards | 23513 Mechanical/Electrical Lead",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/8e8cbc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39620,
+                            "username": "Big_frc_fan",
+                            "name": "Samjackjoetedpaulbill",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/5e9695/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22795,
+                            "username": "Drew_B",
+                            "name": "Drew B.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/drew_b/{size}/194417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Onshape Bumper FS",
+                "id": 475233,
+                "title": "Onshape Bumper FS",
+                "slug": "onshape-bumper-fs",
+                "posts_count": 8,
+                "reply_count": 1,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/9/a99e20becec87a18072452ad076d5215a54893f8.jpeg",
+                "created_at": "2024-11-20T03:03:30.594Z",
+                "last_posted_at": "2025-04-09T14:56:55.791Z",
+                "bumped": true,
+                "bumped_at": "2025-04-09T14:56:55.791Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Last year just before kickoff I made up a quick and dirty bumper FS. Now in light of the new bumper rules for 2025 I have decided to overhaul it and release it more publicly. You can find the feature…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "cad",
+                    "bumpers",
+                    "featurescript"
+                ],
+                "tags_descriptions": {},
+                "like_count": 25,
+                "views": 1157,
+                "category_id": 81,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3449708,
+                "topic_post_liked": false,
+                "topic_post_like_count": 14,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64487,
+                    "username": "UnnaturalTwilight",
+                    "name": " Unnatural Twilight",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/unnaturaltwilight/{size}/216805_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64487,
+                            "username": "UnnaturalTwilight",
+                            "name": " Unnatural Twilight",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/unnaturaltwilight/{size}/216805_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19411,
+                            "username": "Dominick_Ferone",
+                            "name": "Dominick Ferone",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dominick_ferone/{size}/236622_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62313,
+                            "username": "CX-7",
+                            "name": "Dominic Shotwell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cx-7/{size}/208051_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Control Kraken X60 With Raspberry Pi",
+                "id": 476998,
+                "title": "Control Kraken X60 With Raspberry Pi",
+                "slug": "control-kraken-x60-with-raspberry-pi",
+                "posts_count": 25,
+                "reply_count": 21,
+                "highest_post_number": 25,
+                "image_url": null,
+                "created_at": "2024-12-18T23:37:08.430Z",
+                "last_posted_at": "2025-06-15T21:25:33.575Z",
+                "bumped": true,
+                "bumped_at": "2025-06-16T01:16:56.549Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Just using the existing can wiring to a gpio that supports pwm, the kraken’s manual will tell you which cable is ground and which is pwm signal and something like will tell you wher…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 20,
+                "views": 904,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461271,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 23,
+                "topic_post_user": {
+                    "id": 60586,
+                    "username": "cmdada",
+                    "name": "Ada T",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69719,
+                            "username": "tsaxking",
+                            "name": "Taylor",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tsaxking/{size}/239064_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "233 The Pink Team - Introducing Our Configurable Swerve Drive Base",
+                "id": 477121,
+                "title": "233 The Pink Team - Introducing Our Configurable Swerve Drive Base",
+                "slug": "233-the-pink-team-introducing-our-configurable-swerve-drive-base",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-20T17:11:58.343Z",
+                "last_posted_at": "2024-12-29T10:01:13.440Z",
+                "bumped": true,
+                "bumped_at": "2024-12-29T10:07:15.031Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "233 is proud to present our Onshape configurable swerve drive base 233_Drive_Base - Final - Released Version - 2024 | Main Drivebase ASM Over the offseason, 3 students and I created a configurab…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "drivetrain",
+                    "swervedrive",
+                    "onshape",
+                    "cadrelease",
+                    "release",
+                    "drivebase",
+                    "configurable",
+                    "configuration"
+                ],
+                "tags_descriptions": {},
+                "like_count": 28,
+                "views": 1130,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461965,
+                "topic_post_liked": false,
+                "topic_post_like_count": 10,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 22936,
+                    "username": "Tristan_Shepard",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 22936,
+                            "username": "Tristan_Shepard",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_shepard/{size}/232239_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51410,
+                            "username": "HarbringerOfAuroras",
+                            "name": "Maia",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/harbringerofauroras/{size}/165119_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58279,
+                            "username": "Legomonster33",
+                            "name": "Evan Sigl",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legomonster33/{size}/234529_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What other teams wear camo pants as part of their uniform?",
+                "id": 474013,
+                "title": "What other teams wear camo pants as part of their uniform?",
+                "slug": "what-other-teams-wear-camo-pants-as-part-of-their-uniform",
+                "posts_count": 14,
+                "reply_count": 3,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-10-30T01:36:13.797Z",
+                "last_posted_at": "2024-10-30T17:15:09.899Z",
+                "bumped": true,
+                "bumped_at": "2024-10-30T17:15:09.899Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi all! I am a mentor on team 1511 Rolling Thunder and we are fairly well known (at least in our region) for our bright red camo pants that are a part of our uniform. I was talking with some other te…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "uniforms"
+                ],
+                "tags_descriptions": {},
+                "like_count": 22,
+                "views": 708,
+                "category_id": 8,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3441455,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66061,
+                    "username": "Fedge",
+                    "name": "Geoffrey Hastings",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66061,
+                            "username": "Fedge",
+                            "name": "Geoffrey Hastings",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 34491,
+                            "username": "DBrew3488",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/edb3f5/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59182,
+                            "username": "TrevDay",
+                            "name": "Trevor Dayal (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trevday/{size}/268067_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 68136,
+                            "username": "jom",
+                            "name": "Miles.D",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jom/{size}/256684_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "USB camera to Raspberry Pi delay",
+        "id": 408224,
+        "title": "USB camera to Raspberry Pi delay",
+        "posts_count": 5,
+        "created_at": "2022-04-08T10:38:06.726Z",
+        "views": 1916,
+        "reply_count": 2,
+        "like_count": 2,
+        "last_posted_at": "2023-04-08T18:41:17.026Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "usb-camera-to-raspberry-pi-delay",
+        "category_id": 9,
+        "word_count": 517,
+        "deleted_at": null,
+        "user_id": 47445,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_408224",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 47445,
+                    "username": "Omri058",
+                    "name": "Omri Almog",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/o/a88e57/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 32788,
+                    "username": "tchatow",
+                    "name": "tchatow",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e495f1/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 47445,
+                "username": "Omri058",
+                "name": "Omri Almog",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/o/a88e57/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.arducam.com/product/arducam-1080p-low-light-wdr-usb-camera-module-for-computer-2mp-1-2-8-cmos-imx291-100-degree-wide-angle-mini-uvc-spy-webcam-board-with-microphone-3-3ft-1m-cable-for-windows-linux-mac-os/",
+                    "title": "Arducam 1080P Low Light WDR USB Camera Module for Computer, 2MP 1/2.8” CMOS IMX291 100 Degree Wide Angle Mini UVC Webcam Board with Microphone - Arducam",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 23,
+                    "user_id": 47445,
+                    "domain": "www.arducam.com",
+                    "root_domain": "arducam.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,802 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3152253,
+                    "name": "mtomczak",
+                    "username": "mtomczak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mtomczak/{size}/8431_2.png",
+                    "created_at": "2023-02-25T00:42:26.267Z",
+                    "cooked": "Hi all!\n\nI’m putting together a troubleshooting guide for debugging the Ramsete command (as a supplement to the one WPILib provides in Troubleshooting — FIRST Robotics Competition documentation ). We have a couple of things that have worked well for us, but I’d like to put in any pieces that anyone can recommend.\n\nTwo questions I’d like to ask:\n\nIf you’ve used the Ramsete command or Ramsete controller, what’s one issue you ran into and how did you fix it?\n\nWhat are “reasonable” values for drive constants (ksVolts, kvVoltSecondsPerMeter, kaVoltSeconsSquaredPerMeter) that people encountered? One issue we discovered is that some error in our SysID config resulted in a kv of 35, which was too much for the trajectory generator to handle (it died on “I can’t figure out how to make the robot accelerate, and the velocity is zero, so this robot never moves”). I’d like to lay out some “rule of thumb” reasonable numbers in the MKS units so a team can glance at them and say “Oh, that’s way off; we need to re-characterize.”",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2023-02-25T00:42:26.267Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 24,
+                    "readers_count": 23,
+                    "score": 24.8,
+                    "yours": false,
+                    "topic_id": 428013,
+                    "topic_slug": "a-guide-to-debugging-ramsete-request-for-suggestions",
+                    "display_username": "mtomczak",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/troubleshooting.html#",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Troubleshooting — FIRST Robotics Competition documentation",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9525,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/a-guide-to-debugging-ramsete-request-for-suggestions/428013/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3316891,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-02-25T00:42:44.318Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 2,
+                    "post_type": 3,
+                    "posts_count": 2,
+                    "updated_at": "2024-02-25T00:42:44.318Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 428013,
+                    "topic_slug": "a-guide-to-debugging-ramsete-request-for-suggestions",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/a-guide-to-debugging-ramsete-request-for-suggestions/428013/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3152253,
+                3316891
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                960
+            ],
+            [
+                2,
+                595
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "PathPlanner Auto spinning out of control",
+                "id": 491792,
+                "title": "PathPlanner Auto spinning out of control",
+                "slug": "pathplanner-auto-spinning-out-of-control",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/7/273c356327b3e54d16896baf18b2cadd6f896dbe.gif",
+                "created_at": "2025-02-15T14:28:25.303Z",
+                "last_posted_at": "2025-03-04T14:58:44.215Z",
+                "bumped": true,
+                "bumped_at": "2025-03-04T14:58:44.215Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is trying out Swerve for the first time this year however when we tried to create an Auto Routine with PathPlanner instead of following the path the robot just spins out. This is the ideal a…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 166,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3527865,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 72144,
+                    "username": "GenericUsername77",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/d07c76/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 72144,
+                            "username": "GenericUsername77",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/d07c76/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60604,
+                            "username": "tugra",
+                            "name": "Canava",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/d6d6ee/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Detect open branches",
+                "id": 479048,
+                "title": "Detect open branches",
+                "slug": "detect-open-branches",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-05T19:08:29.155Z",
+                "last_posted_at": "2025-01-06T04:38:25.591Z",
+                "bumped": true,
+                "bumped_at": "2025-01-06T04:38:25.591Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I was thinking about automation when it comes to this game, and I believe it would be really useful to be able to automatically move to a known location to place coral on the branches. The hard part a…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 528,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3471169,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56160,
+                    "username": "C3434",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/ee59a6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56160,
+                            "username": "C3434",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57747,
+                            "username": "MSU2000",
+                            "name": "Ardiano Works",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/msu2000/{size}/190139_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Check Roborio Serial Number at Compile Time?",
+                "id": 474532,
+                "title": "Check Roborio Serial Number at Compile Time?",
+                "slug": "check-roborio-serial-number-at-compile-time",
+                "posts_count": 15,
+                "reply_count": 9,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2024-11-08T04:07:16.956Z",
+                "last_posted_at": "2024-11-12T01:55:37.783Z",
+                "bumped": true,
+                "bumped_at": "2024-11-12T01:55:37.783Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You get to choose what happens when you can’t identify the robot. Refusing to run is probably too hard-core for you, so you should pick one robot as default, and emit warnings (maybe a Persistent A…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "roborio"
+                ],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 392,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444971,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 10,
+                "topic_post_user": {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49423,
+                            "username": "Gandagorn",
+                            "name": "Elliot Scher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "RoboRIO rejects laserCAN device",
+                "id": 491643,
+                "title": "RoboRIO rejects laserCAN device",
+                "slug": "roborio-rejects-lasercan-device",
+                "posts_count": 25,
+                "reply_count": 18,
+                "highest_post_number": 25,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/b/b/bba61985750cd719477e02672ea1f1b8ac163fc0_2_768x1024.jpeg",
+                "created_at": "2025-02-14T03:13:43.772Z",
+                "last_posted_at": "2025-02-19T16:05:35.511Z",
+                "bumped": true,
+                "bumped_at": "2025-02-19T16:05:35.511Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "There’s a bit to unpack here, but firstly your robot class shouldn’t be named “laserCan” - it should pretty much be identical to what WPILib generates with the addition of a LaserCAN object initialise…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 596,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528376,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 22,
+                "topic_post_user": {
+                    "id": 24335,
+                    "username": "Jaci",
+                    "name": "Jaci",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jaci/{size}/8002_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73442,
+                            "username": "therealtitantvman",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/therealtitantvman/{size}/250399_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 24335,
+                            "username": "Jaci",
+                            "name": "Jaci",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jaci/{size}/8002_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33848,
+                            "username": "jedgar6",
+                            "name": "jedgar6",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jedgar6/{size}/200602_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8002,
+                            "username": "Akash_Rastogi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/akash_rastogi/{size}/169937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Approaches to Reef Auto Alignment",
+                "id": 495742,
+                "title": "Approaches to Reef Auto Alignment",
+                "slug": "approaches-to-reef-auto-alignment",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-03-16T02:15:47.007Z",
+                "last_posted_at": "2025-03-16T15:34:52.429Z",
+                "bumped": true,
+                "bumped_at": "2025-03-16T15:34:52.429Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I’m a programmer with 2168, trying out auto alignment. I’ve made a previous post about this before, but I’ve been wondering what are your thoughts on these two types of alignment, and in your o…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 576,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3558045,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53665,
+                    "username": "jio",
+                    "name": "Jiovanni Zinedine Sookhai",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/fbc32d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53665,
+                            "username": "jio",
+                            "name": "Jiovanni Zinedine Sookhai",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/fbc32d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25012,
+                            "username": "AriMB",
+                            "name": "Ari Meles-Braverman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arimb/{size}/189989_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "A guide to debugging Ramsete - request for suggestions",
+        "id": 428013,
+        "title": "A guide to debugging Ramsete - request for suggestions",
+        "posts_count": 2,
+        "created_at": "2023-02-25T00:42:26.219Z",
+        "views": 268,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2024-02-25T00:42:44.318Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "a-guide-to-debugging-ramsete-request-for-suggestions",
+        "category_id": 30,
+        "word_count": 210,
+        "deleted_at": null,
+        "user_id": 9525,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_428013",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 9525,
+                    "username": "mtomczak",
+                    "name": "mtomczak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mtomczak/{size}/8431_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 9525,
+                "username": "mtomczak",
+                "name": "mtomczak",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mtomczak/{size}/8431_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/troubleshooting.html#",
+                    "title": "Troubleshooting — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 9525,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

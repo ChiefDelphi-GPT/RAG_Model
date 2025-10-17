@@ -1,0 +1,935 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3131752,
+                    "name": "rafi",
+                    "username": "rafi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rafi/{size}/9207_2.png",
+                    "created_at": "2023-01-22T05:14:21.064Z",
+                    "cooked": "I’ve spent the last week or so experimenting with simulating a double jointed arm in python, and I’ve finally got it working to the point where I think it might be worth sharing. I initially wrote the simulator from scratch but ran into instability issues, so I rewrote it using the frccontrol framework by @calcmogul . The instability issue returned there was well, but at least now the code is a little cleaner.\n\nMy code can be found in this fork of frccontrol in examples/double_jointed_arm.py. I was initially hoping to easily merge this back into the main frccontrol repository, but I needed to make more changes to the framework than expected so that might come at a later date.\n\nThe arm simulated in code uses FRC 971 2018’s arm parameters from their github, which I heavily based my original simulator on.\n\nThe first portion of this program is the simulator. It is based on the two jointed arm dynamics derived in my previous whitepaper , and implemented using Runge-Kutta Dormand Prince integration, since the standard RK4 method led to numerical instabilities with 971’s robot arm at a 20ms time step. Interestingly, making the arm heavier made the simulator more stable - there seems to be some critical (acceleration x time step) threshold where the simulator becomes unstable. With that said, the simulator can just be run at a 5ms or 1ms step and still run pretty fast.\n\nThe more interesting portion of the program is the controller. I will preface this by saying that I do not recommend any team implement this style of controller for the first time in-season, but maybe this simulator will be able to nudge this style of controller from a 971-exclusive to something that more teams are capable of using.\n\nThe basic summary is that the simulator uses an Extended Kalman Filter to estimate the state of the arm using how it thinks the arm should move (using the dynamics equations) and also using its sensor readings. This filter smooths sensor noise, which is generally not a problem for this specific application, but hypothetically could be an issue. More importantly, this filter allows us to perform something described in the FRC Controls textbook as “input error estimation,” where the controller looks at your system’s behavior, sees how it deviates from the expected, and estimates what changes it should make to the output to make the system behave going forward. This serves a similar purpose to an I term in a PID controller, but is more optimized to avoid the sluggish/delayed response characteristic to an integrator term.\n\nThis input error estimation should allow for robust arm control even as some unmodeled disturbances arise, e.g. the loads change (picking up a game piece), things get damaged, mechanical resistances change, etc.\n\nThe controller also implements LQR to solve the optimal proportional-error gains for controlling the arm. This part may be something that could be more realistic for teams to implement in their trajectory followers this year, but it would require a characterized double jointed arm. As far as I know, there is no standard routine established for this sort of characterization.\n\nSome simulator animations are below. The dashed blue line represents the target trajectory, the red line represents where the arm is simulated to actually be, and the dashed green line represents where the controller’s Kalman filter estimates the arm is.\n\nNo disturbances:\n\nConstant unmodeled torque of 150 Nm on the first joint and -90 Nm on the second joint (these are very large loads. For reference, 1/2\" hex fails at 250 Nm): Note how the input error estimates settle to 150 and -90, matching the actual unmodeled errors that we introduced.\n\nDoubled gravity strength:\n\nNote that these disturbances are very extreme, and the controller doesn’t know about them ahead of time - it manages to compensate for them pretty impressively on the fly in just a few seconds.\n\nPlease let me know if you have any questions - I learned a lot from putting this together, and hopefully someone else can learn a thing or two from it as well.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-01-22T05:14:21.064Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1162,
+                    "reads": 506,
+                    "readers_count": 505,
+                    "score": 6216.2,
+                    "yours": false,
+                    "topic_id": 424307,
+                    "topic_slug": "double-jointed-arm-physics-control-simulator",
+                    "display_username": "rafi",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/rafchuk21/frccontrol",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - rafchuk21/frccontrol: Provides SciPy wrappers that ease development of state-space models for the FIRST Robotics Competition.",
+                            "clicks": 150
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/whitepaper-two-jointed-arm-dynamics/423060",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Whitepaper: Two Jointed Arm Dynamics",
+                            "clicks": 132
+                        },
+                        {
+                            "url": "https://github.com/calcmogul/frccontrol",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - calcmogul/frccontrol: Provides SciPy wrappers that ease development of state-space models for the FIRST Robotics Competition.",
+                            "clicks": 109
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/how-do-i-simulate-a-two-joint-arm-in-the-simulation/426882/2",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "How do I simulate a two joint arm in the Simulation",
+                            "clicks": 12
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/2053-robot-reveal/429672",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "2053 Robot Reveal",
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 20
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28673,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "449 Mentor"
+                    },
+                    "post_url": "/t/double-jointed-arm-physics-control-simulator/424307/1",
+                    "custom_user_title": "449 Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 20
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 20,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3131872,
+                    "name": "Tyler Veness",
+                    "username": "calcmogul",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "created_at": "2023-01-22T16:49:22.437Z",
+                    "cooked": "rafi:\n\nit would require a characterized double jointed arm. As far as I know, there is no standard routine established for this sort of characterization.\n\nSince you’re using input error estimation, plugging in the motor constants from a DCMotor instance and link masses and lengths will probably be close enough. If not, there’s ways to do system ID on nonlinear models: https://underactuated.mit.edu/sysid.html#example5",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-01-22T16:49:54.863Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 12,
+                    "reads": 350,
+                    "readers_count": 349,
+                    "score": 130.0,
+                    "yours": false,
+                    "topic_id": 424307,
+                    "topic_slug": "double-jointed-arm-physics-control-simulator",
+                    "display_username": "Tyler Veness",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://underactuated.mit.edu/sysid.html#example5",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Ch. 18 - System Identification",
+                            "clicks": 89
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16846,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib controls | Choreo optimizer backend"
+                    },
+                    "post_url": "/t/double-jointed-arm-physics-control-simulator/424307/2",
+                    "custom_user_title": "WPILib controls | Choreo optimizer backend",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3291489,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-01-22T16:49:41.188Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-01-22T16:49:41.188Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 59,
+                    "readers_count": 58,
+                    "score": 11.8,
+                    "yours": false,
+                    "topic_id": 424307,
+                    "topic_slug": "double-jointed-arm-physics-control-simulator",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/double-jointed-arm-physics-control-simulator/424307/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3131752,
+                3131872,
+                3291489
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                994
+            ],
+            [
+                2,
+                993
+            ],
+            [
+                3,
+                628
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "YAGSL Ambassador Program Applications Now Open!",
+                "id": 476034,
+                "title": "YAGSL Ambassador Program Applications Now Open!",
+                "slug": "yagsl-ambassador-program-applications-now-open",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/9/9998bbd8ee1e50f00300a0ebc74a506dcd6ac3c8.png",
+                "created_at": "2024-12-04T21:39:02.050Z",
+                "last_posted_at": "2025-01-29T20:44:21.184Z",
+                "bumped": true,
+                "bumped_at": "2025-01-29T20:44:21.184Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Howdy YAGSL users! We’re launching a new team ambassador program to help support the growth of YAGSL, and would LOVE for teams to help us spread the word about YAGSL. If your team uses YAGSL, and w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 10,
+                "views": 307,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454752,
+                "topic_post_liked": false,
+                "topic_post_like_count": 7,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 39879,
+                    "username": "RyleeL",
+                    "name": "Rylee L",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryleel/{size}/197248_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 39879,
+                            "username": "RyleeL",
+                            "name": "Rylee L",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryleel/{size}/197248_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "Swyft-Robotics",
+                            "flair_url": "/uploads/default/original/3X/1/1/11d561f5bb3f02abd1014df6f9a83d9ec434d6d1.png",
+                            "flair_group_id": 64,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2025 VSCode Unable to sign into Github",
+                "id": 480103,
+                "title": "2025 VSCode Unable to sign into Github",
+                "slug": "2025-vscode-unable-to-sign-into-github",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-08T06:20:25.234Z",
+                "last_posted_at": "2025-01-08T17:25:25.383Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T17:25:25.383Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I haven’t used settings sync, but as noted in the installation docs, there’s settings that are used for the FRC VS Code that wouldn’t be appropriate to sync back to a non-FRC VS Code, which is why the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 203,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475366,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53237,
+                            "username": "cantogr07",
+                            "name": "Can Toğran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Drive PIDF Tuning",
+                "id": 481908,
+                "title": "YAGSL Drive PIDF Tuning",
+                "slug": "yagsl-drive-pidf-tuning",
+                "posts_count": 13,
+                "reply_count": 7,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2025-01-15T17:05:10.149Z",
+                "last_posted_at": "2025-01-16T09:51:01.564Z",
+                "bumped": true,
+                "bumped_at": "2025-01-16T09:51:01.564Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Like @weepfrog said there is an attempt at a fix in the latest beta that you can install at If you do test it, let us know that it works so…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 254,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483518,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69234,
+                            "username": "csos",
+                            "name": "csos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/58956e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56609,
+                            "username": "weepfrog",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/e95f7d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Rev Through Bore Encoder Headache",
+                "id": 483321,
+                "title": "Rev Through Bore Encoder Headache",
+                "slug": "rev-through-bore-encoder-headache",
+                "posts_count": 11,
+                "reply_count": 4,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-24T01:06:12.286Z",
+                "last_posted_at": "2025-01-28T22:43:41.822Z",
+                "bumped": true,
+                "bumped_at": "2025-01-28T22:43:41.822Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I am using a Rev Through Bore Encoder on a practice control board (working on PID). The Encoder was working just fine, outputting rotations. I continued working on other parts of code, and it…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 595,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491262,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64438,
+                    "username": "CalculusPenguin",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64438,
+                            "username": "CalculusPenguin",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63494,
+                            "username": "Natalie5431",
+                            "name": "Natalie Daleo",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/91b2a8/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elevator Code Prototype",
+                "id": 491586,
+                "title": "Elevator Code Prototype",
+                "slug": "elevator-code-prototype",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-13T20:29:21.890Z",
+                "last_posted_at": "2025-02-13T23:19:15.611Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T23:19:15.611Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello. I am trying to develop code for our robot’s elevator this year and I was hoping to get some feedback. Any and all feedback is appreciated! Elevator public class Elevator extends Su…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "elevator"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 340,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526412,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70787,
+                    "username": "eyeon180",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/898d66/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70787,
+                            "username": "eyeon180",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/898d66/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24683,
+                            "username": "gadzygadz",
+                            "name": "Jake Gads",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gadzygadz/{size}/200701_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58360,
+                            "username": "Mateo",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/f4b2a3/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "arm",
+            "controls"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Double Jointed Arm Physics + Control Simulator",
+        "id": 424307,
+        "title": "Double Jointed Arm Physics + Control Simulator",
+        "posts_count": 3,
+        "created_at": "2023-01-22T05:14:20.938Z",
+        "views": 2844,
+        "reply_count": 0,
+        "like_count": 20,
+        "last_posted_at": "2024-01-22T16:49:41.188Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "double-jointed-arm-physics-control-simulator",
+        "category_id": 30,
+        "word_count": 823,
+        "deleted_at": null,
+        "user_id": 28673,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/0/f06804af85c2e2b057be0d37dc81d0d39fe800fa.gif",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_424307",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 640,
+                "height": 480,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/0/f06804af85c2e2b057be0d37dc81d0d39fe800fa.gif"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 16846,
+                    "username": "calcmogul",
+                    "name": "Tyler Veness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 28673,
+                    "username": "rafi",
+                    "name": "rafi",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rafi/{size}/9207_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 28673,
+                "username": "rafi",
+                "name": "rafi",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/rafi/{size}/9207_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/rafchuk21/frccontrol",
+                    "title": "GitHub - rafchuk21/frccontrol: Provides SciPy wrappers that ease development of state-space models for the FIRST Robotics Competition.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 150,
+                    "user_id": 28673,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/whitepaper-two-jointed-arm-dynamics/423060",
+                    "title": "Whitepaper: Two Jointed Arm Dynamics",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 132,
+                    "user_id": 28673,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/calcmogul/frccontrol",
+                    "title": "GitHub - calcmogul/frccontrol: Provides SciPy wrappers that ease development of state-space models for the FIRST Robotics Competition.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 109,
+                    "user_id": 28673,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://underactuated.mit.edu/sysid.html#example5",
+                    "title": "Ch. 18 - System Identification",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 89,
+                    "user_id": 16846,
+                    "domain": "underactuated.mit.edu",
+                    "root_domain": "mit.edu"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/how-do-i-simulate-a-two-joint-arm-in-the-simulation/426882/2",
+                    "title": "How do I simulate a two joint arm in the Simulation",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 12,
+                    "user_id": 53361,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/2053-robot-reveal/429672",
+                    "title": "2053 Robot Reveal",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 5,
+                    "user_id": 21777,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,963 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3307603,
+                    "name": "Steven Pearson",
+                    "username": "spearson23",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png",
+                    "created_at": "2024-02-12T15:00:02.442Z",
+                    "cooked": "We are attempting to use the built in CANSparkMax’s PID controller with a feed forward.  According to the documentation here: Closed Loop Control - SPARK MAX with this diagram: image 1311×647 41.3 KB You can use the PID controller with an arbitrary Feed Forward (like SimpleMotorFeedForward or ArmFeedForward).  But I can’t find anywhere to set the other feed forward term.  There is only a setFF function on the PidController to set the FF constant.  The diagram has both the FF constant and an “Arbitrary Feed Forward Voltage”. How do I set that?\n\nimage 1311×647 41.3 KB\n\nimage 1311×647 41.3 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-12T15:00:02.442Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 86,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 441.2,
+                    "yours": false,
+                    "topic_id": 454433,
+                    "topic_slug": "question-about-cansparkmax-pid-with-feedforward",
+                    "display_username": "Steven Pearson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.revrobotics.com/sparkmax/operating-modes/closed-loop-control",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Closed Loop Control - SPARK MAX",
+                            "clicks": 11
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/8/e82be4856a68edba9eec51d45aead60382842ac5.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59244,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Steve (Mentor 555)"
+                    },
+                    "post_url": "/t/question-about-cansparkmax-pid-with-feedforward/454433/1",
+                    "custom_user_title": "Steve (Mentor 555)",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3307611,
+                    "name": "Tim Winters",
+                    "username": "ArchdukeTim",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                    "created_at": "2024-02-12T15:12:28.724Z",
+                    "cooked": "It’s part of the setReference method. You need to also give a PIDSlot, but if you don’t have multiple PID configurations, you should use 0 as the slot.\n\nThere’s another overload that lets you change the units",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-12T15:12:28.724Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 47,
+                    "readers_count": 46,
+                    "score": 19.4,
+                    "yours": false,
+                    "topic_id": 454433,
+                    "topic_slug": "question-about-cansparkmax-pid-with-feedforward",
+                    "display_username": "Tim Winters",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SparkPIDController (FRC-REVLib API)",
+                            "clicks": 17
+                        },
+                        {
+                            "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double,com.revrobotics.SparkPIDController.ArbFFUnits)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SparkPIDController (FRC-REVLib API)",
+                            "clicks": 9
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 19820,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "78 AIR Strike Mentor"
+                    },
+                    "post_url": "/t/question-about-cansparkmax-pid-with-feedforward/454433/2",
+                    "custom_user_title": "78 AIR Strike Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3307612,
+                    "name": "Steven Pearson",
+                    "username": "spearson23",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png",
+                    "created_at": "2024-02-12T15:13:11.948Z",
+                    "cooked": "Thanks.  I don’t know how I missed that.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-12T15:13:11.948Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 47,
+                    "readers_count": 46,
+                    "score": 9.4,
+                    "yours": false,
+                    "topic_id": 454433,
+                    "topic_slug": "question-about-cansparkmax-pid-with-feedforward",
+                    "display_username": "Steven Pearson",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 19820,
+                        "username": "ArchdukeTim",
+                        "name": "Tim Winters",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59244,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Steve (Mentor 555)"
+                    },
+                    "post_url": "/t/question-about-cansparkmax-pid-with-feedforward/454433/3",
+                    "custom_user_title": "Steve (Mentor 555)",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3523392,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-11T15:13:22.036Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-02-11T15:13:22.036Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 4,
+                    "readers_count": 3,
+                    "score": 0.8,
+                    "yours": false,
+                    "topic_id": 454433,
+                    "topic_slug": "question-about-cansparkmax-pid-with-feedforward",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/question-about-cansparkmax-pid-with-feedforward/454433/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3307603,
+                3307611,
+                3307612,
+                3523392
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                607
+            ],
+            [
+                4,
+                242
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "YAGSL Turning Angle Issues",
+                "id": 485737,
+                "title": "YAGSL Turning Angle Issues",
+                "slug": "yagsl-turning-angle-issues",
+                "posts_count": 10,
+                "reply_count": 8,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-08T23:27:24.211Z",
+                "last_posted_at": "2025-02-14T05:32:37.019Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T05:32:37.019Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey all! Message from my team’s programming captain about some issues we’ve been dealing with for a Hiya, we use sparkflex vortex with YAGSL. We are having an issue that’s taken about a week fro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "programming",
+                    "swervedrive",
+                    "issue",
+                    "maxswerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 232,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3506297,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65784,
+                    "username": "DataNerd",
+                    "name": "Katya",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/datanerd/{size}/250293_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65784,
+                            "username": "DataNerd",
+                            "name": "Katya",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/datanerd/{size}/250293_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28649,
+                            "username": "CEF",
+                            "name": "CEF",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/35a633/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Angle Motors not turning",
+                "id": 482527,
+                "title": "YAGSL Angle Motors not turning",
+                "slug": "yagsl-angle-motors-not-turning",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-18T19:27:10.512Z",
+                "last_posted_at": "2025-01-18T19:56:40.191Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T19:56:40.191Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re encountering an issue with our swerve drive where all of our drive motors are moving fine (all moving in the correct x and y directions, and turning) but none of our angle motors seem to be work…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 69,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486800,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66685,
+                    "username": "RoboNerds5089",
+                    "name": "5089 Robonerds",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66685,
+                            "username": "RoboNerds5089",
+                            "name": "5089 Robonerds",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49423,
+                            "username": "Gandagorn",
+                            "name": "Elliot Scher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Gear move free on kraken motor hooked on to swerve x flipped",
+                "id": 474693,
+                "title": "Gear move free on kraken motor hooked on to swerve x flipped",
+                "slug": "gear-move-free-on-kraken-motor-hooked-on-to-swerve-x-flipped",
+                "posts_count": 12,
+                "reply_count": 6,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2024-11-11T16:51:32.778Z",
+                "last_posted_at": "2024-11-12T00:06:50.581Z",
+                "bumped": true,
+                "bumped_at": "2024-11-12T00:06:50.581Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are setting up are swerve x flipped modules and the gear that sits on the kraken motor moves freely when flipped. should this happen?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 255,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3446121,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64705,
+                    "username": "LaytonK737",
+                    "name": "Layton",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64705,
+                            "username": "LaytonK737",
+                            "name": "Layton",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57795,
+                            "username": "SpaceTaco",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/spacetaco/{size}/187908_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 30778,
+                            "username": "LuiTheFly",
+                            "name": "Luin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/luithefly/{size}/175341_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X60 not Drawing Power",
+                "id": 485076,
+                "title": "Kraken X60 not Drawing Power",
+                "slug": "kraken-x60-not-drawing-power",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-04T10:12:23.654Z",
+                "last_posted_at": "2025-02-08T16:42:19.291Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T16:42:19.291Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are switching to swerve drive for the first time with full kraken motors. While we were testing today, after changing the battery one of our motors stopped working completely. We never used the mot…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 310,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3501516,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62454,
+                    "username": "canucan15",
+                    "name": "Can Uçan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/c37758/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62454,
+                            "username": "canucan15",
+                            "name": "Can Uçan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/c37758/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10484,
+                            "username": "cmwilson13",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmwilson13/{size}/3628_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 72219,
+                            "username": "TinyAnon08",
+                            "name": "Tyler Harrell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tinyanon08/{size}/249083_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X60 Failures 2.0",
+                "id": 497499,
+                "title": "Kraken X60 Failures 2.0",
+                "slug": "kraken-x60-failures-2-0",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-03-31T04:59:31.415Z",
+                "last_posted_at": "2025-04-03T06:35:52.954Z",
+                "bumped": true,
+                "bumped_at": "2025-04-03T06:35:52.954Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’ve seen some odd Kraken failures recently, complete with possible internal shorting, loss-of-phases, and other oddities. Two have displayed “jittery” LED codes and continued to operate while seemi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 896,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3574653,
+                "topic_post_liked": false,
+                "topic_post_like_count": 8,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60963,
+                    "username": "AluminumMagikarp",
+                    "name": "H",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/e9a140/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60963,
+                            "username": "AluminumMagikarp",
+                            "name": "H",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/e9a140/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66064,
+                            "username": "imslowafboi1402",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/imslowafboi1402/{size}/252820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59741,
+                            "username": "noto501",
+                            "name": "Kynam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/noto501/{size}/262198_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54568,
+                            "username": "dkavner",
+                            "name": "Doug Kavner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dkavner/{size}/207188_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8002,
+                            "username": "Akash_Rastogi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/akash_rastogi/{size}/169937_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Question about CANSparkMax PID with FeedForward",
+        "id": 454433,
+        "title": "Question about CANSparkMax PID with FeedForward",
+        "posts_count": 4,
+        "created_at": "2024-02-12T15:00:02.385Z",
+        "views": 241,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-02-11T15:13:22.036Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "question-about-cansparkmax-pid-with-feedforward",
+        "category_id": 31,
+        "word_count": 201,
+        "deleted_at": null,
+        "user_id": 59244,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/e/8/e82be4856a68edba9eec51d45aead60382842ac5_2_1024x505.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_454433",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1311,
+                "height": 647,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/8/e82be4856a68edba9eec51d45aead60382842ac5.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 505,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/e/8/e82be4856a68edba9eec51d45aead60382842ac5_2_1024x505.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "ArchdukeTim",
+            "name": null,
+            "excerpt": "It’s part of the <a href=\"https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double)\" rel=\"noopener nofollow ugc\">setReference</a> method. You need to also give a PIDSlot, but if you don’t have multiple PID configurations, you should use 0 as the slot. \nThere’s <a href=\"https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double,com.revrobotics.SparkPIDController.ArbFFUnits)\" rel=\"noopener nofollow ugc\">another overload</a> that lets you change the units",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 59244,
+                    "username": "spearson23",
+                    "name": "Steven Pearson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 19820,
+                    "username": "ArchdukeTim",
+                    "name": "Tim Winters",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 59244,
+                "username": "spearson23",
+                "name": "Steven Pearson",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double)",
+                    "title": "SparkPIDController (FRC-REVLib API)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 19820,
+                    "domain": "codedocs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://docs.revrobotics.com/sparkmax/operating-modes/closed-loop-control",
+                    "title": "Closed Loop Control - SPARK MAX",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 59244,
+                    "domain": "docs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                },
+                {
+                    "url": "https://codedocs.revrobotics.com/java/com/revrobotics/sparkpidcontroller#setReference(double,com.revrobotics.CANSparkBase.ControlType,int,double,com.revrobotics.SparkPIDController.ArbFFUnits)",
+                    "title": "SparkPIDController (FRC-REVLib API)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 19820,
+                    "domain": "codedocs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

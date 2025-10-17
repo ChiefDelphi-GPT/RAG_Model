@@ -1,0 +1,1079 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3595716,
+                    "name": null,
+                    "username": "AutumnPlanet",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                    "created_at": "2025-04-18T20:06:23.888Z",
+                    "cooked": "Greetings, we are working on the chassis wiring of our robot, it looks like the attached image. We connected the spark cables from under the belly pen to the pdh and extended the spark cables using wago, what would you suggest to change?\n\n20250418_214524 1920×1440 457 KB 20250418_214559 1920×1440 454 KB\n\n20250418_214524 1920×1440 457 KB\n\n20250418_214524 1920×1440 457 KB\n\n20250418_214559 1920×1440 454 KB\n\n20250418_214559 1920×1440 454 KB\n\nNote: We have not shortened our battery cables yet, I would appreciate it if you ignore it.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-04-18T20:06:23.888Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 23,
+                    "reads": 326,
+                    "readers_count": 325,
+                    "score": 210.2,
+                    "yours": false,
+                    "topic_id": 499676,
+                    "topic_slug": "cabling-recommendations",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 70504,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/cabling-recommendations/499676/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3595938,
+                    "name": "Max Morehead",
+                    "username": "Max_Morehead",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                    "created_at": "2025-04-19T01:08:14.848Z",
+                    "cooked": "Very clean routing. I particularly like the close placement of the breaker to the PDH and battery. Also the SparkMax on NEO mounts (is the CAD for those public?).\n\nThe wiring is definitely pretty good for an offseason robot/test robot, but here are some recommendations I would make for an in season robot that it might be a good idea to practice and teach people on the full robot.\n\nRunning wires under the frame close to the ground like that seems risky to me. They can snag on things, some games might have terrain, and it seems bad for transport. Maybe it would be better if there was some sort of removable protection beneath, or you can try the brainpan approach that some teams do, if you have a suitable robot cart.\n\nYou’re using some inline and some non-inline wagos. Either is fine, but it feels like you used the normal wagos in some places where inline would be cleaner. I would be more standardized and purposeful about what you choose where, rather than just using whatever you have on hand. When I looked the robot of 841 in 2024 (a local team that I think has good reliability practices), they used a lot of inline wagos.\n\nI would find a way to attach your wago connectors to the frame so they are not floating. This can be hard but Wago sells some mounts (some with built in strain relief, you can buy from Digikey) or you can look for 3d printed mounts on CD .\n\nI would strain relieve your connections better. The way we typically do this is by zip tie each side of every connection to the frame or an adhesive zip tie mount (with some slack).\n\nOne of the most common reliability issues I’ve experienced is with the NEO encoder cable connector. I notice you ziptied the encoder cables into bundles. This is nice, but it doesn’t look like that bundle is particularly well constrained, so as it shifts around it will put stress on the connection. I would ziptie the encoder cable something attached to the frame before it enters the bundle (maybe an adhesive ziptie mount on top or beside the spark max?). I would also make sure you hotglue the encoder connection before the robot sees the field (a hotglue gun powered by a drill battery can helpful here).\n\nI notice one pair of wires (by your hands) has an extra pair of wago connectors and what looks like a non-wago splice. Why is that? If it’s because you cut the wire too short, you should cut a new wire. I would highly recommend on stocking up on high quality flexible wire and using exclusively that on your robot (I like bonded silicone). I also think it’s a very bad idea to have your wagos below the frame.\n\nWhich ports you chose on the PDH seems kind of haphazard. I would make sure there’s a system.\n\nUse this RIO power connector instead of the default screw terminal: roboRIO Power Phoenix Push-in Spring Connector - AndyMark, Inc (also available from Digikey, lmk if you need the PN). Also, very small thing, but I would turn the RIO 180 degrees so the power connector is closer to ports on the PDH , just for cleanness.\n\nI would backup your navx power over USB so that it doesn’t reboot if you brownout (mxp power drops out at 6.3V)\n\nI know this is a lot but reliable wiring is all about attention to detail. It’s also an area where there are good returns to doing things well upfront.\n\nHere is a recent post of mine where I make product recommendations:\n\nWire Management Electrical\n\nHere are the CheesyCare reliability recommendations:\n\nMost Common Issues Seen on Robots This year Technical Discussion\n\nEdit: I missed you are in Turkey so parts might be harder/longer to source. Definitely important to stock up on all supplies you need before the season then (and the good thing is that electrical supplies don’t go bad). There’s also alternate vendors for a lot of the products I mentioned.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-04-19T01:18:39.214Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 259,
+                    "readers_count": 258,
+                    "score": 131.8,
+                    "yours": false,
+                    "topic_id": 499676,
+                    "topic_slug": "cabling-recommendations",
+                    "display_username": "Max Morehead",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.andymark.com/products/roborio-power-phoenix-push-in-spring-connector",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "roboRIO Power Phoenix Push-in Spring Connector - AndyMark, Inc",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/wire-management/498210/32",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Wire Management",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/most-common-issues-seen-on-robots-this-year/466119",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Most Common Issues Seen on Robots This year",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53784,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mentor"
+                    },
+                    "post_url": "/t/cabling-recommendations/499676/2",
+                    "custom_user_title": "Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3596115,
+                    "name": "Tim Winters",
+                    "username": "ArchdukeTim",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                    "created_at": "2025-04-19T04:34:46.698Z",
+                    "cooked": "Running wires under the frame close to the ground like that seems risky to me\n\nI would go a step further and say there isn’t a way to really do it safely. At some point you’re gonna be putting your robot on blocks to test stuff. Most teams nowadays put their robot on cross members on their carts.\n\nYou don’t want those wires being the point of contact for whatever is holding your robot up. Eventually the jacketing will be damaged, and you will have an electrical hazard, and have to replace it. Save yourself the trouble and just keep everything above. The zip ties can wrap around to the underside, but wires should stay protected",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-04-19T04:34:46.698Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 148,
+                    "readers_count": 147,
+                    "score": 94.6,
+                    "yours": false,
+                    "topic_id": 499676,
+                    "topic_slug": "cabling-recommendations",
+                    "display_username": "Tim Winters",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 19820,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "78 AIR Strike Mentor"
+                    },
+                    "post_url": "/t/cabling-recommendations/499676/3",
+                    "custom_user_title": "78 AIR Strike Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3596121,
+                    "name": "Nick Foote",
+                    "username": "Footie",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/footie/{size}/218325_2.png",
+                    "created_at": "2025-04-19T04:47:18.861Z",
+                    "cooked": "Yes, agreed. They already have a sunken belly pan, so everything on the top side it protected. They should not be running the wires on the underside, they’re very exposed. It’s not like they don’t have space on the top of the belly pan for the wires.\n\nAlso, those Spark Max placement on the motors seems to leave the input/output wires fairly exposed to being hit by another robot’s intake/arm. I would just put those on the belly pan too.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-04-19T04:49:42.876Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 131,
+                    "readers_count": 130,
+                    "score": 26.2,
+                    "yours": false,
+                    "topic_id": 499676,
+                    "topic_slug": "cabling-recommendations",
+                    "display_username": "Nick Foote",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 19820,
+                        "username": "ArchdukeTim",
+                        "name": "Tim Winters",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 8103,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Nick Foote - 2102 Team Paradox - Engineering Mentor and Founding Student"
+                    },
+                    "post_url": "/t/cabling-recommendations/499676/4",
+                    "custom_user_title": "Nick Foote - 2102 Team Paradox - Engineering Mentor and Founding Student",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3598362,
+                    "name": null,
+                    "username": "AutumnPlanet",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                    "created_at": "2025-04-21T10:54:22.394Z",
+                    "cooked": "Hello, first of all I apologize for not writing for a long time, I had exams. This is the CAD we use to mount the Spark Maxs:\n\nGoogle Drive file.\n\nSince we don’t have in-line wagos and they are not easy to find in our city, we had to use non-line wagos, we are planning to replace these wagos with solder during the season.\n\nWe tried to use the input close to the Spark Max as much as we can on the pdh, but if it stays under the bellypen, we are thinking of doing the wiring over the bellypen from the beginning to solve the problems you mentioned.\n\nSince we live in Turkey, unfortunately we have problems in the supply of some materials, we will look for alternatives to the materials you mentioned.\n\nThank you for your suggestions, we will take them into consideration.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2025-04-21T10:54:22.394Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 57,
+                    "readers_count": 56,
+                    "score": 11.4,
+                    "yours": false,
+                    "topic_id": 499676,
+                    "topic_slug": "cabling-recommendations",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://drive.google.com/file/d/1T7slBvaDX00j8kfbpF4V5MnXQCE8ug1F/view?usp=drivesdk",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Neo_Spark_Mount.stl - Google Drive",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 53784,
+                        "username": "Max_Morehead",
+                        "name": "Max Morehead",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 70504,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/cabling-recommendations/499676/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3595716,
+                3595938,
+                3596115,
+                3596121,
+                3598362
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                176
+            ],
+            [
+                5,
+                173
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Cloud Based Wiring Diagram Options?",
+                "id": 483909,
+                "title": "Cloud Based Wiring Diagram Options?",
+                "slug": "cloud-based-wiring-diagram-options",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-28T02:35:13.858Z",
+                "last_posted_at": "2025-01-29T01:24:45.182Z",
+                "bumped": true,
+                "bumped_at": "2025-01-29T01:24:45.182Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, my team has been using KiCAD for a couple years now, and we’ve recently run into some problems. We’ve found that KiCAD is difficult to collaborate on and takes too many steps to even get it workin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "electrical",
+                    "wiring"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 325,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3494377,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70917,
+                    "username": "not_the_fazbear",
+                    "name": "freddie s",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/b782af/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70917,
+                            "username": "not_the_fazbear",
+                            "name": "freddie s",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/b782af/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24506,
+                            "username": "s3529",
+                            "name": "Robertson Robotics",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s3529/{size}/121055_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15467,
+                            "username": "philso",
+                            "name": "philso",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/e68b1a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 29618,
+                            "username": "JohnD",
+                            "name": "JohnD 3322",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/58f4c7/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Drive and Frame Size",
+                "id": 482267,
+                "title": "Swerve Drive and Frame Size",
+                "slug": "swerve-drive-and-frame-size",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-17T13:32:42.681Z",
+                "last_posted_at": "2025-01-17T15:05:09.125Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T15:05:09.125Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is our first year building a swerve drive so I’m looking for some input related to frame size effect on a swerve’s agility. I’m assuming a perfectly square robot would perform better with swerve…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 212,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485531,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 17731,
+                    "username": "c.shu",
+                    "name": "Cole Shumaker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/c.shu/{size}/136963_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 17731,
+                            "username": "c.shu",
+                            "name": "Cole Shumaker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/c.shu/{size}/136963_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14984,
+                            "username": "Christopher149",
+                            "name": "Christopher149",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driver station Connected, but roboRIO target not found in imaging tool",
+                "id": 477924,
+                "title": "Driver station Connected, but roboRIO target not found in imaging tool",
+                "slug": "driver-station-connected-but-roborio-target-not-found-in-imaging-tool",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/4/f/4fb51ee7e616325052ab9dfad40ed24d879a2e2f_2_1024x317.png",
+                "created_at": "2025-01-02T09:25:53.639Z",
+                "last_posted_at": "2025-01-03T00:33:13.592Z",
+                "bumped": true,
+                "bumped_at": "2025-01-03T00:33:13.592Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "@Fletch1373 @Akash_Rastogi Thanks for answering! It turns out that I’ve disable the RIO webserver to save memory After re-enabling the webserver, I am able to find the RIO in the imaging tool.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 190,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3467161,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8002,
+                            "username": "Akash_Rastogi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/akash_rastogi/{size}/169937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Norovirus is spreading. Keep your team healthy",
+                "id": 477929,
+                "title": "Norovirus is spreading. Keep your team healthy",
+                "slug": "norovirus-is-spreading-keep-your-team-healthy",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-02T13:24:56.140Z",
+                "last_posted_at": "2025-01-02T14:57:13.368Z",
+                "bumped": true,
+                "bumped_at": "2025-01-02T14:57:13.368Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey folks - Norovirus is spreading. Its easily transferred in robotics as we are in close proximity and we’re constantly touching things. Hand Sanitizer won’t kill it. You have to wash your hands. Thi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "health"
+                ],
+                "tags_descriptions": {},
+                "like_count": 43,
+                "views": 804,
+                "category_id": 7,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3466663,
+                "topic_post_liked": false,
+                "topic_post_like_count": 20,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55309,
+                    "username": "LPryor",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13405,
+                            "username": "MARS_James",
+                            "name": "MARS_James",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mars_james/{size}/4606_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 20982,
+                            "username": "BSV",
+                            "name": "Travis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bsv/{size}/228025_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "OP5+ For Vision Help Needed. Using for PV Cameras",
+                "id": 482032,
+                "title": "OP5+ For Vision Help Needed. Using for PV Cameras",
+                "slug": "op5-for-vision-help-needed-using-for-pv-cameras",
+                "posts_count": 11,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/0/30bc66d78da135912943f1f11d38ac14761d755b_2_768x1024.jpeg",
+                "created_at": "2025-01-16T06:14:02.453Z",
+                "last_posted_at": "2025-01-18T00:15:55.908Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T00:15:55.908Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’ve got the Orange Pi Photonvision image flashed onto my USB and it boots into Ubuntu 24.04. With the docs I’ve logged in with the preset password and user, but I have no idea on where to go nex…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 269,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484301,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67774,
+                    "username": "dan_frc",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/dan_frc/{size}/257062_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 67774,
+                            "username": "dan_frc",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dan_frc/{size}/257062_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55459,
+                            "username": "crschardt",
+                            "name": "Craig Schardt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29779,
+                            "username": "Qworg",
+                            "name": "Qworg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/qworg/{size}/11978_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Cabling recommendations",
+        "id": 499676,
+        "title": "Cabling recommendations",
+        "posts_count": 5,
+        "created_at": "2025-04-18T20:06:23.843Z",
+        "views": 556,
+        "reply_count": 2,
+        "like_count": 6,
+        "last_posted_at": "2025-04-21T10:54:22.394Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "cabling-recommendations",
+        "category_id": 9,
+        "word_count": 1139,
+        "deleted_at": null,
+        "user_id": 70504,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/8/b/a/8baf2c9b75eade2c1b1e90db9c0f967118354910_2_1024x768.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_499676",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46820,
+            "execute_at": "2026-04-21T10:54:22.394Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1920,
+                "height": 1440,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/4X/8/b/a/8baf2c9b75eade2c1b1e90db9c0f967118354910.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 768,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/8/b/a/8baf2c9b75eade2c1b1e90db9c0f967118354910_2_1024x768.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 70504,
+                    "username": "AutumnPlanet",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 8103,
+                    "username": "Footie",
+                    "name": "Nick Foote",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/footie/{size}/218325_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 19820,
+                    "username": "ArchdukeTim",
+                    "name": "Tim Winters",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 53784,
+                    "username": "Max_Morehead",
+                    "name": "Max Morehead",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 70504,
+                "username": "AutumnPlanet",
+                "name": null,
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png"
+            },
+            "last_poster": {
+                "id": 70504,
+                "username": "AutumnPlanet",
+                "name": null,
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.andymark.com/products/roborio-power-phoenix-push-in-spring-connector",
+                    "title": "roboRIO Power Phoenix Push-in Spring Connector - AndyMark, Inc",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 53784,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,769 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2977936,
+                    "name": "Mr.R^2",
+                    "username": "Mr.R_2",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mr.r_2/{size}/89723_2.png",
+                    "created_at": "2021-11-20T00:08:02.188Z",
+                    "cooked": "Hello, We are considering using Photon for the upcoming Romi Challenge, and we were wondering if it is possible to use it to detect multiple types of objects at once. If so, we are wondering if someone can point us to the resources to learn how to do it?\n\nFirst off, I think the problem may be that we are sort of ascribing an ML output concept to a traditional vision system, but we are wondering if this is a possibility.\n\nAssuming everything is colored such that the tuning can differentiate between objects, can one use an instance of Photon to simultaneously identify a golf ball and the goal (retroreflective v a specific color)?\n\nIf so, I would assume each would live in its own pipeline; correct? Is it possible to identify which pipeline has a result, or does it only look at one at a time (which you tell it to use)?\n\nThe Pixycam can do this (which may be more up to the task if we decide to go this route, but that is more hardware and more power) as can the WPILib ML (which we are not capable of setting up at the moment).\n\nAnyway, I was just curious.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-11-20T00:08:02.188Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 15,
+                    "reads": 75,
+                    "readers_count": 74,
+                    "score": 120.0,
+                    "yours": false,
+                    "topic_id": 397505,
+                    "topic_slug": "is-it-possible-to-identify-multiple-object-types-at-once-using-photon",
+                    "display_username": "Mr.R^2",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30291,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/is-it-possible-to-identify-multiple-object-types-at-once-using-photon/397505/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2977941,
+                    "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "username": "ngreen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                    "created_at": "2021-11-20T00:59:14.195Z",
+                    "cooked": "You can have multiple pipelines.   And multiple cameras.  I think to use together you basically need some sort of focus switching program.\n\nThere are a couple ways to possibly be thinking about it.\n\nOne case you at one point go to get golf balls (focus/pipeline 1) then need to take those to the goal (focus/pipeline 2), you just have to switch once.\n\nA second case you use the location of one object to decide what to do with another object.  For example if you want to go to the golf ball that is closest to the target.  You’d have to find the target, then find the golf balls, then get the golf ball and find the target again.\n\nIn the second case, you might want to switch multiple times to update whether the closest golf ball in the first frame is still the closest, which you could do.\n\nThat is at least what I’m thinking.  I don’t think there is a way to identify both objects in the same frame, but I don’t know that for certain.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-11-20T00:59:14.195Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 65,
+                    "readers_count": 64,
+                    "score": 33.0,
+                    "yours": false,
+                    "topic_id": 397505,
+                    "topic_slug": "is-it-possible-to-identify-multiple-object-types-at-once-using-photon",
+                    "display_username": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 2695,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/is-it-possible-to-identify-multiple-object-types-at-once-using-photon/397505/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3101581,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-11-20T00:59:47.443Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2022-11-20T00:59:47.443Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 397505,
+                    "topic_slug": "is-it-possible-to-identify-multiple-object-types-at-once-using-photon",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/is-it-possible-to-identify-multiple-object-types-at-once-using-photon/397505/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2977936,
+                2977941,
+                3101581
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1422
+            ],
+            [
+                3,
+                1057
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve wheels misaligned (half of the time)",
+                "id": 474187,
+                "title": "Swerve wheels misaligned (half of the time)",
+                "slug": "swerve-wheels-misaligned-half-of-the-time",
+                "posts_count": 12,
+                "reply_count": 10,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2024-11-01T19:42:22.791Z",
+                "last_posted_at": "2024-11-01T21:58:36.440Z",
+                "bumped": true,
+                "bumped_at": "2024-11-01T21:58:36.440Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yeah these aren’t right, please change to \"conversionFactors\": { \"angle\": {\"gearRatio\": 21.4285714286}, \"drive\": {\"gearRatio\": 6.75, \"diameter\": 4} } These values you supplied here are given as …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 326,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3442776,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 51978,
+                            "username": "sun167",
+                            "name": "antoine schneider",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/b5e925/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Python Swerve Issues and Help",
+                "id": 493057,
+                "title": "Python Swerve Issues and Help",
+                "slug": "python-swerve-issues-and-help",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/4/4/448da8bbc7f8acffdeffad7130e9e84a36908f80_2_1024x465.png",
+                "created_at": "2025-02-25T01:06:34.242Z",
+                "last_posted_at": "2025-02-26T02:28:41.516Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T02:28:41.516Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m the current programmer for team #6932, and I’ve been having some issues getting swerve with python to work properly. My team is using MK4is with Neos and Cancoders, and I initially attempted to ad…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "python"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 105,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3538880,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73749,
+                    "username": "dillon_miller",
+                    "name": "Dillon Miller",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/a587f6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73749,
+                            "username": "dillon_miller",
+                            "name": "Dillon Miller",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/a587f6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Python plus Java",
+                "id": 483194,
+                "title": "Python plus Java",
+                "slug": "python-plus-java",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-23T12:14:00.503Z",
+                "last_posted_at": "2025-01-23T16:08:43.408Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T16:08:43.408Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How implement one code python with one code Java in wpilib",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "programming",
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 159,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490581,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69880,
+                    "username": "henriquedsn",
+                    "name": "Henrique de Sousa Neves",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69880,
+                            "username": "henriquedsn",
+                            "name": "Henrique de Sousa Neves",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 47943,
+                            "username": "megarubber",
+                            "name": "Guilherme Samuel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60663,
+                            "username": "Geoffrey8814",
+                            "name": "Geoffrey",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/geoffrey8814/{size}/262430_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Feasibility on current approach to limelight vision-based odometry",
+                "id": 491323,
+                "title": "Feasibility on current approach to limelight vision-based odometry",
+                "slug": "feasibility-on-current-approach-to-limelight-vision-based-odometry",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-12T03:31:25.527Z",
+                "last_posted_at": "2025-02-12T03:57:51.017Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T03:57:51.017Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is new to working with limelights but recently purchased and set-up 2 limelight 3As for FRC. We are currently attempting to get accurate vision-based odometry measurements using just one lime…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 163,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524449,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69118,
+                    "username": "Jason81",
+                    "name": "Jason",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69118,
+                            "username": "Jason81",
+                            "name": "Jason",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Robot Centric Swerve Requests",
+                "id": 494755,
+                "title": "Robot Centric Swerve Requests",
+                "slug": "robot-centric-swerve-requests",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-08T18:43:30.868Z",
+                "last_posted_at": "2025-03-08T20:40:58.198Z",
+                "bumped": true,
+                "bumped_at": "2025-03-08T20:40:58.198Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Try replacing applyRequest() with setControl(). I don’t know why it is different, but this is what we did in our code and it works.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 140,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3551347,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 63537,
+                    "username": "mhelve46",
+                    "name": "Miles",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/b3f665/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 34100,
+                            "username": "mbhoxsie",
+                            "name": "mbhoxsie",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mbhoxsie/{size}/10287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63537,
+                            "username": "mhelve46",
+                            "name": "Miles",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/b3f665/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56201,
+                            "username": "GriffM",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Is it Possible to Identify Multiple Object Types at Once using photon?",
+        "id": 397505,
+        "title": "Is it Possible to Identify Multiple Object Types at Once using photon?",
+        "posts_count": 3,
+        "created_at": "2021-11-20T00:08:01.938Z",
+        "views": 483,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2022-11-20T00:59:47.443Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "is-it-possible-to-identify-multiple-object-types-at-once-using-photon",
+        "category_id": 30,
+        "word_count": 402,
+        "deleted_at": null,
+        "user_id": 30291,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_397505",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 2695,
+                    "username": "ngreen",
+                    "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 30291,
+                    "username": "Mr.R_2",
+                    "name": "Mr.R^2",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mr.r_2/{size}/89723_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 30291,
+                "username": "Mr.R_2",
+                "name": "Mr.R^2",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mr.r_2/{size}/89723_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

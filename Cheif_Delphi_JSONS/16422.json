@@ -1,0 +1,909 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2971091,
+                    "name": "jhajel",
+                    "username": "jhajel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jhajel/{size}/95970_2.png",
+                    "created_at": "2021-10-07T21:07:04.715Z",
+                    "cooked": "I was trying to show the students the power of math for robotics and I came up with a situation where the empirical value is different than our calculated value.  I was wonder if you can figure out my mistake:\n\nWe have a Falcon with a 48:1 gearbox.  The shaft is attached to 36T 20DP gear (1.9\" outside diamer).  It is driving a 20DP rack.  We want to figure out how many “ticks” per inch of travel of the rack.  Seems straight forward.  I even used “critical dimension analysis” which they learn in chemistry.\n\nMy calculation is this:\n\n2048 ticks per motor rotation * 48 motor rotation per output shaft rotation / 1.9 * PI inches  per rotation = 16469 ticks per inch.  When we do the measurement  it is closer to 13000 ticks per inch.\n\nThanks for your help.\n\nJMH",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-10-07T21:07:33.820Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 13,
+                    "reads": 94,
+                    "readers_count": 93,
+                    "score": 83.8,
+                    "yours": false,
+                    "topic_id": 396470,
+                    "topic_slug": "falcon-encoder-calculation-problem",
+                    "display_username": "jhajel",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30898,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/falcon-encoder-calculation-problem/396470/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 2971096,
+                    "name": "Phil Szymanowski",
+                    "username": "Cyberphil",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cyberphil/{size}/161083_2.png",
+                    "created_at": "2021-10-07T21:34:03.918Z",
+                    "cooked": "Just a quick note, did you actually use the “outside diameter,” or were you using the pitch diameter? You should be using pitch diameter, which should be 36 teeth/20DP= 1.8\", not 1.9\". This is the circle that is actually acting on the rack gear.\n\nThat still does not give you the right output, in fact it makes you further away (17384). Double check the gear ratios and the gears you think you have are correct.\n\nIf you are not sure about the gearbox ratio just do the math to determine what it might be.\n\nWhen I did the math in reverse assuming that you are, in fact, using a 36T spur gear, I get almost exactly a 36:1 ratio instead of the presumed 48:1.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-10-07T21:40:01.370Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 86,
+                    "readers_count": 85,
+                    "score": 57.2,
+                    "yours": false,
+                    "topic_id": 396470,
+                    "topic_slug": "falcon-encoder-calculation-problem",
+                    "display_username": "Phil Szymanowski",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10874,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 272 (Cyber Crusaders), FTC 23598 (Robotic Pretzles)"
+                    },
+                    "post_url": "/t/falcon-encoder-calculation-problem/396470/2",
+                    "custom_user_title": "FRC 272 (Cyber Crusaders), FTC 23598 (Robotic Pretzles)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 2971097,
+                    "name": "jhajel",
+                    "username": "jhajel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jhajel/{size}/95970_2.png",
+                    "created_at": "2021-10-07T21:36:23.866Z",
+                    "cooked": "Wow!  I think that is it.  We had it as a 48:1 ratio in our documentation.  The label is covered by the bracket.  Thanks so much!",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2021-10-07T21:40:00.368Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 79,
+                    "readers_count": 78,
+                    "score": 35.8,
+                    "yours": false,
+                    "topic_id": 396470,
+                    "topic_slug": "falcon-encoder-calculation-problem",
+                    "display_username": "jhajel",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 10874,
+                        "username": "Cyberphil",
+                        "name": "Phil Szymanowski",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/cyberphil/{size}/161083_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 30898,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/falcon-encoder-calculation-problem/396470/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3087438,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-10-07T21:36:30.554Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2022-10-07T21:36:30.554Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 396470,
+                    "topic_slug": "falcon-encoder-calculation-problem",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/falcon-encoder-calculation-problem/396470/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                2971091,
+                2971096,
+                2971097,
+                3087438
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1465
+            ],
+            [
+                4,
+                1100
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Auto for reefscape",
+                "id": 478604,
+                "title": "Auto for reefscape",
+                "slug": "auto-for-reefscape",
+                "posts_count": 16,
+                "reply_count": 10,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-04T22:13:23.204Z",
+                "last_posted_at": "2025-01-05T18:29:46.687Z",
+                "bumped": true,
+                "bumped_at": "2025-01-05T18:29:46.687Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "if teams are thinking auto already what are you thinking also my main wonder is are cameras going to be required for a multiple coral auto to work fluently.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 20,
+                "views": 1998,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3469600,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57952,
+                    "username": "thegravitor",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57952,
+                            "username": "thegravitor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66306,
+                            "username": "Cowette",
+                            "name": "Chase Webster",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cowette/{size}/225237_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60871,
+                            "username": "TakeToTheSky",
+                            "name": "Asher Broadhead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/taketothesky/{size}/257171_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55337,
+                            "username": "Bjorn",
+                            "name": "Bjorn Janssen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bjorn/{size}/209297_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59165,
+                            "username": "Skeller",
+                            "name": "4573 Lead Mentor & Drive Coach ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/8e7dd6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "New Control System for 2027?",
+                "id": 494916,
+                "title": "New Control System for 2027?",
+                "slug": "new-control-system-for-2027",
+                "posts_count": 4,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-10T01:03:52.676Z",
+                "last_posted_at": "2025-03-20T23:12:03.581Z",
+                "bumped": true,
+                "bumped_at": "2025-03-20T23:12:03.581Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I heard that LabVIEW will be discontinued for FRC, is there any more news about actuators, peripherals and sensors? Thanks with all for the feedbacks!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "dashboard",
+                    "motors",
+                    "motorcontroller",
+                    "control-systems"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 885,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3552391,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74132,
+                    "username": "JoaoFelipe",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joaofelipe/{size}/253641_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74132,
+                            "username": "JoaoFelipe",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joaofelipe/{size}/253641_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26988,
+                            "username": "JR0405",
+                            "name": "Jack",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jr0405/{size}/179266_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28014,
+                            "username": "bobbysq",
+                            "name": "bobbysq",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bobbysq/{size}/195893_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 29073,
+                            "username": "BenjaminRowe",
+                            "name": "Benjamin Rowe",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/benjaminrowe/{size}/9307_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PathFinder not commanding Swerve-Modules properly",
+                "id": 483739,
+                "title": "PathFinder not commanding Swerve-Modules properly",
+                "slug": "pathfinder-not-commanding-swerve-modules-properly",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-26T23:15:20.424Z",
+                "last_posted_at": "2025-01-26T23:15:20.481Z",
+                "bumped": true,
+                "bumped_at": "2025-01-26T23:15:20.481Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone! I’m new to using chief delphi, so sorry if this is in the wrong spot. I am the only student programmer left on the team so I don’t have anywhere else to turn to. I have opened up Pathfin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 54,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3493316,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68828,
+                    "username": "ky26",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68828,
+                            "username": "ky26",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/a9adbd/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Tensioning the carriage for the WCP Elevator",
+                "id": 491141,
+                "title": "Tensioning the carriage for the WCP Elevator",
+                "slug": "tensioning-the-carriage-for-the-wcp-elevator",
+                "posts_count": 10,
+                "reply_count": 4,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-11T04:30:23.699Z",
+                "last_posted_at": "2025-02-11T18:04:41.375Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T18:04:41.375Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi there! My team and I are having a bit of a challenge with assembling the carriage. The WCP assembly guide seems a bit confusing to us. Could you please provide a clear explanation of the assembly p…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 535,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523072,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56060,
+                    "username": "chillycoool",
+                    "name": "iliyan sitaf",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56060,
+                            "username": "chillycoool",
+                            "name": "iliyan sitaf",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55039,
+                            "username": "AndriesCMfgA",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/3ab097/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7123,
+                            "username": "Mike_Schreiber",
+                            "name": "Mike Schreiber",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_schreiber/{size}/200098_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66211,
+                            "username": "Suppdog222",
+                            "name": "Will C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/suppdog222/{size}/256515_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71354,
+                            "username": "Lyinlyon",
+                            "name": "James Lyon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken x60 power wire",
+                "id": 496159,
+                "title": "Kraken x60 power wire",
+                "slug": "kraken-x60-power-wire",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/7/d/7d265e954cfd74263487962003c7127d4f3ba0a2_2_771x1024.jpeg",
+                "created_at": "2025-03-19T00:53:31.321Z",
+                "last_posted_at": "2025-03-23T19:18:16.949Z",
+                "bumped": true,
+                "bumped_at": "2025-03-23T19:18:16.949Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The whole power screw acceptor broke out. Not sure how that happened… Anyone else?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 395,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3561324,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 21744,
+                    "username": "snoman",
+                    "name": "snoman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/snoman/{size}/7189_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 21744,
+                            "username": "snoman",
+                            "name": "snoman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/snoman/{size}/7189_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59796,
+                            "username": "Arrowmag",
+                            "name": "Joey Tidrow",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arrowmag/{size}/233870_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Falcon Encoder Calculation Problem",
+        "id": 396470,
+        "title": "Falcon Encoder Calculation Problem",
+        "posts_count": 4,
+        "created_at": "2021-10-07T21:07:04.457Z",
+        "views": 418,
+        "reply_count": 1,
+        "like_count": 3,
+        "last_posted_at": "2022-10-07T21:36:30.554Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "falcon-encoder-calculation-problem",
+        "category_id": 25,
+        "word_count": 313,
+        "deleted_at": null,
+        "user_id": 30898,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_396470",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Cyberphil",
+            "name": null,
+            "excerpt": "Just a quick note, did you actually use the “outside diameter,” or were you using the pitch diameter? You should be using pitch diameter, which should be 36 teeth/20DP= 1.8&quot;, not 1.9&quot;. This is the circle that is actually acting on the rack gear. \nThat still does not give you the right output, in fac&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 30898,
+                    "username": "jhajel",
+                    "name": "jhajel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jhajel/{size}/95970_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 10874,
+                    "username": "Cyberphil",
+                    "name": "Phil Szymanowski",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cyberphil/{size}/161083_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 30898,
+                "username": "jhajel",
+                "name": "jhajel",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/jhajel/{size}/95970_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

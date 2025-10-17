@@ -1,0 +1,788 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3570209,
+                    "name": "",
+                    "username": "CalculusPenguin",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                    "created_at": "2025-03-27T16:47:23.535Z",
+                    "cooked": "Hello,\n\nIs there a way to change the drive motor idle mode to coast when using YAGSL ? We would like to use a different idle mode for certain portions of the match.\n\nThank you.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-27T16:47:23.535Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 51,
+                    "readers_count": 50,
+                    "score": 30.2,
+                    "yours": false,
+                    "topic_id": 497133,
+                    "topic_slug": "drive-motors-to-coast-with-yagsl",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64438,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Software Lead"
+                    },
+                    "post_url": "/t/drive-motors-to-coast-with-yagsl/497133/1",
+                    "custom_user_title": "Software Lead",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3570221,
+                    "name": "Owen Busler",
+                    "username": "Owen_Busler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                    "created_at": "2025-03-27T17:04:08.649Z",
+                    "cooked": "I know you can access the individual motor controllers like this\n\nI assume you can set the idleMode from there? Im unsure when/how often YAGSL resets the idle mode but I would assume just on startup?",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-27T17:04:08.649Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 42,
+                    "readers_count": 41,
+                    "score": 23.4,
+                    "yours": false,
+                    "topic_id": 497133,
+                    "topic_slug": "drive-motors-to-coast-with-yagsl",
+                    "display_username": "Owen Busler",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 23320,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/drive-motors-to-coast-with-yagsl/497133/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3570237,
+                    "name": "Paul Rensing",
+                    "username": "prensing",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                    "created_at": "2025-03-27T17:18:45.140Z",
+                    "cooked": "The typical YAGSL code has the method Swerve::setMotorIdleMode to set brake/idle mode.\n\nHowever, you should definitely check carefully if you are switching this during a match. The documentation for a TalonFX (Kraken or Falcon motors) notes that setting the “neutral mode”, as they call it, is a configuration operation and it is blocking . That means that it can disrupt the control signals to the motors while it is happening.  I have not checked for SparkMaxes.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-27T17:18:45.140Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 31,
+                    "readers_count": 30,
+                    "score": 51.2,
+                    "yours": false,
+                    "topic_id": 497133,
+                    "topic_slug": "drive-motors-to-coast-with-yagsl",
+                    "display_username": "Paul Rensing",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 2877 LigerBots Mentor"
+                    },
+                    "post_url": "/t/drive-motors-to-coast-with-yagsl/497133/3",
+                    "custom_user_title": "FRC 2877 LigerBots Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3570209,
+                3570221,
+                3570237
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                198
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Alignment limelight",
+                "id": 485569,
+                "title": "Alignment limelight",
+                "slug": "alignment-limelight",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-07T18:21:11.843Z",
+                "last_posted_at": "2025-02-07T21:51:30.765Z",
+                "bumped": true,
+                "bumped_at": "2025-02-07T21:51:30.765Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi guys, we are programming an alignment based on the april tag, it identifies an ID and automatically aligns with it, however for each button we did some filtering so that it would not identify more …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "alignment"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 279,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3505222,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64053,
+                    "username": "Matheus",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64053,
+                            "username": "Matheus",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70335,
+                            "username": "AegisNova",
+                            "name": "Josh",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aegisnova/{size}/265035_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How would I go about offloading PathPlanner&rsquo;s path-finding capability onto a Raspberry Pi?",
+                "id": 484070,
+                "title": "How would I go about offloading PathPlanner's path-finding capability onto a Raspberry Pi?",
+                "slug": "how-would-i-go-about-offloading-pathplanners-path-finding-capability-onto-a-raspberry-pi",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-29T01:10:15.061Z",
+                "last_posted_at": "2025-01-29T01:10:15.149Z",
+                "bumped": true,
+                "bumped_at": "2025-01-29T01:10:15.149Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When we were trying to use PathPlanner on the RoboRIO 1, the path-finding used 101 percent of our VRAM. This forced the RoboRIO to reboot due to insufficient memory. We have one Limelight 3G (Compute …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner",
+                    "pi"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 84,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495263,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69146,
+                    "username": "rishabtirupathi",
+                    "name": "Rishab Tirupathi",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69146,
+                            "username": "rishabtirupathi",
+                            "name": "Rishab Tirupathi",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/9d8465/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE Swerve Next Steps",
+                "id": 480004,
+                "title": "CTRE Swerve Next Steps",
+                "slug": "ctre-swerve-next-steps",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-08T00:14:30.395Z",
+                "last_posted_at": "2025-01-08T01:18:02.131Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T01:18:02.131Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is switching from a REV/CTRE hybrid swerve to a fully CTRE swerve system, so we are using the Phoenix Tuner X generated swerve code. After we use the project generator, what are the next step…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 197,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474698,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64553,
+                    "username": "myer",
+                    "name": "Myer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 54750,
+                            "username": "Ledesma",
+                            "name": "Ramon Ledesma",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/dfb087/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Camera Placement",
+                "id": 484298,
+                "title": "Camera Placement",
+                "slug": "camera-placement",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-30T16:55:24.533Z",
+                "last_posted_at": "2025-01-30T17:13:34.706Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T17:13:34.706Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What is your team planning for camera placement?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 205,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496774,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51932,
+                    "username": "ashtondemmer",
+                    "name": "Ashton Demmer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ashtondemmer/{size}/230987_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51932,
+                            "username": "ashtondemmer",
+                            "name": "Ashton Demmer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ashtondemmer/{size}/230987_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "I need help, YAGSL doesn&rsquo;t work for me",
+                "id": 491508,
+                "title": "I need help, YAGSL doesn't work for me",
+                "slug": "i-need-help-yagsl-doesnt-work-for-me",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-13T10:34:41.142Z",
+                "last_posted_at": "2025-02-13T21:33:32.137Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T21:33:32.137Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello friends!!!, have you already eaten? My team just bought the “swerve x flipped” and I am the only programmer with some experience but this is totally new to me, I was researching for weeks and I…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 128,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525883,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60015,
+                    "username": "DgYss",
+                    "name": "Diego de Jesus",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/dgyss/{size}/197352_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60015,
+                            "username": "DgYss",
+                            "name": "Diego de Jesus",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dgyss/{size}/197352_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Drive Motors to Coast with YAGSL",
+        "id": 497133,
+        "title": "Drive Motors to Coast with YAGSL",
+        "posts_count": 3,
+        "created_at": "2025-03-27T16:47:23.486Z",
+        "views": 80,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2025-03-27T17:18:45.140Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "drive-motors-to-coast-with-yagsl",
+        "category_id": 30,
+        "word_count": 156,
+        "deleted_at": null,
+        "user_id": 64438,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_497133",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 46118,
+            "execute_at": "2026-03-27T17:18:45.140Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 23320,
+                    "username": "Owen_Busler",
+                    "name": "Owen Busler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 25118,
+                    "username": "prensing",
+                    "name": "Paul Rensing",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64438,
+                    "username": "CalculusPenguin",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 64438,
+                "username": "CalculusPenguin",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png"
+            },
+            "last_poster": {
+                "id": 25118,
+                "username": "prensing",
+                "name": "Paul Rensing",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

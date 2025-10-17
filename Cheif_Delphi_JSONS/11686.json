@@ -1,0 +1,910 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3159079,
+                    "name": "Nolan Hergert",
+                    "username": "nhergert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nhergert/{size}/162905_2.png",
+                    "created_at": "2023-03-07T06:44:13.649Z",
+                    "cooked": "I recorded some video of some issues our robot is having just standing still, and one of them is the limelight “teleporting” out of nowhere for a few frames.\n\nAEMBOT Robot Twitchiness - YouTube\n\nAEMBOT Robot Twitchiness - YouTube , don’t see a visual artifact\n\nRobust to occlusion (no false positive): AEMBOT Robot Twitchiness - YouTube\n\nHere’s another video where:\n\nGlitchiness is not as correlated with router noise\n\nTemporary small white square registered as IO3: AEMBOT Twitching 2 - YouTube\n\nTemporary small white square registered as IO8. AEMBOT Twitching 2 - YouTube\n\nI have more if you want them!\n\nJust as a reminder, once paused in YouTube you can use “,” and “.” to go back and forward one frame, respectively.\n\nAny assistance on how I can debug this? The fix on the AprilTag isn’t glitching, although it looks like there might be some camera artifacts at the same time. Not enough to be real april tags though.\n\nWe are running our router at the same time. Perhaps this (and probable navx glitching, although we have 4 instances of navx in the code running apparently :D) is due to RF interference? We are seeing similar behavior during matches at the most inconvenient times.\n\nThe programming kids tell me we have an N-1 version on there, will probably have them reprogram it tomorrow in case there is a recent fix.\n\nOpen to any advice for how other teams have dealt with this too!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-07T07:25:07.557Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 23,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 132.4,
+                    "yours": false,
+                    "topic_id": 429243,
+                    "topic_slug": "debugging-dealing-with-limelight-teleporting",
+                    "display_username": "Nolan Hergert",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 4,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=R9rFQMaZ4FU&t=6s",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AEMBOT Robot Twitchiness - YouTube",
+                            "clicks": 17
+                        },
+                        {
+                            "url": "https://youtu.be/R9rFQMaZ4FU?t=33",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AEMBOT Robot Twitchiness - YouTube",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://youtu.be/R9rFQMaZ4FU?t=19",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AEMBOT Robot Twitchiness - YouTube",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://youtu.be/6xvN4BLaf5A?t=38",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AEMBOT Twitching 2 - YouTube",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://youtu.be/6xvN4BLaf5A?t=60",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AEMBOT Twitching 2 - YouTube",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50715,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/debugging-dealing-with-limelight-teleporting/429243/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3159090,
+                    "name": "Nolan Hergert",
+                    "username": "nhergert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nhergert/{size}/162905_2.png",
+                    "created_at": "2023-03-07T07:29:22.319Z",
+                    "cooked": "I think Brandon already worked around the problems in his great documentation here: Tracking AprilTags — Limelight 1.0 documentation\n\nSome of the knobs that I’ll have the students play with tomorrow:\n\nIncrease quality threshold / minimum size. We don’t need to track from more than 10 feet away unless we see more tags in auto or something.\n\nUse ID filters\n\nUnrelated: Increase detector downscale for greater acquisition speed while moving",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-08T03:21:49.266Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 66,
+                    "readers_count": 65,
+                    "score": 88.2,
+                    "yours": false,
+                    "topic_id": 429243,
+                    "topic_slug": "debugging-dealing-with-limelight-teleporting",
+                    "display_username": "Nolan Hergert",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.limelightvision.io/en/latest/apriltags_in_2d.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Tracking AprilTags — Limelight 1.0 documentation",
+                            "clicks": 17
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50715,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/debugging-dealing-with-limelight-teleporting/429243/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3325468,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-03-06T07:29:41.893Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-06T07:29:41.893Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 5.2,
+                    "yours": false,
+                    "topic_id": 429243,
+                    "topic_slug": "debugging-dealing-with-limelight-teleporting",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/debugging-dealing-with-limelight-teleporting/429243/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3159079,
+                3159090,
+                3325468
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                950
+            ],
+            [
+                3,
+                585
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Arm motor automatically runs",
+                "id": 482322,
+                "title": "Arm motor automatically runs",
+                "slug": "arm-motor-automatically-runs",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-17T19:16:59.988Z",
+                "last_posted_at": "2025-01-17T19:21:18.933Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T19:21:18.933Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Can somoene assist as to why our arm motor is running on its own when we press start on the driver hub? /* Copyright (c) 2017 FIRST. All rights reserved. * Redistribution and use in source and bi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ftc"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 114,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485890,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68608,
+                    "username": "KI10963",
+                    "name": "Tish",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/e95f7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68608,
+                            "username": "KI10963",
+                            "name": "Tish",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/e95f7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14984,
+                            "username": "Christopher149",
+                            "name": "Christopher149",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Publishing data to NT from Shuffleboard widget",
+                "id": 484703,
+                "title": "Publishing data to NT from Shuffleboard widget",
+                "slug": "publishing-data-to-nt-from-shuffleboard-widget",
+                "posts_count": 9,
+                "reply_count": 7,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-01T20:59:53.257Z",
+                "last_posted_at": "2025-02-03T22:59:05.140Z",
+                "bumped": true,
+                "bumped_at": "2025-02-03T22:59:05.140Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Greetings! I am working on a shuffleboard widget POC. Following the documentation and examples in the shuffleboard repository, I have created my plugin widget, FXML, custom data, custom data type, an…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "shuffleboard"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 144,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499272,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 31300,
+                    "username": "mrEkko",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrekko/{size}/262783_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 31300,
+                            "username": "mrEkko",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrekko/{size}/262783_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Working Configurations",
+                "id": 492586,
+                "title": "YAGSL Working Configurations",
+                "slug": "yagsl-working-configurations",
+                "posts_count": 11,
+                "reply_count": 0,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-02-21T15:55:57.632Z",
+                "last_posted_at": "2025-02-24T00:33:32.201Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T00:33:32.201Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone! I know many of you are struggling with getting YAGSL up and running; and many more already have it up and running. To help these teams struggling I would love it if your team could po…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 17,
+                "views": 426,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3535331,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54317,
+                            "username": "SirFire",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sirfire/{size}/222590_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 73314,
+                            "username": "rnazeem",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/9fc29f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68238,
+                            "username": "midway457",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/f05b48/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 52238,
+                            "username": "Nathan_Moe",
+                            "name": "Nathan Moe",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/e99b99/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to ask WPILib to adjust confusing documentation",
+                "id": 492619,
+                "title": "How to ask WPILib to adjust confusing documentation",
+                "slug": "how-to-ask-wpilib-to-adjust-confusing-documentation",
+                "posts_count": 8,
+                "reply_count": 2,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/6/968ca89cec3650928d763495260012c411aadc10.png",
+                "created_at": "2025-02-21T20:13:35.377Z",
+                "last_posted_at": "2025-02-24T14:43:09.211Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T14:43:09.211Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Issues are good, pull requests are even better Note that there are multiple methods involved here and they may not all have the same wrapping behavior.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 305,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3535687,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 12381,
+                    "username": "Oblarg",
+                    "name": "Eli Barnett",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 29982,
+                            "username": "UnofficialForth",
+                            "name": "UnofficialForth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/unofficialforth/{size}/167902_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7439,
+                            "username": "Eugene_Fang",
+                            "name": "Eugene Fang",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/eugene_fang/{size}/65109_2.png",
+                            "flair_name": "The-Blue-Alliance",
+                            "flair_url": "/uploads/default/original/3X/0/2/02b18ea7720fea44e77469bb5261acf1c7045a6e.png",
+                            "flair_group_id": 67,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16846,
+                            "username": "calcmogul",
+                            "name": "Tyler Veness",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Holding/Braking a Spark MAX Controller",
+                "id": 494424,
+                "title": "Holding/Braking a Spark MAX Controller",
+                "slug": "holding-braking-a-spark-max-controller",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-06T00:19:33.762Z",
+                "last_posted_at": "2025-03-10T20:50:09.981Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T20:50:09.981Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have two NEOs on my elevator and I would like to move it to a position and hold it at a position. I set config.idleMode(SparkBaseConfig.IdleMode.kBrake) on my SparkMaxConfig, but when I start to mov…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "revrobotics"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 127,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548789,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71514,
+                    "username": "sorinschief",
+                    "name": "Sorin Schiefelbein",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71514,
+                            "username": "sorinschief",
+                            "name": "Sorin Schiefelbein",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/e68b1a/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "limelight"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Debugging/Dealing With Limelight Teleporting",
+        "id": 429243,
+        "title": "Debugging/Dealing With Limelight Teleporting",
+        "posts_count": 3,
+        "created_at": "2023-03-07T06:44:13.582Z",
+        "views": 448,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-03-06T07:29:41.893Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "debugging-dealing-with-limelight-teleporting",
+        "category_id": 30,
+        "word_count": 341,
+        "deleted_at": null,
+        "user_id": 50715,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_429243",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "nhergert",
+            "name": null,
+            "excerpt": "I think Brandon already worked around the problems in his great documentation here: <a href=\"https://docs.limelightvision.io/en/latest/apriltags_in_2d.html\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Tracking AprilTags — Limelight 1.0 documentation</a> \nSome of the knobs that I’ll have the students play with tomorrow: \n\nIncrease quality threshold / minimum size. We don’t need to track from more than 10 feet away unle&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 50715,
+                    "username": "nhergert",
+                    "name": "Nolan Hergert",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nhergert/{size}/162905_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 50715,
+                "username": "nhergert",
+                "name": "Nolan Hergert",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/nhergert/{size}/162905_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.limelightvision.io/en/latest/apriltags_in_2d.html",
+                    "title": "Tracking AprilTags — Limelight 1.0 documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 50715,
+                    "domain": "docs.limelightvision.io",
+                    "root_domain": "limelightvision.io"
+                },
+                {
+                    "url": "https://www.youtube.com/watch?v=R9rFQMaZ4FU&t=6s",
+                    "title": "AEMBOT Robot Twitchiness - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 17,
+                    "user_id": 50715,
+                    "domain": "www.youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://youtu.be/R9rFQMaZ4FU?t=19",
+                    "title": "AEMBOT Robot Twitchiness - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 50715,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://youtu.be/R9rFQMaZ4FU?t=33",
+                    "title": "AEMBOT Robot Twitchiness - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 50715,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://youtu.be/6xvN4BLaf5A?t=38",
+                    "title": "AEMBOT Twitching 2 - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 50715,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://youtu.be/6xvN4BLaf5A?t=60",
+                    "title": "AEMBOT Twitching 2 - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 50715,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

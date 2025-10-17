@@ -1,0 +1,880 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3026840,
+                    "name": "",
+                    "username": "RpT",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rpt/{size}/164618_2.png",
+                    "created_at": "2022-03-21T07:16:26.110Z",
+                    "cooked": "Hi Everyone, Today I got mk4 to swerve drive working! I’m talking no drift, no drag, and the ability to figure 8. However, one of my teammates decided to do something to the robot. Usually, we have to manually align the wheels before enabling robot drive (enabling in driver station). One of the team’s goals was to write a program that would do it automatically. So my teammate decided to write this code, and now all the angles on the modules are different and some modules are going in the right direction while others are not. I tried resetting everything and redoing the module angles offsets, however, nothing seems to be working. Additionally, the swerve modules are really jittery now. Can someone please suggest a fix? Thanks!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-03-21T07:16:26.110Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 414,
+                    "reads": 252,
+                    "readers_count": 251,
+                    "score": 2120.4,
+                    "yours": false,
+                    "topic_id": 406315,
+                    "topic_slug": "mk4-swerve-problem-angle",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51254,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Yep"
+                    },
+                    "post_url": "/t/mk4-swerve-problem-angle/406315/1",
+                    "custom_user_title": "Yep",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3026959,
+                    "name": "Maze",
+                    "username": "MazeOfEncryption",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mazeofencryption/{size}/112005_2.png",
+                    "created_at": "2022-03-21T14:00:57.552Z",
+                    "cooked": "MK4s have an on-axis absolute encoder, which means that the absolute position reported by them will be the same between power cycles. You’ll want to figure out what the “zero” position of each wheel is, and then set the magnet offset of the CANCoders such that the absolute position is 0 when all wheels are pointed forwards. You’ll also want to make sure that you configure the encoders to boot to absolute position, instead of 0.\n\nI posted some more detailed info about how CANCoders handle setting a magnet offset here .",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-03-21T14:00:57.552Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 12,
+                    "reads": 202,
+                    "readers_count": 201,
+                    "score": 115.4,
+                    "yours": false,
+                    "topic_id": 406315,
+                    "topic_slug": "mk4-swerve-problem-angle",
+                    "display_username": "Maze",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/zeroing-cancoders/390744/11",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Zeroing CANCoders",
+                            "clicks": 73
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37710,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Titanium Titans #4467 (Alumni)"
+                    },
+                    "post_url": "/t/mk4-swerve-problem-angle/406315/2",
+                    "custom_user_title": "Titanium Titans #4467 (Alumni)",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3027046,
+                    "name": "Bryn Dole - programming mentor FRC 2930",
+                    "username": "randomstring",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/randomstring/{size}/170695_2.png",
+                    "created_at": "2022-03-21T15:36:54.819Z",
+                    "cooked": "Are you not using the SwerveDriveSpecialties swerve-lib? that takes care of zeroing the swerve modules for you. One issue to note is that it can take up to 10 seconds for the CANcoders to fully calibrate, so trying to run the drivetrain <10s after a code restart (pushing code for example) may result in one or more corners being off.\n\nAlso, you don’t say what your team is using to get the swerve drive steering rotation? CANcoder? or something else?\n\nContribute to SwerveDriveSpecialties/swerve-lib development by creating an account on GitHub.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-03-21T15:36:54.819Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 156,
+                    "readers_count": 155,
+                    "score": 66.2,
+                    "yours": false,
+                    "topic_id": 406315,
+                    "topic_slug": "mk4-swerve-problem-angle",
+                    "display_username": "Bryn Dole - programming mentor FRC 2930",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/SwerveDriveSpecialties/swerve-lib",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 76
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 33397,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/mk4-swerve-problem-angle/406315/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3169475,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-03-21T15:37:17.525Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2023-03-21T15:37:17.525Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 16.8,
+                    "yours": false,
+                    "topic_id": 406315,
+                    "topic_slug": "mk4-swerve-problem-angle",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/mk4-swerve-problem-angle/406315/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3026840,
+                3026959,
+                3027046,
+                3169475
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1301
+            ],
+            [
+                4,
+                936
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Modules Jittering",
+                "id": 483617,
+                "title": "Swerve Modules Jittering",
+                "slug": "swerve-modules-jittering",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-25T20:45:54.250Z",
+                "last_posted_at": "2025-01-25T21:16:15.852Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T21:16:15.852Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Whenever I enable my swerve code, 2 of the modules will rotate some and then start jittering. It is specifically the front left and back right modules. I have already tried inverting them, and changin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 87,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492610,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60806,
+                    "username": "R_B",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60806,
+                            "username": "R_B",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 70574,
+                            "username": "Tatertotman",
+                            "name": "Tate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Optimizing Autonomous Scoring",
+                "id": 496634,
+                "title": "Optimizing Autonomous Scoring",
+                "slug": "optimizing-autonomous-scoring",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-23T21:51:22.977Z",
+                "last_posted_at": "2025-03-23T23:27:37.198Z",
+                "bumped": true,
+                "bumped_at": "2025-03-23T23:27:37.198Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, this is going to be a long thread about optimizing autonomous motions for scoring as much coral as possible when loading from the station. We have a few questions, but hopefully this can…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 314,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3566258,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62548,
+                            "username": "Practicality",
+                            "name": "Jeffrey Davis",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/practicality/{size}/208492_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16614,
+                            "username": "MrBasse",
+                            "name": "MrBasse",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrbasse/{size}/65032_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Shuffleboard getDouble not working this season",
+                "id": 493420,
+                "title": "Shuffleboard getDouble not working this season",
+                "slug": "shuffleboard-getdouble-not-working-this-season",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-27T01:54:49.759Z",
+                "last_posted_at": "2025-02-27T03:16:36.552Z",
+                "bumped": true,
+                "bumped_at": "2025-02-27T03:16:36.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have a simple Shuffleboard test that worked last season, but doesn’t this season. I can move the slider, or change the widget to text view and edit it, but the print in teleopInit always prints 1.0…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "shuffleboard"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 84,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3542119,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 48735,
+                    "username": "Slylock",
+                    "name": "Matt Snyder",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slylock/{size}/174970_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 48735,
+                            "username": "Slylock",
+                            "name": "Matt Snyder",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slylock/{size}/174970_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Old code vs new code",
+                "id": 495673,
+                "title": "Old code vs new code",
+                "slug": "old-code-vs-new-code",
+                "posts_count": 11,
+                "reply_count": 9,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-03-15T17:04:25.528Z",
+                "last_posted_at": "2025-03-15T19:05:31.179Z",
+                "bumped": true,
+                "bumped_at": "2025-03-15T19:05:31.179Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 209,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557765,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 26945,
+                    "username": "joeojazz",
+                    "name": "Joe Lockwood",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joeojazz/{size}/193359_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74356,
+                            "username": "stew",
+                            "name": "Stewy",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/ecb155/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 26945,
+                            "username": "joeojazz",
+                            "name": "Joe Lockwood",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joeojazz/{size}/193359_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60542,
+                            "username": "Chris_7898",
+                            "name": "Chris",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chris_7898/{size}/226133_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to set the limelight 3g static ip",
+                "id": 499606,
+                "title": "How to set the limelight 3g static ip",
+                "slug": "how-to-set-the-limelight-3g-static-ip",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-04-17T16:20:50.928Z",
+                "last_posted_at": "2025-04-17T16:29:45.798Z",
+                "bumped": true,
+                "bumped_at": "2025-04-17T16:29:45.798Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Good morning! When i try to set up de static IP from limelight 3g, its show a message to Power Cycle the limelight. When i reset the limelight, it’s doesn’t take effect, and the ip dont changes. Sorr…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 62,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3594891,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 62655,
+                            "username": "ET-Hendrix",
+                            "name": "Zeke",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/et-hendrix/{size}/242233_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "swerve",
+            "programming",
+            "mk4"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "MK4 SWERVE PROBLEM (angle)",
+        "id": 406315,
+        "title": "MK4 SWERVE PROBLEM (angle)",
+        "posts_count": 4,
+        "created_at": "2022-03-21T07:16:26.019Z",
+        "views": 1403,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2023-03-21T15:37:17.525Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "mk4-swerve-problem-angle",
+        "category_id": 75,
+        "word_count": 339,
+        "deleted_at": null,
+        "user_id": 51254,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_406315",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 33397,
+                    "username": "randomstring",
+                    "name": "Bryn Dole - programming mentor FRC 2930",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/randomstring/{size}/170695_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 37710,
+                    "username": "MazeOfEncryption",
+                    "name": "Maze",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mazeofencryption/{size}/112005_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51254,
+                    "username": "RpT",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rpt/{size}/164618_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 51254,
+                "username": "RpT",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/rpt/{size}/164618_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/SwerveDriveSpecialties/swerve-lib",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 76,
+                    "user_id": 33397,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/zeroing-cancoders/390744/11",
+                    "title": "Zeroing CANCoders",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 73,
+                    "user_id": 37710,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

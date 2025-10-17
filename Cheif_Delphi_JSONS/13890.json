@@ -1,0 +1,927 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3082205,
+                    "name": "Dalton Smith",
+                    "username": "Daltz3",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/daltz3/{size}/145991_2.png",
+                    "created_at": "2022-09-15T06:01:53.875Z",
+                    "cooked": "I’ve finally done it, I’ve broken a roboRIO somehow!\n\nAnyways… I found a roboRIO hidden with a bunch of motors in my team’s storage. I figured I might be able to use/salvage it. Hook it up to my test bench and it boots! Woohoo! Alas, this is when my troubles begin.\n\nThe roboRIO had an image and firmware from 2015. After updating the firmware using the roboRIO Imaging Tool to 8.8.0f, I came into problem number 1.\n\nThe roboRIO does not image (image, not firmware). The progress bar goes about 25% of the way there, times out and the roboRIO shows a status led of 3 blinks (Safe Mode).\n\nNow, after scouring forum threads and some archaic posts from @marshall about RAD , I attempted to use NI Max to “Erase disk” the roboRIO. This also fails with a “failed to reboot, device is in an unknown state” (some verbiage similar to that). Okay, fine, let’s try RAD. Unfortunately failed to figure out where I could obtain a blank image. I guess I could grab one from another roboRIO.\n\nI looked into grabbing the full blown LabVIEW installation to make my own image, or use an example one, but that’s 50GB of download space alone.\n\nUnfortunately, in the process of all that, I encountered another problem.\n\nUnrecoverable error. The roboRIO no longer boots at all and status led blinks continuously. Refuses to boot into safe mode. Fails to boot with recovery config per CSA training either.\n\nI’ve opened up a ticket/forum post with NI ( Unable to image roboRIO 1 - NI Community ), so we’ll see where that goes. Any advice is appreciated. It was mentioned that the flash itself on it might be corrupted, so we’ll see if NI will accept an RMA on a 7 year old roboRIO. Otherwise it’ll probably be a donation to the nearest recycling facility.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-09-15T06:01:53.875Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 67,
+                    "reads": 94,
+                    "readers_count": 93,
+                    "score": 388.8,
+                    "yours": false,
+                    "topic_id": 415076,
+                    "topic_slug": "error-imaging-roborio-1-0",
+                    "display_username": "Dalton Smith",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://forums.ni.com/t5/Troubleshooting-Hardware/Unable-to-image-roboRIO-1/td-p/4255359",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Unable to image roboRIO 1 - NI Community",
+                            "clicks": 12
+                        },
+                        {
+                            "url": "https://forums.ni.com/t5/FIRST-Robotics-Competition/Using-RAD-on-the-RoboRIO/td-p/3799329/page/2",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Using RAD on the RoboRIO - Page 2 - NI Community",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 29225,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib Docs Maintainer"
+                    },
+                    "post_url": "/t/error-imaging-roborio-1-0/415076/1",
+                    "custom_user_title": "WPILib Docs Maintainer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3082214,
+                    "name": "marshall",
+                    "username": "marshall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/marshall/{size}/167657_2.png",
+                    "created_at": "2022-09-15T11:43:13.258Z",
+                    "cooked": "Daltz3:\n\narchaic posts from @marshall about RAD\n\nTo date, RAD is the only OS imaging tool I’m aware of that attempts to clone the bits locally before sending them to a target.  So weird.  Also problematic given our storage specs.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-09-15T11:43:13.258Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 10,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 81.0,
+                    "yours": false,
+                    "topic_id": 415076,
+                    "topic_slug": "error-imaging-roborio-1-0",
+                    "display_username": "marshall",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 17672,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team Principal"
+                    },
+                    "post_url": "/t/error-imaging-roborio-1-0/415076/2",
+                    "custom_user_title": "Team Principal",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3082279,
+                    "name": "Mentor FRC 2992, FTC 25619, past FTC 10337, FTC 14374",
+                    "username": "msonnier",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/msonnier/{size}/199751_2.png",
+                    "created_at": "2022-09-15T17:23:25.675Z",
+                    "cooked": "From your message it looks like you have access to the CSA tools issued recovery.cfg file and instructions.  If that doesn’t work, you almost certainly will need NI support ticket assist.  I have only had to use that method once, but it worked without fail for me.  (Do see the note in the instructions about trying more than 1 USB stick…)\n\nI haven’t had to do it, but I have heard NI will repair old RoboRios at little or no cost if it has a hardware issue.\n\nOne thing to consider – did some metal swarf get into the Rio via port openings?  Once had a Rio 1.0 that started exhibiting similar issues with failed boots – we opened up the case and carefully blew out debris/swarf and cleaned up the board – and was able to re-image and been fine ever since.\n\nGood luck Mike",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-09-15T17:23:25.675Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 25.6,
+                    "yours": false,
+                    "topic_id": 415076,
+                    "topic_slug": "error-imaging-roborio-1-0",
+                    "display_username": "Mentor FRC 2992, FTC 25619, past FTC 10337, FTC 14374",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22056,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 2992, FTC 14374, FTC 10337(former)"
+                    },
+                    "post_url": "/t/error-imaging-roborio-1-0/415076/3",
+                    "custom_user_title": "FRC 2992, FTC 14374, FTC 10337(former)",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3232403,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-09-15T17:23:29.584Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2023-09-15T17:23:29.584Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 9,
+                    "readers_count": 8,
+                    "score": 1.8,
+                    "yours": false,
+                    "topic_id": 415076,
+                    "topic_slug": "error-imaging-roborio-1-0",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/error-imaging-roborio-1-0/415076/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3082205,
+                3082214,
+                3082279,
+                3232403
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1123
+            ],
+            [
+                3,
+                1122
+            ],
+            [
+                4,
+                757
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "VH-109 Radio as an access point",
+                "id": 473517,
+                "title": "VH-109 Radio as an access point",
+                "slug": "vh-109-radio-as-an-access-point",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-10-23T14:36:13.762Z",
+                "last_posted_at": "2024-10-23T20:38:09.037Z",
+                "bumped": true,
+                "bumped_at": "2024-10-23T20:38:09.037Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have a pair of the new VH-109 radios. One is on the robot and one is configured as an access point. One of our laptops is Wi-Fi 7 capable (which includes Wi-Fi 6E obviously). The VH-109 radio on…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 643,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3438132,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 28084,
+                    "username": "sjcbulldog",
+                    "name": "sjcbulldog",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/c68b51/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 28084,
+                            "username": "sjcbulldog",
+                            "name": "sjcbulldog",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/c68b51/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 29846,
+                            "username": "Ryan_Blue",
+                            "name": "Ryan Blue",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_blue/{size}/174016_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55016,
+                            "username": "person4268",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 6398,
+                            "username": "kiettyyyy",
+                            "name": "Kiet Chau",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kiettyyyy/{size}/194009_2.png",
+                            "flair_name": "Vivid-Hosting",
+                            "flair_url": "/uploads/default/original/3X/5/0/50d2e846f0add7aa9489092abe0f436644dde98d.png",
+                            "flair_group_id": 62,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Controls for a first year swerve team",
+                "id": 478795,
+                "title": "Controls for a first year swerve team",
+                "slug": "controls-for-a-first-year-swerve-team",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-05T03:12:32.794Z",
+                "last_posted_at": "2025-01-05T05:02:46.199Z",
+                "bumped": true,
+                "bumped_at": "2025-01-05T05:02:46.199Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Continuing the discussion from U Shaped Chassis?: My team is upgrading to swerve this year and as Driver 1 i was wounder how people like controlling their robots the best. I am talking with my driver…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 163,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3470252,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70166,
+                    "username": "MarshallT",
+                    "name": "Marshall tveit",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/marshallt/{size}/240999_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70166,
+                            "username": "MarshallT",
+                            "name": "Marshall tveit",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/marshallt/{size}/240999_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "FRC Autonomous robot during teleop",
+                "id": 475670,
+                "title": "FRC Autonomous robot during teleop",
+                "slug": "frc-autonomous-robot-during-teleop",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-11-27T13:35:10.719Z",
+                "last_posted_at": "2024-11-27T13:35:54.241Z",
+                "bumped": true,
+                "bumped_at": "2024-11-27T13:35:54.241Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I remember to see a video of a wonderful robot that were totally autonomous during TeleOp period, they were able to choose the path robot was gonna use BUT I CAN’T FIND THIS VIDEO AGAIN ANYWHERE, I’VE…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "autonomous"
+                ],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 274,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3452256,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 62008,
+                    "username": "Ryan9049",
+                    "name": "Ryan",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/ed655f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 62008,
+                            "username": "Ryan9049",
+                            "name": "Ryan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ed655f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 17669,
+                            "username": "BrennanB",
+                            "name": "Brennan Bibic",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/brennanb/{size}/265044_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "New radio and unexpected errors",
+                "id": 477110,
+                "title": "New radio and unexpected errors",
+                "slug": "new-radio-and-unexpected-errors",
+                "posts_count": 9,
+                "reply_count": 7,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-12-20T16:07:17.991Z",
+                "last_posted_at": "2024-12-20T21:34:47.229Z",
+                "bumped": true,
+                "bumped_at": "2024-12-20T21:34:47.229Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey cd I’m back one more time and hopefully the last time for some problems with the new radios. We just got a 2nd vh-109 and I started to set up an access point config, but when I tried to re config…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 324,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3461928,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68136,
+                    "username": "jom",
+                    "name": "Miles.D",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jom/{size}/256684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 68136,
+                            "username": "jom",
+                            "name": "Miles.D",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jom/{size}/256684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH-109 as an access point help",
+                "id": 482569,
+                "title": "VH-109 as an access point help",
+                "slug": "vh-109-as-an-access-point-help",
+                "posts_count": 17,
+                "reply_count": 11,
+                "highest_post_number": 17,
+                "image_url": null,
+                "created_at": "2025-01-18T21:51:24.744Z",
+                "last_posted_at": "2025-02-28T16:23:28.061Z",
+                "bumped": true,
+                "bumped_at": "2025-02-28T16:23:28.061Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Does anyone have a step-by-step guide for setting up the VH-109 as an access point for at-home practice? I configured one of my radios as an access point and the other as a robot radio, but that doesn…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 403,
+                "category_id": 72,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486965,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 52932,
+                    "username": "kmminer",
+                    "name": "Kaden Morrison",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kmminer/{size}/249317_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 52932,
+                            "username": "kmminer",
+                            "name": "Kaden Morrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kmminer/{size}/249317_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7334,
+                            "username": "usbcd36",
+                            "name": "usbcd36",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/usbcd36/{size}/2444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62387,
+                            "username": "SoggyToastEater",
+                            "name": "Ben Mick",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/soggytoasteater/{size}/208127_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Error imaging roboRIO 1.0",
+        "id": 415076,
+        "title": "Error imaging roboRIO 1.0",
+        "posts_count": 4,
+        "created_at": "2022-09-15T06:01:53.813Z",
+        "views": 606,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2023-09-15T17:23:29.584Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "error-imaging-roborio-1-0",
+        "category_id": 72,
+        "word_count": 593,
+        "deleted_at": null,
+        "user_id": 29225,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_415076",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 17672,
+                    "username": "marshall",
+                    "name": "marshall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/marshall/{size}/167657_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 22056,
+                    "username": "msonnier",
+                    "name": "Mentor FRC 2992, FTC 25619, past FTC 10337, FTC 14374",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/msonnier/{size}/199751_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 29225,
+                    "username": "Daltz3",
+                    "name": "Dalton Smith",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/daltz3/{size}/145991_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 29225,
+                "username": "Daltz3",
+                "name": "Dalton Smith",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/daltz3/{size}/145991_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://forums.ni.com/t5/Troubleshooting-Hardware/Unable-to-image-roboRIO-1/td-p/4255359",
+                    "title": "Unable to image roboRIO 1 - NI Community",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 12,
+                    "user_id": 29225,
+                    "domain": "forums.ni.com",
+                    "root_domain": "ni.com"
+                },
+                {
+                    "url": "https://forums.ni.com/t5/FIRST-Robotics-Competition/Using-RAD-on-the-RoboRIO/td-p/3799329/page/2",
+                    "title": "Using RAD on the RoboRIO - Page 2 - NI Community",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 29225,
+                    "domain": "forums.ni.com",
+                    "root_domain": "ni.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

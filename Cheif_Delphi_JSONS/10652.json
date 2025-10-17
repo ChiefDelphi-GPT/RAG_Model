@@ -1,0 +1,1145 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3137582,
+                    "name": "jdao",
+                    "username": "jdao",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jdao/{size}/160969_2.png",
+                    "created_at": "2023-02-01T08:39:41.678Z",
+                    "cooked": "I’ve been stuck on this problem for a few days and haven’t found any examples of how to do this. Brute forcing the problem hasn’t worked so I figured I would ask here since other teams probably have the same question.\n\nI am trying to determine my camera position given the location of an AprilTag, as defined by their position given in the 2023-chargedup.json Pose and the tag’s translation and rotation given by the result of robotpy_apriltag’s AprilTagPoseEstimator. Assuming that the translation/rotation given by the AprilTag’s pose estimation is in an East-Down-North coordinate system, I would need to transform it into a North-West-Up coordinate system to match WPILib’s coordinate system. To do so, I assume I would have to do the following:\n\nHowever, when trying to sanity check this, I came across a confusing result:\n\nIntuitively, I would think that the end result should give you Poses with different Translation3d’s as you are converting between two different Coordinate Systems, so each initial X, Y, Z  transform component should be added/subtracted to a different X, Y, Z component of the tag’s pose, but that doesn’t seem to be the case. This also seem to be the case if I define a custom Coordinate system, so I feel that I am missing something important.\n\nI also see that PhotonVision is doing the same math here , but I assume it works because everything is in the same coordinate system. I initially tried this without converting between coordinate sytems without success. Impleming the conversion got me closer to what I expected, but the answer seems to fail if I physically move the camera and try to coorelate the position on a Field2D object. Negating the Y value of the tagToCameraTransform prior to converting coordinate systems seemed to get me the correct physical displacement when printing out the answer, but this seems to break the Field2D visualization as a result (I tried brute-forcing a sign change of the rotations prior to converting it as well without success).\n\nI am currently using RobotPy to do this, but RobotPy should just be wrapping the WPILibMath code. I also tested using the WPILib Java and got the same result.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2023-02-01T08:39:41.678Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1029,
+                    "reads": 417,
+                    "readers_count": 416,
+                    "score": 5253.4,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "jdao",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/PhotonVision/photonvision/blob/e58c27caa28ef35891f1c8a3ec267a87622432f1/photon-lib/src/main/java/org/photonvision/PhotonPoseEstimator.java#L268",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "photonvision/PhotonPoseEstimator.java at e58c27caa28ef35891f1c8a3ec267a87622432f1 · PhotonVision/photonvision · GitHub",
+                            "clicks": 19
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/2023-wpilib-feedback/435709/175",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "2023 WPILib Feedback",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24178,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4201 Mentor, CSA"
+                    },
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/1",
+                    "custom_user_title": "4201 Mentor, CSA",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3137621,
+                    "name": "Matt",
+                    "username": "thatmattguy",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                    "created_at": "2023-02-01T13:17:33.621Z",
+                    "cooked": "We deal with converting from the Umich Apriltag library coordinates into opencv coordinates in mathutils, then opencv to wpilib in the same. Might be worth taking a look? photonvision/MathUtils.java at e58c27caa28ef35891f1c8a3ec267a87622432f1 · PhotonVision/photonvision · GitHub",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2023-02-01T13:18:48.698Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 324,
+                    "readers_count": 323,
+                    "score": 114.8,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "Matt",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/PhotonVision/photonvision/blob/e58c27caa28ef35891f1c8a3ec267a87622432f1/photon-core/src/main/java/org/photonvision/common/util/math/MathUtils.java#L217",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "photonvision/MathUtils.java at e58c27caa28ef35891f1c8a3ec267a87622432f1 · PhotonVision/photonvision · GitHub",
+                            "clicks": 40
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 37738,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3208386,
+                    "name": "jdao",
+                    "username": "jdao",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jdao/{size}/160969_2.png",
+                    "created_at": "2023-05-18T02:25:08.875Z",
+                    "cooked": "Thanks @SLAB-Mr.Thomas for reminding me about this post. For reference if anyone else wants the answer to calculate the robot’s position from an AprilTag.\n\nYou can find an example of how we used this in our AprilTag code on our GitHub here .",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2023-05-18T02:25:08.875Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 35,
+                    "reads": 289,
+                    "readers_count": 288,
+                    "score": 247.8,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "jdao",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/4201VitruvianBots/ChargedUp2023AprilTags/blob/c9830543d2c972bcd088209a7bcfd3ba93068d7a/tests/testTagToCameraPose.py#L22-L34",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ChargedUp2023AprilTags/testTagToCameraPose.py at c9830543d2c972bcd088209a7bcfd3ba93068d7a · 4201VitruvianBots/ChargedUp2023AprilTags · GitHub",
+                            "clicks": 25
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24178,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4201 Mentor, CSA"
+                    },
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/3",
+                    "custom_user_title": "4201 Mentor, CSA",
+                    "reactions": [
+                        {
+                            "id": "+1",
+                            "type": "emoji",
+                            "count": 1
+                        },
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3213576,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2023-06-10T16:54:04.116Z",
+                    "cooked": "With encouragement from OP and others including @veg I finally got a Java working, complete example of finding the robot position based on the WPILib AprilTag vision examples and other WPILib math classes and methods running on the roboRIO and Microsoft HD-3000 LifeCam. By working I mean for a few test cases the robot displays in AdvantageScope correctly.\n\nIt includes working for an AprilTag at a rotation on the field other than 0 or 180 degrees. (I deployed a hacked tag layout file for testing.)\n\nIt includes drawing a rectangular solid around the tag display (I had to use OpenCV solvePNP for best results and I’m not sure why because it’s within 2 to 4 degrees rotation of the WPILib estimator).\n\nI had to make two mysterious rotations of the robot in the code that I can’t defend except that it works. Anyone who cares to take a look might share some insight. The extra rotations might be because of the way the camera is facing the tag and I see mention in Internet articles that in reality there are negative distances and upside down images.\n\nOne WPILib method is faulty causing significant debugging time. I opened an issue in github WPILIBSUITE and thanks to @Quake (I think) for a good fix that I use in my code.\n\nMy code is a bit messy and part of a larger testing project and is currently at:",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2023-06-10T16:54:04.116Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 18,
+                    "reads": 161,
+                    "readers_count": 160,
+                    "score": 157.2,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/SirLanceABot/Training/blob/master/robotCommandBased/Sensors/ApriltagVisionThreadProc.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Training/ApriltagVisionThreadProc.java at master · SirLanceABot/Training · GitHub",
+                            "clicks": 48
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/6",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3214974,
+                    "name": "SLAB-Mr.Thomas",
+                    "username": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "created_at": "2023-06-19T15:41:31.995Z",
+                    "cooked": "File has been updated to correct errors in drawing the 3-D orientation box in front of the tag.\n\nAnother post extends the WPILib Java example that includes the robot pose discussed herein and an orientation box on the face of the tag: WPILib robot pose example .",
+                    "post_number": 7,
+                    "post_type": 1,
+                    "posts_count": 6,
+                    "updated_at": "2023-06-19T15:41:31.995Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 6,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 90,
+                    "readers_count": 89,
+                    "score": 58.0,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "SLAB-Mr.Thomas",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/wpilib-apriltagdetector-sample-code/421411/43",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "WPILIB AprilTagDetector sample code",
+                            "clicks": 37
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 24594,
+                        "username": "SLAB-Mr.Thomas",
+                        "name": "SLAB-Mr.Thomas",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24594,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/7",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3399819,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-06-18T15:41:50.434Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 8,
+                    "post_type": 3,
+                    "posts_count": 6,
+                    "updated_at": "2024-06-18T15:41:50.434Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 28,
+                    "readers_count": 27,
+                    "score": 5.6,
+                    "yours": false,
+                    "topic_id": 425357,
+                    "topic_slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/how-to-properly-perform-3d-transformations-using-wpilibmath-libraries/425357/8",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3137582,
+                3137621,
+                3208386,
+                3213576,
+                3214974,
+                3399819
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                984
+            ],
+            [
+                3,
+                878
+            ],
+            [
+                4,
+                854
+            ],
+            [
+                5,
+                845
+            ],
+            [
+                6,
+                480
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Cannot call yagsl pathplanner driveToPose() from a button",
+                "id": 493077,
+                "title": "Cannot call yagsl pathplanner driveToPose() from a button",
+                "slug": "cannot-call-yagsl-pathplanner-drivetopose-from-a-button",
+                "posts_count": 9,
+                "reply_count": 7,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-25T02:52:34.229Z",
+                "last_posted_at": "2025-02-25T22:33:49.741Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T22:33:49.741Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": ".whileTrue( Commands.defer(() → drivebase.driveToPose( new Pose2d(1, 1, new Rotation2d())), Set.of(drivebase)));",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 166,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3540240,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 28240,
+                    "username": "icemannie",
+                    "name": "icemannie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 30875,
+                            "username": "ericjanofski",
+                            "name": "ericjanofski",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ericjanofski/{size}/73640_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner Probelms",
+                "id": 495347,
+                "title": "Pathplanner Probelms",
+                "slug": "pathplanner-probelms",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-12T21:35:32.234Z",
+                "last_posted_at": "2025-03-12T21:35:32.288Z",
+                "bumped": true,
+                "bumped_at": "2025-03-12T21:35:32.288Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "So my team has been trying to implement pathplanner in our autos, but when the robot runs it, it follows the path for about 3 seconds and then starts oscilating in one position. The path I am running …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 36,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3555528,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74244,
+                    "username": "EthanLong",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/c68b51/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 74244,
+                            "username": "EthanLong",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/e/c68b51/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using an iPad/Tablet as Robot Dashboard",
+                "id": 481688,
+                "title": "Using an iPad/Tablet as Robot Dashboard",
+                "slug": "using-an-ipad-tablet-as-robot-dashboard",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-14T18:06:13.447Z",
+                "last_posted_at": "2025-01-14T18:10:11.139Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T18:10:11.139Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi Chief Delphi! I know this might be a bit of a random question, but I’ve been thinking about using an iPad/tablet as a dashboard for our robot. The idea would be to have a touch interface where we…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 145,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3482299,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 33648,
+                    "username": "crazrRobot123",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crazrrobot123/{size}/211176_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 33648,
+                            "username": "crazrRobot123",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crazrrobot123/{size}/211176_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57833,
+                            "username": "hjmcphail76",
+                            "name": "Harrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hjmcphail76/{size}/234713_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Trough bore encoder",
+                "id": 483026,
+                "title": "Trough bore encoder",
+                "slug": "trough-bore-encoder",
+                "posts_count": 18,
+                "reply_count": 16,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-01-22T11:50:21.140Z",
+                "last_posted_at": "2025-01-22T13:51:45.586Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T13:51:45.586Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "good morning! I have doubts about how to use the trough bore encoder in its absolute mode in programming. Does anyone know how I can do this?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 232,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489646,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49695,
+                            "username": "miguelsr",
+                            "name": "Miguel Ramos",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/miguelsr/{size}/244931_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 49921,
+                            "username": "2020",
+                            "name": "Sylvain D.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/2020/{size}/167345_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner Rotation Control Issues",
+                "id": 495577,
+                "title": "Pathplanner Rotation Control Issues",
+                "slug": "pathplanner-rotation-control-issues",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/0/c/0cb719aa23a003a3b4a70a836c17e3ff5a2f684a_2_1024x225.png",
+                "created_at": "2025-03-14T16:57:08.200Z",
+                "last_posted_at": "2025-03-14T17:39:59.176Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T17:39:59.176Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, Our team is having some issues with pathplanner’s rotation control tuning and not really sure where to go from here. Physical observations right now are that when P is less than 1, our robot spin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 45,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557100,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60649,
+                    "username": "naack",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60649,
+                            "username": "naack",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/a9adbd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16354,
+                            "username": "CDL_066",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/c6cbf5/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "How to Properly perform 3D Transformations using WPILibMath Libraries?",
+        "id": 425357,
+        "title": "How to Properly perform 3D Transformations using WPILibMath Libraries?",
+        "posts_count": 6,
+        "created_at": "2023-02-01T08:39:41.626Z",
+        "views": 2128,
+        "reply_count": 3,
+        "like_count": 7,
+        "last_posted_at": "2024-06-18T15:41:50.434Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-to-properly-perform-3d-transformations-using-wpilibmath-libraries",
+        "category_id": 30,
+        "word_count": 1097,
+        "deleted_at": null,
+        "user_id": 24178,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_425357",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 8,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 3,
+            "username": "jdao",
+            "name": null,
+            "excerpt": "Thanks <a class=\"mention\" href=\"/u/slab-mr.thomas\">@SLAB-Mr.Thomas</a> for reminding me about this post. For reference if anyone else wants the answer to calculate the robot’s position from an AprilTag. \n# Position of the Camera relative to the robot&#39;s center. For simplicity, assume it is the same.\nrobotToCamera = Transform3d(Translation3d(), Rot&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24178,
+                    "username": "jdao",
+                    "name": "jdao",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jdao/{size}/160969_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24594,
+                    "username": "SLAB-Mr.Thomas",
+                    "name": "SLAB-Mr.Thomas",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 37738,
+                    "username": "thatmattguy",
+                    "name": "Matt",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 24178,
+                "username": "jdao",
+                "name": "jdao",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/jdao/{size}/160969_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/SirLanceABot/Training/blob/master/robotCommandBased/Sensors/ApriltagVisionThreadProc.java",
+                    "title": "Training/ApriltagVisionThreadProc.java at master · SirLanceABot/Training · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 48,
+                    "user_id": 24594,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/PhotonVision/photonvision/blob/e58c27caa28ef35891f1c8a3ec267a87622432f1/photon-core/src/main/java/org/photonvision/common/util/math/MathUtils.java#L217",
+                    "title": "photonvision/MathUtils.java at e58c27caa28ef35891f1c8a3ec267a87622432f1 · PhotonVision/photonvision · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 40,
+                    "user_id": 37738,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/wpilib-apriltagdetector-sample-code/421411/43",
+                    "title": "WPILIB AprilTagDetector sample code",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 37,
+                    "user_id": 24594,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://github.com/4201VitruvianBots/ChargedUp2023AprilTags/blob/c9830543d2c972bcd088209a7bcfd3ba93068d7a/tests/testTagToCameraPose.py#L22-L34",
+                    "title": "ChargedUp2023AprilTags/testTagToCameraPose.py at c9830543d2c972bcd088209a7bcfd3ba93068d7a · 4201VitruvianBots/ChargedUp2023AprilTags · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 25,
+                    "user_id": 24178,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/PhotonVision/photonvision/blob/e58c27caa28ef35891f1c8a3ec267a87622432f1/photon-lib/src/main/java/org/photonvision/PhotonPoseEstimator.java#L268",
+                    "title": "photonvision/PhotonPoseEstimator.java at e58c27caa28ef35891f1c8a3ec267a87622432f1 · PhotonVision/photonvision · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 19,
+                    "user_id": 24178,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

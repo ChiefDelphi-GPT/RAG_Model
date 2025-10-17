@@ -1,0 +1,775 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3498453,
+                    "name": "",
+                    "username": "ETVRocks",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ee7513/{size}.png",
+                    "created_at": "2025-01-31T23:29:05.558Z",
+                    "cooked": "I’m honestly so confused about this. So we use phoenix swerves and use CTRE signalLogger to get the motor values, and want to use SysId to tune PIDS. However, whenever we try to put signalLogger functions into the log consumer for SysId config, we don’t get any values back. Any help would be appreciated.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-01-31T23:29:05.558Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 10,
+                    "reads": 35,
+                    "readers_count": 34,
+                    "score": 57.0,
+                    "yours": false,
+                    "topic_id": 484532,
+                    "topic_slug": "how-to-use-signallogger-for-sysid-states",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71803,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/how-to-use-signallogger-for-sysid-states/484532/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3498595,
+                    "name": "Benjamin Hall",
+                    "username": "bhall-ctre",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "created_at": "2025-02-01T01:52:53.379Z",
+                    "cooked": "The generated swerve project already has SysId fully set up and assigned to buttons . You just have to use Tuner X to convert the hoot logs to wpilog, import it into SysId, and then select the relevant signals (MotorVoltage, Position, and Velocity from the relevant motor).\n\nSignalLogger automatically logs all signals from all CTRE devices, so the log consumer should be unused. The only thing that needs to be manually logged is the SysId state, and in some cases the control variable.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-01T01:56:25.388Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 25,
+                    "readers_count": 24,
+                    "score": 5.0,
+                    "yours": false,
+                    "topic_id": 484532,
+                    "topic_slug": "how-to-use-signallogger-for-sysid-states",
+                    "display_username": "Benjamin Hall",
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 57,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/SwerveWithPathPlanner/src/main/java/frc/robot/subsystems/CommandSwerveDrivetrain.java#L57-L117",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Phoenix6-Examples/java/SwerveWithPathPlanner/src/main/java/frc/robot/subsystems/CommandSwerveDrivetrain.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/tools/log-extractor.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Extracting Signal Logs",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/SwerveWithPathPlanner/src/main/java/frc/robot/RobotContainer.java#L77-L82",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Phoenix6-Examples/java/SwerveWithPathPlanner/src/main/java/frc/robot/RobotContainer.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48146,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Software Engineering Intern at CTR Electronics"
+                    },
+                    "post_url": "/t/how-to-use-signallogger-for-sysid-states/484532/2",
+                    "custom_user_title": "Software Engineering Intern at CTR Electronics",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3498453,
+                3498595
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                253
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Can the CTRE Pigeon 2.0 reliability provide velocity data?",
+                "id": 476930,
+                "title": "Can the CTRE Pigeon 2.0 reliability provide velocity data?",
+                "slug": "can-the-ctre-pigeon-2-0-reliability-provide-velocity-data",
+                "posts_count": 20,
+                "reply_count": 14,
+                "highest_post_number": 20,
+                "image_url": null,
+                "created_at": "2024-12-18T06:19:50.752Z",
+                "last_posted_at": "2024-12-21T13:56:14.899Z",
+                "bumped": true,
+                "bumped_at": "2024-12-21T13:56:14.899Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Basically the title, I have a use case that could use this data, was wondering if the Pigeon 2.0 could provide that?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 19,
+                "views": 952,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3460703,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24613,
+                    "username": "viggy96",
+                    "name": "viggy96",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55310,
+                            "username": "trixydevs",
+                            "name": "Liam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trixydevs/{size}/179397_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57939,
+                            "username": "grahamsh",
+                            "name": "Graham Howard",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/grahamsh/{size}/188294_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Cannot download Phoenix Tuner X 2025 from Microsoft Store",
+                "id": 479070,
+                "title": "Cannot download Phoenix Tuner X 2025 from Microsoft Store",
+                "slug": "cannot-download-phoenix-tuner-x-2025-from-microsoft-store",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-05T19:51:35.180Z",
+                "last_posted_at": "2025-01-08T21:29:33.037Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T21:29:33.037Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It has been updated and put on the Microsoft Store now.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 300,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475800,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 70239,
+                    "username": "Simon6619",
+                    "name": "Simon Kozioziemski",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/simon6619/{size}/251071_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 70239,
+                            "username": "Simon6619",
+                            "name": "Simon Kozioziemski",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/simon6619/{size}/251071_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Reef Alignment in Code",
+                "id": 482630,
+                "title": "Reef Alignment in Code",
+                "slug": "reef-alignment-in-code",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-19T06:40:35.224Z",
+                "last_posted_at": "2025-01-19T18:08:53.160Z",
+                "bumped": true,
+                "bumped_at": "2025-01-19T18:08:53.160Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can use Commands.defer() to create the command on schedule. /** * decides which reef to align and return the desired robot pose for auto alignment **/ public Pose2d decideAutoAlignmentTa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 799,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3487359,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 60033,
+                    "username": "catrix",
+                    "name": "sam liu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61960,
+                            "username": "Wihy",
+                            "name": "Wihy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wihy/{size}/225659_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53032,
+                            "username": "Traptricker",
+                            "name": "Jackson Elia",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49147,
+                            "username": "CarvalhoJeo",
+                            "name": "Luca Carvalho",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Choreo .traj and .chor file implementation into wpilib",
+                "id": 483638,
+                "title": "Choreo .traj and .chor file implementation into wpilib",
+                "slug": "choreo-traj-and-chor-file-implementation-into-wpilib",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-25T23:42:04.846Z",
+                "last_posted_at": "2025-01-26T00:48:03.108Z",
+                "bumped": true,
+                "bumped_at": "2025-01-26T00:48:03.108Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "They are already valid JSON.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "auto"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 123,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492765,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 16846,
+                    "username": "calcmogul",
+                    "name": "Tyler Veness",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70441,
+                            "username": "SnappleBot",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/b3f665/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 16846,
+                            "username": "calcmogul",
+                            "name": "Tyler Veness",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/calcmogul/{size}/128045_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driving a Blinkin from a DIO?",
+                "id": 491420,
+                "title": "Driving a Blinkin from a DIO?",
+                "slug": "driving-a-blinkin-from-a-dio",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-02-12T21:08:00.416Z",
+                "last_posted_at": "2025-02-12T21:08:00.484Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T21:08:00.484Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are wanting to drive a Blinkin when the robot is disabled. Has anyone managed to drive a Blinkin from a DIO using enablePWM?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 62,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525335,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 15648,
+                    "username": "fovea1959",
+                    "name": "fovea1959",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 15648,
+                            "username": "fovea1959",
+                            "name": "fovea1959",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "How to use signalLogger for sysid states",
+        "id": 484532,
+        "title": "How to use signalLogger for sysid states",
+        "posts_count": 2,
+        "created_at": "2025-01-31T23:29:05.512Z",
+        "views": 72,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-01T01:52:53.379Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-to-use-signallogger-for-sysid-states",
+        "category_id": 30,
+        "word_count": 191,
+        "deleted_at": null,
+        "user_id": 71803,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484532",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40315,
+            "execute_at": "2026-02-01T01:52:53.379Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "CTRE",
+                    "flair_name": "CTRE",
+                    "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 57,
+                    "trust_level": 2
+                },
+                {
+                    "id": 71803,
+                    "username": "ETVRocks",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/ee7513/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 71803,
+                "username": "ETVRocks",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/ee7513/{size}.png"
+            },
+            "last_poster": {
+                "id": 48146,
+                "username": "bhall-ctre",
+                "name": "Benjamin Hall",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/SwerveWithPathPlanner/src/main/java/frc/robot/subsystems/CommandSwerveDrivetrain.java#L57-L117",
+                    "title": "Phoenix6-Examples/java/SwerveWithPathPlanner/src/main/java/frc/robot/subsystems/CommandSwerveDrivetrain.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 48146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/tools/log-extractor.html",
+                    "title": "Extracting Signal Logs",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 48146,
+                    "domain": "v6.docs.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://github.com/CrossTheRoadElec/Phoenix6-Examples/blob/main/java/SwerveWithPathPlanner/src/main/java/frc/robot/RobotContainer.java#L77-L82",
+                    "title": "Phoenix6-Examples/java/SwerveWithPathPlanner/src/main/java/frc/robot/RobotContainer.java at main · CrossTheRoadElec/Phoenix6-Examples · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 48146,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

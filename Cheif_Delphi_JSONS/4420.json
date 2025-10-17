@@ -1,0 +1,859 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3499427,
+                    "name": "",
+                    "username": "Popcorn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png",
+                    "created_at": "2025-02-01T23:03:05.874Z",
+                    "cooked": "Our robot is driving correctly in tele-op, but in autonomous, the starting pose doesn’t seem to be set correctly, and the change in estimated field-relative pose often doesn’t match the robot-relative speed commanded. All test pictures were run on a cart with no PID for now because the robot’s estimated pose is incorrect to begin with.\n\nScreenshot from 2025-02-01 14-12-57 1205×587 63.1 KB\n\nScreenshot from 2025-02-01 14-12-57 1205×587 63.1 KB\n\nScreenshot from 2025-02-01 14-12-57 1205×587 63.1 KB\n\nHere, we want our starting rotation to be 0, but Pathplanner tries to set the rotation to 180 (as seen by the ghost). However, the robot does follow the (incorrect) generated trajectory correctly.\n\nHere is what the path should look like:\n\nAre we not setting the starting pose correctly in the GUI? I’m not sure where the 180 starting rotation that is actually set is coming from, but it may have something to do with the path heading/us not actually setting the starting pose in GUI (when we change this path’s heading to 0 from 180, Pathplanner will then try to set the robot’s rotation to 0).\n\nHowever, the gyroscope is actually never reset and stays at 180 whether Pathplanner tries to set 0 or 180.\n\nScreenshot from 2025-02-01 14-18-39 1895×1000 202 KB\n\nScreenshot from 2025-02-01 14-18-39 1895×1000 202 KB\n\nScreenshot from 2025-02-01 14-18-39 1895×1000 202 KB\n\nThis is another path that is also supposed to start with a rotation of 0 but moves in the +X direction instead of -X. As seen by the ghost, Pathplanner generates the correct starting position (maybe has to do with the heading also being 0 instead of 180?) but the robot follows the path incorrectly.\n\nMore Complex Path, Incorrect Starting Pose, Incorrect Path Following 1895×1000 225 KB\n\nMore Complex Path, Incorrect Starting Pose, Incorrect Path Following 1895×1000 225 KB\n\nMore Complex Path, Incorrect Starting Pose, Incorrect Path Following 1895×1000 225 KB\n\nAs shown by this path, since the starting position isn’t what it should be, the robot drives exactly inverted of the actual path.\n\nHere are things we’ve tried to do to fix it and the results:\n\nConfirmed swerve IDs, drive inversion, angle inversion, angle offsets, CANcoder vs. angle motor phase, gyroscope inversion: no obvious issues\n\nTried setting gyro yaw multiple times directly at the start of auto: gives robot correct rotation and starting pose and drives path correctly (without PIDs). However, pose changes in opposite direction of actual driving (ex: robot goes +X in real life but estimated pose goes -X; behaves correctly in tele-op)\n\nHere is the code to reset the pose that Pathplanner’s AutoBuilder calls:\n\nHere is our full code repository: GitHub - FIRSTTeam3189/Robot2025",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-02T00:55:10.931Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 75,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 385.4,
+                    "yours": false,
+                    "topic_id": 484718,
+                    "topic_slug": "pathplanner-pose-setting-issues-erroneous-honomic-trajectories",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/FIRSTTeam3189/Robot2025",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - FIRSTTeam3189/Robot2025",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65004,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-pose-setting-issues-erroneous-honomic-trajectories/484718/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3499526,
+                    "name": "",
+                    "username": "Popcorn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png",
+                    "created_at": "2025-02-02T00:43:08.549Z",
+                    "cooked": "In addition, our trajectories seem to be generated in non-holonomic mode even though the holonomic mode is checked in our GUI. Running a curved path shows the Pathplanner ghost/target robot rotating to face the direction of travel like a non-holonomic robot, instead of facing the set rotation.\n\nThis could explain the starting pose being set to the heading instead of our desired starting rotation.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-02T00:43:08.549Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 39,
+                    "readers_count": 38,
+                    "score": 22.8,
+                    "yours": false,
+                    "topic_id": 484718,
+                    "topic_slug": "pathplanner-pose-setting-issues-erroneous-honomic-trajectories",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65004,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-pose-setting-issues-erroneous-honomic-trajectories/484718/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3500068,
+                    "name": "",
+                    "username": "Popcorn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png",
+                    "created_at": "2025-02-02T19:33:53.656Z",
+                    "cooked": "We ended up finding two issues that created this problem:\n\nOur PoseEstimator::GetEstimatedPose() method was implemented incorrectly to fix a strange behavior in autonomous last year. Fixing this to use the estimator’s rotation instead of the gyro’s and updating SwerveDrive::SetPose() fixed this issue.\n\nPathplanner’s AutoBuilder somehow recognized our RobotConfig as non-holonomic, it seems. Switching our RobotConfig to be generated by AutoBuilder::FromGUISettings() fixed this issue, though we’re not sure why.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-02T19:33:53.656Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 28,
+                    "readers_count": 27,
+                    "score": 10.6,
+                    "yours": false,
+                    "topic_id": 484718,
+                    "topic_slug": "pathplanner-pose-setting-issues-erroneous-honomic-trajectories",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 65004,
+                        "username": "Popcorn",
+                        "name": "",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 65004,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/pathplanner-pose-setting-issues-erroneous-honomic-trajectories/484718/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3499427,
+                3499526,
+                3500068
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                252
+            ],
+            [
+                3,
+                251
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Shooter Alignment works only after enabling/disabling teleop?",
+                "id": 473312,
+                "title": "Shooter Alignment works only after enabling/disabling teleop?",
+                "slug": "shooter-alignment-works-only-after-enabling-disabling-teleop",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-10-19T17:27:12.304Z",
+                "last_posted_at": "2024-10-20T01:31:56.643Z",
+                "bumped": true,
+                "bumped_at": "2024-10-20T01:31:56.643Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have a feeling we’re missing something obvious, but we just don’t see it. When we use our limelight to auto-align in autonomous, it doesn’t move at all. But if we switch to teleop, enable the robo…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 343,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3436855,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 16254,
+                    "username": "droswell",
+                    "name": "droswell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/droswell/{size}/5480_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 16254,
+                            "username": "droswell",
+                            "name": "droswell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/droswell/{size}/5480_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19820,
+                            "username": "ArchdukeTim",
+                            "name": "Tim Winters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22865,
+                            "username": "blueyoshi256",
+                            "name": "blueyoshi256",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/blueyoshi256/{size}/85545_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63578,
+                            "username": "isaacngkh",
+                            "name": "Isaac",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/e9a140/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Getting the Absolute Position of the bot Using two Limelights",
+                "id": 483273,
+                "title": "Getting the Absolute Position of the bot Using two Limelights",
+                "slug": "getting-the-absolute-position-of-the-bot-using-two-limelights",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-23T22:14:54.472Z",
+                "last_posted_at": "2025-01-23T22:22:23.390Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T22:22:23.390Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using two Limelights to get the bot position using MegaTag2 and we are using elastic to visualize where the robot is right now which works great but I am not sure how to get the absolute positi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 113,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3491070,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60894,
+                    "username": "rackdev",
+                    "name": "Harrison",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60894,
+                            "username": "rackdev",
+                            "name": "Harrison",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "DS Disconnecting &lsquo;Seizures&rsquo;",
+                "id": 484617,
+                "title": "DS Disconnecting 'Seizures'",
+                "slug": "ds-disconnecting-seizures",
+                "posts_count": 6,
+                "reply_count": 0,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-01T15:38:35.061Z",
+                "last_posted_at": "2025-02-02T01:55:32.814Z",
+                "bumped": true,
+                "bumped_at": "2025-02-02T01:55:32.814Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have had this issue. I’m pretty sure it’s because your 2.4GHz band is clogged up. If you have a spare radio, I would recommend setting it up as an access point so you can utilize 6GHz. It says you n…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "driverstation"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 197,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499165,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 58001,
+                    "username": "AGreatUsernameChoice",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/agreatusernamechoice/{size}/190081_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69335,
+                            "username": "jsingh",
+                            "name": "Jugad S.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c37758/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 58001,
+                            "username": "AGreatUsernameChoice",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/agreatusernamechoice/{size}/190081_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71158,
+                            "username": "TMaurer4472",
+                            "name": "Troy Maurer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ce73a5/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57537,
+                            "username": "cfgill",
+                            "name": "Chris Gill (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cfgill/{size}/186644_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Add robot in AdvantageScope",
+                "id": 485423,
+                "title": "Add robot in AdvantageScope",
+                "slug": "add-robot-in-advantagescope",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-06T14:49:52.864Z",
+                "last_posted_at": "2025-02-07T21:46:23.608Z",
+                "bumped": true,
+                "bumped_at": "2025-02-07T21:46:23.608Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How to add the robot’s CAD to AdvantageScope?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "regional",
+                    "swerve",
+                    "pathplanner",
+                    "advantage-scope"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 536,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3503970,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69880,
+                    "username": "henriquedsn",
+                    "name": "Henrique de Sousa Neves",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69880,
+                            "username": "henriquedsn",
+                            "name": "Henrique de Sousa Neves",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54656,
+                            "username": "PatMcN",
+                            "name": "Patrick McNaughton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "No Robot Code due to presumed lockup during initialization",
+                "id": 495393,
+                "title": "No Robot Code due to presumed lockup during initialization",
+                "slug": "no-robot-code-due-to-presumed-lockup-during-initialization",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/e/d/ede841468de337ffa242b588c27de3d7154b6c19_2_770x1024.jpeg",
+                "created_at": "2025-03-13T02:19:06.822Z",
+                "last_posted_at": "2025-03-13T06:12:04.666Z",
+                "bumped": true,
+                "bumped_at": "2025-03-13T06:12:04.666Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Found the source of the issue. We doubled the length of our LEDs in code (and accidentally ran setLength() twice on our AddressableLEDs), which was (likely) taking a LOT to run during initialization o…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3555905,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 7,
+                "topic_post_user": {
+                    "id": 60985,
+                    "username": "amzoeee",
+                    "name": "zoe",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/amzoeee/{size}/256065_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 60985,
+                            "username": "amzoeee",
+                            "name": "zoe",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/amzoeee/{size}/256065_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53784,
+                            "username": "Max_Morehead",
+                            "name": "Max Morehead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Pathplanner Pose Setting Issues (Erroneous Honomic Trajectories?)",
+        "id": 484718,
+        "title": "Pathplanner Pose Setting Issues (Erroneous Honomic Trajectories?)",
+        "posts_count": 3,
+        "created_at": "2025-02-01T23:03:05.830Z",
+        "views": 126,
+        "reply_count": 1,
+        "like_count": 0,
+        "last_posted_at": "2025-02-02T19:33:53.656Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "pathplanner-pose-setting-issues-erroneous-honomic-trajectories",
+        "category_id": 30,
+        "word_count": 647,
+        "deleted_at": null,
+        "user_id": 65004,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/1/b/1bace3d207fce4976bfc0b27bd04cd59c04e1123_2_1024x498.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484718",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40373,
+            "execute_at": "2026-02-02T19:33:53.656Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1205,
+                "height": 587,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/b/1bace3d207fce4976bfc0b27bd04cd59c04e1123.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 498,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/1/b/1bace3d207fce4976bfc0b27bd04cd59c04e1123_2_1024x498.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 3,
+            "username": "Popcorn",
+            "name": null,
+            "excerpt": "We ended up finding two issues that created this problem: \n\nOur PoseEstimator::GetEstimatedPose() method was implemented incorrectly to fix a strange behavior in autonomous last year. Fixing this to use the estimator’s rotation instead of the gyro’s and updating SwerveDrive::SetPose() fixed this iss&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 65004,
+                    "username": "Popcorn",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png",
+                    "post_count": 3,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 65004,
+                "username": "Popcorn",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png"
+            },
+            "last_poster": {
+                "id": 65004,
+                "username": "Popcorn",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/popcorn/{size}/219298_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/FIRSTTeam3189/Robot2025",
+                    "title": "GitHub - FIRSTTeam3189/Robot2025",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 65004,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

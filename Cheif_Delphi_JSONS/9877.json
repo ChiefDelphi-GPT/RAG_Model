@@ -1,0 +1,1032 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3257101,
+                    "name": "",
+                    "username": "Daniel2",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/b2d939/{size}.png",
+                    "created_at": "2023-11-25T22:48:18.361Z",
+                    "cooked": "Hi, I’m trying to use the real time logs from roborio (we use advantagekit for logging) to perform actions on an Arduino that is connected to the driver station. I want to extract 1 of the fields that is logged (Robot/State) and send it to the Arduino using the serial port. How to go about achieving this?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-11-25T22:48:18.361Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 33,
+                    "reads": 158,
+                    "readers_count": 157,
+                    "score": 196.6,
+                    "yours": false,
+                    "topic_id": 444834,
+                    "topic_slug": "real-time-robrio-logs-to-arduino-to-use-on-driver-station",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 61559,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/real-time-robrio-logs-to-arduino-to-use-on-driver-station/444834/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3257111,
+                    "name": "Chris Gerth",
+                    "username": "gerthworm",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "created_at": "2023-11-25T23:37:24.527Z",
+                    "cooked": "Check out network tables, the protocol that underlies the logging you are seening in advantage scope\n\nNetworkTables is an implementation of a publish-subscribe messaging system. Values are published to named “topics” either on the robot, driver station, or potentially an attached coprocessor, and t...\n\nUnfortunately, network tables is backed by tcp/ip, and doesn’t know anything about serial ports.\n\nThere isn’t anything off the shelf that I know of which turns values in network tables into serial port messages. You will probably have to write your own.\n\nPython has both network tables, and a serial port library. It might be a good choice to start with.\n\nPure python implementation of the FRC NetworkTables protocol - GitHub - robotpy/pynetworktables: Pure python implementation of the FRC NetworkTables protocol\n\nPython Serial Port Extension",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-11-25T23:40:20.885Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 147,
+                    "readers_count": 146,
+                    "score": 99.4,
+                    "yours": false,
+                    "topic_id": 444834,
+                    "topic_slug": "real-time-robrio-logs-to-arduino-to-use-on-driver-station",
+                    "display_username": "Chris Gerth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://pypi.org/project/pyserial/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "pyserial · PyPI",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/robotpy/pynetworktables",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - robotpy/pynetworktables: Pure python implementation of the FRC NetworkTables protocol",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/networktables/networktables-intro.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "What is NetworkTables — FIRST Robotics Competition documentation",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24617,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/real-time-robrio-logs-to-arduino-to-use-on-driver-station/444834/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3257166,
+                    "name": "Brett B Bonner",
+                    "username": "bbonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bbonner/{size}/155176_2.png",
+                    "created_at": "2023-11-26T04:12:55.527Z",
+                    "cooked": "gerthworm:\n\nPython has both network tables, and a serial port library. It might be a good choice to start with.\n\nWe did something like this previously, to drive a custom operator panel that we briefly experimented with.  The critical “glue” to make it work was exactly what @gerthworm suggests - a Python script running on the driver station, speaking NetworkTables to the robot and driving a serial-over-USB connection to an Arduino Leonardo (that also emulated a couple of joysticks and a keyboard).  Most of the low-level specifics won’t apply - we invented our own serial protocol to convey all the state to the Arduino and used custom NetworkTables fields for the robot code to set states - but it might provide a useful example of how this sort of thing can work.\n\nThe Python script and the code for the Arduino are all in this repository .   I will caution that this was written in 2020 and has not been actively used or maintained since.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-11-26T04:12:55.527Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 2,
+                    "reads": 95,
+                    "readers_count": 94,
+                    "score": 89.0,
+                    "yours": false,
+                    "topic_id": 444834,
+                    "topic_slug": "real-time-robrio-logs-to-arduino-to-use-on-driver-station",
+                    "display_username": "Brett B Bonner",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/OperatorInterface",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Mechanical-Advantage/OperatorInterface: Code for 6328's custom operator interface boards",
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/has-anyone-used-joystick-outputs/410960/9",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Has anyone used joystick outputs?",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/Mechanical-Advantage/OperatorInterface/blob/master/Python/operator_interface.py",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48574,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6328  Mentor - Electrical/Controls"
+                    },
+                    "post_url": "/t/real-time-robrio-logs-to-arduino-to-use-on-driver-station/444834/3",
+                    "custom_user_title": "6328  Mentor - Electrical/Controls",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3451532,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-11-25T04:13:40.073Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-11-25T04:13:40.073Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 6,
+                    "readers_count": 5,
+                    "score": 1.2,
+                    "yours": false,
+                    "topic_id": 444834,
+                    "topic_slug": "real-time-robrio-logs-to-arduino-to-use-on-driver-station",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/real-time-robrio-logs-to-arduino-to-use-on-driver-station/444834/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3257101,
+                3257111,
+                3257166,
+                3451532
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                686
+            ],
+            [
+                4,
+                321
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "TTB Bearing blocks",
+                "id": 482339,
+                "title": "TTB Bearing blocks",
+                "slug": "ttb-bearing-blocks",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/9/1/91bb6a50d6dfedb98e9fffd6a82d412327771e0c_2_1024x697.png",
+                "created_at": "2025-01-17T21:15:46.850Z",
+                "last_posted_at": "2025-01-17T22:03:51.727Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T22:03:51.727Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The distance between two parallel tubes and diameter of the smaller bearing of the thriftybot elevator is same and a little part of the bearing is intersecting with the tube in the onshape document, w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "thriftybot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 205,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486023,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55838,
+                    "username": "erenorhun",
+                    "name": "Eren Orhun",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/erenorhun/{size}/203650_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55838,
+                            "username": "erenorhun",
+                            "name": "Eren Orhun",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erenorhun/{size}/203650_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Add robot in AdvantageScope",
+                "id": 485423,
+                "title": "Add robot in AdvantageScope",
+                "slug": "add-robot-in-advantagescope",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-06T14:49:52.864Z",
+                "last_posted_at": "2025-02-07T21:46:23.608Z",
+                "bumped": true,
+                "bumped_at": "2025-02-07T21:46:23.608Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How to add the robot’s CAD to AdvantageScope?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "regional",
+                    "swerve",
+                    "pathplanner",
+                    "advantage-scope"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 536,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3503970,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69880,
+                    "username": "henriquedsn",
+                    "name": "Henrique de Sousa Neves",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69880,
+                            "username": "henriquedsn",
+                            "name": "Henrique de Sousa Neves",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/4af34b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54656,
+                            "username": "PatMcN",
+                            "name": "Patrick McNaughton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/patmcn/{size}/191694_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE CANdi Feedback Sensor",
+                "id": 492021,
+                "title": "CTRE CANdi Feedback Sensor",
+                "slug": "ctre-candi-feedback-sensor",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-17T14:42:55.391Z",
+                "last_posted_at": "2025-03-10T00:49:12.169Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T00:49:12.169Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "@bhall-ctre On our end effector, we have a rev through bore encoder wired as an absolute encoder into our CANdi. This CANdi input then is set as the feedback for our pivot motor. The end effector has …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "pid"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 371,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529996,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57204,
+                    "username": "Prince",
+                    "name": "Prince",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4007,
+                            "username": "richwong",
+                            "name": "Rich Wong",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/richwong/{size}/73363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44380,
+                            "username": "gdefender",
+                            "name": "Andy Gasser",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69993,
+                            "username": "RyanKostohryz",
+                            "name": "Ryan Kostohryz ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/ec9cab/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Using One Subsystem that is going to be using two motors",
+                "id": 492641,
+                "title": "Using One Subsystem that is going to be using two motors",
+                "slug": "using-one-subsystem-that-is-going-to-be-using-two-motors",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-21T23:20:36.929Z",
+                "last_posted_at": "2025-02-22T21:39:37.721Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T21:39:37.721Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi there, so after my recent question I had about programming a motor, the climbing arm on our robot now is using two motors. I am implying that to make that work, I would have to use arrays, but seei…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 278,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3535873,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63914,
+                    "username": "SmartKirb99",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/e495f1/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63914,
+                            "username": "SmartKirb99",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/e495f1/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69912,
+                            "username": "micahL",
+                            "name": "Micah",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/micahl/{size}/240235_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 35208,
+                            "username": "bathtubed",
+                            "name": "Eric Ward",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How would I begin to make a robot automatically do an action when it leaves specified coordinates or &ldquo;zones&rdquo; on the field?",
+                "id": 473941,
+                "title": "How would I begin to make a robot automatically do an action when it leaves specified coordinates or \"zones\" on the field?",
+                "slug": "how-would-i-begin-to-make-a-robot-automatically-do-an-action-when-it-leaves-specified-coordinates-or-zones-on-the-field",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-10-29T01:19:08.504Z",
+                "last_posted_at": "2024-11-01T11:50:50.949Z",
+                "bumped": true,
+                "bumped_at": "2024-11-01T12:15:49.527Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "For example, let’s say the setting is Crescendo and I have a robot with a turret for a shooter. I want the robot to continuously angle the turret toward the speaker as soon as I enter the red alliance…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 550,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3441032,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65606,
+                    "username": "pinkfloyd145",
+                    "name": "Ben Malito",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65606,
+                            "username": "pinkfloyd145",
+                            "name": "Ben Malito",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pinkfloyd145/{size}/235516_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54366,
+                            "username": "tecnicraze",
+                            "name": "Noah Stricker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tecnicraze/{size}/235517_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 32089,
+                            "username": "BlueEpiphone",
+                            "name": "Curt Rozeboom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/blueepiphone/{size}/197122_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "programming",
+            "roborio",
+            "driverstation"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Real time Robrio logs to arduino to use on driver station",
+        "id": 444834,
+        "title": "Real time Robrio logs to arduino to use on driver station",
+        "posts_count": 4,
+        "created_at": "2023-11-25T22:48:18.300Z",
+        "views": 531,
+        "reply_count": 1,
+        "like_count": 7,
+        "last_posted_at": "2024-11-25T04:13:40.073Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "real-time-robrio-logs-to-arduino-to-use-on-driver-station",
+        "category_id": 9,
+        "word_count": 380,
+        "deleted_at": null,
+        "user_id": 61559,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_444834",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "gerthworm",
+            "name": null,
+            "excerpt": "Check out network tables, the protocol that underlies the logging you are seening in advantage scope \n\n\nUnfortunately, network tables is backed by tcp/ip, and doesn’t know anything about serial ports. \nThere isn’t anything off the shelf that I know of which turns values in network tables into serial&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24617,
+                    "username": "gerthworm",
+                    "name": "Chris Gerth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48574,
+                    "username": "bbonner",
+                    "name": "Brett B Bonner",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bbonner/{size}/155176_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 61559,
+                    "username": "Daniel2",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/b2d939/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 61559,
+                "username": "Daniel2",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/d/b2d939/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Mechanical-Advantage/OperatorInterface",
+                    "title": "GitHub - Mechanical-Advantage/OperatorInterface: Code for 6328's custom operator interface boards",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 48574,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://pypi.org/project/pyserial/",
+                    "title": "pyserial · PyPI",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 24617,
+                    "domain": "pypi.org",
+                    "root_domain": "pypi.org"
+                },
+                {
+                    "url": "https://github.com/robotpy/pynetworktables",
+                    "title": "GitHub - robotpy/pynetworktables: Pure python implementation of the FRC NetworkTables protocol",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 24617,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/has-anyone-used-joystick-outputs/410960/9",
+                    "title": "Has anyone used joystick outputs?",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 48574,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/networktables/networktables-intro.html",
+                    "title": "What is NetworkTables — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 24617,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.com/Mechanical-Advantage/OperatorInterface/blob/master/Python/operator_interface.py",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 48574,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

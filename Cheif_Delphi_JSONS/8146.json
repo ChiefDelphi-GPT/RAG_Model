@@ -1,0 +1,955 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3303564,
+                    "name": "James Overall",
+                    "username": "JamesOverall1466",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e8c25b/{size}.png",
+                    "created_at": "2024-02-06T22:52:03.370Z",
+                    "cooked": "We need help! We are attempting to wire up two Spark MAXs connected to CAN on the robot. We already have 11 Falcon 500s with Talon FX(8 for swerve), 4 encoders(CANcoders), and 1 Pigeon 2. We had some issues wiring everything initially, but eventually found all the faulty connectors and had the code running both the swerve and the motors with all the CAN IDs in the code and clean on the robot.\n\nOur issues began when we tried to implement two sparkmax’s with NEO 550s attached. They would initially kill the CAN once it reached the sparkmax and after many rewiring and even replacing both sparkmax devices, we almost got it working. We had the CAN loop running from the Rio to all the swerve, till it finally hit the sparkmaxs and after those, the pigeon. Previous errors have caused all the motors to show errors, but we finally got everything glowing with a green(CANcoder), blue(sparkmax), or orange(everything else) light. However, the pigeon did not show up on the Phoenix tuner client.\n\nAfter seeing only errors in that area, we ran through the loop and saw a possibly faulty connector right after the Pigeon. We replaced it, hoping it would fix everything, but instead of having the pigeon show up on the phoenix tuner, every motor and encoder began to flash red. Is there any underlying cause for our electrical woes? We have multiple experienced electricians on the team, and have not experienced CAN wiring errors like this before. Any ideas on what to fix or what may have gone wrong? IMG_3600 1920×2560 419 KB IMG_3601 1920×1440 191 KB\n\nIMG_3600 1920×2560 419 KB\n\nIMG_3600 1920×2560 419 KB\n\nIMG_3601 1920×1440 191 KB\n\nIMG_3601 1920×1440 191 KB",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-06T22:54:18.742Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 109,
+                    "reads": 110,
+                    "readers_count": 109,
+                    "score": 582.0,
+                    "yours": false,
+                    "topic_id": 453663,
+                    "topic_slug": "can-wiring-issues-due-to-sparkmax",
+                    "display_username": "James Overall",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/6/f612648a8ab66f6c0b860894ccd72a0736cd2c10.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/1/c1297137407c1cc5c5c4220ff5973822ea4d53a6.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 62733,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Code Lead"
+                    },
+                    "post_url": "/t/can-wiring-issues-due-to-sparkmax/453663/1",
+                    "custom_user_title": "Code Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3303597,
+                    "name": "Julian G",
+                    "username": "juliang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/90db22/{size}.png",
+                    "created_at": "2024-02-06T23:27:47.898Z",
+                    "cooked": "Verify Wiring Connections : Double-check all wiring connections, ensuring they are securely attached and properly terminated. Pay close attention to connections between the Pigeon device and subsequent components, as well as those leading to the Spark MAX controllers.\n\nInspect Power Supply : Ensure that the power supply to the CAN bus is stable and adequate to power all connected devices. Fluctuations or insufficient power could lead to communication errors.\n\nCheck CAN Termination : Confirm that the CAN bus is properly terminated at both ends. Each end of the CAN bus should have a termination resistor installed to prevent signal reflections and ensure reliable communication.\n\nUpdate Firmware : Ensure that all devices, including the Pigeon device, Spark MAX controllers, and Talon FX controllers, have up-to-date firmware installed. Firmware updates often include bug fixes and improvements that could address communication issues.\n\nReview CAN Configuration : Verify that the CAN IDs assigned to each device in both hardware and software configurations are correct and unique. Conflicting or incorrect IDs can lead to communication errors and device recognition issues.\n\nInspect Connector Quality : Examine the quality of connectors used in the CAN bus network. Poor-quality connectors or damaged pins could introduce intermittent connectivity issues. Consider using high-quality connectors and inspecting them for any signs of damage.\n\nMonitor CAN Bus Traffic : Use diagnostic tools, such as the Phoenix Tuner or CAN bus analyzers, to monitor CAN bus traffic and identify any anomalies or error messages. This can help pinpoint the source of communication errors and guide troubleshooting efforts.\n\nTest Components Independently : Disconnect all but essential components from the CAN bus and test each component independently to isolate the source of the issue. This can help determine whether the problem lies with a specific device or the overall CAN bus network.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-06T23:27:47.898Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 85,
+                    "readers_count": 84,
+                    "score": 67.0,
+                    "yours": false,
+                    "topic_id": 453663,
+                    "topic_slug": "can-wiring-issues-due-to-sparkmax",
+                    "display_username": "Julian G",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64033,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Head Coach"
+                    },
+                    "post_url": "/t/can-wiring-issues-due-to-sparkmax/453663/2",
+                    "custom_user_title": "Head Coach",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3315051,
+                    "name": null,
+                    "username": "pixelpunk",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/96bed5/{size}.png",
+                    "created_at": "2024-02-22T13:41:21.443Z",
+                    "cooked": "You can check connections with a multimeter to manually find where the CAN loop breaks. If you check across the wires, it should have 60 ohms of resistance. If it reads 120, you have a break in the loop.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-22T13:41:21.443Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 42,
+                    "readers_count": 41,
+                    "score": 13.4,
+                    "yours": false,
+                    "topic_id": 453663,
+                    "topic_slug": "can-wiring-issues-due-to-sparkmax",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 64033,
+                        "username": "juliang",
+                        "name": "Julian G",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/j/90db22/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 64486,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/can-wiring-issues-due-to-sparkmax/453663/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3535229,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-21T13:41:52.136Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-02-21T13:41:52.136Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 453663,
+                    "topic_slug": "can-wiring-issues-due-to-sparkmax",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/can-wiring-issues-due-to-sparkmax/453663/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3303564,
+                3303597,
+                3315051,
+                3535229
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                613
+            ],
+            [
+                3,
+                597
+            ],
+            [
+                4,
+                232
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "SPARK MAX giving very low applied output voltage",
+                "id": 491331,
+                "title": "SPARK MAX giving very low applied output voltage",
+                "slug": "spark-max-giving-very-low-applied-output-voltage",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/9/f930b708706562dc1a6a866c31bc0bf60b0b2dd6_2_1024x451.png",
+                "created_at": "2025-02-12T06:20:33.317Z",
+                "last_posted_at": "2025-03-09T16:21:16.193Z",
+                "bumped": true,
+                "bumped_at": "2025-03-09T16:21:16.193Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We were testing our newly wired-up robot and we ran into some issues with our NEO Brushless Motors and SPARK MAXs we’ve never encountered before. We set the motor to 0.25 through REV Hardware Clien…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 127,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524523,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59534,
+                    "username": "Crazehorse",
+                    "name": "Aysen Chong",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/b5e925/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59534,
+                            "username": "Crazehorse",
+                            "name": "Aysen Chong",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/b5e925/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60754,
+                            "username": "Spaceman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/a5b964/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 10996,
+                            "username": "steinra",
+                            "name": "steinra",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/steinra/{size}/3823_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SparkMAX does not update",
+                "id": 480589,
+                "title": "SparkMAX does not update",
+                "slug": "sparkmax-does-not-update",
+                "posts_count": 19,
+                "reply_count": 11,
+                "highest_post_number": 19,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/e/ae1dd700bee93fc42f15a814ae00f4f24b64701d.png",
+                "created_at": "2025-01-10T00:11:29.594Z",
+                "last_posted_at": "2025-02-13T15:12:22.472Z",
+                "bumped": true,
+                "bumped_at": "2025-02-13T15:12:22.472Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When I enter in Recovery Mode, SparkMAX (apparentely) updates itself, but the screen come back to mainpage and no devices are found, even if I reload using the “Check for devices”. My Hardware Client …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "sparkmax",
+                    "rev",
+                    "spark"
+                ],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 932,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477453,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 47943,
+                    "username": "megarubber",
+                    "name": "Guilherme Samuel",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 47943,
+                            "username": "megarubber",
+                            "name": "Guilherme Samuel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55818,
+                            "username": "Crafter",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/77aa72/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 41445,
+                            "username": "NoahAndrews",
+                            "name": "Noah Andrews",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ac91a4/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73421,
+                            "username": "MDMatt",
+                            "name": "Matt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/7c8e57/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Windows won&rsquo;t automatically download drivers for REV PDH",
+                "id": 481037,
+                "title": "Windows won't automatically download drivers for REV PDH",
+                "slug": "windows-wont-automatically-download-drivers-for-rev-pdh",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/0/309cdb169fe565843402ab442f84bdd320e4a01a.png",
+                "created_at": "2025-01-11T20:55:13.413Z",
+                "last_posted_at": "2025-01-12T02:50:57.419Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T02:50:57.419Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When connecting to the PDH with a USB cable, windows device manager shows that “REV Hub Device” and “REV Hub firmware upgrade interface” are connected, but they have no drivers downloaded. I th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 134,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479412,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64728,
+                    "username": "lddtwo45",
+                    "name": "Luke D",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/4491bb/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64728,
+                            "username": "lddtwo45",
+                            "name": "Luke D",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/4491bb/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60586,
+                            "username": "cmdada",
+                            "name": "Ada T",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cmdada/{size}/230870_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How Do You Recenter Your Limelight When It Falls Off?",
+                "id": 477778,
+                "title": "How Do You Recenter Your Limelight When It Falls Off?",
+                "slug": "how-do-you-recenter-your-limelight-when-it-falls-off",
+                "posts_count": 14,
+                "reply_count": 7,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-12-31T19:57:22.525Z",
+                "last_posted_at": "2025-01-01T08:42:18.974Z",
+                "bumped": true,
+                "bumped_at": "2025-01-01T08:48:58.946Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When the Limelight camera on our robot gets knocked out of position during a match, it disrupts our alignment and tracking. What methods or tools do you use to quickly and accurately recenter your Lim…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 38,
+                "views": 688,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465852,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69103,
+                    "username": "mely",
+                    "name": "melih",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mely/{size}/240086_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69103,
+                            "username": "mely",
+                            "name": "melih",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mely/{size}/240086_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24441,
+                            "username": "KH987",
+                            "name": "Kevin Hjelstrom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kh987/{size}/182255_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56244,
+                            "username": "gdgr",
+                            "name": "Josh Sirota",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/f1d935/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6560,
+                            "username": "cbale2000",
+                            "name": "Chris Bale",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cbale2000/{size}/2142_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What I need to buy for switching pdp to pdh",
+                "id": 495476,
+                "title": "What I need to buy for switching pdp to pdh",
+                "slug": "what-i-need-to-buy-for-switching-pdp-to-pdh",
+                "posts_count": 6,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-03-13T19:20:12.287Z",
+                "last_posted_at": "2025-03-14T13:46:46.392Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T13:46:46.392Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi our team wants to transfer from ctr pdp to rev pdh.Since our club has founded our club is used ctr elements so we dont have any idea for switching.If i want to switch from pdp to pdh can i still us…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 367,
+                "category_id": 32,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3556362,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71572,
+                    "username": "BerkSadyam",
+                    "name": "Berk",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/5e9695/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71572,
+                            "username": "BerkSadyam",
+                            "name": "Berk",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/5e9695/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "CAN wiring issues due to SparkMAX?",
+        "id": 453663,
+        "title": "CAN wiring issues due to SparkMAX?",
+        "posts_count": 4,
+        "created_at": "2024-02-06T22:52:03.308Z",
+        "views": 434,
+        "reply_count": 1,
+        "like_count": 1,
+        "last_posted_at": "2025-02-21T13:41:52.136Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "can-wiring-issues-due-to-sparkmax",
+        "category_id": 32,
+        "word_count": 636,
+        "deleted_at": null,
+        "user_id": 62733,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/6/f612648a8ab66f6c0b860894ccd72a0736cd2c10_2_768x1024.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_453663",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1920,
+                "height": 2560,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/6/f612648a8ab66f6c0b860894ccd72a0736cd2c10.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 768,
+                "height": 1024,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/6/f612648a8ab66f6c0b860894ccd72a0736cd2c10_2_768x1024.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 62733,
+                    "username": "JamesOverall1466",
+                    "name": "James Overall",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e8c25b/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 64033,
+                    "username": "juliang",
+                    "name": "Julian G",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/90db22/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 64486,
+                    "username": "pixelpunk",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/96bed5/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 62733,
+                "username": "JamesOverall1466",
+                "name": "James Overall",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/e8c25b/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

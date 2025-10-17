@@ -1,0 +1,900 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3002418,
+                    "name": "Brad",
+                    "username": "Bmongar",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                    "created_at": "2022-02-03T16:13:36.840Z",
+                    "cooked": "I have a question is there a reason the documentation for Axon inferencing on a rPi calls for resolution of 300x300 or greater?  Though we have some hardware on the way to speed thing up our frame rate is less than 2 fps at the suggested 640x480 I was thinking of going to 320x240 but that is less than the 300x300  Though when first trying it out we did see detections doing even smaller resolutions.\n\nHardware Requirements: This section requires a Romi or a Raspberry Pi that is running the WPILibPi Image. Instructions to setup WPILibPi can be found here. Other hardware that is required is: A USB...",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-02-03T16:13:36.840Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 75,
+                    "readers_count": 74,
+                    "score": 65.0,
+                    "yours": false,
+                    "topic_id": 402091,
+                    "topic_slug": "axon-300x300-or-greater",
+                    "display_username": "Brad",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/inferencing-on-a-raspberry-pi.html#:~:text=Head%20to%20the%20Vision%20Settings%20tab.%20First%20click%20on%20the%20camera%20stream%20and%20change%20the%20resolution%20to%20be%20greater%20than%20300%20pixels%20by%20300%20pixels%20(e.g.%20640%20by%20480)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Inferencing on a Raspberry Pi — FIRST Robotics Competition documentation",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38557,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5126 Codenator / Electrical, CSA, FTAA, Inspector "
+                    },
+                    "post_url": "/t/axon-300x300-or-greater/402091/1",
+                    "custom_user_title": "5126 Codenator / Electrical, CSA, FTAA, Inspector ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3004517,
+                    "name": "Jack",
+                    "username": "jackptx",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jackptx/{size}/157828_2.png",
+                    "created_at": "2022-02-07T23:46:19.874Z",
+                    "cooked": "While I did not write the documentation, I believe this is due to how it ML Vision works.\n\nThe AI model relies on feature extraction.  With less resolution, you have less features / more unclear features. Combine that with convolution, as is common in many of these cases, and it won’t be able to properly identify the features.\n\nSo, you could use a lower resolution, but it will give you very bad results.\n\nIf you are worried about fps, look into getting a TPU module for your pi.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-02-07T23:46:19.874Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 47,
+                    "readers_count": 46,
+                    "score": 39.4,
+                    "yours": false,
+                    "topic_id": 402091,
+                    "topic_slug": "axon-300x300-or-greater",
+                    "display_username": "Jack",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49074,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/axon-300x300-or-greater/402091/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3004533,
+                    "name": "Brad",
+                    "username": "Bmongar",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                    "created_at": "2022-02-08T00:43:01.479Z",
+                    "cooked": "Thanks for the answer.  We did get a tpu and that took us to 14-15 fps at 630x480. We do have an upgrade from a pi 3 to 4 on the way as well.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2022-02-08T00:43:01.479Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 29,
+                    "readers_count": 28,
+                    "score": 10.8,
+                    "yours": false,
+                    "topic_id": 402091,
+                    "topic_slug": "axon-300x300-or-greater",
+                    "display_username": "Brad",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 49074,
+                        "username": "jackptx",
+                        "name": "Jack",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/jackptx/{size}/157828_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38557,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5126 Codenator / Electrical, CSA, FTAA, Inspector "
+                    },
+                    "post_url": "/t/axon-300x300-or-greater/402091/3",
+                    "custom_user_title": "5126 Codenator / Electrical, CSA, FTAA, Inspector ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3141599,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-02-08T00:43:46.221Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2023-02-08T00:43:46.221Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 402091,
+                    "topic_slug": "axon-300x300-or-greater",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/axon-300x300-or-greater/402091/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3002418,
+                3004517,
+                3004533,
+                3141599
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1347
+            ],
+            [
+                2,
+                1342
+            ],
+            [
+                4,
+                977
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "PID Control of Elevator with REV Control System Accounting for Gravity",
+                "id": 495981,
+                "title": "PID Control of Elevator with REV Control System Accounting for Gravity",
+                "slug": "pid-control-of-elevator-with-rev-control-system-accounting-for-gravity",
+                "posts_count": 18,
+                "reply_count": 12,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-03-18T00:19:37.214Z",
+                "last_posted_at": "2025-03-19T22:13:39.053Z",
+                "bumped": true,
+                "bumped_at": "2025-03-19T22:13:39.053Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey, CD. Our team is having some difficulties getting our elevator to perform as well as it theoretically can. Specifically, we have been needing to tune it slower on the up motion as when it comes d…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "rev"
+                ],
+                "tags_descriptions": {},
+                "like_count": 12,
+                "views": 470,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559937,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 10874,
+                    "username": "Cyberphil",
+                    "name": "Phil Szymanowski",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cyberphil/{size}/161083_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 10874,
+                            "username": "Cyberphil",
+                            "name": "Phil Szymanowski",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cyberphil/{size}/161083_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12266,
+                            "username": "John_Bottenberg",
+                            "name": "John Bottenberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john_bottenberg/{size}/224569_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7334,
+                            "username": "usbcd36",
+                            "name": "usbcd36",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/usbcd36/{size}/2444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69367,
+                            "username": "VihaanC",
+                            "name": "Vihaan C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/vihaanc/{size}/237555_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 74384,
+                            "username": "Fionan",
+                            "name": "Hefti",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fionan/{size}/261655_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Testing Calibration Regressions Using PathPlanner",
+                "id": 483991,
+                "title": "Testing Calibration Regressions Using PathPlanner",
+                "slug": "testing-calibration-regressions-using-pathplanner",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-28T17:36:39.759Z",
+                "last_posted_at": "2025-01-28T17:36:39.830Z",
+                "bumped": true,
+                "bumped_at": "2025-01-28T17:36:39.830Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Problem I’m trying to test a simple PathPlanner command that moves the robot forward 4m. While I see logs showing our drivetrain is running the command and that new target speeds are being produced, I…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 73,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3494862,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71901,
+                    "username": "san4d",
+                    "name": "Allen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71901,
+                            "username": "san4d",
+                            "name": "Allen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/san4d/{size}/247132_2.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pheonix 6 Kraken X60 Postion Control",
+                "id": 481553,
+                "title": "Pheonix 6 Kraken X60 Postion Control",
+                "slug": "pheonix-6-kraken-x60-postion-control",
+                "posts_count": 11,
+                "reply_count": 9,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-14T01:45:33.636Z",
+                "last_posted_at": "2025-02-14T21:19:34.311Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T21:19:34.311Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Im having trouble do ing position control on thee kraken x60 here’s my repo here’s the error [{ “resource”: “/ Robot/reef reef/src/main/java/frc/robot/subsystems/Motor.…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "frc",
+                    "programming",
+                    "reefscape"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 762,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3481624,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71252,
+                    "username": "Soulemane",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/35a633/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71252,
+                            "username": "Soulemane",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/35a633/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65802,
+                            "username": "Rumble",
+                            "name": "Adriel",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/e56c9b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44380,
+                            "username": "gdefender",
+                            "name": "Andy Gasser",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PathPlanner Running Autos Concurrently",
+                "id": 495910,
+                "title": "PathPlanner Running Autos Concurrently",
+                "slug": "pathplanner-running-autos-concurrently",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-17T16:49:10.645Z",
+                "last_posted_at": "2025-03-18T06:19:01.809Z",
+                "bumped": true,
+                "bumped_at": "2025-03-18T06:19:01.809Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am the programming mentor for FRC Team 8728: The Argonauts. My team used PathPlanner last year with no large issues, and pre-made Paths and Autos this year before competition that we were excited to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java",
+                    "frc",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 126,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559378,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53605,
+                    "username": "kelmalon",
+                    "name": "Kelly M",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/898d66/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53605,
+                            "username": "kelmalon",
+                            "name": "Kelly M",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/898d66/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner going nuts halfway",
+                "id": 496126,
+                "title": "Pathplanner going nuts halfway",
+                "slug": "pathplanner-going-nuts-halfway",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-18T21:29:57.689Z",
+                "last_posted_at": "2025-03-20T22:30:06.869Z",
+                "bumped": true,
+                "bumped_at": "2025-03-20T22:30:06.869Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have it a field oriented drive method instead of robot relative",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 114,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3563572,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 63063,
+                    "username": "Mochatitan",
+                    "name": "6894 Lead prog/driver",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63063,
+                            "username": "Mochatitan",
+                            "name": "6894 Lead prog/driver",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62665,
+                            "username": "26lbellinger",
+                            "name": "Logan Bellinger",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/2/a9adbd/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "programming",
+            "axon"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Axon 300x300 or greater",
+        "id": 402091,
+        "title": "Axon 300x300 or greater",
+        "posts_count": 4,
+        "created_at": "2022-02-03T16:13:36.528Z",
+        "views": 501,
+        "reply_count": 1,
+        "like_count": 2,
+        "last_posted_at": "2023-02-08T00:43:46.221Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "axon-300x300-or-greater",
+        "category_id": 75,
+        "word_count": 264,
+        "deleted_at": null,
+        "user_id": 38557,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_402091",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 38557,
+                    "username": "Bmongar",
+                    "name": "Brad",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 49074,
+                    "username": "jackptx",
+                    "name": "Jack",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jackptx/{size}/157828_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 38557,
+                "username": "Bmongar",
+                "name": "Brad",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/bmongar/{size}/228654_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/inferencing-on-a-raspberry-pi.html#:~:text=Head%20to%20the%20Vision%20Settings%20tab.%20First%20click%20on%20the%20camera%20stream%20and%20change%20the%20resolution%20to%20be%20greater%20than%20300%20pixels%20by%20300%20pixels%20(e.g.%20640%20by%20480)",
+                    "title": "Inferencing on a Raspberry Pi — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 38557,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

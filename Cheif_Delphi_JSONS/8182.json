@@ -1,0 +1,991 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3312760,
+                    "name": "",
+                    "username": "mjjain",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/7cd45c/{size}.png",
+                    "created_at": "2024-02-19T05:27:55.483Z",
+                    "cooked": "Before experimenting with Pose estimation with AprilTags, I had a pretty simple task: generate a trajectory to an AprilTag and follow it.\n\nYou can see the code for my GoToTagCmd here .\n\nThe basic idea is that whenever I want to go to an AprilTag, I reset the robot’s odometry to 0,0 and set the ending pose of my trajectory to the AprilTag’s 3D pose. Two interior waypoints are created and a path planner path is constructed for the robot to follow.\n\nThis has worked well; you can see it in action here .\n\nFor the past few days, I’ve wanted to upgrade this by incorporating the Pose estimation with the April tags so I don’t have to reset the robot’s odometry to zero every time. I also wanted to leverage this so that if the robot knows where it is on the field, my auto routines can be more accurate and robust.\n\nI’m using the SwerveDrivePoseEstimator class and the .addVisionMeasurement method to update my odometry periodically. I tested it out, and I think it’s working okay. For example, if I start without looking at an AprilTag, the robot starts at 0,0. Then, when I rotate the robot and the camera detects the AprilTag, the robot automatically goes to the field-relative position (ID7 is the speaker tag). You can see a demo of what I’m talking about here .\n\nMy question is, how would I change my GoToTag code to account for the robot’s field-relative pose? I don’t want to reset my start pose in the odometry to 0,0 anymore; I just want to be able to go to different places on the field. I tried using Pathfinding , but I’m getting some really weird results. For example, in my RobotContainer , I’ve bound the Pathfinding command to a button to be only while held. I just entered the pose to be (7, 5.55, 60 degrees), which is like 7 meters away from tag 7 on the field but still the same exact Y dimension. So my idea is that I detect the tag, and then I want to go 7 meters away from it with Pathfinder. The problem is that the Pathfinding command generates a weird trajectory that is just a bunch of zigzags and is incorrect. You can see what I’m talking about here . I kept spamming the button to see if the trajectory would update at all, but it just stays as a bunch of zig zags and is definitely not the shortest and most optimal bath shown in the Pathfinder documentation on Path Planner’s website.\n\nVision code is here .\n\nSwerve code is here .\n\nI’m honestly really lost on how to integrate this new pose estimation. The estimate from the tag seems to initially place the robot in the correct place on the field, but I just need help getting more advanced features like pathfinding working and how I could use that to align with the speaker instead of resetting the odometry and creating a trajectory like I was earlier. Worst case scenario, I’ll just keep resetting odometry and path following to the speaker with the April tag, but I would really like to implement some sort of localization to effectively use vision in auto as well.\n\nI know this post is kind of convoluted, but any help/strategies I can implement is greatly appreciated!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-19T05:33:10.611Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 809,
+                    "reads": 169,
+                    "readers_count": 168,
+                    "score": 4078.8,
+                    "yours": false,
+                    "topic_id": 455287,
+                    "topic_slug": "need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/commands/GoToTagCmd.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Max-Quordlepleen/src/main/java/frc/robot/commands/GoToTagCmd.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                            "clicks": 67
+                        },
+                        {
+                            "url": "https://youtu.be/shHk2oi0ZRM",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 42
+                        },
+                        {
+                            "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/subsystems/Limelight.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Max-Quordlepleen/src/main/java/frc/robot/subsystems/Limelight.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                            "clicks": 39
+                        },
+                        {
+                            "url": "https://youtu.be/vzagwqk9-dU",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 30
+                        },
+                        {
+                            "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/subsystems/SwerveBase.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Max-Quordlepleen/src/main/java/frc/robot/subsystems/SwerveBase.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                            "clicks": 18
+                        },
+                        {
+                            "url": "https://youtu.be/8Pto0ex8Eb4",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 13
+                        },
+                        {
+                            "url": "https://pathplanner.dev/pplib-pathfinding.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Pathfinding | PathPlanner Docs",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/RobotContainer.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Max-Quordlepleen/src/main/java/frc/robot/RobotContainer.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/2024-the-year-in-review/477837/5",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "2024: The Year in Review",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51252,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop/455287/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3312772,
+                    "name": "Andy Gasser",
+                    "username": "gdefender",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "created_at": "2024-02-19T05:54:40.460Z",
+                    "cooked": "I’ll try to give this a closer look tomorrow, but you might want to check out my video from jumpstart last year. Here’s a link to the part where a talked about aligning to a tag with pose estimation.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-19T05:55:15.469Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 42,
+                    "reads": 139,
+                    "readers_count": 138,
+                    "score": 302.8,
+                    "yours": false,
+                    "topic_id": 455287,
+                    "topic_slug": "need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop",
+                    "display_username": "Andy Gasser",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=TG9KAa2EGzQ&t=2328",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 20
+                        },
+                        {
+                            "url": "https://www.youtube.com/watch?v=TG9KAa2EGzQ",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 44380,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7028 - Java Programming Mentor"
+                    },
+                    "post_url": "/t/need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop/455287/2",
+                    "custom_user_title": "7028 - Java Programming Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3314210,
+                    "name": "",
+                    "username": "mjjain",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/7cd45c/{size}.png",
+                    "created_at": "2024-02-21T04:31:45.267Z",
+                    "cooked": "Hey your video helped a lot, I incorporated your strategy with pathplanners path finding method and things are working quite nicely. Thanks again!",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-21T04:31:45.267Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 6,
+                    "reads": 109,
+                    "readers_count": 108,
+                    "score": 66.8,
+                    "yours": false,
+                    "topic_id": 455287,
+                    "topic_slug": "need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 44380,
+                        "username": "gdefender",
+                        "name": "Andy Gasser",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51252,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop/455287/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3533918,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-20T04:31:49.053Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-02-20T04:31:49.053Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 17,
+                    "readers_count": 16,
+                    "score": 13.4,
+                    "yours": false,
+                    "topic_id": 455287,
+                    "topic_slug": "need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop/455287/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3312760,
+                3312772,
+                3314210,
+                3533918
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                601
+            ],
+            [
+                3,
+                599
+            ],
+            [
+                4,
+                234
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve MK4i walking crookely",
+                "id": 492198,
+                "title": "Swerve MK4i walking crookely",
+                "slug": "swerve-mk4i-walking-crookely",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-18T18:52:31.561Z",
+                "last_posted_at": "2025-02-18T23:14:06.848Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T23:14:06.848Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "good morning! we have a problem about our swerve. It is walking crookedly, in the shape of an arc, and at the end, it accelerates and starts to spin for a few seconds. We’ve tried everything and we ha…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 141,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531764,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 55182,
+                            "username": "Flatop",
+                            "name": "Kyle Burman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Cancelling a Command Composition Issue",
+                "id": 496186,
+                "title": "Cancelling a Command Composition Issue",
+                "slug": "cancelling-a-command-composition-issue",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-03-19T13:02:28.823Z",
+                "last_posted_at": "2025-03-19T14:31:20.960Z",
+                "bumped": true,
+                "bumped_at": "2025-03-19T14:31:20.960Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello all! We are experiencing an issue with our scoring command. The scoring command is a sequential command group that aligns to the reef and then scores the game piece. The first component of alig…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 106,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3561587,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70468,
+                    "username": "johnguzauckas",
+                    "name": "John Guzauckas",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/cab0a1/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 70468,
+                            "username": "johnguzauckas",
+                            "name": "John Guzauckas",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/cab0a1/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How do you make lights turn on after a certain rev on the talon fx",
+                "id": 473880,
+                "title": "How do you make lights turn on after a certain rev on the talon fx",
+                "slug": "how-do-you-make-lights-turn-on-after-a-certain-rev-on-the-talon-fx",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-10-28T14:04:46.753Z",
+                "last_posted_at": "2024-10-29T13:16:18.376Z",
+                "bumped": true,
+                "bumped_at": "2024-10-29T13:16:18.376Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Break the problem down into smaller pieces. Identify the “trigger” for the change you want Perform the change For 1, the trigger you seem to want is “after motor has turned __ times”. How might yo…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 251,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440759,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68704,
+                            "username": "txrnqt",
+                            "name": "jace",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a9a28c/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 3095,
+                            "username": "Billfred",
+                            "name": "Billfred Leverette (he/him/not Bill)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Getting started with coding your robot in kotlin",
+                "id": 479660,
+                "title": "Getting started with coding your robot in kotlin",
+                "slug": "getting-started-with-coding-your-robot-in-kotlin",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-07T01:10:37.137Z",
+                "last_posted_at": "2025-01-07T01:10:37.208Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T01:10:37.208Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi y’all, Kotlin for FRC is officially releasing a frc kotlin template for teams to use, updated for 2025! The FRC kotlin template is designed to be the equivalent of the VScode command robot templa…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "kotlin"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 146,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473343,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56324,
+                    "username": "Daniel1464",
+                    "name": "Daniel C.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/6bbea6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 56324,
+                            "username": "Daniel1464",
+                            "name": "Daniel C.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/6bbea6/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Advantage scope",
+                "id": 500159,
+                "title": "Advantage scope",
+                "slug": "advantage-scope",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-04-22T16:26:48.233Z",
+                "last_posted_at": "2025-04-23T16:10:31.525Z",
+                "bumped": true,
+                "bumped_at": "2025-04-23T16:10:31.525Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "good morning! I am one programmer of a FRC team and i have questions of how to use the advantage scope. My team haven’t ideia if how to use. Someone can help me?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 344,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3600128,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2695,
+                            "username": "ngreen",
+                            "name": "Nelson Green (1108 Mentor Coach Electrical Programming)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ngreen/{size}/264478_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 48574,
+                            "username": "bbonner",
+                            "name": "Brett B Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bbonner/{size}/155176_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "pathplanner",
+            "apriltags"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Need help with integrating Pose estimation with Apriltags and Pathplanner trajectories in auto/teleop",
+        "id": 455287,
+        "title": "Need help with integrating Pose estimation with Apriltags and Pathplanner trajectories in auto/teleop",
+        "posts_count": 4,
+        "created_at": "2024-02-19T05:27:55.416Z",
+        "views": 1053,
+        "reply_count": 1,
+        "like_count": 5,
+        "last_posted_at": "2025-02-20T04:31:49.053Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "need-help-with-integrating-pose-estimation-with-apriltags-and-pathplanner-trajectories-in-auto-teleop",
+        "category_id": 75,
+        "word_count": 750,
+        "deleted_at": null,
+        "user_id": 51252,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_455287",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 51252,
+                    "username": "mjjain",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/7cd45c/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 44380,
+                    "username": "gdefender",
+                    "name": "Andy Gasser",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 51252,
+                "username": "mjjain",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/7cd45c/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/commands/GoToTagCmd.java",
+                    "title": "Max-Quordlepleen/src/main/java/frc/robot/commands/GoToTagCmd.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 67,
+                    "user_id": 51252,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://youtu.be/shHk2oi0ZRM",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 42,
+                    "user_id": 51252,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/subsystems/Limelight.java",
+                    "title": "Max-Quordlepleen/src/main/java/frc/robot/subsystems/Limelight.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 39,
+                    "user_id": 51252,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://youtu.be/vzagwqk9-dU",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 30,
+                    "user_id": 51252,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://www.youtube.com/watch?v=TG9KAa2EGzQ&t=2328",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 20,
+                    "user_id": 44380,
+                    "domain": "www.youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/subsystems/SwerveBase.java",
+                    "title": "Max-Quordlepleen/src/main/java/frc/robot/subsystems/SwerveBase.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 18,
+                    "user_id": 51252,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://youtu.be/8Pto0ex8Eb4",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 51252,
+                    "domain": "youtu.be",
+                    "root_domain": "youtu.be"
+                },
+                {
+                    "url": "https://pathplanner.dev/pplib-pathfinding.html",
+                    "title": "Pathfinding | PathPlanner Docs",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 51252,
+                    "domain": "pathplanner.dev",
+                    "root_domain": "pathplanner.dev"
+                },
+                {
+                    "url": "https://github.com/team2059/Max-Quordlepleen/blob/pose_estimation/src/main/java/frc/robot/RobotContainer.java",
+                    "title": "Max-Quordlepleen/src/main/java/frc/robot/RobotContainer.java at pose_estimation · team2059/Max-Quordlepleen · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 51252,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

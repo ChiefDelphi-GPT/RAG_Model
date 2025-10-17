@@ -1,0 +1,803 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3300020,
+                    "name": "",
+                    "username": "Team753",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/b4bc9f/{size}.png",
+                    "created_at": "2024-02-02T03:03:39.913Z",
+                    "cooked": "We’re receiving a new type of python error message while trying to deploy code to a robot. We have already updated WPILib tools and our roboRio. Enclosed is the log of our issue.  py -3 -m robotpy init Traceback (most recent call last): File “C:\\Users\\Team753\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\robotpy\\main.py”, line 245, in main cmd_class = entry_point.load() ^^^^^^^^^^^^^^^^^^ File “C:\\Users\\Team753\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\metadata_ init _.py”, line 205, in load module = import_module(match.group(‘module’)) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File “C:\\Users\\Team753\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib_ init _.py”, line 90, in import_module return _bootstrap._gcd_import(name[level:], package, level) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File “”, line 1387, in _gcd_import File “”, line 1360, in _find_and_load File “”, line 1331, in _find_and_load_unlocked File “”, line 935, in _load_unlocked File “”, line 994, in exec_module File “”, line 488, in call_with_frames_removed File “C:\\Users\\Team753\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyfrc\\mains\\cli_sim.py”, line 9, in import wpilib File \"C:\\Users\\Team753\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\wpilib_ init .py\", line 7, in from ._wpilib import ( ImportError: generic_type: type “ADXL345_I2C” referenced unknown base type “nt::NTSendable” Plugin error detected in ‘EntryPoint(name=‘sim’, value=‘pyfrc.mains.cli_sim:PyFrcSim’, group=‘robotpy’)’ (use --ignore-plugin-errors to ignore this)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-02T03:03:39.913Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 19,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 101.8,
+                    "yours": false,
+                    "topic_id": 453026,
+                    "topic_slug": "robotpy-deloy-error",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63892,
+                    "hidden": false,
+                    "trust_level": 0,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/robotpy-deloy-error/453026/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3300088,
+                    "name": "Dustin Spicuzza",
+                    "username": "virtuald",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                    "created_at": "2024-02-02T04:28:49.836Z",
+                    "cooked": "It’s likely you have a variety of different robotpy package versions installed. Do python -m pip install -U robotpy and try again.\n\nIf that doesn’t resolve it, post the output of python -m pip list .",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-02-02T04:29:48.575Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 26,
+                    "readers_count": 25,
+                    "score": 5.2,
+                    "yours": false,
+                    "topic_id": 453026,
+                    "topic_slug": "robotpy-deloy-error",
+                    "display_username": "Dustin Spicuzza",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 11063,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "RobotPy Guy, WPILib Developer"
+                    },
+                    "post_url": "/t/robotpy-deloy-error/453026/2",
+                    "custom_user_title": "RobotPy Guy, WPILib Developer",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3498778,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-01T04:29:50.065Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-01T04:29:50.065Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 453026,
+                    "topic_slug": "robotpy-deloy-error",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/robotpy-deloy-error/453026/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3300020,
+                3300088,
+                3498778
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                618
+            ],
+            [
+                3,
+                253
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Mysterious Overrun Error Every Other Robot Code Restart",
+                "id": 494688,
+                "title": "Mysterious Overrun Error Every Other Robot Code Restart",
+                "slug": "mysterious-overrun-error-every-other-robot-code-restart",
+                "posts_count": 16,
+                "reply_count": 10,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-03-08T00:59:56.771Z",
+                "last_posted_at": "2025-03-14T23:31:56.010Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T23:31:56.010Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Awesome. Thanks for looking harder at this problem and doing the initial research. Fix is in robotpy-installer 2025.1.0.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "python"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 365,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557347,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 16,
+                "topic_post_user": {
+                    "id": 11063,
+                    "username": "virtuald",
+                    "name": "Dustin Spicuzza",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70825,
+                            "username": "Plunder",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/plunder/{size}/254736_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driver Assist Camera Stream Times",
+                "id": 476115,
+                "title": "Driver Assist Camera Stream Times",
+                "slug": "driver-assist-camera-stream-times",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-05T18:42:52.297Z",
+                "last_posted_at": "2024-12-05T23:47:57.530Z",
+                "bumped": true,
+                "bumped_at": "2024-12-05T23:47:57.530Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What is the best expected stream time for a driver assist camera in 2025? Searching through CD we haven’t been able to find anything specific that points to a worthwhile solution. We’ve been experime…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "opencv"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 212,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455299,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56276,
+                    "username": "michjor",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 56276,
+                            "username": "michjor",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22221,
+                            "username": "nuclearnerd",
+                            "name": "Brendan Simons, 5406",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nuclearnerd/{size}/7324_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problems with robot code and numpy",
+                "id": 483108,
+                "title": "Problems with robot code and numpy",
+                "slug": "problems-with-robot-code-and-numpy",
+                "posts_count": 11,
+                "reply_count": 8,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-22T21:30:56.856Z",
+                "last_posted_at": "2025-01-28T02:35:07.693Z",
+                "bumped": true,
+                "bumped_at": "2025-01-28T02:35:07.693Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using the 2025.2.1.0 of robotpy. After running robotpy sync and deploying, the code deploys successfully, but on the driver station console, we Fatal python error, unhandled exception inst…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib",
+                    "python"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 176,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490175,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66158,
+                    "username": "ahuang",
+                    "name": "ahuang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66158,
+                            "username": "ahuang",
+                            "name": "ahuang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner with simulation is outputting very slow chassis speeds",
+                "id": 473911,
+                "title": "Pathplanner with simulation is outputting very slow chassis speeds",
+                "slug": "pathplanner-with-simulation-is-outputting-very-slow-chassis-speeds",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-10-28T18:12:34.647Z",
+                "last_posted_at": "2024-10-29T14:10:01.827Z",
+                "bumped": true,
+                "bumped_at": "2024-10-29T14:10:01.827Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’ve been trying to set up Pathplanner on our swerve codebase, but it isn’t working well. Indeed, when normally driving we use controller inputs and multiply it by 35 (we know it’s abnormally huge, b…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "pathplanner",
+                    "python",
+                    "simulation",
+                    "bug"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 150,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440806,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 58497,
+                    "username": "ThomasMcDonald904",
+                    "name": "Thomas McDonald",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/e8c25b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58497,
+                            "username": "ThomasMcDonald904",
+                            "name": "Thomas McDonald",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e8c25b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 68767,
+                            "username": "galacticpig",
+                            "name": "Micah",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/e19b73/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Python teams, how is the support?",
+                "id": 498312,
+                "title": "Python teams, how is the support?",
+                "slug": "python-teams-how-is-the-support",
+                "posts_count": 13,
+                "reply_count": 5,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-04-07T18:18:57.303Z",
+                "last_posted_at": "2025-04-08T15:07:20.109Z",
+                "bumped": true,
+                "bumped_at": "2025-04-08T15:13:42.215Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi We are currently using Java to program our FRC robot. The programming is mostly done by mentors. We want the student to do the programming. Our school, the students are taught python because of co…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 529,
+                "category_id": 77,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3582782,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 28847,
+                    "username": "Tio",
+                    "name": "Tio",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 28847,
+                            "username": "Tio",
+                            "name": "Tio",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 31229,
+                            "username": "auscompgeek",
+                            "name": "Davo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/auscompgeek/{size}/9867_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24678,
+                            "username": "Justin_Buist",
+                            "name": "Justin Buist",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 47943,
+                            "username": "megarubber",
+                            "name": "Guilherme Samuel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/megarubber/{size}/172063_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Robotpy deloy error",
+        "id": 453026,
+        "title": "Robotpy deloy error",
+        "posts_count": 3,
+        "created_at": "2024-02-02T03:03:39.864Z",
+        "views": 137,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-01T04:29:50.065Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "robotpy-deloy-error",
+        "category_id": 77,
+        "word_count": 290,
+        "deleted_at": null,
+        "user_id": 63892,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_453026",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 11063,
+                    "username": "virtuald",
+                    "name": "Dustin Spicuzza",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63892,
+                    "username": "Team753",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/b4bc9f/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 0
+                }
+            ],
+            "created_by": {
+                "id": 63892,
+                "username": "Team753",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/t/b4bc9f/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

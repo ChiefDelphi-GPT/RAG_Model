@@ -1,0 +1,898 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3320495,
+                    "name": "Eric G",
+                    "username": "ericg2",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/3ec8ea/{size}.png",
+                    "created_at": "2024-02-29T14:07:39.765Z",
+                    "cooked": "Hello Everyone,\n\nWith only 2 days before our first competition, I have been extensively testing the software aspect of our Robot. I noticed one problem with Swerve using the YAGSL library and I was wondering if anybody knew the causes of it:\n\nWhen the Robot is instructed to drive straight immediately after turning, there is a chance for the wheels to be slightly misaligned. After about 2-3 seconds, the wheels automatically go straight again. The PID configuration appears correct as the angle motors are not oscillating on the ground. Is this normal behavior or is the code wrong?\n\nHere is our robot’s setup:\n\n4x SDS Mk4 (L2 ratio) with NEO Angle + Drive motors\n\nCANcoders on each module\n\nRoboRIO 2.0\n\nNavX2 on MXP port.\n\nYAGSL (Java)\n\nAdditionally, I followed the “When to Invert” instructions on the YAGSL documentation. The Pose is following the right direction (+X forward, +Y left, CCW positive rotation). I did not do an FRC Web Components test yet.\n\nOur code is posted here: GitHub - Team-4361/RobotCode-2024 at minimal\n\nThank you, Eric",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-29T14:07:39.765Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 35,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 204.6,
+                    "yours": false,
+                    "topic_id": 456667,
+                    "topic_slug": "yagsl-angle-wheels-not-always-straight-after-turning",
+                    "display_username": "Eric G",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Team-4361/RobotCode-2024/tree/minimal",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Team-4361/RobotCode-2024 at minimal",
+                            "clicks": 4
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53588,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/yagsl-angle-wheels-not-always-straight-after-turning/456667/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3320640,
+                    "name": "",
+                    "username": "nstrike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "created_at": "2024-02-29T16:16:27.197Z",
+                    "cooked": "ericg2:\n\nAfter about 2-3 seconds, the wheels automatically go straight again.\n\nThis sounds like the module synchronization function, i believe your conversion factors may be a little off for the angle motors.\n\nJust checked your conversion factors and they are definitely off.\n\nYou are supposed to use\n\nassuming 4in wheel and mk4 l2. I precalculated these and display them on the docs here.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-29T16:16:27.197Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 1,
+                    "reads": 36,
+                    "readers_count": 35,
+                    "score": 12.2,
+                    "yours": false,
+                    "topic_id": 456667,
+                    "topic_slug": "yagsl-angle-wheels-not-always-straight-after-turning",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://yagsl.gitbook.io/yagsl/configuring-yagsl/standard-conversion-factors",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Standard Conversion Factors - YAGSL",
+                            "clicks": 9
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51887,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "YAGSL & YASS Creator "
+                    },
+                    "post_url": "/t/yagsl-angle-wheels-not-always-straight-after-turning/456667/2",
+                    "custom_user_title": "YAGSL & YASS Creator ",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3321677,
+                    "name": "Eric G",
+                    "username": "ericg2",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/3ec8ea/{size}.png",
+                    "created_at": "2024-03-01T20:58:14.516Z",
+                    "cooked": "It was definitely the conversion factors messing up the straightness. I changed the values to the numbers you stated, and everything appears to work now. I will let you know if we experience any additional YAGSL problems at our competition.\n\nThank you!",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-01T20:58:14.516Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 13,
+                    "readers_count": 12,
+                    "score": 17.6,
+                    "yours": false,
+                    "topic_id": 456667,
+                    "topic_slug": "yagsl-angle-wheels-not-always-straight-after-turning",
+                    "display_username": "Eric G",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53588,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/yagsl-angle-wheels-not-always-straight-after-turning/456667/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3544381,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-01T20:59:02.075Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-01T20:59:02.075Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 456667,
+                    "topic_slug": "yagsl-angle-wheels-not-always-straight-after-turning",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/yagsl-angle-wheels-not-always-straight-after-turning/456667/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3320495,
+                3320640,
+                3321677,
+                3544381
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                590
+            ],
+            [
+                3,
+                589
+            ],
+            [
+                4,
+                224
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "What are your programming horror stories?",
+                "id": 473439,
+                "title": "What are your programming horror stories?",
+                "slug": "what-are-your-programming-horror-stories",
+                "posts_count": 91,
+                "reply_count": 38,
+                "highest_post_number": 91,
+                "image_url": null,
+                "created_at": "2024-10-22T16:40:28.880Z",
+                "last_posted_at": "2025-03-03T20:54:17.759Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T20:54:17.759Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Inspired by this post. Doesn’t matter if it happened off-season. Just doing this for fun and a learning experience!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 399,
+                "views": 4814,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3437742,
+                "topic_post_liked": false,
+                "topic_post_like_count": 14,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55649,
+                    "username": "manso",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55649,
+                            "username": "manso",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63359,
+                            "username": "predobrega",
+                            "name": "Pedro Braga",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/predobrega/{size}/211207_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63244,
+                            "username": "Pickle_Face5",
+                            "name": "Caden R Dalley",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pickle_face5/{size}/210767_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65986,
+                            "username": "ZeroSquad",
+                            "name": "Olly Fry",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/z/a87d85/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problem with new Spark MAX Configurations in code",
+                "id": 484697,
+                "title": "Problem with new Spark MAX Configurations in code",
+                "slug": "problem-with-new-spark-max-configurations-in-code",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/c/b/cbd46c11b9677251da5db9594d84a47bcdc081d4_2_1024x527.png",
+                "created_at": "2025-02-01T20:28:30.293Z",
+                "last_posted_at": "2025-02-02T21:09:08.942Z",
+                "bumped": true,
+                "bumped_at": "2025-02-02T21:09:08.942Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is because the constructor from the superclass is called first, before the subclass’s constructor and field initializers are run. And because the superclass constructor calls an overrideable meth…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3500172,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 25916,
+                    "username": "SamCarlberg",
+                    "name": "Sam Carlberg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64590,
+                            "username": "Fafa",
+                            "name": "Ricky",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fafa/{size}/217310_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 25916,
+                            "username": "SamCarlberg",
+                            "name": "Sam Carlberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56132,
+                            "username": "Novicaine",
+                            "name": "John Slagel",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ac8455/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problem with swerve(yagsl) orientation",
+                "id": 480537,
+                "title": "Problem with swerve(yagsl) orientation",
+                "slug": "problem-with-swerve-yagsl-orientation",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-09T21:05:03.080Z",
+                "last_posted_at": "2025-01-10T21:03:00.934Z",
+                "bumped": true,
+                "bumped_at": "2025-01-10T21:03:00.934Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, recently our team is using swerve for the first time and we are having a small problem, our swerve is giving a drift, as if it were a whip, and when we invert the orientation of our pi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 131,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477220,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64053,
+                    "username": "Matheus",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64053,
+                            "username": "Matheus",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ecd19e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AdvantageKit IO autolog not working",
+                "id": 481481,
+                "title": "AdvantageKit IO autolog not working",
+                "slug": "advantagekit-io-autolog-not-working",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/0/b/0be1d864c24386a1a54c2103954f679eeddec7d4_2_1024x250.png",
+                "created_at": "2025-01-13T21:39:02.599Z",
+                "last_posted_at": "2025-01-13T21:53:57.822Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T21:53:57.822Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Make sure you have the annotation processor setup in your build.gradle. One of the first steps here.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 100,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3481364,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 35291,
+                    "username": "GregBilletdeaux",
+                    "name": "Greg Billetdeaux",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gregbilletdeaux/{size}/137999_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 59845,
+                            "username": "griffingreat1",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/71e660/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 35291,
+                            "username": "GregBilletdeaux",
+                            "name": "Greg Billetdeaux",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gregbilletdeaux/{size}/137999_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problem with the code for limeligth",
+                "id": 491444,
+                "title": "Problem with the code for limeligth",
+                "slug": "problem-with-the-code-for-limeligth",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-12T22:44:24.062Z",
+                "last_posted_at": "2025-02-14T20:58:43.745Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T20:58:43.745Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My questions may be silly, but this is the first code my team has written with limelight. 1- How do I make a simultaneous connection and if it is necessary for the robot and limelight? 2- I have a b…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 120,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525447,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71235,
+                    "username": "Yuri10291",
+                    "name": "Yuri",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/y/898d66/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 71235,
+                            "username": "Yuri10291",
+                            "name": "Yuri",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/y/898d66/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "swerve",
+            "java",
+            "sds"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "YAGSL: Angle Wheels Not Always Straight After Turning",
+        "id": 456667,
+        "title": "YAGSL: Angle Wheels Not Always Straight After Turning",
+        "posts_count": 4,
+        "created_at": "2024-02-29T14:07:39.694Z",
+        "views": 195,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-03-01T20:59:02.075Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "yagsl-angle-wheels-not-always-straight-after-turning",
+        "category_id": 30,
+        "word_count": 327,
+        "deleted_at": null,
+        "user_id": 53588,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_456667",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "nstrike",
+            "name": null,
+            "excerpt": "This sounds like the module synchronization function, i believe your conversion factors may be a little off for the angle motors. \nJust checked your conversion factors and they are definitely off. \nYou are supposed to use \n&quot;conversionFactor&quot;: {\n\t&quot;angle&quot;: 28.125,\n\t&quot;drive&quot;: 0.047286787200699704\n}\n\nas&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 53588,
+                    "username": "ericg2",
+                    "name": "Eric G",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/3ec8ea/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 53588,
+                "username": "ericg2",
+                "name": "Eric G",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/3ec8ea/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://yagsl.gitbook.io/yagsl/configuring-yagsl/standard-conversion-factors",
+                    "title": "Standard Conversion Factors - YAGSL",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 51887,
+                    "domain": "yagsl.gitbook.io",
+                    "root_domain": "gitbook.io"
+                },
+                {
+                    "url": "https://github.com/Team-4361/RobotCode-2024/tree/minimal",
+                    "title": "GitHub - Team-4361/RobotCode-2024 at minimal",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 53588,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

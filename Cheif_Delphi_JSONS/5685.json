@@ -1,0 +1,817 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3448661,
+                    "name": "Jason",
+                    "username": "Jason81",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "created_at": "2024-11-17T21:36:11.662Z",
+                    "cooked": "We are programming for an off-season competition using the FRC ’s Romi and having issues running code to control a SparkMAX motor (We are using a pwm connection to connect to ROMI rather than CAN ). We can connect our driver station laptop to the ROMI over wifi and deploy robot code in WPILib but it instantly deploys (which is strange) and doesn’t seem to actually control the motor when in simulation or FRC Driver Station Application.\n\nOur main theory has to do with the fact when we try to change the gateway on wpilib.local (the ROMI’s local webserver) to 10.65.0.2, which is our teams IP Notation, it resets back to 0.0.0.0 even if we save it in writable. This could explain the fact that even though all of the lights on Driver Station for communication, robot code, and joystick are green, it still provides warnings in the right hand log for “Warning 40044” and “44000” that the Driver station loses connection with the robot.\n\nIt should be noted the purpose of our program (Our branch is attached below) is to simply set a pwm motor to 0.5 when we press A on a joystick, which happens in simulation- but clearly not in the actual powered motor controller in real life.\n\nOur Branch “Test”: ERC-SethError/src/main/java/frc/robot at test · 6500gearcats/ERC-SethError · GitHub",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-11-17T22:12:53.907Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 20,
+                    "reads": 87,
+                    "readers_count": 86,
+                    "score": 117.4,
+                    "yours": false,
+                    "topic_id": 475064,
+                    "topic_slug": "romi-not-running-motor-controller",
+                    "display_username": "Jason",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/6500gearcats/ERC-SethError/tree/test/src/main/java/frc/robot",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ERC-SethError/src/main/java/frc/robot at test · 6500gearcats/ERC-SethError · GitHub",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/romi-not-running-motor-controller/475064/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3450700,
+                    "name": null,
+                    "username": "veg",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "created_at": "2024-11-22T03:37:14.272Z",
+                    "cooked": "So there could be a few things going on here. You should be aware that there are some differences between how the Romi configures its network vs. a normal Rio setup.\n\nIf you are losing the network connection from the drive station to the Romi then the EXT outputs will be disabled, so it’s best to start there. If you disconnect the SparkMAX, does the Romi connect and drive normally?\n\nIf the network works intermittently, you could have a power problem. Make sure you have fresh batteries in the Romi, and review your wiring and power distribution to all peripherals.\n\nIf the Romi is connected and otherwise working (ie: its own drive motors respond) then you should check the GPIO configuration to make sure you’ve enabled the correct output pins for PWM , and that the PWM port number matches what you’re using in your Romi code for the subsystem. (This part looks possibly incorrect to me as your code looks like it expects to find the SparkMAX on Port zero.)\n\nIf you have placed a jumper on the Romi to put the 5V supply on the center rail of the EXT0 - 4 ports, this will attempt to power any accessories off of the Romi’s power supply, which could cause brownouts if you draw too much power.\n\nIf you can include details about how you have configured your EXT outputs and photos of your setup, that would help with a better diagnosis.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-11-22T03:37:14.272Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 36,
+                    "readers_count": 35,
+                    "score": 27.2,
+                    "yours": false,
+                    "topic_id": 475064,
+                    "topic_slug": "romi-not-running-motor-controller",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48088,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/romi-not-running-motor-controller/475064/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3451761,
+                    "name": "Jason",
+                    "username": "Jason81",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "created_at": "2024-11-25T20:45:43.107Z",
+                    "cooked": "Update: We got the motor controller running with a romi! The few fixes we made were changing the PWMMotorController class from just a Spark to a PWMSparkMax (which is what we were using) as well as changing the port number in code from a 0 to a 2 since we assumed using EXT 0 for the romi pin meant PWM 0 but in reality was PWM 2 (as shown in your above diagram). In terms of supplying power we were already doing that externally- I’m not sure quite the details on that but it was being done correctly and we checked it with an Oscillometer to make sure we were getting signal from the romi to control the motor.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-11-25T20:45:43.107Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 19,
+                    "readers_count": 18,
+                    "score": 18.8,
+                    "yours": false,
+                    "topic_id": 475064,
+                    "topic_slug": "romi-not-running-motor-controller",
+                    "display_username": "Jason",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 48088,
+                        "username": "veg",
+                        "name": null,
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 69118,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/romi-not-running-motor-controller/475064/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3448661,
+                3450700,
+                3451761
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                328
+            ],
+            [
+                2,
+                324
+            ],
+            [
+                3,
+                320
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Creating a Mini Romi Swerve Bot",
+                "id": 498915,
+                "title": "Creating a Mini Romi Swerve Bot",
+                "slug": "creating-a-mini-romi-swerve-bot",
+                "posts_count": 9,
+                "reply_count": 4,
+                "highest_post_number": 9,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/c/1/6/c166c80ffcda71c6a744856cd926e3cce91058f7_2_1024x576.jpeg",
+                "created_at": "2025-04-11T20:37:08.234Z",
+                "last_posted_at": "2025-05-24T16:59:09.362Z",
+                "bumped": true,
+                "bumped_at": "2025-05-24T16:59:09.362Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I have recently undertaken the task of creating the first mini Romi swerve bot. I’m unsure if it’s possible but the goal is to build a smaller version of our current drive train in order to teach som…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "java",
+                    "frc",
+                    "swervedrive"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 784,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3589208,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 75082,
+                    "username": "Strazze",
+                    "name": "Isaiah Ballestrazze",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/58f4c7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 75082,
+                            "username": "Strazze",
+                            "name": "Isaiah Ballestrazze",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/58f4c7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26091,
+                            "username": "kswaid",
+                            "name": "Kyle Swaidner",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/df788c/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71903,
+                            "username": "F-4_Phantom_II",
+                            "name": "Martin",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44461,
+                            "username": "LazyFly3r",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/b19c9b/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Can&rsquo;t connect using romi reference project",
+                "id": 475806,
+                "title": "Can't connect using romi reference project",
+                "slug": "cant-connect-using-romi-reference-project",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-11-30T19:24:20.860Z",
+                "last_posted_at": "2024-12-02T04:07:20.395Z",
+                "bumped": true,
+                "bumped_at": "2024-12-02T04:07:20.395Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I copied and opened the wpi romi reference project in VSCode. I have made no changes to it. Following the instructions I chose “simulate robot code” in VSCode. Build looks good, but I don’t get the …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 93,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3453334,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69148,
+                    "username": "jonbarril",
+                    "name": "Jon Barrilleaux",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/54ee81/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69148,
+                            "username": "jonbarril",
+                            "name": "Jon Barrilleaux",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/54ee81/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Powering pi 4b on Romi",
+                "id": 480568,
+                "title": "Powering pi 4b on Romi",
+                "slug": "powering-pi-4b-on-romi",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-01-09T22:55:39.754Z",
+                "last_posted_at": "2025-01-09T22:55:39.818Z",
+                "bumped": true,
+                "bumped_at": "2025-01-09T22:55:39.818Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I updated the raspberry pi on my Romi from a 3b Plus to 4b and started seeing these errors along with more beep/disconnect 2023-02-19 [ROMI] Status byte is 0. Assuming bro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 47,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477367,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63731,
+                    "username": "romi_roams",
+                    "name": "Matt",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/779978/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63731,
+                            "username": "romi_roams",
+                            "name": "Matt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/779978/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "ROMI WPILibPi Support",
+                "id": 473044,
+                "title": "ROMI WPILibPi Support",
+                "slug": "romi-wpilibpi-support",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-10-15T02:05:52.005Z",
+                "last_posted_at": "2024-10-15T03:30:30.121Z",
+                "bumped": true,
+                "bumped_at": "2024-10-15T03:30:30.121Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi WPILib Suite Developers! For our fall training, our team purchased XRPs to replace our existing ROMIs. With the XRP robot being newer, cheaper, simpler, and more functional than the ROMI, what are…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 100,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3434921,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55908,
+                    "username": "BrownGenius",
+                    "name": "Nilesh Agarwalla",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/browngenius/{size}/200224_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55908,
+                            "username": "BrownGenius",
+                            "name": "Nilesh Agarwalla",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/browngenius/{size}/200224_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken Swerve vs. Falcon 500 (MK4 SDS Swerve)",
+                "id": 500148,
+                "title": "Kraken Swerve vs. Falcon 500 (MK4 SDS Swerve)",
+                "slug": "kraken-swerve-vs-falcon-500-mk4-sds-swerve",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-04-22T15:33:46.312Z",
+                "last_posted_at": "2025-04-22T16:31:22.965Z",
+                "bumped": true,
+                "bumped_at": "2025-04-22T16:31:22.965Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team has been using an 8 Falcon mk4 drivetrain with an L2 ratio. We have had a pretty good experience so far, but with the (probable) discontinuation of Falcons and the added capability of the Kra…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swervedrive",
+                    "sds"
+                ],
+                "tags_descriptions": {},
+                "like_count": 14,
+                "views": 373,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3599996,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74569,
+                    "username": "4192_sarkar",
+                    "name": "Rijoy Sarkar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/4/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74569,
+                            "username": "4192_sarkar",
+                            "name": "Rijoy Sarkar",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/4/8baadc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53784,
+                            "username": "Max_Morehead",
+                            "name": "Max Morehead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12760,
+                            "username": "Knufire",
+                            "name": "Rahul Yarlagadda",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/knufire/{size}/67820_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "ROMI not running Motor Controller",
+        "id": 475064,
+        "title": "ROMI not running Motor Controller",
+        "posts_count": 3,
+        "created_at": "2024-11-17T21:36:11.583Z",
+        "views": 171,
+        "reply_count": 1,
+        "like_count": 2,
+        "last_posted_at": "2024-11-25T20:45:43.107Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "romi-not-running-motor-controller",
+        "category_id": 86,
+        "word_count": 625,
+        "deleted_at": null,
+        "user_id": 69118,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_475064",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 37830,
+            "execute_at": "2025-11-25T20:45:43.107Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 69118,
+                    "username": "Jason81",
+                    "name": "Jason",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48088,
+                    "username": "veg",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 69118,
+                "username": "Jason81",
+                "name": "Jason",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+            },
+            "last_poster": {
+                "id": 69118,
+                "username": "Jason81",
+                "name": "Jason",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/6500gearcats/ERC-SethError/tree/test/src/main/java/frc/robot",
+                    "title": "ERC-SethError/src/main/java/frc/robot at test · 6500gearcats/ERC-SethError · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 69118,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

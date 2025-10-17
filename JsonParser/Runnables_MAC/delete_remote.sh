@@ -2,9 +2,10 @@
 set -e
 
 ssh fe.ds << 'EOF'
-set -e
 cd /home/rhayrapetyan/automatic
-rm -rf *
+rm -f progress_clean_inputs.txt
+rm -f progress_add_vectors.txt
+rm -rf /home/rhayrapetyan/automatic/
 EOF
 
 echo "Remote cleanup completed. The automatic directory is now empty."

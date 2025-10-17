@@ -1,0 +1,821 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3537042,
+                    "name": "Saahil Farook",
+                    "username": "saahilsterr",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png",
+                    "created_at": "2025-02-23T05:30:40.044Z",
+                    "cooked": "Getting this error\n\nI’m not sure why this is happening. Last week it was working completely fine\n\nhere’s the full stack trace",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-23T05:36:17.732Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 62,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 318.8,
+                    "yours": false,
+                    "topic_id": 492819,
+                    "topic_slug": "path-planner-swerve-error",
+                    "display_username": "Saahil Farook",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 67109,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/path-planner-swerve-error/492819/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3537063,
+                    "name": "",
+                    "username": "tails618",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tails618/{size}/188357_2.png",
+                    "created_at": "2025-02-23T07:13:21.852Z",
+                    "cooked": "Hard to debug without more details (e.g. when does this happen) and especially without seeing your code. My immediate thinking is figure out how and where you’re initializing pose . I suspect some debugging will reveal that you’re trying to do getTranslation() before you initialize pose ; e.g. perhaps you use it in autonomousInit() (which seems to be the case, based on the stacktrace) but it isn’t initialized until autonomousPeriodic() . But again, sharing the code that’s being run will be incredibly helpful.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-23T07:13:21.852Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 50,
+                    "readers_count": 49,
+                    "score": 25.0,
+                    "yours": false,
+                    "topic_id": 492819,
+                    "topic_slug": "path-planner-swerve-error",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53201,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8096A"
+                    },
+                    "post_url": "/t/path-planner-swerve-error/492819/2",
+                    "custom_user_title": "8096A",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3538593,
+                    "name": "Saahil Farook",
+                    "username": "saahilsterr",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png",
+                    "created_at": "2025-02-24T20:38:44.079Z",
+                    "cooked": "I figured it out lol, I wanted to create a stationary path for the robot to test out the subsystems. When I tried I didn’t know you needed to still have some path command and make that a path that doesn’t move",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-24T20:38:44.079Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 28,
+                    "readers_count": 27,
+                    "score": 25.6,
+                    "yours": false,
+                    "topic_id": 492819,
+                    "topic_slug": "path-planner-swerve-error",
+                    "display_username": "Saahil Farook",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 53201,
+                        "username": "tails618",
+                        "name": "",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/tails618/{size}/188357_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 67109,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/path-planner-swerve-error/492819/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3537042,
+                3537063,
+                3538593
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                231
+            ],
+            [
+                3,
+                229
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Validate configuration Phoenix Turner X",
+                "id": 481873,
+                "title": "Validate configuration Phoenix Turner X",
+                "slug": "validate-configuration-phoenix-turner-x",
+                "posts_count": 17,
+                "reply_count": 11,
+                "highest_post_number": 17,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/a/8/a874148233b8cd06e56a11f564927899044c7309_2_1023x481.jpeg",
+                "created_at": "2025-01-15T13:48:36.005Z",
+                "last_posted_at": "2025-01-15T18:02:02.265Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T18:02:02.265Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Out of curiosity, could you try changing your configured computer language to “English” (I see that , is used instead of .), restart your computer, and then retry the swerve generator?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 142,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483485,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 15,
+                "topic_post_user": {
+                    "id": 61981,
+                    "username": "daltzsmith",
+                    "name": "Dalton",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71348,
+                            "username": "bruno1",
+                            "name": "Bruno Alves Martins",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/b2d939/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight 3 &amp; Google Coral w/ Note Detection + Autocollect",
+                "id": 477143,
+                "title": "Limelight 3 & Google Coral w/ Note Detection + Autocollect",
+                "slug": "limelight-3-google-coral-w-note-detection-autocollect",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-12-20T22:56:52.987Z",
+                "last_posted_at": "2024-12-21T00:30:14.939Z",
+                "bumped": true,
+                "bumped_at": "2024-12-21T00:36:45.452Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! Our team has recently been running tests using the Limelight 3, with Google Coral for note detection. We’ve been trying to make it move towards the note when a button is pressed (basically lik…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 433,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462104,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68624,
+                    "username": "mai09",
+                    "name": "Mai",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mai09/{size}/237282_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68624,
+                            "username": "mai09",
+                            "name": "Mai",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mai09/{size}/237282_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67896,
+                            "username": "Nanastasoff",
+                            "name": "Nick Anastasoff",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/53a042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Strange Behavior with Limelight Megatag2 offsets",
+                "id": 491972,
+                "title": "Strange Behavior with Limelight Megatag2 offsets",
+                "slug": "strange-behavior-with-limelight-megatag2-offsets",
+                "posts_count": 15,
+                "reply_count": 11,
+                "highest_post_number": 15,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/b/d/bdcdbc01c88cf2f2a76a5bff5fce2af86370ae06_2_768x1024.jpeg",
+                "created_at": "2025-02-16T22:29:45.148Z",
+                "last_posted_at": "2025-03-08T06:43:14.339Z",
+                "bumped": true,
+                "bumped_at": "2025-03-08T06:43:14.339Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is having very strange intermittent issue with Limelight’s 4’s megatag 2. Our issue stems from the fact megatag 2 needs to have correct offsets for the camera and good gyro data, and shows as…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 556,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3529093,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69118,
+                    "username": "Jason81",
+                    "name": "Jason",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69118,
+                            "username": "Jason81",
+                            "name": "Jason",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2254,
+                            "username": "waialua359",
+                            "name": "waialua3:59",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/waialua359/{size}/676_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70713,
+                            "username": "_j_kot",
+                            "name": "Jake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/_j_kot/{size}/242255_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56673,
+                            "username": "Martini159",
+                            "name": "Martin Nemaric",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/278dde/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 62698,
+                            "username": "CakeDeer6",
+                            "name": "Ethan Grieshop",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cakedeer6/{size}/264680_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathfinding",
+                "id": 495607,
+                "title": "Pathfinding",
+                "slug": "pathfinding",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-14T22:14:52.532Z",
+                "last_posted_at": "2025-03-14T23:14:47.641Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T23:14:47.641Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "hi we are trying to do pathfinding with pathplanner. When I want it to go to a certain area, it draws a path and goes but the simulation crashes as soon as the path ends. How can I solve this error? G…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "simulation"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 132,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3557310,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70504,
+                    "username": "AutumnPlanet",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70504,
+                            "username": "AutumnPlanet",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/autumnplanet/{size}/260647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 32045,
+                            "username": "Tinnittin",
+                            "name": "Tinnittin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tinnittin/{size}/148604_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AI Algae Detection Detecting Reflections",
+                "id": 499625,
+                "title": "AI Algae Detection Detecting Reflections",
+                "slug": "ai-algae-detection-detecting-reflections",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-04-17T23:42:21.600Z",
+                "last_posted_at": "2025-04-18T00:14:25.043Z",
+                "bumped": true,
+                "bumped_at": "2025-04-18T00:14:25.043Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using the generic photonvision algae object detection model on an Orange Pi 5, but are having issues with the model detecting reflections on the polycarbonate fences. These reflections have the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 25,
+                "views": 415,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3595174,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68829,
+                    "username": "BadQmen",
+                    "name": "Gavin Bigham",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/badqmen/{size}/236661_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68829,
+                            "username": "BadQmen",
+                            "name": "Gavin Bigham",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/badqmen/{size}/236661_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63182,
+                            "username": "Akshaj_K",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/71c47a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59402,
+                            "username": "Hyperspace1710",
+                            "name": "Micah",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hyperspace1710/{size}/194547_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6295,
+                            "username": "Duncan_Macdonald",
+                            "name": "Duncan Macdonald",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/duncan_macdonald/{size}/2042_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 5699,
+                            "username": "Roger",
+                            "name": "Roger",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/c0e974/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Path planner swerve error",
+        "id": 492819,
+        "title": "Path planner swerve error",
+        "posts_count": 3,
+        "created_at": "2025-02-23T05:30:39.993Z",
+        "views": 136,
+        "reply_count": 1,
+        "like_count": 1,
+        "last_posted_at": "2025-02-24T20:38:44.079Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "path-planner-swerve-error",
+        "category_id": 30,
+        "word_count": 671,
+        "deleted_at": null,
+        "user_id": 67109,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_492819",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44450,
+            "execute_at": "2026-02-24T20:38:44.079Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 3,
+            "username": "saahilsterr",
+            "name": null,
+            "excerpt": "I figured it out lol, I wanted to create a stationary path for the robot to test out the subsystems. When I tried I didn’t know you needed to still have some path command and make that a path that doesn’t move",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 67109,
+                    "username": "saahilsterr",
+                    "name": "Saahil Farook",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 53201,
+                    "username": "tails618",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tails618/{size}/188357_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 67109,
+                "username": "saahilsterr",
+                "name": "Saahil Farook",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png"
+            },
+            "last_poster": {
+                "id": 67109,
+                "username": "saahilsterr",
+                "name": "Saahil Farook",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

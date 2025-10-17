@@ -1,0 +1,1072 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3319531,
+                    "name": "Noah Simon",
+                    "username": "tubularturtle8",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png",
+                    "created_at": "2024-02-28T09:00:00.903Z",
+                    "cooked": "My team and I have been working with choreo to get our auto paths to run. However, I have some concerns regarding the robot config, and any help on it would be appreciated\n\nWe know our robots mass, are relatively sure about it’s MOI, and have just empirically found its max speed and acceleration. The speed and acceleration values were 3.48mps and 1.92mps^2 respectively. When going into the choreo config, my idea was to adjust the motor max speed and motor max torque until the theoretical values in the bottom left matched the numbers we found experimentally. This resulted in a fairly reasonable value for the max speed (as in, not too far the motor calculator output of 4704), but the max torque is now far lower than the motor calculation originally gave (neo at 40amp limit gives 0.725 Nm). Is this ok, or is something wrong? It’s possible our MOI is a bit off (if 4.7 seems bad, please lmk), but changing that value did not affect the theoretical speed in the bottom left anyway. image 882×770 53.8 KB\n\nimage 882×770 53.8 KB\n\nimage 882×770 53.8 KB\n\nFor reference, we found our drive data by running all drive motors in the same direction on a large (36ft) carpeted space at 10V. 10V because past that, it seemed to be drawing too much from the battery and was unable to hold that as a steady voltage. We are using Neo 1.1’s as drive motors\n\nI additionally have a similar idea to this to calculate the robot’s MOI empirically, via setting 10v to drive motors but having them spin the bot to find its angular acceleration and adjusting moi until that fits. Would that be ok as well?\n\nThank you in advance!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-28T09:00:00.903Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 247,
+                    "reads": 149,
+                    "readers_count": 148,
+                    "score": 1279.8,
+                    "yours": false,
+                    "topic_id": 456498,
+                    "topic_slug": "choreo-robo-config-questions",
+                    "display_username": "Noah Simon",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/6/b6ce0fcfc750903a19d89c53b4aa20cce4d63b45.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56141,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team Optix 3749 | Programmer, Drive Team"
+                    },
+                    "post_url": "/t/choreo-robo-config-questions/456498/1",
+                    "custom_user_title": "Team Optix 3749 | Programmer, Drive Team",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3320104,
+                    "name": "Nate Laverdure (he/him)",
+                    "username": "Nate_Laverdure",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nate_laverdure/{size}/134005_2.png",
+                    "created_at": "2024-02-28T23:21:49.430Z",
+                    "cooked": "Awesome post, lots of great questions here. Let me see if I can rearrange them and provide at least some partial answers. (As an ME, I am learning/re-learning this for myself as well, I’m not working from an intuitive understanding.)\n\n. 1. Does your concept for deriving motor speed from the observed chassis velocity make sense? Yes, as you are simply rearranging some algebra.\n\n. 2. Does the result you found for motor speed (4400 RPM ) make sense? Yes, I think so. The max velocity you found corresponds fairly well to a system running at 9.3V, see Recalc model. Given that you’ve said the output was limited to 10V max, I think it’s a reasonable result.\n\n. 3. Does your concept for deriving derive motor torque from the observed chassis acceleration make sense? I don’t see why not, since again you are rearranging the algebra found here.\n\n. 4. Does the result you found for motor torque (0.206 N*m) make sense? Not really… at least not to me. I think we need more information. I would love if an EE would come and flex their knowledge here.\n\nAt 10V, the torque should actually be even higher at 40A since the motor is comparatively closer to stall at that condition…\n\nT = kT * A 0.87 N-m = (3.02 N-m / 139 A) * 40 A Referencing motors.vex.com’s curve for the Neo at 10V\n\n=> I think we need to know what supply-side or stator-side current limits were imposed during your empirical testing.\n\nTo achieve only 1.92 m/s^2 (6.3 ft/s^2), it looks to me like the motor would need to be limited to ~13A per the above Recalc model (which I believe models supply current).\n\n. 5. Does it make sense to limit Choreo’s trajectories to the max motor speed and torque derived from the empirical testing? I believe this is the fundamental question you are asking! I think the answer is yes, because it will lead to trajectories that you can have greater confidence in… you can trust that that your bot will actually be able to handle what is asked of it.\n\n. 6. Does MOI impact linear velocity and acceleration? No.\n\n. 7. Does 4.7 kg*m^2 seem like a reasonable MOI? Yes, for a robot on the smaller side, with most of its mass concentrated at the center.\n\nSee our doc page Estimating Moment of Inertia for some suggestions here.\n\nFor 2363-2022, we used 5.6 kg*m^2 for based on these assumptions:\n\n~75% of the robot mass lies uniformly distributed along a hoop with radius ~14\" from the CG. This represents the chassis rails, swerve modules, bumper, battery, intake, etc.\n\nThe remainder of the robot mass lies uniformly distributed along a hoop with radius ~6\" from the CG. This represents the shooter subsystem and the 3 related actuators, bellypan electronics, etc.\n\n. 8. Does your concept for deriving MOI from the behavior of a rotationally accelerating robot make sense? Yes again",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-28T23:21:49.430Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 11,
+                    "reads": 116,
+                    "readers_count": 115,
+                    "score": 128.2,
+                    "yours": false,
+                    "topic_id": 456498,
+                    "topic_slug": "choreo-robo-config-questions",
+                    "display_username": "Nate Laverdure (he/him)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://sleipnirgroup.github.io/Choreo/usage/estimating-moi/",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Estimating Moment of Inertia - Choreo Documentation",
+                            "clicks": 15
+                        },
+                        {
+                            "url": "https://www.reca.lc/drive?appliedVoltageRamp=%7B%22s%22%3A1200%2C%22u%22%3A%22V%2Fs%22%7D&batteryAmpHours=%7B%22s%22%3A18%2C%22u%22%3A%22A%2Ah%22%7D&batteryResistance=%7B%22s%22%3A0.018%2C%22u%22%3A%22Ohm%22%7D&batteryVoltageAtRest=%7B%22s%22%3A9.27%2C%22u%22%3A%22V%22%7D&efficiency=97&filtering=1&gearRatioMax=%7B%22magnitude%22%3A15%2C%22ratioType%22%3A%22Reduction%22%7D&gearRatioMin=%7B%22magnitude%22%3A3%2C%22ratioType%22%3A%22Reduction%22%7D&maxSimulationTime=%7B%22s%22%3A4%2C%22u%22%3A%22s%",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ReCalc",
+                            "clicks": 9
+                        },
+                        {
+                            "url": "https://motors.vex.com/other-motors/neo",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 6
+                        },
+                        {
+                            "url": "https://github.com/SleipnirGroup/Choreo/blob/main/src/components/config/robotconfig/TheoreticalPanel.tsx#L19",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Choreo/src/components/config/robotconfig/TheoreticalPanel.tsx at main · SleipnirGroup/Choreo · GitHub",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://github.com/SleipnirGroup/Choreo/blob/main/src/components/config/robotconfig/TheoreticalPanel.tsx#L20-L21",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Choreo/src/components/config/robotconfig/TheoreticalPanel.tsx at main · SleipnirGroup/Choreo · GitHub",
+                            "clicks": 5
+                        },
+                        {
+                            "url": "https://www.thebluealliance.com/team/2363/2022",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Triple Helix Robotics - Team 2363 (2022) - The Blue Alliance",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 4999,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Cynicism isn't wisdom"
+                    },
+                    "post_url": "/t/choreo-robo-config-questions/456498/2",
+                    "custom_user_title": "Cynicism isn't wisdom",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3320230,
+                    "name": "Noah Simon",
+                    "username": "tubularturtle8",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png",
+                    "created_at": "2024-02-29T02:37:15.419Z",
+                    "cooked": "Thank you so much for your response, that’s super helpful!\n\nI’m in agreement that the torque seems low. However, I just ran the test again, this time checking current draws, and it seems to be pulling between 20-40 amps for the majority of the run, far higher than your calculed 13 amps. We are using many of the same neo motors on the drivetrain as we did last year, so maybe it’s just a motor inefficiency problem caused by use? If you or anyone else has any ideas about how we can increase our acceleration/torque, that’d be greatly appreciated.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-29T02:37:36.752Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 76,
+                    "readers_count": 75,
+                    "score": 30.2,
+                    "yours": false,
+                    "topic_id": 456498,
+                    "topic_slug": "choreo-robo-config-questions",
+                    "display_username": "Noah Simon",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 4999,
+                        "username": "Nate_Laverdure",
+                        "name": "Nate Laverdure (he/him)",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/nate_laverdure/{size}/134005_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56141,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Team Optix 3749 | Programmer, Drive Team"
+                    },
+                    "post_url": "/t/choreo-robo-config-questions/456498/3",
+                    "custom_user_title": "Team Optix 3749 | Programmer, Drive Team",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3320260,
+                    "name": "Nate Laverdure (he/him)",
+                    "username": "Nate_Laverdure",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nate_laverdure/{size}/134005_2.png",
+                    "created_at": "2024-02-29T03:11:50.625Z",
+                    "cooked": "Allowing more current though the motor is the best way to increase acceleration & torque.\n\nFor reference: we set the SmartCurrentLimit on our SparkMAXes to 80A (which also happens to be the factory default value), and even this is a touch conservative, IMO.\n\nAre you configuring a current limit for drive motors?\n\nThis 20-40A, are you reading it upstream or downstream of your motor controllers?\n\nAre you tripping breakers at your power distribution board during acceleration?",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-29T03:12:22.070Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 61,
+                    "readers_count": 60,
+                    "score": 32.2,
+                    "yours": false,
+                    "topic_id": 456498,
+                    "topic_slug": "choreo-robo-config-questions",
+                    "display_username": "Nate Laverdure (he/him)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 56141,
+                        "username": "tubularturtle8",
+                        "name": "Noah Simon",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 4999,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Cynicism isn't wisdom"
+                    },
+                    "post_url": "/t/choreo-robo-config-questions/456498/4",
+                    "custom_user_title": "Cynicism isn't wisdom",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3543153,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-28T03:12:04.047Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2025-02-28T03:12:04.047Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 12,
+                    "readers_count": 11,
+                    "score": 2.4,
+                    "yours": false,
+                    "topic_id": 456498,
+                    "topic_slug": "choreo-robo-config-questions",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/choreo-robo-config-questions/456498/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3319531,
+                3320104,
+                3320230,
+                3320260,
+                3543153
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                592
+            ],
+            [
+                2,
+                591
+            ],
+            [
+                5,
+                226
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "First time kraken motor use and swerve drive use",
+                "id": 474098,
+                "title": "First time kraken motor use and swerve drive use",
+                "slug": "first-time-kraken-motor-use-and-swerve-drive-use",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-10-31T13:06:04.080Z",
+                "last_posted_at": "2024-10-31T14:00:17.878Z",
+                "bumped": true,
+                "bumped_at": "2024-10-31T14:00:17.878Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We made the decision to switch to krakens and swerve drive for the upcoming season but I have never coded kraken or a swerve drive so any sample code somewhere I could use also any advice to make it e…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 518,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3442062,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64705,
+                    "username": "LaytonK737",
+                    "name": "Layton",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64705,
+                            "username": "LaytonK737",
+                            "name": "Layton",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/aca169/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SmartDashboard telemetry upload method?",
+                "id": 476610,
+                "title": "SmartDashboard telemetry upload method?",
+                "slug": "smartdashboard-telemetry-upload-method",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-12-13T00:26:13.078Z",
+                "last_posted_at": "2024-12-13T21:04:49.829Z",
+                "bumped": true,
+                "bumped_at": "2024-12-13T21:04:49.829Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Heyo, I’m trying to program a Limelight camera for my team’s robot. I have programmed some telemetry that the robot should be able to access. The only issue is that, being new to FRC and robotics pro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 160,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3458676,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69324,
+                    "username": "Pieyama_Pieman",
+                    "name": "Daniel McLaughlin",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pieyama_pieman/{size}/242065_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69324,
+                            "username": "Pieyama_Pieman",
+                            "name": "Daniel McLaughlin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pieyama_pieman/{size}/242065_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Old FRC Radio Configuration Utility",
+                "id": 481763,
+                "title": "Old FRC Radio Configuration Utility",
+                "slug": "old-frc-radio-configuration-utility",
+                "posts_count": 13,
+                "reply_count": 10,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-01-14T22:51:21.210Z",
+                "last_posted_at": "2025-02-03T22:25:35.449Z",
+                "bumped": true,
+                "bumped_at": "2025-02-03T22:25:35.449Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Good evening! We know that we must switch to the new radios this year. However, we would like to keep the old radios for our testing platforms instead of upgrading all the radios that we would need. …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 678,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3482696,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56026,
+                    "username": "Orange1",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/orange1/{size}/211432_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56026,
+                            "username": "Orange1",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/orange1/{size}/211432_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve module physically unable to drive and rotate at the same time",
+                "id": 482808,
+                "title": "Swerve module physically unable to drive and rotate at the same time",
+                "slug": "swerve-module-physically-unable-to-drive-and-rotate-at-the-same-time",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/f/5fad5aca049783af1c32873d7858d22586ab2e04_2_1024x576.jpeg",
+                "created_at": "2025-01-20T23:09:24.831Z",
+                "last_posted_at": "2025-04-08T19:55:40.844Z",
+                "bumped": true,
+                "bumped_at": "2025-04-08T19:55:40.844Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "All the coaxial swerves have an interaction between rotating and steering. IE, steering causes the wheel to rotate a bit. Just bake it into your programming",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "swervedrive",
+                    "mechanical",
+                    "swervemodule",
+                    "coaxialswerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 259,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488555,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 46443,
+                    "username": "Weldingrod1",
+                    "name": "Rod",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71589,
+                            "username": "MrMWP",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/58f4c7/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64852,
+                            "username": "Mehmet1",
+                            "name": "9016a",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mehmet1/{size}/238645_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "ROMI WPILibPi Support",
+                "id": 473044,
+                "title": "ROMI WPILibPi Support",
+                "slug": "romi-wpilibpi-support",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-10-15T02:05:52.005Z",
+                "last_posted_at": "2024-10-15T03:30:30.121Z",
+                "bumped": true,
+                "bumped_at": "2024-10-15T03:30:30.121Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi WPILib Suite Developers! For our fall training, our team purchased XRPs to replace our existing ROMIs. With the XRP robot being newer, cheaper, simpler, and more functional than the ROMI, what are…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 100,
+                "category_id": 86,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3434921,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55908,
+                    "username": "BrownGenius",
+                    "name": "Nilesh Agarwalla",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/browngenius/{size}/200224_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55908,
+                            "username": "BrownGenius",
+                            "name": "Nilesh Agarwalla",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/browngenius/{size}/200224_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "software"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Choreo Robo Config Questions",
+        "id": 456498,
+        "title": "Choreo Robo Config Questions",
+        "posts_count": 5,
+        "created_at": "2024-02-28T09:00:00.837Z",
+        "views": 511,
+        "reply_count": 2,
+        "like_count": 4,
+        "last_posted_at": "2025-02-28T03:12:04.047Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "choreo-robo-config-questions",
+        "category_id": 9,
+        "word_count": 1314,
+        "deleted_at": null,
+        "user_id": 56141,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/6/b6ce0fcfc750903a19d89c53b4aa20cce4d63b45.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_456498",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 882,
+                "height": 770,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/6/b6ce0fcfc750903a19d89c53b4aa20cce4d63b45.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 4999,
+                    "username": "Nate_Laverdure",
+                    "name": "Nate Laverdure (he/him)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nate_laverdure/{size}/134005_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 56141,
+                    "username": "tubularturtle8",
+                    "name": "Noah Simon",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 56141,
+                "username": "tubularturtle8",
+                "name": "Noah Simon",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/tubularturtle8/{size}/209634_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://sleipnirgroup.github.io/Choreo/usage/estimating-moi/",
+                    "title": "Estimating Moment of Inertia - Choreo Documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 15,
+                    "user_id": 4999,
+                    "domain": "sleipnirgroup.github.io",
+                    "root_domain": "sleipnirgroup.github.io"
+                },
+                {
+                    "url": "https://www.reca.lc/drive?appliedVoltageRamp=%7B%22s%22%3A1200%2C%22u%22%3A%22V%2Fs%22%7D&batteryAmpHours=%7B%22s%22%3A18%2C%22u%22%3A%22A%2Ah%22%7D&batteryResistance=%7B%22s%22%3A0.018%2C%22u%22%3A%22Ohm%22%7D&batteryVoltageAtRest=%7B%22s%22%3A9.27%2C%22u%22%3A%22V%22%7D&efficiency=97&filtering=1&gearRatioMax=%7B%22magnitude%22%3A15%2C%22ratioType%22%3A%22Reduction%22%7D&gearRatioMin=%7B%22magnitude%22%3A3%2C%22ratioType%22%3A%22Reduction%22%7D&maxSimulationTime=%7B%22s%22%3A4%2C%22u%22%3A%22s%",
+                    "title": "ReCalc",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 4999,
+                    "domain": "www.reca.lc",
+                    "root_domain": "reca.lc"
+                },
+                {
+                    "url": "https://motors.vex.com/other-motors/neo",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 4999,
+                    "domain": "motors.vex.com",
+                    "root_domain": "vex.com"
+                },
+                {
+                    "url": "https://github.com/SleipnirGroup/Choreo/blob/main/src/components/config/robotconfig/TheoreticalPanel.tsx#L19",
+                    "title": "Choreo/src/components/config/robotconfig/TheoreticalPanel.tsx at main · SleipnirGroup/Choreo · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 4999,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/SleipnirGroup/Choreo/blob/main/src/components/config/robotconfig/TheoreticalPanel.tsx#L20-L21",
+                    "title": "Choreo/src/components/config/robotconfig/TheoreticalPanel.tsx at main · SleipnirGroup/Choreo · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 4999,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.thebluealliance.com/team/2363/2022",
+                    "title": "Triple Helix Robotics - Team 2363 (2022) - The Blue Alliance",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 4999,
+                    "domain": "www.thebluealliance.com",
+                    "root_domain": "thebluealliance.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

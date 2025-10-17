@@ -1,0 +1,848 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3499196,
+                    "name": "Chadfrom7226",
+                    "username": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "created_at": "2025-02-01T19:47:57.444Z",
+                    "cooked": "I am setting up the the vision template for advantage kit, and I was wondering how to find the position of the cameras for the Transform3ds in the vision template\n\nWe are using our 2024 robot as a test bench, and I have these camera modules I made. I can get the distances, so I am pretty sure I know how to calculate the XY using the CAD\n\nimage 1234×1217 203 KB\n\nimage 1234×1217 203 KB\n\nimage 1234×1217 203 KB\n\nI also put the cameras angled 20 degrees up and 20 degrees out\n\nHowever, I am unsure where the reference is. I am guessing the origin (XYZ = 0) is on the ground in the center of the robot.\n\nThe picture above would imply the camera is (after converting inches to meters) X = 0.297, Y = 0.272, Z = .188 (~ 7.4 inches off the ground) Does that seem correct?\n\nAs for the angles, I am unsure how I calculate those. Can someone help with that?\n\nWhich way is X and Y on the robot? I have it in CAD as +Y = forward, +X = right (as if you were sitting in the robot looking forward). Is that correct?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-01T19:47:57.444Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 108,
+                    "reads": 95,
+                    "readers_count": 94,
+                    "score": 559.0,
+                    "yours": false,
+                    "topic_id": 484690,
+                    "topic_slug": "advantagekit-vision-template-how-to-find-camera-position",
+                    "display_username": "Chadfrom7226",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20021,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/advantagekit-vision-template-how-to-find-camera-position/484690/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3500362,
+                    "name": "gcschmit",
+                    "username": "gcschmit",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png",
+                    "created_at": "2025-02-03T02:04:35.607Z",
+                    "cooked": "From the robot’s perspective, +X is forward and +Y is to the left. Details are here . In terms of the robot-to-camera transform, the origin is the center of the robot on the carpet. (It is helpful to have this as the origin in your CAD.)\n\nThe rotation part of the transform would be something like:\n\nnew Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(20)));\n\nThe values are the roll, pitch, and yaw. This coordinate system is documented here . However, based on your CAD, the yaw may be negative or another angle like 160°. Think of the rotation portion as how you could rotate your robot to align it to the orientation of the camera.\n\nOh, and since you are using AdvantageKit, log the robot-to-camera transform and then display it in AdvantageScope as axes. This makes it easy to confirm the angles. If you also have your robot’s CAD in AdvantageScope, it makes it easy to confirm the position as well.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-03T02:06:16.619Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 73,
+                    "readers_count": 72,
+                    "score": 54.6,
+                    "yours": false,
+                    "topic_id": 484690,
+                    "topic_slug": "advantagekit-vision-template-how-to-find-camera-position",
+                    "display_username": "gcschmit",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/latest/docs/software/basic-programming/coordinate-system.html#wpilib-coordinate-system",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Coordinate System — FIRST Robotics Competition documentation",
+                            "clicks": 8
+                        },
+                        {
+                            "url": "https://docs.wpilib.org/en/latest/docs/software/basic-programming/coordinate-system.html#coordinate-system",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Coordinate System — FIRST Robotics Competition documentation",
+                            "clicks": 6
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 15922,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 3061 Lead Mentor"
+                    },
+                    "post_url": "/t/advantagekit-vision-template-how-to-find-camera-position/484690/2",
+                    "custom_user_title": "FRC 3061 Lead Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3500365,
+                    "name": "Chadfrom7226",
+                    "username": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "created_at": "2025-02-03T02:06:41.826Z",
+                    "cooked": "You are a godsend. Thank you! I will try those changes out soon!\n\nIdk why I didn’t think to look there. Too many places to get half information",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-03T02:06:41.826Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 63,
+                    "readers_count": 62,
+                    "score": 32.6,
+                    "yours": false,
+                    "topic_id": 484690,
+                    "topic_slug": "advantagekit-vision-template-how-to-find-camera-position",
+                    "display_username": "Chadfrom7226",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 15922,
+                        "username": "gcschmit",
+                        "name": "gcschmit",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20021,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/advantagekit-vision-template-how-to-find-camera-position/484690/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3499196,
+                3500362,
+                3500365
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                252
+            ],
+            [
+                2,
+                251
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve module quickly changing directions and spinning when robot is enabled",
+                "id": 495138,
+                "title": "Swerve module quickly changing directions and spinning when robot is enabled",
+                "slug": "swerve-module-quickly-changing-directions-and-spinning-when-robot-is-enabled",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-11T12:16:11.946Z",
+                "last_posted_at": "2025-03-11T12:16:12.016Z",
+                "bumped": true,
+                "bumped_at": "2025-03-11T12:16:12.016Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi all, my team is having some issues with one of our swerve modules. We are using MK4i swerve modules with Krakens and CanCoders. Recently we took one module off the robot as it was missing a bearing…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "phoenix"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 47,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3553883,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65996,
+                    "username": "MangoHen",
+                    "name": "Henry Feyen",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/5f8ce5/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 65996,
+                            "username": "MangoHen",
+                            "name": "Henry Feyen",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/5f8ce5/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL absolute encoder offset not affecting anything",
+                "id": 492247,
+                "title": "YAGSL absolute encoder offset not affecting anything",
+                "slug": "yagsl-absolute-encoder-offset-not-affecting-anything",
+                "posts_count": 11,
+                "reply_count": 10,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-02-18T23:44:23.571Z",
+                "last_posted_at": "2025-02-22T05:16:45.566Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T05:16:45.566Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is trying to implement swerve through YAGSL for the first time this year. We physically zeroed the angle motors and then got the reading from SmartdashBoard to use as the encoder offset howev…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 169,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3532101,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 72144,
+                    "username": "GenericUsername77",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/d07c76/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 72144,
+                            "username": "GenericUsername77",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/d07c76/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Swerve Module Integrated and Absolute encoders for Angle motors aren&rsquo;t synchronized?",
+                "id": 492661,
+                "title": "Swerve Module Integrated and Absolute encoders for Angle motors aren't synchronized?",
+                "slug": "swerve-module-integrated-and-absolute-encoders-for-angle-motors-arent-synchronized",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-22T01:11:12.153Z",
+                "last_posted_at": "2025-02-26T22:02:21.358Z",
+                "bumped": true,
+                "bumped_at": "2025-02-26T22:02:21.358Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Ok we ended up figuring it out. I’m not sure why, but in Swerve Module.java, resetToAbsolute method, instead of setting the integratedAngleEncoder position as the Absolute Position, I had to instead s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 117,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3541902,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 55168,
+                    "username": "Rzheng1232",
+                    "name": "Ryan zheng",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rzheng1232/{size}/182897_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 55168,
+                            "username": "Rzheng1232",
+                            "name": "Ryan zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rzheng1232/{size}/182897_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24678,
+                            "username": "Justin_Buist",
+                            "name": "Justin Buist",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/c77e96/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Phoenix 6 swerve Field centric facing angle drive not working",
+                "id": 493936,
+                "title": "Phoenix 6 swerve Field centric facing angle drive not working",
+                "slug": "phoenix-6-swerve-field-centric-facing-angle-drive-not-working",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-03T02:49:08.047Z",
+                "last_posted_at": "2025-03-03T03:51:32.163Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T03:51:32.163Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I dont see it here so I will assume its missing, you need to initialize and tune the Heading Controller of the request in order for it to public RobotContainer() { driveFacingAngle.Head…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "phoenix-6"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 110,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3545466,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 63738,
+                    "username": "Rogerr079",
+                    "name": "Roger",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rogerr079/{size}/222096_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56270,
+                            "username": "v0ncent",
+                            "name": "Vincent Banks",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/v0ncent/{size}/258352_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63738,
+                            "username": "Rogerr079",
+                            "name": "Roger",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rogerr079/{size}/222096_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "URGENT Robot apears on the wrong side of the field in Advantage Scope",
+                "id": 496169,
+                "title": "URGENT Robot apears on the wrong side of the field in Advantage Scope",
+                "slug": "urgent-robot-apears-on-the-wrong-side-of-the-field-in-advantage-scope",
+                "posts_count": 10,
+                "reply_count": 5,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-03-19T02:09:06.422Z",
+                "last_posted_at": "2025-03-19T03:31:50.978Z",
+                "bumped": true,
+                "bumped_at": "2025-03-19T03:31:50.978Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, I have a few ideas. The most obvious one is to make sure advantage scope has “Blue” as the origin. That is consistent, no matter the alliance. The next thing to try is to look at the tags on t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision",
+                    "advantagekit",
+                    "advantage-scope"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 240,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3561394,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 68308,
+                    "username": "Grumpy_Bud",
+                    "name": "Owen Tharp",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64095,
+                            "username": "Tetsu",
+                            "name": "Tetsuya Cox",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/41988e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 68308,
+                            "username": "Grumpy_Bud",
+                            "name": "Owen Tharp",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "AdvantageKit Vision Template - How to find camera position",
+        "id": 484690,
+        "title": "AdvantageKit Vision Template - How to find camera position",
+        "posts_count": 3,
+        "created_at": "2025-02-01T19:47:57.398Z",
+        "views": 240,
+        "reply_count": 1,
+        "like_count": 3,
+        "last_posted_at": "2025-02-03T02:06:41.826Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "advantagekit-vision-template-how-to-find-camera-position",
+        "category_id": 30,
+        "word_count": 416,
+        "deleted_at": null,
+        "user_id": 20021,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/c/0/c09d8d76e3515561639fb00c0170a8a714c8c2ad_2_1024x1009.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_484690",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 40361,
+            "execute_at": "2026-02-03T02:06:41.826Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1234,
+                "height": 1217,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/0/c09d8d76e3515561639fb00c0170a8a714c8c2ad.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 1009,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/c/0/c09d8d76e3515561639fb00c0170a8a714c8c2ad_2_1024x1009.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "gcschmit",
+            "name": null,
+            "excerpt": "From the robot’s perspective, +X is forward and +Y is to the left. Details are <a href=\"https://docs.wpilib.org/en/latest/docs/software/basic-programming/coordinate-system.html#coordinate-system\" rel=\"noopener nofollow ugc\">here</a>. In terms of the robot-to-camera transform, the origin is the center of the robot on the carpet. (It is helpful to have this as the origin in your CAD.) \nThe rotation part of the transform would be something like: \nn&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 20021,
+                    "username": "Chadfrom7226",
+                    "name": "Chadfrom7226",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 15922,
+                    "username": "gcschmit",
+                    "name": "gcschmit",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gcschmit/{size}/5380_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 20021,
+                "username": "Chadfrom7226",
+                "name": "Chadfrom7226",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png"
+            },
+            "last_poster": {
+                "id": 20021,
+                "username": "Chadfrom7226",
+                "name": "Chadfrom7226",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/latest/docs/software/basic-programming/coordinate-system.html#wpilib-coordinate-system",
+                    "title": "Coordinate System — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 8,
+                    "user_id": 15922,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/latest/docs/software/basic-programming/coordinate-system.html#coordinate-system",
+                    "title": "Coordinate System — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 6,
+                    "user_id": 15922,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

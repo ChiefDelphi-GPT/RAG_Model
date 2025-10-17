@@ -1,0 +1,800 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3346953,
+                    "name": "",
+                    "username": "LHACK4142",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                    "created_at": "2024-03-29T01:58:29.587Z",
+                    "cooked": "We have a 1+1 autonomous that follows a path to go to the subwoofer, then a path to get a ring, then follows that same path to shoot.\n\nWhen we run our 1+1, the robot ends up in a very different position between the 2 shots (about 1’ of error or more, I feel) even though AFAIK it should theoretically be at the exact same place (since it’s following the same path, with the same goal end state and everything).  This error is quite consistent in its direction and magnitude.   Additionally, the robot is sometimes about 1’ to the left or right of the ring when it tries to intake it; this error (when it shows up) is also consistent.\n\nThe paths are perhaps slightly unconventional, as they are made to take advantage of Pathplanner’s intelligent linking of detached paths.  Each path only describes how the robot should approach the ring or subwoofer, and does not cover the distance between ring and subwoofer, and we rely on Pathplanner smartness to drive between each path.  I feel that a picture speaks a thousand words here: image 800×534 36.1 KB I feel like these paths should still work consistently, though?\n\nimage 800×534 36.1 KB\n\nimage 800×534 36.1 KB\n\nAdditionally, we use apriltags and a pose estimator for odometry.  I believe our apriltag code only uses 1 apriltag at a time for pose estimation, if that makes any difference.  However, when we disabled apriltags during autonomous (just) once, we still observed the issue.\n\nOur code is at GitHub - aesatchien/FRC2429_2024: Repo for FRC 2429 robot code for 2024\n\nWe are grateful for any help; thank you!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-29T01:58:29.587Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 133,
+                    "reads": 91,
+                    "readers_count": 90,
+                    "score": 683.2,
+                    "yours": false,
+                    "topic_id": 460572,
+                    "topic_slug": "semi-consistently-inaccurate-pathplanner-path-following",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "http://github.com/aesatchien/FRC2429_2024",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - aesatchien/FRC2429_2024: Repo for FRC 2429 robot code for 2024",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/4/14aa78a25fb1465ef17c67028697a9fa22595661.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 58301,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "coder in the corner"
+                    },
+                    "post_url": "/t/semi-consistently-inaccurate-pathplanner-path-following/460572/1",
+                    "custom_user_title": "coder in the corner",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3346983,
+                    "name": "Eric Ward",
+                    "username": "bathtubed",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                    "created_at": "2024-03-29T02:43:36.951Z",
+                    "cooked": "I recommend running pathplanner telemetry or publishing the robot’s estimated pose to a glass/shuffleboard field widget.\n\nThis way you can see if the robot “knows” its in the wrong place or if it thinks its in the right place.\n\nI’m guessing its the latter (it thinks its in the right place), but I’ve seen it both ways. If that is the case, then you’re probably seeing the same thing I’ve been seeing on my team’s swerve which is inaccurate odometry, though we’re using C++ and Falcons.\n\nI think the source of these inaccuracies varies quite a bit from case to case. You did say you’re using apriltag pose estimation though which you would hope could correct for this error.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-29T02:43:36.951Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 70,
+                    "readers_count": 69,
+                    "score": 34.0,
+                    "yours": false,
+                    "topic_id": 460572,
+                    "topic_slug": "semi-consistently-inaccurate-pathplanner-path-following",
+                    "display_username": "Eric Ward",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 35208,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3637 Mentor"
+                    },
+                    "post_url": "/t/semi-consistently-inaccurate-pathplanner-path-following/460572/2",
+                    "custom_user_title": "3637 Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3571986,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-29T02:44:23.184Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-29T02:44:23.184Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 4,
+                    "readers_count": 3,
+                    "score": 0.8,
+                    "yours": false,
+                    "topic_id": 460572,
+                    "topic_slug": "semi-consistently-inaccurate-pathplanner-path-following",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/semi-consistently-inaccurate-pathplanner-path-following/460572/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3346953,
+                3346983,
+                3571986
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                562
+            ],
+            [
+                3,
+                197
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "PDH Simulation",
+                "id": 485668,
+                "title": "PDH Simulation",
+                "slug": "pdh-simulation",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-08T14:16:04.929Z",
+                "last_posted_at": "2025-02-08T15:09:36.334Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T15:09:36.334Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yes it will work, we just didn’t rename it to PowerDistributionSim.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "simulation",
+                    "pdp",
+                    "pdh"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 149,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3505935,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64857,
+                            "username": "pigrammer",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Through Bore Encoder",
+                "id": 475620,
+                "title": "Through Bore Encoder",
+                "slug": "through-bore-encoder",
+                "posts_count": 9,
+                "reply_count": 5,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-11-26T15:06:16.082Z",
+                "last_posted_at": "2024-11-26T20:42:46.673Z",
+                "bumped": true,
+                "bumped_at": "2024-11-26T20:42:46.673Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I get a position from my trough bore encoder, but the motor doesn’t go to the position I designated, it goes to a position below, can someone help me?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 397,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3451979,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60531,
+                    "username": "NKRY_FRC",
+                    "name": "Krypton #9487",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nkry_frc/{size}/206723_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60531,
+                            "username": "NKRY_FRC",
+                            "name": "Krypton #9487",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nkry_frc/{size}/206723_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53237,
+                            "username": "cantogr07",
+                            "name": "Can Toğran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE swerve consistently goes half the distance in auto",
+                "id": 474393,
+                "title": "CTRE swerve consistently goes half the distance in auto",
+                "slug": "ctre-swerve-consistently-goes-half-the-distance-in-auto",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-11-05T23:22:46.297Z",
+                "last_posted_at": "2024-11-06T00:11:09.270Z",
+                "bumped": true,
+                "bumped_at": "2024-11-06T00:11:09.270Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our drive base will only ever go half the distance that we tell it to in path planner. The code for swerve was generated with Phoenix Tuner X. Any suggestions or help is greatly appreciated. frc2609…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 268,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444094,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65569,
+                    "username": "Billy.P",
+                    "name": "Billy",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/9fc29f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 65569,
+                            "username": "Billy.P",
+                            "name": "Billy",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/9fc29f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57470,
+                            "username": "kn4",
+                            "name": "Kabir",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kn4/{size}/235296_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "2025 VSCode Unable to sign into Github",
+                "id": 480103,
+                "title": "2025 VSCode Unable to sign into Github",
+                "slug": "2025-vscode-unable-to-sign-into-github",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-08T06:20:25.234Z",
+                "last_posted_at": "2025-01-08T17:25:25.383Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T17:25:25.383Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I haven’t used settings sync, but as noted in the installation docs, there’s settings that are used for the FRC VS Code that wouldn’t be appropriate to sync back to a non-FRC VS Code, which is why the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 203,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3475366,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 53237,
+                            "username": "cantogr07",
+                            "name": "Can Toğran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cantogr07/{size}/208647_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner Pathfinding while button is pressed in Tele-op",
+                "id": 492381,
+                "title": "Pathplanner Pathfinding while button is pressed in Tele-op",
+                "slug": "pathplanner-pathfinding-while-button-is-pressed-in-tele-op",
+                "posts_count": 10,
+                "reply_count": 8,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-19T23:15:00.605Z",
+                "last_posted_at": "2025-02-20T19:11:30.755Z",
+                "bumped": true,
+                "bumped_at": "2025-02-20T19:11:30.755Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! It’s our first season using pathplanner and we are trying to use pathfinding in tele-op mode. Our idea is to use the pathfinding to go from the actual position of the robot to other pose in t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 410,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3533611,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 73610,
+                    "username": "daniel3",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 73610,
+                            "username": "daniel3",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/a4c791/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56673,
+                            "username": "Martini159",
+                            "name": "Martin Nemaric",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/278dde/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53545,
+                            "username": "HEFZZJM",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/4491bb/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "pathplanner",
+            "python"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Semi-consistently inaccurate Pathplanner path following",
+        "id": 460572,
+        "title": "Semi-consistently inaccurate Pathplanner path following",
+        "posts_count": 3,
+        "created_at": "2024-03-29T01:58:29.479Z",
+        "views": 320,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-03-29T02:44:23.184Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "semi-consistently-inaccurate-pathplanner-path-following",
+        "category_id": 30,
+        "word_count": 408,
+        "deleted_at": null,
+        "user_id": 58301,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/4/14aa78a25fb1465ef17c67028697a9fa22595661.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_460572",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 800,
+                "height": 534,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/4/14aa78a25fb1465ef17c67028697a9fa22595661.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 35208,
+                    "username": "bathtubed",
+                    "name": "Eric Ward",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bathtubed/{size}/220364_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 58301,
+                    "username": "LHACK4142",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 58301,
+                "username": "LHACK4142",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "http://github.com/aesatchien/FRC2429_2024",
+                    "title": "GitHub - aesatchien/FRC2429_2024: Repo for FRC 2429 robot code for 2024",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 58301,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

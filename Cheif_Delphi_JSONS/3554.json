@@ -1,0 +1,745 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3543565,
+                    "name": "Ethan Smith",
+                    "username": "Ethan2",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/858c86/{size}.png",
+                    "created_at": "2025-02-28T16:36:42.624Z",
+                    "cooked": "When we run a large pathplanner path on our robot (a 3 or 4 coral auto test), there is a fairly large positional error that builds up over time (About a meter or two by the end of the path). This error is the exact same even if the robot’s speed is changed. The velocity error pathplanner reports from our motors is minimal, and it is probably not an issue with pid values. The robot’s odometry is incorrect, showing where it should be, although this might be due to pathplanner resetting it. We have a swerve drive with MK4i modules, Kraken X60s, a Pigeon, Cancoders, and Colsons, and we are using Ctre’s swerve drive library.\n\nWe have tried: Changing our wheel radius by 0.05 inches. Running the robot at a slow speed. Double checking that everything in pathplanner config is correct. Regenerating Tuner Constants.\n\nGithub:\n\nGitHub - frc4087/SwerveDriveBase2025: Code we generated from the phoenix tuner Code we generated from the phoenix tuner\n\nCode we generated from the phoenix tuner",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-28T17:28:41.983Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 9,
+                    "reads": 83,
+                    "readers_count": 82,
+                    "score": 76.6,
+                    "yours": false,
+                    "topic_id": 493630,
+                    "topic_slug": "consistent-pathplanner-innacuracy",
+                    "display_username": "Ethan Smith",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/frc4087/SwerveDriveBase2025",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - frc4087/SwerveDriveBase2025: Code we generated from the phoenix tuner",
+                            "clicks": 5
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 72113,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/consistent-pathplanner-innacuracy/493630/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3543638,
+                    "name": "paulonis",
+                    "username": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "created_at": "2025-02-28T17:56:43.784Z",
+                    "cooked": "Have you done something to calibrate your wheel radius?  Driving a measured straight line?  Spinning in place and comparing expected to actual chassis rotation?\n\nDo you have the exact correct gear ratio for the drive side of your modules?\n\nIf Pathplanner is showing the robot going to the expected place, then the issue is likely a difference between what Pathplanner thinks the robot is doing and what the robot is actually doing.  If the motor speed errors are minimal, the error is likely coming from after the motors, which would be geartrain and wheel radius.\n\nHow is your wheel azimuth control?  Are the wheels tracking the azimuth setpoints well?\n\nHow is your azimuth encoder offset calibration on your modules.  Do they all point exactly straight ahead when commanded to point straight ahead?\n\nColson wheels might have a slipping issue compared to a wheel with more of a tread pattern, but if you are getting the same results at slow and fast speeds, this does not seem like the source of the problem.\n\nI don’t see any cameras in your code.  Maybe I missed them.  In general, it’s going to be hard to maintain pose accuracy over long driving distances with just odometry.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-28T17:56:43.784Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 56,
+                    "readers_count": 55,
+                    "score": 26.2,
+                    "yours": false,
+                    "topic_id": 493630,
+                    "topic_slug": "consistent-pathplanner-innacuracy",
+                    "display_username": "paulonis",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 22261,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/consistent-pathplanner-innacuracy/493630/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3543565,
+                3543638
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                225
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Gyro Not Zero-ing",
+                "id": 477755,
+                "title": "Gyro Not Zero-ing",
+                "slug": "gyro-not-zero-ing",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/b/5b8edcc30c1287e0165926925cdff05d1821b169_2_1024x608.png",
+                "created_at": "2024-12-31T17:32:30.923Z",
+                "last_posted_at": "2024-12-31T18:18:19.014Z",
+                "bumped": true,
+                "bumped_at": "2024-12-31T18:18:19.014Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This follows my previous post about programming the swerve. I’m working on code for 2025 with a MAXSwerve and NavX2-MXP. The issue I’m having is that the Gyroscope is not redefining a new zero/new fro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "2025",
+                    "navx",
+                    "maxswerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 141,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3465746,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63122,
+                    "username": "Cedric_2587",
+                    "name": "Christoforus Cedric Kurniawan",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63122,
+                            "username": "Cedric_2587",
+                            "name": "Christoforus Cedric Kurniawan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "SysId PID and Feedfoward tuning for Elevator",
+                "id": 482797,
+                "title": "SysId PID and Feedfoward tuning for Elevator",
+                "slug": "sysid-pid-and-feedfoward-tuning-for-elevator",
+                "posts_count": 13,
+                "reply_count": 3,
+                "highest_post_number": 13,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/f/f/ff1d3486f783d0d241a6568976d26375e0bd1999_2_1024x446.png",
+                "created_at": "2025-01-20T22:27:02.559Z",
+                "last_posted_at": "2025-01-25T13:36:04.747Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T13:36:04.747Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is exploring SysID as a method to tune kA and other elements to get a baseline of our feedforward and PID values, but we are not getting what we expected. We have a large overshoot, and the k…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 901,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488508,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71548,
+                    "username": "dhyansoni",
+                    "name": "Dhyan Soni",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/a4c791/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71548,
+                            "username": "dhyansoni",
+                            "name": "Dhyan Soni",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/a4c791/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7334,
+                            "username": "usbcd36",
+                            "name": "usbcd36",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/usbcd36/{size}/2444_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 67109,
+                            "username": "saahilsterr",
+                            "name": "Saahil Farook",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49147,
+                            "username": "CarvalhoJeo",
+                            "name": "Luca Carvalho",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Simple Elevator in Java in Command based",
+                "id": 491647,
+                "title": "Simple Elevator in Java in Command based",
+                "slug": "simple-elevator-in-java-in-command-based",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-14T03:54:56.484Z",
+                "last_posted_at": "2025-02-14T04:51:23.616Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T04:51:23.616Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Looking for some help here again. We have a driving swerve chassis…yay!!! But, we are new to java and I had to use a lot of video and tutorials to get the chassis to work. Since we are new to java, w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 137,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526753,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 44909,
+                    "username": "mhuck",
+                    "name": "Mike Huck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 44909,
+                            "username": "mhuck",
+                            "name": "Mike Huck",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ebca7d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 68704,
+                            "username": "txrnqt",
+                            "name": "jace",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a9a28c/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Detecting Stall",
+                "id": 491838,
+                "title": "Detecting Stall",
+                "slug": "detecting-stall",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-15T18:29:16.418Z",
+                "last_posted_at": "2025-02-16T03:20:35.921Z",
+                "bumped": true,
+                "bumped_at": "2025-02-16T03:20:35.921Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Is there any function to detect when a motor is stalled? Did anyone use a function like this, and did it work reliably?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 350,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528081,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60986,
+                    "username": "GalDotan",
+                    "name": "Gal",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 60986,
+                            "username": "GalDotan",
+                            "name": "Gal",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/galdotan/{size}/201749_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53351,
+                            "username": "LaviRZ",
+                            "name": "Lavi Arzi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lavirz/{size}/176648_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 40228,
+                            "username": "SilverLightning",
+                            "name": "Sidd Rao",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/91b2a8/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Alignment with Limelight Vision",
+                "id": 495384,
+                "title": "Alignment with Limelight Vision",
+                "slug": "alignment-with-limelight-vision",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-03-13T01:35:26.049Z",
+                "last_posted_at": "2025-03-13T01:35:26.093Z",
+                "bumped": true,
+                "bumped_at": "2025-03-13T01:35:26.093Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are using two Limelights on the left and right sides of our robot to align to either the left or the right of the reef. If we want the left side of the reef, we align with the right camera straight…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 121,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3555729,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64553,
+                    "username": "myer",
+                    "name": "Myer",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 64553,
+                            "username": "myer",
+                            "name": "Myer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/myer/{size}/217120_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Consistent Pathplanner Innacuracy",
+        "id": 493630,
+        "title": "Consistent Pathplanner Innacuracy",
+        "posts_count": 2,
+        "created_at": "2025-02-28T16:36:42.567Z",
+        "views": 136,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-02-28T17:56:43.784Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "consistent-pathplanner-innacuracy",
+        "category_id": 30,
+        "word_count": 358,
+        "deleted_at": null,
+        "user_id": 72113,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_493630",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 44769,
+            "execute_at": "2026-02-28T17:56:43.784Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 22261,
+                    "username": "paulonis",
+                    "name": "paulonis",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 72113,
+                    "username": "Ethan2",
+                    "name": "Ethan Smith",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/858c86/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 72113,
+                "username": "Ethan2",
+                "name": "Ethan Smith",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/858c86/{size}.png"
+            },
+            "last_poster": {
+                "id": 22261,
+                "username": "paulonis",
+                "name": "paulonis",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/frc4087/SwerveDriveBase2025",
+                    "title": "GitHub - frc4087/SwerveDriveBase2025: Code we generated from the phoenix tuner",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 5,
+                    "user_id": 72113,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

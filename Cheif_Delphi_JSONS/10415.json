@@ -1,0 +1,962 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3227356,
+                    "name": "",
+                    "username": "Jugular",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/9d8465/{size}.png",
+                    "created_at": "2023-08-27T05:24:44.587Z",
+                    "cooked": "Wondering how to add field oriented drive to REVMaxSwerve code.\n\nMy team have been able to configure the Rev swerve template code to get our first swerve up and running. However, the drive is not field centric. Does anyone have any tips or how we can change to Rev template to add field oriented drive with a NAVX? Should we just get gyro yaw and use that to transform the stick inputs?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-08-27T05:24:44.587Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 515,
+                    "reads": 214,
+                    "readers_count": 213,
+                    "score": 2617.8,
+                    "yours": false,
+                    "topic_id": 440169,
+                    "topic_slug": "how-to-add-field-centric-drive",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 58720,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/how-to-add-field-centric-drive/440169/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3227358,
+                    "name": "viggy96",
+                    "username": "viggy96",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                    "created_at": "2023-08-27T05:50:12.972Z",
+                    "cooked": "Use ChassisSpeeds.fromFieldRelativeSpeeds(velocityX, velocityY, rotateRate, m_navx.getAngle())",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-08-27T05:50:12.972Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 16,
+                    "reads": 212,
+                    "readers_count": 211,
+                    "score": 122.4,
+                    "yours": false,
+                    "topic_id": 440169,
+                    "topic_slug": "how-to-add-field-centric-drive",
+                    "display_username": "viggy96",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24613,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "418 Mentor | Tries to be smart"
+                    },
+                    "post_url": "/t/how-to-add-field-centric-drive/440169/2",
+                    "custom_user_title": "418 Mentor | Tries to be smart",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3227367,
+                    "name": "Fletch",
+                    "username": "Fletch1373",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "created_at": "2023-08-27T11:30:26.462Z",
+                    "cooked": "The MaxSwerve template already does this.\n\nvar swerveModuleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(\n\nfieldRelative\n\n? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered, Rotation2d.fromDegrees(m_gyro.getAngle()))\n\n: new ChassisSpeeds(xSpeedDelivered, ySpeedDelivered, rotDelivered));\n\nCalled from here:\n\n() -> m_robotDrive.drive(\n\n-MathUtil.applyDeadband(m_driverController.getLeftY(), OIConstants.kDriveDeadband),\n\n-MathUtil.applyDeadband(m_driverController.getLeftX(), OIConstants.kDriveDeadband),\n\n-MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),\n\ntrue, true),\n\nMake sure that part of your code matches the template I linked to (specifically the 4th argument of the drive() method needs to be true), and that your gyro is returning appropriate values.\n\nAs an aside, when asking for help with coding questions, it’s infinitely easier to help when code is provided.  Whenever possible, please include a link to your project on github (or whatever online code repository you prefer)",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-08-27T11:32:30.457Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 23,
+                    "reads": 178,
+                    "readers_count": 177,
+                    "score": 165.6,
+                    "yours": false,
+                    "topic_id": 440169,
+                    "topic_slug": "how-to-add-field-centric-drive",
+                    "display_username": "Fletch",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/src/main/java/frc/robot/subsystems/DriveSubsystem.java#L177-L180",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 47
+                        },
+                        {
+                            "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/src/main/java/frc/robot/RobotContainer.java#L53-L57",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 19
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/urgent-i-need-help-with-my-swerve-code/452140/10",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "URGENT I need help with my swerve code",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 9105,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades"
+                    },
+                    "post_url": "/t/how-to-add-field-centric-drive/440169/3",
+                    "custom_user_title": "3181/3015 Mentor | 213/1373 Alum | CSA/FTAA/Jack-of-all-Trades",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3418107,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-08-26T11:30:46.088Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-08-26T11:30:46.088Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 19,
+                    "readers_count": 18,
+                    "score": 13.8,
+                    "yours": false,
+                    "topic_id": 440169,
+                    "topic_slug": "how-to-add-field-centric-drive",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/how-to-add-field-centric-drive/440169/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3227356,
+                3227358,
+                3227367,
+                3418107
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                777
+            ],
+            [
+                4,
+                412
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Limelight code not working",
+                "id": 495464,
+                "title": "Limelight code not working",
+                "slug": "limelight-code-not-working",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-03-13T17:50:50.599Z",
+                "last_posted_at": "2025-03-14T05:56:46.040Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T05:56:46.040Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello Everyone, So below is our code for our robot but our limelight seems to not be working. Can anyone help? public boolean detectapriltag(){ return LimelightHelpers.getTV(“”); } public boolean…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "limelight",
+                    "vision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 133,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3556249,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74317,
+                    "username": "FRC_Member_apex",
+                    "name": "Ertu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74317,
+                            "username": "FRC_Member_apex",
+                            "name": "Ertu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/e480ec/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68396,
+                            "username": "irresistiable",
+                            "name": "Mete Karadeniz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/f19dbf/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24178,
+                            "username": "jdao",
+                            "name": "jdao",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jdao/{size}/160969_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAPAGSW - Yet Another Post About Getting Swerve Working",
+                "id": 482821,
+                "title": "YAPAGSW - Yet Another Post About Getting Swerve Working",
+                "slug": "yapagsw-yet-another-post-about-getting-swerve-working",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/0/00876a6ded894bd4edca9f0f7e39caa4b25b3748.jpeg",
+                "created_at": "2025-01-21T00:48:25.186Z",
+                "last_posted_at": "2025-01-21T02:41:18.026Z",
+                "bumped": true,
+                "bumped_at": "2025-01-21T02:41:18.026Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, I’m looking for some help with getting our swerve up and running. Our main programming mentor spent a few days trying to get things to run (he just left on a trip for a couple weeks) and…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 300,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488625,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 20670,
+                    "username": "_G-money",
+                    "name": "Garrett Wight",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/_g-money/{size}/211895_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 20670,
+                            "username": "_G-money",
+                            "name": "Garrett Wight",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/_g-money/{size}/211895_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Yagsl problems",
+                "id": 480590,
+                "title": "Yagsl problems",
+                "slug": "yagsl-problems",
+                "posts_count": 7,
+                "reply_count": 2,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-10T00:15:54.592Z",
+                "last_posted_at": "2025-01-10T15:46:54.552Z",
+                "bumped": true,
+                "bumped_at": "2025-01-10T15:46:54.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The problem was that my student accidently put an old version of the json",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 177,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477503,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 54481,
+                    "username": "Kully",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kully/{size}/264955_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 54481,
+                            "username": "Kully",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kully/{size}/264955_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69610,
+                            "username": "LucasApache",
+                            "name": "Lucas",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/8dc957/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Naming Convention for the reef",
+                "id": 479883,
+                "title": "Naming Convention for the reef",
+                "slug": "naming-convention-for-the-reef",
+                "posts_count": 49,
+                "reply_count": 29,
+                "highest_post_number": 50,
+                "image_url": null,
+                "created_at": "2025-01-07T19:28:29.699Z",
+                "last_posted_at": "2025-03-14T14:21:41.782Z",
+                "bumped": true,
+                "bumped_at": "2025-03-14T14:21:41.782Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Last year, our team used a naming system so that the drive team could figure out what each auto did. the 3 closest notes were notes A (closest to amp), B, and C (closest to podium) and then the midlin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 220,
+                "views": 3003,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474257,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59845,
+                    "username": "griffingreat1",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/71e660/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59845,
+                            "username": "griffingreat1",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/71e660/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20681,
+                            "username": "Zaque",
+                            "name": "Zach Hoegberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/zaque/{size}/257827_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67726,
+                            "username": "JamesO1086",
+                            "name": "James O’Leary",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How does your team handle multi piece autos using pathplanner?",
+                "id": 496178,
+                "title": "How does your team handle multi piece autos using pathplanner?",
+                "slug": "how-does-your-team-handle-multi-piece-autos-using-pathplanner",
+                "posts_count": 10,
+                "reply_count": 4,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-03-19T05:38:02.210Z",
+                "last_posted_at": "2025-03-27T01:37:37.972Z",
+                "bumped": true,
+                "bumped_at": "2025-03-27T01:37:37.972Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I want to know what other teams advice is for making pathplanner successfully follow paths, as my teams odometry and pid are fine but the robot still is off by just a bit. The code is GitHub - r…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 618,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3561477,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70441,
+                    "username": "SnappleBot",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/b3f665/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70441,
+                            "username": "SnappleBot",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/b3f665/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64968,
+                            "username": "DukeEmree",
+                            "name": "Emre ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/dukeemree/{size}/251833_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61815,
+                            "username": "Mohammed",
+                            "name": "Mohammed",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mohammed/{size}/255781_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63685,
+                            "username": "w1zxrd",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/w1zxrd/{size}/246745_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "How to add field centric drive?",
+        "id": 440169,
+        "title": "How to add field centric drive?",
+        "posts_count": 4,
+        "created_at": "2023-08-27T05:24:44.542Z",
+        "views": 1009,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-08-26T11:30:46.088Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "how-to-add-field-centric-drive",
+        "category_id": 30,
+        "word_count": 214,
+        "deleted_at": null,
+        "user_id": 58720,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_440169",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "viggy96",
+            "name": null,
+            "excerpt": "Use ChassisSpeeds.fromFieldRelativeSpeeds(velocityX, velocityY, rotateRate, m_navx.getAngle())",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 9105,
+                    "username": "Fletch1373",
+                    "name": "Fletch",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24613,
+                    "username": "viggy96",
+                    "name": "viggy96",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 58720,
+                    "username": "Jugular",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/9d8465/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 58720,
+                "username": "Jugular",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/j/9d8465/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/src/main/java/frc/robot/subsystems/DriveSubsystem.java#L177-L180",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 47,
+                    "user_id": 9105,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/REVrobotics/MAXSwerve-Java-Template/blob/main/src/main/java/frc/robot/RobotContainer.java#L53-L57",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 19,
+                    "user_id": 9105,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/urgent-i-need-help-with-my-swerve-code/452140/10",
+                    "title": "URGENT I need help with my swerve code",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 3,
+                    "user_id": 20632,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,943 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3350143,
+                    "name": "PhilBot",
+                    "username": "PhilBot",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/philbot/{size}/1824_2.png",
+                    "created_at": "2024-04-02T14:12:29.945Z",
+                    "cooked": "I’ve had a couple of instances where we’ve had a Sensor Error on our Spark Max controllers and I didn’t notice it until we did a phyisical drive test.  So, I was getting bogus autonomous testing data, and didn’t know it.\n\nDoes anyone have a recommended strategy for detecting an error status on REV SPARK / FLEX motor controllers that don’t chew up a heap of CAN bandwidth.    Seems like it’s something that only needs to be done intermittdedly, or is there an automatic return status that I can check periodically?\n\nWe are using Java and the REVlib library.\n\nThnaks, Phil.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-02T14:12:29.945Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 55,
+                    "readers_count": 54,
+                    "score": 51.0,
+                    "yours": false,
+                    "topic_id": 461037,
+                    "topic_slug": "help-with-strategy-for-reading-spark-max-error-codes",
+                    "display_username": "PhilBot",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 5633,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/help-with-strategy-for-reading-spark-max-error-codes/461037/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3350213,
+                    "name": "",
+                    "username": "person4268",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "created_at": "2024-04-02T14:31:53.993Z",
+                    "cooked": "According to SPARK MAX Control Interfaces | REV ION Brushless , faults seem to be part of the periodic status frame 0, so I would imagine you wouldnt encounter much of a performance penalty calling something like max.getFault(FaultID.kSensorFault) periodically. This is something I will be testing today as part of the litany of things I need to do, so I can’t comment on whether I am correct or not yet.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-02T14:31:53.993Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 48,
+                    "readers_count": 47,
+                    "score": 29.6,
+                    "yours": false,
+                    "topic_id": 461037,
+                    "topic_slug": "help-with-strategy-for-reading-spark-max-error-codes",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.revrobotics.com/brushless/spark-max/control-interfaces#periodic-status-frames",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SPARK MAX Control Interfaces | REV ION Brushless",
+                            "clicks": 3
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55016,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/help-with-strategy-for-reading-spark-max-error-codes/461037/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3350255,
+                    "name": "PhilBot",
+                    "username": "PhilBot",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/philbot/{size}/1824_2.png",
+                    "created_at": "2024-04-02T14:44:15.026Z",
+                    "cooked": "Thanks.\n\nThat was the pointer I needed.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-04-02T14:44:15.026Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 39,
+                    "readers_count": 38,
+                    "score": 32.8,
+                    "yours": false,
+                    "topic_id": 461037,
+                    "topic_slug": "help-with-strategy-for-reading-spark-max-error-codes",
+                    "display_username": "PhilBot",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 55016,
+                        "username": "person4268",
+                        "name": "",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 5633,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/help-with-strategy-for-reading-spark-max-error-codes/461037/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3577900,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-04-02T14:45:09.045Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-04-02T14:45:09.045Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 461037,
+                    "topic_slug": "help-with-strategy-for-reading-spark-max-error-codes",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/help-with-strategy-for-reading-spark-max-error-codes/461037/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3350143,
+                3350213,
+                3350255,
+                3577900
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                557
+            ],
+            [
+                4,
+                192
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Kraken Encoder Issue After Update",
+                "id": 492970,
+                "title": "Kraken Encoder Issue After Update",
+                "slug": "kraken-encoder-issue-after-update",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-24T16:49:24.576Z",
+                "last_posted_at": "2025-02-24T17:50:07.563Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T17:50:07.563Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’ve been running Kraken motors successfully, but after yesterday’s update, we encountered an issue with two of them. The encoders on these two motors are no longer reporting proper values—fluctuatin…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 176,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3538144,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71930,
+                    "username": "zie619",
+                    "name": "Eliad",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/z/c89c15/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71930,
+                            "username": "zie619",
+                            "name": "Eliad",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/z/c89c15/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X60 Reparability",
+                "id": 475934,
+                "title": "Kraken X60 Reparability",
+                "slug": "kraken-x60-reparability",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2024-12-03T17:37:23.263Z",
+                "last_posted_at": "2024-12-04T01:41:04.799Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T01:41:04.799Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is considering switching from the NEO V1.1 to the Kraken X60 for the next season. We’re interested in the Kraken X60s’ repairability. Are these motors repairable in case of burnout or other i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 27,
+                "views": 952,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454183,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56762,
+                    "username": "adiprajapati",
+                    "name": "Adi Prajapati",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/adiprajapati/{size}/237675_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56762,
+                            "username": "adiprajapati",
+                            "name": "Adi Prajapati",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/adiprajapati/{size}/237675_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59620,
+                            "username": "clavin",
+                            "name": "Calvin Hou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/clavin/{size}/211896_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20632,
+                            "username": "kingc95",
+                            "name": "Mr. Siefen | 453",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24506,
+                            "username": "s3529",
+                            "name": "Robertson Robotics",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s3529/{size}/121055_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "MAXSwerve Neo550 issues",
+                "id": 474135,
+                "title": "MAXSwerve Neo550 issues",
+                "slug": "maxswerve-neo550-issues",
+                "posts_count": 14,
+                "reply_count": 10,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2024-10-31T21:40:21.174Z",
+                "last_posted_at": "2025-01-08T18:45:25.985Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T18:45:25.985Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Tighten the 2 screws that you can’t get to when it’s installed on the module just until it starts to spread apart then install it onto the module and compressed the stack with your hand and install th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 508,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3442374,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 25951,
+                    "username": "Technologyman00",
+                    "name": "Technologyman00",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/technologyman00/{size}/178178_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63796,
+                            "username": "Declan0811",
+                            "name": "Declan Dunn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/declan0811/{size}/213245_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 25951,
+                            "username": "Technologyman00",
+                            "name": "Technologyman00",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/technologyman00/{size}/178178_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 26389,
+                            "username": "tkchan",
+                            "name": "tkchan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/ee59a6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64336,
+                            "username": "Virendrasinh",
+                            "name": "Virendrasinh Vaghela",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virendrasinh/{size}/235834_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Mobile way to run a Falcon-500 motor?",
+                "id": 482218,
+                "title": "Mobile way to run a Falcon-500 motor?",
+                "slug": "mobile-way-to-run-a-falcon-500-motor",
+                "posts_count": 8,
+                "reply_count": 1,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/d/dd0f0bb187bcf26a88d7494ec805034e06d52490_2_770x1023.jpeg",
+                "created_at": "2025-01-17T01:51:16.546Z",
+                "last_posted_at": "2025-01-18T02:45:26.817Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T02:45:26.817Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In the past, my team has used a drill with a XT60 connector wired to it (I attached an image below) so that we could use CIMs/775s for prototyping without having to wire them to motor controllers or t…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "electrical",
+                    "can",
+                    "falcon-500"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 453,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3485264,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71431,
+                    "username": "ghubie42",
+                    "name": "Gabe Huberman",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/d9b06d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71431,
+                            "username": "ghubie42",
+                            "name": "Gabe Huberman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/d9b06d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49921,
+                            "username": "2020",
+                            "name": "Sylvain D.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/2020/{size}/167345_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55172,
+                            "username": "superdude311",
+                            "name": "Matthew K",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/superdude311/{size}/230653_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52932,
+                            "username": "kmminer",
+                            "name": "Kaden Morrison",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kmminer/{size}/249317_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46443,
+                            "username": "Weldingrod1",
+                            "name": "Rod",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/weldingrod1/{size}/162109_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Strongest Motors for climber?",
+                "id": 493776,
+                "title": "Strongest Motors for climber?",
+                "slug": "strongest-motors-for-climber",
+                "posts_count": 5,
+                "reply_count": 0,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-03-01T21:05:09.450Z",
+                "last_posted_at": "2025-03-03T03:06:03.615Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T03:06:03.615Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, we just let the magic smoke out of a REV Neo and we’re looking for the strongest FRC legal motor we can get. Any ideas?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 15,
+                "views": 466,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3544387,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71053,
+                    "username": "826leoguy",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/8/dbc845/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71053,
+                            "username": "826leoguy",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/8/dbc845/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 31172,
+                            "username": "BryceHanson",
+                            "name": "Bryce Hanson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/brycehanson/{size}/159972_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 32120,
+                            "username": "Osby",
+                            "name": "Osby",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/osby/{size}/10008_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Help with strategy for reading SPARK Max error codes",
+        "id": 461037,
+        "title": "Help with strategy for reading SPARK Max error codes",
+        "posts_count": 4,
+        "created_at": "2024-04-02T14:12:29.884Z",
+        "views": 146,
+        "reply_count": 1,
+        "like_count": 2,
+        "last_posted_at": "2025-04-02T14:45:09.045Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "help-with-strategy-for-reading-spark-max-error-codes",
+        "category_id": 31,
+        "word_count": 207,
+        "deleted_at": null,
+        "user_id": 5633,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_461037",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 5633,
+                    "username": "PhilBot",
+                    "name": "PhilBot",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/philbot/{size}/1824_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 55016,
+                    "username": "person4268",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 5633,
+                "username": "PhilBot",
+                "name": "PhilBot",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/philbot/{size}/1824_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.revrobotics.com/brushless/spark-max/control-interfaces#periodic-status-frames",
+                    "title": "SPARK MAX Control Interfaces | REV ION Brushless",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55016,
+                    "domain": "docs.revrobotics.com",
+                    "root_domain": "revrobotics.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

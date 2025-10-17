@@ -1,0 +1,954 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2978849,
+                    "name": "Jan Carlos Morales",
+                    "username": "Jancerem",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jancerem/{size}/174129_2.png",
+                    "created_at": "2021-11-27T08:48:57.688Z",
+                    "cooked": "Hi, my team and I are trying to design and make an elevator for climb 'cause is a mechanism we wanted to practice, and this is the first time we are going to make a mechanism like this, do you know some considerations we will have to take to succesful with our elevator?\n\nActually our plan is that our elevator will has 2 stages, with an intake on the carriage and a climber on the top, similar to many robots on 2018, with a Aluminum PTR 2\"*1\" structure; and with what we researched we think the better option is the Continuous lift, but still we have doubts about the rigging and considerations we have to take, we plan to make the lift with chain but it would be wise to make it by rope?, and thank you so much for reading.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-11-27T08:48:57.688Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 465,
+                    "reads": 317,
+                    "readers_count": 316,
+                    "score": 2388.4,
+                    "yours": false,
+                    "topic_id": 397636,
+                    "topic_slug": "elevator-climb",
+                    "display_username": "Jan Carlos Morales",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 43781,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Tigres 6652!"
+                    },
+                    "post_url": "/t/elevator-climb/397636/1",
+                    "custom_user_title": "Tigres 6652!",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2979479,
+                    "name": "Ian2",
+                    "username": "spacepenguine",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/c67d28/{size}.png",
+                    "created_at": "2021-12-02T07:03:42.842Z",
+                    "cooked": "Hi jancerem,\n\nThis sounds like a great project, and indeed multi-stage lifts have been useful to many previous FRC games. 2018 was a particularly good year for this as well as 2019.\n\nThere are different ways to provide the first stage and following stage motion. If you also want to lift, a common option is to drive the first stage directly with chain and then couple following stages with chain. This can be seen in 1323 Madtown’s 2018 bot. That said, there are also plenty of lifters that are cascade (continuous cord through stages) and have a single robot lifter on top like 1678 and 118 in 2018.\n\nThe most common lift cords are probably 3-6mm AmSteel or Dyneema cord, #35 chain, and non-continuous 5mm HTD belting. Our team learned the hard way that 5mm HTD belt does not react well (breaks) to shock loads, so this can be detrimental to building lifts if enough car is not taken in other mechanics or programming to prevent the shocks. The cords are popular because they are easy to work with (esp compared to steel cable), light per weight capacity, and low stretch under load.\n\nTo get started, both 1678 (in 2018 and 2019 ) and 973 ( Greyt Elevator ) have posted CAD models of their previous bots with very well performing lifts. Both regularly use 2x1\" aluminum structure.\n\n1678 in 2018 w/ buddy climb IMG_7011 4032×3024 2.35 MB IMG_7014 3024×4032 3.02 MB\n\nIMG_7011 4032×3024 2.35 MB\n\nIMG_7011 4032×3024 2.35 MB\n\nIMG_7014 3024×4032 3.02 MB\n\nIMG_7014 3024×4032 3.02 MB\n\n1323 in 2018 w/ buddy climb IMG_7031 3024×4032 2.55 MB IMG_7033 3024×4032 2.07 MB IMG_7034 4032×3024 2.44 MB\n\nIMG_7031 3024×4032 2.55 MB\n\nIMG_7031 3024×4032 2.55 MB\n\nIMG_7033 3024×4032 2.07 MB\n\nIMG_7033 3024×4032 2.07 MB\n\nIMG_7034 4032×3024 2.44 MB\n\nIMG_7034 4032×3024 2.44 MB\n\n333 in 2018 w/ 2x buddy climb IMG_7110 3024×4032 2.43 MB IMG_7192 4032×3024 1.97 MB\n\nIMG_7110 3024×4032 2.43 MB\n\nIMG_7110 3024×4032 2.43 MB\n\nIMG_7192 4032×3024 1.97 MB\n\nIMG_7192 4032×3024 1.97 MB\n\n118 in 2018 w/ belt IMG_7393 2256×2948 1.26 MB\n\nIMG_7393 2256×2948 1.26 MB\n\nIMG_7393 2256×2948 1.26 MB\n\n5026 in 2018 w/ belt … just for fun because this isn’t really 2 stages and used a steel cable to climb IMG_7039 3024×4032 2.97 MB IMG_6874 2119×3198 1.45 MB IMG_6957 4032×3024 2.31 MB\n\nIMG_7039 3024×4032 2.97 MB\n\nIMG_7039 3024×4032 2.97 MB\n\nIMG_6874 2119×3198 1.45 MB\n\nIMG_6874 2119×3198 1.45 MB\n\nIMG_6957 4032×3024 2.31 MB\n\nIMG_6957 4032×3024 2.31 MB",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-12-02T07:03:42.842Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 64,
+                    "reads": 192,
+                    "readers_count": 191,
+                    "score": 433.4,
+                    "yours": false,
+                    "topic_id": 397636,
+                    "topic_slug": "elevator-climb",
+                    "display_username": "Ian2",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=wZ6a6dc4BGg",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "973 RAMP Cascade Elevator Part 1 - YouTube",
+                            "clicks": 28
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/team-1678-citrus-circuits-2018-cad-release/166149",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Team 1678 Citrus Circuits 2018 CAD Release",
+                            "clicks": 21
+                        },
+                        {
+                            "url": "https://www.samsonrope.com/utility/amsteel",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "AMSTEEL - Samson Rope",
+                            "clicks": 18
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/1678-citrus-circuits-2019-cad-release/359101",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "1678 Citrus Circuits 2019 CAD Release",
+                            "clicks": 15
+                        },
+                        {
+                            "url": "https://www.rei.com/product/118268/bluewater-5mm-titan-dyneema-cord-20-ft",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/9/198689f0cd29388cdd2e519cdb439427bd7933e5.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/0/d0a81964d77e06c83d86f2960d8ba3059098e1bc.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/7/77f41241c1afa72166737e09a49626c750bc8563.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/2/4244cbc63d15af276954f2feda183e4b6e0f4b62.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/c/bc621c2d6c3cf9b191ed8593db51a74284a282e9.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/2/425bccc5a0fea60716343da66325559a3f2cde68.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/5/c5b0528544a947f2cdc6f71892bf67acb7964c95.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/b/5bed330022d2d62834971b9ce329e09f4915bc27.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/e/cea8278e30a78637c68fa06bc47fb6d12372285a.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/2/d294965515d86955c4977eb0ec9a66f3b05ab68c.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/1/01623929efe86e0af8cdbee6d00421175a792f8c.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 5
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 14787,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "FRC 5026 Mentor | FRC 226 Alumnus"
+                    },
+                    "post_url": "/t/elevator-climb/397636/2",
+                    "custom_user_title": "FRC 5026 Mentor | FRC 226 Alumnus",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 5
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 5,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3106461,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-12-02T07:03:48.822Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2022-12-02T07:03:48.822Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 43,
+                    "readers_count": 42,
+                    "score": 13.6,
+                    "yours": false,
+                    "topic_id": 397636,
+                    "topic_slug": "elevator-climb",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/elevator-climb/397636/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2978849,
+                2979479,
+                3106461
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1415
+            ],
+            [
+                2,
+                1410
+            ],
+            [
+                3,
+                1045
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "How do differentials work?",
+                "id": 500569,
+                "title": "How do differentials work?",
+                "slug": "how-do-differentials-work",
+                "posts_count": 7,
+                "reply_count": 2,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-04-26T03:32:11.034Z",
+                "last_posted_at": "2025-04-26T06:19:02.931Z",
+                "bumped": true,
+                "bumped_at": "2025-04-26T06:19:02.931Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 39,
+                "views": 816,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3604426,
+                "topic_post_liked": false,
+                "topic_post_like_count": 17,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 7,
+                "topic_post_user": {
+                    "id": 2514,
+                    "username": "Lil_Lavery",
+                    "name": "Sean Lavery",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lil_lavery/{size}/65226_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70987,
+                            "username": "FiveCake",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/91b2a8/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 2514,
+                            "username": "Lil_Lavery",
+                            "name": "Sean Lavery",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lil_lavery/{size}/65226_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 8002,
+                            "username": "Akash_Rastogi",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/akash_rastogi/{size}/169937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65614,
+                            "username": "Ugydukin",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/u/278dde/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 9303,
+                            "username": "Tim708",
+                            "name": "Tim James",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tim708/{size}/189359_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pivoting Using Gears VS Belts VS Chain",
+                "id": 502388,
+                "title": "Pivoting Using Gears VS Belts VS Chain",
+                "slug": "pivoting-using-gears-vs-belts-vs-chain",
+                "posts_count": 15,
+                "reply_count": 7,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-05-26T01:42:10.067Z",
+                "last_posted_at": "2025-05-26T23:54:54.624Z",
+                "bumped": true,
+                "bumped_at": "2025-05-26T23:54:54.624Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "How do I pick hardware for a pivoting mechanism? Every time I try to design a pivoting mechanism like an arm or an intake, I always run into the same question of how to actuate it. I’ve seen all of th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "design",
+                    "gear",
+                    "belt",
+                    "chain",
+                    "pivot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 107,
+                "views": 1050,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3635819,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63122,
+                    "username": "Cedric_2587",
+                    "name": "Christoforus Cedric Kurniawan",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63122,
+                            "username": "Cedric_2587",
+                            "name": "Christoforus Cedric Kurniawan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cedric_2587/{size}/255741_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51417,
+                            "username": "CuteRedpandas",
+                            "name": "Jared Van Horn",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/cuteredpandas/{size}/243322_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 10647,
+                            "username": "AllenGregoryIV",
+                            "name": "AllenGregoryIV",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/allengregoryiv/{size}/65531_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48578,
+                            "username": "Wesley",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wesley/{size}/155134_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 14252,
+                            "username": "RedLeader342",
+                            "name": "RedLeader342",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/redleader342/{size}/174347_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "OV9281 Camera Case",
+                "id": 494984,
+                "title": "OV9281 Camera Case",
+                "slug": "ov9281-camera-case",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-10T16:06:33.284Z",
+                "last_posted_at": "2025-03-10T16:26:33.548Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T16:26:33.548Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Does anyone have some 3d printable cases for the Arducam OV9281 Camera? We are trying to attach it to the belly pan of our robot.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 214,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3552837,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67491,
+                    "username": "Rossj2245",
+                    "name": "Jack Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rossj2245/{size}/231414_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67491,
+                            "username": "Rossj2245",
+                            "name": "Jack Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rossj2245/{size}/231414_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 74204,
+                            "username": "DanielGrinman5572",
+                            "name": "Daniel Grinman Rivera",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/439d5e/{size}.png",
+                            "trust_level": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken X44 Steering Adapter Plates for SDS MK4i and MK4n",
+                "id": 498471,
+                "title": "Kraken X44 Steering Adapter Plates for SDS MK4i and MK4n",
+                "slug": "kraken-x44-steering-adapter-plates-for-sds-mk4i-and-mk4n",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/e/7/9/e79d341ab9f636974bc1fe26b5a6a574feee47e1_2_782x1024.jpeg",
+                "created_at": "2025-04-08T19:29:58.568Z",
+                "last_posted_at": "2025-04-08T19:29:58.683Z",
+                "bumped": true,
+                "bumped_at": "2025-04-08T21:21:12.424Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Are you headed to the Championship and frantically trying to save a pound or two to complete your final upgrades while still making weight? Are you using SDS MK4i or MK4n swerve modules? We are. An …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "mk4i",
+                    "sds",
+                    "mk4n"
+                ],
+                "tags_descriptions": {},
+                "like_count": 25,
+                "views": 800,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3584172,
+                "topic_post_liked": false,
+                "topic_post_like_count": 25,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 17480,
+                    "username": "Ekcrbe",
+                    "name": "Erik Boyle",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ekcrbe/{size}/221615_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 17480,
+                            "username": "Ekcrbe",
+                            "name": "Erik Boyle",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ekcrbe/{size}/221615_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Looking for help/feedback on a CAD Skills Checklist",
+                "id": 504909,
+                "title": "Looking for help/feedback on a CAD Skills Checklist",
+                "slug": "looking-for-help-feedback-on-a-cad-skills-checklist",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-08-02T22:28:46.198Z",
+                "last_posted_at": "2025-08-02T22:28:46.261Z",
+                "bumped": true,
+                "bumped_at": "2025-08-02T22:28:46.261Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We (3494/11329) use Onshape, so some of these skills are specific to that package, but I’m looking for help making this a rational and fairly complete list of skills that students can use as a guide. …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 156,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3698858,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 60536,
+                    "username": "joshtargo",
+                    "name": "Josh Targo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/7bcc69/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 60536,
+                            "username": "joshtargo",
+                            "name": "Josh Targo",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/7bcc69/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "2018",
+            "elevator",
+            "lift"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Elevator Climb",
+        "id": 397636,
+        "title": "Elevator Climb",
+        "posts_count": 3,
+        "created_at": "2021-11-27T08:48:57.466Z",
+        "views": 2061,
+        "reply_count": 0,
+        "like_count": 5,
+        "last_posted_at": "2022-12-02T07:03:48.822Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "elevator-climb",
+        "category_id": 68,
+        "word_count": 540,
+        "deleted_at": null,
+        "user_id": 43781,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_397636",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 14787,
+                    "username": "spacepenguine",
+                    "name": "Ian2",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/c67d28/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 43781,
+                    "username": "Jancerem",
+                    "name": "Jan Carlos Morales",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/jancerem/{size}/174129_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 43781,
+                "username": "Jancerem",
+                "name": "Jan Carlos Morales",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/jancerem/{size}/174129_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.youtube.com/watch?v=wZ6a6dc4BGg",
+                    "title": "973 RAMP Cascade Elevator Part 1 - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 28,
+                    "user_id": 14787,
+                    "domain": "www.youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/team-1678-citrus-circuits-2018-cad-release/166149",
+                    "title": "Team 1678 Citrus Circuits 2018 CAD Release",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 21,
+                    "user_id": 14787,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.samsonrope.com/utility/amsteel",
+                    "title": "AMSTEEL - Samson Rope",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 18,
+                    "user_id": 14787,
+                    "domain": "www.samsonrope.com",
+                    "root_domain": "samsonrope.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/1678-citrus-circuits-2019-cad-release/359101",
+                    "title": "1678 Citrus Circuits 2019 CAD Release",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 15,
+                    "user_id": 14787,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                },
+                {
+                    "url": "https://www.rei.com/product/118268/bluewater-5mm-titan-dyneema-cord-20-ft",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 14787,
+                    "domain": "www.rei.com",
+                    "root_domain": "rei.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

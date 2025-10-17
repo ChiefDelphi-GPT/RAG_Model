@@ -1,0 +1,711 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3526076,
+                    "name": "",
+                    "username": "Esdras01",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/90ced4/{size}.png",
+                    "created_at": "2025-02-13T15:40:10.758Z",
+                    "cooked": "Hello, I’m trying to code the NEO encoders but I have read the REV docuemntation but my code doesn’t works. I’m doing it in Command base Robot.\n\n// Copyright (c) FIRST and other WPILib contributors. // Open Source Software; you can modify and/or share it under the terms of // the WPILib BSD license file in the root directory of this project.\n\npackage frc.robot.subsystems;\n\nimport com.revrobotics.RelativeEncoder; import com.revrobotics.spark.SparkClosedLoopController; import com.revrobotics.spark.SparkMax; import com.revrobotics.spark.ClosedLoopSlot; import com.revrobotics.spark.SparkBase.ControlType; import com.revrobotics.spark.SparkBase.PersistMode; import com.revrobotics.spark.SparkBase.ResetMode; import com.revrobotics.spark.SparkLowLevel.MotorType; import com.revrobotics.spark.config.SparkMaxConfig; import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;\n\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; import edu.wpi.first.wpilibj2.command.SubsystemBase;\n\npublic class Chasis extends SubsystemBase { /** Creates a new Chasis. */ private final SparkMax leftBackMotor = new SparkMax(2, MotorType.kBrushless); private final SparkMax leftFrontMotor = new SparkMax(1, MotorType.kBrushless); private final SparkMax rightBackMotor = new SparkMax(5, MotorType.kBrushless); private final SparkMax rightFrontMotor = new SparkMax(6, MotorType.kBrushless);\n\nprivate final SparkMaxConfig leftConfiguration = new SparkMaxConfig(); private final SparkMaxConfig rightConfiguration = new SparkMaxConfig();\n\nprivate final SparkClosedLoopController PIDLeftmotors = leftFrontMotor.getClosedLoopController(); private final SparkClosedLoopController PIDRightmotors = rightFrontMotor.getClosedLoopController();\n\nprivate final RelativeEncoder leftencoder, rightencoder;\n\nprivate double kP = 0.001; private double kI = 0; private double kD = 0;\n\npublic Chasis() { leftConfiguration.follow(1).inverted(true).smartCurrentLimit(40).idleMode(IdleMode.kBrake); leftConfiguration.closedLoop.p(kP).i(kI).d(kD).outputRange(-0.2, 0.2).p(kP, ClosedLoopSlot.kSlot1) .i(0, ClosedLoopSlot.kSlot1) .d(0, ClosedLoopSlot.kSlot1) .velocityFF(1.0 / 5767, ClosedLoopSlot.kSlot1) .outputRange(-1, 1, ClosedLoopSlot.kSlot1);; leftConfiguration.encoder.positionConversionFactor(1).velocityConversionFactor(1);\n\n}\n\npublic void set_motors(double leftSpeed, double rightSpeed){ leftBackMotor.set(leftSpeed); leftFrontMotor.set(leftSpeed); rightBackMotor.set(-rightSpeed); rightFrontMotor.set(-rightSpeed); }\n\npublic void setPosition(double position){ PIDLeftmotors.setReference(position, ControlType.kPosition, ClosedLoopSlot.kSlot0); PIDRightmotors.setReference(position, ControlType.kPosition, ClosedLoopSlot.kSlot0); }\n\npublic void setVelocity(double velocity){ PIDRightmotors.setReference(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot1); PIDLeftmotors.setReference(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot1);\n\n}\n\npublic void resetEncoder(){ leftencoder.setPosition(0); rightencoder.setPosition(0); }\n\n@Override public void periodic() { // This method will be called once per scheduler run SmartDashboard.putNumber(\"Actual Position RE: \", rightencoder.getPosition()); SmartDashboard.putNumber(\"Actual Position LE: \", leftencoder.getPosition());\n\n} }\n\nHere’s the command\n\n// Copyright (c) FIRST and other WPILib contributors. // Open Source Software; you can modify and/or share it under the terms of // the WPILib BSD license file in the root directory of this project.\n\npackage frc.robot.commands;\n\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; import edu.wpi.first.wpilibj2.command.Command; import frc.robot.subsystems.Chasis;\n\n/* You should consider using the more terse Command factories API instead Organizing Command-Based Robot Projects — FIRST Robotics Competition documentation / public class ControlMotorCommand extends Command { / * Creates a new ControlMotorCommand. */ private Chasis chasis = new Chasis(); public ControlMotorCommand(Chasis chasis) { // Use addRequirements() here to declare subsystem dependencies. this.chasis = chasis; addRequirements(chasis); }\n\n// Called when the command is initially scheduled. @Override public void initialize() {}\n\n// Called every time the scheduler runs while the command is scheduled. @Override public void execute() { boolean controlMode = SmartDashboard.getBoolean(“Control Mode”, false);\n\n}\n\n// Called once the command ends or is interrupted. @Override public void end(boolean interrupted) {}\n\n// Returns true when the command should end. @Override public boolean isFinished() { return false; } }\n\nCan someone help me?\n\n// Copyright (c) FIRST and other WPILib contributors. // Open Source Software; you can modify and/or share it under the terms of // the WPILib BSD license file in the root directory of this project.\n\npackage frc.robot;\n\nimport frc.robot.commands.ControlMotorCommand; import frc.robot.subsystems.Chasis; import edu.wpi.first.wpilibj2.command.Command;\n\n/**\n\nThis class is where the bulk of the robot should be declared. Since Command-based is a\n\n“declarative” paradigm, very little robot logic should actually be handled in the { @link Robot}\n\nperiodic methods (other than the scheduler calls). Instead, the structure of the robot (including\n\nsubsystems, commands, and trigger mappings) should be declared here. / public class RobotContainer { // The robot’s subsystems and commands are defined here… private final Chasis chasis = new Chasis(); private final ControlMotorCommand controlMotorCommand = new ControlMotorCommand(chasis); / * The container for the robot. Contains subsystems, OI devices, and commands. */ public RobotContainer() { // Configure the trigger bindings configureBindings(); chasis.setDefaultCommand(controlMotorCommand); }\n\nprivate void configureBindings() { }\n\n/**\n\nUse this to pass the autonomous command to the main { @link Robot} class.\n\n@return the command to run in autonomous */ public Command getAutonomousCommand() { return null; } }\n\nI want the robot moves forward 3 meters in autonomous.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-13T15:40:10.758Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 13,
+                    "reads": 67,
+                    "readers_count": 66,
+                    "score": 83.4,
+                    "yours": false,
+                    "topic_id": 491539,
+                    "topic_slug": "programming-encoders",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Organizing Command-Based Robot Projects — FIRST Robotics Competition documentation",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63993,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/programming-encoders/491539/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3526089,
+                    "name": "Eli Barnett",
+                    "username": "Oblarg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                    "created_at": "2025-02-13T15:52:26.549Z",
+                    "cooked": "Esdras01:\n\nI want the robot moves forward 3 meters in autonomous.\n\nYou’re returning a null autonomous command, so it won’t do anything in autonomous.\n\nYou should put your code on GitHub.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-02-13T15:52:26.549Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 2,
+                    "reads": 53,
+                    "readers_count": 52,
+                    "score": 20.6,
+                    "yours": false,
+                    "topic_id": 491539,
+                    "topic_slug": "programming-encoders",
+                    "display_username": "Eli Barnett",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 12381,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Robot apartments! invisible suburbs! skeleton treasuries!"
+                    },
+                    "post_url": "/t/programming-encoders/491539/2",
+                    "custom_user_title": "Robot apartments! invisible suburbs! skeleton treasuries!",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3526076,
+                3526089
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                240
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Help Running out of time Java Help",
+                "id": 493982,
+                "title": "Help Running out of time Java Help",
+                "slug": "help-running-out-of-time-java-help",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-03-03T15:07:24.299Z",
+                "last_posted_at": "2025-03-03T17:40:07.241Z",
+                "bumped": true,
+                "bumped_at": "2025-03-03T17:40:07.241Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Did you use the WPILib installer on that computer? Are you using VS Code or another IDE, or running gradle from the command line? If everything was installed properly, it should be using the WPILib J…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 211,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3546030,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 65,
+                    "username": "Joe_Ross",
+                    "name": "Joe Ross",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 24842,
+                            "username": "Hale_Talons_554",
+                            "name": "Hale Talons 554",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hale_talons_554/{size}/11589_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Building YAGSL?",
+                "id": 495963,
+                "title": "Building YAGSL?",
+                "slug": "building-yagsl",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-17T21:53:08.298Z",
+                "last_posted_at": "2025-03-17T22:05:31.184Z",
+                "bumped": true,
+                "bumped_at": "2025-03-17T22:05:31.184Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What is the best practice for building and testing YAGSL itself? I found a nit in the DutyCycleEncoder that looks to be a one line patch, but I need to somehow test it, and I don’t see anywhere how on…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 56,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3559829,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 15648,
+                    "username": "fovea1959",
+                    "name": "fovea1959",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 15648,
+                            "username": "fovea1959",
+                            "name": "fovea1959",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fovea1959/{size}/5301_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to read networktable values in custom code",
+                "id": 491293,
+                "title": "How to read networktable values in custom code",
+                "slug": "how-to-read-networktable-values-in-custom-code",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-02-12T01:01:24.611Z",
+                "last_posted_at": "2025-03-05T18:06:36.411Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T18:06:36.411Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I want to make a program for my laptop that plays a sound when a network table/smartdashboard variable becomes true, but i am not sure how to read these values from the network table from the robot.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 130,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3524270,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63063,
+                    "username": "Mochatitan",
+                    "name": "6894 Lead prog/driver",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 63063,
+                            "username": "Mochatitan",
+                            "name": "6894 Lead prog/driver",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mochatitan/{size}/237112_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Released Code?",
+                "id": 479690,
+                "title": "Released Code?",
+                "slug": "released-code",
+                "posts_count": 11,
+                "reply_count": 2,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2025-01-07T01:56:17.871Z",
+                "last_posted_at": "2025-01-07T15:05:46.366Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T15:05:46.366Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Mentor here, high probability of our last year. I’ve been mentoring for FIRST for 16 years and getting close to retirement in a rural area that will not be able to find someone else to take over. We…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 442,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3473417,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 12865,
+                    "username": "crollison",
+                    "name": "crollison",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/87869e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 12865,
+                            "username": "crollison",
+                            "name": "crollison",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/87869e/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66516,
+                            "username": "mineable3",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mineable3/{size}/231504_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 18481,
+                            "username": "MrRoboSteve",
+                            "name": "MrRoboSteve",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrrobosteve/{size}/10920_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56954,
+                            "username": "aopalka",
+                            "name": "Alex",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f9ae1b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Erro calling autonomous command",
+                "id": 506852,
+                "title": "Erro calling autonomous command",
+                "slug": "erro-calling-autonomous-command",
+                "posts_count": 1,
+                "reply_count": 0,
+                "highest_post_number": 1,
+                "image_url": null,
+                "created_at": "2025-10-03T17:43:10.950Z",
+                "last_posted_at": "2025-10-03T17:43:11.091Z",
+                "bumped": true,
+                "bumped_at": "2025-10-03T17:43:11.091Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Good morning everyone! My FRC team is currently having problems during the automatic phase. Among the main issues is that AutoBuilder only calls the name of a path, which is “New Auto.” Otherwise, it …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 40,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3754765,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69705,
+                    "username": "murilo404",
+                    "name": "Murilo Miranda Santos",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69705,
+                            "username": "murilo404",
+                            "name": "Murilo Miranda Santos",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/49beb7/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Programming encoders",
+        "id": 491539,
+        "title": "Programming encoders",
+        "posts_count": 2,
+        "created_at": "2025-02-13T15:40:10.693Z",
+        "views": 102,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-02-13T15:52:26.549Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "programming-encoders",
+        "category_id": 75,
+        "word_count": 922,
+        "deleted_at": null,
+        "user_id": 63993,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_491539",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 43969,
+            "execute_at": "2026-02-13T15:52:26.549Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 12381,
+                    "username": "Oblarg",
+                    "name": "Eli Barnett",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 63993,
+                    "username": "Esdras01",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/e/90ced4/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 63993,
+                "username": "Esdras01",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/e/90ced4/{size}.png"
+            },
+            "last_poster": {
+                "id": 12381,
+                "username": "Oblarg",
+                "name": "Eli Barnett",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

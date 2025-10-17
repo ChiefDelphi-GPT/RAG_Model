@@ -1,0 +1,947 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3522946,
+                    "name": "",
+                    "username": "four",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/four/{size}/199902_2.png",
+                    "created_at": "2025-02-11T01:41:08.417Z",
+                    "cooked": "Does anyone have successful examples of combining pose estimation from two Limelights? We are looking to integrate this with YAGSL and I am unsure of which direction to go with regard to fusing the data from separate coprocessors.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-11T01:41:08.417Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 18,
+                    "reads": 140,
+                    "readers_count": 139,
+                    "score": 118.0,
+                    "yours": false,
+                    "topic_id": 491125,
+                    "topic_slug": "multi-limelight-global-localization",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60512,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Doubling the current limit does not make it work."
+                    },
+                    "post_url": "/t/multi-limelight-global-localization/491125/1",
+                    "custom_user_title": "Doubling the current limit does not make it work.",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3525115,
+                    "name": "Jackson Elia",
+                    "username": "Traptricker",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png",
+                    "created_at": "2025-02-12T18:25:55.662Z",
+                    "cooked": "If you use SwerveDrivePoseEstimator it extends PoseEstimator you can use the method addVisionMeasurement . You can also add you swerve drive wheel positions with the methods update or updateWithTime . This class “fuses” the data together like you want, getting you a more realistic estimated pose.\n\nI recommend looking at this video and or this code .\n\nBut basically, once you make a SwerveDrivePoseEstimator , you want to update it with your swerve module positions as often as you can (so probably every periodic) and update it with your Limelight pose estimates as often as they get new measurements. If you have two limelights, you can just use addVisionMeasurement twice, once for each of them.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-12T18:33:50.534Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 98,
+                    "readers_count": 97,
+                    "score": 39.6,
+                    "yours": false,
+                    "topic_id": 491125,
+                    "topic_slug": "multi-limelight-global-localization",
+                    "display_username": "Jackson Elia",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.youtube.com/watch?v=TG9KAa2EGzQ",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 11
+                        },
+                        {
+                            "url": "https://github.com/STMARobotics/frc-7028-2023/blob/5916bb426b97f10e17d9dfd5ec6c3b6fda49a7ce/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "frc-7028-2023/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java at 5916bb426b97f10e17d9dfd5ec6c3b6fda49a7ce · STMARobotics/frc-7028-2023 · GitHub",
+                            "clicks": 9
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "SwerveDrivePoseEstimator (WPILib API 2025.2.1)",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "PoseEstimator (WPILib API 2025.2.1)",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 53032,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4829 Mentor"
+                    },
+                    "post_url": "/t/multi-limelight-global-localization/491125/2",
+                    "custom_user_title": "4829 Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3525243,
+                    "name": "",
+                    "username": "nstrike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "created_at": "2025-02-12T19:49:53.938Z",
+                    "cooked": "FYI addVisionMeausrement is abstracted inside the SwerveDrive object in YAGSL so its equivalent is SwerveDrive.addVisionMeasurement",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-02-12T19:49:53.938Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 65,
+                    "readers_count": 64,
+                    "score": 43.0,
+                    "yours": false,
+                    "topic_id": 491125,
+                    "topic_slug": "multi-limelight-global-localization",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 53032,
+                        "username": "Traptricker",
+                        "name": "Jackson Elia",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51887,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "YAGSL & YASS Creator "
+                    },
+                    "post_url": "/t/multi-limelight-global-localization/491125/3",
+                    "custom_user_title": "YAGSL & YASS Creator ",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3522946,
+                3525115,
+                3525243
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                243
+            ],
+            [
+                2,
+                241
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Arbitrary Feedforward acting on Duty Cycle control REVLib",
+                "id": 491896,
+                "title": "Arbitrary Feedforward acting on Duty Cycle control REVLib",
+                "slug": "arbitrary-feedforward-acting-on-duty-cycle-control-revlib",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/e/8e39f6e17757d5eac92ce41c6520bb398604b2f9_2_1024x155.jpeg",
+                "created_at": "2025-02-16T03:21:11.773Z",
+                "last_posted_at": "2025-02-17T14:38:34.895Z",
+                "bumped": true,
+                "bumped_at": "2025-02-17T14:38:34.895Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, We started testing our elevator, beginning with the arbFF constant. For testing purposes, I created a command that stops the elevator from applying any output when the button is not pressed (sor…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 284,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528476,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 49147,
+                    "username": "CarvalhoJeo",
+                    "name": "Luca Carvalho",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49147,
+                            "username": "CarvalhoJeo",
+                            "name": "Luca Carvalho",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/carvalhojeo/{size}/249007_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19116,
+                            "username": "thatnameistaken",
+                            "name": "Joshua J",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/57b2e6/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 27113,
+                            "username": "AfterTen",
+                            "name": "AfterTen",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/afterten/{size}/11780_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is it worth switching to YAGLS when our team has our own Swerve code?",
+                "id": 484092,
+                "title": "Is it worth switching to YAGLS when our team has our own Swerve code?",
+                "slug": "is-it-worth-switching-to-yagls-when-our-team-has-our-own-swerve-code",
+                "posts_count": 15,
+                "reply_count": 7,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2025-01-29T05:38:53.043Z",
+                "last_posted_at": "2025-01-30T03:04:16.632Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T03:04:16.632Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone, I am a student in what I would consider an “intermediate” team, and am now the main programmer for the team. Our team has been writing our own swerve drive code just using the features W…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 715,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495467,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61618,
+                    "username": "Michael888",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61618,
+                            "username": "Michael888",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 1737,
+                            "username": "Steven_Carmain",
+                            "name": "Steven Carmain",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f07891/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 46476,
+                            "username": "AMysterium",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/amysterium/{size}/167374_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Driver Station Repeatedly Disconnects and Reconnects",
+                "id": 480045,
+                "title": "Driver Station Repeatedly Disconnects and Reconnects",
+                "slug": "driver-station-repeatedly-disconnects-and-reconnects",
+                "posts_count": 8,
+                "reply_count": 4,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-08T02:03:45.561Z",
+                "last_posted_at": "2025-01-08T21:51:15.861Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T21:51:15.861Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My driver station disconnects and reconnects frequently. I updated NI game tools to 2025 and pretty much everything else. While I was trying to generate swerve code it kept disconnecting which led to …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 199,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474827,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67109,
+                    "username": "saahilsterr",
+                    "name": "Saahil Farook",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67109,
+                            "username": "saahilsterr",
+                            "name": "Saahil Farook",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/67e7ee/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24613,
+                            "username": "viggy96",
+                            "name": "viggy96",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/viggy96/{size}/252784_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66163,
+                            "username": "SEA1127",
+                            "name": "Joyful blessings ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sea1127/{size}/244524_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 36169,
+                            "username": "Hollisms",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hollisms/{size}/110925_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL calculates our max ang. velocity to be 12000rad/s ?!",
+                "id": 491642,
+                "title": "YAGSL calculates our max ang. velocity to be 12000rad/s ?!",
+                "slug": "yagsl-calculates-our-max-ang-velocity-to-be-12000rad-s",
+                "posts_count": 9,
+                "reply_count": 7,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-02-14T02:08:39.174Z",
+                "last_posted_at": "2025-02-14T16:40:31.594Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T16:40:31.594Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yep that does seem more correct! I will push this change along with the next official release. For now it will be available as beta4. Unless you want to make a PR for it so i add credits to the fix to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "wpilib",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 286,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3527005,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 8,
+                "topic_post_user": {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 58460,
+                            "username": "andriibessarab",
+                            "name": "Andrii Bessarab",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andriibessarab/{size}/258546_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 14984,
+                            "username": "Christopher149",
+                            "name": "Christopher149",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/838e76/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight megatag 1 pose estimation filtering tags out",
+                "id": 496470,
+                "title": "Limelight megatag 1 pose estimation filtering tags out",
+                "slug": "limelight-megatag-1-pose-estimation-filtering-tags-out",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-21T17:47:55.990Z",
+                "last_posted_at": "2025-03-22T23:33:31.434Z",
+                "bumped": true,
+                "bumped_at": "2025-03-22T23:33:31.434Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys, I have a quick question, does limelight provide any way to exclude tags a certain distance away from the robot for megatag1 April tag pose estimation? Right now, our limelight is picking up…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 77,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3564707,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55168,
+                    "username": "Rzheng1232",
+                    "name": "Ryan zheng",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/rzheng1232/{size}/182897_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55168,
+                            "username": "Rzheng1232",
+                            "name": "Ryan zheng",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rzheng1232/{size}/182897_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28240,
+                            "username": "icemannie",
+                            "name": "icemannie",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/i/bc79bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "drivetrain",
+            "limelight",
+            "vision",
+            "apriltags",
+            "localization"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Multi-Limelight global localization",
+        "id": 491125,
+        "title": "Multi-Limelight global localization",
+        "posts_count": 3,
+        "created_at": "2025-02-11T01:41:08.326Z",
+        "views": 254,
+        "reply_count": 1,
+        "like_count": 3,
+        "last_posted_at": "2025-02-12T19:49:53.938Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "multi-limelight-global-localization",
+        "category_id": 30,
+        "word_count": 219,
+        "deleted_at": null,
+        "user_id": 60512,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_491125",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 43836,
+            "execute_at": "2026-02-12T19:49:53.938Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 51887,
+                    "username": "nstrike",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 53032,
+                    "username": "Traptricker",
+                    "name": "Jackson Elia",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/traptricker/{size}/215403_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 60512,
+                    "username": "four",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/four/{size}/199902_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 60512,
+                "username": "four",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/four/{size}/199902_2.png"
+            },
+            "last_poster": {
+                "id": 51887,
+                "username": "nstrike",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://www.youtube.com/watch?v=TG9KAa2EGzQ",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 11,
+                    "user_id": 53032,
+                    "domain": "www.youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://github.com/STMARobotics/frc-7028-2023/blob/5916bb426b97f10e17d9dfd5ec6c3b6fda49a7ce/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java",
+                    "title": "frc-7028-2023/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java at 5916bb426b97f10e17d9dfd5ec6c3b6fda49a7ce · STMARobotics/frc-7028-2023 · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 53032,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/SwerveDrivePoseEstimator.html",
+                    "title": "SwerveDrivePoseEstimator (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 53032,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/estimator/PoseEstimator.html",
+                    "title": "PoseEstimator (WPILib API 2025.2.1)",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 53032,
+                    "domain": "github.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

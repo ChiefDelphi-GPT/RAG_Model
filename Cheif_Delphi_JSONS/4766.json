@@ -1,0 +1,775 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3490833,
+                    "name": "Alan Federman",
+                    "username": "Ubiquity",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png",
+                    "created_at": "2025-01-23T18:12:19.404Z",
+                    "cooked": "The Marinators 5760 are a ‘new’ returning team. Actually their first attempt in 2015 ended in failure, since they didn’t field a robot. So The few students on the team have little experience, and in code development only a little Python. Our local sponsoring teams are providing lots of support, but for various reasons we are going to use Python as the code development platform, and following the Kitbot docs to implement them.  I have resurrected an Toshiba Satellite (bought a new battery) and have logged my history in getting it configured.\n\nThis is my progress so far. Ubuntu 24 Desktop installed on laptop.\n\nhints:  ‘ctrl-alt-t’ brings up terminal up arrow recalls last commands auto complete of CLIls ex.  ls Dow will complete to ls Downloads\n\nhistory   → brings up last 100 commands ls   → list current directory cd   → change to directory mkdir rm  →   delete\n\nUser marcode  Password xxxxxxxxxxxxxxxxxxxxxx\n\nInstall and enable Chrome (I just prefer to FireFox)\n\n(pin Chrome, unpin FireFox) Install useful utilities\n\n11  sudo apt install locate         (enhanced find command)\n\nGo to Wpi and install VScode tarball\n\n14  tar -xf WPILib_Linux-2025.2.1.tar.gz 15  ls 16  cd WPILib_Linux-2025.2.1/ 17  ls 18  ./WPILibInstaller 19  cd 20  sudo cp ~/wpilib/2025/frccode/AppArmor/* /etc/apparmor.d/ 29  sudo systemctl reload apparmor.service\n\nInstall pip\n\n35  sudo apt install python3-pip 36  pip3 --version\n\nInstall virtual environment for robot.py\n\n41  sudo apt install python3.12-venv 42  python3 -m venv develop 44  source develop/bin/activate 45  python3 -m pip install robotpy 46  ls 47  mkdir Mac 48  cd Mac 49  python3 -m robotpy init 50  ls 51  ls -l\n\nAt this point, a blank python program is in directory Mac and read for code creation.  This is a python program that gets loaded to the RoboRio.\n\nB (At this point I had to stop for a day or two to get a new battery for this old Toshiba, which came at 4pm the 22nd, about an hour after I picked up a donated driver station PC from team 7777 <bound to be lucky! Thanks!> It is a XPS 9310 with two USB-c ports, so I will need a Ethernet dongle or dock.)\n\nOK, get more code for robot py\n\ngit clone GitHub - robotpy/mostrobotpy: Official Repository of python implementation of WPILib components\n\nOOPS no git, probably need to install  build-essential, probably OpenCV, etc.\n\nsudo apt install git\n\nGet XRP examples (we do have an XRP, not sure if will use to teach this season)\n\ngit clone GitHub - lobrien/xrp_wpilib_examples\n\nGet kibot python code and docs:\n\n614.79 KB\n\n*/\n\nDown load and unzip into KitBotPythonCode\n\n:~/KitBotPythonCode$ ls\n\n‘Inline Commands’   KitBot_Python_Software_Guide.pdf  ‘Traditional Commands’\n\nOK good stopping point. Next, actually getting a a full robot.py for the default kitbot built in vscode.  I guess I will read the  KitBot_Python_Software_Guide.pdf.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-01-23T18:12:19.404Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 21,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 118.8,
+                    "yours": false,
+                    "topic_id": 483236,
+                    "topic_slug": "ubuntu-code-development-setup",
+                    "display_username": "Alan Federman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://firstfrc.blob.core.windows.net/frc2024/KitBot/Kitbot%20Python%20Code%20Guide.pdf",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://www.firstinspires.org/resource-library/frc/kitbot",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "KitBot | FIRST",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://github.com/lobrien/xrp_wpilib_examples",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - lobrien/xrp_wpilib_examples",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://github.com/robotpy/mostrobotpy",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - robotpy/mostrobotpy: Official Repository of python implementation of WPILib components",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24375,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/ubuntu-code-development-setup/483236/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3490931,
+                    "name": "Alan Federman",
+                    "username": "Ubiquity",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png",
+                    "created_at": "2025-01-23T20:10:35.647Z",
+                    "cooked": "OK got a little further, can open examples in vs code, but couldn’t find some modules for rev and commands2  (ie pytest robot.py barfed) these needed to be added from the terminal:\n\n(first source to venv)\n\npip3 install -U robotpy[rev] [commands2]\n\nNever give up! Never surrender!  We will get this robot driving by Saturday.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-01-23T20:10:35.647Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 6.0,
+                    "yours": false,
+                    "topic_id": 483236,
+                    "topic_slug": "ubuntu-code-development-setup",
+                    "display_username": "Alan Federman",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24375,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/ubuntu-code-development-setup/483236/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3490833,
+                3490931
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                261
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "FRC 1757 Wolverines | 2025 Build Thread | Open Alliance",
+                "id": 474230,
+                "title": "FRC 1757 Wolverines | 2025 Build Thread | Open Alliance",
+                "slug": "frc-1757-wolverines-2025-build-thread-open-alliance",
+                "posts_count": 22,
+                "reply_count": 10,
+                "highest_post_number": 22,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/2/b28421f09bfab29099dc97b97e4bdb49c9421460.png",
+                "created_at": "2024-11-02T20:09:35.571Z",
+                "last_posted_at": "2025-05-23T00:59:23.802Z",
+                "bumped": true,
+                "bumped_at": "2025-05-23T15:24:09.740Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello Chief Delphi Welcome to Team 1757’s THIRD Open Alliance build thread! Here is where we will be sharing our updates for the 24-25 FRC season. About Us Founded in 2006, we are a high-school ro…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "openalliance",
+                    "frc1757"
+                ],
+                "tags_descriptions": {},
+                "like_count": 120,
+                "views": 3638,
+                "category_id": 89,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3443042,
+                "topic_post_liked": false,
+                "topic_post_like_count": 21,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 54103,
+                    "username": "Giant",
+                    "name": "Luke Maxwell",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/giant/{size}/235453_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 54103,
+                            "username": "Giant",
+                            "name": "Luke Maxwell",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/giant/{size}/235453_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54340,
+                            "username": "LandonBayer",
+                            "name": "Landon Bayer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/landonbayer/{size}/215782_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58319,
+                            "username": "Chase1699",
+                            "name": "Chase Vendrillo",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chase1699/{size}/230099_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52398,
+                            "username": "bcon",
+                            "name": "Brendan Conover",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bcon/{size}/169080_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 65824,
+                            "username": "anyajiang",
+                            "name": "anya",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/anyajiang/{size}/260415_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Team 581 Blazing Bulldogs 2024 Offseason Robots &amp; Projects",
+                "id": 475847,
+                "title": "Team 581 Blazing Bulldogs 2024 Offseason Robots & Projects",
+                "slug": "team-581-blazing-bulldogs-2024-offseason-robots-projects",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/1/0/103c745260e80f3c9c041ed5a32419e40995f476_2_1024x1024.jpeg",
+                "created_at": "2024-12-02T00:39:43.707Z",
+                "last_posted_at": "2024-12-11T20:04:33.687Z",
+                "bumped": true,
+                "bumped_at": "2024-12-11T20:04:33.687Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Through the offseason the team has been hard at work building new robots and working on training & new projects. Team members will be making posts to detail and share what we learned! The first proje…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 120,
+                "views": 1716,
+                "category_id": 37,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3453602,
+                "topic_post_liked": false,
+                "topic_post_like_count": 40,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 16982,
+                    "username": "ShelbyA",
+                    "name": "ShelbyA",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/shelbya/{size}/237092_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 16982,
+                            "username": "ShelbyA",
+                            "name": "ShelbyA",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/shelbya/{size}/237092_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52943,
+                            "username": "Jimmyy",
+                            "name": "Jimmy McCosker",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jimmyy/{size}/199505_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 69264,
+                            "username": "fernandaC",
+                            "name": "fernanda",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fernandac/{size}/237566_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28019,
+                            "username": "s-neff",
+                            "name": "s-neff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/s-neff/{size}/9062_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Multi-stage elevator with continuos rigging 2+stages",
+                "id": 479825,
+                "title": "Multi-stage elevator with continuos rigging 2+stages",
+                "slug": "multi-stage-elevator-with-continuos-rigging-2-stages",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-07T16:58:47.342Z",
+                "last_posted_at": "2025-01-07T18:40:34.648Z",
+                "bumped": true,
+                "bumped_at": "2025-01-07T18:40:34.648Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hii, i need to start designing a continuous elevator but I don’t have any experience and my team doesn’t have many years of experience so I would really appreciate it if you guys could share some of y…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 462,
+                "category_id": 68,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474006,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 65548,
+                    "username": "pogobiggestfan",
+                    "name": "pogo",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/d6d6ee/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 65548,
+                            "username": "pogobiggestfan",
+                            "name": "pogo",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/d6d6ee/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 59244,
+                            "username": "spearson23",
+                            "name": "Steven Pearson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/779978/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Problems with WPILib 2024.3.2 in 2025",
+                "id": 481328,
+                "title": "Problems with WPILib 2024.3.2 in 2025",
+                "slug": "problems-with-wpilib-2024-3-2-in-2025",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-13T04:24:27.101Z",
+                "last_posted_at": "2025-01-13T04:28:03.284Z",
+                "bumped": true,
+                "bumped_at": "2025-01-13T04:33:12.471Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi. Recently, my team and I have been facing a problem with compatibility between version 2024.3.2 of WPILib and third-party libraries from Rev, CTRE, and YAGSL. As far as I know, the latest version o…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 288,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3480681,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 56168,
+                    "username": "MysterF",
+                    "name": "Galã da Programação",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mysterf/{size}/181168_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 56168,
+                            "username": "MysterF",
+                            "name": "Galã da Programação",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mysterf/{size}/181168_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Does anyone sell alternate size RT25 belts?",
+                "id": 473802,
+                "title": "Does anyone sell alternate size RT25 belts?",
+                "slug": "does-anyone-sell-alternate-size-rt25-belts",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-10-26T21:37:09.789Z",
+                "last_posted_at": "2024-10-27T06:01:50.828Z",
+                "bumped": true,
+                "bumped_at": "2024-10-27T06:01:50.828Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We need a very, very long RT25 belt for an elevator project. It needs to be larger than the 216 tooth that rev sells. Does anyone know if something like that exists? Either an alternate vendor or some…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "rev",
+                    "belt"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 334,
+                "category_id": 80,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3440072,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57869,
+                    "username": "Singu",
+                    "name": "Aaron Milholland",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/singu/{size}/234436_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57869,
+                            "username": "Singu",
+                            "name": "Aaron Milholland",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/singu/{size}/234436_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 3095,
+                            "username": "Billfred",
+                            "name": "Billfred Leverette (he/him/not Bill)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58314,
+                            "username": "Oliver_stivers",
+                            "name": "Oliver",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/977dab/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "python",
+            "kitbot"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Ubuntu code development setup",
+        "id": 483236,
+        "title": "Ubuntu code development setup",
+        "posts_count": 2,
+        "created_at": "2025-01-23T18:12:19.328Z",
+        "views": 99,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-01-23T20:10:35.647Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "ubuntu-code-development-setup",
+        "category_id": 9,
+        "word_count": 600,
+        "deleted_at": null,
+        "user_id": 24375,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_483236",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 39881,
+            "execute_at": "2026-01-23T20:10:35.647Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24375,
+                    "username": "Ubiquity",
+                    "name": "Alan Federman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 24375,
+                "username": "Ubiquity",
+                "name": "Alan Federman",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png"
+            },
+            "last_poster": {
+                "id": 24375,
+                "username": "Ubiquity",
+                "name": "Alan Federman",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/ubiquity/{size}/168857_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://firstfrc.blob.core.windows.net/frc2024/KitBot/Kitbot%20Python%20Code%20Guide.pdf",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 24375,
+                    "domain": "firstfrc.blob.core.windows.net",
+                    "root_domain": "windows.net"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

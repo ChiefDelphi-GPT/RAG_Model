@@ -1,0 +1,975 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3330665,
+                    "name": "Anderson Hall",
+                    "username": "Xactlysharp",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/xactlysharp/{size}/186572_2.png",
+                    "created_at": "2024-03-12T00:43:44.537Z",
+                    "cooked": "We are currently having issues when we try to aim our chassis with the command below, that our drivetrain can’t move at it’s normal/max speed…\n\nimage 1309×203 19.4 KB\n\nimage 1309×203 19.4 KB\n\nimage 1309×203 19.4 KB\n\nAny ideas on how to fix this? Thanks, heres our code.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-12T00:43:44.537Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 14,
+                    "reads": 110,
+                    "readers_count": 109,
+                    "score": 107.0,
+                    "yours": false,
+                    "topic_id": 458339,
+                    "topic_slug": "driving-while-aiming-not-at-max-speed",
+                    "display_username": "Anderson Hall",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Liberty-Hill-High-School-Robotics/2024-FRC-Main",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - Liberty-Hill-High-School-Robotics/2024-FRC-Main: Main code repository for 2024!",
+                            "clicks": 3
+                        },
+                        {
+                            "url": "https://youtu.be/eMpz2eXSZzE?si=MWiw3KNtby47SH8B",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/3/336260cd4ffedb47ae3d39f800ddc4ee0fd82701.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55065,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8088 Alumni"
+                    },
+                    "post_url": "/t/driving-while-aiming-not-at-max-speed/458339/1",
+                    "custom_user_title": "8088 Alumni",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3330691,
+                    "name": "Sam Carlberg",
+                    "username": "SamCarlberg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png",
+                    "created_at": "2024-03-12T01:13:22.517Z",
+                    "cooked": "Is your robot’s max speed 1 meter per second? Because that’s the fastest this code will tell it to go.\n\nChassisSpeeds ’s vx and vy are in terms of meters per second, and omega in terms of radians per second:\n\ndeclaration: package: edu.wpi.first.math.kinematics, class: ChassisSpeeds\n\nJoysticks return values between -1 and +1, with no associated units. Your code is taking those values and interpreting them as speeds.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-12T01:13:22.517Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 95,
+                    "readers_count": 94,
+                    "score": 39.0,
+                    "yours": false,
+                    "topic_id": 458339,
+                    "topic_slug": "driving-while-aiming-not-at-max-speed",
+                    "display_username": "Sam Carlberg",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/kinematics/ChassisSpeeds.html#%3Cinit%3E(double,double,double)",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "ChassisSpeeds (WPILib API 2024.3.1)",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 25916,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "2084 Lead Mentor | WPILib Developer"
+                    },
+                    "post_url": "/t/driving-while-aiming-not-at-max-speed/458339/2",
+                    "custom_user_title": "2084 Lead Mentor | WPILib Developer",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3330692,
+                    "name": "Anderson Hall",
+                    "username": "Xactlysharp",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/xactlysharp/{size}/186572_2.png",
+                    "created_at": "2024-03-12T01:14:41.967Z",
+                    "cooked": "Oops, I’ll fix that, thanks",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-03-12T01:14:41.967Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 76,
+                    "readers_count": 75,
+                    "score": 30.2,
+                    "yours": false,
+                    "topic_id": 458339,
+                    "topic_slug": "driving-while-aiming-not-at-max-speed",
+                    "display_username": "Anderson Hall",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 25916,
+                        "username": "SamCarlberg",
+                        "name": "Sam Carlberg",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55065,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "8088 Alumni"
+                    },
+                    "post_url": "/t/driving-while-aiming-not-at-max-speed/458339/3",
+                    "custom_user_title": "8088 Alumni",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3554707,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-12T01:15:41.158Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-03-12T01:15:41.158Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 458339,
+                    "topic_slug": "driving-while-aiming-not-at-max-speed",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/driving-while-aiming-not-at-max-speed/458339/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3330665,
+                3330691,
+                3330692,
+                3554707
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                579
+            ],
+            [
+                4,
+                214
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "CTRE Swerve AddVisionMeasurment Having No Effect",
+                "id": 482024,
+                "title": "CTRE Swerve AddVisionMeasurment Having No Effect",
+                "slug": "ctre-swerve-addvisionmeasurment-having-no-effect",
+                "posts_count": 14,
+                "reply_count": 8,
+                "highest_post_number": 14,
+                "image_url": null,
+                "created_at": "2025-01-16T03:48:28.917Z",
+                "last_posted_at": "2025-01-17T05:06:03.527Z",
+                "bumped": true,
+                "bumped_at": "2025-01-17T05:06:03.527Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "In that code base, I see a commit where you called addVisionMeasurement without using Utils.fpgaToCurrentTime, and then a commit using a local pose estimator with Utils.fpgaToCurrentTime. However, tho…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve"
+                ],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 779,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3484263,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 10,
+                "topic_post_user": {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57242,
+                            "username": "Joseph_Amador",
+                            "name": "Joseph Gonzalo Amador",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/919ad9/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60393,
+                            "username": "Space13",
+                            "name": "Wilson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/d78d45/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Check Roborio Serial Number at Compile Time?",
+                "id": 474532,
+                "title": "Check Roborio Serial Number at Compile Time?",
+                "slug": "check-roborio-serial-number-at-compile-time",
+                "posts_count": 15,
+                "reply_count": 9,
+                "highest_post_number": 15,
+                "image_url": null,
+                "created_at": "2024-11-08T04:07:16.956Z",
+                "last_posted_at": "2024-11-12T01:55:37.783Z",
+                "bumped": true,
+                "bumped_at": "2024-11-12T01:55:37.783Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You get to choose what happens when you can’t identify the robot. Refusing to run is probably too hard-core for you, so you should pick one robot as default, and emit warnings (maybe a Persistent A…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "roborio"
+                ],
+                "tags_descriptions": {},
+                "like_count": 9,
+                "views": 392,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3444971,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 10,
+                "topic_post_user": {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 49423,
+                            "username": "Gandagorn",
+                            "name": "Elliot Scher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "AdvantageKit w 240 fps Limelight 3Gs",
+                "id": 472921,
+                "title": "AdvantageKit w 240 fps Limelight 3Gs",
+                "slug": "advantagekit-w-240-fps-limelight-3gs",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2024-10-13T10:05:36.094Z",
+                "last_posted_at": "2024-10-13T19:56:30.398Z",
+                "bumped": true,
+                "bumped_at": "2024-10-13T19:56:30.398Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The rest of my code runs at the normal 50hz, but since apparently the Limelight 3Gs can capture and process at 240 hz, it seems like a waste to force it to run at 50 and lose performance. I’m pretty s…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 6,
+                "views": 404,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3434184,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64351,
+                    "username": "GronkBaby",
+                    "name": "Emil",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64351,
+                            "username": "GronkBaby",
+                            "name": "Emil",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60033,
+                            "username": "catrix",
+                            "name": "sam liu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/dbc845/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 44471,
+                            "username": "jonahb55",
+                            "name": "Jonah Bonner",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jonahb55/{size}/194474_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PathPlannerLib issues",
+                "id": 481939,
+                "title": "PathPlannerLib issues",
+                "slug": "pathplannerlib-issues",
+                "posts_count": 12,
+                "reply_count": 7,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2025-01-15T20:13:02.146Z",
+                "last_posted_at": "2025-01-23T19:09:34.067Z",
+                "bumped": true,
+                "bumped_at": "2025-01-23T19:09:34.067Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "the problem was a version issue, i think it was with the numpy. we ran sync again and it works. thanks for all of the help!",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "python"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 267,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490886,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 12,
+                "topic_post_user": {
+                    "id": 55408,
+                    "username": "sabonn",
+                    "name": "sabonn",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/f9ae1b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 55408,
+                            "username": "sabonn",
+                            "name": "sabonn",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f9ae1b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 11063,
+                            "username": "virtuald",
+                            "name": "Dustin Spicuzza",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/virtuald/{size}/65268_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Auto Pathfinding during auto, cannot gain robot control back after command finishes",
+                "id": 482829,
+                "title": "Auto Pathfinding during auto, cannot gain robot control back after command finishes",
+                "slug": "auto-pathfinding-during-auto-cannot-gain-robot-control-back-after-command-finishes",
+                "posts_count": 4,
+                "reply_count": 2,
+                "highest_post_number": 4,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/9/f958f45cf8ab2ebcb51bcf8e054bb0ec23042d6d.gif",
+                "created_at": "2025-01-21T01:22:50.640Z",
+                "last_posted_at": "2025-01-21T02:15:59.539Z",
+                "bumped": true,
+                "bumped_at": "2025-01-21T02:15:59.539Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, we are having some issues with our teleop path-finding! When our command finishes we cannot gain control of the robot back again. After doing some digging we have determined that the program ne…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 133,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3488658,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61162,
+                    "username": "PanicLemming",
+                    "name": null,
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/paniclemming/{size}/234749_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61162,
+                            "username": "PanicLemming",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/paniclemming/{size}/234749_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 38743,
+                            "username": "bovlb",
+                            "name": "Gavin Matthews",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "swerve"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Driving while Aiming not at max speed?",
+        "id": 458339,
+        "title": "Driving while Aiming not at max speed?",
+        "posts_count": 4,
+        "created_at": "2024-03-12T00:43:44.465Z",
+        "views": 244,
+        "reply_count": 1,
+        "like_count": 3,
+        "last_posted_at": "2025-03-12T01:15:41.158Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "driving-while-aiming-not-at-max-speed",
+        "category_id": 30,
+        "word_count": 168,
+        "deleted_at": null,
+        "user_id": 55065,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/3/336260cd4ffedb47ae3d39f800ddc4ee0fd82701_2_1024x158.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_458339",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1309,
+                "height": 203,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/3/336260cd4ffedb47ae3d39f800ddc4ee0fd82701.png"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 1024,
+                "height": 158,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/3/3/336260cd4ffedb47ae3d39f800ddc4ee0fd82701_2_1024x158.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "SamCarlberg",
+            "name": null,
+            "excerpt": "Is your robot’s max speed 1 meter per second? Because that’s the fastest this code will tell it to go. \nChassisSpeeds’s vx and vy are in terms of meters per second, and omega in terms of radians per second: \n\nJoysticks return values between -1 and +1, with no associated units. Your code is taking th&hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55065,
+                    "username": "Xactlysharp",
+                    "name": "Anderson Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/xactlysharp/{size}/186572_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 25916,
+                    "username": "SamCarlberg",
+                    "name": "Sam Carlberg",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samcarlberg/{size}/207684_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 55065,
+                "username": "Xactlysharp",
+                "name": "Anderson Hall",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/xactlysharp/{size}/186572_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Liberty-Hill-High-School-Robotics/2024-FRC-Main",
+                    "title": "GitHub - Liberty-Hill-High-School-Robotics/2024-FRC-Main: Main code repository for 2024!",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 3,
+                    "user_id": 55065,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

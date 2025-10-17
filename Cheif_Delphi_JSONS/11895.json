@@ -1,0 +1,903 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3154130,
+                    "name": "Brad",
+                    "username": "MrCauthers",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrcauthers/{size}/250448_2.png",
+                    "created_at": "2023-02-28T01:21:28.324Z",
+                    "cooked": "We’ve moved to a command based bot this year, and overall things are going smoothly so far but I’ve hit a bit of a snag.\n\nWe’d like to be able to have a normal arcade drive mode, a “reverse” mode (hold down a button/trigger and all controls are reversed  - ie. front is back, back is front - so that the bot can be driven backwards but still have normal control), and a separate “turbo” mode (hold down a different button/trigger to alter speed percentage).\n\nDoing this without command based is simple, and I’m pretty sure I have it figured out using separate commands for each mode, but having a separate command for each mode a) seems like a waste of code and b) doesn’t allow multiple modes to be active at once.\n\nThe only difference between normal and reverse is that the motor direction is reversed, and the only difference between normal and turbo is changing the percentage for the motors. I’m sure there is a way to change the speed variable (either be making it negative or changing the value - or both) that is passed into the command, but I can’t figure out how to do it. The only reference I can see to doing this is in this comment, but there are no details provided:\n\nToggleable \"robot mode\" using a button Java\n\nCurrently the arcade drive command call we are using is this (thank you 0 to Autonomous for the fundamentals!):\n\ndriveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () → -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveSpeedAxis), () → joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveTurnAxis)));",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-02-28T01:21:28.324Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 17,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 100.4,
+                    "yours": false,
+                    "topic_id": 428381,
+                    "topic_slug": "toggle-between-driver-modes-using-button-trigger-command-based",
+                    "display_username": "Brad",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/t/toggleable-robot-mode-using-a-button/343466/7",
+                            "internal": true,
+                            "reflection": false,
+                            "title": "Toggleable \"robot mode\" using a button",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51077,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Mentor"
+                    },
+                    "post_url": "/t/toggle-between-driver-modes-using-button-trigger-command-based/428381/1",
+                    "custom_user_title": "Lead Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3154139,
+                    "name": "Mike",
+                    "username": "Mike_RT",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_rt/{size}/186553_2.png",
+                    "created_at": "2023-02-28T01:34:56.015Z",
+                    "cooked": "MrCauthers:\n\narate “turbo” mode (hold down a different button/trigger to alter speed percentage).\n\nDoing this without command based is simple, and I’m pretty sure I have it figured out using separate commands for each mode, but having a separate command for each mode a) seems like a waste of code and b) doesn’t allow multiple modes to be active at once.\n\nThe only difference betwee\n\nSo I am not sure exactly what your end goal is but there are a few different ways to do this you you want to use the command approaches/triggers.\n\nOne option would to be have different drive commands that you swap in based on button presses. (Ether different classes or pass different parameters) . (Poor solution in my opinion)\n\nAnother option would be instant commands to change the state of the drive system or arcade command (IE mode flags or speed modifiers)\n\nEdit: Is there a reason you do not want to check the state of a button inside of the arcade drive command? Vice having commands for everything? You could even pass a supplier for that input just like you are for the joystick axis. IE",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-02-28T01:51:48.659Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 5,
+                    "reads": 38,
+                    "readers_count": 37,
+                    "score": 52.6,
+                    "yours": false,
+                    "topic_id": 428381,
+                    "topic_slug": "toggle-between-driver-modes-using-button-trigger-command-based",
+                    "display_username": "Mike",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 3,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 28768,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "620 Software Mentor"
+                    },
+                    "post_url": "/t/toggle-between-driver-modes-using-button-trigger-command-based/428381/2",
+                    "custom_user_title": "620 Software Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3154159,
+                    "name": "Brad",
+                    "username": "MrCauthers",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrcauthers/{size}/250448_2.png",
+                    "created_at": "2023-02-28T02:02:02.112Z",
+                    "cooked": "Thanks for the reply!\n\nUsing different drive commands is the solution I thought of as well - but I’m not sure how to have both “turbo” and “reverse” work at the same time (pretty sure I can’t have both commands working at the same time, but I could be wrong). And like you said, it’s not really a good solution anyway.\n\nI’m not familiar with instant commands, I’ll have to take a look. Except for what we cobbled together last year I’m not really familiar with Java (and definitely not familiar with the command based structure), so I’m very much learning as we go.\n\nAs for the edit - there’s actually no reason to not just check the state inside the command. It actually would probably be the easiest way to solve the problem, not sure why I didn’t consider it.\n\nAnd I know nothing about suppliers other than simply copying the code from 0 to Autonomous, so that wasn’t a route I had thought to look at either.\n\nRegardless, I think I’m going to go with just checking the button state inside the command. Thanks!",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-02-28T02:02:02.112Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 28,
+                    "readers_count": 27,
+                    "score": 20.6,
+                    "yours": false,
+                    "topic_id": 428381,
+                    "topic_slug": "toggle-between-driver-modes-using-button-trigger-command-based",
+                    "display_username": "Brad",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 28768,
+                        "username": "Mike_RT",
+                        "name": "Mike",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_rt/{size}/186553_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 51077,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Lead Mentor"
+                    },
+                    "post_url": "/t/toggle-between-driver-modes-using-button-trigger-command-based/428381/3",
+                    "custom_user_title": "Lead Mentor",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3319370,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-02-28T02:02:15.146Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-02-28T02:02:15.146Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 428381,
+                    "topic_slug": "toggle-between-driver-modes-using-button-trigger-command-based",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/toggle-between-driver-modes-using-button-trigger-command-based/428381/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3154130,
+                3154139,
+                3154159,
+                3319370
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                957
+            ],
+            [
+                4,
+                592
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve Drive and Phoenix with pigeon switches joystick forward and backward controls in red contest opposite from blue contest",
+                "id": 506331,
+                "title": "Swerve Drive and Phoenix with pigeon switches joystick forward and backward controls in red contest opposite from blue contest",
+                "slug": "swerve-drive-and-phoenix-with-pigeon-switches-joystick-forward-and-backward-controls-in-red-contest-opposite-from-blue-contest",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-09-15T23:57:41.236Z",
+                "last_posted_at": "2025-09-16T11:22:29.566Z",
+                "bumped": true,
+                "bumped_at": "2025-09-16T11:22:29.566Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The Last three contests we have a software issue with java deployed from PHEONIX Java creater on our new Swerve drive system. When a contest starts on blue the robot controls and robot drives forwar…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 101,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3740204,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61778,
+                    "username": "RummelRobotics",
+                    "name": "James Goebel",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/bc8723/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61778,
+                            "username": "RummelRobotics",
+                            "name": "James Goebel",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/bc8723/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56954,
+                            "username": "aopalka",
+                            "name": "Alex",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f9ae1b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kickoff",
+                "id": 505614,
+                "title": "Kickoff",
+                "slug": "kickoff",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-08-24T02:28:36.847Z",
+                "last_posted_at": "2025-08-24T02:43:59.426Z",
+                "bumped": true,
+                "bumped_at": "2025-08-24T02:43:59.426Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi! I’m wondering how different teams do kickoff so maybe we can improve how we do ours, how does everyone structure that weekend?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 373,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3722132,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67726,
+                    "username": "JamesO1086",
+                    "name": "James O’Leary",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/58956e/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 67726,
+                            "username": "JamesO1086",
+                            "name": "James O’Leary",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/58956e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "What Can Your Robot Do? [Poll]",
+                "id": 484336,
+                "title": "What Can Your Robot Do? [Poll]",
+                "slug": "what-can-your-robot-do-poll",
+                "posts_count": 30,
+                "reply_count": 19,
+                "highest_post_number": 30,
+                "image_url": null,
+                "created_at": "2025-01-30T21:46:44.578Z",
+                "last_posted_at": "2025-02-11T15:50:56.852Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T15:50:56.852Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Now that we are deep into build season, and teams have a more concrete idea of their designs and capabilities, I thought it might be interesting to ask, what can YOUR robot do? This is a poll specifi…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 147,
+                "views": 1790,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3497128,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53160,
+                    "username": "RomanTechPlus",
+                    "name": "Roman A.",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/romantechplus/{size}/214929_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53160,
+                            "username": "RomanTechPlus",
+                            "name": "Roman A.",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/romantechplus/{size}/214929_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46508,
+                            "username": "Smoosh",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/49beb7/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59182,
+                            "username": "TrevDay",
+                            "name": "Trevor Dayal (he/him)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/trevday/{size}/268067_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66322,
+                            "username": "scimn27",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/50afbb/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 70335,
+                            "username": "AegisNova",
+                            "name": "Josh",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aegisnova/{size}/265035_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Yagsl problems",
+                "id": 480590,
+                "title": "Yagsl problems",
+                "slug": "yagsl-problems",
+                "posts_count": 7,
+                "reply_count": 2,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-10T00:15:54.592Z",
+                "last_posted_at": "2025-01-10T15:46:54.552Z",
+                "bumped": true,
+                "bumped_at": "2025-01-10T15:46:54.552Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "The problem was that my student accidently put an old version of the json",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 177,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3477503,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 54481,
+                    "username": "Kully",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kully/{size}/264955_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 54481,
+                            "username": "Kully",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kully/{size}/264955_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69610,
+                            "username": "LucasApache",
+                            "name": "Lucas",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/8dc957/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Inverted Drive When on Red Team",
+                "id": 492260,
+                "title": "Inverted Drive When on Red Team",
+                "slug": "inverted-drive-when-on-red-team",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-02-19T01:17:41.134Z",
+                "last_posted_at": "2025-03-17T19:12:35.444Z",
+                "bumped": true,
+                "bumped_at": "2025-03-17T19:12:35.444Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "When we are red team our teleoperated controls are inverted. We are having a hard time in finding out why it is doing this. We used YAGSL and we are trying to find this in our code. Our Red alliance i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 520,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3532217,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70574,
+                    "username": "Tatertotman",
+                    "name": "Tate",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70574,
+                            "username": "Tatertotman",
+                            "name": "Tate",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tatertotman/{size}/246170_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 27417,
+                            "username": "iBleedBlue48",
+                            "name": "Jake Garlits",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ibleedblue48/{size}/251462_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44380,
+                            "username": "gdefender",
+                            "name": "Andy Gasser",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gdefender/{size}/168507_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57260,
+                            "username": "ronito",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ronito/{size}/208387_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 74420,
+                            "username": "Lune",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lune/{size}/255451_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Toggle between driver modes using button/trigger (command based)",
+        "id": 428381,
+        "title": "Toggle between driver modes using button/trigger (command based)",
+        "posts_count": 4,
+        "created_at": "2023-02-28T01:21:28.261Z",
+        "views": 285,
+        "reply_count": 1,
+        "like_count": 2,
+        "last_posted_at": "2024-02-28T02:02:15.146Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "toggle-between-driver-modes-using-button-trigger-command-based",
+        "category_id": 9,
+        "word_count": 743,
+        "deleted_at": null,
+        "user_id": 51077,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_428381",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "Mike_RT",
+            "name": null,
+            "excerpt": "So I am not sure exactly what your end goal is but there are a few different ways to do this you you want to use the command approaches/triggers. \nOne option would to be have different drive commands that you swap in based on button presses. (Ether different classes or pass different parameters) . &hellip;",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 51077,
+                    "username": "MrCauthers",
+                    "name": "Brad",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mrcauthers/{size}/250448_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 28768,
+                    "username": "Mike_RT",
+                    "name": "Mike",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/mike_rt/{size}/186553_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 51077,
+                "username": "MrCauthers",
+                "name": "Brad",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/mrcauthers/{size}/250448_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

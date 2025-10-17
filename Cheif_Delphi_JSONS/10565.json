@@ -1,0 +1,1603 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3219349,
+                    "name": "Nathan Louck",
+                    "username": "nlouck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png",
+                    "created_at": "2023-07-17T17:42:45.040Z",
+                    "cooked": "Hello all,\n\nLong time lurker, first time poster I am creating this post as I want it to be a resource for both my team and other teams in a similar position to use, as going through these steps not only for swerve but for our entire team, has helped us find more competitive success at competitions.\n\nWhen I was a sophomore I began a small journey that would expand into a large form project that not only transformed my skills and abilities but helped to create a better team environment and transform the way that we look at capabilities.\n\nWhile the end product is a going to be a large focus of this post, I find that it is important to document and explain the steps to get there, as it helped to define the way that our team did things, as well as gave us capabilities that were otherwise seen as non-options for our team.\n\nDetails for specific sections are categorized below\n\nThe desire for a better solution for swerve began in 2020, which was my freshman year. With the release of brushless motors, specifically the falcon 500, our team decided to upgrade our existing modules. As an early adopter of the revolution 2 swerve module by 221, we already had used swerve for quite some time, and created a modified version for our team. However, this module was extremely large and bulky. We had switched away from this module, using tank for the 2019-2020 season, with disappointing results, having gotten used to the maneuverability that swerve had offered us. image-20170118_180601 1920×2560 609 KB\n\nimage-20170118_180601 1920×2560 609 KB\n\nimage-20170118_180601 1920×2560 609 KB\n\n20210201_185733 1920×2560 525 KB 20210201_185815 1920×2560 525 KB\n\n20210201_185733 1920×2560 525 KB\n\n20210201_185733 1920×2560 525 KB\n\n20210201_185815 1920×2560 525 KB\n\n20210201_185815 1920×2560 525 KB\n\nWe switched back to the rev 2 modules, with our new falcon design that we had created in the offseason. For the 2020-2021 season, we were inspired by the robowranglers style drum feed for the power cells. However, still wanting swerve to move quickly for the auto paths and drive tests, we laid out our initial design for both, with disheartening results.\n\nThe picture below shows the overlapped sketches, demonstrating the room that was left for the drum once all 4 modules were in. This limited space over the course of the at home challenges was a recurring theme, not just because of the length and width of the modules, but also the height. Having a large, restricted space was causing lots of problems, and ultimately voided the teams’ goals of creating a robot that still had a climb and intake, even though they were not necessary for the at home challenges. IMG_1622 1920×2560 370 KB !\n\nIMG_1622 1920×2560 370 KB\n\nIMG_1622 1920×2560 370 KB\n\nHowever, these space constraints allowed me to integrate my knowledge of 3d-printing in a way that was new to the team, in the form of what could be considered more exotic filaments. Because of the limited height that we gave ourselves, we needed to try and create a solution that involved custom wheel sizes and belt sizes that we were unable to source. As someone who enjoyed 3d printing and experimenting with mechanical capabilities, I convinced the team to try tpu, for both the belts and wheels, through a process of repeatedly testing different combinations of walls, infill, temperatures, and cooling procedures. Below are some pictures of that process, but I am planning on creating a full post documenting the ways to narrow in tpu prints for mechanical/compliant mechanisms for use in frc, and why they can be improvements over standard COTS parts.\n\nIMG_1755 1920×2560 341 KB\n\nIMG_1755 1920×2560 341 KB\n\nIMG_1755 1920×2560 341 KB\n\nHowever, the point of this aside was to demonstrate the power that 3d printing can have when designing for your robot. Stryke Force is a great example of this. Having the opportunity to talk to them at this years IRI, I noticed the large amount of onyx (carbon fiber filled nylon) prints that they had on their robot. They said that they have found that it stands up in high level completion, even on the Einstein field, as well as gave them the ability to create custom complex geometries.\n\nBefore those wheels, the team’s 3D printing usage was a couple of pla covers and shop improvements, but nothing critical to the robot. While I love the design mentors we have on our team, getting them to agree to using 3d printed parts in a critical function was hard, as plastic was something that they had struggled with in the past while mentoring for other teams. In all fairness, aluminum will always be better than a pla or abs part, and the same goes for rubber vs tpu. However, 3d printing unlocks a much more flexible design process, and with education and testing 3d printed parts can meet the needed criteria, without the need for complex machining capabilities. I would highly recommend teams that have access to a 3d printer to do offseason testing, or for students with personal printers to demonstrate the capabilities that the team can unlock, as it opened many doors for our teams and has arguably made us more successful in following seasons.\n\nAfter that season I decided to devote part of my summer to designing a new swerve module, with the goal of creating the smallest form factor I physically could while still maintaining a couple of base requirements.\n\nOur team needed to have a full chassis mount – i.e., boxtubing goes all the way around and can be welded into one piece.\n\nEverything needs to be hyper swappable\n\n1:1 with absolute encoder\n\nWhile this list expanded, I had started with initially to give myself a baseline. First thing was doing research, looking at the incredible designs by Sam, Ryan, Nick Coussens, CMS Swerve, and the SDS team. I took these designs and looked at positives and negatives of each one, and then tried to find a solution that was manufacturable by our team. We had a wood router, hand tools, a mentor’s lathe, and student 3d printers.\n\nOur team also did not want to buy a COTs solution as we had been using in house swerve for 5ish years now.\n\nSo, I began by creating hand sketches, creating a base outline for what I wanted my design process to look like. I then moved to what was probably the most complicated part of the design, which was gear ration selection and matching this to COTS parts while still maintaining a compact form factor.\n\nI initially started in JVN and looked at creating a base gear ratio to start with, to modify on throughout the design. My initial goal was to do a double falcon design, similar to the Mk3 at the time, but through some determination I no longer saw it as a necessity. When looking at the number of revolutions per minute of the azimuth assembly with a neo-550, as well as the torque output, I decided that going the path of 550 for the steering motor was a final decision. The drive motor was decided to be a falcon. While this means that we now have 2 different libraries and 2 vendors to deal with, our team has had some negative experiences in the past with the base neo, especially on the software side. Our programming team was hesitant about the 550 but determined that for the form factor improvements it was the right decision, as well as taking some of the load off our battery.\n\nNext was the physical design process. The actual CAD of the module went through 18 initial versions, with many being small version changes to fix tolerances, improve reliability, reduce hardware, and convert hardware to alike hardware to limit costs. On the 18th version our team decided to use 3d printing to do prototype testing once again. We created an almost fully printed version, using hardware on hand and only ordering around 45$ worth of supplies, and another 20$ worth of filament. This 3D printed hardware version was crucial, as it allowed us to see some of the differences between CAD and physical and create another 4 CAD iterations based on changes that we determined necessary. It also programming a test pod to play with and start creating a swerve platform to build off, modifying kinematics from the previous pod. IMG_2657 1920×2560 150 KB IMG_2659 1920×2560 348 KB IMG_2660 1920×2560 294 KB IMG_2661 1920×2560 323 KB IMG_2881 1920×2560 402 KB\n\nIMG_2657 1920×2560 150 KB\n\nIMG_2657 1920×2560 150 KB\n\nIMG_2659 1920×2560 348 KB\n\nIMG_2659 1920×2560 348 KB\n\nIMG_2660 1920×2560 294 KB\n\nIMG_2660 1920×2560 294 KB\n\nIMG_2661 1920×2560 323 KB\n\nIMG_2661 1920×2560 323 KB\n\nIMG_2881 1920×2560 402 KB\n\nIMG_2881 1920×2560 402 KB\n\nHaving this 3d printed pod was new for our team and was something that we would recommend to any (lower-mid) budget team, as it saved us lots of money in the long run, calculated to around $350(saved).\n\nHowever, next was the manufacturability issue. The pod design contained some alum parts that had to be machined, as well as parts that needed to be carbon filled nylon. The first solution was for machined aluminum. We decided to modify our shapeoko router with a new router, upgrading endmills, better z-axis, and invested in some coolant.\n\n20211206_195749 1920×2560 880 KB 20211209_210343 1920×2560 793 KB 20211209_212719 1920×2560 444 KB 20220128_202713 1920×2560 497 KB\n\n20211206_195749 1920×2560 880 KB\n\n20211206_195749 1920×2560 880 KB\n\n20211209_210343 1920×2560 793 KB\n\n20211209_210343 1920×2560 793 KB\n\n20211209_212719 1920×2560 444 KB\n\n20211209_212719 1920×2560 444 KB\n\n20220128_202713 1920×2560 497 KB\n\n20220128_202713 1920×2560 497 KB\n\nWe began testing with the thin 0.090 parts first, creating a baseline for how the router handled aluminum parts, and tuned based off the results. While small holes and outside geometries were fine, we discovered that larger holes for the x-contact bearing are far more complex, with it taking 12 tries to get a press fit, and the offset in fusion being 0.127 inches. While this isn’t great, it allowed us to get the parts early on, especially when sponsors were busy with work. However, the wheel forks, originally going to be 3d-printed, were changed to be aluminum parts, which we definitely could not do. The team asked sponsors, some local teams, schools, etc, and we could not find a solution. We eventually ordered a base set from xometry, swallowing the high price in the name of having the pods done for the season. However, due to post pandemic shipping time, these would not be ready for 4 weeks, and they were ordered in December. While this was not a great timeline, it gave us time to figure out everything else.\n\nThe next major problem was the carbon filled nylon parts. We had no access to a printer, no sponsors had them, and thrifty Bot had a 7 week lead-time for onyx parts.\n\nSo I decided to modify my own printer, placing all of the parts necessary for the order on the list to buy, putting the entire lead-time on my shoulders, which turned out to be the decision I regret most in this entire project. However, the result is something that I think ultimately led to a better overall experience and gave us more tools down the line.\n\nI had started with a stock mk3, that I had been using for around 4 years at that point. I was extremely comfortable with its functions, and was confident going in. After doing basic research about how to modify the printer, I prowled through datasheets until I landed on a filament to try and use. I settled on 3dxtech high temp carbon filled nylon. However, for this I would need to modify my extruder, filament pathway, and ambient environment. The most challenging part was by far the thermistor. Due to the higher temperatures needed, I needed to upgrade, which was a much more tedious process than I initially thought. The most obvious option was to use a pt1000, but due to a pullup resistor on the pinout of the mk3, you would have bricked the thermistor on startup, meaning you had to use the pt100. After looking around at some other options I stumbled across a forum post leading me to an alternate pinout diagram of the mk3 board, leading me to discover a pin used for the filament sensor that I could remap for use with the thermistor. So, after a long struggle with a custom firmware build, I ended with something that could get up to 425 C safely. However, due to the new pin mappings and firmware, I had to disable some other safety features, as the mk3 doesn’t want you to burn your house down … IMG_0272.PNG 2388×1668 181 KB IMG_2555 3024×4032 613 KB IMG_0273.PNG 2388×1668 232 KB IMG_0277.PNG 2388×1668 188 KB IMG_2721.PNG 828×1792 125 KB IMG_2722 828×1792 234 KB IMG_2833 3024×4032 322 KB IMG_2834 828×246 51.8 KB tinywow_IMG_2829_29403494 1920×2560 481 KB However, the most critical change I made was using dual power supplies. Because your bed temp is running at max (or above recommended max in my case), you are drawing far more amps then normal, meaning that whenever fast travels using both x any happened, I would overdraw, messing up the PID/resistance calculation of the thermistor, reading a temperature way lower than I was supposed to, causing the extruder to heat up to temps around 550C. This ultimately melted the plastic of my extruder but was a good lesson on looking at the entire system.\n\nIMG_0272.PNG 2388×1668 181 KB\n\nIMG_0272.PNG 2388×1668 181 KB\n\nIMG_2555 3024×4032 613 KB\n\nIMG_2555 3024×4032 613 KB\n\nIMG_0273.PNG 2388×1668 232 KB\n\nIMG_0273.PNG 2388×1668 232 KB\n\nIMG_0277.PNG 2388×1668 188 KB\n\nIMG_0277.PNG 2388×1668 188 KB\n\nIMG_2721.PNG 828×1792 125 KB\n\nIMG_2721.PNG 828×1792 125 KB\n\nIMG_2722 828×1792 234 KB\n\nIMG_2722 828×1792 234 KB\n\nIMG_2833 3024×4032 322 KB\n\nIMG_2833 3024×4032 322 KB\n\nIMG_2834 828×246 51.8 KB\n\nIMG_2834 828×246 51.8 KB\n\ntinywow_IMG_2829_29403494 1920×2560 481 KB\n\ntinywow_IMG_2829_29403494 1920×2560 481 KB\n\nI was also building an enclosure and filament warmer in order to improve ambient temperatures while printing, using lizard heaters in order to improve ambient temps. Once all of this was up and running, I finally was able to produce non warping prints, on attempt number 49. However, I quickly learned that with the settings required to get a clean not warped print, I would have to rebuild my extruder every other print, as the heat would cause it to sag. I printed 18 extra extruder parts out of PC, and slowly depleted them in the making of 2 pods. However, at this time it was late January, and the setup for each part was about 3 hours, so we decided to reach out to a 3d printing company and paid for professional onyx prints. IMG_2826 1920×2560 388 KB IMG_2827 1920×1440 128 KB IMG_2944 1920×1440 292 KB IMG_2825 1920×2560 520 KB IMG_2850 1920×1440 302 KB IMG_2830 3024×4032 879 KB IMG_2831 3024×4032 1010 KB IMG_2855 3024×4032 875 KB IMG_2856 1920×2560 319 KB IMG_2942.PNG 828×1792 66.8 KB IMG_2857 3024×4032 697 KB\n\nIMG_2826 1920×2560 388 KB\n\nIMG_2826 1920×2560 388 KB\n\nIMG_2827 1920×1440 128 KB\n\nIMG_2827 1920×1440 128 KB\n\nIMG_2944 1920×1440 292 KB\n\nIMG_2944 1920×1440 292 KB\n\nIMG_2825 1920×2560 520 KB\n\nIMG_2825 1920×2560 520 KB\n\nIMG_2850 1920×1440 302 KB\n\nIMG_2850 1920×1440 302 KB\n\nIMG_2830 3024×4032 879 KB\n\nIMG_2830 3024×4032 879 KB\n\nIMG_2831 3024×4032 1010 KB\n\nIMG_2831 3024×4032 1010 KB\n\nIMG_2855 3024×4032 875 KB\n\nIMG_2855 3024×4032 875 KB\n\nIMG_2856 1920×2560 319 KB\n\nIMG_2856 1920×2560 319 KB\n\nIMG_2942.PNG 828×1792 66.8 KB\n\nIMG_2942.PNG 828×1792 66.8 KB\n\nIMG_2857 3024×4032 697 KB\n\nIMG_2857 3024×4032 697 KB\n\nOnce we had the physical parts, we decided that we needed to do some extra meetings in order to assemble the rest of the pods. However, I was the only one with knowledge of assembly. So, I decided to write an assembly guide while at school and print multiple copies for use that night. The very first version can be found below, linked in the google drive.\n\n20220129_151722 3024×4032 1.13 MB 20220219_174122 3024×4032 1.08 MB\n\n20220129_151722 3024×4032 1.13 MB\n\n20220129_151722 3024×4032 1.13 MB\n\n20220219_174122 3024×4032 1.08 MB\n\n20220219_174122 3024×4032 1.08 MB\n\nWhile this guide did have some flaws, it was better than me guiding everyone through the assembly process. We were able to assemble the reaming 6 pods (as we already had 2), in around 3.5 hours, with much of that time dedicated to deburring and fitting bearings.\n\nHowever, through the initial assembly, we learned and documented a lot of things as a group. The full list is too long and specific for here, but here are some of the highlights\n\n•\tMake sure all shielded bearings are pointed in the correct direction, as otherwise you are leaving a good portion of the main x-contact bearing exposed. •\tEnsure that the 15-tooth bevel gear is properly seated, as after you install the shaft you will not be able to see the shaft in the small bearing, and the 15-tooth bevel gear will be around a tenth higher than intended. •\tBe extremely careful with the JST cable of the neo-550. This is what has probably caused us the most pain by far with these pods. The JST, even will the supplier crimp fails excessively, and repairing it is terrible. Recently at IRI, we talked with 111, who said that repair done will a non-official JST crimper would always be sub-par, and that the large investment is worth it, which is something that we are still considering and would love input on. •\tThe falcon can only be secured with 5 bolts, as the 6th interferes with the gearset driving the encoder shaft. •\tPay attention to the direction that the wires come out of the motor …. •\tMake sure that when aligning the central encoder gear, you are careful to use a tool to center the gear when partially tightened, as this gives a better center and should lead to a smoother overall motion.\n\nAfter this assembly session, we finally were able to create a driving chassis, with movement happening in early February. However, thanks to our great programming team, we were able to have a controllable chassis, in around a week, as much of the kinematic testing had been done with the 3d printed pod and simulated environments. 20220312_142607 3024×4032 1.85 MB 20220214_211916 3024×4032 889 KB 20220219_174122 3024×4032 1.08 MB\n\n20220312_142607 3024×4032 1.85 MB\n\n20220312_142607 3024×4032 1.85 MB\n\n20220214_211916 3024×4032 889 KB\n\n20220214_211916 3024×4032 889 KB\n\n20220219_174122 3024×4032 1.08 MB\n\n20220219_174122 3024×4032 1.08 MB\n\nThe weeks went on and we eventually integrated our pod into our design for the season and took it to the first competition. As we do not have a field or large test area, this would be the first time they were tested under any type of load. 20220305_174249 3024×4032 760 KB First competition – week 3 Tippecanoe District\n\n20220305_174249 3024×4032 760 KB\n\n20220305_174249 3024×4032 760 KB\n\n5 pod failures\n\n•\t3 due to a broken encoder gear •\t1 due to a bearing that popped •\t1 due to a bot coming into ours – breaking encoder connection We did one wheel change during day 2 lunch, and overall were not successful, especially with pod failure rate as well as pod consistency while driving and during auto.\n\nHowever, all 4 wheels were changed in under 10 minutes, and pod changes went okay. While they took around 8 minutes each, we didn’t miss any matches due to inability to swap a pod, and was able to drive after every broken pod, through a combination of swapping the whole pod and then fixing the issue in pits during the match. Pod repairability was good, except for a couple of things.\n\n•\tThe shorter 10-32 that secures the encoder mount tended to loosen, most likely due to the hand tapped threads. •\tThe Wiring Harness layout made it hard to remove just the top plate without interference or large amounts of tension in the wires, making certain repairs hard to achieve. •\tThe 6-32s that held the tread onto the wheel would constantly come loose, and then the head of the bolt would shear while driving. •\tThe forks would slowly push inwards toward the wheel, causing the bolts holding the forks to back out, as well as increasing the amount of friction present on the wheel.\n\nWeek 4 at Columbus wasn’t much better, with us focusing much of the time in between to focus on our shooter, with had a whole other slew of problems.\n\nHowever, software side, things did improve. Autos were much more consistent, due to some improvements to drift correction.\n\nWe had the exact same amount of pod failures, however this time they were all due to the dreaded encoder gear.\n\nWhile this gear should only be taking anything but rotational force, we found that when going over bumps while rotating the pod would cock sideways, and while driving the small moment combined with the off axis rotational force would shear the encoder gear at around 1-2 layer lines above the solid body of the gear.\n\nAfter this comp, we had 3 weeks to attempt to fix the problem. The first thing that we attempted was using a resin printer from a local school to create a part that didn’t have layer lines, as a way to create a more solid piece with less of a pathway for the force to travel through directly. However, during testing at the Andymark facility, we found that these cracked more frequently than even the original design, and they were scrapped. The next thing that we attempted was creating a polycarbonate gear in 2 orientations, one the same as the original parts, and the other sideways, in an attempt to change the way, the filament interacted with the forces. We had success with the polycarb printed in the original orientation, and went through a complete testing process at Andymark, with defense from an auxiliary tank bot and hard hits from 3940 and 45. We decided that this would be the solution moving into state, and decided not to change the overall design, as risking that could hold up people that would be better off improving other parts of the bot, including myself. However, we decided to practice pod changes with the pit team, as a way to prepare just in case of failure. We also implemented a system to number pods, with each pod having a number that could be linked to a specific offset. You still would have to set the new can ID, but this would make the pod swap in software faster – in theory.\n\nMoving into state we had done 2.5 weeks of drive testing on the pods, with no failures or issues, just replacing tread. At state, we found massive success, moving into elims as the number 1 alliance captain, and a strong team backing us. We made it all the way to finals where we got a red card match 1, voiding our score. In match 2, the pod failed towards the end of match, however we were still able to maintain the lead and win. However, we had used our timeout in order to fix some alliance issues and gather ourselves after the red card. This meant that we had 6 minutes to find the broken pod, take it out, and put a new pod in, and swap it in software. However, identifying the pod took around 2 minutes, as we had issues with our tether, and then we were unable to use our new software swap. We had issues identifying can ID’s, had to wait for phoenix tuner, and ran into issues getting the new pod to register.(All of these problems were eventually rectified with future software iterations) Running out of time, me and a mentor made the decision to unplug the pod and run a dead wheel. We had a wheel that didn’t have a bevel and were working to switch it in when we got our final warning and had to go to the field, with only 3 wheels in place. One of the most frequent questions that I get asked when showing my pods to people is why are the wheel forks so bulky? The truth is that they were designed to be 3d-printed, but I now send them to this video . We were able to drive around and score a decent amount, while dragging a dead pod with no wheel. We were able to tie, but our after-match assessment was less than ideal. We had broken the opposite corner and would not be able to replace the 2 pods in the 6-minute window. We subbed in a 4th bot and ended second in the state.\n\nHaving your design that you have put around 600 hours into be the reason your team loses state is demoralizing, even more so that I brought our alliance down with us. I have never had more motivation than that in that moment. I proceeded to go home and do research on forces within moving and rotating systems, including following the force path with hand drawn “simulations”. While I learned a lot through this experience, my research ultimately found the answer to the encoder gear quite simple. Just add more material. Screenshot 2023-07-17 115638 767×556 35.1 KB\n\nScreenshot 2023-07-17 115638 767×556 35.1 KB\n\nScreenshot 2023-07-17 115638 767×556 35.1 KB\n\nWe extended the height of the encoder shaft by 8mm and increased the base of the encoder mount. With this change, we have not had a broken encoder shaft since having been to\n\nIRI, Boiler Bot Battle, INDY RAGE, 3 district events, 1 Kokomo trip, 5 greenwood visits, State, and IRI.\n\nHowever, we also added lots of layers of redundancy, including the aptly named oh s&%# pod. This is nothing more than a swivel caster stood off to the height of a pod that we can drop in and have as a dead wheel that is much more stable than an unplugged pod. This pod has been used in tests at home, as well as during a match at state, in which we had a bad solder joint in a pod, causing 5v to be fed into our can loop. The dummy pod ran and performed great, expect during autos, in which there were some issues with performance (Due to drift with the undriven wheel)\n\nWe also now train for pod swaps, with our fastest pod swap, mechanical and software, being 2.5 minutes, which is perfect for the 15 minutes between playoff matches.\n\nWe also noticed that Thrifty tread far out performs tread from andymark and vex. It is much tougher and can go significantly longer without performance being affected.\n\nHowever, we ultimately ended the season with a swerve success. tinywow_IMG_2981_29403679 1920×2560 842 KB tinywow_IMG_3072_29403560 1920×2560 751 KB\n\ntinywow_IMG_2981_29403679 1920×2560 842 KB\n\ntinywow_IMG_2981_29403679 1920×2560 842 KB\n\ntinywow_IMG_3072_29403560 1920×2560 751 KB\n\ntinywow_IMG_3072_29403560 1920×2560 751 KB\n\ntinywow_IMG_2934_29403388 1920×2560 502 KB tinywow_IMG_2940_29403329 1920×2560 518 KB tinywow_IMG_2941_29403278 1920×2560 629 KB 20220315_210218 1920×2560 441 KB 20230328_205942 1920×2560 604 KB 20230328_211251 1920×2560 481 KB Screenshot 2023-07-17 115425 1037×834 61.8 KB Screenshot 2023-07-17 115445 766×732 77.2 KB\n\ntinywow_IMG_2934_29403388 1920×2560 502 KB\n\ntinywow_IMG_2934_29403388 1920×2560 502 KB\n\ntinywow_IMG_2940_29403329 1920×2560 518 KB\n\ntinywow_IMG_2940_29403329 1920×2560 518 KB\n\ntinywow_IMG_2941_29403278 1920×2560 629 KB\n\ntinywow_IMG_2941_29403278 1920×2560 629 KB\n\n20220315_210218 1920×2560 441 KB\n\n20220315_210218 1920×2560 441 KB\n\n20230328_205942 1920×2560 604 KB\n\n20230328_205942 1920×2560 604 KB\n\n20230328_211251 1920×2560 481 KB\n\n20230328_211251 1920×2560 481 KB\n\nScreenshot 2023-07-17 115425 1037×834 61.8 KB\n\nScreenshot 2023-07-17 115425 1037×834 61.8 KB\n\nScreenshot 2023-07-17 115445 766×732 77.2 KB\n\nScreenshot 2023-07-17 115445 766×732 77.2 KB\n\nThis google drive, contains all cad, BOM, assembly guides, and some more pictures/videos!\n\nI also have a new version that contains many quality of life updates and some design changes that should make assembly much much easier (3 tools). However, I am going to wait for a bit as I would like it to go through tests and wear before making a post. It is only around 8 iterations deep, and I’m sure there are many many improvements.\n\nI also know that this swerve drive overview was different than the “Coussens style” and it went much more over the process and was longer. I would like to hear your feedback about which style you like better.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-17T17:42:45.040Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 537,
+                    "reads": 374,
+                    "readers_count": 373,
+                    "score": 3109.6,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Nathan Louck",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://drive.google.com/drive/folders/1KvXslsIw1spaHga11uGQYPOl8SZX7Pa1?usp=drive_link",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Swerve Delphi Post - Google Drive",
+                            "clicks": 59
+                        },
+                        {
+                            "url": "https://www.youtube.com/watch?v=figt8cLCrog",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Final 3 - 2022 FIRST Indiana State Championship - YouTube",
+                            "clicks": 14
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/1/518b1a5abe4393846a5aaa25cbe066561ad0767e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/8/5/854aefc40898b1699624eda72b7cdde1ebcee9af.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/8/6824c1fe3bdce7076addf80f28688b15501e7679.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/0/50e167e81bf1415d5b07546682a285a4450311c8.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/5/254dad31ed233640f5d5dc0f1b64e8531a680e3f.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/7/276246a30730db67495b41d068713fbc17c85abf.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/0/50b75652ed8e392989b1af4ad4ff88badfc45b0a.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/b/3b7ec45ed35bfeb6051378fbbc25120ad0c6ffc7.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/0/209456a6fc374c64688d97a91b47f8dd702bcf0f.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/f/ff9ce66b1166da92e162d2365e216c2bada915c5.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/2/42b02628d00074c7926a311ac31e4feb4f23fa2a.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/7/e7349ffd2f546ed5bec0f29f4215bfc6e1a41299.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/1/416d388919b5a3632edf2bd099ca61bb4c38d6c2.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/3/c367c2cb851636b4f21f3c63e0c38d2ed2ec526e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/4/34a39bbbb2f79819dbdb1472827e571119dfb23e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/0/c04aa1e5101d0df30aeeb8fbd4220d39c9bf5b66.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/8/287c7420c37c8ac269f9536a879aeac7de5b4e70.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/5/4565bf722b00352f1726329bb51680bccef56590.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/c/9cb19ff080b758032a9b03ea43faa246233bd7ab.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/2/b27fba240b94816b4059827cbf9ee404ab78e074.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/2/92b026f70c2dbf345d7bc7090aeea57516cebba8.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/7/d78f846f73b63f35a1d233779df7f92318806060.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/8/b85a62abac1d7d366af16adf7fb726f4b2cdaabe.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/d/2df3761cd5547f5ab95b8456931054134e9a0318.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/6/c686e9ab544bc8f78732eb72714810a637937982.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/7/2721e7f24a7cbf4b28bc0613a7742c24368ecb64.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/1/f/1f9868f91d3935610256e1320c72131961864974.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/e/4e68625dd55735c9d6c14df2e5ef1f91bfdbc261.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/4/a48c466d119203c6e47eff941a62fc4634f11bb0.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/9/99194550be0fe0568881ced19c3b7e8c9e1f878a.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/e/cef877de69a01177a69c26c2e53e2a9a24a70200.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/d/cdd27f0d699e7f6a36e9c463a2ddcd8478e56801.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/e/5/e5ca54d58c7f3b0e0e6f4abe761188e7ceee6f2a.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/f/5fe281144cd870ca1822b829cf3992726896ed91.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/d/ad9b7338d95806e326e83ef03f9662ecf5f516c3.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/9/a99ba06409184123679a868ad6a7495018599c9b.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/d/0d584ac57a6d90e666c1e7138c62646195a97c67.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/7/a7328472310b5b256b0e538e423642b96f0971b5.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/0/6043ee1dcf6ae3559c8673911cf966436e3803f6.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/6/762a951645dcbe9a4327c1515570cc615fc6e90e.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/9/b/9b3a142b9bca262e497285fe0cfd49289050ca26.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/a/b/aba15b47276dda34884ccfd386731bc00d39bcd6.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/e/5e38dc5787cb433c4d6c115deec8e1a736984de3.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/d/dd9d433cfa5ec60438711e7fdbdc6693fd1f6ff0.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/0/a/0a18c6ea5e850be03545f6926e46ab0ea818cb13.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/2/f/2f318c59e889497a5a0ad8de2451f54d11d9f842.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/b/9/b9461bfa9a0920595b779d4f2a92e30c7fbce96c.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/c/6/c6ce91cb4ad517aaa0656ab4a3d701febed00a56.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/6/b/6b747be3c369de6ce3553be8ae46b5d77b1e8bba.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/9/d98809ac062afda52ee91add2aa453837bde6b85.jpeg",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://www.chiefdelphi.com/t/swerve-encoders/437669/20",
+                            "internal": true,
+                            "reflection": true,
+                            "title": "Swerve encoders",
+                            "clicks": 2
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 22
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59930,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Trying to find motivation"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/1",
+                    "custom_user_title": "Trying to find motivation",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 22
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 22,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3219358,
+                    "name": "Eliot Dunn",
+                    "username": "Eliot",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/eliot/{size}/207280_2.png",
+                    "created_at": "2023-07-17T18:38:25.955Z",
+                    "cooked": "I loved reading that writeup!\n\nWhat does the footprint look like vs REV’s swerve module? I wonder what it would look like if you corner mounted it like REV’s, too. Obviously you wouldn’t want to do that because it’s different than your team’s style but just curious.\n\nAlso yeah, those jsts suck",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-17T18:40:38.581Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 262,
+                    "readers_count": 261,
+                    "score": 92.2,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Eliot Dunn",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 52966,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "111 Alum"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/2",
+                    "custom_user_title": "111 Alum",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3219359,
+                    "name": "Nathan Louck",
+                    "username": "nlouck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png",
+                    "created_at": "2023-07-17T18:41:04.710Z",
+                    "cooked": "mine is 5x5x7.75\n\nrev is sitting around 3.96x3.96x7.6 for the meaningful footprint space.\n\nHowever, it all depends if you want a full wrap around chassis, or if you are going to use the module as the corner of the module.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-17T18:41:04.710Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 2,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 259,
+                    "readers_count": 258,
+                    "score": 71.6,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Nathan Louck",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 52966,
+                        "username": "Eliot",
+                        "name": "Eliot Dunn",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/eliot/{size}/207280_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59930,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Trying to find motivation"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/3",
+                    "custom_user_title": "Trying to find motivation",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3219432,
+                    "name": "page2067",
+                    "username": "page2067",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/page2067/{size}/3748_2.png",
+                    "created_at": "2023-07-18T01:26:39.586Z",
+                    "cooked": "Love seeing that custom swerves are still a thing and have evolved!",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-18T01:26:39.586Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": 3,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 200,
+                    "readers_count": 199,
+                    "score": 74.8,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "page2067",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "reply_to_user": {
+                        "id": 59930,
+                        "username": "nlouck",
+                        "name": "Nathan Louck",
+                        "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10808,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/4",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3219479,
+                    "name": "Nathan Louck",
+                    "username": "nlouck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png",
+                    "created_at": "2023-07-18T06:42:21.065Z",
+                    "cooked": "Thank you! Our team considered COTS but found that the learning and training was too valuable, as well as sticking with team tradition. While I do find it somewhat disheartening to go a comp and see the sea of SDS, it’s cool to see something me and my team have put a lot of time into grow into a stable and common drivetrain used in competition.",
+                    "post_number": 5,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-18T06:42:21.065Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 4,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 166,
+                    "readers_count": 165,
+                    "score": 53.0,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Nathan Louck",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 10808,
+                        "username": "page2067",
+                        "name": "page2067",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/page2067/{size}/3748_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59930,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Trying to find motivation"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/5",
+                    "custom_user_title": "Trying to find motivation",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3219494,
+                    "name": "Ryan Dognaux",
+                    "username": "Ryan_Dognaux",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_dognaux/{size}/129138_2.png",
+                    "created_at": "2023-07-18T13:11:08.976Z",
+                    "cooked": "It’s been really cool to see Purple Precision continue to develop their own module in-house over the past few years. Always fun to drop by and see the changes / updates you’ve made. Great write up, thanks for sharing.",
+                    "post_number": 6,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-18T13:11:08.976Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 133,
+                    "readers_count": 132,
+                    "score": 91.4,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Ryan Dognaux",
+                    "primary_group_name": "Thriftybot",
+                    "flair_name": "Thriftybot",
+                    "flair_url": null,
+                    "flair_bg_color": "",
+                    "flair_color": "",
+                    "flair_group_id": 58,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 985,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "www.thethriftybot.com"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/6",
+                    "custom_user_title": "www.thethriftybot.com",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3219497,
+                    "name": "Nathan Louck",
+                    "username": "nlouck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png",
+                    "created_at": "2023-07-18T13:17:50.282Z",
+                    "cooked": "Thank you so much! You have been a massive help over the course of the season, with multiple trips being made to your house in order to pickup parts from you . We could not have built the pods without your amazing products and will continue repping thrifty as we move forward!",
+                    "post_number": 7,
+                    "post_type": 1,
+                    "posts_count": 8,
+                    "updated_at": "2023-07-18T13:17:50.282Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 6,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 129,
+                    "readers_count": 128,
+                    "score": 95.6,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "Nathan Louck",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "reply_to_user": {
+                        "id": 985,
+                        "username": "Ryan_Dognaux",
+                        "name": "Ryan Dognaux",
+                        "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_dognaux/{size}/129138_2.png"
+                    },
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 4
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59930,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Trying to find motivation"
+                    },
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/7",
+                    "custom_user_title": "Trying to find motivation",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 4
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 4,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3408974,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-07-17T13:18:32.400Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 8,
+                    "post_type": 3,
+                    "posts_count": 8,
+                    "updated_at": "2024-07-17T13:18:32.400Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 20,
+                    "readers_count": 19,
+                    "score": 28.8,
+                    "yours": false,
+                    "topic_id": 438993,
+                    "topic_slug": "3176-custom-swerve-drive-and-process",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/3176-custom-swerve-drive-and-process/438993/8",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3219349,
+                3219358,
+                3219359,
+                3219432,
+                3219479,
+                3219494,
+                3219497,
+                3408974
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                817
+            ],
+            [
+                8,
+                452
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "DIO Ports Issue",
+                "id": 492816,
+                "title": "DIO Ports Issue",
+                "slug": "dio-ports-issue",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-23T04:13:52.634Z",
+                "last_posted_at": "2025-02-23T06:49:28.026Z",
+                "bumped": true,
+                "bumped_at": "2025-02-23T06:49:28.026Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, We have 3 DIO ports being used on our 1 Limit switch, and two beam breaks. The issue is something really weird occurred today. When we went to see if each was powered and working, only the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 157,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537005,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57090,
+                    "username": "rdesai14",
+                    "name": "Rishi Desai",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/3ab097/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57090,
+                            "username": "rdesai14",
+                            "name": "Rishi Desai",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/3ab097/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63541,
+                            "username": "Jwal",
+                            "name": "Joseph Walters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jwal/{size}/228161_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64784,
+                            "username": "adamsogm",
+                            "name": null,
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/adamsogm/{size}/218283_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elevator rope",
+                "id": 484676,
+                "title": "Elevator rope",
+                "slug": "elevator-rope",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-01T19:04:01.042Z",
+                "last_posted_at": "2025-02-01T19:40:57.066Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T19:40:57.066Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What’s the best type of rope for an elevator? We haven’t built an elevator in years and we are unsure if the rope we have is the best to use or if we should order some new stuff.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 163,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499141,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69571,
+                    "username": "leighFRC",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69571,
+                            "username": "leighFRC",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/59ef9b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71354,
+                            "username": "Lyinlyon",
+                            "name": "James Lyon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner pattern on the fly override?",
+                "id": 484739,
+                "title": "Pathplanner pattern on the fly override?",
+                "slug": "pathplanner-pattern-on-the-fly-override",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-02T01:19:23.432Z",
+                "last_posted_at": "2025-02-02T02:05:09.663Z",
+                "bumped": true,
+                "bumped_at": "2025-02-02T02:05:09.663Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You can also take it one step further and add a .and() with a Trigger to the whileHeld. We are using this to allow our driver to take control of the movement at any time without having to wait for the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 146,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499667,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 62983,
+                    "username": "Andy_H",
+                    "name": "Andy Hegemann",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/779978/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55309,
+                            "username": "LPryor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lpryor/{size}/220287_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 62983,
+                            "username": "Andy_H",
+                            "name": "Andy Hegemann",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/779978/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Paid parking, venues, and team experience",
+                "id": 491883,
+                "title": "Paid parking, venues, and team experience",
+                "slug": "paid-parking-venues-and-team-experience",
+                "posts_count": 8,
+                "reply_count": 3,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-02-15T23:27:17.709Z",
+                "last_posted_at": "2025-02-16T20:40:01.440Z",
+                "bumped": true,
+                "bumped_at": "2025-02-16T20:40:01.440Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Parking is a complicated situation. It basically comes down to whether you think you deserve a subsidy, compared to all the other potential users of that space. I agree that FRC teams, generally jus…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 817,
+                "category_id": 5,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3528339,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 235,
+                    "username": "Tristan_Lall",
+                    "name": "Tristan Lall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_lall/{size}/97_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 235,
+                            "username": "Tristan_Lall",
+                            "name": "Tristan Lall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tristan_lall/{size}/97_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12266,
+                            "username": "John_Bottenberg",
+                            "name": "John Bottenberg",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john_bottenberg/{size}/224569_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 34196,
+                            "username": "rlindsay",
+                            "name": "Ryan",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/d2c977/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2254,
+                            "username": "waialua359",
+                            "name": "waialua3:59",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/waialua359/{size}/676_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CAN Bus Instability with CANivore: Intermittent Disconnects After a Specific Point",
+                "id": 483636,
+                "title": "CAN Bus Instability with CANivore: Intermittent Disconnects After a Specific Point",
+                "slug": "can-bus-instability-with-canivore-intermittent-disconnects-after-a-specific-point",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-01-25T23:34:39.777Z",
+                "last_posted_at": "2025-01-25T23:44:02.533Z",
+                "bumped": true,
+                "bumped_at": "2025-01-25T23:44:02.533Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi everyone, Our team has been encountering some issues with the wiring on our robot in the past few days and we were thus wondering if anyone would be able to provide some advice. The Afte…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 140,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3492726,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53933,
+                    "username": "VS3045",
+                    "name": "Vincent Schelstraete ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/f05b48/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53933,
+                            "username": "VS3045",
+                            "name": "Vincent Schelstraete ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/v/f05b48/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 7841,
+                            "username": "Tom_Line",
+                            "name": "Tom Line",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot",
+            "swerve",
+            "swervedrive",
+            "swervemodule",
+            "coaxialswerve"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "3176 Custom Swerve Drive and Process",
+        "id": 438993,
+        "title": "3176 Custom Swerve Drive and Process",
+        "posts_count": 8,
+        "created_at": "2023-07-17T17:42:44.856Z",
+        "views": 1701,
+        "reply_count": 4,
+        "like_count": 36,
+        "last_posted_at": "2024-07-17T13:18:32.400Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "3176-custom-swerve-drive-and-process",
+        "category_id": 9,
+        "word_count": 4725,
+        "deleted_at": null,
+        "user_id": 59930,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/9/d98809ac062afda52ee91add2aa453837bde6b85_2_768x1024.jpeg",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_438993",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 8,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 1,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1920,
+                "height": 2560,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/d/9/d98809ac062afda52ee91add2aa453837bde6b85.jpeg"
+            },
+            {
+                "max_width": 1024,
+                "max_height": 1024,
+                "width": 768,
+                "height": 1024,
+                "url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/d/9/d98809ac062afda52ee91add2aa453837bde6b85_2_768x1024.jpeg"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 59930,
+                    "username": "nlouck",
+                    "name": "Nathan Louck",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png",
+                    "post_count": 4,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 985,
+                    "username": "Ryan_Dognaux",
+                    "name": "Ryan Dognaux",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/ryan_dognaux/{size}/129138_2.png",
+                    "post_count": 1,
+                    "primary_group_name": "Thriftybot",
+                    "flair_name": "Thriftybot",
+                    "flair_url": null,
+                    "flair_color": "",
+                    "flair_bg_color": "",
+                    "flair_group_id": 58,
+                    "trust_level": 2
+                },
+                {
+                    "id": 10808,
+                    "username": "page2067",
+                    "name": "page2067",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/page2067/{size}/3748_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 52966,
+                    "username": "Eliot",
+                    "name": "Eliot Dunn",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/eliot/{size}/207280_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 59930,
+                "username": "nlouck",
+                "name": "Nathan Louck",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/n/5f8ce5/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://drive.google.com/drive/folders/1KvXslsIw1spaHga11uGQYPOl8SZX7Pa1?usp=drive_link",
+                    "title": "Swerve Delphi Post - Google Drive",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 59,
+                    "user_id": 59930,
+                    "domain": "drive.google.com",
+                    "root_domain": "google.com"
+                },
+                {
+                    "url": "https://www.youtube.com/watch?v=figt8cLCrog",
+                    "title": "Final 3 - 2022 FIRST Indiana State Championship - YouTube",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 14,
+                    "user_id": 59930,
+                    "domain": "www.youtube.com",
+                    "root_domain": "youtube.com"
+                },
+                {
+                    "url": "https://www.chiefdelphi.com/t/swerve-encoders/437669/20",
+                    "title": "Swerve encoders",
+                    "internal": true,
+                    "attachment": false,
+                    "reflection": true,
+                    "clicks": 2,
+                    "user_id": 59930,
+                    "domain": "www.chiefdelphi.com",
+                    "root_domain": "chiefdelphi.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

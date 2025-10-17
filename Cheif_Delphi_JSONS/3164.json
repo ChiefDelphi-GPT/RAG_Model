@@ -1,0 +1,753 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3555444,
+                    "name": "Carson Miller",
+                    "username": "carsongmiller",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png",
+                    "created_at": "2025-03-12T20:15:33.752Z",
+                    "cooked": "My team is using swerve drives, and we’re looking for a good way to implement “nudge” buttons.  By this, I mean a button on our controller that the driver could press to move in a pre-determined direction by a pre-determined distance.  I’ve implemented some code using pathplanner to generate a command at runtime, and it works for moving forwards and reverse, but when trying to modify the code to move left/right, the robot doesn’t move in a straight line–it follows more of an S curve.  Still ending up in the correct pose, but not moving in a straight line to get there, which is required for us.  It’s like the robot has to move straight forward out of its current pose, then quickly turns to move towards its final pose, which is also has to approach from the rear (forming an S shape, or reverse S)\n\nSo I guess a few questions:\n\nIs the approach I’m currently using a good one?\n\nIf so, what am I doing wrong that causes left/right moves to follow an S?\n\nIf there’s a better way to achieve what we’re looking for, please let me know!\n\nHere is a sample function for nudging the robot left:",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-12T20:16:10.974Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 8,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 56.0,
+                    "yours": false,
+                    "topic_id": 495333,
+                    "topic_slug": "nudge-left-right-commands-at-runtime",
+                    "display_username": "Carson Miller",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 71738,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/nudge-left-right-commands-at-runtime/495333/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3555465,
+                    "name": "",
+                    "username": "crueter",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                    "created_at": "2025-03-12T20:37:39.990Z",
+                    "cooked": "I’d venture to guess that the “heading”–that is, direction of travel–for your waypoints is wrong.\n\nHowever, with such a short path, you would probably get much better results commanding a small robot-relative drive command for a short duration. Path planning isn’t exactly the best choice when going that short of a distance.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-12T20:37:39.990Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 40.4,
+                    "yours": false,
+                    "topic_id": 495333,
+                    "topic_slug": "nudge-left-right-commands-at-runtime",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 50684,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "6032 | QDash"
+                    },
+                    "post_url": "/t/nudge-left-right-commands-at-runtime/495333/2",
+                    "custom_user_title": "6032 | QDash",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3555444,
+                3555465
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                213
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Best practices for pit lan",
+                "id": 497250,
+                "title": "Best practices for pit lan",
+                "slug": "best-practices-for-pit-lan",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-03-28T21:20:05.193Z",
+                "last_posted_at": "2025-03-29T13:34:09.261Z",
+                "bumped": true,
+                "bumped_at": "2025-03-29T13:34:09.261Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m curious if anyone has some suggestions on good practice for setting up a pit lan? I’ve been mulling over a configuration that I’ll describe shortly, in order to solve a few problems. The problem…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 472,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3571649,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69322,
+                    "username": "caparomula",
+                    "name": "Christopher Larrieu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/43a26b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 69322,
+                            "username": "caparomula",
+                            "name": "Christopher Larrieu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/43a26b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 44763,
+                            "username": "tekdemo",
+                            "name": "Dan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tekdemo/{size}/138330_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pathplanner path reverses and rotates when robot starts at 180 degrees",
+                "id": 483172,
+                "title": "Pathplanner path reverses and rotates when robot starts at 180 degrees",
+                "slug": "pathplanner-path-reverses-and-rotates-when-robot-starts-at-180-degrees",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/c/7c5e4bface1706d3d401eff3d47dd7734696c88d.gif",
+                "created_at": "2025-01-23T04:18:04.309Z",
+                "last_posted_at": "2025-01-29T01:56:31.870Z",
+                "bumped": true,
+                "bumped_at": "2025-01-29T01:56:31.870Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We ended up finding the issue after looking through the code for a while. In our resetPose2d method, when we used the reset method on our odometry, we were passing the current heading through our getR…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 237,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3494494,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 71101,
+                    "username": "KevinLeep",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/e99b99/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster, Accepted Answer",
+                        "user": {
+                            "id": 71101,
+                            "username": "KevinLeep",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/e99b99/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61214,
+                            "username": "Paul_R",
+                            "name": "Paul Regnier",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/paul_r/{size}/203827_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62389,
+                            "username": "AlexanderCarlisi",
+                            "name": "Alexander Carlisi",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/alexandercarlisi/{size}/255089_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 29208,
+                            "username": "wharrier2450",
+                            "name": "Walter5653",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/b5e925/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is a Kalman Filter a viable way to get an accurate pose estimation?",
+                "id": 494180,
+                "title": "Is a Kalman Filter a viable way to get an accurate pose estimation?",
+                "slug": "is-a-kalman-filter-a-viable-way-to-get-an-accurate-pose-estimation",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-03-04T14:17:03.818Z",
+                "last_posted_at": "2025-03-05T22:02:33.447Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T22:02:33.447Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m curious as to whether I should take the time to research and implement a Kalman Filter into my Vision subsystem. I’ve heard good things about them, but I’m curious as to whether someone has actual…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 583,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3547130,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 72050,
+                    "username": "star_E",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/898d66/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 72050,
+                            "username": "star_E",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/898d66/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60372,
+                            "username": "ThatChair",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thatchair/{size}/199567_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 64351,
+                            "username": "GronkBaby",
+                            "name": "Emil",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 23786,
+                            "username": "EKM_319",
+                            "name": "Eric (319)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ekm_319/{size}/230932_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Trying to get proper libraries and dependencies loaded",
+                "id": 476099,
+                "title": "Trying to get proper libraries and dependencies loaded",
+                "slug": "trying-to-get-proper-libraries-and-dependencies-loaded",
+                "posts_count": 6,
+                "reply_count": 3,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2024-12-05T15:45:39.120Z",
+                "last_posted_at": "2025-01-14T21:10:08.978Z",
+                "bumped": true,
+                "bumped_at": "2025-01-14T21:10:08.978Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I am trying to start 2025 with our 2024 frc robot code, and clean it out just to get updated and make a new base robot run. The issue is that it can’t find some of the libraries, they are underlined i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 494,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455067,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69457,
+                    "username": "SethL",
+                    "name": "Seth L",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/ea666f/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69457,
+                            "username": "SethL",
+                            "name": "Seth L",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/ea666f/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63946,
+                            "username": "TuckerS",
+                            "name": "Tucker Stanton",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/c4cdca/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 16147,
+                            "username": "Thad_House",
+                            "name": "Thad House",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Sparkmax PID Tolerance Issue",
+                "id": 480038,
+                "title": "Sparkmax PID Tolerance Issue",
+                "slug": "sparkmax-pid-tolerance-issue",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-01-08T01:42:33.670Z",
+                "last_posted_at": "2025-01-09T03:26:12.292Z",
+                "bumped": true,
+                "bumped_at": "2025-01-09T03:26:12.292Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team is working on our swerve code, and we are having issues with the wheels occasionally jittering. We believe that setting a tolerance on the SPARK PID controller would fix this, as we can see in…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 243,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3474806,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 70708,
+                    "username": "michaeldunne",
+                    "name": "*",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/85f322/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 70708,
+                            "username": "michaeldunne",
+                            "name": "*",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/85f322/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "swerve",
+            "pathplanner",
+            "swervedrive",
+            "path"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "&ldquo;Nudge Left/Right&rdquo; Commands at runtime",
+        "id": 495333,
+        "title": "\"Nudge Left/Right\" Commands at runtime",
+        "posts_count": 2,
+        "created_at": "2025-03-12T20:15:33.671Z",
+        "views": 123,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-03-12T20:37:39.990Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "nudge-left-right-commands-at-runtime",
+        "category_id": 9,
+        "word_count": 347,
+        "deleted_at": null,
+        "user_id": 71738,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_495333",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 45416,
+            "execute_at": "2026-03-12T20:37:39.990Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 50684,
+                    "username": "crueter",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 71738,
+                    "username": "carsongmiller",
+                    "name": "Carson Miller",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 71738,
+                "username": "carsongmiller",
+                "name": "Carson Miller",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/df705f/{size}.png"
+            },
+            "last_poster": {
+                "id": 50684,
+                "username": "crueter",
+                "name": "",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

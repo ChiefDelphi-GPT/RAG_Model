@@ -1,0 +1,731 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3341657,
+                    "name": "Question all assumptions, search for truth.",
+                    "username": "celttechie",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png",
+                    "created_at": "2024-03-24T02:42:23.131Z",
+                    "cooked": "We have falcon 500 motors as drive motors for our swerve drive with phoenix6 firmware.  I’m trying to tune the drive to make it more accurate for autonomous commands, so I created a sysid project to generate the logs, pushed it to the robot, and ran the tests.  Now I need help understanding the results and how to convert them for use with phoenix6.  Here’s the analysis of one of the motors, the other 3 were very close to this:\n\nimage 1004×819 109 KB\n\nimage 1004×819 109 KB\n\nimage 1004×819 109 KB\n\nFor phoenix6, kV is expressed as volts/rotation.  What I logged for sysid was velocity in m/s and position in meters.  The kV is stupid high… right now we have it at 0.113.  Do I need to convert it back to volts per rotation from 2.943 volts per meter?  Just doing a quick calculation I get 0.21 volts per rotation, which is still almost double but considerably better than 2.943.\n\nAm I looking at this right?  Same thing for kA?\n\nAnd then I’m also not sure what to do about the Feedback values.  Again, a kP of 1.4658 is WAY too high.  Do I do the same conversion?",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 2,
+                    "updated_at": "2024-03-24T02:42:23.131Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 7,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 45.4,
+                    "yours": false,
+                    "topic_id": 459873,
+                    "topic_slug": "i-need-help-interpreting-the-sysid-results-for-a-falcon-swerve-drive-motor",
+                    "display_username": "Question all assumptions, search for truth.",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/2/f273d644ce6b7ee5450aa58b38c3a095279b594f.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 29320,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/i-need-help-interpreting-the-sysid-results-for-a-falcon-swerve-drive-motor/459873/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3566568,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-24T02:42:29.061Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 2,
+                    "post_type": 3,
+                    "posts_count": 2,
+                    "updated_at": "2025-03-24T02:42:29.061Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 459873,
+                    "topic_slug": "i-need-help-interpreting-the-sysid-results-for-a-falcon-swerve-drive-motor",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/i-need-help-interpreting-the-sysid-results-for-a-falcon-swerve-drive-motor/459873/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3341657,
+                3566568
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                567
+            ],
+            [
+                2,
+                202
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Rev spark max has same ID",
+                "id": 495329,
+                "title": "Rev spark max has same ID",
+                "slug": "rev-spark-max-has-same-id",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-12T19:58:02.747Z",
+                "last_posted_at": "2025-03-12T19:59:21.273Z",
+                "bumped": true,
+                "bumped_at": "2025-03-12T19:59:21.273Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "unplug one from the can chain (or power off the robot). Plug directly into the one that’s still plugged in (either of them if the robot is off). Change the id using the Rev Hardware Client. voila! If…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 73,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3555432,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 71098,
+                    "username": "Andrew123ast",
+                    "name": "Andrew Todd",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew123ast/{size}/243883_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66322,
+                            "username": "scimn27",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/50afbb/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 71098,
+                            "username": "Andrew123ast",
+                            "name": "Andrew Todd",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew123ast/{size}/243883_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "VH109 Radio Connection Problem",
+                "id": 484267,
+                "title": "VH109 Radio Connection Problem",
+                "slug": "vh109-radio-connection-problem",
+                "posts_count": 7,
+                "reply_count": 5,
+                "highest_post_number": 7,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/5/2/52cbc02ece0bf212de89b89f2e4708e13fe2a455_2_768x1024.jpeg",
+                "created_at": "2025-01-30T11:16:29.550Z",
+                "last_posted_at": "2025-01-30T12:02:59.269Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T12:02:59.269Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, I was trying to connect to the radio with my laptop(not 6E enabled) but i switched the #3 port on the radio and configured it. My team number isnt popping up on the wifi tab. Also i am in the EU(i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 126,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496469,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25039,
+                            "username": "FletcherS7",
+                            "name": "Fletcher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletchers7/{size}/168995_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Ninjineers REEFSCAPE Robot in Three Days",
+                "id": 479319,
+                "title": "Ninjineers REEFSCAPE Robot in Three Days",
+                "slug": "ninjineers-reefscape-robot-in-three-days",
+                "posts_count": 47,
+                "reply_count": 29,
+                "highest_post_number": 48,
+                "image_url": null,
+                "created_at": "2025-01-06T06:03:40.807Z",
+                "last_posted_at": "2025-02-01T06:07:05.339Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T06:07:05.339Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Ninjineers Robot in 3 Days Ninjineers and alumni have been working hard designing a robot to play REEFSCAPE! Our take on the RI3D challenge will be one that honors the spirit of RI3D while adhering to…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 217,
+                "views": 9849,
+                "category_id": 79,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3472105,
+                "topic_post_liked": false,
+                "topic_post_like_count": 18,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 53417,
+                    "username": "HenryLeC",
+                    "name": "Henry LeCompte",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/7bcc69/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 53417,
+                            "username": "HenryLeC",
+                            "name": "Henry LeCompte",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/7bcc69/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50808,
+                            "username": "happyknight",
+                            "name": "Brian Lee",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/b3f665/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65664,
+                            "username": "ZaferGunal",
+                            "name": "k",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/zafergunal/{size}/244751_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68625,
+                            "username": "MrMaker589",
+                            "name": "Colin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/mrmaker589/{size}/238329_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 69483,
+                            "username": "Rubicon",
+                            "name": "Eric Binu",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rubicon/{size}/245732_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Robot Sim, Logging and Data Visualization",
+                "id": 484271,
+                "title": "Robot Sim, Logging and Data Visualization",
+                "slug": "robot-sim-logging-and-data-visualization",
+                "posts_count": 6,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-30T11:42:31.925Z",
+                "last_posted_at": "2025-01-30T18:36:05.983Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T18:36:05.983Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, there are bunch of vendor libraries for simulation and logging frameworks out there used mainly by teams. I have a general inquiry about the process of simulation and logging. Is native wplib…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 246,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3496492,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69262,
+                    "username": "UlusAta",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/u/aeb1de/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69262,
+                            "username": "UlusAta",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/u/aeb1de/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71098,
+                            "username": "Andrew123ast",
+                            "name": "Andrew Todd",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/andrew123ast/{size}/243883_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65870,
+                            "username": "meer.com",
+                            "name": "meer",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/meer.com/{size}/224746_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 32004,
+                            "username": "dan",
+                            "name": "Dan Katzuv",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/eada6e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE 2025 beta problems",
+                "id": 477209,
+                "title": "CTRE 2025 beta problems",
+                "slug": "ctre-2025-beta-problems",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-22T11:05:26.144Z",
+                "last_posted_at": "2024-12-22T18:20:22.511Z",
+                "bumped": true,
+                "bumped_at": "2024-12-22T18:20:22.511Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We had the default example subsystem in our code, and it crashed the code.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 371,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3462535,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 66859,
+                    "username": "Keller",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/keller/{size}/259062_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 66859,
+                            "username": "Keller",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/keller/{size}/259062_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61981,
+                            "username": "daltzsmith",
+                            "name": "Dalton",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/daltzsmith/{size}/206287_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 4760,
+                            "username": "billbo911",
+                            "name": "billbo911",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/billbo911/{size}/110890_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "ctre",
+            "sysid",
+            "falcon-500"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "I need help interpreting the sysid results for a Falcon swerve drive motor",
+        "id": 459873,
+        "title": "I need help interpreting the sysid results for a Falcon swerve drive motor",
+        "posts_count": 2,
+        "created_at": "2024-03-24T02:42:23.055Z",
+        "views": 132,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2025-03-24T02:42:29.061Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "i-need-help-interpreting-the-sysid-results-for-a-falcon-swerve-drive-motor",
+        "category_id": 9,
+        "word_count": 219,
+        "deleted_at": null,
+        "user_id": 29320,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/2/f273d644ce6b7ee5450aa58b38c3a095279b594f.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_459873",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 2,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 1,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1004,
+                "height": 819,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/f/2/f273d644ce6b7ee5450aa58b38c3a095279b594f.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 29320,
+                    "username": "celttechie",
+                    "name": "Question all assumptions, search for truth.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 29320,
+                "username": "celttechie",
+                "name": "Question all assumptions, search for truth.",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/7feea3/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

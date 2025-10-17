@@ -1,0 +1,996 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3408226,
+                    "name": "",
+                    "username": "zur",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/z/e19b73/{size}.png",
+                    "created_at": "2024-07-14T12:48:02.103Z",
+                    "cooked": "For our FRC robot off-season, we are designing an arm with significant torque. This means we don’t need a large gear reduction and can focus more on precision. My idea is to use two motors: one dedicated to precision (which doesn’t require a large reduction to avoid backlash) and one dedicated to power with a high reduction.\n\nDoes anyone have experience or advice on implementing such a dual-motor system? Specifically, I’m interested in how to best synchronize the motors and any potential pitfalls we should be aware of.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-07-14T12:51:12.452Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 172,
+                    "reads": 260,
+                    "readers_count": 259,
+                    "score": 912.0,
+                    "yours": false,
+                    "topic_id": 468660,
+                    "topic_slug": "way-to-prevent-backlash-with-a-large-torque-and-long-arm",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 66965,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/way-to-prevent-backlash-with-a-large-torque-and-long-arm/468660/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3408228,
+                    "name": "Chris Gerth",
+                    "username": "gerthworm",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "created_at": "2024-07-14T13:27:51.393Z",
+                    "cooked": "This is smelling a bit like an X/Y Problem .\n\nGenerally, more precision implies more gear reduction. Significant torque implies large gear reductions.\n\nDual motor systems like this aren’t common because there’s a fundamental issue - if the low-reduction motor runs at full speed, the high-reduction motor will be spinning much faster than it was rated for. Since all motors also work as generators, the electronics at the other end will likely not react well.\n\nIf multiple ratios are needed to achieve the motion requirements, that has been solved in the past by using one power source, but a switchable gear ratio .\n\nBacklash is usually addressed separately, and will be hard to eliminate - I’d recommend first looking to the true source of it - Chain tighteners, replacing hex shafts with splines, choosing gearboxes with fewer stages, and pre-loading the mechanism to always stay on “one side” of the slack are all existing solutions that I’d recommend looking into first.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-07-14T13:29:36.877Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 5,
+                    "reads": 243,
+                    "readers_count": 242,
+                    "score": 118.6,
+                    "yours": false,
+                    "topic_id": 468660,
+                    "topic_slug": "way-to-prevent-backlash-with-a-large-torque-and-long-arm",
+                    "display_username": "Chris Gerth",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://en.wikipedia.org/wiki/XY_problem",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "XY problem - Wikipedia",
+                            "clicks": 33
+                        },
+                        {
+                            "url": "https://www.andymark.com/products/evo-shifter?via=Z2lkOi8vYW5keW1hcmsvV29ya2FyZWE6OkNhdGFsb2c6OkNhdGVnb3J5LzViMzY1MGNlYmM2ZjZkM2UyNzczOGY5MQ",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 13
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 3
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24617,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/way-to-prevent-backlash-with-a-large-torque-and-long-arm/468660/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 3
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 3,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3408233,
+                    "name": "Patrick",
+                    "username": "Patrick3357",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/patrick3357/{size}/169915_2.png",
+                    "created_at": "2024-07-14T14:37:02.633Z",
+                    "cooked": "High torque and high precision will both be easiest with a high gear reduction.\n\nTo reduce backlash eliminate as many mechanical connections as possible. Use a small number of high ratio reductions, and use low backlash gearing. Generally a chain and tensioner is the easiest way to get a very high ratio with minimal backlash. Eliminate hex shafts and hubs on the arm joints.\n\nHaving 2 different ratios is only helpful if you need the arm to move slowly with high torque some of the time and fast with low torque other times. I’d recommend a shifter, but if you really want to, it may be possible to use 2 motors if you can handle the generated current and overcome the drag from the extra motor.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-07-14T14:37:02.633Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 198,
+                    "readers_count": 197,
+                    "score": 44.6,
+                    "yours": false,
+                    "topic_id": 468660,
+                    "topic_slug": "way-to-prevent-backlash-with-a-large-torque-and-long-arm",
+                    "display_username": "Patrick",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 52597,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Build mentor"
+                    },
+                    "post_url": "/t/way-to-prevent-backlash-with-a-large-torque-and-long-arm/468660/3",
+                    "custom_user_title": "Build mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3681093,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-07-14T14:37:09.162Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2025-07-14T14:37:09.162Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 468660,
+                    "topic_slug": "way-to-prevent-backlash-with-a-large-torque-and-long-arm",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/way-to-prevent-backlash-with-a-large-torque-and-long-arm/468660/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3408226,
+                3408228,
+                3408233,
+                3681093
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                454
+            ],
+            [
+                4,
+                89
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "What&rsquo;s your elevator time vs gearbox",
+                "id": 496958,
+                "title": "What's your elevator time vs gearbox",
+                "slug": "whats-your-elevator-time-vs-gearbox",
+                "posts_count": 21,
+                "reply_count": 3,
+                "highest_post_number": 21,
+                "image_url": null,
+                "created_at": "2025-03-26T11:13:29.917Z",
+                "last_posted_at": "2025-03-27T15:42:01.387Z",
+                "bumped": true,
+                "bumped_at": "2025-03-27T15:42:01.387Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, we were working on making our elevator quicker and got it from 2.5sec to 1.7 seconds, but can’t seem to get it any lower even when changing our MAXmotion settings (will post code later) but I’m…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "elevator"
+                ],
+                "tags_descriptions": {},
+                "like_count": 16,
+                "views": 996,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3568870,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69000,
+                    "username": "PixL",
+                    "name": "Chase Eid",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/pixl/{size}/250824_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69000,
+                            "username": "PixL",
+                            "name": "Chase Eid",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pixl/{size}/250824_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 2514,
+                            "username": "Lil_Lavery",
+                            "name": "Sean Lavery",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lil_lavery/{size}/65226_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66544,
+                            "username": "BouncingBuilder",
+                            "name": "Micah Doberne-Schor",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/a698b9/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 20021,
+                            "username": "Chadfrom7226",
+                            "name": "Chadfrom7226",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chadfrom7226/{size}/113429_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 56938,
+                            "username": "NathanLaraway",
+                            "name": "Nathan",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanlaraway/{size}/261646_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Exploring Native macOS Support for PhotonVision (feat. CoreML YOLO!)",
+                "id": 500012,
+                "title": "Exploring Native macOS Support for PhotonVision (feat. CoreML YOLO!)",
+                "slug": "exploring-native-macos-support-for-photonvision-feat-coreml-yolo",
+                "posts_count": 13,
+                "reply_count": 7,
+                "highest_post_number": 13,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/6/0/f/60fc419f543e26a444d6fde19551f33ad6edaca3_2_1024x641.jpeg",
+                "created_at": "2025-04-21T16:15:19.846Z",
+                "last_posted_at": "2025-04-25T13:01:55.365Z",
+                "bumped": true,
+                "bumped_at": "2025-04-25T13:01:55.365Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone, Hope you all had a fantastic 2025 competition season and congrats on a great competition year! Reflecting on this past season, one thing that really caught my eye was seeing Team 6328 r…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 32,
+                "views": 847,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3598676,
+                "topic_post_liked": false,
+                "topic_post_like_count": 22,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 33663,
+                    "username": "6766yuhao",
+                    "name": "6766yuhao",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/6766yuhao/{size}/260595_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 33663,
+                            "username": "6766yuhao",
+                            "name": "6766yuhao",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/6766yuhao/{size}/260595_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 37738,
+                            "username": "thatmattguy",
+                            "name": "Matt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thatmattguy/{size}/222358_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 68308,
+                            "username": "Grumpy_Bud",
+                            "name": "Owen Tharp",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/e274bd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with Limelight 3A use for FRC (Network Tables)",
+                "id": 483483,
+                "title": "Help with Limelight 3A use for FRC (Network Tables)",
+                "slug": "help-with-limelight-3a-use-for-frc-network-tables",
+                "posts_count": 19,
+                "reply_count": 12,
+                "highest_post_number": 20,
+                "image_url": null,
+                "created_at": "2025-01-25T01:32:46.449Z",
+                "last_posted_at": "2025-03-30T05:27:52.505Z",
+                "bumped": true,
+                "bumped_at": "2025-03-30T05:27:52.505Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have 3As working on RIOs with 2025 software here - make sure the “Custom NT Server IP” address is 0.0.0.0. Also make sure you are setting the team number and not the usb index. You can confirm …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 11,
+                "views": 1354,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499445,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 12,
+                "topic_post_user": {
+                    "id": 17110,
+                    "username": "Brandon_Hjelstrom",
+                    "name": "Brandon_Hjelstrom",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/b/6a8cbe/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69118,
+                            "username": "Jason81",
+                            "name": "Jason",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 17110,
+                            "username": "Brandon_Hjelstrom",
+                            "name": "Brandon_Hjelstrom",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/b/6a8cbe/{size}.png",
+                            "primary_group_name": "Limelight",
+                            "flair_name": "Limelight",
+                            "flair_url": "/uploads/default/original/3X/1/e/1e94f21b87a41e6da386d6191b529acb3f383240.png",
+                            "flair_group_id": 68,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48664,
+                            "username": "RicDV",
+                            "name": "Ric Ferrell Mentor for 5503 Tiger Trons",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ricdv/{size}/188502_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60512,
+                            "username": "four",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/four/{size}/199902_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 13247,
+                            "username": "deeek",
+                            "name": "Derek W.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/ce7236/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Something wrong happened with translate and we solved the problem",
+                "id": 491172,
+                "title": "Something wrong happened with translate and we solved the problem",
+                "slug": "something-wrong-happened-with-translate-and-we-solved-the-problem",
+                "posts_count": 4,
+                "reply_count": 0,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-02-11T14:22:08.640Z",
+                "last_posted_at": "2025-02-11T16:43:23.611Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T16:43:23.611Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Thanks for your help",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "visibility_reason_id": 1,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 222,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523313,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 71974,
+                    "username": "TheGorgor",
+                    "name": "Garen Ezikoğlu",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/d9b06d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71974,
+                            "username": "TheGorgor",
+                            "name": "Garen Ezikoğlu",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/t/d9b06d/{size}.png",
+                            "trust_level": 0
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": -1,
+                            "username": "system",
+                            "name": "system",
+                            "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                            "admin": true,
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 4212,
+                            "username": "EricH",
+                            "name": "EricH",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erich/{size}/128938_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Team Minekee 7520 | 2025 Offseason Build Blog",
+                "id": 501657,
+                "title": "Team Minekee 7520 | 2025 Offseason Build Blog",
+                "slug": "team-minekee-7520-2025-offseason-build-blog",
+                "posts_count": 16,
+                "reply_count": 6,
+                "highest_post_number": 17,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/d/f/4/df443578a2de3e962500bf07310d64b872776e03_2_1024x494.png",
+                "created_at": "2025-05-13T16:02:12.434Z",
+                "last_posted_at": "2025-10-01T11:32:52.861Z",
+                "bumped": true,
+                "bumped_at": "2025-10-01T11:32:52.861Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Welcome to our first build We are going to be documenting our offseason build progress here. We created this blog in order to get out there with the first community. We made it to Worlds for th…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "2025",
+                    "offseason",
+                    "build-blog",
+                    "canada",
+                    "frc7520"
+                ],
+                "tags_descriptions": {},
+                "like_count": 80,
+                "views": 1126,
+                "category_id": 25,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3623050,
+                "topic_post_liked": false,
+                "topic_post_like_count": 10,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59888,
+                    "username": "overclockedfyre",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/overclockedfyre/{size}/199455_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59888,
+                            "username": "overclockedfyre",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/overclockedfyre/{size}/199455_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 75424,
+                            "username": "Spoon2",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/spoon2/{size}/261022_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48304,
+                            "username": "Omuzder",
+                            "name": "Mr. Steele",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/omuzder/{size}/154171_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53779,
+                            "username": "AaronHuang",
+                            "name": "Aaron Huang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/779978/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 28196,
+                            "username": "Rethum865",
+                            "name": "Rethum C",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/rethum865/{size}/9119_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "robot"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Way to prevent backlash with a large torque and long arm",
+        "id": 468660,
+        "title": "Way to prevent backlash with a large torque and long arm",
+        "posts_count": 4,
+        "created_at": "2024-07-14T12:48:02.034Z",
+        "views": 485,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2025-07-14T14:37:09.162Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "way-to-prevent-backlash-with-a-large-torque-and-long-arm",
+        "category_id": 25,
+        "word_count": 416,
+        "deleted_at": null,
+        "user_id": 66965,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_468660",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 24617,
+                    "username": "gerthworm",
+                    "name": "Chris Gerth",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 52597,
+                    "username": "Patrick3357",
+                    "name": "Patrick",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/patrick3357/{size}/169915_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 66965,
+                    "username": "zur",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/z/e19b73/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 66965,
+                "username": "zur",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/z/e19b73/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://en.wikipedia.org/wiki/XY_problem",
+                    "title": "XY problem - Wikipedia",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 33,
+                    "user_id": 24617,
+                    "domain": "en.wikipedia.org",
+                    "root_domain": "wikipedia.org"
+                },
+                {
+                    "url": "https://www.andymark.com/products/evo-shifter?via=Z2lkOi8vYW5keW1hcmsvV29ya2FyZWE6OkNhdGFsb2c6OkNhdGVnb3J5LzViMzY1MGNlYmM2ZjZkM2UyNzczOGY5MQ",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 13,
+                    "user_id": 24617,
+                    "domain": "www.andymark.com",
+                    "root_domain": "andymark.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

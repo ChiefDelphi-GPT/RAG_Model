@@ -1,0 +1,817 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3011046,
+                    "name": "Hsifeulbhsifder",
+                    "username": "Hsifeulbhsifder",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hsifeulbhsifder/{size}/7991_2.png",
+                    "created_at": "2022-02-22T00:28:14.362Z",
+                    "cooked": "Hi,\n\nI am trying to use NEOs with their built-in encoders to control a flywheel. I am using the SparkMax on-board PIDF controller. When applying just feedforward control (setting appropriate kFF on SparkMax, PID gains set to 0 each), we get relatively good tracking (within 40 RPM, mostly on the side below the setpoint). The gains were computed using SysId.\n\nIn order to study the effects of the P gain on my flywheel as I tuned them, I elected to use 2 PID slots on the SparkMax (one as just a feedforward controller, the other is a feedforward plus feedback controller) and switch between them to apply the P gain. I figured that because I wasn’t reaching my setpoint with only feedforward, the disparity between my reference and measured signals would make my controller supply additional output such that I would reach my setpoint.\n\nHowever, what I observed was that when applying the P gain, it was as if itbelonged to a separate controller that was tracking to 0 RPM as opposed to trying to track the RPM setpoint I set. For example in the following image, the setpoint I want to track is 3700RPM, the feedforward only controller gets me to 3660 (prior to 26 seconds on the graph). The moment I switch to feedforward+feedback, the controller output moves towards 0. exported 1018×282 6.87 KB\n\nexported 1018×282 6.87 KB\n\nexported 1018×282 6.87 KB\n\nThis behaviour is consistent when I invert my motors. When I increase my P gain, the controller pulls me more towards 0RPM. When I remove feedforward control, my controller tracks to 0, even though my setpoint is still 3700. When I increase the P gain to a large enough value, it even oscillates around 0. As far as I know, SparkMax doesn’t let you set negative gains (not that that solution is ideal anyways).\n\nAny ideas as to what is causing this, or any suggestions are appreciated, thanks.\n\nCode that initializes SparkMax’s:\n\nCode that sets reference:\n\nHypothesis: Issue is cause by the RPM to RPS conversion I do before setting reference, thus the solution would be to scale my kFF by 1/60 and set the reference as RPM (kinda occured to me right this moment that this might be going on, not in the shop right now to test it, but I already wrote out the Chief post so I may as well post it incase my hypothesis is wrong).",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-02-22T00:59:34.608Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 64,
+                    "reads": 89,
+                    "readers_count": 88,
+                    "score": 337.8,
+                    "yours": false,
+                    "topic_id": 403612,
+                    "topic_slug": "spark-max-p-gain-working-against-feedforward",
+                    "display_username": "Hsifeulbhsifder",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/2/5280760e275329d8e0616414443230ea2f859a61.png",
+                            "internal": true,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 24270,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "7558 Mentor"
+                    },
+                    "post_url": "/t/spark-max-p-gain-working-against-feedforward/403612/1",
+                    "custom_user_title": "7558 Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true,
+                    "can_vote": false
+                },
+                {
+                    "id": 3011070,
+                    "name": "kgzak",
+                    "username": "kgzak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png",
+                    "created_at": "2022-02-22T01:23:12.533Z",
+                    "cooked": "if you haven’t set a velocity conversion factor, then the spark max wants RPM as the velocity. In this case the Spark Max is trying to go to ~62RPM when you set 3700/60.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2022-02-22T02:51:43.910Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 74,
+                    "readers_count": 73,
+                    "score": 54.8,
+                    "yours": false,
+                    "topic_id": 403612,
+                    "topic_slug": "spark-max-p-gain-working-against-feedforward",
+                    "display_username": "kgzak",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 11043,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/spark-max-p-gain-working-against-feedforward/403612/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": true,
+                    "topic_accepted_answer": true
+                },
+                {
+                    "id": 3150246,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2023-02-22T01:24:08.275Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2023-02-22T01:24:08.275Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 14,
+                    "readers_count": 13,
+                    "score": 2.8,
+                    "yours": false,
+                    "topic_id": 403612,
+                    "topic_slug": "spark-max-p-gain-working-against-feedforward",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/spark-max-p-gain-working-against-feedforward/403612/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": true
+                }
+            ],
+            "stream": [
+                3011046,
+                3011070,
+                3150246
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1328
+            ],
+            [
+                3,
+                963
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Schools IT blocked Pathplanner",
+                "id": 494779,
+                "title": "Schools IT blocked Pathplanner",
+                "slug": "schools-it-blocked-pathplanner",
+                "posts_count": 23,
+                "reply_count": 14,
+                "highest_post_number": 23,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/4/b/4b131f998816c7b4d602b731b00ff0ab35316d35_2_1024x480.png",
+                "created_at": "2025-03-08T21:08:14.951Z",
+                "last_posted_at": "2025-03-10T16:14:03.880Z",
+                "bumped": true,
+                "bumped_at": "2025-03-10T16:14:03.880Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "You’re welcome to try our mirror, we’re mirroring a number of libraries that get blocked including path planner, choreo, MapleSim…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 14,
+                "views": 976,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3551471,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 9,
+                "topic_post_user": {
+                    "id": 28614,
+                    "username": "legoguy1000",
+                    "name": "Alex",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 58538,
+                            "username": "Vinton_Hester",
+                            "name": "Vinton ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/vinton_hester/{size}/260424_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 54022,
+                            "username": "Pizzatc",
+                            "name": "Pizzatc",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pizzatc/{size}/207342_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50684,
+                            "username": "crueter",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crueter/{size}/258043_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 67729,
+                            "username": "T-Mac",
+                            "name": "Trent",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/t-mac/{size}/264702_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Limelight Auto Aim 3D distance to tag solutions?",
+                "id": 485069,
+                "title": "Limelight Auto Aim 3D distance to tag solutions?",
+                "slug": "limelight-auto-aim-3d-distance-to-tag-solutions",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/7/f/7ff47cb2e4757afe7058c416772ddfa2e394b183.png",
+                "created_at": "2025-02-04T06:55:29.062Z",
+                "last_posted_at": "2025-02-05T02:36:07.195Z",
+                "bumped": true,
+                "bumped_at": "2025-02-05T02:36:07.195Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, inspired by 6328’s single tag pose estimation, we are attempting to generate our own solution using limelight’s api in order to generate single tag pose estimation for auto aiming. This requires…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 315,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3501494,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 59741,
+                    "username": "noto501",
+                    "name": "Kynam",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/noto501/{size}/262198_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 59741,
+                            "username": "noto501",
+                            "name": "Kynam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/noto501/{size}/262198_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Drive to tag vs drive to pose",
+                "id": 494539,
+                "title": "Drive to tag vs drive to pose",
+                "slug": "drive-to-tag-vs-drive-to-pose",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-06T21:09:57.070Z",
+                "last_posted_at": "2025-03-06T21:29:26.766Z",
+                "bumped": true,
+                "bumped_at": "2025-03-06T21:29:26.766Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi, i am trying to make our chassis(swerve) drive and align to the april tags on the reef and the human loading zone but i am confused to select a method. as far as i know i can use pathplanner(on the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 124,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3549789,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 64595,
+                            "username": "SeansCoolerFriend",
+                            "name": "Leo & Mali",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/seanscoolerfriend/{size}/232971_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Spark Max 10 Pin Data Cable Extension",
+                "id": 492193,
+                "title": "Spark Max 10 Pin Data Cable Extension",
+                "slug": "spark-max-10-pin-data-cable-extension",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-18T18:20:53.615Z",
+                "last_posted_at": "2025-02-18T18:29:46.226Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T18:29:46.226Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "CTRE does sell 1ft - 4 Pack Custom length kit with 10’ long data cable and 20 female 2x5 pin data connectors Data Cable Extender - 5 Pack",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 117,
+                "category_id": 32,
+                "featured_link": "https://www.andymark.com/products/spark-max-10-pin-data-cable",
+                "featured_link_root_domain": "andymark.com",
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531727,
+                "topic_post_liked": false,
+                "topic_post_like_count": 2,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 39084,
+                    "username": "TFM110",
+                    "name": "Tauseef Afraz",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 43246,
+                            "username": "Colossus",
+                            "name": "US",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/71e660/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with simple functions",
+                "id": 494540,
+                "title": "Help with simple functions",
+                "slug": "help-with-simple-functions",
+                "posts_count": 18,
+                "reply_count": 16,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-03-06T21:28:16.214Z",
+                "last_posted_at": "2025-03-07T13:44:17.513Z",
+                "bumped": true,
+                "bumped_at": "2025-03-07T13:44:17.513Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We are trying to start over and try simple buttons to operate the functions. We go to competition tomorrow and have a robot that drives but doesn’t do much else. Can someone help, and by help i mean c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 173,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3549803,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24842,
+                    "username": "Hale_Talons_554",
+                    "name": "Hale Talons 554",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hale_talons_554/{size}/11589_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 24842,
+                            "username": "Hale_Talons_554",
+                            "name": "Hale Talons 554",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/hale_talons_554/{size}/11589_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 31927,
+                            "username": "MoonlitJolty",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/moonlitjolty/{size}/12129_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57180,
+                            "username": "ninjadrknss",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/ninjadrknss/{size}/247388_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 56954,
+                            "username": "aopalka",
+                            "name": "Alex",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/f9ae1b/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Spark MAX P gain working against feedforward",
+        "id": 403612,
+        "title": "Spark MAX P gain working against feedforward",
+        "posts_count": 3,
+        "created_at": "2022-02-22T00:28:14.216Z",
+        "views": 488,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2023-02-22T01:24:08.275Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "spark-max-p-gain-working-against-feedforward",
+        "category_id": 9,
+        "word_count": 522,
+        "deleted_at": null,
+        "user_id": 24270,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/2/5280760e275329d8e0616414443230ea2f859a61.png",
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_403612",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": [
+            {
+                "max_width": null,
+                "max_height": null,
+                "width": 1018,
+                "height": 282,
+                "url": "https://www.chiefdelphi.com/uploads/default/original/3X/5/2/5280760e275329d8e0616414443230ea2f859a61.png"
+            }
+        ],
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "accepted_answer": {
+            "post_number": 2,
+            "username": "kgzak",
+            "name": null,
+            "excerpt": "if you haven’t set a velocity conversion factor, then the spark max wants RPM as the velocity. In this case the Spark Max is trying to go to ~62RPM when you set 3700/60.",
+            "accepter_name": null
+        },
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 11043,
+                    "username": "kgzak",
+                    "name": "kgzak",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kgzak/{size}/157079_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 24270,
+                    "username": "Hsifeulbhsifder",
+                    "name": "Hsifeulbhsifder",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hsifeulbhsifder/{size}/7991_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 24270,
+                "username": "Hsifeulbhsifder",
+                "name": "Hsifeulbhsifder",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/hsifeulbhsifder/{size}/7991_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

@@ -1,0 +1,834 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3170692,
+                    "name": "Dr.G",
+                    "username": "Dr.G",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/ebca7d/{size}.png",
+                    "created_at": "2023-03-22T21:18:56.418Z",
+                    "cooked": "We have two problems on our robot:\n\nA Falcon motor with MaxPlanetary gearbox is attached to a winch. When energized the motor rotates the winch spool a half revolution or so then stops - regardless of direction. Should run until controller is released or a hard or soft limit is hit.\n\nAnother Falcon does not appear on the CAN bus. The can bus is wired with a bus wire from power distribution hub to the roborio and the drive train motors are tapped into the bus. Another (the one described above)  is attached to a spur line from the CAN bus and is recognized by the RoboRIO. The other Falcon is connected further downstream on the spur CAN line and is not showing on the bus. I suspect that the SparkMAX further downstream on the same CAN spur line (connecting a NEO550 with an Ultraplanetary gearbox) are not on the CAN bus either. I heard that terminating the CAN bus spur with a 120 ohm resistor might solve this. What else should we look for in our troubleshooting?\n\nThanks for any advice you or your electronics expert(s) might offer is very welcome.\n\nOur competition starts Friday and we are a rookie +1 team (with mostly rookie team members after sitting out during Covid…)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-22T21:39:43.256Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 69,
+                    "readers_count": 68,
+                    "score": 33.8,
+                    "yours": false,
+                    "topic_id": 431336,
+                    "topic_slug": "motors-not-working",
+                    "display_username": "Dr.G",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 33923,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/motors-not-working/431336/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3170716,
+                    "name": "Gavin Matthews",
+                    "username": "bovlb",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "created_at": "2023-03-22T21:50:09.392Z",
+                    "cooked": "The standard recommendation is that your CAN bus be a single line topology running from the roboRIO at one end, all other devices in the middle, to the PDP/PDH at the other.  Both the roboRIO and the PDP/PDH have terminating resisters, but the latter requires jumper/switch configuration to enable it,\n\nI’m aware that many teams do use spurs or star topologies, but you may want to stick to the simple approach unless you’re confident you know what you’re doing.\n\nRegarding your winch problem, this may be a software issue and we’d need to see your code to help further.  Can you share a link, say to Github?",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2023-03-22T21:50:09.392Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 45,
+                    "readers_count": 44,
+                    "score": 9.0,
+                    "yours": false,
+                    "topic_id": 431336,
+                    "topic_slug": "motors-not-working",
+                    "display_username": "Gavin Matthews",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-1/how-to-wire-a-robot.html#can-devices",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "How to Wire an FRC Robot — FIRST Robotics Competition documentation",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 38743,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Programming mentor, Team 2102, RI, CSA (he/him)"
+                    },
+                    "post_url": "/t/motors-not-working/431336/2",
+                    "custom_user_title": "Programming mentor, Team 2102, RI, CSA (he/him)",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3340124,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-03-21T21:50:10.904Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-21T21:50:10.904Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 0.4,
+                    "yours": false,
+                    "topic_id": 431336,
+                    "topic_slug": "motors-not-working",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/motors-not-working/431336/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3170692,
+                3170716,
+                3340124
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                934
+            ],
+            [
+                3,
+                569
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Kraken x60 Undocumented Status Light",
+                "id": 492481,
+                "title": "Kraken x60 Undocumented Status Light",
+                "slug": "kraken-x60-undocumented-status-light",
+                "posts_count": 7,
+                "reply_count": 3,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-20T20:50:51.505Z",
+                "last_posted_at": "2025-02-20T22:20:57.854Z",
+                "bumped": true,
+                "bumped_at": "2025-02-20T22:20:57.854Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "It looks like one of the green LEDs is dead or damaged; you can use Self Test in Tuner X to confirm that the actual blink code is simultaneous orange. The motor should still work fine, but if you want…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 588,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3534722,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 48146,
+                    "username": "bhall-ctre",
+                    "name": "Benjamin Hall",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 51896,
+                            "username": "Krypto_Rex",
+                            "name": "Angel",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/krypto_rex/{size}/225308_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 48146,
+                            "username": "bhall-ctre",
+                            "name": "Benjamin Hall",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bhall-ctre/{size}/198180_2.png",
+                            "primary_group_name": "CTRE",
+                            "flair_name": "CTRE",
+                            "flair_url": "/uploads/default/original/3X/1/b/1bd2b430e1bb6427d1c6504ff6abcd31de851a6d.png",
+                            "flair_group_id": 57,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57796,
+                            "username": "philip124816",
+                            "name": "Philip",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/b782af/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55649,
+                            "username": "manso",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken x60 refuses to run from code but will run from Tuner X",
+                "id": 494740,
+                "title": "Kraken x60 refuses to run from code but will run from Tuner X",
+                "slug": "kraken-x60-refuses-to-run-from-code-but-will-run-from-tuner-x",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-03-08T16:20:31.916Z",
+                "last_posted_at": "2025-03-08T21:08:56.155Z",
+                "bumped": true,
+                "bumped_at": "2025-03-08T21:08:56.155Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I need help we are trying to run our kraken x60 and can control it from phoenix tuner but when we use the following code it won’t run at all. We are using VoltageOut with setControl to try and set a …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "java"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 138,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3551222,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 63643,
+                    "username": "taciturnaxolotl",
+                    "name": "kieran",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/taciturnaxolotl/{size}/240907_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 63643,
+                            "username": "taciturnaxolotl",
+                            "name": "kieran",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/taciturnaxolotl/{size}/240907_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 70387,
+                            "username": "slowpoke111",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/8edcca/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "YAGSL Angle Motors not turning",
+                "id": 482527,
+                "title": "YAGSL Angle Motors not turning",
+                "slug": "yagsl-angle-motors-not-turning",
+                "posts_count": 6,
+                "reply_count": 4,
+                "highest_post_number": 6,
+                "image_url": null,
+                "created_at": "2025-01-18T19:27:10.512Z",
+                "last_posted_at": "2025-01-18T19:56:40.191Z",
+                "bumped": true,
+                "bumped_at": "2025-01-18T19:56:40.191Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We’re encountering an issue with our swerve drive where all of our drive motors are moving fine (all moving in the correct x and y directions, and turning) but none of our angle motors seem to be work…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre",
+                    "yagsl"
+                ],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 69,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486800,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66685,
+                    "username": "RoboNerds5089",
+                    "name": "5089 Robonerds",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66685,
+                            "username": "RoboNerds5089",
+                            "name": "5089 Robonerds",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/r/a183cd/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 49423,
+                            "username": "Gandagorn",
+                            "name": "Elliot Scher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gandagorn/{size}/267112_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Elevator Gear Ratio",
+                "id": 474639,
+                "title": "Elevator Gear Ratio",
+                "slug": "elevator-gear-ratio",
+                "posts_count": 11,
+                "reply_count": 4,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-11-10T12:12:54.107Z",
+                "last_posted_at": "2024-11-11T01:24:19.916Z",
+                "bumped": true,
+                "bumped_at": "2024-11-11T01:24:19.916Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hi. I am creating an elevetor for cad training but i dont how to calculate gear ratio. Can anyone help? I am doing so that by kickoff we have a working elevator that can carry 10-15kg maybe using an e…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 23,
+                "views": 1329,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445600,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61536,
+                    "username": "kuzeyatay",
+                    "name": "kuzey",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61536,
+                            "username": "kuzeyatay",
+                            "name": "kuzey",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/59ef9b/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50219,
+                            "username": "Alex_Y",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/82dd89/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 52686,
+                            "username": "DavidMasin",
+                            "name": "David",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/davidmasin/{size}/205339_2.png",
+                            "primary_group_name": "FUN",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 25012,
+                            "username": "AriMB",
+                            "name": "Ari Meles-Braverman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/arimb/{size}/189989_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Kraken Swerve vs. Falcon 500 (MK4 SDS Swerve)",
+                "id": 500148,
+                "title": "Kraken Swerve vs. Falcon 500 (MK4 SDS Swerve)",
+                "slug": "kraken-swerve-vs-falcon-500-mk4-sds-swerve",
+                "posts_count": 10,
+                "reply_count": 3,
+                "highest_post_number": 10,
+                "image_url": null,
+                "created_at": "2025-04-22T15:33:46.312Z",
+                "last_posted_at": "2025-04-22T16:31:22.965Z",
+                "bumped": true,
+                "bumped_at": "2025-04-22T16:31:22.965Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team has been using an 8 Falcon mk4 drivetrain with an L2 ratio. We have had a pretty good experience so far, but with the (probable) discontinuation of Falcons and the added capability of the Kra…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swervedrive",
+                    "sds"
+                ],
+                "tags_descriptions": {},
+                "like_count": 14,
+                "views": 373,
+                "category_id": 31,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3599996,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 74569,
+                    "username": "4192_sarkar",
+                    "name": "Rijoy Sarkar",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/4/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 74569,
+                            "username": "4192_sarkar",
+                            "name": "Rijoy Sarkar",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/4/8baadc/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 15944,
+                            "username": "FrankJ",
+                            "name": "FrankJ",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/frankj/{size}/5392_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53784,
+                            "username": "Max_Morehead",
+                            "name": "Max Morehead",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/max_morehead/{size}/231937_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 59306,
+                            "username": "Tom_Neu",
+                            "name": "Tom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 12760,
+                            "username": "Knufire",
+                            "name": "Rahul Yarlagadda",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/knufire/{size}/67820_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Motors not working",
+        "id": 431336,
+        "title": "Motors not working",
+        "posts_count": 3,
+        "created_at": "2023-03-22T21:18:56.371Z",
+        "views": 299,
+        "reply_count": 0,
+        "like_count": 0,
+        "last_posted_at": "2024-03-21T21:50:10.904Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "motors-not-working",
+        "category_id": 31,
+        "word_count": 364,
+        "deleted_at": null,
+        "user_id": 33923,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_431336",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 33923,
+                    "username": "Dr.G",
+                    "name": "Dr.G",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/ebca7d/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 38743,
+                    "username": "bovlb",
+                    "name": "Gavin Matthews",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/bovlb/{size}/167232_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 33923,
+                "username": "Dr.G",
+                "name": "Dr.G",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/d/ebca7d/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-1/how-to-wire-a-robot.html#can-devices",
+                    "title": "How to Wire an FRC Robot — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 38743,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

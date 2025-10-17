@@ -1,0 +1,819 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3322242,
+                    "name": "Cody A.",
+                    "username": "CArceneaux",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/94ad74/{size}.png",
+                    "created_at": "2024-03-02T22:31:23.342Z",
+                    "cooked": "When the driver station is up connected to the Rio via USB, everything appears good: Communications, Robot Code, and Joystick (if plugged in) are green.  When Teleop is enabled, the signal light flashes for a second before going solid, and the driver station shows no robot code.\n\nThe code builds, and the deploy appears successful at first.  Looking at the output, though, there are things noted as \"up-to-date but not deployed.  The output in VSCode when deploying is below:\n\nExecuting task: gradlew deploy  -PteamNumber=5785 --offline  -Dorg.gradle.java.home=“C:\\Users\\Public\\wpilib\\2024\\jdk”\n\nTask :discoverroborio Discovering Target roborio Using admin@172.22.11.2:22 for target roborio\n\nTask :deployprogramKillroborioroborio -C-> md5sum /usr/local/frc/bin/frcKillRobot.sh @ /home/lvuser -[0]-> 001696b0412c36f7be0c868ad493d16a  /usr/local/frc/bin/frcKillRobot.sh\n\nSkipping redeploy of frcKillRobot script -C-> . /etc/profile.d/natinst-path.sh; /usr/local/frc/bin/frcKillRobot.sh -t 2> /dev/null @ /home/lvuser\n\nTask :deployrobotCommandfrcJavaroborio -C-> echo '/usr/local/frc/JRE/bin/java -XX:+UseSerialGC -Djava.lang.invoke.stringConcat=BC_SB -Djava.library.path=/usr/local/frc/third-party/lib -jar “/home/lvuser/2024_Basic_Test.jar” ’ > /home/lvuser/robotCommand @ /home/lvuser -C-> chmod +x /home/lvuser/robotCommand; chown lvuser /home/lvuser/robotCommand @ /home/lvuser\n\nTask :deployjrefrcJavaroborio -C-> if [[ -f “/usr/local/frc/JRE/bin/java” ]]; then echo OK; else echo MISSING; fi @ /tmp -[0]-> OK\n\nSearching for JRE 17.0.9u7-1 Found JRE frc2024-openjdk-17-jre - 17.0.9u7-1 - FRC OpenJDK Java Runtime Environment JRE Is Correct Version Artifact skipped\n\nTask :deployfrcStaticFileDeployroborio -C-> mkdir -p  @ /home/lvuser/deploy -[1] 1 file(s) are up-to-date and were not deployed\n\nTask :deployfrcJavaroborio 1 file(s) are up-to-date and were not deployed -C-> chmod +x “/home/lvuser/2024_Basic_Test.jar”; chown lvuser “/home/lvuser/2024_Basic_Test.jar” @ /home/lvuser\n\nTask :deploynativeZipsfrcJavaroborio 33 file(s) are up-to-date and were not deployed -C-> chmod -R 777 “/usr/local/frc/third-party/lib” || true; chown -R lvuser:ni “/usr/local/frc/third-party/lib” @ /usr/local/frc/third-party/lib -C-> ldconfig @ /usr/local/frc/third-party/lib\n\nTask :deployprogramStartfrcJavaroborio -C-> sync @ /home/lvuser -C-> /usr/local/natinst/bin/nirtcfg --file=/etc/natinst/share/ni-rt.ini --get section=systemsettings,token=NoApp.enabled,value=unknown @ /home/lvuser -[0]-> False\n\nBUILD SUCCESSFUL in 24s 13 actionable tasks: 11 executed, 2 up-to-date\n\nTerminal will be reused by tasks, press any key to close it.\n\nLooking at the log from the Rio when I tried to enable Teleop:\n\nNT: Got a NT4 connection from 172.22.11.1 port 65527\n\nNT: Got a NT4 connection from 172.22.11.1 port 65527\n\nNT: CONNECTED NT4 client ‘Dashboard@1’ (from 172.22.11.1:65527)\n\nNT: CONNECTED NT4 client ‘Dashboard@1’ (from 172.22.11.1:65527)\n\nUnhandled exception: java.lang.NullPointerException: Cannot invoke “edu.wpi.first.wpilibj.XboxController.getLeftX()” because “this.xbox1” is null\n\nUnhandled exception: java.lang.NullPointerException: Cannot invoke “edu.wpi.first.wpilibj.XboxController.getLeftX()” because “this.xbox1” is null\n\nError at frc.robot.Robot.teleopPeriodic(Robot.java:169): Unhandled exception: java.lang.NullPointerException: Cannot invoke “edu.wpi.first.wpilibj.XboxController.getLeftX()” because “this.xbox1” is null\n\nError at frc.robot.Robot.teleopPeriodic(Robot.java:169): Unhandled exception: java.lang.NullPointerException: Cannot invoke “edu.wpi.first.wpilibj.XboxController.getLeftX()” because “this.xbox1” is null\n\nat frc.robot.Robot.teleopPeriodic(Robot.java:169)\n\nat frc.robot.Robot.teleopPeriodic(Robot.java:169)\n\nat edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:373)\n\nat edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:373)\n\nat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:131)\n\nat edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:131)\n\nat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:365)\n\nat edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:365)\n\nat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:453)\n\nat edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java:453)\n\nat frc.robot.Main.main(Main.java:23)\n\nat frc.robot.Main.main(Main.java:23)\n\nDifferentialDrive… Output not updated often enough. See Using the WPILib Classes to Drive your Robot — FIRST Robotics Competition documentation for more information.\n\nDifferentialDrive… Output not updated often enough. See Using the WPILib Classes to Drive your Robot — FIRST Robotics Competition documentation for more information.\n\nError at edu.wpi.first.wpilibj.MotorSafety.check(MotorSafety.java:140): DifferentialDrive… Output not updated often enough. See Using the WPILib Classes to Drive your Robot — FIRST Robotics Competition documentation for more information.\n\nError at edu.wpi.first.wpilibj.MotorSafety.check(MotorSafety.java:140): DifferentialDrive… Output not updated often enough. See Using the WPILib Classes to Drive your Robot — FIRST Robotics Competition documentation for more information.\n\nThe robot program quit unexpectedly. This is usually due to a code error. The above stacktrace can help determine where the error occurred. See Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nThe robot program quit unexpectedly. This is usually due to a code error. The above stacktrace can help determine where the error occurred. See Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nThe startCompetition() method (or methods called by it) should have handled the exception above.\n\nThe startCompetition() method (or methods called by it) should have handled the exception above.\n\nWarning at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:379): The robot program quit unexpectedly. This is usually due to a code error.\n\nWarning at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:379): The robot program quit unexpectedly. This is usually due to a code error.\n\nThe above stacktrace can help determine where the error occurred.\n\nThe above stacktrace can help determine where the error occurred.\n\nSee Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nSee Reading Stacktraces — FIRST Robotics Competition documentation for more information.\n\nError at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:386): The startCompetition() method (or methods called by it) should have handled the exception above.\n\nError at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:386): The startCompetition() method (or methods called by it) should have handled the exception above.\n\n[phoenix-diagnostics] Server shutdown cleanly. (dur:28)\n\n[phoenix-diagnostics] Server shutdown cleanly. (dur:28)\n\n[phoenix] Library shutdown cleanly\n\n[phoenix] Library shutdown cleanly\n\nA fatal error has been detected by the Java Runtime Environment:\n\nSIGSEGV (0xb) at pc=0xb6e3a01c, pid=2103, tid=2107\n\nJRE version: OpenJDK Runtime Environment (17.0.9.7) (build 17.0.9.7-frc+0-2024-17.0.9u7-1)\n\nJava VM: OpenJDK Client VM (17.0.9.7-frc+0-2024-17.0.9u7-1, mixed mode, emulated-client, serial gc, linux-arm)\n\nProblematic frame:\n\nC [libc.so.6+0x6c01c]\n\nNo core dump will be written. Core dumps have been disabled. To enable core dumping, try “ulimit -c unlimited” before starting Java again\n\nAn error report file with more information is saved as:\n\n/tmp/hs_err_pid2103.log\n\nI have tried to re-image the Rio since that seems to be a common fix, but no luck.  The Rio has 6.0.0 firmware and 2024_v2.2 image.  I’m not entirely sure where to go from here for troubleshooting, if anyone has any thoughts.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-02T22:31:23.342Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 65,
+                    "reads": 60,
+                    "readers_count": 59,
+                    "score": 337.0,
+                    "yours": false,
+                    "topic_id": 456988,
+                    "topic_slug": "driver-station-shows-no-robot-code-when-teleop-enabled",
+                    "display_username": "Cody A.",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://docs.wpilib.org/motorsafety",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Using the WPILib Classes to Drive your Robot — FIRST Robotics Competition documentation",
+                            "clicks": 0
+                        },
+                        {
+                            "url": "https://wpilib.org/stacktrace",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Reading Stacktraces — FIRST Robotics Competition documentation",
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48575,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/driver-station-shows-no-robot-code-when-teleop-enabled/456988/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3322250,
+                    "name": "Thad House",
+                    "username": "Thad_House",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                    "created_at": "2024-03-02T22:49:44.572Z",
+                    "cooked": "In your Robot class, the variable xbox1 is null, so you can’t call getLeftX() on it (Which you do at like 169). You need to initialize your xbox1 variable.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2024-03-02T22:49:44.572Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 52,
+                    "readers_count": 51,
+                    "score": 25.4,
+                    "yours": false,
+                    "topic_id": 456988,
+                    "topic_slug": "driver-station-shows-no-robot-code-when-teleop-enabled",
+                    "display_username": "Thad House",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16147,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib Dev | 2025 VOTY"
+                    },
+                    "post_url": "/t/driver-station-shows-no-robot-code-when-teleop-enabled/456988/2",
+                    "custom_user_title": "WPILib Dev | 2025 VOTY",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3545197,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-03-02T22:49:54.155Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2025-03-02T22:49:54.155Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 4,
+                    "readers_count": 3,
+                    "score": 0.8,
+                    "yours": false,
+                    "topic_id": 456988,
+                    "topic_slug": "driver-station-shows-no-robot-code-when-teleop-enabled",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/driver-station-shows-no-robot-code-when-teleop-enabled/456988/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3322242,
+                3322250,
+                3545197
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                588
+            ],
+            [
+                3,
+                223
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "What are your Programming pet peeves",
+                "id": 492214,
+                "title": "What are your Programming pet peeves",
+                "slug": "what-are-your-programming-pet-peeves",
+                "posts_count": 206,
+                "reply_count": 146,
+                "highest_post_number": 209,
+                "image_url": null,
+                "created_at": "2025-02-18T20:57:49.798Z",
+                "last_posted_at": "2025-09-17T17:55:11.076Z",
+                "bumped": true,
+                "bumped_at": "2025-09-17T17:55:43.238Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "(Not sure if this is the right category) Inspired by this What are your programming pet peeves? This could be about how your teamates write code, or something in wpilib or external vendor li…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1070,
+                "views": 6725,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531908,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 55649,
+                    "username": "manso",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 55649,
+                            "username": "manso",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/e99b99/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57904,
+                            "username": "stephen.ostermiller",
+                            "name": "Stephen Ostermiller",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/stephen.ostermiller/{size}/188076_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 48578,
+                            "username": "Wesley",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/wesley/{size}/155134_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73462,
+                            "username": "Tricks1228",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tricks1228/{size}/258883_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with coding ctr CANcoders - Python",
+                "id": 476041,
+                "title": "Help with coding ctr CANcoders - Python",
+                "slug": "help-with-coding-ctr-cancoders-python",
+                "posts_count": 5,
+                "reply_count": 2,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2024-12-04T23:00:17.202Z",
+                "last_posted_at": "2024-12-05T19:17:14.611Z",
+                "bumped": true,
+                "bumped_at": "2024-12-05T19:17:14.611Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello everyone, our team recently bought some CTRE CanCoders in place for absolute encoders for our swerve drive. We are having trouble initializing and implementing them into our code from last seaso…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 138,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454794,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66158,
+                    "username": "ahuang",
+                    "name": "ahuang",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/13edae/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 66158,
+                            "username": "ahuang",
+                            "name": "ahuang",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/13edae/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55500,
+                            "username": "humandavey",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/humandavey/{size}/231913_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How can we create a Swerve Diagnostics program with YAGSL Swerve?",
+                "id": 474658,
+                "title": "How can we create a Swerve Diagnostics program with YAGSL Swerve?",
+                "slug": "how-can-we-create-a-swerve-diagnostics-program-with-yagsl-swerve",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2024-11-10T20:12:31.820Z",
+                "last_posted_at": "2024-11-10T22:22:55.160Z",
+                "bumped": true,
+                "bumped_at": "2024-11-10T22:22:55.160Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! For the upcoming season, our team is trying to create a “Swerve Diagnostics program” Allowing us to detect issues and breaks in the swerve drive before each match in competition. One thing to c…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "robot",
+                    "swerve",
+                    "drivetrain"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 141,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3445747,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69003,
+                    "username": "BetterAtharv",
+                    "name": "Atharv Saxena",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/betteratharv/{size}/260639_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69003,
+                            "username": "BetterAtharv",
+                            "name": "Atharv Saxena",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/betteratharv/{size}/260639_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Need Help with Issues Training a Custom Detector Model for Limelight",
+                "id": 482982,
+                "title": "Need Help with Issues Training a Custom Detector Model for Limelight",
+                "slug": "need-help-with-issues-training-a-custom-detector-model-for-limelight",
+                "posts_count": 5,
+                "reply_count": 1,
+                "highest_post_number": 6,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/a/7/a7a5ecdcc35dd1f78fdb51eb44e4ead060af61a9_2_1023x681.png",
+                "created_at": "2025-01-22T02:15:09.936Z",
+                "last_posted_at": "2025-10-09T14:38:23.807Z",
+                "bumped": true,
+                "bumped_at": "2025-10-09T14:38:23.807Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys, My team and I had the same problem a few days ago. Today, when we tried to train the model, it appeared as though it was updated, and eventually worked. They added new directions and extra …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 329,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3495337,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 5,
+                "topic_post_user": {
+                    "id": 71927,
+                    "username": "aiyer",
+                    "name": "Adi Iyer",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/a/6bbea6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 71632,
+                            "username": "SpiffeeMan",
+                            "name": "Stephen LePrell",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/f19dbf/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 71927,
+                            "username": "aiyer",
+                            "name": "Adi Iyer",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/6bbea6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 58360,
+                            "username": "Mateo",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/f4b2a3/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71151,
+                            "username": "sap",
+                            "name": "Spencer Miller",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sap/{size}/243547_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 41919,
+                            "username": "J.laz",
+                            "name": "Jonathan Salva Cruz Lazatin",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/j.laz/{size}/168101_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Auto SendableChooser not populating in SmartDashboard",
+                "id": 494317,
+                "title": "Auto SendableChooser not populating in SmartDashboard",
+                "slug": "auto-sendablechooser-not-populating-in-smartdashboard",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-03-05T05:31:46.353Z",
+                "last_posted_at": "2025-03-05T06:53:05.839Z",
+                "bumped": true,
+                "bumped_at": "2025-03-05T06:53:05.839Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Try upgrading Shuffleboard to 2025.3.1 (download and run the WPILib installer). Or try using a different dashboard, such as Elastic.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 100,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3548053,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69118,
+                            "username": "Jason81",
+                            "name": "Jason",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "java",
+            "2024",
+            "roborio"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Driver Station Shows &ldquo;No Robot Code&rdquo; When Teleop Enabled",
+        "id": 456988,
+        "title": "Driver Station Shows \"No Robot Code\" When Teleop Enabled",
+        "posts_count": 3,
+        "created_at": "2024-03-02T22:31:23.250Z",
+        "views": 244,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2025-03-02T22:49:54.155Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "driver-station-shows-no-robot-code-when-teleop-enabled",
+        "category_id": 30,
+        "word_count": 985,
+        "deleted_at": null,
+        "user_id": 48575,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_456988",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 16147,
+                    "username": "Thad_House",
+                    "name": "Thad House",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 48575,
+                    "username": "CArceneaux",
+                    "name": "Cody A.",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/94ad74/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 48575,
+                "username": "CArceneaux",
+                "name": "Cody A.",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/94ad74/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

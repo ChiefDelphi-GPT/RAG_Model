@@ -1,0 +1,929 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3438051,
+                    "name": "",
+                    "username": "Michael888",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png",
+                    "created_at": "2024-10-23T07:48:39.155Z",
+                    "cooked": "Hello Everyone. I am writing some arm code for our test bot this year. The arm has two Neo motors, one on each side, with a 300 to one gear ratio. It also has a CANcoder as its absolute encoder.\n\nI am trying to get the arm moving with the spark maxes PID controller, and had some questions about following.\n\nCurrently, I am getting the encoder and pid from one spark max, having the other spark max follow it. The set up the spark max encoder with the gear ratio and have it match the position of the absolute encoder. I then just use the spark max pid controller in position mode to try and reach the desired position.\n\nI am wondering if the follower will still follow the leader since I am using the leaders PID controllor, and also if this is the correct way to do this arm code in the first place.\n\nThank you!!\n\nFull Code:",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-10-23T07:48:39.155Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 170,
+                    "reads": 129,
+                    "readers_count": 128,
+                    "score": 870.6,
+                    "yours": false,
+                    "topic_id": 473506,
+                    "topic_slug": "questions-about-spark-max-following-with-pid-control",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 61618,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/questions-about-spark-max-following-with-pid-control/473506/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3438052,
+                    "name": "",
+                    "username": "hongyuehao",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hongyuehao/{size}/201196_2.png",
+                    "created_at": "2024-10-23T08:13:52.104Z",
+                    "cooked": "I’ve never used PID with spark maxes, but according to my experience with Talon FXs, just set the second spark max into follower might work.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-10-23T08:13:52.104Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 4,
+                    "reads": 99,
+                    "readers_count": 98,
+                    "score": 39.8,
+                    "yours": false,
+                    "topic_id": 473506,
+                    "topic_slug": "questions-about-spark-max-following-with-pid-control",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 60059,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/questions-about-spark-max-following-with-pid-control/473506/2",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3438119,
+                    "name": "",
+                    "username": "person4268",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "created_at": "2024-10-23T13:46:36.487Z",
+                    "cooked": "Re: followers: My understanding of how following works is that the follower motor will match the output of the leader motor, including output from the leader’s PID controller. So that’ll work just fine, though I haven’t read your code.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-10-23T13:46:36.487Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 3,
+                    "reads": 80,
+                    "readers_count": 79,
+                    "score": 46.0,
+                    "yours": false,
+                    "topic_id": 473506,
+                    "topic_slug": "questions-about-spark-max-following-with-pid-control",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55016,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/questions-about-spark-max-following-with-pid-control/473506/3",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "point_up",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3438125,
+                    "name": "Owen",
+                    "username": "Owen4026",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen4026/{size}/211145_2.png",
+                    "created_at": "2024-10-23T14:03:45.117Z",
+                    "cooked": "@person4268 is correct that the follower will match the leader’s output, so your follower is set up correctly. And yes, using a PID controller is a good way to set an arm position. I can’t see from your code how you are calculating your feedforward, but for an arm, you will probably want to use a gravity feedforward if you aren’t already.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2024-10-23T14:03:45.117Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 78,
+                    "readers_count": 77,
+                    "score": 25.6,
+                    "yours": false,
+                    "topic_id": 473506,
+                    "topic_slug": "questions-about-spark-max-following-with-pid-control",
+                    "display_username": "Owen",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 63229,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/questions-about-spark-max-following-with-pid-control/473506/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3438051,
+                3438052,
+                3438119,
+                3438125
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                354
+            ],
+            [
+                3,
+                353
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Swerve troubles",
+                "id": 483227,
+                "title": "Swerve troubles",
+                "slug": "swerve-troubles",
+                "posts_count": 28,
+                "reply_count": 23,
+                "highest_post_number": 29,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/7/d/7de9fe186d197ac5f96e4232f1beaa3efbbaf27f_2_1024x576.gif",
+                "created_at": "2025-01-23T16:51:34.230Z",
+                "last_posted_at": "2025-01-30T16:57:58.466Z",
+                "bumped": true,
+                "bumped_at": "2025-01-30T16:57:58.466Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello, I’m a new programmer in FRC, and I created my first swerve (maxSwerve) code with YAGSL example. I have some troubles with rotating. I checked encoders with REV Hardware Client physically, and w…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 517,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3490765,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69420,
+                    "username": "chereshenka",
+                    "name": "Angelina",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/chereshenka/{size}/264148_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69420,
+                            "username": "chereshenka",
+                            "name": "Angelina",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/chereshenka/{size}/264148_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19820,
+                            "username": "ArchdukeTim",
+                            "name": "Tim Winters",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/archduketim/{size}/256125_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 23008,
+                            "username": "ErikSLee",
+                            "name": "ErikSLee",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/erikslee/{size}/157434_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "PDH Simulation",
+                "id": 485668,
+                "title": "PDH Simulation",
+                "slug": "pdh-simulation",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-08T14:16:04.929Z",
+                "last_posted_at": "2025-02-08T15:09:36.334Z",
+                "bumped": true,
+                "bumped_at": "2025-02-08T15:09:36.334Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Yes it will work, we just didn’t rename it to PowerDistributionSim.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "simulation",
+                    "pdp",
+                    "pdh"
+                ],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 149,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3505935,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 13575,
+                    "username": "Peter_Johnson",
+                    "name": "Peter Johnson",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64857,
+                            "username": "pigrammer",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/pigrammer/{size}/234083_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 13575,
+                            "username": "Peter_Johnson",
+                            "name": "Peter Johnson",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/peter_johnson/{size}/10417_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Feedback and Feedforward through wpilib",
+                "id": 491162,
+                "title": "Feedback and Feedforward through wpilib",
+                "slug": "feedback-and-feedforward-through-wpilib",
+                "posts_count": 8,
+                "reply_count": 5,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-02-11T13:02:53.607Z",
+                "last_posted_at": "2025-02-11T14:09:29.226Z",
+                "bumped": true,
+                "bumped_at": "2025-02-11T14:09:29.226Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "There is a great WPILib page on exactly what you are looking for! You take the output of both controllers and literally add them together.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "wpilib"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 118,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3523272,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 6,
+                "topic_post_user": {
+                    "id": 23320,
+                    "username": "Owen_Busler",
+                    "name": "Owen Busler",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57204,
+                            "username": "Prince",
+                            "name": "Prince",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/ba9def/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Photonvision losing calibration data",
+                "id": 492143,
+                "title": "Photonvision losing calibration data",
+                "slug": "photonvision-losing-calibration-data",
+                "posts_count": 5,
+                "reply_count": 3,
+                "highest_post_number": 5,
+                "image_url": null,
+                "created_at": "2025-02-18T07:16:05.601Z",
+                "last_posted_at": "2025-02-18T19:55:34.209Z",
+                "bumped": true,
+                "bumped_at": "2025-02-18T19:55:34.209Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello all. It’s our team’s first year using PhotonVision, and I really like it. However, I have done the calibration with the camera, and I’m getting good results. My pose is accurate to about 3 i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 122,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3531255,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 24723,
+                    "username": "David_Lame",
+                    "name": "David Lame",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/51bf81/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 24723,
+                            "username": "David_Lame",
+                            "name": "David Lame",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/d/51bf81/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63834,
+                            "username": "Nummun14",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nummun14/{size}/254803_2.png",
+                            "trust_level": 3
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "CTRE MotionMagic Strange Arm Control Issue",
+                "id": 492886,
+                "title": "CTRE MotionMagic Strange Arm Control Issue",
+                "slug": "ctre-motionmagic-strange-arm-control-issue",
+                "posts_count": 7,
+                "reply_count": 4,
+                "highest_post_number": 7,
+                "image_url": null,
+                "created_at": "2025-02-23T22:10:34.111Z",
+                "last_posted_at": "2025-02-24T23:11:22.802Z",
+                "bumped": true,
+                "bumped_at": "2025-02-24T23:11:22.802Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "From what you described, I think we can rule out mechanical backlash as the source of the issue. Have you ensured that no output deadbands are on the motor? We’ve run into issues where the default CT…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 4,
+                "views": 332,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537571,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 37087,
+                    "username": "samviesselman",
+                    "name": "Sam Viesselman",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/samviesselman/{size}/237998_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 73728,
+                            "username": "ConnorG",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/c/65b543/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 37087,
+                            "username": "samviesselman",
+                            "name": "Sam Viesselman",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/samviesselman/{size}/237998_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 53190,
+                            "username": "truher",
+                            "name": "joel truher",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/truher/{size}/172222_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7841,
+                            "username": "Tom_Line",
+                            "name": "Tom Line",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "sparkmax"
+        ],
+        "tags_descriptions": {},
+        "fancy_title": "Questions about spark max following with PID control",
+        "id": 473506,
+        "title": "Questions about spark max following with PID control",
+        "posts_count": 4,
+        "created_at": "2024-10-23T07:48:39.091Z",
+        "views": 313,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2024-10-23T14:03:45.117Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "questions-about-spark-max-following-with-pid-control",
+        "category_id": 30,
+        "word_count": 715,
+        "deleted_at": null,
+        "user_id": 61618,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_473506",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 37439,
+            "execute_at": "2025-10-23T17:18:08.527Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 4,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 55016,
+                    "username": "person4268",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 60059,
+                    "username": "hongyuehao",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/hongyuehao/{size}/201196_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 61618,
+                    "username": "Michael888",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 63229,
+                    "username": "Owen4026",
+                    "name": "Owen",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/owen4026/{size}/211145_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 61618,
+                "username": "Michael888",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/m/8e8cbc/{size}.png"
+            },
+            "last_poster": {
+                "id": 63229,
+                "username": "Owen4026",
+                "name": "Owen",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/owen4026/{size}/211145_2.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

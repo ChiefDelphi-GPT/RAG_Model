@@ -1,0 +1,1041 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3312311,
+                    "name": "Billfred Leverette (he/him/not Bill)",
+                    "username": "Billfred",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png",
+                    "created_at": "2024-02-18T16:30:54.490Z",
+                    "cooked": "We’re running an MK4/NEO/Thrifty Encoder setup.  The encoders are plugged into the roboRIO analog inputs.\n\nAnd it is whooping our butts.\n\nWe can’t seem to get any control over steering (propulsion itself is fine).  Behaviors don’t change when we swap encoder inputs around, or even just unplug the encoders.  So we’re pretty confident that the encoders aren’t being read in.\n\nHere’s a link to the relevant-I-think parts of our code, as committed at the end of yesterday’s meeting.  There are probably some things that are wrong due to us thrashing on it yesterday, but I’m hoping someone can identify some “Billfred, you dummy, change this one line!” moment.  The code we’re running is MAXSwerve-derived and basically the same as what’s being used by 4451 and 2815.\n\nWe’re about six shop hours from converting the whole plan to an AM14U chassis out of necessity for Anderson (we play Week 2), so I’m trying to exhaust all avenues before we wave the white flag on this.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-18T16:30:54.490Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 11,
+                    "reads": 45,
+                    "readers_count": 44,
+                    "score": 84.0,
+                    "yours": false,
+                    "topic_id": 455216,
+                    "topic_slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+                    "display_username": "Billfred Leverette (he/him/not Bill)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/Pandamaniacs/2024Test/blob/main/src/main/java/frc/robot/subsystems/drive/SwerveModuleSparkMax.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024Test/src/main/java/frc/robot/subsystems/drive/SwerveModuleSparkMax.java at main · Pandamaniacs/2024Test · GitHub",
+                            "clicks": 4
+                        },
+                        {
+                            "url": "https://github.com/Pandamaniacs/2024Test/blob/main/src/main/java/frc/robot/Constants.java",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "2024Test/src/main/java/frc/robot/Constants.java at main · Pandamaniacs/2024Test · GitHub",
+                            "clicks": 1
+                        },
+                        {
+                            "url": "https://github.com/Pandamaniacs/2024Test/blob/main/src/main/java/frc/robot/subsystems/drive/DriveSubsystem.java",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 0
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 3095,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "says you should come to SCRIW in October"
+                    },
+                    "post_url": "/t/are-we-reading-our-analog-encoders-properly-from-the-roborio/455216/1",
+                    "custom_user_title": "says you should come to SCRIW in October",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3312315,
+                    "name": "Mr. Siefen | 453",
+                    "username": "kingc95",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                    "created_at": "2024-02-18T16:35:18.031Z",
+                    "cooked": "Billfred:\n\nMAXSwerve-derived\n\nDid you start from the Java MaxSwerve template that Rev published? Just want to check for clarity where the starting code came from. If so that’s what we have as well and the only difference should be the encoder used for the steering control.\n\nWe made our current swerve code public on GitHub.\n\nhttps://github.com/team453/2024Bot\n\n@brandonmcd did alot of the configuration, calibration and setup for us. I’m not sure what was needed for the calibration part exactly but Rev had a built in tool. Not sure if it works for a Mk4 SDS or not",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-18T16:35:18.031Z",
+                    "reply_count": 1,
+                    "reply_to_post_number": null,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 34,
+                    "readers_count": 33,
+                    "score": 11.8,
+                    "yours": false,
+                    "topic_id": 455216,
+                    "topic_slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+                    "display_username": "Mr. Siefen | 453",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/team453/2024Bot",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - team453/2024Bot",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 20632,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Mr. Siefen"
+                    },
+                    "post_url": "/t/are-we-reading-our-analog-encoders-properly-from-the-roborio/455216/2",
+                    "custom_user_title": "Mr. Siefen",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3312320,
+                    "name": "Billfred Leverette (he/him/not Bill)",
+                    "username": "Billfred",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png",
+                    "created_at": "2024-02-18T16:39:38.329Z",
+                    "cooked": "kingc95:\n\nDid you start from the Java MaxSwerve template that Rev published? Just want to check for clarity where the starting code came from. If so that’s what we have as well and the only difference should be the encoder used for the steering control.\n\nWe started from 4451’s code.  How much they’ve massaged it is unknown to me.\n\nkingc95:\n\nI’m not sure what was needed for the calibration part exactly but Rev had a built in tool. Not sure if it works for a Mk4 SDS or not\n\nSDS doesn’t have such a tool; we’d be straightening with a custom-built jig and reading the values from there.",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-18T16:39:38.329Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": 2,
+                    "quote_count": 1,
+                    "incoming_link_count": 0,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 21.0,
+                    "yours": false,
+                    "topic_id": 455216,
+                    "topic_slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+                    "display_username": "Billfred Leverette (he/him/not Bill)",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": true,
+                    "admin": false,
+                    "staff": true,
+                    "user_id": 3095,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "says you should come to SCRIW in October"
+                    },
+                    "post_url": "/t/are-we-reading-our-analog-encoders-properly-from-the-roborio/455216/3",
+                    "custom_user_title": "says you should come to SCRIW in October",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3312321,
+                    "name": "Thad House",
+                    "username": "Thad_House",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                    "created_at": "2024-02-18T16:39:42.674Z",
+                    "cooked": "Are you using the latest release of AdvantageKit? There was an issue in the initial releases where it would cause RobotController.getVoltage5V to break. I think it was solved, but you’d have to ask the AKit team. They do so many hacks that break WPILib invariants that it becomes impossible for the WPILib team to help diagnose issues.",
+                    "post_number": 4,
+                    "post_type": 1,
+                    "posts_count": 5,
+                    "updated_at": "2024-02-18T16:41:32.030Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 30,
+                    "readers_count": 29,
+                    "score": 46.0,
+                    "yours": false,
+                    "topic_id": 455216,
+                    "topic_slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+                    "display_username": "Thad House",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16147,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "WPILib Dev | 2025 VOTY"
+                    },
+                    "post_url": "/t/are-we-reading-our-analog-encoders-properly-from-the-roborio/455216/4",
+                    "custom_user_title": "WPILib Dev | 2025 VOTY",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3530208,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2025-02-17T16:39:56.139Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 5,
+                    "post_type": 3,
+                    "posts_count": 5,
+                    "updated_at": "2025-02-17T16:39:56.139Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 455216,
+                    "topic_slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/are-we-reading-our-analog-encoders-properly-from-the-roborio/455216/5",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3312311,
+                3312315,
+                3312320,
+                3312321,
+                3530208
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                601
+            ],
+            [
+                5,
+                236
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "In Need of Working YAGSL Swerve Code",
+                "id": 492104,
+                "title": "In Need of Working YAGSL Swerve Code",
+                "slug": "in-need-of-working-yagsl-swerve-code",
+                "posts_count": 16,
+                "reply_count": 12,
+                "highest_post_number": 16,
+                "image_url": null,
+                "created_at": "2025-02-18T00:48:18.951Z",
+                "last_posted_at": "2025-02-21T00:47:10.361Z",
+                "bumped": true,
+                "bumped_at": "2025-02-21T00:47:10.361Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey all, We have done our best to get YAGSL working, but we’ve failed. Put about 150 hours into it the last month and a half. Read the documentation probably 15 times, completed the flow chart and ei…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 245,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3530830,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 68869,
+                    "username": "HawkbotsMentor",
+                    "name": "Henry",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 68869,
+                            "username": "HawkbotsMentor",
+                            "name": "Henry",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/d9b06d/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 9105,
+                            "username": "Fletch1373",
+                            "name": "Fletch",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/fletch1373/{size}/220073_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 50904,
+                            "username": "Heckboy",
+                            "name": "Cody B.",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/da6949/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 51887,
+                            "username": "nstrike",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nstrike/{size}/167038_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "RobotController.getInputVoltage() returning NaN",
+                "id": 476680,
+                "title": "RobotController.getInputVoltage() returning NaN",
+                "slug": "robotcontroller-getinputvoltage-returning-nan",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/3X/8/8/887099850736fad87ec26fefc7e430bf2e0f9026_2_1024x582.png",
+                "created_at": "2024-12-14T05:05:22.421Z",
+                "last_posted_at": "2024-12-15T05:34:44.188Z",
+                "bumped": true,
+                "bumped_at": "2024-12-15T05:34:44.188Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "This is an issue with maple-sim right now where certain currents would jump to infinity. We’re submitting a pull request to fix the underlying issue.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 126,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3459521,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 59542,
+                    "username": "mathum",
+                    "name": "Matthew Milunic",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 59542,
+                            "username": "mathum",
+                            "name": "Matthew Milunic",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/8baadc/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Path Planner configuration setup help",
+                "id": 482411,
+                "title": "Path Planner configuration setup help",
+                "slug": "path-planner-configuration-setup-help",
+                "posts_count": 4,
+                "reply_count": 1,
+                "highest_post_number": 4,
+                "image_url": null,
+                "created_at": "2025-01-18T02:37:21.805Z",
+                "last_posted_at": "2025-01-24T17:10:00.252Z",
+                "bumped": true,
+                "bumped_at": "2025-01-24T17:10:00.252Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If I’m reading this right it seems like you are trying to run the autobuilder configure outside of a constructor or method. the compiler is trying to interpret it as a new method instead of running i…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "programming",
+                    "pathplanner"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 170,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3486948,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 3,
+                "topic_post_user": {
+                    "id": 63596,
+                    "username": "Otter502",
+                    "name": "Val",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 59968,
+                            "username": "TheANT",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/theant/{size}/197187_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 63596,
+                            "username": "Otter502",
+                            "name": "Val",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/otter502/{size}/245799_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55182,
+                            "username": "Flatop",
+                            "name": "Kyle Burman",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/a4c791/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "How to set all encoders of swerve wheels to defined position",
+                "id": 475995,
+                "title": "How to set all encoders of swerve wheels to defined position",
+                "slug": "how-to-set-all-encoders-of-swerve-wheels-to-defined-position",
+                "posts_count": 9,
+                "reply_count": 2,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2024-12-04T12:39:22.554Z",
+                "last_posted_at": "2024-12-04T17:34:36.327Z",
+                "bumped": true,
+                "bumped_at": "2024-12-04T17:34:36.327Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I can’t get my MK4i swerve modules to return to the desired position when starting autonomous mode and teleoperator, can anyone help?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 184,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3454528,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 66636,
+                    "username": "Ghuz",
+                    "name": "Ghuz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/f4b2a3/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 66636,
+                            "username": "Ghuz",
+                            "name": "Ghuz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/f4b2a3/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22261,
+                            "username": "paulonis",
+                            "name": "paulonis",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/5fc32e/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33098,
+                            "username": "crh_redbird1",
+                            "name": "Cole Hunt",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/crh_redbird1/{size}/237120_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Command Scheduler Behavior",
+                "id": 492830,
+                "title": "Command Scheduler Behavior",
+                "slug": "command-scheduler-behavior",
+                "posts_count": 18,
+                "reply_count": 14,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-02-23T14:51:03.765Z",
+                "last_posted_at": "2025-02-25T04:02:36.122Z",
+                "bumped": true,
+                "bumped_at": "2025-02-25T04:02:36.122Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is trying to schedule and cancel commands, but the problem is most of the time the command is left over and called again if we choose a similar functioning, but different button. If we press …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 319,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3537128,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24594,
+                            "username": "SLAB-Mr.Thomas",
+                            "name": "SLAB-Mr.Thomas",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/slab-mr.thomas/{size}/182153_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71814,
+                            "username": "jayticku",
+                            "name": "Jay Ticku",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/71e660/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 73780,
+                            "username": "Fsgoose",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/f/e19adc/{size}.png",
+                            "trust_level": 1
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Are we reading our analog encoders properly from the roboRIO?",
+        "id": 455216,
+        "title": "Are we reading our analog encoders properly from the roboRIO?",
+        "posts_count": 5,
+        "created_at": "2024-02-18T16:30:54.420Z",
+        "views": 132,
+        "reply_count": 1,
+        "like_count": 4,
+        "last_posted_at": "2025-02-17T16:39:56.139Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "are-we-reading-our-analog-encoders-properly-from-the-roborio",
+        "category_id": 75,
+        "word_count": 539,
+        "deleted_at": null,
+        "user_id": 3095,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_455216",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 5,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 3095,
+                    "username": "Billfred",
+                    "name": "Billfred Leverette (he/him/not Bill)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png",
+                    "post_count": 2,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "moderator": true,
+                    "trust_level": 4
+                },
+                {
+                    "id": 16147,
+                    "username": "Thad_House",
+                    "name": "Thad House",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/t/a4c791/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 20632,
+                    "username": "kingc95",
+                    "name": "Mr. Siefen | 453",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kingc95/{size}/226662_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 3095,
+                "username": "Billfred",
+                "name": "Billfred Leverette (he/him/not Bill)",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/billfred/{size}/225278_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Pandamaniacs/2024Test/blob/main/src/main/java/frc/robot/subsystems/drive/SwerveModuleSparkMax.java",
+                    "title": "2024Test/src/main/java/frc/robot/subsystems/drive/SwerveModuleSparkMax.java at main · Pandamaniacs/2024Test · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 4,
+                    "user_id": 3095,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/Pandamaniacs/2024Test/blob/main/src/main/java/frc/robot/Constants.java",
+                    "title": "2024Test/src/main/java/frc/robot/Constants.java at main · Pandamaniacs/2024Test · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 3095,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/team453/2024Bot",
+                    "title": "GitHub - team453/2024Bot",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 20632,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

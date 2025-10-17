@@ -1,0 +1,854 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 2979860,
+                    "name": "",
+                    "username": "Candace",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/4da419/{size}.png",
+                    "created_at": "2021-12-04T16:12:45.803Z",
+                    "cooked": "I have seen all the buzz about Running First WPILib on the Romi Robot and was wondering if it was possible to do a similar thing with an Elegoo Smart Car. A number of the teams in my area received a grant last year to get an Elegoo Smart Car for each of our students. It would be really amazing if we could add a Raspberry Pi to them and then run WPILib and code in Java.",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-12-04T16:12:45.803Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 97,
+                    "reads": 72,
+                    "readers_count": 71,
+                    "score": 499.4,
+                    "yours": false,
+                    "topic_id": 397826,
+                    "topic_slug": "running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 49981,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "post_url": "/t/running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car/397826/1",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 2979880,
+                    "name": null,
+                    "username": "veg",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "created_at": "2021-12-04T18:15:33.166Z",
+                    "cooked": "In theory, yes this is possible.\n\nThe WPILib source code for the Arduino controller on the Romi is not terribly complicated to understand. It talks to the Raspberry Pi over the I2C bus to implement the low-level motor control, sensor I/O, and other functionality. You would need to modify the Arduino project to map the I/O onto the available features of the Elegoo platform.\n\nYou won’t have some of the sensors that are integrated on the Romi - specifically the accelerometer/gyro and the wheel encoders, so you’ll probably need to stub out some functionality, or augment the Elegoo with additional hardware. But that shouldn’t prevent you from driving a platform around under simple WPILib control.\n\nYou’ll also need to work out the interfacing between your Raspberry Pi and your Romi, as these operate at different voltage levels. The Romi is nice in this area because it is basically a Raspberry Pi hat with all the required level shifters. Pololu has a couple of other Arduino-compatible controllers that have the same kind of interface, so you could replace the Uno on the Elegoo with one of those options.\n\nAt the end of the day, it’s not a simple project. But it might be worth doing anyway, if you have enough students who would benefit from using it.",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2021-12-04T18:15:33.166Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 60,
+                    "readers_count": 59,
+                    "score": 37.0,
+                    "yours": false,
+                    "topic_id": 397826,
+                    "topic_slug": "running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car",
+                    "display_username": null,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 48088,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car/397826/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3107151,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2022-12-04T18:16:08.806Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 3,
+                    "post_type": 3,
+                    "posts_count": 3,
+                    "updated_at": "2022-12-04T18:16:08.806Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 2,
+                    "readers_count": 1,
+                    "score": 5.4,
+                    "yours": false,
+                    "topic_id": 397826,
+                    "topic_slug": "running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car/397826/3",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                2979860,
+                2979880,
+                3107151
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1408
+            ],
+            [
+                2,
+                1407
+            ],
+            [
+                3,
+                1042
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Elevator rope",
+                "id": 484676,
+                "title": "Elevator rope",
+                "slug": "elevator-rope",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-01T19:04:01.042Z",
+                "last_posted_at": "2025-02-01T19:40:57.066Z",
+                "bumped": true,
+                "bumped_at": "2025-02-01T19:40:57.066Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "What’s the best type of rope for an elevator? We haven’t built an elevator in years and we are unsure if the rope we have is the best to use or if we should order some new stuff.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 2,
+                "views": 163,
+                "category_id": 9,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3499141,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69571,
+                    "username": "leighFRC",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/l/59ef9b/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69571,
+                            "username": "leighFRC",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/l/59ef9b/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 71354,
+                            "username": "Lyinlyon",
+                            "name": "James Lyon",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lyinlyon/{size}/244534_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Is Google Coral necessary for limelight detection?",
+                "id": 480887,
+                "title": "Is Google Coral necessary for limelight detection?",
+                "slug": "is-google-coral-necessary-for-limelight-detection",
+                "posts_count": 8,
+                "reply_count": 3,
+                "highest_post_number": 8,
+                "image_url": null,
+                "created_at": "2025-01-11T13:21:22.423Z",
+                "last_posted_at": "2025-01-12T06:02:20.455Z",
+                "bumped": true,
+                "bumped_at": "2025-01-12T16:58:46.186Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "My team wanted to use object detection with the limelight for the first time this season, but while reading the instructions we saw that we needed to have a coral usb goohgle, however our team does no…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "limelight"
+                ],
+                "tags_descriptions": {},
+                "like_count": 3,
+                "views": 732,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3479020,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64337,
+                    "username": "MiguelRodrigues0",
+                    "name": "Rodrigues",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/miguelrodrigues0/{size}/255312_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64337,
+                            "username": "MiguelRodrigues0",
+                            "name": "Rodrigues",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/miguelrodrigues0/{size}/255312_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 60512,
+                            "username": "four",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/four/{size}/199902_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 23320,
+                            "username": "Owen_Busler",
+                            "name": "Owen Busler",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/owen_busler/{size}/7684_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62573,
+                            "username": "KfirNeuman",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/k/d07c76/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 24441,
+                            "username": "KH987",
+                            "name": "Kevin Hjelstrom",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/kh987/{size}/182255_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Orange pi 5 not booting photonvision",
+                "id": 491468,
+                "title": "Orange pi 5 not booting photonvision",
+                "slug": "orange-pi-5-not-booting-photonvision",
+                "posts_count": 13,
+                "reply_count": 8,
+                "highest_post_number": 13,
+                "image_url": null,
+                "created_at": "2025-02-13T01:25:05.864Z",
+                "last_posted_at": "2025-02-14T11:51:14.740Z",
+                "bumped": true,
+                "bumped_at": "2025-02-14T11:51:14.740Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "UPDATE the issue is solved! I used a brand new sd card and it worked. The previous sd cards were class 10 cards, which are inconsistent with orange pis. We have switched to A2 cards and it works perf…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "vision",
+                    "photonvision"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 241,
+                "category_id": 30,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3526353,
+                "topic_post_liked": false,
+                "topic_post_like_count": 3,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 11,
+                "topic_post_user": {
+                    "id": 69068,
+                    "username": "Hardcorish",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/h/e95f7d/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 69068,
+                            "username": "Hardcorish",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/h/e95f7d/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28614,
+                            "username": "legoguy1000",
+                            "name": "Alex",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/legoguy1000/{size}/256261_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 63767,
+                            "username": "Sam948",
+                            "name": "Sam",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sam948/{size}/261363_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 21715,
+                            "username": "asid61",
+                            "name": "Anand Rajamani",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/asid61/{size}/7179_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57809,
+                            "username": "levyishai",
+                            "name": "Yishai Levy",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/levyishai/{size}/264719_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Transitioning from REV PID control to MAXMotion for Cascade Elevator",
+                "id": 494219,
+                "title": "Transitioning from REV PID control to MAXMotion for Cascade Elevator",
+                "slug": "transitioning-from-rev-pid-control-to-maxmotion-for-cascade-elevator",
+                "posts_count": 9,
+                "reply_count": 6,
+                "highest_post_number": 9,
+                "image_url": null,
+                "created_at": "2025-03-04T19:20:33.278Z",
+                "last_posted_at": "2025-03-04T23:45:15.205Z",
+                "bumped": true,
+                "bumped_at": "2025-03-04T23:45:15.205Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team is going to convert our continuous elevator to cascade. We are hoping to make our elevator faster by doing this. We are using PID control, but would like to switch to MAXMotion to make our el…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 8,
+                "views": 229,
+                "category_id": 75,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3547468,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 51278,
+                    "username": "JamerGamer789",
+                    "name": "James",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 51278,
+                            "username": "JamerGamer789",
+                            "name": "James",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e19b73/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 12381,
+                            "username": "Oblarg",
+                            "name": "Eli Barnett",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/oblarg/{size}/161674_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 61239,
+                            "username": "AvocadoPeel",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/avocadopeel/{size}/232401_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6349,
+                            "username": "Will_Toth",
+                            "name": "Will Toth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/will_toth/{size}/111117_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 58301,
+                            "username": "LHACK4142",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/lhack4142/{size}/196107_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "High Can Bus utilization",
+                "id": 472940,
+                "title": "High Can Bus utilization",
+                "slug": "high-can-bus-utilization",
+                "posts_count": 12,
+                "reply_count": 9,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/4/e/4ee1723080fd87bfc9fc8bac21409918dde90cbd.jpeg",
+                "created_at": "2024-10-13T22:44:03.742Z",
+                "last_posted_at": "2024-10-15T16:59:06.388Z",
+                "bumped": true,
+                "bumped_at": "2024-10-15T16:59:06.388Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Currently, 14 Sparkmaxes on 14 motors. No other faults. The 2 NEOs on Shooters are running at the same rotation and setting. the 2 NEO 550s on for Intake are also running the same (one follower). Tri…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 7,
+                "views": 538,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3434313,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 57747,
+                    "username": "MSU2000",
+                    "name": "Ardiano Works",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/msu2000/{size}/190139_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 57747,
+                            "username": "MSU2000",
+                            "name": "Ardiano Works",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/msu2000/{size}/190139_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 57670,
+                            "username": "nevadexehs",
+                            "name": "neev dadhania",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/n/ecc23a/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 7841,
+                            "username": "Tom_Line",
+                            "name": "Tom Line",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_line/{size}/236809_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 46267,
+                            "username": "john3928",
+                            "name": "John Hascall (he)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/john3928/{size}/143275_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 55016,
+                            "username": "person4268",
+                            "name": "",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/p/22d042/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Running WPILib with a Raspberry PI on an Elegoo Smart Car",
+        "id": 397826,
+        "title": "Running WPILib with a Raspberry PI on an Elegoo Smart Car",
+        "posts_count": 3,
+        "created_at": "2021-12-04T16:12:45.600Z",
+        "views": 419,
+        "reply_count": 0,
+        "like_count": 1,
+        "last_posted_at": "2022-12-04T18:16:08.806Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "running-wpilib-with-a-raspberry-pi-on-an-elegoo-smart-car",
+        "category_id": 9,
+        "word_count": 319,
+        "deleted_at": null,
+        "user_id": 49981,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_397826",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 2,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 48088,
+                    "username": "veg",
+                    "name": null,
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/v/3be4f8/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 49981,
+                    "username": "Candace",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/c/4da419/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 49981,
+                "username": "Candace",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/c/4da419/{size}.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            }
+        },
+        "bookmarks": []
+    }
+}

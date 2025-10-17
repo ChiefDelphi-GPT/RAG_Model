@@ -1,0 +1,923 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3117507,
+                    "name": "Silas Rowden",
+                    "username": "SilasRowden",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/silasrowden/{size}/231049_2.png",
+                    "created_at": "2023-01-07T02:15:16.223Z",
+                    "cooked": "Intro\n\nI am Silas and I am the programming lead on 4265 Secret City Wildbots. We won two separate regionals and went to worlds this year with our robot Sidewinder and have been there ten out of the eleven years we have been a team. Our robot for this year includes a dual intake, shooter, mid-rung climber, and best of all: a shifting swerve! This is an overview of our LabView code for Sidewinder, a description of our custom python based path planner and repositories for our previous and current code.\n\nShifting Swerve Code\n\nKinematics and Controllers\n\nOur swerve drive automatically handles failures and calibrations. If an azimuth module fails, we switch the motor to coast mode, disable the drive motor for the affected module, and remove the module from the robot pose calculations. To prevent the swerve modules from opposing each other while transiting to a new azimuth heading, we slow down any module that is going against the others. To reduce system complexity, only relative azimuth encoders are used, requiring additional error checking to recover from possible motor controller or RoboRIO brownout conditions. Additionally, we assist the driver by locking the robot’s orientation at high speeds, which prevents the robot from drifting. Additionally, orientation control is automatically switched on while we are climbing for easier adjustments and proper line up. New this year, an angle unwrapping algorithm allows the azimuth control loop to run on the motor controllers while still choosing the optimal (per-module) rotation and drive motor directions. We also automatically control whether the swerve drive is in robot-oriented or field-oriented mode based on driver inputs and emergency overrides. Finally, we use customizable driver profiles so each driver can have personalized settings and while we have not had much time to practice it, drivers can also change the swerve rotation center to enable complex maneuvers\n\nShifting\n\nEach swerve module pneumatically shifts (i.e., low gear and high gear) independently. We use two photo-interrupters on each module to determine the real shifter state the robot is in and compare this state to our requested shifter state. Using this information, we can determine whether the robot is in high or low gear so that we can use the correct unit conversion factors, feedforward coefficients, and control saturation scalings. We can also compare the requested and actual shifter states to know when we are transitioning between gears, stutter the ball shifter if it gets stuck while transitioning, and detect any shifter failures. The robot pose is used to latch the azimuth angles during the rapid deceleration, which can occur when down-shifting, to prevent the robot tipping from at high speeds The pose state information is also used to estimate the robot velocity during shifting when the drive motor encoders are decoupled from the drive wheel.\n\nAutonomous Code\n\nRobot Autonomy and Path Planner\n\nBefore a match, our autonomous program loads a text file of commands to execute the autonomous play. We parse these user-input commands into parallel drive and subsystem instruction sequencers. These commands have multiple modes including a configurable delay that enables us to synchronize with our alliance partners. To drive complex paths, we created a custom path planner that lets the user specify multiple waypoints, translational velocities, rotational velocities, and orientations that the robot must reach. Our path planner automatically smooths sharp turns, limits the robot’s translational acceleration, and ramps the rotational velocity during these paths. Our LabVIEW path follower is a modified pure-pursuit algorithm (see more info below). It includes both a feed-forward controller that calculates our goal location along the path and a feed-back controller that compensates for the inherent errors in following the path. New for next year, the path planner will allow us to input calibration points based on measurements made on the competition field.\n\nOnce we finish writing a play or path, we can immediately test autonomous even while our robot is stationary on the cart. This autonomous test mode allows us to simulate or bypass crucial sensor readings, such as the IMU and LimeLight. Because the robot is stationary on the cart, we had difficulty visualizing its estimated position on the field. Therefore, we created a map that displays the robot pose, shoot-while moving compensation, and the path the robot has taken, either using the physical sensors during a match or simulated sensor readings in test mode. To help us easily debug any problems, we record this path, audible warnings, and the robot’s status during each match using OBS Studio. Our guiding design principle has been to allow us to develop new auto plays and paths “in the queue line” and have them complete successfully during the match without any testing on the field.\n\nOn the field, our robot estimates its position and orientation (pose) by constantly fusing data from multiple sensors, including the IMU, swerve drive encoders, swerve azimuth encoders, and the LimeLight vision camera. We continue to run our autonomous modes after the autonomous period of a match ends, until the driver moves the joystick. This feature allows us to leverage the crucial seconds between the end of autonomous and when our drivers can pick up their game controllers.\n\nAutonomous Path Follower\n\nEssentially, we have a feed-forward path follower with a feed-back pure pursuit controller running on top of it:\n\nFirst, we generate a smooth path using a custom path planner. This computes smooth translational and rotational velocity profiles and does some basic acceleration limiting but we haven’t explored curvature related limits yet.\n\nFirst, we generate a smooth path using a custom path planner. This computes smooth translational and rotational velocity profiles and does some basic acceleration limiting but we haven’t explored curvature related limits yet.\n\nBased on the robot’s pose, we identify the closest smooth point on the path within our search window (which we prevent from ever extending backwards, effectively preventing the robot from traveling backwards along the path).\n\nBased on the robot’s pose, we identify the closest smooth point on the path within our search window (which we prevent from ever extending backwards, effectively preventing the robot from traveling backwards along the path).\n\nBased on this closest point we grab the following information:\n\nBased on this closest point we grab the following information:\n\nDistance along the path from the start.\n\nDistance along the path from the start.\n\nDistance along the path from the end.\n\nDistance along the path from the end.\n\nThe feed-forward velocity magnitude.\n\nThe feed-forward velocity magnitude.\n\nThe feed-forward velocity angle (for us this is essentially the pointing direction for our swerve modules).\n\nThe feed-forward velocity angle (for us this is essentially the pointing direction for our swerve modules).\n\nThe robot orientation goal (for us this is an independent degree of freedom).\n\nThe robot orientation goal (for us this is an independent degree of freedom).\n\nThe robot orientation feed-forward velocity magnitude.\n\nThe robot orientation feed-forward velocity magnitude.\n\nWe then identify our look-ahead point, this is where the robot should be at any given time and is used to calculate the error used by the feed-back controller. The look-ahead point is defined as either the smooth point that is the look-ahead time away from our current position, or the “chase” point, whichever is closer to us and assuming neither are behind us. Where the chase point is where the robot should currently be located along the path based completely on the feed-forward values generated by the path planner. This (a) compensates for us drifting off of the path due to imperfections in the feed-forward controller and (b) keeps us moving along the path when we stop to touch points like in the 2021 bounce path.\n\nWe then identify our look-ahead point, this is where the robot should be at any given time and is used to calculate the error used by the feed-back controller. The look-ahead point is defined as either the smooth point that is the look-ahead time away from our current position, or the “chase” point, whichever is closer to us and assuming neither are behind us. Where the chase point is where the robot should currently be located along the path based completely on the feed-forward values generated by the path planner. This (a) compensates for us drifting off of the path due to imperfections in the feed-forward controller and (b) keeps us moving along the path when we stop to touch points like in the 2021 bounce path.\n\nOnce we have this look-ahead point we grab the following information:\n\nOnce we have this look-ahead point we grab the following information:\n\nDistance error from the current pose to the look-ahead point.\n\nDistance error from the current pose to the look-ahead point.\n\nPointing angle from the current pose to the look-ahead point (for us this is essentially the pointing direction for our swerve modules).\n\nPointing angle from the current pose to the look-ahead point (for us this is essentially the pointing direction for our swerve modules).\n\nNext, we have to do some conversions. The feed-forward velocity is in inches/s from the path planner and must be converted to our standardized non-dimensional drive command [0,1] based on the maximum ground velocity we can achieve. The distance error is in inches, and is “converted” into a non-dimensional drive command [0,1] by the PID controller. The independent heading error is “converted” from degrees to a non-dimensional rotation command [-1,1] by another PID controller.\n\nNext, we have to do some conversions. The feed-forward velocity is in inches/s from the path planner and must be converted to our standardized non-dimensional drive command [0,1] based on the maximum ground velocity we can achieve. The distance error is in inches, and is “converted” into a non-dimensional drive command [0,1] by the PID controller. The independent heading error is “converted” from degrees to a non-dimensional rotation command [-1,1] by another PID controller.\n\nThe feed-forward and feed-back drive commands are broken into their vector components using the feed-forward velocity angle and the feed-back pointing angle, respectively. They are then summed and the result is field-centric X and Y drive commands.\n\nThe feed-forward and feed-back drive commands are broken into their vector components using the feed-forward velocity angle and the feed-back pointing angle, respectively. They are then summed and the result is field-centric X and Y drive commands.\n\nThese drive and rotation commands get passed to all of our TeleOp swerve commands. Downstream we are running in voltage compensation mode on the Falcons during auto and applying another linearizing feed-forward controller to convert the non-dimensional motor commands [-1,1] to non-dimensional motor power commands [-1,1] which scale linearly with motor RPM.\n\nThese drive and rotation commands get passed to all of our TeleOp swerve commands. Downstream we are running in voltage compensation mode on the Falcons during auto and applying another linearizing feed-forward controller to convert the non-dimensional motor commands [-1,1] to non-dimensional motor power commands [-1,1] which scale linearly with motor RPM.\n\nRobot Pose\n\nOur robot uses a variety of things to locate its own position on the field. First, an estimation of our pose is created based on our previous pose data (which is initially set from manual coordinates on the dashboard), how far we have measured the azimuth and drive encoders to move, and measurements from our IMU (odometry). This only provides an estimation, however, and we then fuse this odometry with data received from the LimeLight when it is available. We must use a Kalman filter in order to sync up the times that the LimeLight data and encoder data were received because there is extra delay from the LimeLight. We then do a check afterward to make sure that the robot is within field boundaries for safety purposes. This produces our final calculated pose which is displayed on the dashboard. Initially with this system, we struggled quite a bit with network table latency, particularly with the LimeLight. After adjusting how we send data, we fixed this issue.\n\nSubsystems\n\nWe have a shooter on a turret which automatically tracks the target based on the estimated robot pose. The robot shoots automatically when requested by the driver and when ready (i.e., when the shooter is at speed and the robot is properly aimed). We also calculate the future pose of our robot based on our current velocity and use that to shoot while moving. Compensations are made to adjust for the changing robot pose with different turret angles and shooter speeds.\n\nOur ball handling starts with the intake. The intake’s encoder velocity is measured in order to detect jammed balls which are removed by reversing the intake direction. We also have photon cannons mounted above the intake which are turned on whenever the intake is active. This helps the driver to see the balls they are collecting for faster ball collection. In the indexer and tower, we have two beam-breaks and a color sensor allowing us to see how many balls we have and automatically reject wrong color balls (shooting them toward the nearest HANGER or driver station wall) while auto-targeting.\n\nWe also have a climber which is capable of a mid bar climb. While in climbing mode (activated by the manipulator), the robot automatically faces in the correct direction and orientation control is switched on for easier line-ups and faster climbs.\n\nDriver Feedback and Dashboard Code\n\nOur dashboard code is the primary interface with the user. To help drivers navigate the dashboard, we used three main tabs: Setup/Autonomous, TeleOp, and Tune. Information for the manipulator appears in the TeleOp tab which we access during the match The tablet provides continuous driver feedback with warning lights, voice commands, state indicators, and camera overlays and enables faster UI and robot design iterations. The TeleOp screen also includes multiple overrides including a safety override for emergencies. The Tune tab also includes crucial information including Driver Profile settings (which can be adjusted from the Tune tab), numerous calibrations, swerve module information (i.e., temperature and angle), and a custom actuator testing mode which allows each motor, piston, and also compressor to be tested individually. Physical indicators such as robot LEDs and the driver’s joystick rumble provide further feedback by showing the robot mode. Our LEDs have different modes to communicate different types of information. In the default mode, the state of the robot (autonomous, TeleOp, or disabled) and master alarms and cautions are shown. We also have debug mode with information about different modules, sensors, and the turret, locate LED mode to pick specific LEDs from the strip, choose hue to choose the best colors from the LEDS, and Party mode for fun! The joystick vibrations are used to indicate active intakes. We also use audible warnings with a voice we named “KAREN!” KAREN! alerts the drivers about specific sensor and swerve module failures, motor temperatures, electrical faults, pressure leaks, control latency, autonomous play typos, tablet failures, and calibration instructions. Finally, we have added an error map diagram overlay to display which parts of the robot have errors and a joystick command diagram overlay.\n\nI am happy to answer any questions you might have about information listed here.\n\nRepositories\n\nThe Secret City Wildbots are a FIRST Robotics Competition team from Oak Ridge, TN. - Secret City Wildbots (FRC 4265)",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-07T02:15:16.223Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 49,
+                    "reads": 129,
+                    "readers_count": 128,
+                    "score": 300.8,
+                    "yours": false,
+                    "topic_id": 420935,
+                    "topic_slug": "secret-city-wildbots-4265-2022-code-release",
+                    "display_username": "Silas Rowden",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/secret-city-wildbots",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Secret City Wildbots (FRC 4265) · GitHub",
+                            "clicks": 34
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 2
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 55316,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "4265 Programming Lead"
+                    },
+                    "post_url": "/t/secret-city-wildbots-4265-2022-code-release/420935/1",
+                    "custom_user_title": "4265 Programming Lead",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 2
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 2,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3117691,
+                    "name": "",
+                    "username": "Kevin_Leonard",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kevin_leonard/{size}/237299_2.png",
+                    "created_at": "2023-01-07T14:24:41.930Z",
+                    "cooked": "#livelovelabview",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-07T14:24:41.930Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 79,
+                    "readers_count": 78,
+                    "score": 40.8,
+                    "yours": false,
+                    "topic_id": 420935,
+                    "topic_slug": "secret-city-wildbots-4265-2022-code-release",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 16805,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/secret-city-wildbots-4265-2022-code-release/420935/2",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3121629,
+                    "name": "Luke Scime",
+                    "username": "lscime",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lscime/{size}/135366_2.png",
+                    "created_at": "2023-01-10T02:47:14.367Z",
+                    "cooked": "We have released a version of our path planner configured for Charged Up, and while we aren’t planning to do an official build blog, all of our code repositories will remain public throughout build season and we will be happy to answer any questions!\n\nAutonomous path planner designed to integrate with a modified pure-pursuit path following algorithm with swerve support.  - secret-city-wildbots/Autonomous-Path-Planner\n\n-Luke",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 4,
+                    "updated_at": "2023-01-10T02:47:14.367Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 1,
+                    "reads": 50,
+                    "readers_count": 49,
+                    "score": 15.0,
+                    "yours": false,
+                    "topic_id": 420935,
+                    "topic_slug": "secret-city-wildbots-4265-2022-code-release",
+                    "display_username": "Luke Scime",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://github.com/secret-city-wildbots/Autonomous-Path-Planner/releases",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "Releases · secret-city-wildbots/Autonomous-Path-Planner · GitHub",
+                            "clicks": 12
+                        }
+                    ],
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 10597,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "(he/him) Controls Mentor"
+                    },
+                    "post_url": "/t/secret-city-wildbots-4265-2022-code-release/420935/3",
+                    "custom_user_title": "(he/him) Controls Mentor",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3279127,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png",
+                    "created_at": "2024-01-10T02:47:18.636Z",
+                    "cooked": "This topic was automatically closed 365 days after the last reply. New replies are no longer allowed.",
+                    "post_number": 4,
+                    "post_type": 3,
+                    "posts_count": 4,
+                    "updated_at": "2024-01-10T02:47:18.636Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 1,
+                    "readers_count": 0,
+                    "score": 0.2,
+                    "yours": false,
+                    "topic_id": 420935,
+                    "topic_slug": "secret-city-wildbots-4265-2022-code-release",
+                    "display_username": "system",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": "",
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": true,
+                    "admin": true,
+                    "staff": true,
+                    "user_id": -1,
+                    "hidden": false,
+                    "trust_level": 4,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "action_code": "autoclosed.enabled",
+                    "post_url": "/t/secret-city-wildbots-4265-2022-code-release/420935/4",
+                    "custom_user_title": null,
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3117507,
+                3117691,
+                3121629,
+                3279127
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                1009
+            ],
+            [
+                3,
+                1006
+            ],
+            [
+                4,
+                641
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "Obligatory Robot Code Post",
+                "id": 476149,
+                "title": "Obligatory Robot Code Post",
+                "slug": "obligatory-robot-code-post",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": null,
+                "created_at": "2024-12-06T01:09:17.117Z",
+                "last_posted_at": "2025-01-08T22:54:02.768Z",
+                "bumped": true,
+                "bumped_at": "2025-01-08T22:54:02.768Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hello! Here is Frobotics team 4150 code from the 2024 season! GitHub - FRobotics/2024 The 2024 robot code for 4150",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 692,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3455544,
+                "topic_post_liked": false,
+                "topic_post_like_count": 4,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 61645,
+                    "username": "Mya",
+                    "name": "Mya Mitchell",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/m/ee59a6/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 61645,
+                            "username": "Mya",
+                            "name": "Mya Mitchell",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/m/ee59a6/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 25904,
+                            "username": "Elkbits",
+                            "name": "Elkbits",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/elkbits/{size}/8480_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24395,
+                            "username": "aeastet",
+                            "name": "aeastet",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aeastet/{size}/113453_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 26698,
+                            "username": "JSIMPSO",
+                            "name": "Jim simpson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e9a140/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Help with lab view",
+                "id": 481904,
+                "title": "Help with lab view",
+                "slug": "help-with-lab-view",
+                "posts_count": 3,
+                "reply_count": 0,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-15T16:47:22.794Z",
+                "last_posted_at": "2025-01-15T18:49:45.320Z",
+                "bumped": true,
+                "bumped_at": "2025-01-15T18:49:45.320Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I’m from a new team in Brazil, #10466 Federal Force. And I’m not able to separate the engine from the intake mechanism from the wheel motors in the lab view. I’m only using one motor for the intake, b…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "labview"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 132,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3483484,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 69542,
+                    "username": "Samuxs",
+                    "name": "Samuel ",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/s/65b543/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 69542,
+                            "username": "Samuxs",
+                            "name": "Samuel ",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/65b543/{size}.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 62967,
+                            "username": "jennyfrc",
+                            "name": null,
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/cc9497/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 29757,
+                            "username": "sthump",
+                            "name": "Elmer Lee (head mentor)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sthump/{size}/211548_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Setup a NT table client on a vision server in windows",
+                "id": 482271,
+                "title": "Setup a NT table client on a vision server in windows",
+                "slug": "setup-a-nt-table-client-on-a-vision-server-in-windows",
+                "posts_count": 12,
+                "reply_count": 8,
+                "highest_post_number": 12,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/original/3X/3/5/35f093d9489e0a7df1b62ddfff878d6f06ead3a0.png",
+                "created_at": "2025-01-17T13:53:39.714Z",
+                "last_posted_at": "2025-02-12T18:18:19.110Z",
+                "bumped": true,
+                "bumped_at": "2025-02-12T18:18:19.110Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Here is an updated project. The functionality is the same. I cleaned up the VIs and added documentation to them (Ctrl-H). I also added the enable logging VI so the NT WPI logging function can be…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 190,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3525106,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 12,
+                "topic_post_user": {
+                    "id": 26698,
+                    "username": "JSIMPSO",
+                    "name": "Jim simpson",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/j/e9a140/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 24395,
+                            "username": "aeastet",
+                            "name": "aeastet",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/aeastet/{size}/113453_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 26698,
+                            "username": "JSIMPSO",
+                            "name": "Jim simpson",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/j/e9a140/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 71990,
+                            "username": "LiarMcLiarPants",
+                            "name": "Bill",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/liarmcliarpants/{size}/247645_2.png",
+                            "trust_level": 1
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 24617,
+                            "username": "gerthworm",
+                            "name": "Chris Gerth",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/gerthworm/{size}/268658_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "NI LabVIEW Licenses for 2025 season",
+                "id": 477310,
+                "title": "NI LabVIEW Licenses for 2025 season",
+                "slug": "ni-labview-licenses-for-2025-season",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2024-12-25T01:01:30.687Z",
+                "last_posted_at": "2024-12-25T01:31:20.619Z",
+                "bumped": true,
+                "bumped_at": "2024-12-25T01:31:20.619Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I don’t see a NI LabVIEW license in Passwords/Voucher Codes in our FIRSTinspire dashboard for the 2025 season. Looks like we can get the software but we can’t use it? When do the licenses come out? …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 265,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3463255,
+                "topic_post_liked": false,
+                "topic_post_like_count": 1,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 29757,
+                    "username": "sthump",
+                    "name": "Elmer Lee (head mentor)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sthump/{size}/211548_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 29757,
+                            "username": "sthump",
+                            "name": "Elmer Lee (head mentor)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sthump/{size}/211548_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19389,
+                            "username": "orangemoore",
+                            "name": "Roger Moore",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/o/a8b319/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Does REV still support LabVIEW?",
+                "id": 482999,
+                "title": "Does REV still support LabVIEW?",
+                "slug": "does-rev-still-support-labview",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-01-22T04:15:02.821Z",
+                "last_posted_at": "2025-01-22T04:25:45.526Z",
+                "bumped": true,
+                "bumped_at": "2025-01-22T04:25:45.526Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "I don’t see a new release of REVLib for 2025? Am I missing it somewhere?",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 176,
+                "category_id": 73,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3489538,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 29757,
+                    "username": "sthump",
+                    "name": "Elmer Lee (head mentor)",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/sthump/{size}/211548_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 29757,
+                            "username": "sthump",
+                            "name": "Elmer Lee (head mentor)",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sthump/{size}/211548_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 65,
+                            "username": "Joe_Ross",
+                            "name": "Joe Ross",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/joe_ross/{size}/37_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Secret City Wildbots 4265 2022 Code Release",
+        "id": 420935,
+        "title": "Secret City Wildbots 4265 2022 Code Release",
+        "posts_count": 4,
+        "created_at": "2023-01-07T02:15:16.143Z",
+        "views": 562,
+        "reply_count": 0,
+        "like_count": 3,
+        "last_posted_at": "2024-01-10T02:47:18.636Z",
+        "visible": true,
+        "closed": true,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "secret-city-wildbots-4265-2022-code-release",
+        "category_id": 73,
+        "word_count": 2190,
+        "deleted_at": null,
+        "user_id": 55316,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_420935",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 4,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": null,
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 10597,
+                    "username": "lscime",
+                    "name": "Luke Scime",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/lscime/{size}/135366_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 16805,
+                    "username": "Kevin_Leonard",
+                    "name": "",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/kevin_leonard/{size}/237299_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 55316,
+                    "username": "SilasRowden",
+                    "name": "Silas Rowden",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/silasrowden/{size}/231049_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                }
+            ],
+            "created_by": {
+                "id": 55316,
+                "username": "SilasRowden",
+                "name": "Silas Rowden",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/silasrowden/{size}/231049_2.png"
+            },
+            "last_poster": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/uploads/default/original/4X/9/3/2/93234578e69f55873c63fc00fe2d0d85f23bce55.png"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/secret-city-wildbots",
+                    "title": "Secret City Wildbots (FRC 4265) · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 34,
+                    "user_id": 55316,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                },
+                {
+                    "url": "https://github.com/secret-city-wildbots/Autonomous-Path-Planner/releases",
+                    "title": "Releases · secret-city-wildbots/Autonomous-Path-Planner · GitHub",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 12,
+                    "user_id": 10597,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}

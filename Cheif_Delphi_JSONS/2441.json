@@ -1,0 +1,918 @@
+{
+    "data": {
+        "post_stream": {
+            "posts": [
+                {
+                    "id": 3606870,
+                    "name": "",
+                    "username": "dejabitz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/edb3f5/{size}.png",
+                    "created_at": "2025-04-29T03:33:45.862Z",
+                    "cooked": "Hi Chief Delphi!\n\nOur team is interested in seeing how we can more quickly debug issues on our CAN bus - esp issues like loose (intermittent) connections or breaks in the wiring.  We’re exploring how to debug this more quickly on the electrical side (as well as improve wiring connection techniques to reduce the chances of these issues), and we’d like to see if we can complement that with software-based diagnostics.\n\nThis seems straightforward to do for an entire CAN bus - the roboRIO bus or a CANivore based bus - but not necessarily for individual devices on the bus.  We can comb through logs for rx/tx issues, but is it possible to monitor each CAN bus to determine individual device connectivity (in a way that’s efficient enough to run on the robot during operation), eg rx/tx success/failure or some other connection health metric?\n\nAnd/or at least for CTRE devices (as a start), would it be better to check on / track something like the StatusSignal from time to time to see if each device is reachable on the appropriate CAN bus?\n\nThank you!",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-29T05:09:09.332Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 11,
+                    "reads": 140,
+                    "readers_count": 139,
+                    "score": 98.0,
+                    "yours": false,
+                    "topic_id": 500831,
+                    "topic_slug": "programmatically-monitoring-connection-status-by-can-device",
+                    "display_username": "",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 2,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 56653,
+                    "hidden": false,
+                    "trust_level": 1,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": ""
+                    },
+                    "post_url": "/t/programmatically-monitoring-connection-status-by-can-device/500831/1",
+                    "custom_user_title": null,
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null,
+                    "can_vote": false
+                },
+                {
+                    "id": 3606963,
+                    "name": "Nathan Zhou",
+                    "username": "NathanZhou",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                    "created_at": "2025-04-29T05:29:00.140Z",
+                    "cooked": "I don’t think this is what you want but…\n\non my test robot, I have a CANable adapter attached to rio CAN bus which attached to a Linux computer. I have a script monitoring roboRIO heartbeat packet. As all device follow FRC CAN specification , I couldn monitor whether each device devices is online or not based on their ID and how many packet I haven’t received. I could also send / monitor roboRIO heartbeat packet to CAN bus (you can’t do the sending part on a real competition robot as this is rule violation)\n\nimage 926×876 107 KB\n\nimage 926×876 107 KB\n\nimage 926×876 107 KB\n\nNow, more realistic… you want to monitor each device on roboRIO… You could utilize these API to monitor each device.\n\nhttps://api.ctr-electronics.com/phoenix6/release/python/autoapi/phoenix6/hardware/index.html?phoenix6.hardware.ParentDevice.is_connected=#phoenix6.hardware.ParentDevice.is_connected\n\n*class* phoenix6.hardware.ParentDevice.is_connected",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-29T05:31:30.895Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 2,
+                    "reads": 113,
+                    "readers_count": 112,
+                    "score": 47.6,
+                    "yours": false,
+                    "topic_id": 500831,
+                    "topic_slug": "programmatically-monitoring-connection-status-by-can-device",
+                    "display_username": "Nathan Zhou",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "link_counts": [
+                        {
+                            "url": "https://canable.io/",
+                            "internal": false,
+                            "reflection": false,
+                            "clicks": 9
+                        },
+                        {
+                            "url": "https://api.ctr-electronics.com/phoenix6/release/python/autoapi/phoenix6/hardware/index.html?phoenix6.hardware.ParentDevice.is_connected=#phoenix6.hardware.ParentDevice.is_connected",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "phoenix6.hardware",
+                            "clicks": 7
+                        },
+                        {
+                            "url": "https://docs.wpilib.org/en/stable/docs/software/can-devices/can-addressing.html",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "FRC CAN Device Specifications — FIRST Robotics Competition documentation",
+                            "clicks": 2
+                        },
+                        {
+                            "url": "https://github.com/sikaxn/frc-canbus-heartbeat/tree/main",
+                            "internal": false,
+                            "reflection": false,
+                            "title": "GitHub - sikaxn/frc-canbus-heartbeat: simulating roboRIO heartbeat, read roboRIO heartbeat from CAN bus.",
+                            "clicks": 1
+                        }
+                    ],
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [
+                        {
+                            "id": 2,
+                            "count": 1
+                        }
+                    ],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 66330,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "Fennekin🦊 is so cute!"
+                    },
+                    "post_url": "/t/programmatically-monitoring-connection-status-by-can-device/500831/2",
+                    "custom_user_title": "Fennekin🦊 is so cute!",
+                    "reactions": [
+                        {
+                            "id": "heart",
+                            "type": "emoji",
+                            "count": 1
+                        }
+                    ],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 1,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                },
+                {
+                    "id": 3606987,
+                    "name": "Tom",
+                    "username": "Tom_Neu",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                    "created_at": "2025-04-29T09:36:04.429Z",
+                    "cooked": "Before wiring the can bus for the robot our electrical team makes a map of where each device is located and how is it connected in our can bus. Later they use the map to wire the robot. When we look at a program like phoenix tuner we are able to see which device is missing, and check the map to how it is wired, because we know how it is wired, we know what we should check. We have done it this way for 3 years now and it didn’t disappoint us",
+                    "post_number": 3,
+                    "post_type": 1,
+                    "posts_count": 3,
+                    "updated_at": "2025-04-29T09:36:04.429Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "quote_count": 0,
+                    "incoming_link_count": 0,
+                    "reads": 78,
+                    "readers_count": 77,
+                    "score": 15.6,
+                    "yours": false,
+                    "topic_id": 500831,
+                    "topic_slug": "programmatically-monitoring-connection-status-by-can-device",
+                    "display_username": "Tom",
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_bg_color": null,
+                    "flair_color": null,
+                    "flair_group_id": null,
+                    "badges_granted": [],
+                    "version": 1,
+                    "can_edit": false,
+                    "can_delete": false,
+                    "can_recover": false,
+                    "can_see_hidden_post": true,
+                    "can_wiki": false,
+                    "read": true,
+                    "user_title": null,
+                    "bookmarked": false,
+                    "actions_summary": [],
+                    "moderator": false,
+                    "admin": false,
+                    "staff": false,
+                    "user_id": 59306,
+                    "hidden": false,
+                    "trust_level": 2,
+                    "deleted_at": null,
+                    "user_deleted": false,
+                    "edit_reason": null,
+                    "can_view_edit_history": true,
+                    "wiki": false,
+                    "user_custom_fields": {
+                        "user_field_4": "5554 - Alumi"
+                    },
+                    "post_url": "/t/programmatically-monitoring-connection-status-by-can-device/500831/3",
+                    "custom_user_title": "5554 - Alumi",
+                    "reactions": [],
+                    "current_user_reaction": null,
+                    "reaction_users_count": 0,
+                    "current_user_used_main_reaction": false,
+                    "can_accept_answer": false,
+                    "can_unaccept_answer": false,
+                    "accepted_answer": false,
+                    "topic_accepted_answer": null
+                }
+            ],
+            "stream": [
+                3606870,
+                3606963,
+                3606987
+            ]
+        },
+        "timeline_lookup": [
+            [
+                1,
+                166
+            ]
+        ],
+        "suggested_topics": [
+            {
+                "fancy_title": "CANivore and 2027 control system?",
+                "id": 503391,
+                "title": "CANivore and 2027 control system?",
+                "slug": "canivore-and-2027-control-system",
+                "posts_count": 18,
+                "reply_count": 12,
+                "highest_post_number": 18,
+                "image_url": null,
+                "created_at": "2025-06-19T20:02:46.467Z",
+                "last_posted_at": "2025-06-20T12:50:51.512Z",
+                "bumped": true,
+                "bumped_at": "2025-06-20T12:50:51.512Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Our team does not have a CANivore, but some people are lobbying to get one, as part of a push for more Krakens, etc. However, if I understand correctly, the new SystemCore will have 5 CAN-FD ports, a…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "can",
+                    "ctr"
+                ],
+                "tags_descriptions": {},
+                "like_count": 45,
+                "views": 867,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3658283,
+                "topic_post_liked": false,
+                "topic_post_like_count": 5,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": true,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 25118,
+                    "username": "prensing",
+                    "name": "Paul Rensing",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 25118,
+                            "username": "prensing",
+                            "name": "Paul Rensing",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/prensing/{size}/65820_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 28014,
+                            "username": "bobbysq",
+                            "name": "bobbysq",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/bobbysq/{size}/195893_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 66330,
+                            "username": "NathanZhou",
+                            "name": "Nathan Zhou",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 39084,
+                            "username": "TFM110",
+                            "name": "Tauseef Afraz",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/tfm110/{size}/197758_2.png",
+                            "primary_group_name": "Swyft-Robotics",
+                            "flair_name": "FUN",
+                            "flair_url": "/uploads/default/original/3X/3/5/3523e759b0af37a7757142a8b2aa79b31f1a47c4.png",
+                            "flair_group_id": 60,
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 23941,
+                            "username": "jnicho15",
+                            "name": "Dan Nichols",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/jnicho15/{size}/7893_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "One singular swerve module out of wack with c++ CTR Swerve Generator",
+                "id": 493666,
+                "title": "One singular swerve module out of wack with c++ CTR Swerve Generator",
+                "slug": "one-singular-swerve-module-out-of-wack-with-c-ctr-swerve-generator",
+                "posts_count": 3,
+                "reply_count": 1,
+                "highest_post_number": 3,
+                "image_url": null,
+                "created_at": "2025-02-28T21:19:39.013Z",
+                "last_posted_at": "2025-03-01T00:55:20.905Z",
+                "bumped": true,
+                "bumped_at": "2025-03-01T00:55:20.905Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey guys, I have been working to test swerve code on our robot before competition and am currently running into an issue where one of our swerve modules does not go to the same position as all of the…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [],
+                "tags_descriptions": {},
+                "like_count": 1,
+                "views": 81,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": false,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3543792,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 67729,
+                    "username": "T-Mac",
+                    "name": "Trent",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/t-mac/{size}/264702_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest",
+                        "description": "Original Poster, Most Recent Poster",
+                        "user": {
+                            "id": 67729,
+                            "username": "T-Mac",
+                            "name": "Trent",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/t-mac/{size}/264702_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 33946,
+                            "username": "Amicus1",
+                            "name": "Amicus1",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/a/a9adbd/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Pigeon 2.0 thinks robot is disabled when it is enabled",
+                "id": 492671,
+                "title": "Pigeon 2.0 thinks robot is disabled when it is enabled",
+                "slug": "pigeon-2-0-thinks-robot-is-disabled-when-it-is-enabled",
+                "posts_count": 2,
+                "reply_count": 0,
+                "highest_post_number": 2,
+                "image_url": null,
+                "created_at": "2025-02-22T03:09:41.765Z",
+                "last_posted_at": "2025-02-22T17:20:19.791Z",
+                "bumped": true,
+                "bumped_at": "2025-02-22T17:20:19.791Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "We have it working now. The root cause was that both the canivore and the pigeon were being powered at 5V. That is below the documented input voltage range for both devices (5.2 - 28 for canivore and …",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 0,
+                "views": 127,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3536460,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 2,
+                "topic_post_user": {
+                    "id": 20488,
+                    "username": "Waz",
+                    "name": "Waz",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/w/7cd45c/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": "latest single",
+                        "description": "Original Poster, Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 20488,
+                            "username": "Waz",
+                            "name": "Waz",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/w/7cd45c/{size}.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Talonfx controller",
+                "id": 475109,
+                "title": "Talonfx controller",
+                "slug": "talonfx-controller",
+                "posts_count": 11,
+                "reply_count": 8,
+                "highest_post_number": 11,
+                "image_url": null,
+                "created_at": "2024-11-18T18:38:32.524Z",
+                "last_posted_at": "2024-11-18T19:00:12.320Z",
+                "bumped": true,
+                "bumped_at": "2024-11-18T19:00:12.320Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "If you are using a kraken or a falcon 500, they have built in motor controllers. if you are using something like neos then you need a sparkmax or the neo vortex motor controller.",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swervedrive",
+                    "ctre"
+                ],
+                "tags_descriptions": {},
+                "like_count": 5,
+                "views": 222,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3448900,
+                "topic_post_liked": false,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 4,
+                "topic_post_user": {
+                    "id": 65624,
+                    "username": "10219Ryba",
+                    "name": "Carter Ryba",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 57952,
+                            "username": "thegravitor",
+                            "name": "",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/thegravitor/{size}/237066_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster, Accepted Answer",
+                        "user": {
+                            "id": 65624,
+                            "username": "10219Ryba",
+                            "name": "Carter Ryba",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/10219ryba/{size}/248339_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 19235,
+                            "username": "Skyehawk",
+                            "name": "Skye Leake",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/skyehawk/{size}/179363_2.png",
+                            "moderator": true,
+                            "trust_level": 4
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster",
+                        "user": {
+                            "id": 39555,
+                            "username": "David_IsMe",
+                            "name": "David B",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/david_isme/{size}/196853_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "fancy_title": "Trying to design only one PCB for Swerve CANBus",
+                "id": 505408,
+                "title": "Trying to design only one PCB for Swerve CANBus",
+                "slug": "trying-to-design-only-one-pcb-for-swerve-canbus",
+                "posts_count": 26,
+                "reply_count": 17,
+                "highest_post_number": 26,
+                "image_url": "https://www.chiefdelphi.com/uploads/default/optimized/4X/8/4/7/847d3c29e55b94a1701c21c069d7462f024b0d1e_2_1024x723.png",
+                "created_at": "2025-08-18T05:59:51.870Z",
+                "last_posted_at": "2025-08-27T18:41:19.732Z",
+                "bumped": true,
+                "bumped_at": "2025-08-27T18:41:19.732Z",
+                "archetype": "regular",
+                "unseen": false,
+                "pinned": false,
+                "unpinned": null,
+                "excerpt": "Hey everyone! I tried making a PCB for the CANBus. But I only want to use one PCB that gets rotated (so I don’t need four different ones). Here is my current schematic (I’m using 8 so I can also giv…",
+                "visible": true,
+                "closed": false,
+                "archived": false,
+                "bookmarked": null,
+                "liked": null,
+                "tags": [
+                    "swerve",
+                    "electrical",
+                    "can",
+                    "pcb",
+                    "canpcbs"
+                ],
+                "tags_descriptions": {},
+                "like_count": 73,
+                "views": 1283,
+                "category_id": 76,
+                "featured_link": null,
+                "has_accepted_answer": true,
+                "sidecar_installed": true,
+                "include_dominant_colour": false,
+                "topic_post_id": 3717651,
+                "topic_post_liked": false,
+                "topic_post_like_count": 6,
+                "topic_post_can_like": false,
+                "topic_post_can_unlike": false,
+                "topic_post_bookmarked": false,
+                "topic_post_is_current_users": null,
+                "topic_post_number": 1,
+                "topic_post_user": {
+                    "id": 64351,
+                    "username": "GronkBaby",
+                    "name": "Emil",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png"
+                },
+                "posters": [
+                    {
+                        "extras": null,
+                        "description": "Original Poster",
+                        "user": {
+                            "id": 64351,
+                            "username": "GronkBaby",
+                            "name": "Emil",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/g/ba8739/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": "latest",
+                        "description": "Most Recent Poster, Accepted Answer",
+                        "user": {
+                            "id": 66298,
+                            "username": "sokoloff",
+                            "name": "Jim Sokoloff",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/sokoloff/{size}/231724_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 76247,
+                            "username": "stormsj28",
+                            "name": "wyatt",
+                            "avatar_template": "/letter_avatar_proxy/v4/letter/s/a3d4f5/{size}.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 22221,
+                            "username": "nuclearnerd",
+                            "name": "Brendan Simons, 5406",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/nuclearnerd/{size}/7324_2.png",
+                            "trust_level": 2
+                        }
+                    },
+                    {
+                        "extras": null,
+                        "description": "Frequent Poster",
+                        "user": {
+                            "id": 6761,
+                            "username": "TheOtherGuy",
+                            "name": "Kevin Forbes",
+                            "avatar_template": "/user_avatar/www.chiefdelphi.com/theotherguy/{size}/160832_2.png",
+                            "trust_level": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "tags": [],
+        "tags_descriptions": {},
+        "fancy_title": "Programmatically monitoring connection status by CAN device",
+        "id": 500831,
+        "title": "Programmatically monitoring connection status by CAN device",
+        "posts_count": 3,
+        "created_at": "2025-04-29T03:33:45.801Z",
+        "views": 202,
+        "reply_count": 0,
+        "like_count": 2,
+        "last_posted_at": "2025-04-29T09:36:04.429Z",
+        "visible": true,
+        "closed": false,
+        "archived": false,
+        "has_summary": false,
+        "archetype": "regular",
+        "slug": "programmatically-monitoring-connection-status-by-can-device",
+        "category_id": 76,
+        "word_count": 454,
+        "deleted_at": null,
+        "user_id": 56653,
+        "featured_link": null,
+        "pinned_globally": false,
+        "pinned_at": null,
+        "pinned_until": null,
+        "image_url": null,
+        "slow_mode_seconds": 0,
+        "draft": null,
+        "draft_key": "topic_500831",
+        "draft_sequence": null,
+        "unpinned": null,
+        "pinned": false,
+        "current_post_number": 1,
+        "highest_post_number": 3,
+        "deleted_by": null,
+        "actions_summary": [
+            {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 10,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            },
+            {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+            }
+        ],
+        "chunk_size": 20,
+        "bookmarked": false,
+        "topic_timer": {
+            "id": 47115,
+            "execute_at": "2026-04-29T09:36:04.429Z",
+            "duration_minutes": 525600,
+            "based_on_last_post": true,
+            "status_type": "close",
+            "category_id": null
+        },
+        "message_bus_last_id": 0,
+        "participant_count": 3,
+        "show_read_indicator": false,
+        "thumbnails": null,
+        "slow_mode_enabled_until": null,
+        "valid_reactions": [
+            "heart",
+            "laughing",
+            "point_up",
+            "+1",
+            "-1",
+            "100",
+            "open_mouth",
+            "cry",
+            "question",
+            "thinking",
+            "call_me_hand",
+            "hugs",
+            "angry"
+        ],
+        "user_chosen_thumbnail_url": null,
+        "sidecar_installed": true,
+        "can_vote": false,
+        "vote_count": 0,
+        "user_voted": false,
+        "discourse_zendesk_plugin_zendesk_id": null,
+        "discourse_zendesk_plugin_zendesk_url": "https://your-url.zendesk.com/agent/tickets/",
+        "details": {
+            "can_edit": false,
+            "notification_level": 1,
+            "participants": [
+                {
+                    "id": 56653,
+                    "username": "dejabitz",
+                    "name": "",
+                    "avatar_template": "/letter_avatar_proxy/v4/letter/d/edb3f5/{size}.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 1
+                },
+                {
+                    "id": 59306,
+                    "username": "Tom_Neu",
+                    "name": "Tom",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                },
+                {
+                    "id": 66330,
+                    "username": "NathanZhou",
+                    "name": "Nathan Zhou",
+                    "avatar_template": "/user_avatar/www.chiefdelphi.com/nathanzhou/{size}/225374_2.png",
+                    "post_count": 1,
+                    "primary_group_name": null,
+                    "flair_name": null,
+                    "flair_url": null,
+                    "flair_color": null,
+                    "flair_bg_color": null,
+                    "flair_group_id": null,
+                    "trust_level": 2
+                }
+            ],
+            "created_by": {
+                "id": 56653,
+                "username": "dejabitz",
+                "name": "",
+                "avatar_template": "/letter_avatar_proxy/v4/letter/d/edb3f5/{size}.png"
+            },
+            "last_poster": {
+                "id": 59306,
+                "username": "Tom_Neu",
+                "name": "Tom",
+                "avatar_template": "/user_avatar/www.chiefdelphi.com/tom_neu/{size}/222407_2.png"
+            },
+            "links": [
+                {
+                    "url": "https://canable.io/",
+                    "title": null,
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 9,
+                    "user_id": 66330,
+                    "domain": "canable.io",
+                    "root_domain": "canable.io"
+                },
+                {
+                    "url": "https://api.ctr-electronics.com/phoenix6/release/python/autoapi/phoenix6/hardware/index.html?phoenix6.hardware.ParentDevice.is_connected=#phoenix6.hardware.ParentDevice.is_connected",
+                    "title": "phoenix6.hardware",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 7,
+                    "user_id": 66330,
+                    "domain": "api.ctr-electronics.com",
+                    "root_domain": "ctr-electronics.com"
+                },
+                {
+                    "url": "https://docs.wpilib.org/en/stable/docs/software/can-devices/can-addressing.html",
+                    "title": "FRC CAN Device Specifications — FIRST Robotics Competition documentation",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 2,
+                    "user_id": 66330,
+                    "domain": "docs.wpilib.org",
+                    "root_domain": "wpilib.org"
+                },
+                {
+                    "url": "https://github.com/sikaxn/frc-canbus-heartbeat/tree/main",
+                    "title": "GitHub - sikaxn/frc-canbus-heartbeat: simulating roboRIO heartbeat, read roboRIO heartbeat from CAN bus.",
+                    "internal": false,
+                    "attachment": false,
+                    "reflection": false,
+                    "clicks": 1,
+                    "user_id": 66330,
+                    "domain": "github.com",
+                    "root_domain": "github.com"
+                }
+            ]
+        },
+        "bookmarks": []
+    }
+}
