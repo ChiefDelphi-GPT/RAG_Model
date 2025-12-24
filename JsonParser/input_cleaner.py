@@ -98,24 +98,19 @@ def queryDeepSeek(input_text):
 
     return response.strip(), end_time - start_time
 
-# ------------------ New helper functions ------------------
-
 def clean_html(raw_html: str) -> str:
     """Algorithmically remove HTML tags, scripts, and styles, keeping text only, preserving paragraphs."""
     soup = BeautifulSoup(raw_html, "html.parser")
 
-    # Remove script/style tags
     for bad in soup(["script", "style"]):
         bad.decompose()
 
-    # Extract text with paragraph breaks
     text_parts = []
     for elem in soup.find_all(["p", "div", "li", "br"]):
         stripped = elem.get_text(" ", strip=True)
         if stripped:
             text_parts.append(stripped)
 
-    # If no <p>/<div> blocks found, fallback to whole-body text
     if not text_parts:
         whole = soup.get_text(" ", strip=True)
         return re.sub(r"\s+", " ", whole).strip()
@@ -124,9 +119,7 @@ def clean_html(raw_html: str) -> str:
 
 def split_into_sentences(text: str):
     """Naive sentence splitter - keeps sentences in order. Good enough for this task."""
-    # Normalize whitespace
     text = re.sub(r"\s+", " ", text).strip()
-    # Split on sentence end punctuation followed by space
     parts = re.split(r'(?<=[\.\?\!])\s+', text)
     parts = [p.strip() for p in parts if p.strip()]
     return parts

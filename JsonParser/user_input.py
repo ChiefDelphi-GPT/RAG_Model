@@ -26,7 +26,7 @@ def extract_info(vector_dict, top_k=50):
         api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.RfaG8hSt4RgVl9ehod1ejyLh_CVZF1Xu-C7OkqsRVRg",
     )
     search_result = client.query_points(
-        collection_name="chief-delphi-gpt",
+        collection_name="Cheif-Delphi-GPT",
         query=vector_dict["vector"],
         limit=top_k,
         with_payload=True,
@@ -133,10 +133,7 @@ def feed_through_model(top_items, user_question):
     return response
 
 if __name__ == "__main__":
-    # THIS IS THE LINE THAT AUTO INSTALLS THE REQUIREMENTS
-    #--------------------------------
     install_requirements()
-    #--------------------------------
     user_question = input("Enter your question: ")
     user_topic = input("Enter the topic slug: ")
 
