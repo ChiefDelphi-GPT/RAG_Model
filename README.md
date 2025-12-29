@@ -23,7 +23,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 ### 4. Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install -r JsonParser/requirements.txt
 ```
 
 ### 5. Navigate to JSON Parser
