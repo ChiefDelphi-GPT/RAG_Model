@@ -383,5 +383,3 @@ if __name__ == "__main__":
     parser.add_argument('files', type=str, nargs='+', help='Input Clened JSON')
     args = parser.parse_args()
     main(args)
-
-    

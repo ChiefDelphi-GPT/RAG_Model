@@ -142,4 +142,3 @@ if __name__ == "__main__":
     top_items = get_best_results(search_results)
     final_response = feed_through_model(top_items, user_question)
     print(f"\nModel Response:\n{final_response}\n")
-
