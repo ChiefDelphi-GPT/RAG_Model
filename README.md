@@ -13,7 +13,7 @@ cd CheifDelphi-GPT
 
 ### 2. Navigate to JSON Parser
 ```bash
-cd RAG_Model/json_Parser
+cd RAG_Model/JsonParser
 ```
 
 ### 3. Run the Query Script
