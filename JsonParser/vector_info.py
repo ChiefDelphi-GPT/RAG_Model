@@ -345,14 +345,14 @@ def add_to_vector_databse(data_dict):
     )
     id = str(uuid.uuid4())
     existing_collections = [c.name for c in client.get_collections().collections]
-    if "Cheif-Delphi-GPT" not in existing_collections:
+    if "cheif_delphi_gpt" not in existing_collections:
         client.create_collection(
-            collection_name="Cheif-Delphi-GPT",
+            collection_name="cheif_delphi_gpt",
             vectors_config=VectorParams(size=1024, distance=Distance.COSINE)
         )
     new_point = PointStruct(id=id, vector=data_dict["vector"], payload=data_dict["metadata"])
     operation_info = client.upsert(
-        collection_name="Cheif-Delphi-GPT",
+        collection_name="cheif_delphi_gpt",
         wait=True,
         points=[new_point],
     )
